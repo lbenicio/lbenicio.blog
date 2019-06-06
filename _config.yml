@@ -1,0 +1,44 @@
+title: Leonardo Benicio
+author: Leonardo Benicio
+email: leonardo@lbenicio.com
+description: Leonardo Benicio blog.
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://lbenicio.com" # the base hostname & protocol for your site, e.g. http://example.com
+blog: "https://blog.lbenicio.com"
+twitter_username: lbenicio_
+keybase_username: lbenicio_
+reddit_username: lbenicio_
+github_username: lbenicio
+linkedin_username: leonardo-benicio-1a55a1ba
+
+
+# code highliting
+highlighter: rouge
+
+# SEO
+twitter:
+  username: lbenicio_
+  card: summary
+social:
+  name: Leonardo Benicio
+  links:
+    - https://twitter.com/lbenicio_
+    - https://linkedin.com/in/leonardo-benicio-1a55a1ba
+    - https://github.com/lbenicio
+    - https://keybase.io/lbenicio_
+
+logo: /assets/img/logo.png
+image: /assets/img/logo.png
+
+# Build settings
+permalink: pretty
+highlighter: rouge
+timezone: America/Brazil
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+svg:
+  optimize: true
