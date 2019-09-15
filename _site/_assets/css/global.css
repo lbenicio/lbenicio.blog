@@ -16,6 +16,10 @@ body.darkmode {
     color: white;
 }
 
+small.meta time {
+    left: -49% !important;
+}
+
 body.darkmode .svg-icon {
     fill: white;
 }
