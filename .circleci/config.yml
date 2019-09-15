@@ -19,6 +19,18 @@ jobs:
           name: Configure Bundler setp 3
           command: gem install bundler
       - run:
+          name: Fix JS Runtime
+          command: gem install therubyracer
+      - run:
+          name: Fix JS Runtime 2
+          command: gem install execjs
+      - run:
+          name: Fix JS Runtime 3
+          command: gem install jekyll
+      - run:
+          name: Fix JS Runtime 4
+          command: sudo apt-get install nodejs
+      - run:
           name: Bundle Install
           command: bundle check || bundle install
       - save_cache:
