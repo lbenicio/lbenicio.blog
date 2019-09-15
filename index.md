@@ -1,6 +1,7 @@
 ---
 layout: home
 title: Blog
+permalink: /blog/
 weight : 1
 icon: ui-icon-document
 ---
