@@ -11,17 +11,17 @@ body {
     background-color: #fff; 
 }
 
+small.meta time {
+    left: -49% !important;
+}
+
 body.darkmode {
     background-color: rgb(24, 26, 27);;
     color: white;
 }
 
-small.meta time {
-    left: -49% !important;
-}
-
 body.darkmode .svg-icon {
-    fill: white;
+    fill: grey;
 }
 
 a {
@@ -90,7 +90,6 @@ a{
 
 .posts {
     list-style: none;
-    padding-left: 0;
     margin-top: 0;
 }
 
@@ -181,7 +180,6 @@ a{
 .meta, .meta * {
     color: #a0a0a0;
     position: relative;
-    top: -0.4em;
     text-decoration: none;
 }
 
