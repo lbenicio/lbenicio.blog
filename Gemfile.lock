@@ -308,13 +308,14 @@ PLATFORMS
 DEPENDENCIES
   capybara
   chromedriver-helper
-  github-pages (~> 204)
+  github-pages
   html-proofer
   jekyll-feed
   jekyll-seo-tag
   minima
   pry
   puma
+  rack
   rack-jekyll
   rouge
   rspec
