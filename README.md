@@ -1,6 +1,6 @@
 [![Gem Version](https://img.shields.io/gem/v/jekyll.svg?style=flat-square)](https://rubygems.org)
 [![CircleCI](https://img.shields.io/circleci/build/github/lbenicio/lbenicio.blog?style=flat-square)](https://circleci.com/gh/lbenicio/lbenicio.blog)
-[![Security](https://hakiri.io/github/lbenicio/lbenicio.github.io/master.svg)](https://hakiri.io/github/lbenicio/lbenicio.github.io/master)
+[![Security](https://hakiri.io/github/lbenicio/lbenicio.blog/master.svg)](https://hakiri.io/github/lbenicio/lbenicio.blog/master)
 
 # Leonardo Benicio profile page
 This is my personal website made in jekyll. Feel free to clone and use it!
