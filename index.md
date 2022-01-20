@@ -1,18 +1,18 @@
 ---
-layout: default
+layout: articles
 title: Blog
+icon: fa-comment-alt
 permalink: /
-icon: ui-icon-document
 ---
-<ul class="posts">
-    {% for post in site.posts %} 
-    <li class="post post-header">
-        <a href="{{ post.url }}" class="post-link post-title">  
-        {{ post.title }}
-        <small class="meta">
-            <time>{{ post.date | date_to_string }}</time>
-        </small>
+
+<ul class="p-0 post-list d-flex justify-content-center">
+  {% for post in site.posts %}
+    <li>
+        <a class="text-dark post-link" href="{{ post.url }}">
+        <span>{{ post.title }}</span>
+        <br>
+        <small class="fs-10 d-flex justify-content-center">{{ post.date | date: "%-d %B %Y" }}</small>
         </a>
     </li>
-    {% endfor %}
+  {% endfor %}
 </ul>
