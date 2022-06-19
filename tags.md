@@ -13,8 +13,7 @@ permalink: /tags
           {% for post in tag[1] %}
             <li>
               <a class="text-dark post-link" href="{{ post.url }}">
-              <span>{{ post.title }}</span>
-              <br>
+              <span class="d-flex justify-content-center">{{ post.title }}</span>
               <small class="fs-10 d-flex justify-content-center">{{ post.date | date: "%-d %B %Y" }}</small>
               </a>
           </li>
