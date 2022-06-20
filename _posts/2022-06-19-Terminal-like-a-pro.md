@@ -18,15 +18,15 @@ It is my first post, or, in programming language, it means, a hello world post. 
 
 2. [Install Oh-my-zsh](#install-oh-my-zsh)
 
-2. [Install PowerLevel9k theme](#install-PowerLevel9k-theme)
+2. [Install PowerLevel9k theme](#install-powerLevel9k-theme)
 
-3. [Install Nerd Fonts](#install-Nerd-Fonts)
+3. [Install Nerd Fonts](#install-nerd-fonts)
 
 4. [Install plugins](#install-plugins)
 
-5. [Tweak zshrc file](#Tweak-zshrc-file)
+5. [Tweak zshrc file](#tweak-zshrc-file)
 
-6. [Conclusion](#Conclusion)
+6. [Conclusion](#conclusion)
 
 
 ## Install Iterm2
@@ -306,7 +306,7 @@ Here, modify the HTML codes for the as follows:
 | Cyan    | 30fcfe | 5ffdff |
 | White   | c7c7c7 | fffefe |
 
-# Conclusion
+## Conclusion
 
 That its folks! Thank you for following up until here, and if you have any question or just want to chat, send me a message on GitHub of this project or an email. Am I doing it right? Was it a good hello world post for the blogging community?
 
