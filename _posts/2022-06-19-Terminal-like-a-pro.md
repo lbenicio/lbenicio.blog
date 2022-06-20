@@ -10,7 +10,7 @@ categories: tutorial
 
 It is my first post, or, in programming language, it means, a hello world post. So, let's talk about on how to tweak your terminal to make it look like the picture above. Let's dive in. To summarize, we need to tie together a couple of solutions, Nerd Fonts, Oh-My-ZSH, bash history, auto-completions, syntax highlight and interactive-cd plugins, powerlevel9k theme, and iTerm2 (for macOS users).
 
-![Tutorial's final terminal view](../../../../assets/imgs/terminalView.png)
+![Tutorial's final terminal view](/assets/imgs/terminalView.png)
 
 # Sections
 
@@ -33,7 +33,7 @@ It is my first post, or, in programming language, it means, a hello world post. 
 
 **This section is only intended for macOS users, so if you are using any Linux distro, you can skip ahead to the next section safely.**
 
-<img src="../../../../assets/imgs/iterm2Logo.jpeg" alt="iTerm2 logo" width="200"/>
+<img src="/assets/imgs/iterm2Logo.jpeg" alt="iTerm2 logo" width="200"/>
 
 This is the easiest part of the tutorial. Just go ahead on Term2 Downloads Page and grab the latest version.
 
@@ -43,7 +43,7 @@ After that, it is just like any other macOS software, drag it to the application
 
 ## Install Oh-my-zsh
 
-<img src="../../../../assets/imgs/ohMyZshLogo.png" alt="Oh-my-zsh logo" width="200"/>
+<img src="/assets/imgs/ohMyZshLogo.png" alt="Oh-my-zsh logo" width="200"/>
 
 Next step will be to install oh-my-zsh, a plugin for the zsh shell. If you are using another shell language on your terminal, you will have to switch to zsh to use Oh-my-zsh.
 
@@ -61,7 +61,7 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 
 ## Install PowerLevel9k theme
 
-<img src="../../../../assets/imgs/powerlevel9kLogo.png" alt="PowerLevel9k logo" width="200"/>
+<img src="/assets/imgs/powerlevel9kLogo.png" alt="PowerLevel9k logo" width="200"/>
 
 Now we are starting to personalize our terminal view. This is step is about installing the theming engine, which will allow us to display all those pretty info you saw above.
 
@@ -73,7 +73,7 @@ Or, if you prefer, a direct link to the installation instructions to all sorts o
 
 ## Install Nerd Fonts
 
-<img src="../../../../assets/imgs/nerdFontsLogo.svg" alt="Nerd Fonts logo" width="200"/>
+<img src="/assets/imgs/nerdFontsLogo.svg" alt="Nerd Fonts logo" width="200"/>
 
 The next step of our configuration is the Fonts, after all, how could you end up using all those emojis on our terminal? Nerd Font is a fonts pack that we are going to use for that. And, actually, it is required to Powerlevel9k work properly.
 
@@ -178,7 +178,7 @@ fi
 
 The second line of our prompt:
 
-![POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX](../../../../../../../assets/imgs/POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX.png)
+![POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX](/assets/imgs/POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX.png)
 
 ```shell
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
@@ -275,23 +275,23 @@ The first tweak is to set the iTerm2 to restore previous sessions from where you
 
 To do so, go to Preferences → Profile and edit as the screenshot below:
 
-![Sscreenshot showing settings of Working directory set to Restore previous session](../../../../../../../assets/imgs/iterm2RestorePreviousSessssion.png)
+![Sscreenshot showing settings of Working directory set to Restore previous session](/assets/imgs/iterm2RestorePreviousSessssion.png)
 
 Now we move to the 'text' tab, still inside the Profile tab of the preferences window. Here, we need to set our Nerd Font as our default font for the terminal. 
 
-![Sscreenshot showing settings of Font selection set to Hack Nerd Font Mono](../../../../assets/imgs/iterm2HackNerdFont.png)
+![Sscreenshot showing settings of Font selection set to Hack Nerd Font Mono](/assets/imgs/iterm2HackNerdFont.png)
 
 As shown on the screenshot above, on Font section, select 'Hack Nerd Font Mono'. Here I would suggest use the monospaced font for better visualization of code. Seriously, does anyone code without monospaced fonts?
 
 Now this one tweak is kinda of fun with the old good days. Move to the window tab, still on profile tab. Here we need to tweak the default window size for our terminal, and follow the first TTY, let set it to 80 columns wide.
 
-![Sscreenshot showing settings for new windows set to columns 80](../../../../assets/imgs/iterm2ttyColumns.png)
+![Sscreenshot showing settings for new windows set to columns 80](/assets/imgs/iterm2ttyColumns.png)
 
 Last but not least (sorry, I had to do it), we need to tweak our colors. I, personally, find it too matte, let us add some bright.
 
 Move back to the color tab, still on Profile tab of the Settings panel.
 
-![Sscreenshot showing settings for colors](../../../../assets/imgs/iterm2ColorScheme.png)
+![Sscreenshot showing settings for colors](/assets/imgs/iterm2ColorScheme.png)
 
 Here, modify the HTML codes for the as follows:
 
