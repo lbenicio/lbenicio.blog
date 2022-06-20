@@ -1,6 +1,5 @@
 [![Gem Version](https://img.shields.io/gem/v/jekyll.svg?style=flat-square)](https://rubygems.org)
 [![CircleCI](https://img.shields.io/circleci/build/github/lbenicio/lbenicio.blog?style=flat-square)](https://circleci.com/gh/lbenicio/lbenicio.blog)
-[![security](https://hakiri.io/github/lbenicio/lbenicio.blog/master.svg)](https://hakiri.io/github/lbenicio/lbenicio.blog/main)
 ![GitHub issues](https://img.shields.io/github/issues-raw/lbenicio/lbenicio.blog?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/lbenicio/lbenicio.blog?style=flat-square)
 ![license](https://img.shields.io/github/license/lbenicio/lbenicio.blog?style=flat-square)
