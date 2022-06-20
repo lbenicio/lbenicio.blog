@@ -18,7 +18,7 @@ It is my first post, or, in programming language, it means, a hello world post. 
 
 2. [Install Oh-my-zsh](#install-oh-my-zsh)
 
-2. [Install PowerLevel9k theme](#install-powerLevel9k-theme)
+2. [Install PowerLevel9k theme](#install-powerlevel9k-theme)
 
 3. [Install Nerd Fonts](#install-nerd-fonts)
 
