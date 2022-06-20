@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: posts
 title: Terminal like a pro
 icon: fa-comment-alt
 tag: terminal, customization, theming, tutorial
@@ -178,11 +178,12 @@ fi
 
 The second line of our prompt:
 
-![POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX](/assets/imgs/POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX.png)
-
+{% raw %}
 ```shell
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
 ```
+{% endraw %}
 
 Enable connections from default oh-my-zsh configurations:
 
