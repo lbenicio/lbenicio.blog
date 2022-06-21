@@ -17,6 +17,10 @@ jekyll_analytics:
     id: G-TZ4BSC3K2P            # Required - replace with your tracking id
     anonymizeIp: false          # Optional - Default: false - set to true for anonymized tracking
 
+sass:
+  sass_dir: assets
+  style: compressed
+
 # SEO
 twitter:
   username: lbenicio_
