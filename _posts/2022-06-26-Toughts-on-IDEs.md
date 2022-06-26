@@ -32,7 +32,7 @@ Ideally we would want a Free Software, or, at least, open source. But at the mom
 
 Unfortunately, my choose here is not a Free Software, nor an Open Source one, but it is free. Sublime Text.
 
-<img src="../assets/imgs/sublimeTextLogo.svg" alt="iTerm2 logo" width="200"/>
+![Sublime Text logo](/assets/imgs/sublimeTextLogo.svg){:class="img-fluid"}
 
 [https://www.sublimetext.com/](https://www.sublimetext.com/)
 
