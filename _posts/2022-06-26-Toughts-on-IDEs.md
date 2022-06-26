@@ -10,17 +10,17 @@ Ok, we are, my second post, I never thought I would reach this milestone. Jokes 
 
 # Sections
 
-1. [Web applications versus Native applications](#Web-applications-versus-Native-applications)
+1. [Web applications versus Native applications](#web-applications-versus-native-applications)
 
-2. [Why you should go native](#Why-you-should-go-native)
+2. [Why you should go native](#why-you-should-go-native)
 
-3. [Text editor Tweaks](#Text-editor-Tweaks)
+3. [Text editor Tweaks](#text-editor-tweaks)
 
-4. [Theming](#Theming)
+4. [Theming](#theming)
 
-5. [Plugins](#Plugins)
+5. [Plugins](#plugins)
 
-5. [Conclusion](#Conclusion)
+5. [Conclusion](#conclusion)
 
 # Web applications versus Native applications
 
