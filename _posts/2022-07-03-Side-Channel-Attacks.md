@@ -18,7 +18,7 @@ We also discussed another attack method where the hacker uses a spy process runn
 
 # Sections
 
-1. [What is a side channel attack](#What-is-a-side-channel-attack)
+1. [What is a side channel attack](#what-is-a-side-channel-attack)
 
 2. [Scope of attacks](#scope-of-attacks)
 
