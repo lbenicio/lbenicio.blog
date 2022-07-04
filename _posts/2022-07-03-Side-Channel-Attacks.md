@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: Toughts of IDEs
+title: Side Channel Attacks
 icon: fa-comment-alt
 tag: terminal, customization, theming, tutorial
 categories: tutorial
