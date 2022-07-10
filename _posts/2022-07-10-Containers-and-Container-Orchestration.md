@@ -10,7 +10,7 @@ Today we are going to talk about container and container orchestration, and solu
 
 # Sections
 
-1. [Why use containers?](#why-use-containers?)
+1. [Why use containers?](#why-use-containers)
 
 2. [Containers software](#containers-software)
 
