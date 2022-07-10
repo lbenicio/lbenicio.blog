@@ -2,8 +2,8 @@
 layout: posts
 title: Side Channel Attacks
 icon: fa-comment-alt
-tag: terminal, customization, theming, tutorial
-categories: tutorial
+tag: side channel, attacks
+categories: discussion
 ---
 
 This work briefly discusses some methods that I consider critical for the security of today's computing systems. For a better understanding of the discussion proposed here, the excerpt is divided into two sections.

@@ -2,7 +2,7 @@
 layout: posts
 title: Toughts of IDEs
 icon: fa-comment-alt
-tag: terminal, customization, theming, tutorial
+tag: ide, customization, theming, tutorial
 categories: tutorial
 ---
 
