@@ -20,7 +20,7 @@ Ok, we are, my second post, I never thought I would reach this milestone. Jokes 
 
 5. [Plugins](#plugins)
 
-5. [Conclusion](#conclusion)
+6. [Conclusion](#conclusion)
 
 # Web applications versus Native applications
 
