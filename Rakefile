@@ -7,6 +7,7 @@ task :test do
   options = {
     :check_sri => false,
     :check_external_hash => false,
+    :disable_external => true,
     :check_favicon => false,
     :check_html => true,
     :check_img_http => true,
