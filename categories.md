@@ -12,7 +12,7 @@ permalink: /categories
         <ul class="p-0 post-list">
           {% for post in category[1] %}
             <li>
-              <a class="text-dark post-link" href="{{ post.url }}">
+              <a class="text-dark post-link text-center" href="{{ post.url }}">
               <span class="d-flex justify-content-center">{{ post.title }}</span>
               <small class="fs-10 d-flex justify-content-center">{{ post.date | date: "%-d %B %Y" }}</small>
               </a>
