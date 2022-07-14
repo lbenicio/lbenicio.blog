@@ -8,7 +8,7 @@ permalink: /categories
 <ul class="p-0 post-list d-flex flex-column align-items-center">
   {% for category in site.categories %}
     <li class="mb-3">
-        <h4 class="d-flex justify-content-center">{{ category[0] | remove: ',' }}</h4>
+        <h4 class="d-flex justify-content-center text-center">{{ category[0] | remove: ',' }}</h4>
         <ul class="p-0 post-list">
           {% for post in category[1] %}
             <li>
