@@ -30,9 +30,6 @@ jobs:
       - name: Install Jekyll
         run: bundle exec jekyll build
       - name: Check HTML
-        uses: chabad360/htmlproofer@v1
-        with:
-          directory: "./_site"
-          args: --ignore-status-codes 999 --check-external-hash --disable-external true --report-invalid-tags --report-missing-names --report-script-embeds --report-missing-doctype --report-eof-tags --report-mismatched-tags --assume-extension --allow-hash-href --check-favicon --check-html --check-opengraph --enforce-https
+        run: bundle exec rake test
       - name: Results
         run: echo "🍏 This job's status is ${{ job.status }}."
