@@ -8,7 +8,7 @@ permalink: /tags
 <ul class="p-0 post-list d-flex flex-column align-items-center">
   {% for tag in site.tags %}
     <li class="mb-3">
-        <h4 class="d-flex justify-content-center">{{ tag[0] | remove: ',' }}</h4>
+        <h4 class="d-flex justify-content-center text-center">{{ tag[0] | remove: ',' }}</h4>
         <ul class="p-0 post-list">
           {% for post in tag[1] %}
             <li>
