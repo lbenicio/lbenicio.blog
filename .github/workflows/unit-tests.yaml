@@ -33,6 +33,6 @@ jobs:
         uses: chabad360/htmlproofer@master
         with:
           directory: "./_site"
-          arguments: --help
+          arguments: --root-dir "./site" --allow-hash-href
       - name: Results
         run: echo "🍏 This job's status is ${{ job.status }}."
