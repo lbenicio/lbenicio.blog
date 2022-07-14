@@ -16,6 +16,11 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
+      - name: Install Dependencies
+        env:
+          RAILS_ENV: test
+        run: |
+          sudo apt-get update && sudo apt-get -y install minify
       - name: Bundle Install
         env:
           RAILS_ENV: test
@@ -25,7 +30,7 @@ jobs:
       - name: Install Jekyll
         run: bundle exec jekyll build
       - name: Check HTML
-        uses: gjtorikian/html-proofer@main
+        uses: chabad360/htmlproofer@master
         with:
           directory: "./_site"
           arguments: --report-invalid-tags --report-missing-names --report-script-embeds --report-missing-doctype --report-eof-tags --report-mismatched-tags --assume-extension --check-external-hash --allow-hash-href --check-favicon --check-html --check-opengraph --enforce-https --disable-external
