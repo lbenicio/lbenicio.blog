@@ -33,6 +33,6 @@ jobs:
         uses: chabad360/htmlproofer@v1
         with:
           directory: "./_site"
-          args: --ignore-status-codes "999" --only_4xx ----check-external-hash "false" --disable-external "true" --report-invalid-tags --report-missing-names --report-script-embeds --report-missing-doctype --report-eof-tags --report-mismatched-tags --assume-extension --allow-hash-href --check-favicon --check-html --check-opengraph --enforce-https
+          args: --ignore-status-codes 999 ----check-external-hash --disable-external --report-invalid-tags --report-missing-names --report-script-embeds --report-missing-doctype --report-eof-tags --report-mismatched-tags --assume-extension --allow-hash-href --check-favicon --check-html --check-opengraph --enforce-https
       - name: Results
         run: echo "🍏 This job's status is ${{ job.status }}."
