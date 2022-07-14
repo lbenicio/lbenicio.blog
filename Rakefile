@@ -5,7 +5,7 @@ desc "Test the website"
 task :test do
   sh "bundle exec jekyll build"
   options = {
-    :check_sri => true,
+    :check_sri => false,
     :check_external_hash => false,
     :check_favicon => false,
     :check_html => true,
