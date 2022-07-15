@@ -8,7 +8,7 @@ task :test do
     :check_sri => false,
     :check_external_hash => true,
     :disable_external => false,
-    :ignore_status_codes => [999, 403],
+    :ignore_status_codes => ["999", "403"],
     :check_favicon => false,
     :check_html => true,
     :check_img_http => true,
