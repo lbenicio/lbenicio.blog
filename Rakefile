@@ -9,6 +9,7 @@ task :test do
     :check_external_hash => true,
     :disable_external => false,
     :ignore_status_codes => [999, 403],
+    :ignore_urls => ["https:\/\/.*\.linkedin\.com\/.*", "https:\/\/lbenicio\.dev\/.*"],
     :check_favicon => false,
     :check_html => true,
     :check_img_http => true,
