@@ -13,10 +13,15 @@ reddit_username: lbenicio_
 github_username: lbenicio
 linkedin_username: leonardo-benicio-1a55a1ba
 
-jekyll_analytics:
-  GoogleAnalytics:              # Add, if you want to track with Google Analytics
-    id: G-TZ4BSC3K2P            # Required - replace with your tracking id
-    anonymizeIp: false          # Optional - Default: false - set to true for anonymized tracking
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - _config.yml
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
 
 sass:
   sass_dir: assets
