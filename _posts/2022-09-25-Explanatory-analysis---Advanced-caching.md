@@ -10,11 +10,11 @@ Continuing our post series about rails app performance. This week we are going t
 
 # Sections
 
-1. [Tests analysis](#tests-analysis)
+1. [Exploratory analysis](#exploratory`-analysis)
 
 2. [Conclusion](#conclusion)
 
-# Tests analysis
+# Exploratory analysis
 
 ## 2 cores and 8000MB RAM
 
