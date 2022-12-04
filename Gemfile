@@ -2,7 +2,6 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 4.2.0"
 gem "lbenicio-minimal-v1", "1.0.2", git: "https://github.com/lbenicio/lbenicio-minimal-v1", branch: "main"
-#gem "lbenicio-minimal-v1", "1.0.1", path: "/Users/lbenicio/developer/lbenicio/theme.v1"
 gem "rouge"
 gem "rake"
 

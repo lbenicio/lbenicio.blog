@@ -1,3 +1,4 @@
+# Personal Data
 theme: lbenicio-minimal-v1
 title: Leonardo Benicio
 author: Leonardo Benicio
@@ -13,9 +14,11 @@ reddit_username: lbenicio_
 github_username: lbenicio
 linkedin_username: leonardo-benicio-1a55a1ba
 
+# Google Analytics
 analytics:
   google: G-TZ4BSC3K2P
 
+# Pagination and auto pages configuration
 pagination:
   enabled: true
   debug: false
@@ -58,6 +61,7 @@ autopages:
       mode: 'default'   # :coll is slugified.
       case: false
 
+# SASS
 sass:
   sass_dir: assets
   style: compressed
@@ -74,10 +78,15 @@ social:
     - https://github.com/lbenicio
     - https://keybase.io/lbenicio_
 
+# Logo Data
 logo: /_assets/img/logo.png
 image: /_assets/img/logo.png
 
 # Build settings
+permalink: pretty
+highlighter: rouge
+timezone: America/Brazil
+markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -87,19 +96,10 @@ plugins:
   - jekyll-tagging-related_posts
   - jekyll-paginate-v2
   - jekyll-minifier
-
-# Build settings
-permalink: pretty
-highlighter: rouge
-timezone: America/Brazil
-markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
 svg:
   optimize: true
 
+# Exclude from jekyll building process
 exclude:
   - README.md
   - LICENSE
