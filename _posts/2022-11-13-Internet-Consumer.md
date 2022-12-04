@@ -6,6 +6,8 @@ tag: consumer, internet
 categories: discussion
 ---
 
+Yet another different common post, now we are going to talk about Internet Consumer.
+
 # Sections
 
 1. [Internet Consumer](#internet-consumer)
@@ -20,7 +22,7 @@ Talking a little more about IDEC, we can say that the agency does “advocacy”
 
 In 1990, the Consumer Protection Code, also known as the CDC, was created, which ensures the protection of life, health, safety, education, dissemination of appropriate consumption, information adequate and clear, protection against misleading and abusive advertising, prevention and repair of damages, access to judicial and administrative bodies, facilitation of the defense of rights, such as the reversal of the burden of proof and the modification of disproportionate contractual clauses. Still from this point of view, the consumer has rights over the consumption-related data that companies collect about him. And to protect the consumer, we made small but steady steps forward, such as the Fair Credit Reporting Act of 1970, the Consumer Protection Code of 1990, the Positive Registry Act of 2011 and its reform in 2019.
 
-Anyway, we have already achieved a lot, but the road is still long and we need to fight for rights like the credit score carried out by companies, telemarketing, robocalls and things like targeted advertising and facial recognition after all these technologies are being used to understand consumer behavior to influence it in a subtle way, as, for example, we have already seen it happen in other areas, such as the election of current President Trump of the United States and Brexit in England. We even have an example in Brazil, where ViaQuatro, which operates one of the metro lines in São Paulo, used small cameras on its panels to track the facial expressions of people watching the advertisements present there, but it was removed with the ̧c ̃ction of the IDEC. For these examples, and many others, we must fight so that more and more bodies and laws are created to defend our rights because millionaire companies can act in such subtle ways that it is impossible for the average consumer to identify before be too late.
+Anyway, we have already achieved a lot, but the road is still long and we need to fight for rights like the credit score carried out by companies, telemarketing, robocalls and things like targeted advertising and facial recognition after all these technologies are being used to understand consumer behavior to influence it in a subtle way, as, for example, we have already seen it happen in other areas, such as the election of current President Trump of the United States and Brexit in England. We even have an example in Brazil, where ViaQuatro, which operates one of the metro lines in São Paulo, used small cameras on its panels to track the facial expressions of people watching the advertisements present there, but it was removed with the action of the IDEC. For these examples, and many others, we must fight so that more and more bodies and laws are created to defend our rights because millionaire companies can act in such subtle ways that it is impossible for the average consumer to identify before be too late.
 
 # Conclusion
 

@@ -6,6 +6,8 @@ tag: digital, data
 categories: discussion
 ---
 
+Today we are going to have a different post again, it is getting common, isn't it? We are going to talk about Digital Data. And more than never, this topic seen valid.
+
 # Sections
 
 1. [Digital Data](#digital-data)

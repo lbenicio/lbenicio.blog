@@ -3,8 +3,12 @@ layout: posts
 title: Load Test Software
 icon: fa-comment-alt
 tag: testing, load
-categories: discussion, load test
+categories:
+  - discussion
+  - load test
 ---
+
+Hi folks, today we are going discuss load test solutions. Let us do it.
 
 # Sections
 
@@ -18,8 +22,6 @@ categories: discussion, load test
 
 5. [Conclusion](#conclusion)
 
-Hi folks, today we are going discuss load test solutions. Let us do it.
-
 # Technical features
 
 Our main goal in this study is to analyze and increase cluster performance for handling multiple users concurrently, I’m going to focus on loading times and requests handled. We have to remember that we are handling a monolithic software based on Ruby on Rails, containerized and deployed using Kubernetes; it is crucial that we know ahead of time how many users we can handle and the related amount of physical server we need to deploy to handle big cities such as São Paulo. We will discuss a couple of load testing software here and why I’m using Gatling to do the job. We will focus on three main characterizes of the software, developer experience, performance, and maintainability.
@@ -32,13 +34,13 @@ Our first candidate is JMeter, but besides, it is actively developed, and Apache
 
 ![Commits and releases on main repositories](/assets/imgs/commitsAndReleasesOnMainRepositories.png){:class="img-fluid"}
 
-Talking about coding, which one of them offers better possibilities using their environments? Suppose we start again from JMeter. In that case, it is, as mentioned before, a Java application, and a big one, which here is a score down because it would require more resources to run and test our ecosystem without taking advantage of its advanced ca- pabilities. It is not scriptable, which is pretty bad as well. K6s here goes as our best options, as written in Go, a pretty performance-efficient programming language and runtime and scriptable in JavaScript, which is great too because it is such a versatile language. Last but not least, we have Gatling, which is written in Scala and scriptable in scala as well, which is a pretty downside of it since scala does not have a big community, but it relies on the JVM as well, and it is not as big as JMeter, which makes it very efficient. Besides being written in Rust, Drill is not scriptable, taking away too many possibilities of the table. Locust takes another hit here; it is written in Python and scriptable in Python. Besides all the amazing features python has, it is too slow and could throat our tests with bigger simultaneous user simulations.
+Talking about coding, which one of them offers better possibilities using their environments? Suppose we start again from JMeter. In that case, it is, as mentioned before, a Java application, and a big one, which here is a score down because it would require more resources to run and test our ecosystem without taking advantage of its advanced probabilities. It is not scriptable, which is pretty bad as well. K6s here goes as our best options, as written in Go, a pretty performance-efficient programming language and runtime and scriptable in JavaScript, which is great too because it is such a versatile language. Last but not least, we have Gatling, which is written in Scala and scriptable in scala as well, which is a pretty downside of it since scala does not have a big community, but it relies on the JVM as well, and it is not as big as JMeter, which makes it very efficient. Besides being written in Rust, Drill is not scriptable, taking away too many possibilities of the table. Locust takes another hit here; it is written in Python and scriptable in Python. Besides all the amazing features python has, it is too slow and could throat our tests with bigger simultaneous user simulations.
 
-Looking for a different approach, we see that Fernando, Monserrate, and Julio go for the JVM strengths and the golden stan- dard for testing, the JMeter. We can think of Gatling and the evolution of JMeter in terms of modern software with, smaller code base, but it still gets the advantages Java, and the JVM bring to us. Still, we can see from their research table quoted here that Gatling got the best score out of all the analyzed tools.
+Looking for a different approach, we see that Fernando, Monserrate, and Julio go for the JVM strengths and the golden standard for testing, the JMeter. We can think of Gatling and the evolution of JMeter in terms of modern software with, smaller code base, but it still gets the advantages Java, and the JVM bring to us. Still, we can see from their research table quoted here that Gatling got the best score out of all the analyzed tools.
 
 # User Experience
 
-Finally, developer experience, and how good and easy is it to use all that software? All of our candidates got a command-line interface, they all have recording features to use on the browser, dynamically generated HTML report pages, Locust and k6s here display an outstanding feature which is exporting the generated reported as CSV and still got a pretty web user interface for reading and accessing the data. Besides JMeter’s age, it gots a large plugin ecosystem that allows it to handle all sorts of jobs and tweaks. There is not too much to differentiate all of them.
+Finally, developer experience, and how good and easy is it to use all that software? All of our candidates got a command-line interface, they all have recording features to use on the browser, dynamically generated HTML report pages, Locust and k6s here display an outstanding feature which is exporting the generated reported as CSV and still got a pretty web user interface for reading and accessing the data. Besides JMeter’s age, it got a large plugin ecosystem that allows it to handle all sorts of jobs and tweaks. There is not too much to differentiate all of them.
 
 ![table comparing the diversity of software testing tools](/assets/imgs/tableComparingTheDiversirtyOfSoftwareTestingTools.png){:class="img-fluid"}
 
@@ -46,7 +48,7 @@ Finally, developer experience, and how good and easy is it to use all that softw
 
 Just before we start talking about the test results, a disclaimer first. The tests were performed on a 4-core Celeron server running Ubuntu 18.04 with 8GB RAM as the load generator machine. For the target server, it was a 4-core 4Ghz i7 iMac with 16G RAM with hyperthreading.
 
-If we take a look at the plot below where we compare the memory usage and maximum RPS (requests per second), it is easy to see that there is a lot of tools capable of generating more traffic then JMeter, Gatling of Locust, and Drills takes a fatal hit here, showing the slowest performance possible. But, we really don’t need that much request per second. If we could generate like 200 requests/second would be over our needs for this study, our best bet tools are on their scope range. It is important to keep in mind that these numbers were generated tweaking some performances for some utilities, like k6s, Artillery, and Locust. Still, since those tweakings are available to the final user, it is ok to rely on them.
+If we take a look at the plot below where we compare the memory usage and maximum RPS (requests per second), it is easy to see that there is a lot of tools capable of generating more traffic then JMeter, Gatling of Locust, and Drills takes a fatal hit here, showing the slowest performance possible. But, we really don’t need that much request per second. If we could generate like 200 requests/second would be over our needs for this study, our best bet tools are on their scope range. It is important to keep in mind that these numbers were generated tweaking some performances for some utilities, like k6s, Artillery, and Locust. Still, since those tweaking are available to the final user, it is OK to rely on them.
 
 Talking about memory usage. As expected from a Java application, not to mention an old Java application, they eat all the resources we have. JMeter here uses most resources, followed by Gatling, as known as a modern version of JMeter. K6s here seems to be our best 
 bet, but do not get too excited; K6s is written in Python, which has drawbacks related to CPU performance. Since our testing server used for our tests has a nice amount of RAM, we are not so concerned about memory usage and more focused on CPU performance; ranking our possibilities here would be Locust, Gatling k6s JMeter.

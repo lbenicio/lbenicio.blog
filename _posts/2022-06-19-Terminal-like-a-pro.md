@@ -263,7 +263,7 @@ Extra, a alias:
 alias ls='ls -GFh
 ```
 
-Also, I would siggest this amazing blog post: [https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html](https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html)
+Also, I would suggest this amazing blog post: [https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html](https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html)
 
 
 ## Tweak iTerm2 
@@ -274,23 +274,23 @@ The first tweak is to set the iTerm2 to restore previous sessions from where you
 
 To do so, go to Preferences → Profile and edit as the screenshot below:
 
-![Sscreenshot showing settings of Working directory set to Restore previous session](/assets/imgs/iterm2RestorePreviousSessssion.png){:class="img-fluid"}
+![Screenshot showing settings of Working directory set to Restore previous session](/assets/imgs/iterm2RestorePreviousSessssion.png){:class="img-fluid"}
 
 Now we move to the 'text' tab, still inside the Profile tab of the preferences window. Here, we need to set our Nerd Font as our default font for the terminal. 
 
-![Sscreenshot showing settings of Font selection set to Hack Nerd Font Mono](/assets/imgs/iterm2HackNerdFont.png){:class="img-fluid"}
+![Screenshot showing settings of Font selection set to Hack Nerd Font Mono](/assets/imgs/iterm2HackNerdFont.png){:class="img-fluid"}
 
-As shown on the screenshot above, on Font section, select 'Hack Nerd Font Mono'. Here I would suggest use the monospaced font for better visualization of code. Seriously, does anyone code without monospaced fonts?
+As shown on the screenshot above, on Font section, select 'Hack Nerd Font Mono'. Here I would suggest use the mono spaced font for better visualization of code. Seriously, does anyone code without mono spaced fonts?
 
-Now this one tweak is kinda of fun with the old good days. Move to the window tab, still on profile tab. Here we need to tweak the default window size for our terminal, and follow the first TTY, let set it to 80 columns wide.
+Now this one tweak is kind of fun with the old good days. Move to the window tab, still on profile tab. Here we need to tweak the default window size for our terminal, and follow the first TTY, let set it to 80 columns wide.
 
-![Sscreenshot showing settings for new windows set to columns 80](/assets/imgs/iterm2ttyColumns.png){:class="img-fluid"}
+![Screenshot showing settings for new windows set to columns 80](/assets/imgs/iterm2ttyColumns.png){:class="img-fluid"}
 
 Last but not least (sorry, I had to do it), we need to tweak our colors. I, personally, find it too matte, let us add some bright.
 
 Move back to the color tab, still on Profile tab of the Settings panel.
 
-![Sscreenshot showing settings for colors](/assets/imgs/iterm2ColorScheme.png){:class="img-fluid"}
+![Screenshot showing settings for colors](/assets/imgs/iterm2ColorScheme.png){:class="img-fluid"}
 
 Here, modify the HTML codes for the as follows:
 

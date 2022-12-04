@@ -1,0 +1,328 @@
+name: CI/CD Pipeline
+on: 
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "README.md"
+      - "LICENSE"
+      - "docs/"
+      - ".gitignore"
+      - "CNAME"
+      - ".ruby-version"
+      - "benchmark"
+      - ".jekyll-cache"
+      - "Rakefile"
+      - "CHANGELOG.md"
+jobs:
+  Unit-Tests:
+    runs-on: ubuntu-latest
+    if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: 2.7
+      - name: Install Dependencies
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          sudo apt-get update
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Build Jekyll
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: bundle exec jekyll build
+      - name: Testsuite
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: bundle exec rake test
+      - name: Results
+        run: echo "🍏 This job's status is ${{ job.status }}."
+  Build-and-Deploy:
+    runs-on: ubuntu-latest
+    needs: [Unit-Tests, spelling, benchmark, rubocop]
+    if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: 2.7
+      - name: Install Dependencies
+        run: sudo apt-get update && sudo apt-get -y install minify
+      - name: Bundle Install
+        env:
+          RAILS_ENV: production
+          JEKYLL_ENV: production
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Build
+        env:
+          RAILS_ENV: production
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build
+      - name: Setup Git
+        run: |
+          git fetch
+          git config --global user.name 'CI Build'
+          git config --global user.email 'ci_build@lbenicio.dev'
+          git config --global push.autoSetupRemote true
+          GH_PAGES_STATUS() {
+            (git ls-remote --exit-code --heads origin gh-pages)
+            local t1=$?
+            echo "$t1"
+          }
+      - name: Prepare deploy files
+        run: |
+          rm -rf .gitignore *.md *.yml CNAME Gemfile Gemfile.lock LICENSE Rakefile .bundle .jekyll-cache vendor benchmark .ruby-version CHANGELOG.md .github rubocop .rubocop.yml _posts
+          cp -R ./_site/* .
+          rm -rf _site
+      - name: Build Package
+        run: |
+          git checkout -b build-${{ github.run_id }}
+          git add --force .
+          git commit -am "CI Build & Deploy ${{ github.run_id }}"
+          if [ GH_PAGES_STATUS -eq 0 ]; then git checkout gh-pages; else git checkout -b gh-pages; fi;
+          git merge -X theirs build-${{ github.run_id }}
+      - name: Deploy
+        run: |
+          git push --force
+      - name: Results
+        run: echo "🍏 This job's status is ${{ job.status }}."
+  rubocop:
+    name: "Rubocop"
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: read
+    outputs:
+      followup: ${{ steps.spelling.outputs.followup }}
+    runs-on: ubuntu-latest
+    needs: Unit-Tests
+    if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: 2.7
+      - name: Install Dependencies
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          sudo apt-get update && sudo apt-get -y install minify
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+          gem install rubocop
+          gem install rubocop-minitest
+          gem install rubocop-performance
+          gem install rubocop-rake
+          gem install rubocop-rspec
+      - name: Build Jekyll
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: bundle exec jekyll build
+      - name: rubocop
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: rubocop
+  spelling:
+    name: "Spell Check"
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: read
+    outputs:
+      followup: ${{ steps.spelling.outputs.followup }}
+    runs-on: ubuntu-latest
+    needs: Unit-Tests
+    if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: 2.7
+      - name: Install Dependencies
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          sudo apt-get update && sudo apt-get -y install minify
+      - name: Bundle Install
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Build Jekyll
+        run: bundle exec jekyll build
+      - name: check-spelling
+        id: spelling
+        uses: check-spelling/check-spelling@main
+        with:
+          check_extra_dictionaries: ''
+          suppress_push_for_open_pull_request: 1
+          checkout: true
+          post_comment: 0
+  profiler:
+    name: "Profiler"
+    runs-on: "ubuntu-latest"
+    needs: Unit-Tests
+    if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
+    steps:
+      - name: Checkout Jekyll
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ github.event.inputs.ruby_version }}
+          bundler-cache: true
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: 2.7
+      - name: Install Dependencies
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          sudo apt-get update && sudo apt-get -y install minify
+      - name: Bundle Install
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Build Jekyll
+        run: bundle exec jekyll build
+      - name: Run Profiler
+        run: "bundle exec rake profile:memory"
+  stress-test:
+    name: "Stress Test"
+    runs-on: "ubuntu-latest"
+    needs: Unit-Tests
+    if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
+    env:
+      BENCHMARK: true
+    steps:
+      - name: Checkout Jekyll
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ github.event.inputs.ruby_version }}
+          bundler-cache: true
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: 2.7
+      - name: Install Dependencies
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          sudo apt-get update && sudo apt-get -y install minify
+      - name: Bundle Install
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Build Jekyll
+        run: bundle exec jekyll build
+      - name: Run Benchmark
+        run: "bundle exec ruby benchmark/capture-assign.rb"
+  benchmark:
+    name: "Benchmark"
+    runs-on: "ubuntu-latest"
+    needs: Unit-Tests
+    if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
+    env:
+      BENCHMARK: true
+    steps:
+      - name: Checkout Jekyll
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ github.event.inputs.ruby_version }}
+          bundler-cache: true
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: 2.7
+      - name: Install Dependencies
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          sudo apt-get update && sudo apt-get -y install minify
+      - name: Bundle Install
+        env:
+          RAILS_ENV: test
+          JEKYLL_ENV: test
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Build Jekyll
+        run: bundle exec jekyll build
+      - name: Run Benchmark
+        run: "c=$(int_size=$(a=$(find _site -type f -name '*.html' -exec du -ak {} + | sort -nr | head -n 1) | size=${a:0:3} | echo $size | sed -E 's,\\t|\\r|\\n,,g') | echo $((int_size))) | if [ $c -lt 50 ]; then exit 2; else exit 0; fi;"
+  notification:
+    name: "Notification"
+    needs: [Build-and-Deploy, release]
+    if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.ChatID }}
+          token: ${{ secrets.BotToken }}
+          message: |
+              ✅ Code Deployed: ${{ github.repository }}
+
+              ${{ github.actor }} created commit:
+              ${{ github.event.commits[0].message }}
+              
+              
+              See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+  release:
+    name: "Release"
+    needs: [Unit-Tests, spelling, benchmark, rubocop]
+    if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: CupOfTea696/gh-action-auto-release@v1.0.2
+        with:
+          title: "Release: v$version"
+          tag: "v$semver"
+          draft: false
+          regex: "/^release: v#{semver}$/i"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

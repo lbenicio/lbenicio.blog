@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: Toughts of IDEs
+title: Thoughts of IDEs
 icon: fa-comment-alt
 tag: ide, customization, theming, tutorial
 categories: tutorial
@@ -66,7 +66,7 @@ Go to Preferences → Settings:
         80,
         120
     ],
-    "save_on_focus_lost": true, // we need an auto-save feature unless we want to lost our wrok
+    "save_on_focus_lost": true, // we need an auto-save feature unless we want to lost our work
     "spell_check": true, // no developer knows how to write properly non-code language
     "tab_size": 4, // 4 tab spaces is better then 2, prove me wrong
     "theme": "predawn-DEV.sublime-theme", // theming

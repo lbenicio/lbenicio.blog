@@ -90,7 +90,7 @@ First of all, let’s get to know what kind of data we are talking about. Check 
 |-----------------------------|---------------------|
 | id                          | 4935 non-null int64 |
 | simulation_duration         | 4935 non-null int64 |
-| number_of_simultaneos_users | 4935 non-null int64 |
+| number_of_simultaneous_users | 4935 non-null int64 |
 | delayed                     | 4935 non-null int64 |
 | cores                       | 4935 non-null int64 |
 | memory                      | 4935 non-null int64 |

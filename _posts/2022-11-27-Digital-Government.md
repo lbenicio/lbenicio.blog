@@ -6,6 +6,8 @@ tag: digital, government
 categories: discussion
 ---
 
+On last season we were talking about different topic than usual hard skills. Let us talk now about Digital Government.
+
 1. [Digital Government](#digital-government)
 
 2. [Conclusion](#conclusion)

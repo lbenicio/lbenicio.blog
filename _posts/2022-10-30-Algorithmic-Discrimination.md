@@ -6,6 +6,8 @@ tag: discrimination, algorithms
 categories: discussion
 ---
 
+Today we are going to have a different post again. We are going to talk about Algorithmic Discrimination.
+
 # Sections
 
 1. [Algorithmic Discrimination](#algorithmic-discrimination)

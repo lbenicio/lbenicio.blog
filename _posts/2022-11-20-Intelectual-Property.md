@@ -6,6 +6,8 @@ tag: intelectual, property
 categories: discussion
 ---
 
+Follow our current trend, this week are discussing Intellectual Property.
+
 1. [Intellectual Property](#intellectual-property)
 
 2. [Conclusion](#conclusion)

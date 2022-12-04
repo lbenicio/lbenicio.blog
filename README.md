@@ -24,18 +24,15 @@ bundle exec jekyll serve
 
 ## Unit tests
 ```bash
-bundle exec htmlproofer \
-    --report-invalid-tags \
-    --report-missing-names \
-    --report-script-embeds \
-    --report-missing-doctype \
-    --report-eof-tags \
-    --report-mismatched-tags \
-    --assume-extension \
-    --check-external-hash \
-    --allow-hash-href \
-    --check-favicon \
-    --check-html \
-    --check-opengraph \
-    --enforce-https --disable-external
+bundle exec rake test
+```
+
+## Profiling
+```bash
+bundle exec rake profile:memory
+```
+
+## Benchmark
+```bash
+bundle exec ruby benchmark/capture-assign.rb
 ```

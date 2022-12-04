@@ -38,7 +38,7 @@ We were lying; security is even more easy to justify. If your application is con
 
 # Containers software
 
-We had quite a few solutions from the beginning of the virtualization, such as Linux VServer, Solaris Containers, Open VZ, Process Containers, LinuX Containers, Warden Let Me Contain That For You, and last but not least, our industry-standard as of 2020, Docker. Most of the solutions mentioned and created before Docker, in 2013, were discontinued, and docker exploded in popularity and community support. Kubernetes, as known as "k8s," has over 2500 contributors, 65000 stars, and 24000 forks on GitHub, its main repository.
+We had quite a few solutions from the beginning of the virtualization, such as Linux VServer, Solaris Containers, Open VZ, Process Containers, Linux Containers, Warden Let Me Contain That For You, and last but not least, our industry-standard as of 2020, Docker. Most of the solutions mentioned and created before Docker, in 2013, were discontinued, and docker exploded in popularity and community support. Kubernetes, as known as "k8s," has over 2500 contributors, 65000 stars, and 24000 forks on GitHub, its main repository.
 
 ![Docker stack image](/assets/imgs/dockerStack.png){:class="img-fluid"}
 

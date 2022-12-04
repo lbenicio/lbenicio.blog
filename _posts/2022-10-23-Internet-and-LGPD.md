@@ -6,6 +6,8 @@ tag: internet, lgpd, law
 categories: discussion
 ---
 
+Hi folks, today we are going to have a different post. We are going to talk about Internet and LGPD.
+
 # Sections
 
 1. [Internet and LGPD](#internet-and-lgpd)
