@@ -32,7 +32,8 @@ jobs:
         run: |
           sudo apt-get update
           bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          bundle config set --local with 'development test jekyll_plugins'
+          bundle install --jobs 4 --retry 3 
       - name: Build Jekyll
         env:
           RAILS_ENV: test

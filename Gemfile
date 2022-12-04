@@ -6,15 +6,14 @@ gem "rouge"
 gem "rake"
 
 group :jekyll_plugins do
-
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
   gem "jekyll-archives"
   gem "jekyll-tagging"
   gem "jekyll-tagging-related_posts"
-  gem "jekyll-paginate-v2", "3.0.0", git: "https://github.com/lbenicio/jekyll-paginate-v2", branch: "master"
-  gem "jekyll-minifier", "0.1.8", git: "https://github.com/lbenicio/jekyll-minifier", branch: "master"
+  gem "jekyll-paginate-v2", "3.0.0"
+  gem "jekyll-minifier", "0.1.8"
 end
 
 group :development, :test do
