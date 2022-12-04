@@ -22,6 +22,7 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get -y install minify
           gem install bundler
+          gem install jekyll
       - name: Bundle Install
         env:
           RAILS_ENV: test
