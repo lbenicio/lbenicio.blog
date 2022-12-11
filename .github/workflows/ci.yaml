@@ -8,12 +8,9 @@ on:
       - "LICENSE"
       - "docs/"
       - ".gitignore"
-      - "CNAME"
       - ".ruby-version"
       - "benchmark"
       - ".jekyll-cache"
-      - "Rakefile"
-      - "CHANGELOG.md"
 jobs:
   Unit-Tests:
     runs-on: ubuntu-latest
@@ -84,7 +81,7 @@ jobs:
           }
       - name: Prepare deploy files
         run: |
-          rm -rf .gitignore *.md *.yml CNAME Gemfile Gemfile.lock LICENSE Rakefile .bundle .jekyll-cache vendor benchmark .ruby-version CHANGELOG.md .github rubocop .rubocop.yml _posts
+          rm -rf .gitignore *.md *.yml Gemfile Gemfile.lock LICENSE Rakefile .bundle .jekyll-cache vendor benchmark .ruby-version CHANGELOG.md .github rubocop .rubocop.yml _posts
           cp -R ./_site/* .
           rm -rf _site
       - name: Build Package
