@@ -13,3 +13,4 @@ All notable changes to this project will be documented in this file.
 ### Changed
  - keep CNAME file on deployed version
  - report job status now send each job status
+ - add active page visual identifier
