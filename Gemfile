@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "jekyll", "~> 4.2.0"
-gem "lbenicio-minimal-v1", "1.0.2", git: "https://github.com/lbenicio/lbenicio-minimal-v1", branch: "main"
+gem "lbenicio-minimal-v1", "1.0.7"
 gem "rouge"
 gem "rake"
 
@@ -12,7 +12,8 @@ group :jekyll_plugins do
   gem "jekyll-archives"
   gem "jekyll-tagging"
   gem "jekyll-tagging-related_posts"
-  gem "jekyll-paginate-v2", "3.0.0"
+  # fix for using theme's pagination theme
+  gem "jekyll-paginate-v2", "3.0.0", git: "https://github.com/lbenicio/jekyll-paginate-v2/"
   gem "jekyll-minifier", "0.1.8"
 end
 
@@ -32,7 +33,7 @@ group :development, :test do
   gem "httpclient"
   gem "rspec"
   gem "selenium-webdriver"
-  gem "chromedriver-helper"
+  gem "webdriver"
   gem "capybara"
   gem "rack-jekyll"
   gem "pry"

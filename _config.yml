@@ -42,8 +42,6 @@ autopages:
       mode: 'default'
       case: false
   tags:
-    layouts: 
-      - 'autopage_tags.html'
     title: 'Posts tagged with :tag'
     permalink: '/tag/:tag'
     silent: false
@@ -51,9 +49,6 @@ autopages:
       mode: 'default'
       case: false
   collections:
-    per_page: 2
-    layouts: 
-      - 'autopage_collection.html'
     title: 'Feed :coll' # :coll is replaced by the collection name
     permalink: '/feed/:coll'
     silent: false
