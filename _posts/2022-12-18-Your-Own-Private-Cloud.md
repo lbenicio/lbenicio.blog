@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: Free resources for Devs
+title: Your Own Private Cloud.
 icon: fa-comment-alt
 tag: tip, resources
 categories: cloud
