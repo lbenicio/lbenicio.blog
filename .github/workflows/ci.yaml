@@ -296,7 +296,7 @@ jobs:
           to: ${{ secrets.ChatID }}
           token: ${{ secrets.BotToken }}
           message: |
-              ${{ (needs.UnitTests.result == 'success' && needs.rubocop.result == 'success' && needs.benchmark.result == 'success' && needs.spelling.result == 'success' && needs.build.result == 'success' && needs.deploy.result == 'success' && '✅') || '🚫' }} Code Deployed: ${{ github.repository }}
+              ${{ (needs.Unit-Tests.result == 'success' && needs.rubocop.result == 'success' && needs.benchmark.result == 'success' && needs.spelling.result == 'success' && needs.build.result == 'success' && needs.deploy.result == 'success' && '✅') || '🚫' }} Code Deployed: ${{ github.repository }}
 
               ${{ github.actor }} created commit:
               ${{ github.event.commits[0].message }}
