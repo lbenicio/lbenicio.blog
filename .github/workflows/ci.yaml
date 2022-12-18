@@ -303,13 +303,13 @@ jobs:
 
               Job status list
 
-              - ${{ (needs.Unit-Tests.result == 'failure' && '🚫') || (needs.Unit-Tests.result == 'skipped' && '⏭️') || needs.UnitTests.result == 'success' && '✅' }} Unit-Tests: ${{ needs.Unit-Tests.result }}
-              - ${{ (needs.rubocop.result == 'failure' && '🚫') || (needs.rubocop.result == 'skipped' && '⏭️') || needs.rubocop.result == 'success' && '✅' }} Rubocop: ${{ needs.rubocop.result }}
-              - ${{ (needs.benchmark.result == 'failure' && '🚫') || (needs.benchmark.result == 'skipped' && '⏭️') || needs.benchmark.result == 'success' && '✅' }} Benchmark: ${{ needs.benchmark.result }}
-              - ${{ (needs.spelling.result == 'failure' && '🚫') || (needs.spelling.result == 'skipped' && '⏭️') || needs.spelling.result == 'success' && '✅' }} Spelling: ${{ needs.spelling.result }}
-              - ${{ (needs.build.result == 'failure' && '🚫') || (needs.build.result == 'skipped' && '⏭️') || needs.build.result == 'success' && '✅' }} build: ${{ needs.build.result }}
-              - ${{ (needs.deploy.result == 'failure' && '🚫') || (needs.deploy.result == 'skipped' && '⏭️') || needs.deploy.result == 'success' && '✅' }} deploy: ${{ needs.deploy.result }}
-              - ${{ (needs.release.result == 'failure' && '🚫') || (needs.release.result == 'skipped' && '⏭️') || needs.release.result == 'success' && '✅' }} Release: ${{ needs.release.result }}
+              - ${{ (needs.Unit-Tests.result == 'cancelled' && '🚫') || (needs.Unit-Tests.result == 'failure' && '🚫') || (needs.Unit-Tests.result == 'skipped' && '⏭️') || needs.UnitTests.result == 'success' && '✅' }} Unit-Tests: ${{ needs.Unit-Tests.result }}
+              - ${{ (needs.rubocop.result == 'cancelled' && '🚫') || (needs.rubocop.result == 'failure' && '🚫') || (needs.rubocop.result == 'skipped' && '⏭️') || needs.rubocop.result == 'success' && '✅' }} Rubocop: ${{ needs.rubocop.result }}
+              - ${{ (needs.benchmark.result == 'cancelled' && '🚫') || (needs.benchmark.result == 'failure' && '🚫') || (needs.benchmark.result == 'skipped' && '⏭️') || needs.benchmark.result == 'success' && '✅' }} Benchmark: ${{ needs.benchmark.result }}
+              - ${{ (needs.spelling.result == 'cancelled' && '🚫') || (needs.spelling.result == 'failure' && '🚫') || (needs.spelling.result == 'skipped' && '⏭️') || needs.spelling.result == 'success' && '✅' }} Spelling: ${{ needs.spelling.result }}
+              - ${{ (needs.build.result == 'cancelled' && '🚫') || (needs.build.result == 'failure' && '🚫') || (needs.build.result == 'skipped' && '⏭️') || needs.build.result == 'success' && '✅' }} build: ${{ needs.build.result }}
+              - ${{ (needs.deploy.result == 'cancelled' && '🚫') || (needs.deploy.result == 'failure' && '🚫') || (needs.deploy.result == 'skipped' && '⏭️') || needs.deploy.result == 'success' && '✅' }} deploy: ${{ needs.deploy.result }}
+              - ${{ (needs.release.result == 'cancelled' && '🚫') || (needs.release.result == 'failure' && '🚫') || (needs.release.result == 'skipped' && '⏭️') || needs.release.result == 'success' && '✅' }} Release: ${{ needs.release.result }}
               
               
               See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
