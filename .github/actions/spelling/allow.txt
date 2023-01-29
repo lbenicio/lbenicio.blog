@@ -1359,3 +1359,4 @@ UTF
 codebases
 https
 imgs
+memcached
