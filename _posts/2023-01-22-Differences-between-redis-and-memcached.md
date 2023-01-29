@@ -10,7 +10,7 @@ Redis and Memcached are both in-memory data stores that are commonly used as cac
 
 # Sections
 
-1. [Differences between Redis and Memcahced](#differencies-between-redis-and-memcahced)
+1. [Differences between Redis and Memcahced](#differences-between-redis-and-memcahced)
 
 2. [Conclusion](#conclusion)
 

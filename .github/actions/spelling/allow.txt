@@ -49,6 +49,7 @@ Kanban
 postgresql
 redis
 Memcahced
+memcahced
 kanban
 namespaces
 Postgre
