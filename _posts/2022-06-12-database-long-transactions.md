@@ -2,7 +2,7 @@
 layout: posts
 title: Database Long Transactions
 icon: fa-comment-alt
-tag: database develper discussion
+tag: database developer discussion
 categories: discussion
 ---
 

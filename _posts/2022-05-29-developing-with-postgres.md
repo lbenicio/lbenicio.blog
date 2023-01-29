@@ -2,7 +2,7 @@
 layout: posts
 title: Developing with Postgres
 icon: fa-comment-alt
-tag: tutorial database develpment
+tag: tutorial database development
 categories: tutorial
 ---
 
