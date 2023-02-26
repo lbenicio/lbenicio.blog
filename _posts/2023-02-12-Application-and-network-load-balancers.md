@@ -2,7 +2,7 @@
 layout: posts
 title: Application and network Load Balancers
 icon: fa-comment-alt
-tag: load balance balancers network topology application achitecture
+tag: load balance balancers network topology application architecture
 categories: network
 ---
 
