@@ -140,7 +140,7 @@ jobs:
     outputs:
       followup: ${{ steps.spelling.outputs.followup }}
     runs-on: ubuntu-latest
-    #needs: Unit-Tests
+    needs: Unit-Tests
     if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
     steps:
       - name: Check out repository code

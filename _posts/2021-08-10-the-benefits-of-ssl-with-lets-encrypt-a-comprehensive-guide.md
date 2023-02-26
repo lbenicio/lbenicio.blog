@@ -1,8 +1,8 @@
 ---
 layout: posts
-title: "The Benefits of SSL with Let's Encrypt: A Comprehensive Guide"
+title: "The Benefits of SSL with Lets Encrypt: A Comprehensive Guide"
 icon: fa-comment-alt
-tag: ssl security https http/2
+tag: ssl security https http2
 categories: security
 ---
 
