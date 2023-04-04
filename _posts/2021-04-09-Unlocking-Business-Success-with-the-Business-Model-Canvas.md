@@ -14,7 +14,7 @@ Starting a business is challenging, and one of the most critical components of s
 
 2. [How Does the Business Model Canvas Work?](#how-does-the-business-model-canvas-work)
 
-3. [Why is the Business Model Canvas Essential for Entrepreneurs and Startups?](wWhy-is-the-business-model-canvas-essential-for-entrepreneurs-and-startups)
+3. [Why is the Business Model Canvas Essential for Entrepreneurs and Startups?](why-is-the-business-model-canvas-essential-for-entrepreneurs-and-startups)
 
 4. [Conclusion](#conclusion)
 

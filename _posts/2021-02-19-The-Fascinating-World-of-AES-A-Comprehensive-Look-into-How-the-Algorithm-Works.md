@@ -3,7 +3,7 @@ layout: posts
 title: "The Fascinating World of AES: A Comprehensive Look into How the Algorithm Works"
 icon: fa-comment-alt
 tag: security
-categories: security criptography AES algorithm
+categories: security criptography aes algorithm
 ---
 
 In today's world, the security of information has become one of the topmost concerns for organizations and individuals alike. The Advanced Encryption Standard (AES) has emerged as the go-to cryptographic algorithm for ensuring data confidentiality, integrity, and authenticity. Developed by the National Institute of Standards and Technology (NIST) in 2001, AES is widely used in a plethora of applications, including email encryption, online banking, and digital signatures. In this paper, we delve into the fascinating world of AES and explain how this algorithm works to secure our data.

@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: "Understanding Pull Requests: A Beginner's Guide"
+title: "Understanding Pull Requests: A Beginners Guide"
 icon: fa-comment-alt
 tag: git
 categories: git continuous integration best practices 
