@@ -12,7 +12,7 @@ Encryption is a fundamental technique used in the field of computer security to 
 
 1. [Key Generation](#key-generation)
 
-2. [Key Length](key-length)
+2. [Key Length](#key-length)
 
 3. [Encryption and Decryption Speed](#encryption-and-decryption-speed)
 
