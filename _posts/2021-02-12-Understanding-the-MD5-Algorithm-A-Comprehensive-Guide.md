@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: Understanding the MD5 Algorithm: A Comprehensive Guide
+title: "Understanding the MD5 Algorithm: A Comprehensive Guide"
 icon: fa-comment-alt
 tag: security
 categories: security criptography MD5 algorithm

@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: Concurrency and Threads: Unleashing the Power of Parallelism
+title: "Concurrency and Threads: Unleashing the Power of Parallelism"
 icon: fa-comment-alt
 tag: parallelism concurrecy
 categories: parallelism
