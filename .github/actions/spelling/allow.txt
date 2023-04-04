@@ -1,4 +1,9 @@
 bytecode
+automatos
+methodfology
+MSTs
+Perceptrons
+subkeys
 automato
 Bleichenbacher
 BMC
