@@ -8,12 +8,6 @@ categories: developer
 
 A linter is a tool that helps developers write better and more consistent code. It does this by analyzing code for potential problems and violations of coding standards, and providing warnings and suggestions for improvement.
 
-# Sections
-
-1. [What is a linter](#what-is-a-linter)
-
-2. [Conclusion](#conclusion)
-
 ## What is a linter
 
 Linters work by examining code for patterns, structure, and style, and checking it against a set of rules or guidelines. For example, a linter might check for unused variables, improper indentation, and missing semicolons. It can also enforce coding standards, such as naming conventions and maximum line lengths, to help ensure that code is consistent and readable.

@@ -7,13 +7,6 @@ categories: discussion
 ---
 
 Dynamic programming is an algorithmic technique for solving problems by breaking them down into smaller subproblems and storing the solutions to these subproblems in order to avoid recomputing them. It is a powerful technique that is widely used in computer science, and can be applied to a wide range of problems, including optimization problems, search problems, and decision-making problems.
-
-# Sections
-
-1. [Dynamic Programing](#dynamic-programing)
-
-2. [Conclusion](#conclusion)
-
 ## 
 
 One common application of dynamic programming is in graph algorithms. Many graph problems can be solved using dynamic programming, as the structure of a graph often lends itself to a recursive, divide-and-conquer approach.

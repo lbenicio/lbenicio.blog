@@ -8,17 +8,6 @@ categories: healthcheck
 
 Containers are rapidly becoming the preferred method of deploying applications. They provide a lightweight and efficient way to package an application with all its dependencies into a single image that can run consistently across different environments. However, with the increased use of containers comes the need to ensure that they are running correctly and efficiently. This is where health checks come in. In this post, we'll discuss the importance of creating health checks for your containers and why they are crucial for the overall health and stability of your application.
 
-# Sections
-
-1. [What are health checks?](#what-are-health-checks)
-
-2. [why are health checks important?](#why-are-health-checks-important)
-
-3. [Implementing health checks](#implementing-health-checks)
-
-4. [Best practices for health checks](#best-practices-for-health-checks)
-
-5. [Conclusion](#conclusion)
 
 ## What are health checks?
 

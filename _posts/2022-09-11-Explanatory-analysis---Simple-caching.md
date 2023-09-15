@@ -8,12 +8,6 @@ categories: analysis
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis with Explanatory analysis - Simple caching.
 
-# Sections
-
-1. [Explanatory analysis - Simple caching](#explanatory-analysis---Simple-caching)
-
-2. [Conclusion](#conclusion)
-
 # Explanatory analysis - Simple caching
 
 ## 2 cores and 8000MB RAM

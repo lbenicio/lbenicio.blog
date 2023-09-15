@@ -8,16 +8,6 @@ categories: containers
 
 Today we are going to talk about container and container orchestration, and solution like docker and Kubernetes.
 
-# Sections
-
-1. [Why use containers?](#why-use-containers)
-
-2. [Containers software](#containers-software)
-
-3. [What is Kubernetes](#what-is-kubernetes)
-
-4. [Conclusion](#conclusion)
-
 # Why use containers?
 
 Developing and deploying web application relays on different stages. Each of these stages depends on multiple libraries, depending on other runtimes and specific versions of each software. Configure this environment can be really hard, and reproduce this environment across a team of developers to make sure the development will not run into problems of matching dependencies versions and stack and even deploy this environment to testing, staging. The production server could be an even worse nightmare.

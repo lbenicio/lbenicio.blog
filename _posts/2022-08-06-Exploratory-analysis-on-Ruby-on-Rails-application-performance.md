@@ -8,16 +8,6 @@ categories: analysis
 
 Hi folks, this week we are going to take a look at our experiments running a fixed amount of memory, 9000mb, but varying our core count, to understand the processor impact on our cluster simulation. Let's dive in!
 
-# Sections
-
-1. [2 cores and 9000MB RAM](#2-cores-and-9000mb-ram)
-
-2. [4 cores and 9000MB RAM](#4-cores-and-9000mb-ram)
-
-3. [8 cores and 9000MB RAM](#8-cores-and-9000mb-ram)
-
-4. [Conclusion](#conclusion)
-
 # 2 cores and 9000MB RAM
 
 ![Percentage of successful requests 2 cores, 9000mb. Accessing for 1 second](/assets/imgs/2-9000.png){:class="img-fluid"}

@@ -10,18 +10,6 @@ categories:
 
 Hi folks, today we are going discuss load test solutions. Let us do it.
 
-# Sections
-
-1. [Technical features](#technical-features)
-
-2. [User Experience](#user-experience)
-
-3. [Performance](#performance)
-
-4. [Gatling](#gatling)
-
-5. [Conclusion](#conclusion)
-
 # Technical features
 
 Our main goal in this study is to analyze and increase cluster performance for handling multiple users concurrently, I’m going to focus on loading times and requests handled. We have to remember that we are handling a monolithic software based on Ruby on Rails, containerized and deployed using Kubernetes; it is crucial that we know ahead of time how many users we can handle and the related amount of physical server we need to deploy to handle big cities such as São Paulo. We will discuss a couple of load testing software here and why I’m using Gatling to do the job. We will focus on three main characterizes of the software, developer experience, performance, and maintainability.

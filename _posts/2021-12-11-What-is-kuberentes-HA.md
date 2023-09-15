@@ -8,12 +8,6 @@ categories: kubernetes
 
 Kubernetes is a popular open-source platform for automating the deployment, scaling, and management of containerized applications. It was developed by Google and is now maintained by the Cloud Native Computing Foundation.
 
-# Sections
-
-1. [What is Kubernetes HA](#what-is-kubernetes-ha)
-
-2. [Conclusion](#conclusion)
-
 ## What is Kubernetes HA
 
 Kubernetes allows developers to easily deploy and manage containers in a cluster of machines, abstracting away the underlying infrastructure and making it easier to manage and scale applications. It does this by providing a unified API for managing containers, as well as a set of tools for automating common tasks such as rolling updates, scaling, and self-healing.

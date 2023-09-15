@@ -8,46 +8,6 @@ categories: aes rsa discussion criptography security
 
 Encryption is a fundamental technique used in the field of computer security to secure sensitive information from unauthorized access. AES and RSA are two of the most widely used encryption algorithms in the world today. AES (Advanced Encryption Standard) is a symmetric-key algorithm, while RSA (Rivest–Shamir–Adleman) is an asymmetric-key algorithm. In this paper, we will discuss the differences between AES and RSA algorithms in detail, highlighting their strengths and weaknesses.
 
-# Sections
-
-1. [Key Generation](#key-generation)
-
-2. [Key Length](#key-length)
-
-3. [Encryption and Decryption Speed](#encryption-and-decryption-speed)
-
-4. [Security](#security)
-
-5. [Usage](#usage)
-
-6. [Robustness](#robustness)
-
-7. [Implementations](implementations#)
-
-8. [Key Exchange](#key-exchange)
-
-9. [Digital Signatures](#digital-signatures)
-
-10. [Certificate Authority](#certificate-authority)
-
-11. [Strength Against Quantum Computing](#strength-against-quantum-computing)
-
-12. [Resistance to Side-Channel Attacks](#resistance-o-side-channel-attacks)
-
-13. [Cryptographic Hash Functions](#cryptographic-hash-functions)
-
-14. [Key Management](#key-management)
-
-15. [Interoperability](#interoperability)
-
-16. [Standardization](#standardization)
-
-17. [Hybrid Encryption](#hybrid-encryption)
-
-18. [Trade-Offs](#trade-offs)
-
-19. [Conclusion](#conclusion)
-
 ## Key Generation
 
 AES and RSA differ significantly in the way they generate keys. In AES, a single key is used for both encryption and decryption, and this key is generated using a Key Derivation Function (KDF) from a passphrase or another input. On the other hand, RSA uses two keys, a public key and a private key, which are generated using complex mathematical operations. The public key can be shared with anyone, while the private key must be kept secret.

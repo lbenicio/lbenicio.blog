@@ -7,13 +7,6 @@ categories: operating systems process scheduling
 ---
 
 Process scheduling is a crucial aspect of modern operating systems. It ensures that the CPU is utilized efficiently and that all processes get a fair share of the available resources. In this paper, we will explore various process scheduling algorithms and their implementations in operating systems. We will also discuss some of the challenges faced by operating systems when scheduling processes and how these challenges can be addressed.
-
-# Sections
-
-1. [Optimizing Process Scheduling in Operating Systems](#optimizing-process-scheduling-in-opperating-systems)
-
-2. [Conclusion](#conclusion)
-
 ## Optimizing Process Scheduling in Operating Systems
 
 Process scheduling algorithms can be broadly classified into two categories: preemptive and non-preemptive. In non-preemptive scheduling, a process that is currently using the CPU continues to do so until it either voluntarily yields the CPU or blocks. Once the process blocks or yields the CPU, the scheduler selects the next process to run. Non-preemptive scheduling is simpler to implement but can lead to poor CPU utilization if a process is long-running or if a process never yields the CPU.

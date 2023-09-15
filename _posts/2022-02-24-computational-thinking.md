@@ -8,12 +8,6 @@ categories: discussion
 
 Computational logic is a fundamental concept in computer science and programming, and studying it can provide a number of benefits for programmers. One of the most important of these is the ability to write efficient and effective code. By understanding the principles of computational logic, programmers can better understand how to write code that is optimized for performance and can be easily maintained.
 
-# Sections
-
-1. [Computational thinking](#computational-thinking)
-
-2. [Conclusion](#conclusion)
-
 ## Computational thinking
 
 Another key benefit of studying computational logic is that it can help programmers to better understand the underlying structure of the code they are working with. By understanding the logic behind a program, programmers can more easily identify and correct errors and bugs, as well as improve the overall quality of the code.

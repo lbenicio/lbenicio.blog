@@ -8,12 +8,6 @@ categories: theory
 
 A transpiler, also known as a source-to-source compiler, is a type of computer program that converts code written in one programming language into another programming language. It essentially "transpiles" the code from one language to another, while maintaining the same functionality and behavior of the original code.
 
-# Sections
-
-1. [What is a compiler](#what-is-a-transpiler)
-
-2. [Conclusion](#conclusion)
-
 ## What is a transpiler
 
 One of the main benefits of using a transpiler is that it allows developers to take advantage of the features and capabilities of different programming languages, without having to completely rewrite their code. This can save a lot of time and effort for the developer, and make it easier to maintain and update their code.

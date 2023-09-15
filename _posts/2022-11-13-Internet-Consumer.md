@@ -8,12 +8,6 @@ categories: discussion
 
 Yet another different common post, now we are going to talk about Internet Consumer.
 
-# Sections
-
-1. [Internet Consumer](#internet-consumer)
-
-2. [Conclusion](#conclusion)
-
 # Internet Consumer
 
 The Brazilian judicial system is very complex and extensive and this creates a fundamental problem about the laws: people do not know them. Thus, one of the branches of the problem is the consumer's right in relation to a product or service. The consumer does not know his rights, he knows even less where to complain about them and, even less, how to argue to defend what he believes to be his right. With this, bodies such as IDEC are of extreme importance, it defends the consumer before companies with the mission of, citing speaker Barbara Simão, promoting education, awareness and defense of consumer rights and ethics in consumer relations with total political and economic indecency.

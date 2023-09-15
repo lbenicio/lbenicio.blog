@@ -8,12 +8,6 @@ categories: analysis
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our proposed improvements.
 
-# Sections
-
-1. [Strategy to decrease page load time](#strategy-to-decrease-page-load-time)
-
-2. [Conclusion](#conclusion)
-
 # Strategy to decrease page load time
 
 As we are trying to deliver data as fast as possible to increase a web application’s performance, our goal is simple: cache. We are going to implement some caching on Consul on some levels. First, we are going to cache only translations, i18n1 related queries. Our second approach is more aggressive. This time, we will cache an entire page to see how it affects the performance since some pages like your website’s index are frequently accessed. Sometimes, your application has to make hundreds of access to the database to get the information required to deploy an important and frequently accessed page. This seems to be a clear sign of a great fit for caching.

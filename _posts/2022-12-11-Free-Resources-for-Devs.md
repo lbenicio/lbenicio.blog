@@ -8,14 +8,6 @@ categories: cloud
 
 Today we are going to have a small list of free resource for initial developers. The goal here is to list most useful resources and point to a longer list.
 
-# Sections
-
-1. [Cloud Resources](#cloud-resources)
-
-2. [Useful resources](#useful-resources)
-
-3. [Conclusion](#conclusion)
-
 # Cloud Resources
 
 ### Oracle Cloud

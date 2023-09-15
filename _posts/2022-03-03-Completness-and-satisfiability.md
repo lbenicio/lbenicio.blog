@@ -8,12 +8,6 @@ categories: theory
 
 The P vs NP problem is one of the most famous open problems in theoretical computer science. At its core, it asks whether or not all problems whose solutions can be verified in polynomial time, can also be solved in polynomial time. The class of problems that can be solved in polynomial time is called P, while the class of problems whose solutions can be verified in polynomial time is called NP.
 
-# Sections
-
-1. [Completness and satisfiability](#Completness-and-satisfiability)
-
-2. [Conclusion](#conclusion)
-
 ## Completness and satisfiability
 
 The question of whether P = NP is still unresolved, and it is considered to be one of the most important open problems in theoretical computer science. If it were to be proven that P = NP, then it would have major implications for fields such as cryptography and complexity theory.

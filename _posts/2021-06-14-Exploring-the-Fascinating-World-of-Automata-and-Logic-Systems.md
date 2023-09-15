@@ -8,12 +8,6 @@ categories: automatos
 
 Automata and logic systems have been an important topic of research in computer science for several decades. They are the backbone of computer science, and the foundation of many critical applications in artificial intelligence, software engineering, and information technology. In this paper, we will discuss the basics of automata and logic systems, their history, and their applications. We will also explore the different types of automata, including finite automata, pushdown automata, and Turing machines, and their respective models. Additionally, we will examine various logic systems, such as propositional logic and first-order logic, and their use in problem-solving and automated reasoning.
 
-# Sections
-
-1. [Exploring the Fascinating World of Automata and Logic Systems](#exploring-the-fascinating-world-of-automata-and-logic-systems)
-
-2. [Conclusion](#conclusion)
-
 ## Exploring the Fascinating World of Automata and Logic Systems
 
 Automata are abstract machines that can recognize, accept, and reject certain types of input sequences. They are widely used in many fields of computer science, including compilers, computer networks, and artificial intelligence. The simplest type of automata is the finite automaton, which can only recognize finite input sequences. Finite automata can be represented as directed graphs with nodes representing states, and edges representing transitions between states. They can be deterministic or non-deterministic, depending on whether the transition function is uniquely defined for each state or not. Finite automata can be used to recognize regular languages, which are languages that can be described by a regular expression. Another type of automaton is the pushdown automaton, which is more powerful than finite automata, as it can recognize context-free languages. Pushdown automata use a stack to keep track of the sequence of input symbols, and can perform stack operations to decide which state to move to next.

@@ -8,12 +8,6 @@ categories: analysis
 
 Continuing our post series about rails app performance. This week we are going to see our tests methodology and enhancements proposal.
 
-# Sections
-
-1. [Tests methodology and enhancements proposal](#tests-methodology-and-enhancements-proposal)
-
-2. [Conclusion](#conclusion)
-
 # Tests methodology and enhancements proposal
 
 By this time, the reader might already have guessed correctly; our proposed enhancements are related to cache. For this study, we are going to use Redis it as a cache server. Following Towards Scalable and Reliable In-Memory Storage System: A Case Study with Redis, we are using a similar configuration based on a five nodes cluster. The idea here is to simulate a Redis cluster with 1 master node, with 2 slave nodes and two replicas for consistency so we can achieve a much similar production level environment on our study. Each of the nodes gets 1000MB of RAM available to cache using the LRU (Least Recently Used)2 strategy. If we look at Analysis of a Least Recently Used Cache Management Policy for Web Browsers from Vijay S. Mookerjee and Yong Tan where they study this strategy for web browser caching, it perfectly fits our study case where we are displaying a commonly accessed page. This behavior happens a lot on our application. For example, on Consul, a platform for public debates is naturally expected to the page which lists the frequently accessed debates. Most of the users would be navigating from different debates and, frequently, accessing the same debates pages list to choose a new debate to participates in. The same logic applies to polls and the legislation process.

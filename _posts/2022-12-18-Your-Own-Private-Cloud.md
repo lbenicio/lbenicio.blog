@@ -10,12 +10,6 @@ Following previous week post, we will have, also, a small post about a list to b
 
 Cutting to the point, we have two options, Docker Swarm, and K3s. You can think of a Docker Swarm cluster like a giant docker environment built upon various machines. K3s is the similar approach, but for Kubernetes. The difference here is that K3s is a smaller build, made for that kind of small environment.
 
-# Sections
-
-1. [Cloud Resources](#cloud-resources)
-
-2. [Conclusion](#conclusion)
-
 # Cloud Resources
 
 ### Docker Swarm Rocks

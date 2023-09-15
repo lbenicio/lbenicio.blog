@@ -8,12 +8,6 @@ categories: analysis
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis.
 
-# Sections
-
-1. [Tests analysis](#tests-analysis)
-
-2. [Conclusion](#conclusion)
-
 # Tests analysis
 
 Before we jump into a general analysis of our case scenario, we would like to use the plot 7.20 and 7.21 to demonstrate why focus on simulations with a higher number of users is of no need for us in this study. First, let us look at the plot 7.21 we can handle the request pretty well, all of the tested groups keep under 3 seconds limit set by Google that we already mentioned. But, if we pay attention to the plot 7.20 we can spot the problem right on the way. Our request handled peak is 80% for 500 users, increasing all the way up to 2000 simultaneous users make our requests rate drops to as lower as 20%-30% which is even less than 1000 simultaneous users rate, which is between 50% and 70%. The problem here is that even on 500 simultaneous users our acceptance ratio is pretty low, we can not miss one out of 5 requests.

@@ -8,12 +8,6 @@ categories: parallelism
 
 Concurrency and parallelism have been buzzwords in computer science for many years. With the advent of multicore processors, parallelism has become even more relevant, enabling software to take full advantage of hardware resources. Concurrency is a fundamental concept in computer science, and threads are the most common way to implement it. However, implementing concurrency can be challenging, and there are many pitfalls to avoid. In this paper, we will explore the concepts of concurrency and threads, discuss their advantages and disadvantages, and provide some guidelines for their effective use.
 
-# Sections
-
-1. [Concurrency and Threads: Unleashing the Power of Parallelism](#concurrency-and-threads-unleashing-the-power-of-parallelism)
-
-2. [Conclusion](#conclusion)
-
 ## Concurrency and Threads: Unleashing the Power of Parallelism
 
 Concurrency is the ability of a program to execute multiple tasks simultaneously. It is essential for applications that need to handle multiple requests or run multiple tasks at the same time. Concurrency can be implemented in several ways, including using threads, processes, and coroutines. However, threads are the most common way to implement concurrency in programming languages like Java, Python, and C++. A thread is a lightweight process that runs within the context of a larger process. Multiple threads can run concurrently within a single process, allowing multiple tasks to be executed simultaneously.

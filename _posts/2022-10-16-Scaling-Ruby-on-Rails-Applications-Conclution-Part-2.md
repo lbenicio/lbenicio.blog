@@ -8,12 +8,6 @@ categories: analysis
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis.
 
-# Sections
-
-1. [Final Analysis Considerations - Part 2](#final-analysis-considerations-part-2)
-
-2. [Conclusion](#conclusion)
-
 # Final Analysis Considerations - Part 2
 
 On advanced caching problems, the benefits are even less worth it. If you are managing huge enterprise-level applications with thousands of simultaneous user access and a team to maintain your application, you will benefit from advanced caching. Our analysis has shown us no significant improvements when compared to the basic caching scenario. If we keep in mind that advanced caching is one of the main sources of bugs on the enterprise-level application, when can infer that caching page, partials, query results all over the code to decrease even more the database access and lower our resources is not worth the work you will have to spend on those upgrades, unless you are managing high traffic servers.

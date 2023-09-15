@@ -6,37 +6,7 @@ tag: security
 categories: security criptography aes algorithm
 ---
 
-In today's world, the security of information has become one of the topmost concerns for organizations and individuals alike. The Advanced Encryption Standard (AES) has emerged as the go-to cryptographic algorithm for ensuring data confidentiality, integrity, and authenticity. Developed by the National Institute of Standards and Technology (NIST) in 2001, AES is widely used in a plethora of applications, including email encryption, online banking, and digital signatures. In this paper, we delve into the fascinating world of AES and explain how this algorithm works to secure our data.
-
-# Sections
-
-1. [Background of AES](#background-of-aes)
-
-2. AES Encryption Process[](#aes-encryption-process)
-
-3. [AES Key Expansion](#aes-key-expansion)
-
-4. [AES Decryption Process](#aes-decryption-process)
-
-5. [Security of AES](#Security-of-aes)
-
-6. [Attacks on AES](#attacks-on-aes)
-
-7. [Modes of Operation](#modes-of-operation)
-
-8. [CBC Mode](#cbc-mode)
-
-9. [CTR Mode](#ctr-mode)
-
-10. [GCM Mode](#gcm-mode)
-
-11. [Hardware vs. Software Implementation](#hardware-vs-software-implementation)
-
-12. [AES in Cloud Computing](#aes-in-=loud-computing)
-
-13. [Future of AES](#future=of-aes)
-
-14. [Conclusion](#conclusion)
+In today's world, the security of information has become one of the topmost concerns for organizations and individuals alike. The Advanced Encryption Standard (AES) has emerged as the go-to cryptographic algorithm for ensuring data confidentiality, integrity, and authenticity. Developed by the National Institute of Standards and Technology (NIST) in 2001, AES is widely used in a plethora of applications, including email encryption, online banking, and digital signatures. In this paper, we delve into the fascinating world of AES and explain how this algorithm works to secure our data
 
 ## Background of AES
 

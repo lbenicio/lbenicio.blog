@@ -8,13 +8,6 @@ categories: deployment
 
 Amazon Web Services (AWS) Elastic Container Service for Kubernetes (EKS) is a highly scalable and reliable platform for deploying and managing containerized applications in a Kubernetes environment. In this blog post, we'll explore the steps required to deploy an application on AWS EKS and discuss the benefits of using this platform for your deployments.
 
-
-# Sections
-
-1. [Deploy an application using AWS EKS](#deploy-an-application-using-aws-eks)
-
-2. [Conclusion](#conclusion)
-
 ## Deploy an application using AWS EKS
 
 AWS EKS (Elastic Container Service for Kubernetes) is a managed Kubernetes service that makes it easier for you to run and manage containerized applications on AWS. In this blog post, we will learn how to deploy an application on AWS EKS.

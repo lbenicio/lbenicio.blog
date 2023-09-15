@@ -8,12 +8,6 @@ categories: discussion
 
 Node.js is a runtime environment for executing JavaScript code outside of a web browser. It was created in 2009 by Ryan Dahl and has since become one of the most popular JavaScript runtime environments.
 
-# Sections
-
-1. [What is Node](#what-is-node)
-
-2. [Conclusion](#conclusion)
-
 ## What is Node
 
 Node.js is built on top of the Chrome V8 JavaScript engine, which is developed by Google. The V8 engine is written in C++ and is used to execute JavaScript code. Node.js uses the V8 engine to execute JavaScript code on the server side, allowing developers to build server-side applications with JavaScript.

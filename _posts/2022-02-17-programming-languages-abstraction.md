@@ -8,12 +8,6 @@ categories: discussion
 
 A high abstraction programming language is one that provides a high level of abstraction from the underlying hardware and system. These types of programming languages are typically easier to use and understand, and are often more efficient for solving complex problems. Examples of high abstraction programming languages include Python, Java, and C++.
 
-# Sections
-
-1. [Programming languages abstraction](#programming-languages-abstraction)
-
-2. [Conclusion](#conclusion)
-
 ## Programming languages abstraction
 
 

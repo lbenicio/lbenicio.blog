@@ -8,12 +8,6 @@ categories:
 
 AWS Beanstalk is a fully managed service from AWS that makes it easy to deploy, run, and manage web applications. In this blog post, we will learn how to deploy an application on AWS using Beanstalk.
 
-# Sections
-
-1. [Deploy an application using AWS beanstalk](#deploy-an-application-using-aws-beanstalk)
-
-2. [Conclusion](#conclusion)
-
 ## Deploy an application using AWS beanstalk
 
 AWS Beanstalk is a fully managed platform that abstracts away many of the complex operational tasks of deploying and managing web applications, making it easier for developers to focus on writing code. With Beanstalk, you can simply upload your application code and Beanstalk will automatically handle the deployment, capacity provisioning, load balancing, and automatic scaling of your application.

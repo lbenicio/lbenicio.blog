@@ -7,21 +7,6 @@ categories: security criptography md5 algorithm
 ---
 
 The MD5 algorithm is a widely used cryptographic hash function that is used to generate a unique digital fingerprint of a message or data. It was developed by Ronald Rivest in 1991, and since then, it has become one of the most widely used hash functions in the world. In this paper, we will explore how the MD5 algorithm works, its strengths and weaknesses, and its various applications in different fields. By the end of this paper, you will have a clear understanding of how the MD5 algorithm functions and its practical uses.
-
-# Sections
-
-1. [What is a hash function?](#what-is-a-hash-function)
-
-2. [How does the MD5 algorithm work?](#how-does-the-md5-algorithm-work)
-
-3. [What are the four functions used in the MD5 algorithm?](#what-are-the-four-functions-used-in-the-md5-algorithm)
-
-4. [What are the strengths of the MD5 algorithm?](#wat-are-the-strengths-of-the-md5algorithm)
-
-5. [What are the practical applications of the MD5 algorithm?](#What-are-the-practical-applications-of-the-md5-algorithm)
-
-2. [Conclusion](#conclusion)
-
 ## What is a hash function?
 
 A hash function is a mathematical function that takes input data of arbitrary size and produces a fixed-size output, which is usually called the hash value, digest, or fingerprint. A hash function is used to create a unique digital fingerprint of a message or data, which can be used to verify the integrity of the data or to verify the identity of the sender. The hash function is a one-way function, which means it is easy to compute the hash value of the input data, but it is practically impossible to derive the input data from the hash value.

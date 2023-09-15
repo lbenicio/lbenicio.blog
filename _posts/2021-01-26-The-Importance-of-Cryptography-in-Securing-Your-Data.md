@@ -10,18 +10,6 @@ The proliferation of technology has brought about a digital age, which has signi
 
 One of the most effective ways to secure digital data is through cryptography. Cryptography refers to the science of encrypting and decrypting data to ensure confidentiality, integrity, and authenticity. In this article, we will explore the importance of cryptography in securing your data.
 
-# Sections
-
-1. [Confidentiality](#confidentiality)
-
-2. [Integrity](#integrity)
-
-3. [Authenticity](#authenticity)
-
-4. [Compliance](#compliance)
-
-5. [Conclusion](#conclusion)
-
 ## Confidentiality
 
 Cryptography ensures that only authorized individuals can access sensitive information. By encrypting data, unauthorized parties cannot read or access the data even if they intercept it during transmission. Cryptography employs various techniques such as symmetric encryption, asymmetric encryption, and hashing to protect data confidentiality.

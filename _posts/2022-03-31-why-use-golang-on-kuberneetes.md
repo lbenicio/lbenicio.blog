@@ -8,12 +8,6 @@ categories: discussion
 
 Golang, also known as Go, is a programming language that has gained popularity in recent years for its simplicity, performance, and suitability for building cloud-native applications. One of the key advantages of using Golang for containers on a Kubernetes cluster is its ability to handle concurrency and parallelism.
 
-# Sections
-
-1. [Why use Golang on Kubernetes](#why-use-golang-on-kubernetes)
-
-2. [Conclusion](#conclusion)
-
 ## Why use Golang on Kubernetes
 
 Golang's built-in concurrency primitives, such as goroutines and channels, make it easy for developers to write concurrent and parallel code. This is particularly useful for containers, as they often need to handle multiple requests and processes simultaneously.

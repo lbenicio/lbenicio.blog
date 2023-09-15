@@ -8,12 +8,6 @@ categories: test
 
 Test-driven development (TDD) is a software development methodology in which tests are written for a piece of code before the code itself is written. The goal of TDD is to ensure that the code is thoroughly tested and is of high quality before it is deployed to production.
 
-# Sections
-
-1. [Software testing and test driven development](#software-testing-and-test-driven-development)
-
-2. [Conclusion](#conclusion)
-
 ## Software testing and test driven development
 
 One of the main benefits of TDD is that it helps to catch bugs early in the development process. By writing tests before the code is written, developers can ensure that the code meets the requirements and behaves as expected. This can save a significant amount of time and resources that would otherwise be spent on debugging and fixing bugs in the production environment.

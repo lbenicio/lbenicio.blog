@@ -8,12 +8,6 @@ categories: analysis
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis.
 
-# Sections
-
-1. [Tests analysis](#tests-analysis)
-
-2. [Conclusion](#conclusion)
-
 # Tests analysis
 
 Now we have to split this task into 2 tasks; first, we are going to compare the results between 16GB and 26GB of memory to see what changed, separately for 4 and 8 cores, then we look at jumping from 4 to 8 cores at 26GB of memory.

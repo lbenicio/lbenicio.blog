@@ -8,38 +8,6 @@ categories: graphs
 
 Graphs are an essential concept in computer science, used in various fields such as network routing, social network analysis, and image segmentation. One of the significant challenges in graph theory is finding the most efficient way to traverse the graph. The Minimal Spamming Tree (MST) is a widely-used technique that helps to determine the most optimal path between the nodes in a graph. MST is a subset of edges that connect all nodes in a weighted graph with the smallest possible total edge weight. In this paper, we will explore MSTs in graphs, their various applications, and algorithms to compute them.
 
-# Sections
-
-1. [Basic concepts of MST](#basic-concepts-of-mst)
-
-1. [Kruskal's algorithm](#kruskals-algorithm)
-
-1. [Applications of MST](#applications-of-mst)
-
-1. [Minimal Spanning Tree in Cluster Analysis](#minimal-spanning-tree-in-cluster-analysis)
-
-1. [Image Segmentation using Minimal Spanning Tree](#image-segmentation-=using-minimal-spanning-tree)
-
-1. [Maximum Spanning Tree](#maximum-spanning-tree)
-
-1. [Randomized algorithms for MST](#randomized-algorithms-for-mst)
-
-1. [Distributed algorithms for MST](#distributed-algorithms-for-mst)
-
-1. [Parallel algorithms for MST](#parallel-algorithms-for-mst)
-
-1. [Approximation algorithms for MST](#approximation-algorithms-for-mst)
-
-1. [Spanning tree games](#spanning-tree-games)
-
-1. [Weighted spanning tree games](#weighted-spanning-tree-games)
-
-1. [Influence maximization using MST](#influence-maximization-using-mst)
-
-1. [Steiner tree problem](#steiner-tree-problem)
-
-2. [Conclusion](#conclusion)
-
 ## Basic concepts of MST
 
 A Minimum Spanning Tree (MST) is a tree that connects all the nodes in a graph, and the total sum of edge weights is minimized. The MST is an essential concept in graph theory, and it has applications in various fields such as network routing, social network analysis, and image segmentation. The Kruskal's and Prim's algorithms are two of the most widely used algorithms to compute MSTs.

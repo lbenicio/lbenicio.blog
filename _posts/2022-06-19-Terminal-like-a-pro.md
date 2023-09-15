@@ -10,23 +10,6 @@ It is my first post, or, in programming language, it means, a hello world post. 
 
 ![Tutorial's final terminal view](/assets/imgs/terminalView.png){:class="img-fluid"}
 
-# Sections
-
-1. [Install Iterm2](#install-iterm2)
-
-2. [Install Oh-my-zsh](#install-oh-my-zsh)
-
-2. [Install PowerLevel9k theme](#install-powerlevel9k-theme)
-
-3. [Install Nerd Fonts](#install-nerd-fonts)
-
-4. [Install plugins](#install-plugins)
-
-5. [Tweak zshrc file](#tweak-zshrc-file)
-
-6. [Conclusion](#conclusion)
-
-
 ## Install Iterm2
 
 **This section is only intended for macOS users, so if you are using any Linux distro, you can skip ahead to the next section safely.**

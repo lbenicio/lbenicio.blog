@@ -15,23 +15,6 @@ In the second section we delve into a slightly more in-depth discussion of two a
 Leakage of web applications due to their state transitions where they use the fact that modern systems are based on the web and depend on the communication between the client and the server to transition between the different states of the application, thus allowing an attacker to use the various transitions of states to guess the current state of the application and its data.
 
 We also discussed another attack method where the hacker uses a spy process running on a certain core to discover the encryption key used by a third process that is running on a different core, thus allowing spy processes on a virtual machine of a " stack" from a cloud provider can access some sensitive data from another virtual machine. Remembering that the process is possible in any encryption algorithm that is symmetric, as well as AES.
-
-# Sections
-
-1. [What is a side channel attack](#what-is-a-side-channel-attack)
-
-2. [Scope of attacks](#scope-of-attacks)
-
-3. [Attack classes](#attack-classes)
-
-4. [Types of Attacks](#types-of-attacks)
-
-5. [How to infer sensitive data](#how-to-infer-sensitive-data)
-
-6. [Prevention](#prevention)
-
-7. [Conclusion](#conclusion)
-
 # Introduction
 
 ## What is a side channel attack

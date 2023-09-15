@@ -8,18 +8,6 @@ categories:
 
 Machine learning has become one of the most important fields of study in computer science, and it has led to breakthroughs in various fields such as natural language processing, computer vision, and robotics. However, to fully understand the current state of machine learning, it is essential to go back to the early days of the field and explore the foundations upon which it was built. One of the earliest and most influential machine learning models is the perceptron, which was introduced in the 1950s by Frank Rosenblatt. In this paper, we will explore the history and principles behind the perceptron and how it helped pave the way for modern machine learning models.
 
-# Sections
-
-1. [Perceptron History](#perceptron-history)
-
-2. [Perceptron Working](#perceptron=-working)
-
-3. [Perceptron Training](#perceptron-training)
-
-4. [Perceptron Limitations](#perceptron-limitations)
-
-5. [Conclusion](#conclusion)
-
 ## Perceptron History
 
 The perceptron was first introduced in 1957 by Frank Rosenblatt, who was a researcher at the Cornell Aeronautical Laboratory. At the time, researchers were exploring how to build artificial intelligence and perceptron was one of the earliest attempts to create a machine that could learn from data. Rosenblatt was inspired by the work of Warren McCulloch and Walter Pitts, who proposed a mathematical model of neurons in the brain. The perceptron was essentially a simplified version of this model that was designed to classify data into two categories based on a set of input features.

@@ -8,30 +8,6 @@ categories: discussion programming evolution abstraction
 
 Programming languages have come a long way since the first high-level language was introduced in the 1950s. With the advent of technology, programming languages have been evolving and getting more abstract with time. The development of programming languages has been driven by the need for efficiency, speed, and ease of use. In this paper, we explore the reasons why programming languages are getting more abstract and how this evolution is affecting the programming world.
 
-# Sections
-
-1. [Abstraction and its Importance](#abstraction-and-its-importance)
-
-2. [Improved Productivity](#improved-productivity)
-
-3. [Ease of Use](#ease of Use)
-
-4. [Portability](#portability)
-
-5. [Scalability](#scalability)
-
-6. [Domain-Specific Languages (DSLs)](#domain-specific-languages-dsls)
-
-7. [The Rise of Artificial Intelligence (AI)](#the-rise-of-artificial-intelligence-ai)
-
-8. [Functional Programming](#functional-programming)
-
-9. [Declarative Programming](#declarative-programming)
-
-10. [The Rise of Low-Code Platforms](#the-rise-of-low-code-platforms)
-
-11. [Conclusion](#conclusion)
-
 ## Abstraction and its Importance
 
 Abstraction refers to the ability of a programming language to hide the details of a complex system and provide a simplified interface for developers to work with. This feature is essential in programming languages because it allows developers to focus on the main aspects of a system, rather than worrying about low-level details. As systems get more complex, the need for abstraction becomes more apparent.

@@ -8,10 +8,6 @@ categories: discussion
 
 Finally, our season of soft topics is ending. This is our last topic, and it is Open Government.
 
-1. [Open Government](#open-government)
-
-2. [Conclusion](#conclusion)
-
 # Open Government
 
 The main idea behind the open government theme is transparency. The ideal of an open government talks about the opening of information and activities of the state, in a free, accessible, understandable way and that meets the basic standard of open data. Technology, the internet, the different devices are helping this task by reducing the bridge between state institutions and citizens, whether through data dissemination portals or opinion polls between different applications.

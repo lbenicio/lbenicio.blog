@@ -7,13 +7,6 @@ categories: tutorial
 ---
 
 Next.js is a popular framework for building server-rendered React applications. It is easy to get started with and offers a number of features that make it a great choice for building web applications, including automatic code splitting, optimized performance, and easy integration with other tools and libraries.
-
-# Sections
-
-1. [Developing with NextJS](#developing-with-nextjs)
-
-2. [Conclusion](#conclusion)
-
 ## Developing with NextJS
 
 One way to start developing an application using Next.js is to use Docker and Docker Compose. Docker allows you to run your application in a containerized environment, which makes it easy to deploy and manage. Docker Compose is a tool for defining and running multi-container Docker applications, which makes it easy to manage multiple containers as a single application.

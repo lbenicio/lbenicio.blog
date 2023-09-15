@@ -8,10 +8,6 @@ categories: discussion
 
 On last season we were talking about different topic than usual hard skills. Let us talk now about Digital Government.
 
-1. [Digital Government](#digital-government)
-
-2. [Conclusion](#conclusion)
-
 # Digital Government
 
 The digital transformation in governments talks about the use of technology to increase the engagement of the population in matters of a state nature. This can be achieved, for example, through digital platforms and systems to make data available to the population, hold referendums to find out the opinion of the population on a particular subject, or even to send suggestions. for state projects. Speaking of the digital transformation of a government, we are talking about the government as a platform. This digital government is based on six guidelines, which are based on proactive, user-driven, data-driven, digital by definition and, of course, open source for the population.

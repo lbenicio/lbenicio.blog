@@ -8,14 +8,6 @@ categories: analysis
 
 Continuing our post series about rails app performance. This week we are going to focus on varying the amount of memory of our simulated cluster.
 
-# Sections
-
-1. [8 cores and 16000MB RAM](#8-cores-and-16000mb-ram)
-
-2. [8 cores and 26000MB RAM](#8-cores-and-26000mb-ram)
-
-3. [Conclusion](#conclusion)
-
 # 8 cores and 16000MB RAM
 
 We are investigating the cluster performance focusing on process power only (amount of cores of the cluster), but we were limited to 8291MB of RAM. What if we increase the cluster memory? We will check out what happens when we increase the cluster memory to 16384MB and 25000MB. It is wise to remember that the server on which we perform these tests only has 26624MB RAM, so we will leave 6000MB for the OS to handle our tests without page faults, causing it to slow down its performance.

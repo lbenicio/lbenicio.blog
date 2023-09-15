@@ -8,12 +8,6 @@ categories: analysis
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis.
 
-# Sections
-
-1. [Final Analysis Considerations - Part 1](#final-analysis-considerations-part-1)
-
-2. [Conclusion](#conclusion)
-
 # Final Analysis Considerations - Part 1
 
 We have already concluded all our experiments and wet extensively thought all of them. The raw data and the Jupyter notebook, which produce these experiments, are available to download in the appendix A. To organize the ideas behind this study and what we have accomplished so far, we will recapitulate the most important parts and how they correlate to each other.

@@ -10,13 +10,6 @@ The JavaScript Map is a collection of keyed data items, just like an Object. But
 
 The JavaScript forEach method is used to execute a function on each element in an array. It is a higher-order function, meaning it takes a function as an argument and returns a new function.
 
-
-# Sections
-
-1. [JavaScript map and common practices](#javaScript-map-and-common-practices)
-
-2. [Conclusion](#conclusion)
-
 ## JavaScript map and common practices
 
 Map objects are simple key-value pairs, and these can be iterated in the order of insertion. This makes the Map object ideal for when you need to associate values with keys and maintain an order. In addition, the Map object provides methods to manipulate these key-value pairs.

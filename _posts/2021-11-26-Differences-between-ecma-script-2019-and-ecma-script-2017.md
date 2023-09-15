@@ -8,12 +8,6 @@ categories: discussion
 
 ECMAScript is the standardized scripting language that underlies JavaScript, one of the most popular programming languages in use today. ECMAScript is developed and maintained by the European Computer Manufacturers Association (ECMA) and is designed to provide a standardized, cross-platform language for scripting applications.
 
-# Sections
-
-1. [Differences between ecma script 2019 and ecma script 2017](#differences-between-ecma-script-2019-and-ecma-script-2017)
-
-2. [Conclusion](#conclusion)
-
 ## Differences between ecma script 2019 and ecma script 2017
 
 ECMAScript 2017, also known as ECMAScript 8, was released in June 2017 and brought several new features and improvements to the language. One of the key new features in ECMAScript 2017 was the addition of async and await, which provide a way to write asynchronous code in a more readable and manageable way. With async and await, developers can write asynchronous code that looks like synchronous code, making it easier to understand and debug.

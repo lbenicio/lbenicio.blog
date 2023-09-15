@@ -8,12 +8,6 @@ categories: licences
 
 Open source software is a type of software that is made available to the public with a license that allows users to use, modify, and distribute the source code. This is in contrast to closed source software, which is proprietary software that is kept confidential and is only available for use under license. Free software, on the other hand, refers to software that is both open source and freely available for use, without any restrictions or fees.
 
-# Sections
-
-1. [The different licenses of software](#the-different-licenses-of-software)
-
-2. [Conclusion](#conclusion)
-
 ## The different licenses of software
 
 Open source software has become increasingly popular in recent years, as more and more individuals and organizations have come to appreciate the benefits of using freely available and easily customizable software. The open source model encourages collaboration and innovation, and has been credited with driving the growth of many important technologies and platforms, including the internet itself.

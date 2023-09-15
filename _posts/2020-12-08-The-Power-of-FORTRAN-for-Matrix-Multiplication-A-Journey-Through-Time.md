@@ -10,16 +10,6 @@ When it comes to scientific computing, one programming language stands out from 
 
 In this paper, we will explore the history and development of FORTRAN, its strengths in matrix multiplication, and why it is still relevant in today's world of high-performance computing. We will also discuss some of the criticisms that FORTRAN has faced over the years, and how the language has evolved to overcome these challenges.
 
-# Sections
-
-1. [The History of FORTRAN](#The-hjistory-of-fortran)
-
-1. [The Strengths of FORTRAN in Matrix Multiplication](#the-strengths-of-fortran-in-matrix-multiplication)
-
-1. [The Relevance of FORTRAN in Today's World of High-Performance Computing](#the-relevance-of-fortran-in-todays-world-of-high-performance-computing)
-
-2. [Conclusion](#conclusion)
-
 ## The History of FORTRAN
 
 FORTRAN, short for "FORmula TRANslator," was created in the 1950s by a team of programmers at IBM led by John Backus. At the time, programming was a tedious and time-consuming process, and Backus and his team saw an opportunity to streamline the process for scientists and engineers who needed to perform complex numerical calculations.

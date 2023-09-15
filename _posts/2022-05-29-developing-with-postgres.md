@@ -7,13 +7,6 @@ categories: tutorial
 ---
 
 PostgreSQL, also known as Postgres, is a powerful and feature-rich open-source relational database management system. It is a popular choice for many developers and organizations, thanks to its robust set of features and excellent performance.
-
-# Sections
-
-1. [Developing with Postgres](#developing-with-postgres)
-
-2. [Conclusion](#conclusion)
-
 ## Developing with Postgres
 
 If you're new to Postgres, one of the easiest ways to get started is by using Docker and Docker Compose. Docker allows you to run applications in containers, which are lightweight and portable environments that include everything the application needs to run. Docker Compose is a tool for defining and running multi-container Docker applications.

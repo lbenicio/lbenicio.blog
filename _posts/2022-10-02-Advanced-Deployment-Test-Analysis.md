@@ -8,12 +8,6 @@ categories: analysis
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis.
 
-# Sections
-
-1. [Tests analysis](#tests-analysis)
-
-2. [Conclusion](#conclusion)
-
 # Tests analysis
 
 Comparing box plot 7.43 a and 7.22, referring for percentile 50% of the requests, we see the same behavior and the same mean response time interval. Figures 7.43 b and 7.23 as on box plot for 50% show the exact time interval and outliers groups. As the reader might already expect, the same behavior happens when we are talking about 95% of the requests on plots 7.43 c and 7.2499 on plots 7.43 d and 7.25.

@@ -7,13 +7,6 @@ categories: agile
 ---
 
 Extreme Programming (XP) is a software development methodology that emphasizes the importance of communication, simplicity, and feedback in the development process. The goal of XP is to produce high-quality software that meets the needs of the customer in a timely and efficient manner.
-
-# Sections
-
-1. [Being agile](#being-agile)
-
-2. [Conclusion](#conclusion)
-
 ## Being agile
 
 One of the key principles of XP is communication. XP emphasizes the importance of constant communication between team members, including developers, customers, and stakeholders. This helps to ensure that all parties are on the same page and that the software being developed meets the needs of the customer.

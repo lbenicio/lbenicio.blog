@@ -7,13 +7,6 @@ categories: analysis
 ---
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis.
-
-# Sections
-
-1. [Exploratory analysis](#exploratory`-analysis)
-
-2. [Conclusion](#conclusion)
-
 # Exploratory analysis
 
 ## 2 cores and 8000MB RAM

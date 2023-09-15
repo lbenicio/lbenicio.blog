@@ -8,18 +8,6 @@ categories: tutorial
 
 Google Cloud Platform (GCP) offers a wide range of tools and services that can be used to deploy web applications. The platform provides flexibility and scalability, making it a popular choice for developers. In this post, we will discuss all the ways you can deploy a web application on GCP, including Compute Engine, Kubernetes Engine, App Engine, and Cloud Run.
 
-# Sections
-
-1. [Compute Engine](#compute-engine)
-
-2. [Kubernetes Engine](#kubernetes-engine)
-
-3. [App Engine](#app-engine)
-
-4. [Cloud Run](#cloud-run)
-
-2. [Conclusion](#conclusion)
-
 ## Compute Engine
 
 Compute Engine is a virtual machine (VM) that allows you to deploy and run your own applications on GCP. It provides complete control over the VM, including the operating system and installed software. Compute Engine is a popular choice for developers who want to run their own custom software or who have specific hardware requirements.

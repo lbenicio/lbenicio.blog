@@ -8,26 +8,6 @@ categories: tutorial fortran programing language
 
 Fortran, short for "Formula Translation", is a high-level programming language that has been widely used in scientific computing for over six decades. One of the key advantages of Fortran is its ability to efficiently handle numerical computations, particularly matrix multiplication. In this article, we will discuss the advantages of Fortran in matrix multiplication and explore how it has been used in scientific computing.
 
-# Sections
-
-1. [History of Fortran](#history-of-fortran)
-
-2. [Fortran's Efficiency](#fortran-Efficiency)
-
-3. [Fortran's Use of Memory](#fortran-use-of-memory)
-
-4. [Fortran and High-Performance Computing](#fortran-and-high-performance-computing)
-
-5. [Fortran's Legacy](#fortran-legacy)
-
-6. [Fortran and Linear Algebra](#fortran-and-Linear-algebra)
-
-7. [Fortran and Machine Learning](#fortran-and-Machine-learning)
-
-8. [Fortran and Signal Processing](#fortran-and-Signal-processing)
-
-9. [Conclusion](#conclusion)
-
 # History of Fortran
 
 Fortran was developed in the 1950s by IBM for scientific computing. It was the first high-level programming language designed specifically for scientific computing and was quickly adopted by researchers and scientists around the world.

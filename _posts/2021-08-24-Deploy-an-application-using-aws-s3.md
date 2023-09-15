@@ -8,12 +8,6 @@ categories: deployment
 
 AWS S3 (Simple Storage Service) is a scalable and reliable object storage service that makes it easy to host and serve static websites. In this blog post, we will learn how to deploy a static website using AWS S3.
 
-# Sections
-
-1. [Deploy and application using AWS S3](#deploy-an-application-using-aws-s3)
-
-2. [Conclusion](#conclusion)
-
 ## Deploy and application using AWS S3
 
 To deploy a static website using AWS S3, you will need to have an AWS account, a basic understanding of AWS S3, and the content of your website.

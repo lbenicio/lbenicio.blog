@@ -7,13 +7,6 @@ categories:
 ---
 
 The Android root ecosystem refers to the community of users and developers who have gained access to the root of the Android operating system. This allows them to modify the system in ways that are not possible with a stock Android installation, including installing custom ROMs, custom kernels, and other modifications. This ecosystem is often compared to the jailbreaking community on iOS, as both communities involve users who are looking to gain more control over their devices and customize them in ways that are not possible with a stock installation.
-
-# Sections
-
-1. [Android root and jailbreaking ios](#android-root-and-jailbreaking-ios)
-
-2. [Conclusion](#conclusion)
-
 ## Android root and jailbreaking ios
 
 The Android root ecosystem is made up of a variety of different components. The first and most important component is the root access itself. This is the ability to gain access to the root of the Android operating system, which allows users to modify the system in ways that are not possible with a stock installation. This is typically achieved by exploiting a vulnerability in the system, such as a flaw in the Android kernel, or by using a tool such as SuperSU.

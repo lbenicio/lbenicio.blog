@@ -8,12 +8,6 @@ categories: discussion
 
 As a hobby developer, you may have considered building small applications for personal use or as a way to learn new technologies. One approach that is becoming increasingly popular for small projects is serverless architecture.
 
-# Sections
-
-1. [What is better serverless of classic](#what-is-better-serverless-of-classic)
-
-2. [Conclusion](#conclusion)
-
 ## What is better serverless of classic
 
 Serverless architecture refers to a way of building and running applications and services without having to worry about infrastructure. Instead of managing servers or infrastructure, you can simply write and deploy your code and let the cloud provider handle the rest.

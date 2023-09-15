@@ -8,12 +8,6 @@ categories: discussion
 
 Open source solutions are software programs that are freely available for anyone to use, modify, and distribute. This is in contrast to closed source solutions, which are proprietary and only available to those who have paid for a license.
 
-# Sections
-
-1. [Why open source is better](#why-open-source-is-better)
-
-2. [Conclusion](#conclusion)
-
 ## Why open source is better
 
 One of the main advantages of open source solutions is that they are often less expensive than closed source solutions. This is because open source solutions are typically free to use and distribute, while closed source solutions require a license fee. This can be particularly beneficial for small businesses and individuals who may not have the budget for expensive proprietary software.

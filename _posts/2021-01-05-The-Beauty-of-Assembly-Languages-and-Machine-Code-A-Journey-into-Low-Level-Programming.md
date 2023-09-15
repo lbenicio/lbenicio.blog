@@ -8,16 +8,6 @@ categories: programming assembly machine code discussion
 
 As computer scientists, we are all familiar with high-level programming languages such as Python, Java, and C++, but how often do we think about the low-level languages that run beneath them? Assembly languages and machine code are the fundamental building blocks of every computer program, yet they are often overlooked and misunderstood. In this paper, we will delve into the world of low-level programming, exploring the beauty and intricacies of assembly languages and machine code.
 
-# Sections
-
-1. [The Basics of Assembly Language](#the-basics-of-assembly-language)
-
-2. [The Beauty of Machine Code](#the-beauty-of-machine-code)
-
-3. [Challenges of Low-Level Programming](#challenges-of-low-level-programming)
-
-4. [Conclusion](#conclusion)
-
 ## The Basics of Assembly Language
 
 Assembly language is a low-level programming language that is used to communicate with a computer's processor. Unlike high-level languages, which are designed to be human-readable, assembly language is comprised of simple, one-to-one mappings between machine instructions and human-readable mnemonics. For example, the instruction "mov eax, 10" in x86 assembly language moves the value 10 into the EAX register. The syntax of assembly language is simple, yet elegant, with a focus on brevity and efficiency.

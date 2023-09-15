@@ -8,12 +8,6 @@ categories: discussion
 
 Hi folks, today we are going to have a different post. We are going to talk about Internet and LGPD.
 
-# Sections
-
-1. [Internet and LGPD](#internet-and-lgpd)
-
-2. [Conclusion](#conclusion)
-
 # Internet and LGPD
 
 The internet emerged 50 years ago and with it a new world emerged, people treated it almost like a separate planet as if the laws didn't apply. You could do what you want and how you want, and many people fall into the false fallacy that it must be a free land. But here we encounter a first problem. If the internet is a free and unregulated place, like all the rest of the society in which we live, the companies that sell this product also have the freedom that the user and this is where the traps live.

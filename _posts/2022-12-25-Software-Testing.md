@@ -8,20 +8,6 @@ categories: testing
 
 Software testing is an important aspect of the software development process, as it helps to ensure that a piece of software is working correctly and meets the requirements set out in the design phase. There are several different types of tests that can be performed on software, each with its own specific purpose and focus.
 
-
-# Sections
-
-1. [Unit tests](#unit-tests)
-
-2. [End-to-end tests](#end-to-end-tests)
-
-3. [Integration tests](#integration-tests)
-
-4. [Other types of tests](#other-types-of-tests)
-
-5. [Conclusion](#conclusion)
-
-
 # Unit tests
 
 Unit tests are a type of test that focus on individual units or components of a software application. These tests are typically automated and are designed to test the functionality of a specific unit or component in isolation from the rest of the application. Unit tests are typically used to validate the correctness of the code within a unit and to ensure that it is working as intended.

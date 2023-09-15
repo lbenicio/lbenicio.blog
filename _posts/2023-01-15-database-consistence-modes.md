@@ -8,12 +8,6 @@ categories: discussion
 
 In a database, data consistency refers to the accuracy and integrity of data. It is important to maintain data consistency in order to ensure that the data in the database is correct and reliable. There are several different models for maintaining data consistency in a database, including the following:
 
-# Sections
-
-1. [Database Consistence Modes](#database-consistence-modes)
-
-2. [Conclusion](#conclusion)
-
 ## Database Consistence Modes
 
 1. Strong consistency: This model ensures that all transactions see the latest version of data, and that all transactions are executed in the order that they were committed. This model provides the highest level of data consistency, but can also have the highest overhead and latency.

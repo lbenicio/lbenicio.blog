@@ -8,12 +8,6 @@ categories: discussion
 
 Today we are going to have a different post again. We are going to talk about Algorithmic Discrimination.
 
-# Sections
-
-1. [Algorithmic Discrimination](#algorithmic-discrimination)
-
-2. [Conclusion](#conclusion)
-
 # Algorithmic Discrimination
 
 The best way to start a discussion of algorithmic discrimination is to define what an algorithm is and what is bias. Cormen defines algorithm, informally, as being “a well-defined computational procedure that takes some value or set of values as input and produces some value or set of values as output.”* And, by the very etymology of the word, we can deduce an informal concept for prejudice, that here we will use the fact of inferring properties to someone or something based on a set of pre-defined values. A worst case example, as Cormen uses to analyze algorithms, the “O” notation, extrapolating the concept to social problems, would be, in World War II Germany there were many Nazis, now infer that every German was Nazi because the supposed majority of Germans were Nazis is a form of prejudice.

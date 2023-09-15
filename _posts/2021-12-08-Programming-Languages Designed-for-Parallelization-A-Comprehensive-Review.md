@@ -7,27 +7,6 @@ categories: parallelism discussion programming languages
 ---
 
 The era of parallel computing has arrived, and programming languages that support parallelization are becoming increasingly important. With the rise of multi-core processors and distributed computing, the need for languages that can take advantage of parallel architectures is greater than ever. In this paper, we will explore some of the most popular programming languages that are designed to support parallelism, including their strengths and weaknesses.
-
-# Sections
-
-1. [Cilk](#cilk)
-
-1. [OpenMP](#openmp)
-
-1. [MPI](#mpi)
-
-1. [Erlang](#erlang)
-
-1. [Julia](#julia)
-
-1. [Chapel](#chapel)
-
-1. [Rust](#rust)
-
-1. [Swift](#swift)
-
-2. [Conclusion](#conclusion)
-
 ## Cilk
 
 Cilk is a C-based language that supports data and task parallelism. It provides a set of extensions that enable the programmer to express parallelism more easily. The language uses a work-stealing scheduler to distribute tasks among the available threads. The programmer can also specify the number of threads to be used explicitly. Cilk supports nested parallelism and has been used in a variety of applications, including scientific computing, data analytics, and machine learning.

@@ -10,18 +10,6 @@ The advent of CUDA technology has revolutionized the way we approach high-perfor
 
 In this paper, we will explore the cases where using CUDA can significantly improve program performance, making it a valuable tool in a developer's toolkit. We will begin by providing a brief overview of CUDA technology before delving into the specific use cases. Finally, we will conclude with a discussion on the benefits of using CUDA and its potential for future applications.
 
-# Sections
-
-1. [Scientific Computing](#scientific-computing)
-
-1. [Machine Learning](#machine-learning)
-
-1. [Video Processing](#video-processing)
-
-1. [Financial Modeling](#financial-modeling)
-
-2. [Conclusion](#conclusion)
-
 ## Scientific Computing
 
 CUDA is an excellent choice for scientific computing applications. It can greatly accelerate complex mathematical calculations by utilizing the massive parallel processing capabilities of GPUs. For example, Monte Carlo simulations, numerical simulations, and matrix computations can be performed faster and with greater accuracy using CUDA.

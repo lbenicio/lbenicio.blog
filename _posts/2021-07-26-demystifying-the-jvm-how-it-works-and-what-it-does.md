@@ -8,16 +8,6 @@ categories:
 
 The Java Virtual Machine (JVM) is an essential component of the Java platform. It is responsible for executing Java bytecode, which allows Java programs to run on any platform that supports the JVM. Despite its importance, many developers are not familiar with how the JVM works and what it does. In this post, we will discuss the JVM in detail, including its architecture, memory model, and garbage collection.
 
-# Sections
-
-1. [Architecture](#architecture)
-
-2. [Memory Model](#memory-model)
-
-3. [garbage-collection](#garbage-collection)
-
-4. [Conclusion](#conclusion)
-
 ## Architecture
 
 The JVM is a virtual machine that runs on top of the underlying operating system. It provides a layer of abstraction between the Java code and the hardware, allowing Java programs to be platform-independent. The JVM consists of three main components: the class loader, the runtime data area, and the execution engine.

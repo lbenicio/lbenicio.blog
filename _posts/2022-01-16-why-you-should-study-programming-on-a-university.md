@@ -8,12 +8,6 @@ categories: discussion
 
 A professional programmer who has graduated from a university and someone who has taught themselves programming online both possess unique skills and experiences that make them valuable in the field of software development. However, there are distinct differences between the two that should be considered when evaluating their qualifications and abilities.
 
-# Sections
-
-1. [Why you should study programming on a university](#why-you-should-study-programming-on-a-university)
-
-2. [Conclusion](#conclusion)
-
 ## Why you should study programming on a university
 
 One of the main differences between a university-educated programmer and an online self-taught programmer is the depth and breadth of their knowledge. A university-educated programmer will have a comprehensive understanding of computer science principles and programming languages, as well as experience in applying this knowledge to real-world problems. An online self-taught programmer, on the other hand, may have a more limited understanding of these concepts and may have less experience in applying them to real-world scenarios.

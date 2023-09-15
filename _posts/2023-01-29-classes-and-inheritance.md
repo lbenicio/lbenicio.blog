@@ -8,12 +8,6 @@ categories: discussion
 
 Object-oriented programming (OOP) is a programming paradigm that is centered around the concept of "objects," which represent data and the functions that operate on that data. OOP languages, such as Java and Python, are designed to help developers build more organized, reusable, and scalable code.
 
-# Sections
-
-1. [Classes and Inheritance](#classes-and-inheritance)
-
-2. [Conclusion](#conclusion)
-
 ## Classes and Inheritance
 
 One of the key concepts in OOP is the class. A class is a blueprint for creating objects. It defines the properties (data) and behaviors (functions) that an object will have. For example, a "Dog" class might have properties like breed and age, and behaviors like barking and fetching.

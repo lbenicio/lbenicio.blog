@@ -8,34 +8,6 @@ categories: tutorial
 
 Parallel computing and concurrency have become essential in today's world of computing, where the processing of vast amounts of data is common. Julia is a high-level, dynamic programming language that is gaining popularity in the scientific computing community. It is known for its speed and performance, making it ideal for scientific computing tasks. In this article, we will explore the power of Julia in parallel computing and concurrency, its benefits, and its applications.
 
-# Sections
-
-1. [Julia for Parallel Computing](#julia-for-parallel-computing)
-
-2. [Distributed Computing](#distributed-computing)
-
-3. [Multi-Threading](#multi-threading)
-
-4. [Speed and Performance](#speed-and-performance)
-
-5. [Memory Management](#Memory-management)
-
-6. [Julia for Machine Learning](#julia-for-machine-learning)
-
-7. [Julia for Robotics](#julia-for-robotics)
-
-8. [Julia for Climate Modeling](#julia-for-Ccimate-modeling)
-
-9. [Julia for Computational Biology](#julia-for-computational-biology)
-
-10. [Julia for Finance](#julia-for-Finance)
-
-11. [Julia for High-Performance Computing](#julia-for-high-performance-computing)
-
-12. [Julia for Data Science](#julia-for-data-science)
-
-13. [Conclusion](#conclusion)
-
 # Julia for Parallel Computing
 
 Parallel computing refers to the use of multiple processors or computers to perform a computational task. Julia has built-in support for parallel computing, making it easy to write parallel algorithms. Julia's parallel computing is achieved using the Distributed Computing module.

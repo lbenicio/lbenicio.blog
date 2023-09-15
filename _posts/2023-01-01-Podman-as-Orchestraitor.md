@@ -8,16 +8,6 @@ categories: development
 
 Podman is an open source tool for managing containers and container images. It is an alternative to Docker and is designed to be more secure, efficient, and portable. As a container orchestrator, Podman provides an easy and efficient way to develop, test, and deploy software applications in containers.
 
-# Sections
-
-1. [Podman as Orchestraitor](#podman-as-orchestraitor)
-
-2. [Examples](#examples)
-
-3. [Comparing to Docker](#comparing-to-docker)
-
-4. [Conclusion](#conclusion)
-
 # Podman as Orchestraitor
 
 One of the main benefits of using Podman for software development is that it allows you to run containers without requiring a daemon. This means that you can run containers directly on your host system, without the need for an additional service to manage them. This can be particularly useful for developers who want to test their applications in a more realistic environment, as it allows them to run their containers in the same environment as their host system.

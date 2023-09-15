@@ -8,12 +8,6 @@ categories: java
 
 Java 8, which was released in 2014, is a major upgrade from Java 7 and offers many new features and improvements. In this essay, we will explore some of the key differences between Java 7 and Java 8, and why someone should study Java 8 instead of Java 7.
 
-# Sections
-
-1. [Differences between java 7 and java 8](#differences-between-java-7-and-java-8)
-
-2. [Conclusion](#conclusion)
-
 ## Differences between java 7 and java 8
 
 First and foremost, Java 8 introduced the concept of lambda expressions, which provide a way to write anonymous functions in a compact and readable form. Lambda expressions can be used to simplify complex code and make it more concise, making it easier to write, understand, and maintain.

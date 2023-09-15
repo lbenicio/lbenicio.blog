@@ -8,10 +8,6 @@ categories: discussion
 
 Follow our current trend, this week are discussing Intellectual Property.
 
-1. [Intellectual Property](#intellectual-property)
-
-2. [Conclusion](#conclusion)
-
 # Intellectual Property
 
 Intellectual Property, or IP, is a subject that is constantly present in the life of the professional who works in the production of software. If you use a platform to create your repository such as Gitlab, Github, Bitbucket, among others, they are already made available to the user, when creating the repository, add the software license. Every programmer has already reused something he found ready on the internet, and, in theory, he would have been aware of the license on the piece of software he is reusing. If it gives you the right to commercial use, if you have to open the code or if you can even copy it for use and it is not there exclusively for educational purposes.

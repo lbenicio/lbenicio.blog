@@ -8,30 +8,6 @@ categories: criptography history
 
 Cryptography is the practice of securing information by converting it into a code that can only be read by someone who has the key to decipher it. Cryptography has been used for centuries to protect sensitive information, from military secrets to financial transactions. In this article, we will explore the different cryptographic systems, their usage, advantages, and disadvantages, and how cryptography has evolved over the years.
 
-# Sections
-
-1. [Caesar Cipher](#caesar-cipher)
-
-2. [Substitution Cipher](#substitution-cipher)
-
-3. [Enigma Machine](#enigma-machine)
-
-4. [RSA](#rsa)
-
-5. [AES](#aes)
-
-6. [Quantum Cryptography](#quantum-cpyptography)
-
-7. [Advantages of Cryptography](#advantages-of-cryptography)
-
-8. [Disadvantages of Cryptography](#disadvantages-of-cryptography)
-
-9. [Evolution of Cryptography](#evolution-of-cryptography)
-
-10. [Future of Cryptography](#future-of-cryptography#)
-
-11. [Conclusion](#conclusion)
-
 # Caesar Cipher
 
 One of the earliest known cryptographic systems is the Caesar Cipher, which was used by Julius Caesar to communicate with his generals during military campaigns. The Caesar Cipher involves shifting each letter of the alphabet by a certain number of positions. While the Caesar Cipher is easy to implement, it is also easy to break and is not considered secure by modern standards.

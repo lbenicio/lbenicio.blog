@@ -7,17 +7,6 @@ categories: git continuous integration best practices
 ---
 
 As software development becomes increasingly collaborative, version control systems (VCS) like Git have become essential tools for managing code changes. One of the key features of Git is the pull request, which enables developers to propose changes to a codebase, request feedback, and merge those changes into the main branch. Pull requests are widely used in open-source projects, but they are also common in enterprise and smaller team settings. This paper will explain what pull requests are, how they work, and why they are important.
-
-# Sections
-
-1. [What is a pull request?](#what-is-a-pull-request)
-
-2. [How do pull requests work?](#how-do-pull-requests-work)
-
-3. [Why are pull requests important?](#why-are-pull-requests-important)
-
-4. [Conclusion](#conclusion)
-
 ## What is a pull request?
 
 In Git, a pull request is a request to merge changes from a branch into another branch, often the main branch of the codebase. The request is initiated by the developer who wants to merge their changes, and it typically includes a summary of the changes and a description of why they are necessary. The pull request is then reviewed by other developers, who can leave comments, suggest changes, and approve or reject the request. Once the pull request has been approved, the changes can be merged into the main branch.

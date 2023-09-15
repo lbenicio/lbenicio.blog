@@ -10,12 +10,6 @@ In today's digital age, data is king. From financial records to personal informa
 
 Cryptography is the science of writing and deciphering codes and ciphers. It involves the use of mathematical algorithms to secure communication between two parties by ensuring that information is kept confidential, authenticated, and tamper-proof. This paper aims to explore the importance of cryptography in modern communication and why it has become a vital aspect of cybersecurity.
 
-# Sections
-
-1. [Cryptography: The Art of Securing Information in the Digital Age](#Cryptography-the-art-of-securing-information-in-the-digital-age)
-
-2. [Conclusion](#conclusion)
-
 ## Cryptography: The Art of Securing Information in the Digital Age
 
 Confidentiality: One of the primary goals of cryptography is to ensure that data remains confidential. In order to achieve this, cryptographic techniques use encryption to transform data into a format that is unreadable by anyone except the intended recipient. The encryption process involves the use of an algorithm that converts plain text into a cipher text that can only be decoded using a key. This makes it extremely difficult for hackers or other unauthorized parties to access the data.

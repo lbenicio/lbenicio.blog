@@ -8,12 +8,6 @@ categories: theory
 
 The Linux kernel is the heart of the Linux operating system. It is the low-level software that controls the communication between the computer's hardware and the software that runs on top of it. The kernel is responsible for managing the system's resources, such as memory, processors, and storage devices, and providing a stable and secure environment for other software to run on.
 
-# Sections
-
-1. [What is the linux kernel and differences to userspace](#what-is-the-linux-kernel-and-differences-to-userspace)
-
-2. [Conclusion](#conclusion)
-
 ## What is the linux kernel and differences to userspace
 
 One of the main differences between the Linux kernel and user space is that the kernel runs in what is known as privileged mode, while user space runs in unprivileged mode. This means that the kernel has full access to the system's hardware and resources, while user space programs are restricted in what they can do and access.

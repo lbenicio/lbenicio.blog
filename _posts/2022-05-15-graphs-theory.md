@@ -8,12 +8,6 @@ categories: discussion
 
 A graph is a data structure that consists of a set of vertices (also known as nodes) and a set of edges connecting the vertices. Graphs are used to represent relationships between data, and are a powerful tool for many different types of problems.
 
-# Sections
-
-1. [Graphs Theory](#graphs-theory)
-
-2. [Conclusion](#conclusion)
-
 ## Graphs Theory
 
 There are several popular algorithms for working with graphs. One common type of algorithm is a graph traversal algorithm, which involves visiting each vertex in the graph. There are several different ways to traverse a graph, including breadth-first search (BFS) and depth-first search (DFS).

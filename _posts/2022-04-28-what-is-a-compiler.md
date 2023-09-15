@@ -8,12 +8,6 @@ categories: theory
 
 A compiler is a type of computer program that converts code written in a high-level programming language into machine code that can be executed by a computer. Essentially, it "compiles" the code into a form that the computer can understand and run.
 
-# Sections
-
-1. [What is a compiler](#what-is-a-compiler)
-
-2. [Conclusion](#conclusion)
-
 ## What is a compiler
 
 The process of compiling code can be broken down into several stages. The first stage is called lexical analysis, where the compiler breaks the code down into small, meaningful chunks called tokens. Next, the compiler performs syntax analysis, where it checks the code to ensure that it follows the rules of the programming language.

@@ -7,45 +7,6 @@ categories: security criptography rsa algorithm
 ---
 
 In today's digital age, secure communication is paramount. The RSA algorithm, named after its creators Ron Rivest, Adi Shamir, and Leonard Adleman, is one of the most widely used asymmetric encryption algorithms. The RSA algorithm is based on the mathematical principles of modular arithmetic and the difficulty of factoring large numbers. In this paper, we will discuss how the RSA algorithm works, its strengths, and limitations.
-
-# Sections
-
-1. [Modular Arithmetic](#modular-arithmetic)
-
-2. [Public Key Cryptography](#public-key-cryptography)
-
-3. [Key Generation](#key-generation)
-
-4. [Encryption](#encryption)
-
-5. [Decryption](#decryption)
-
-6. [Strengths of RSA Algorithm](#strengths-of-rsa-algorithm)
-
-7. [Limitations of RSA Algorithm](#limitations-of-rsa-algorithm)
-
-8. [Padding Schemes](#padding-schemes)
-
-9. [Optimal Asymmetric Encryption Padding (OAEP)](#optimal-asymmetric-encryption-padding-oaep)
-
-10. [Key Management](#key-management)
-
-11. [Digital Certificates](#digital-certificates)
-
-12. [Digital Signatures](#digital-signatures)
-
-13. [RSA in Practice](#rsa-in-practice)
-
-14. [Comparison with Other Cryptographic Algorithms](#comparison-with-other-cryptographic-algorithms)
-
-15. [Diffie-Hellman Key Exchange Algorithm](#diffie-hellman-key-exchange-algorithm)
-
-16. [Elliptic Curve Cryptography (ECC)](#elliptic-curve-cryptography-ecc)
-
-17. [Advanced Encryption Standard (AES)](#advanced-encryption-standard-aes)
-
-18. [Conclusion](#conclusion)
-
 ## Modular Arithmetic
 
 Modular arithmetic is a type of arithmetic that involves integers and their remainders. It is a fundamental concept used in the RSA algorithm. Let's take an example, say we want to calculate 17 mod 5. This means we want to find the remainder when 17 is divided by 5. The answer is 2. The modulo operation returns the remainder after dividing the number by another number. In the RSA algorithm, modular arithmetic is used to generate public and private keys.

@@ -8,12 +8,6 @@ categories: network
 
 Load balancing is a critical aspect of modern computing infrastructure. The primary objective of load balancing is to distribute workloads across multiple resources to optimize resource utilization, increase reliability and minimize downtime. Load balancing enables organizations to scale their applications and services to meet the growing demands of their customers.
 
-# Sections
-
-1. [Application and network Load Balancers](#application-and-network-load-balancers)
-
-2. [Conclusion](#conclusion)
-
 ## Application and network Load Balancers
 
 A load balancer is a network device that distributes incoming network traffic across multiple servers or backend resources. Load balancing algorithms determine how incoming traffic is distributed across resources, depending on factors such as resource availability, current load and response time. By distributing incoming traffic, load balancers ensure that no single resource is overburdened, leading to improved application performance and reduced downtime.

@@ -8,12 +8,6 @@ categories: languages
 
 C and C++ are two popular programming languages that have been widely used for decades. Both languages have a rich history and are widely used for system programming, game development, and a wide range of other applications. Despite having many similarities, C and C++ also have some key differences that make them suitable for different kinds of programming tasks.
 
-# Sections
-
-1. [Differences between C and Cpp](#differences-between-c-and-cpp)
-
-2. [Conclusion](#conclusion)
-
 ## Differences between C and Cpp
 
 One of the main differences between C and C++ is their approach to object-oriented programming. C++ is an object-oriented language that supports classes, inheritance, and polymorphism, while C is a procedural language that does not have these features. This means that C++ is better suited for complex and large-scale software development projects, where objects can be used to encapsulate data and behavior into reusable components. C++ also provides support for templates, which can be used to write generic algorithms that can work with a wide range of data types.
