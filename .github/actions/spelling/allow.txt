@@ -1,3 +1,14 @@
+DNNs
+DQNs
+FCNs
+hyperparameters
+MDPs
+metaheuristics
+qubits
+RNNs
+subarrays
+SVMs
+timeframes
 ANNs
 anonymization
 anonymize
