@@ -76,8 +76,8 @@ social:
     - https://keybase.io/lbenicio_
 
 # Logo Data
-logo: /_assets/img/logo.png
-image: /_assets/img/logo.png
+logo: /assets/img/logo.png
+image: /assets/img/logo.png
 
 # Build settings
 permalink: pretty

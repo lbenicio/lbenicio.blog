@@ -13,7 +13,7 @@ pagination:
         <a class="text-dark post-link" href="{{ post.url }}">
         <span>{{ post.title }}</span>
         <br>
-        <small class="fs-10 d-flex justify-content-center">{{ post.date | date: "%-d %B %Y" }}</small>
+        <small class="d-flex justify-content-center">{{ post.date | date: "%-d %B %Y" }}</small>
         </a>
       </div>
     </li>
