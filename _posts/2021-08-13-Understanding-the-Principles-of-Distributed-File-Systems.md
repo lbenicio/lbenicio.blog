@@ -2,7 +2,7 @@
 layout: posts
 title: "Understanding the Principles of Distributed File Systems"
 icon: fa-comment-alt
-tag:   C t
+tag: 
 categories: Algorithms
 ---
 

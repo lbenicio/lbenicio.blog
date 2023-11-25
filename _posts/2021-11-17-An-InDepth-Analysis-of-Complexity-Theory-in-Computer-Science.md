@@ -2,7 +2,7 @@
 layout: posts
 title: "An InDepth Analysis of Complexity Theory in Computer Science"
 icon: fa-comment-alt
-tag: i C i
+tag:
 categories: ComputerArchitecture
 ---
 

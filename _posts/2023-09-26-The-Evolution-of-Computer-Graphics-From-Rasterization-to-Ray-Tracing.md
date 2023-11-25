@@ -2,7 +2,7 @@
 layout: posts
 title: "The Evolution of Computer Graphics: From Rasterization to Ray Tracing"
 icon: fa-comment-alt
-tag:     t
+tag:
 categories: DebuggingTips
 ---
 

@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Field of Robotics: From Industrial Automation to Humanoid Robots"
 icon: fa-comment-alt
-tag: r G t
+tag:
 categories: TechTrends
 ---
 

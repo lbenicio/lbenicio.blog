@@ -2,7 +2,7 @@
 layout: posts
 title: "An Overview of Quantum Error Correction: Ensuring Reliable Quantum Computing"
 icon: fa-comment-alt
-tag: a   i
+tag:
 categories: EthicalHacking
 ---
 

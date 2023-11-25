@@ -2,7 +2,7 @@
 layout: posts
 title: "The Importance of Data Structures in Algorithm Design"
 icon: fa-comment-alt
-tag:     t
+tag:
 categories: MobileDevelopment
 ---
 

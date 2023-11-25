@@ -2,7 +2,7 @@
 layout: posts
 title: "Investigating the Efficiency of Search Algorithms in Large Datasets"
 icon: fa-comment-alt
-tag:     t
+tag:
 categories: Blockchain
 ---
 

@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Depths of Neural Networks and Deep Learning"
 icon: fa-comment-alt
-tag:     C
+tag:
 categories: ArtificialIntelligence
 ---
 

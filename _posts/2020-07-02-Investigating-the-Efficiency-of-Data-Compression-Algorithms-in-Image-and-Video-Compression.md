@@ -2,7 +2,7 @@
 layout: posts
 title: "Investigating the Efficiency of Data Compression Algorithms in Image and Video Compression"
 icon: fa-comment-alt
-tag: c i n
+tag:
 categories: Algorithms
 ---
 

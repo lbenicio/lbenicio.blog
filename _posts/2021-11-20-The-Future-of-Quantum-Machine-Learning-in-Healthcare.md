@@ -2,7 +2,7 @@
 layout: posts
 title: "The Future of Quantum Machine Learning in Healthcare"
 icon: fa-comment-alt
-tag: t g i
+tag:
 categories: MobileDevelopment
 ---
 

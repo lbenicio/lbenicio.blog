@@ -2,7 +2,7 @@
 layout: posts
 title: "Advancements in Computer Vision and Object Recognition"
 icon: fa-comment-alt
-tag:   i  
+tag:
 categories: DebuggingTips
 ---
 

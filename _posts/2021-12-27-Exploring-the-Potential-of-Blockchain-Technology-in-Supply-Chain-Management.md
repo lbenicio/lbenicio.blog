@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Potential of Blockchain Technology in Supply Chain Management"
 icon: fa-comment-alt
-tag:     i
+tag:
 categories: OperatingSystems
 ---
 

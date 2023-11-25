@@ -2,7 +2,7 @@
 layout: posts
 title: "An Indepth Look at Sorting Algorithms: From Bubble to Quick"
 icon: fa-comment-alt
-tag: g t m
+tag:
 categories: Cybersecurity
 ---
 

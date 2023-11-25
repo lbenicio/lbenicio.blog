@@ -2,7 +2,7 @@
 layout: posts
 title: "TheImpactofQuantumComputingonCryptanalysis"
 icon: fa-comment-alt
-tag: C s t
+tag:
 categories: DataStructures
 ---
 

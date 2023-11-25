@@ -2,7 +2,7 @@
 layout: posts
 title: "The Power of Natural Language Processing in Sentiment Analysis"
 icon: fa-comment-alt
-tag: i    
+tag:
 categories: CodeReview
 ---
 

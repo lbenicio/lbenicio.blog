@@ -2,7 +2,7 @@
 layout: posts
 title: "A Comparative Analysis of Sorting Algorithms"
 icon: fa-comment-alt
-tag:     m
+tag:
 categories: Databases
 ---
 

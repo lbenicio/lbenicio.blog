@@ -2,7 +2,7 @@
 layout: posts
 title: "The Future of Cloud Computing: Edge Computing and IoT"
 icon: fa-comment-alt
-tag:   i  
+tag:
 categories: EthicalHacking
 ---
 

@@ -2,7 +2,7 @@
 layout: posts
 title: "Understanding the Principles of Distributed Systems"
 icon: fa-comment-alt
-tag:   r G
+tag:
 categories: MachineLearning
 ---
 

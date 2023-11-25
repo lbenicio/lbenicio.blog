@@ -2,7 +2,7 @@
 layout: posts
 title: "UnderstandingthePrinciplesofOperatingSystemsandTheirFunctionality"
 icon: fa-comment-alt
-tag: t C s
+tag:
 categories: IoT Internet of Things
 ---
 

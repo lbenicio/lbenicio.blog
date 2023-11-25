@@ -2,7 +2,7 @@
 layout: posts
 title: "Investigating the Principles of Image Recognition and Computer Vision"
 icon: fa-comment-alt
-tag: C   t
+tag:
 categories: MachineLearning
 ---
 

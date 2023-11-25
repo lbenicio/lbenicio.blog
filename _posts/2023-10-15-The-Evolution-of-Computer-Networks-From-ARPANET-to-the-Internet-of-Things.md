@@ -2,7 +2,7 @@
 layout: posts
 title: "The Evolution of Computer Networks: From ARPANET to the Internet of Things"
 icon: fa-comment-alt
-tag:   a  
+tag:
 categories: CodeQuality
 ---
 

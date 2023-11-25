@@ -2,7 +2,7 @@
 layout: posts
 title: "Analyzing the Efficiency of Matrix Multiplication Algorithms in HighPerformance Computing"
 icon: fa-comment-alt
-tag:   i  
+tag:
 categories: QuantumComputing
 ---
 

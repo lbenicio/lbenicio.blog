@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Potential of Quantum Computing in Cryptography"
 icon: fa-comment-alt
-tag: r s t
+tag:
 categories: Blockchain
 ---
 

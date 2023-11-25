@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Field of Computer Graphics and Rendering Techniques"
 icon: fa-comment-alt
-tag:     i
+tag:
 categories: ComputerVision
 ---
 

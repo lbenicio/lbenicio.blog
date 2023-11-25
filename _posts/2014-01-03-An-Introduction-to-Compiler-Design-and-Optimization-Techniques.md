@@ -2,7 +2,7 @@
 layout: posts
 title: "An Introduction to Compiler Design and Optimization Techniques"
 icon: fa-comment-alt
-tag: i    
+tag:  
 categories: Cryptography
 ---
 

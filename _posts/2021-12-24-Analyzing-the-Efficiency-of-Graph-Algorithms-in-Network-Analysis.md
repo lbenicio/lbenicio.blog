@@ -2,7 +2,7 @@
 layout: posts
 title: "Analyzing the Efficiency of Graph Algorithms in Network Analysis"
 icon: fa-comment-alt
-tag:   i  
+tag:
 categories: MobileDevelopment
 ---
 

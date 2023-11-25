@@ -2,7 +2,7 @@
 layout: posts
 title: "Understanding the Principles of Graph Databases in Social Network Analysis"
 icon: fa-comment-alt
-tag: t s  
+tag:
 categories: CloudComputing
 ---
 

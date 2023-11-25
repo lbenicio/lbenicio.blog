@@ -2,7 +2,7 @@
 layout: posts
 title: "Understanding the Principles of Deep Learning"
 icon: fa-comment-alt
-tag: i    
+tag:
 categories: DataStructures
 ---
 

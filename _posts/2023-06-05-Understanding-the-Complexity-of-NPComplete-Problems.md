@@ -2,7 +2,7 @@
 layout: posts
 title: "Understanding the Complexity of NPComplete Problems"
 icon: fa-comment-alt
-tag:   g m
+tag:
 categories: TechTrends
 ---
 

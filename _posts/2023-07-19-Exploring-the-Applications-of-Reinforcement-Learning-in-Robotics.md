@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Applications of Reinforcement Learning in Robotics"
 icon: fa-comment-alt
-tag: d n t
+tag:
 categories: ComputerArchitecture
 ---
 

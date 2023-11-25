@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Field of Robotics: Current Applications and Future Prospects"
 icon: fa-comment-alt
-tag: a    
+tag: 
 categories: SoftwareEngineering
 ---
 

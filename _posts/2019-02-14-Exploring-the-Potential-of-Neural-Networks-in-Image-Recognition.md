@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Potential of Neural Networks in Image Recognition"
 icon: fa-comment-alt
-tag: c a n
+tag:
 categories: Blockchain
 ---
 

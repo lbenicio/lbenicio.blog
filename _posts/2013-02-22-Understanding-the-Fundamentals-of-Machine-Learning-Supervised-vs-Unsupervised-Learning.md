@@ -2,7 +2,7 @@
 layout: posts
 title: "Understanding the Fundamentals of Machine Learning: Supervised vs Unsupervised Learning"
 icon: fa-comment-alt
-tag:   i  
+tag: 
 categories: ComputerGraphics
 ---
 

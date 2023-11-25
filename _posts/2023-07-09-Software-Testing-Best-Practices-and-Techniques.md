@@ -2,7 +2,7 @@
 layout: posts
 title: "Software Testing Best Practices and Techniques"
 icon: fa-comment-alt
-tag:   n  
+tag:
 categories: CloudComputing
 ---
 

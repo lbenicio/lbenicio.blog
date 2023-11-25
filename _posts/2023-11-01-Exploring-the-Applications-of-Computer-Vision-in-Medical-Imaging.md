@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Applications of Computer Vision in Medical Imaging"
 icon: fa-comment-alt
-tag: G r  
+tag:
 categories: DataStructures
 ---
 

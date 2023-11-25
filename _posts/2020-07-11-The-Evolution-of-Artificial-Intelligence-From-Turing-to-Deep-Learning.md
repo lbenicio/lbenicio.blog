@@ -2,7 +2,7 @@
 layout: posts
 title: "The Evolution of Artificial Intelligence: From Turing to Deep Learning"
 icon: fa-comment-alt
-tag: c n M
+tag:
 categories: EthicalHacking
 ---
 

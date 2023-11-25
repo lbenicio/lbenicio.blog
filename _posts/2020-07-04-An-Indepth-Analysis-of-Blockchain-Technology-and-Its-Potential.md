@@ -2,7 +2,7 @@
 layout: posts
 title: "An Indepth Analysis of Blockchain Technology and Its Potential"
 icon: fa-comment-alt
-tag: c M  
+tag:
 categories: Networking
 ---
 

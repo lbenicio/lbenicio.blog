@@ -2,7 +2,7 @@
 layout: posts
 title: "Understanding the Principles of Convolutional Neural Networks in Image Processing"
 icon: fa-comment-alt
-tag: i    
+tag:
 categories: SoftwareEngineering
 ---
 

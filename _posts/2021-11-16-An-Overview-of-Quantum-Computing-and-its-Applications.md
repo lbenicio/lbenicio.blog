@@ -2,7 +2,7 @@
 layout: posts
 title: "An Overview of Quantum Computing and its Applications"
 icon: fa-comment-alt
-tag:     i
+tag:
 categories: Databases
 ---
 

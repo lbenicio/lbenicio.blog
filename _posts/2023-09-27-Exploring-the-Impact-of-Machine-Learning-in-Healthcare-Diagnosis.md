@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Impact of Machine Learning in Healthcare Diagnosis"
 icon: fa-comment-alt
-tag:     t
+tag:
 categories: Bioinformatics
 ---
 

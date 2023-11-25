@@ -2,7 +2,7 @@
 layout: posts
 title: "Investigating the Efficiency of Pattern Recognition Algorithms in Biometrics"
 icon: fa-comment-alt
-tag: i    
+tag:
 categories: DebuggingTips
 ---
 

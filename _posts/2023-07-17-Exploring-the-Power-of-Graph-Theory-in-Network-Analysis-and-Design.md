@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Power of Graph Theory in Network Analysis and Design"
 icon: fa-comment-alt
-tag: t    
+tag:  
 categories: Programming
 ---
 

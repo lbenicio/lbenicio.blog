@@ -2,7 +2,7 @@
 layout: posts
 title: "The Evolution of Machine Learning Algorithms"
 icon: fa-comment-alt
-tag: r G  
+tag:
 categories: ComputerArchitecture
 ---
 

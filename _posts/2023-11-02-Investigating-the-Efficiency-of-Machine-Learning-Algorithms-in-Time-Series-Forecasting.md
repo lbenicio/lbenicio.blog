@@ -2,7 +2,7 @@
 layout: posts
 title: "Investigating the Efficiency of Machine Learning Algorithms in Time Series Forecasting"
 icon: fa-comment-alt
-tag: r   G
+tag:
 categories: SoftwareEngineering
 ---
 

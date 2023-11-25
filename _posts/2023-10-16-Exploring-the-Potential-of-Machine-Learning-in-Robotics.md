@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the Potential of Machine Learning in Robotics"
 icon: fa-comment-alt
-tag: u a e
+tag:
 categories: Programming
 ---
 

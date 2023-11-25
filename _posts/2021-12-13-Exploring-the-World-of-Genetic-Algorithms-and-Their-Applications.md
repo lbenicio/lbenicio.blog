@@ -2,7 +2,7 @@
 layout: posts
 title: "Exploring the World of Genetic Algorithms and Their Applications"
 icon: fa-comment-alt
-tag:     a
+tag:
 categories: DataStructures
 ---
 

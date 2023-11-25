@@ -2,7 +2,7 @@
 layout: posts
 title: "UnderstandingthePrinciplesofRecommenderSystems"
 icon: fa-comment-alt
-tag:   C t
+tag:
 categories: SoftwareEngineering
 ---
 

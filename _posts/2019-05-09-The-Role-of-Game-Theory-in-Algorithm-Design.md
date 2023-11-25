@@ -2,7 +2,7 @@
 layout: posts
 title: "The Role of Game Theory in Algorithm Design"
 icon: fa-comment-alt
-tag: a   n
+tag:
 categories: DebuggingTips
 ---
 
