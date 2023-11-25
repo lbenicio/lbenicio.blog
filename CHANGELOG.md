@@ -35,3 +35,10 @@ All notable changes to this project will be documented in this file.
 
 - fix ci
 - fix dependabot
+
+## v1.1.2
+
+### Changed
+
+- fix ci
+- fix dependabot
