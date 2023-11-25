@@ -54,3 +54,9 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - fix tags
+
+## v1.2.2
+
+### Changed
+
+- change url pattern

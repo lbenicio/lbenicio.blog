@@ -6,9 +6,9 @@ email: hello@lbenicio.dev
 tagline: Leonardo Benicio personal website.
 description: Leonardo Benicio personal blog.
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://blog.lbenicio.dev" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 default_url: "https://lbenicio.dev" # the base hostname & protocol for your site, e.g. http://example.com
-blog: "https://blog.lbenicio.dev"
+blog: ""
 twitter_username: lbenicio_
 keybase_username: lbenicio
 reddit_username: lbenicio
