@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "A Comprehensive Study of Sorting Algorithms: From Bubble Sort to Quick Sort"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # A Comprehensive Study of Sorting Algorithms: From Bubble Sort to Quick Sort

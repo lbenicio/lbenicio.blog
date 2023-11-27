@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Mathematical Foundations of Computer Science"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Exploring the Mathematical Foundations of Computer Science

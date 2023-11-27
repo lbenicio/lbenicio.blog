@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Role of Data Structures in Efficient Algorithm Design"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Understanding the Role of Data Structures in Efficient Algorithm Design

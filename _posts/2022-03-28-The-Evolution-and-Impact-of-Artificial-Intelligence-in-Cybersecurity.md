@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution and Impact of Artificial Intelligence in Cybersecurity"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # The Evolution and Impact of Artificial Intelligence in Cybersecurity

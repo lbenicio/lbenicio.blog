@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Reinforcement Learning in Game Theory"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Understanding the Principles of Reinforcement Learning in Game Theory

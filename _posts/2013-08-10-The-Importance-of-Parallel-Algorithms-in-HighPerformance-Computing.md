@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Parallel Algorithms in HighPerformance Computing"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # The Importance of Parallel Algorithms in High-Performance Computing

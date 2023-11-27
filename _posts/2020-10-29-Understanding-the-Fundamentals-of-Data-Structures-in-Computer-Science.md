@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Fundamentals of Data Structures in Computer Science"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Understanding the Fundamentals of Data Structures in Computer Science

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Virtual Reality and Augmented Reality in Gaming"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # The Future of Virtual Reality and Augmented Reality in Gaming

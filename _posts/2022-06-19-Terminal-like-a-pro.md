@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Terminal like a pro
 icon: fa-comment-alt
 tag: terminal, customization, theming, tutorial
 categories: tutorial
+toc: true
 ---
+
 
 It is my first post, or, in programming language, it means, a hello world post. So, let's talk about on how to tweak your terminal to make it look like the picture above. Let's dive in. To summarize, we need to tie together a couple of solutions, Nerd Fonts, Oh-My-ZSH, bash history, auto-completions, syntax highlight and interactive-cd plugins, powerlevel9k theme, and iTerm2 (for macOS users).
 
@@ -278,20 +281,4 @@ Move back to the color tab, still on Profile tab of the Settings panel.
 Here, modify the HTML codes for the as follows:
 
 |         | Normal | Bright |
-|---------|--------|--------|
-| Black   | 000000 | 676767 |
-| Red     | ff4a2d | ff6d67 |
-| Green   | 30fb30 | 5ff967 |
-| Yellow  | fefb34 | fefb67 |
-| Blue    | 506fff | 6871ff |
-| Magenta | ff3efc | ff76ff |
-| Cyan    | 30fcfe | 5ffdff |
-| White   | c7c7c7 | fffefe |
-
-## Conclusion
-
-That its folks! Thank you for following up until here, and if you have any question or just want to chat, send me a message on GitHub of this project or an email. Am I doing it right? Was it a good hello world post for the blogging community?
-
-[https://github.com/lbenicio/lbenicio.blog](https://github.com/lbenicio/lbenicio.blog)
-
-[hello@lbenicio.dev](mailto:hello@lbenicio.dev)
+|

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Artificial Intelligence in Financial Forecasting"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Investigating the Applications of Artificial Intelligence in Financial Forecasting

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Quantum Machine Learning in Solving Financial Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Exploring the Potential of Quantum Machine Learning in Solving Financial Optimization Problems

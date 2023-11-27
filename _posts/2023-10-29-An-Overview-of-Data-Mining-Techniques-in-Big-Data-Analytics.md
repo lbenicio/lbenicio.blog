@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Overview of Data Mining Techniques in Big Data Analytics"
 icon: fa-comment-alt
 tag:
 categories: Networking
+toc: true
 ---
+
 
 
 # An Overview of Data Mining Techniques in Big Data Analytics

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: ""
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 # Topic: Deep Learning Algorithms and their Applications in Modern Technology
 

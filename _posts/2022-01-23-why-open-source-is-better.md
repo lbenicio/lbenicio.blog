@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Why open source is better
 icon: fa-comment-alt
 tag: discussion "closed source" "open source" comparision
 categories: discussion
+toc: true
 ---
+
 
 Open source solutions are software programs that are freely available for anyone to use, modify, and distribute. This is in contrast to closed source solutions, which are proprietary and only available to those who have paid for a license.
 

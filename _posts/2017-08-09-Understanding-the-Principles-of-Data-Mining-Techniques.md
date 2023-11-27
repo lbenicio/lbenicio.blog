@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Data Mining Techniques"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Understanding the Principles of Data Mining Techniques

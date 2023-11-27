@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Overview of Quantum Computing"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # An Overview of Quantum Computing

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Fundamentals of Quantum Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Understanding the Fundamentals of Quantum Machine Learning

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Machine Learning in Natural Language Generation"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Exploring the Potential of Machine Learning in Natural Language Generation

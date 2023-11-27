@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "AnalyzingDatawithBigDataAnalyticsTechniques"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Analyzing Data with Big Data Analytics Techniques

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Optimization Algorithms for Resource Allocation Problems"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Optimization Algorithms for Resource Allocation Problems

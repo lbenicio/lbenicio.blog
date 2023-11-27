@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Artificial Intelligence: From Symbolic Logic to Deep Learning"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Evolution of Artificial Intelligence: From Symbolic Logic to Deep Learning

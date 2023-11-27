@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Internet of Things in Smart Cities"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # The Impact of Internet of Things in Smart Cities

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Artificial Intelligence in Autonomous Vehicles"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # The Role of Artificial Intelligence in Autonomous Vehicles

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Cloud Computing on Data Privacy and Security"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # The Impact of Cloud Computing on Data Privacy and Security

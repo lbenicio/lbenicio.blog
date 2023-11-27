@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Optimization Algorithms in Constraint Satisfaction Problems"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Optimization Algorithms in Constraint Satisfaction Problems

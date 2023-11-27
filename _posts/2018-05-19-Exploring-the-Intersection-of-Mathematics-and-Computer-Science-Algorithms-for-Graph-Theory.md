@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Intersection of Mathematics and Computer Science: Algorithms for Graph Theory"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Exploring the Intersection of Mathematics and Computer Science: Algorithms for Graph Theory

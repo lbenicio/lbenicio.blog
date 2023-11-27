@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Convex Optimization in Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # The Role of Convex Optimization in Machine Learning

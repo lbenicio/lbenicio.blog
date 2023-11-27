@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Deep Learning in Speech Recognition"
 icon: fa-comment-alt
 tag: G    
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Exploring the Applications of Deep Learning in Speech Recognition

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Pattern Recognition Algorithms in Image Processing"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Pattern Recognition Algorithms in Image Processing

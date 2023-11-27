@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Use of Artificial Intelligence in Robotics and Automation"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Exploring the Use of Artificial Intelligence in Robotics and Automation

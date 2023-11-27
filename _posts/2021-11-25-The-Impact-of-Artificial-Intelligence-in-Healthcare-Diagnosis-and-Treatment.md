@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Artificial Intelligence in Healthcare: Diagnosis and Treatment"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Title: The Impact of Artificial Intelligence in Healthcare: Diagnosis and Treatment

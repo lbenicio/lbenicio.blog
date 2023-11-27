@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Fundamentals of Graph Theory in Computer Science"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # The Fundamentals of Graph Theory in Computer Science

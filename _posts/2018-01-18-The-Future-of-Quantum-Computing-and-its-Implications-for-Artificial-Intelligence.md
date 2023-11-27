@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Quantum Computing and its Implications for Artificial Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Future of Quantum Computing and its Implications for Artificial Intelligence

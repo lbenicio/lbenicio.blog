@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Compression Algorithms in Data Storage and Transfer"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Role of Compression Algorithms in Data Storage and Transfer

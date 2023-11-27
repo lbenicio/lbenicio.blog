@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Potential of Machine Learning in Fraud Detection"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Investigating the Potential of Machine Learning in Fraud Detection #

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Graph Theory in Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Role of Graph Theory in Network Analysis

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Approximation Algorithms in NPHard Problems"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Approximation Algorithms in NP-Hard Problems

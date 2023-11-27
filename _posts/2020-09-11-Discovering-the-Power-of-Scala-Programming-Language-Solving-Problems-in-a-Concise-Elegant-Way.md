@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Discovering the Power of Scala Programming Language: Solving Problems in a Concise Elegant Way"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Discovering the Power of Scala Programming Language: Solving Problems in a Concise Elegant Way

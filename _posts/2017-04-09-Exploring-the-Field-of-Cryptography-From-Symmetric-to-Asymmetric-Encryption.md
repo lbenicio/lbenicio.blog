@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Cryptography: From Symmetric to Asymmetric Encryption"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # Exploring the Field of Cryptography: From Symmetric to Asymmetric Encryption

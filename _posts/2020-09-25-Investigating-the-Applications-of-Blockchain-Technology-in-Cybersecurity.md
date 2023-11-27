@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Blockchain Technology in Cybersecurity"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Investigating the Applications of Blockchain Technology in Cybersecurity

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Augmented Reality in Enhancing User Experience"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Exploring the Potential of Augmented Reality in Enhancing User Experience

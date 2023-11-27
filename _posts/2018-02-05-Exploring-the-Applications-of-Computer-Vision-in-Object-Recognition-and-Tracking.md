@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Computer Vision in Object Recognition and Tracking"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Exploring the Applications of Computer Vision in Object Recognition and Tracking

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Quantum Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Exploring the Potential of Quantum Machine Learning

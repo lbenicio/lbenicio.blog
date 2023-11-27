@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unveiling the Future of Quantum Machine Learning in Scientific Research"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Unveiling the Future of Quantum Machine Learning in Scientific Research

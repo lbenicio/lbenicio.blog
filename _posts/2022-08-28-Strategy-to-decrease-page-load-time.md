@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Proposed Improvements on Ruby on Rails application performance test compare
 icon: fa-comment-alt
 tag: scaling, ruby on rails, kubernetes, container orchestration
 categories: analysis
+toc: true
 ---
+
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our proposed improvements.
 

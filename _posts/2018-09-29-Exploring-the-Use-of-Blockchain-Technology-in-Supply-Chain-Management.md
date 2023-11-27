@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Use of Blockchain Technology in Supply Chain Management"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Title: Exploring the Use of Blockchain Technology in Supply Chain Management

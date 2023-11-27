@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Artificial Intelligence on Healthcare Diagnosis and Treatment"
 icon: fa-comment-alt
 tag: OperatingSystems IoT Internet of Things ComputerVision
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Impact of Artificial Intelligence on Healthcare Diagnosis and Treatment

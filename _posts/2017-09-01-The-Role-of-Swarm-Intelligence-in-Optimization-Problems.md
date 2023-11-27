@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Swarm Intelligence in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # The Role of Swarm Intelligence in Optimization Problems

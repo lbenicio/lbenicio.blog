@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Fundamentals of Graph Theory in Computer Science"
 icon: fa-comment-alt
 tag: ComputerScience Bioinformatics Programming
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Understanding the Fundamentals of Graph Theory in Computer Science

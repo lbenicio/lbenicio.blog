@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Artificial Intelligence in Financial Trading"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # The Impact of Artificial Intelligence in Financial Trading

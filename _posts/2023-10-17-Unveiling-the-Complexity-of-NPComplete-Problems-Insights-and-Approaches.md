@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unveiling the Complexity of NPComplete Problems: Insights and Approaches"
 icon: fa-comment-alt
 tag: DebuggingTips WebDevelopment Databases
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Unveiling the Complexity of NP-Complete Problems: Insights and Approaches

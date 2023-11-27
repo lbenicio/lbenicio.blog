@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Natural Language Processing in Question Answering Systems"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Exploring the Applications of Natural Language Processing in Question Answering Systems

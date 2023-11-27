@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Genetic Algorithms and Their Applications in Evolving Solutions"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Exploring the World of Genetic Algorithms and Their Applications in Evolving Solutions

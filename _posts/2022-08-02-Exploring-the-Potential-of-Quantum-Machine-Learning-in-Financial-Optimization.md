@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Quantum Machine Learning in Financial Optimization"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Title: Exploring the Potential of Quantum Machine Learning in Financial Optimization

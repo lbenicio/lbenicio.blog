@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Recurrent Neural Networks in Natural Language Processing"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # The Role of Recurrent Neural Networks in Natural Language Processing

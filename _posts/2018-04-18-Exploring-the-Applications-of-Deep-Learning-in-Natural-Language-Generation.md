@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Deep Learning in Natural Language Generation"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Exploring the Applications of Deep Learning in Natural Language Generation

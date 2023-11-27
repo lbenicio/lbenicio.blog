@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Data Mining in Business Intelligence: Extracting Insights from Big Data"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Impact of Data Mining in Business Intelligence: Extracting Insights from Big Data

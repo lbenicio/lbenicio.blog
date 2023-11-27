@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data on Data Science and Analytics"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # Title: The Impact of Big Data on Data Science and Analytics

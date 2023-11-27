@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Blockchain Technology in Security and Privacy"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Exploring the Potential of Blockchain Technology in Security and Privacy

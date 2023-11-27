@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Genetic Algorithms and Their Applications in Evolutionary Computation"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Exploring the World of Genetic Algorithms and Their Applications in Evolutionary Computation

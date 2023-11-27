@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Quantum Computing"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Understanding the Principles of Quantum Computing

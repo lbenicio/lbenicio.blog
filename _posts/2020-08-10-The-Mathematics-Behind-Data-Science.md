@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Mathematics Behind Data Science"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # The Mathematics Behind Data Science

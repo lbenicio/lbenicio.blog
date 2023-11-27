@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Machine Learning in Predictive Analytics"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # The Role of Machine Learning in Predictive Analytics

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Algorithms in Data Mining and Knowledge Discovery"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Role of Algorithms in Data Mining and Knowledge Discovery

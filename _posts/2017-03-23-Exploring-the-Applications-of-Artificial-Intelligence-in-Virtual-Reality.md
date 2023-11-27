@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Artificial Intelligence in Virtual Reality"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the Applications of Artificial Intelligence in Virtual Reality

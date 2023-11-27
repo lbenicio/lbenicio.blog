@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Cloud Computing on Modern Businesses"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # The Impact of Cloud Computing on Modern Businesses

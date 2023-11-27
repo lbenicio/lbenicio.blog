@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Emergence of Edge Computing: A Paradigm Shift in Data Processing"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # The Emergence of Edge Computing: A Paradigm Shift in Data Processing

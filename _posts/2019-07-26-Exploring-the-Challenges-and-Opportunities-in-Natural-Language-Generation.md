@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Challenges and Opportunities in Natural Language Generation"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Exploring the Challenges and Opportunities in Natural Language Generation

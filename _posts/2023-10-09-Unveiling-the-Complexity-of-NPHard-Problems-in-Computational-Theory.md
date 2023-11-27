@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unveiling the Complexity of NPHard Problems in Computational Theory"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Unveiling the Complexity of NP-Hard Problems in Computational Theory

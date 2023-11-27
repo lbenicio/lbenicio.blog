@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Python for Data Science: A Comprehensive Guide"
 icon: fa-comment-alt
 tag: guides programing tutorial python
 categories: tutorial
+toc: true
 ---
+
 
 Data Science has emerged as a critical field in today's digital age, with organizations leveraging large amounts of data to make informed decisions. Python has become a popular tool for Data Scientists, providing them with the ability to analyze, manipulate, and visualize data in a concise and efficient way. In this article, we will explore the reasons why Python is a popular choice for Data Science, its libraries and tools, and its applications in various industries.
 

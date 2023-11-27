@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Hashing Algorithms in Data Retrieval"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Hashing Algorithms in Data Retrieval

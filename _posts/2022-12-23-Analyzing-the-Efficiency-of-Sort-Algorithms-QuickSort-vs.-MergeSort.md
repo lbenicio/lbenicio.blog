@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Sort Algorithms: QuickSort vs. MergeSort"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Sort Algorithms: QuickSort vs. MergeSort

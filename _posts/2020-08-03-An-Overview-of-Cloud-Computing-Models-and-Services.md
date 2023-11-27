@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Overview of Cloud Computing Models and Services"
 icon: fa-comment-alt
 tag: CloudComputing Bioinformatics ComputerVision
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # An Overview of Cloud Computing Models and Services

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Quantum Computing in Cryptography"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # Understanding the Principles of Quantum Computing in Cryptography

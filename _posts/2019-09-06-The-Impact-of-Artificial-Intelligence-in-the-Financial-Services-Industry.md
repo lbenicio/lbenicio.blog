@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Artificial Intelligence in the Financial Services Industry"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # The Impact of Artificial Intelligence in the Financial Services Industry

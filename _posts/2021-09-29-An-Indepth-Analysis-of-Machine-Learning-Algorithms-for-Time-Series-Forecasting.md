@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Indepth Analysis of Machine Learning Algorithms for Time Series Forecasting"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Title: An In-Depth Analysis of Machine Learning Algorithms for Time Series Forecasting

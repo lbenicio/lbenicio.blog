@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Complexity of Artificial Neural Networks in Pattern Recognition"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Investigating the Complexity of Artificial Neural Networks in Pattern Recognition

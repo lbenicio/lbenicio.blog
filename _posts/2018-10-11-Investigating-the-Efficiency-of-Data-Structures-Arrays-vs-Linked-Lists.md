@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Data Structures: Arrays vs Linked Lists"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Data Structures: Arrays vs Linked Lists

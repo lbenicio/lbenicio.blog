@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computer Vision: From Image Classification to Object Detection"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Exploring the Field of Computer Vision: From Image Classification to Object Detection

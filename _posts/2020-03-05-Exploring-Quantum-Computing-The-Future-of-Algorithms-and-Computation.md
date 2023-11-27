@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: ""
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 # Topic: Quantum Computing and its Potential Impact on Classical Algorithms
 

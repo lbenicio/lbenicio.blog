@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Title: The Evolution of Machine Learning Algorithms: Unveiling the Path to Intelligent Automation

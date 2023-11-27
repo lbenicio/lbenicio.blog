@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Mysteries of Quantum Computing and its Potential Applications"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Unraveling the Mysteries of Quantum Computing and its Potential Applications

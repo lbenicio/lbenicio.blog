@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Genetic Algorithms in Evolutionary Computation and Evolutionary Optimization"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # The Role of Genetic Algorithms in Evolutionary Computation and Evolutionary Optimization

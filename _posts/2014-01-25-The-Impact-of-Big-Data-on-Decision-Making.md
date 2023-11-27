@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data on Decision Making"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Title: The Impact of Big Data on Decision Making: A Paradigm Shift in the Digital Age

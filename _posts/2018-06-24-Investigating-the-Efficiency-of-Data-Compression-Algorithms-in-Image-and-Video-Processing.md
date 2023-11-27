@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Data Compression Algorithms in Image and Video Processing"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Data Compression Algorithms in Image and Video Processing

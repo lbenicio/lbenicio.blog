@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Parallel Computing Algorithms in Big Data Processing"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Parallel Computing Algorithms in Big Data Processing

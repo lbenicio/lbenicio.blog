@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Power of Neural Networks in Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Exploring the Power of Neural Networks in Image Recognition

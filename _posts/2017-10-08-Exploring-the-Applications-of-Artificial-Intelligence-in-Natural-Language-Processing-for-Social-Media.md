@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Artificial Intelligence in Natural Language Processing for Social Media"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Exploring the Applications of Artificial Intelligence in Natural Language Processing for Social Media

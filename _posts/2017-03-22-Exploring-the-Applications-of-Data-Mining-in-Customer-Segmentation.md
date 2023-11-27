@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Data Mining in Customer Segmentation"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Exploring the Applications of Data Mining in Customer Segmentation

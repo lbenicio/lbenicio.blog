@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Game Theory in Algorithm Design"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # The Role of Game Theory in Algorithm Design

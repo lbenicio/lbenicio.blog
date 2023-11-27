@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "TheImpactofBigDataonDecisionMaking"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # The Impact of Big Data on Decision Making

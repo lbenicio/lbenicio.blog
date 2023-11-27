@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Thoughts of IDEs
 icon: fa-comment-alt
 tag: ide, customization, theming, tutorial
 categories: tutorial
+toc: true
 ---
+
 
 Ok, we are, my second post, I never thought I would reach this milestone. Jokes aside, we are here to a brief post to talk about Text Editors on steroids. IDEs.
 

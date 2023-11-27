@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Mysteries of Scala Programming Language: Solving Problems in a Concise and Elegant Way"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Unraveling the Mysteries of Scala Programming Language: Solving Problems in a Concise and Elegant Way

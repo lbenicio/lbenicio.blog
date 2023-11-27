@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Application of Reinforcement Learning in Robotics"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Investigating the Application of Reinforcement Learning in Robotics

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Revolution of Machine Learning: An Examination of Supervised and Unsupervised Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Revolution of Machine Learning: An Examination of Supervised and Unsupervised Learning Algorithms

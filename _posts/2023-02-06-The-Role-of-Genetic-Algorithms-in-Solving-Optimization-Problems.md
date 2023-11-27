@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Genetic Algorithms in Solving Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # The Role of Genetic Algorithms in Solving Optimization Problems

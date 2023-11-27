@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Monte Carlo Simulation in Risk Analysis"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Monte Carlo Simulation in Risk Analysis

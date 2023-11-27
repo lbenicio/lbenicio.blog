@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Complexity of Quantum Computing"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Unraveling the Complexity of Quantum Computing

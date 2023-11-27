@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Effectiveness of Reinforcement Learning Algorithms in Robotics"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Investigating the Effectiveness of Reinforcement Learning Algorithms in Robotics

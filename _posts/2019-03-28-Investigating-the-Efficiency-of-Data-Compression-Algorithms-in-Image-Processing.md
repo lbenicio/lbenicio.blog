@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Data Compression Algorithms in Image Processing"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Data Compression Algorithms in Image Processing

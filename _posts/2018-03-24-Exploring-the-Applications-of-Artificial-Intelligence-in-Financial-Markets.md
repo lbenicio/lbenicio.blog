@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Artificial Intelligence in Financial Markets"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Exploring the Applications of Artificial Intelligence in Financial Markets

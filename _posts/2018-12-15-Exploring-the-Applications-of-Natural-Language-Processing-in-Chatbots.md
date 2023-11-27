@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Natural Language Processing in Chatbots"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Exploring the Applications of Natural Language Processing in Chatbots

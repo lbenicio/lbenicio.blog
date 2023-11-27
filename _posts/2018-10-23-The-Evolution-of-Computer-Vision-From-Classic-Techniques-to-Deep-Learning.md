@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Computer Vision: From Classic Techniques to Deep Learning"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # The Evolution of Computer Vision: From Classic Techniques to Deep Learning

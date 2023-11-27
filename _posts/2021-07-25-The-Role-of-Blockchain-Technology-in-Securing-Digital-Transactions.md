@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Blockchain Technology in Securing Digital Transactions"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # Title: The Role of Blockchain Technology in Securing Digital Transactions

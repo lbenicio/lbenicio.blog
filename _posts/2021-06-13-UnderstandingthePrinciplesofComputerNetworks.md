@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "UnderstandingthePrinciplesofComputerNetworks"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 ## Understanding the Principles of Computer Networks

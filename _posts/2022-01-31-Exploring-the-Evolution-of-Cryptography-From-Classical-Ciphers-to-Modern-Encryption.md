@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Evolution of Cryptography: From Classical Ciphers to Modern Encryption"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the Evolution of Cryptography: From Classical Ciphers to Modern Encryption

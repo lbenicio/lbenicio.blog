@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Differential Privacy in Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Understanding the Principles of Differential Privacy in Data Analysis

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Fundamentals of Cryptocurrency and Blockchain Technology"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Understanding the Fundamentals of Cryptocurrency and Blockchain Technology

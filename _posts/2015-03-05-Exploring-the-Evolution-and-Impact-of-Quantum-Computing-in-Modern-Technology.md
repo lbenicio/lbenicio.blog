@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: ""
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 Topic: Quantum Computing and Algorithms: Classic and Emerging Trends
 

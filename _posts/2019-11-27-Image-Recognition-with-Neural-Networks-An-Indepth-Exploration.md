@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Image Recognition with Neural Networks: An Indepth Exploration"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Image Recognition with Neural Networks: An In-depth Exploration

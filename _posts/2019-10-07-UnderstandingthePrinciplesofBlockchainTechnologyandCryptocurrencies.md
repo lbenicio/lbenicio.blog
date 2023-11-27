@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "UnderstandingthePrinciplesofBlockchainTechnologyandCryptocurrencies"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Understanding the Principles of Blockchain Technology and Cryptocurrencies

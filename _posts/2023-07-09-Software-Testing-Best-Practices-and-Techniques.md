@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Software Testing Best Practices and Techniques"
 icon: fa-comment-alt
 tag:
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Software Testing Best Practices and Techniques

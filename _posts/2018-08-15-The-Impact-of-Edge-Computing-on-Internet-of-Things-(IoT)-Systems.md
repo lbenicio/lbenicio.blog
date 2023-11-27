@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Edge Computing on Internet of Things (IoT) Systems"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # The Impact of Edge Computing on Internet of Things (IoT) Systems

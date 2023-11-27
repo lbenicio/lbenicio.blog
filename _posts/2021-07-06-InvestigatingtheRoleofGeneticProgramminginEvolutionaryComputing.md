@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "InvestigatingtheRoleofGeneticProgramminginEvolutionaryComputing"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Investigating the Role of Genetic Programming in Evolutionary Computing

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Computer Vision in Autonomous Vehicles"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # The Role of Computer Vision in Autonomous Vehicles

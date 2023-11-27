@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Advancements in Computer Vision: Object Recognition and Tracking"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Advancements in Computer Vision: Object Recognition and Tracking

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Artificial Intelligence in Autonomous Vehicles"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Exploring the Potential of Artificial Intelligence in Autonomous Vehicles

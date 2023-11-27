@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Power of Graph Theory in Network Analysis and Design"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # Exploring the Power of Graph Theory in Network Analysis and Design

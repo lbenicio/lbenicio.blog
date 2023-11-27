@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Bioinformatics: Bridging Biology and Computer Science"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Exploring the World of Bioinformatics: Bridging Biology and Computer Science

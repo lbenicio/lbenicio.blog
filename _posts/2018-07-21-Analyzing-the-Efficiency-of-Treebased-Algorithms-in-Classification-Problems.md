@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Treebased Algorithms in Classification Problems"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Tree-based Algorithms in Classification Problems

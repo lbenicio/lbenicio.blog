@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Deep Learning in Natural Language Processing"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # The Power of Deep Learning in Natural Language Processing

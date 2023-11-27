@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Cloud Computing on Business Operations"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Title: The Impact of Cloud Computing on Business Operations

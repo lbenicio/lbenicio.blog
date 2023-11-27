@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "A Comparative Analysis of Relational and Graph Databases"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # A Comparative Analysis of Relational and Graph Databases

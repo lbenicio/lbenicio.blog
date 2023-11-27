@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Algorithms in Internet Search: From PageRank to Modern Approaches"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Title: The Role of Algorithms in Internet Search: From PageRank to Modern Approaches

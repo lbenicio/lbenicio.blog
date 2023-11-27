@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Mathematical Foundations of Cryptography: From OneTime Pads to Elliptic Curve Cryptography"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Unraveling the Mathematical Foundations of Cryptography: From One-Time Pads to Elliptic Curve Cryptography

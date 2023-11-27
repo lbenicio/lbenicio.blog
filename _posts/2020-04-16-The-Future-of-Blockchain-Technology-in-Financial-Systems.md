@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Blockchain Technology in Financial Systems"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # The Future of Blockchain Technology in Financial Systems

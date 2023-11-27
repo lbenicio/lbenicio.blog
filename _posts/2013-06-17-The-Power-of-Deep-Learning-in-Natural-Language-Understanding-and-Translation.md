@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Deep Learning in Natural Language Understanding and Translation"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # The Power of Deep Learning in Natural Language Understanding and Translation

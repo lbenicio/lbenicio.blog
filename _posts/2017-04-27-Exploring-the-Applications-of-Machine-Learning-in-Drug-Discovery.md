@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Machine Learning in Drug Discovery"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Exploring the Applications of Machine Learning in Drug Discovery

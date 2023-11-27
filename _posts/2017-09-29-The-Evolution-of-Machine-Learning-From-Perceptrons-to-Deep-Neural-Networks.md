@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Machine Learning: From Perceptrons to Deep Neural Networks"
 icon: fa-comment-alt
 tag: DataStructures ArtificialIntelligence ComputerGraphics
 categories: BigData
+toc: true
 ---
+
 
 
 # The Evolution of Machine Learning: From Perceptrons to Deep Neural Networks

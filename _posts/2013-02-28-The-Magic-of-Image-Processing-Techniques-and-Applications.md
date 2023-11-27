@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Magic of Image Processing: Techniques and Applications"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Magic of Image Processing: Techniques and Applications

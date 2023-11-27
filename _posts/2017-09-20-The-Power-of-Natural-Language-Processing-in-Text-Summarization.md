@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Natural Language Processing in Text Summarization"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # The Power of Natural Language Processing in Text Summarization

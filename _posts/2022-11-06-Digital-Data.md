@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Digital Data
 icon: fa-comment-alt
 tag: digital, data
 categories: discussion
+toc: true
 ---
+
 
 Today we are going to have a different post again, it is getting common, isn't it? We are going to talk about Digital Data. And more than never, this topic seen valid.
 

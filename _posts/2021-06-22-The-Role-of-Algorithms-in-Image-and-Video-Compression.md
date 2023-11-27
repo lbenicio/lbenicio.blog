@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Algorithms in Image and Video Compression"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Title: The Role of Algorithms in Image and Video Compression

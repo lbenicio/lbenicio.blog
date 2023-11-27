@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Influence of Quantum Computing on Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # The Influence of Quantum Computing on Machine Learning Algorithms

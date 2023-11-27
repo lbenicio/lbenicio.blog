@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Operating Systems: From Batch Processing to Virtualization"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # The Evolution of Operating Systems: From Batch Processing to Virtualization

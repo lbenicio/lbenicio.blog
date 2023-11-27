@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Large Language Models: Exploring Recent Research and Implications"
 icon: fa-comment-alt
 tag: language models
 categories: marchine learning
+toc: true
 ---
+
 
 Large language models (LLMs) have been a game-changer in the field of natural language processing (NLP). LLMs such as GPT-3 have the ability to generate coherent and grammatically correct text, perform machine translation, language modeling, sentiment analysis, and even question-answering. With over 175 billion parameters, GPT-3 has significantly advanced the state-of-the-art in NLP. In this blog post, we will explore recent research on large language models and their implications in different domains.
 

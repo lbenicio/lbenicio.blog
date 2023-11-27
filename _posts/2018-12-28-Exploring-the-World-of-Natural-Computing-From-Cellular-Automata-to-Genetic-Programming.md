@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Natural Computing: From Cellular Automata to Genetic Programming"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the World of Natural Computing: From Cellular Automata to Genetic Programming

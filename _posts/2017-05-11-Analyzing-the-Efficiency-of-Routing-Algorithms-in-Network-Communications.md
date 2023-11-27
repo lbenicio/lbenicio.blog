@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Routing Algorithms in Network Communications"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Routing Algorithms in Network Communications

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Potential of Machine Learning in Predictive Analytics"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Investigating the Potential of Machine Learning in Predictive Analytics

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Advancements in Natural Language Processing: A Computational Linguistics Perspective"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Advancements in Natural Language Processing: A Computational Linguistics Perspective

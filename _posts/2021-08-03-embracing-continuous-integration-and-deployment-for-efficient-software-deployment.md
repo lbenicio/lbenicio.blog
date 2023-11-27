@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Embracing Continuous Integration and Deployment for Efficient Software Deployment
 icon: fa-comment-alt
 tag: infrastructure ci cd deployment
 categories: infrastructure
+toc: true
 ---
+
 
 As software development and deployment become increasingly complex, the need for effective and efficient deployment practices becomes paramount. Continuous Integration (CI) and Continuous Deployment (CD) are two practices that help streamline the software deployment process. In this article, we will explore the benefits of CI and CD, how they work, and how to implement them in your software deployment process.
 

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Quantum Machine Learning in Materials Science"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the Potential of Quantum Machine Learning in Materials Science

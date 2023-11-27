@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Robotics: Advancements in Artificial Intelligence and Automation"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # The Future of Robotics: Advancements in Artificial Intelligence and Automation

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Mathematics Behind Cryptocurrency: Blockchain Technology"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # The Mathematics Behind Cryptocurrency: Blockchain Technology

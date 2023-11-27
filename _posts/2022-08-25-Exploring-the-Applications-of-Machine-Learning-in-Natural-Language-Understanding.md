@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Machine Learning in Natural Language Understanding"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Exploring the Applications of Machine Learning in Natural Language Understanding

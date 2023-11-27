@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Complexity of Graph Coloring Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # Exploring the Complexity of Graph Coloring Algorithms

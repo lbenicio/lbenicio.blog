@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Artificial Intelligence in Robotics"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Exploring the Applications of Artificial Intelligence in Robotics

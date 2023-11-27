@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Advancements in Computer Vision and Object Recognition"
 icon: fa-comment-alt
 tag:
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Advancements in Computer Vision and Object Recognition

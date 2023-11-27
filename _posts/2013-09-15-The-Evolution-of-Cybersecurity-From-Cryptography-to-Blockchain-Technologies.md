@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: ""
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 # Quantum Computing: A Paradigm Shift in Computation and Algorithms 
 

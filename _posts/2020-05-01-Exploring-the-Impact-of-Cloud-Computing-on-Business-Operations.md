@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Impact of Cloud Computing on Business Operations"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Exploring the Impact of Cloud Computing on Business Operations

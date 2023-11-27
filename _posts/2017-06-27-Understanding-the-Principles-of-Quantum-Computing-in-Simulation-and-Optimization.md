@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Quantum Computing in Simulation and Optimization"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Understanding the Principles of Quantum Computing in Simulation and Optimization

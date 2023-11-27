@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Graph Algorithms in Social Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Understanding the Principles of Graph Algorithms in Social Network Analysis

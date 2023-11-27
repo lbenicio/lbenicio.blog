@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Edge Computing: Decentralized Processing and Low Latency"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # The Future of Edge Computing: Decentralized Processing and Low Latency

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Cloud Computing on Big Data Analytics"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Impact of Cloud Computing on Big Data Analytics

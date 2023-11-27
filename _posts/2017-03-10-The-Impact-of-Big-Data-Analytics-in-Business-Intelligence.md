@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data Analytics in Business Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Impact of Big Data Analytics in Business Intelligence

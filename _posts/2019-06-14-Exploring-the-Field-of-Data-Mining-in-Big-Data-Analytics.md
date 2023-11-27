@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Data Mining in Big Data Analytics"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Exploring the Field of Data Mining in Big Data Analytics

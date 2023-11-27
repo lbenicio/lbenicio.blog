@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Genetic Algorithms in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Genetic Algorithms in Optimization Problems

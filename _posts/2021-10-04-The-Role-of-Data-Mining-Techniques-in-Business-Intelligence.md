@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Data Mining Techniques in Business Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Role of Data Mining Techniques in Business Intelligence

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Deep Learning in Medical Image Analysis"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # The Impact of Deep Learning in Medical Image Analysis

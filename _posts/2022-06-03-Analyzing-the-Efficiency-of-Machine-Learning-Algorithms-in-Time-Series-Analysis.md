@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Machine Learning Algorithms in Time Series Analysis"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Machine Learning Algorithms in Time Series Analysis

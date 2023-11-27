@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Augmented Reality in Education"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Exploring the Potential of Augmented Reality in Education

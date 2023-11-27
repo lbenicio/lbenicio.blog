@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Matrix Algorithms in Linear Algebra Computations"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Matrix Algorithms in Linear Algebra Computations

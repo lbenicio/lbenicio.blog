@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Internet of Things in Smart Cities: A Case Study on Urban Planning"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # The Impact of Internet of Things in Smart Cities: A Case Study on Urban Planning

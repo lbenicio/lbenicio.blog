@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Machine Learning Algorithms in Anomaly Detection"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Machine Learning Algorithms in Anomaly Detection

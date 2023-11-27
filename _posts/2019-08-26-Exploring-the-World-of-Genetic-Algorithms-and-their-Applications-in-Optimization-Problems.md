@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Genetic Algorithms and their Applications in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Exploring the World of Genetic Algorithms and their Applications in Optimization Problems

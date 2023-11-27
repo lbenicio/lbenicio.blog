@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Artificial Intelligence in Natural Language Generation"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Exploring the Applications of Artificial Intelligence in Natural Language Generation

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Deep Learning in Natural Language Processing"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Exploring the Applications of Deep Learning in Natural Language Processing

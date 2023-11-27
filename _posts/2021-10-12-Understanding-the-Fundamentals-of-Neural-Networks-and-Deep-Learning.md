@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Fundamentals of Neural Networks and Deep Learning"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Title: Understanding the Fundamentals of Neural Networks and Deep Learning: Unveiling the Power of Computation and Algorithms

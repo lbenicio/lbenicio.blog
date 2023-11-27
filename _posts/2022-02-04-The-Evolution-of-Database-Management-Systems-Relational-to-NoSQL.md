@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Database Management Systems: Relational to NoSQL"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # The Evolution of Database Management Systems: Relational to NoSQL

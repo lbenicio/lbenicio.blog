@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Data Privacy and Protection in the Age of Big Data"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Understanding the Principles of Data Privacy and Protection in the Age of Big Data

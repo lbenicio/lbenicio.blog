@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Cloud Computing on Data Analytics"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Impact of Cloud Computing on Data Analytics

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Art of Data Compression: Exploring Lossless and Lossy Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # The Art of Data Compression: Exploring Lossless and Lossy Algorithms

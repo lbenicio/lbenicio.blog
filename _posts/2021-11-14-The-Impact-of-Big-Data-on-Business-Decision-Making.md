@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data on Business Decision Making"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Impact of Big Data on Business Decision Making

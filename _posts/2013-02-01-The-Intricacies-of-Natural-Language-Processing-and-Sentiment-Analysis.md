@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Intricacies of Natural Language Processing and Sentiment Analysis"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Title: The Intricacies of Natural Language Processing and Sentiment Analysis

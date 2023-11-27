@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Role of Machine Learning in Recommender Systems"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Exploring the Role of Machine Learning in Recommender Systems

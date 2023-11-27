@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Natural Language Generation in Automated Content Creation"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Title: The Role of Natural Language Generation in Automated Content Creation

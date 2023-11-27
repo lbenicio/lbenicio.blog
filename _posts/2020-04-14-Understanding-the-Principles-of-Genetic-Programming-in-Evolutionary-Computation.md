@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Genetic Programming in Evolutionary Computation"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Understanding the Principles of Genetic Programming in Evolutionary Computation

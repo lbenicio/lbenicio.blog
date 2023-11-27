@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Indepth Analysis of Graph Theory Algorithms in Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # An In-depth Analysis of Graph Theory Algorithms in Network Analysis

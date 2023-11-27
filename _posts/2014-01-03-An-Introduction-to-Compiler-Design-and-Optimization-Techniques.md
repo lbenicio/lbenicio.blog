@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Introduction to Compiler Design and Optimization Techniques"
 icon: fa-comment-alt
 tag:  
 categories: Cryptography
+toc: true
 ---
+
 
 
 # An Introduction to Compiler Design and Optimization Techniques

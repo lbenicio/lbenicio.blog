@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Convolutional Neural Networks in Image Processing"
 icon: fa-comment-alt
 tag:
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Understanding the Principles of Convolutional Neural Networks in Image Processing

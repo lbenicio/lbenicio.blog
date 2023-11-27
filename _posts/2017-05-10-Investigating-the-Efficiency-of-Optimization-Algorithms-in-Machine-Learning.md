@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Optimization Algorithms in Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Optimization Algorithms in Machine Learning

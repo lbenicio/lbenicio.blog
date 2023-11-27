@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Influence of Artificial Intelligence in the Banking Industry: A Case Study"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # The Influence of Artificial Intelligence in the Banking Industry: A Case Study

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Machine Learning in Cybersecurity and Threat Detection"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # The Role of Machine Learning in Cybersecurity and Threat Detection

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Natural Language Processing in Machine Translation"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Exploring the Field of Natural Language Processing in Machine Translation

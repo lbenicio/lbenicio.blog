@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Graph Theory in Solving RealWorld Problems"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # The Power of Graph Theory in Solving Real-World Problems

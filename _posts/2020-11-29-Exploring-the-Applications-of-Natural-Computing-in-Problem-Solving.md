@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Natural Computing in Problem Solving"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Exploring the Applications of Natural Computing in Problem Solving

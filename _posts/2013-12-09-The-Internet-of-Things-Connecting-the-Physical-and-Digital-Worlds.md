@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Internet of Things: Connecting the Physical and Digital Worlds"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Internet of Things: Connecting the Physical and Digital Worlds

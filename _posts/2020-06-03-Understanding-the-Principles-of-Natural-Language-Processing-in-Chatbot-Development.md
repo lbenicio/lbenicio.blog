@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Natural Language Processing in Chatbot Development"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Understanding the Principles of Natural Language Processing in Chatbot Development

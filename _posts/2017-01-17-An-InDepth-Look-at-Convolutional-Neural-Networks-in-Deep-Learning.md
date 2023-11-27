@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An InDepth Look at Convolutional Neural Networks in Deep Learning"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # An In-Depth Look at Convolutional Neural Networks in Deep Learning

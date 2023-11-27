@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Deep Learning: Neural Networks and Beyond"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Understanding the Principles of Deep Learning: Neural Networks and Beyond

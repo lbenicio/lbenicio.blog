@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Impact of Machine Learning in Healthcare Diagnosis"
 icon: fa-comment-alt
 tag:
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Exploring the Impact of Machine Learning in Healthcare Diagnosis

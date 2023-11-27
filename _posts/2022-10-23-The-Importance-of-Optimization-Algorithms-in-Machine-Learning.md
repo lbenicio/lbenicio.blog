@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Optimization Algorithms in Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # The Importance of Optimization Algorithms in Machine Learning

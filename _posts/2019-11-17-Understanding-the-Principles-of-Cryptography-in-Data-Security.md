@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Cryptography in Data Security"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Title: Understanding the Principles of Cryptography in Data Security

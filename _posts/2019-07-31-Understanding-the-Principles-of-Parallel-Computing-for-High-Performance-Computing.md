@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Parallel Computing for High Performance Computing"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Understanding the Principles of Parallel Computing for High Performance Computing

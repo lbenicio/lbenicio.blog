@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Operating Systems: From Batch Processing to Multitasking"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # The Evolution of Operating Systems: From Batch Processing to Multitasking

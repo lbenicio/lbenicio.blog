@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Blockchain Data Structure: A Revolutionary Solution for Secure Data Management"
 icon: fa-comment-alt
 tag: blockchain
 categories: blockchain algorithms
+toc: true
 ---
+
 
 Blockchain technology has emerged as a revolutionary solution for secure data management, providing an immutable, decentralized, and transparent data structure that is transforming several industries. At its core, a blockchain is a distributed ledger that enables the secure and transparent storage and transfer of data without the need for intermediaries or third-party entities. This paper aims to explore the fundamental principles of the blockchain data structure, its components, and its mechanisms, as well as its potential applications and limitations.
 

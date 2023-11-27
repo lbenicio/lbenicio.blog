@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Graphs Theory
 icon: fa-comment-alt
 tag: theory graphs discussion
 categories: discussion
+toc: true
 ---
+
 
 A graph is a data structure that consists of a set of vertices (also known as nodes) and a set of edges connecting the vertices. Graphs are used to represent relationships between data, and are a powerful tool for many different types of problems.
 

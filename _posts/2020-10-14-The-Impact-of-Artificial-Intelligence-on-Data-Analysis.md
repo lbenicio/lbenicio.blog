@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Artificial Intelligence on Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # The Impact of Artificial Intelligence on Data Analysis

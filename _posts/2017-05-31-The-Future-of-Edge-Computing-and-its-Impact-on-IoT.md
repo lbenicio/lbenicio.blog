@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Edge Computing and its Impact on IoT"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # The Future of Edge Computing and its Impact on IoT

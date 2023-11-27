@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution and Application of Machine Learning in Predictive Analytics"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # The Evolution and Application of Machine Learning in Predictive Analytics

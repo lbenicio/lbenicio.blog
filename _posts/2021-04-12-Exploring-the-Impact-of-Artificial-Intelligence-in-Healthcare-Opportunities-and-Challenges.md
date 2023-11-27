@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Impact of Artificial Intelligence in Healthcare: Opportunities and Challenges"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Exploring the Impact of Artificial Intelligence in Healthcare: Opportunities and Challenges

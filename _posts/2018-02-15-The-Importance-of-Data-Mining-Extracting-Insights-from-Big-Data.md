@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Data Mining: Extracting Insights from Big Data"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # The Importance of Data Mining: Extracting Insights from Big Data

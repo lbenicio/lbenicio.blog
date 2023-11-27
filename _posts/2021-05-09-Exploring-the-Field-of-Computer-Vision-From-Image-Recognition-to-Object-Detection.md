@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computer Vision: From Image Recognition to Object Detection"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Exploring the Field of Computer Vision: From Image Recognition to Object Detection

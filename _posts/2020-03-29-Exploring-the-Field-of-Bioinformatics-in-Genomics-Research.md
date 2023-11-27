@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Bioinformatics in Genomics Research"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Exploring the Field of Bioinformatics in Genomics Research

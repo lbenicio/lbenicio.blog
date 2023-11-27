@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Genetic Algorithms in Evolutionary Computation"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # The Role of Genetic Algorithms in Evolutionary Computation

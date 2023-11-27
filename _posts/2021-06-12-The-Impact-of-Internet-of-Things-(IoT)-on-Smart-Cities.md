@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Internet of Things (IoT) on Smart Cities"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # The Impact of Internet of Things (IoT) on Smart Cities

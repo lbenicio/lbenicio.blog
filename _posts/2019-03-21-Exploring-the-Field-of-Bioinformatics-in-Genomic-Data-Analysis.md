@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Bioinformatics in Genomic Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Exploring the Field of Bioinformatics in Genomic Data Analysis

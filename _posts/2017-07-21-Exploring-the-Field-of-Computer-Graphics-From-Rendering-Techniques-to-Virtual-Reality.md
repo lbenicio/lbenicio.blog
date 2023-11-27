@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computer Graphics: From Rendering Techniques to Virtual Reality"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Exploring the Field of Computer Graphics: From Rendering Techniques to Virtual Reality

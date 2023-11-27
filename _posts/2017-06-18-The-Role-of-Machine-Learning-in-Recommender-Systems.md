@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Machine Learning in Recommender Systems"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # The Role of Machine Learning in Recommender Systems

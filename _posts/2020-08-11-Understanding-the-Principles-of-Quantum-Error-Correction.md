@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Quantum Error Correction"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Title: Understanding the Principles of Quantum Error Correction

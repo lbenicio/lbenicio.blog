@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Parallel Computing: An Insight into Parallel Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # The Power of Parallel Computing: An Insight into Parallel Algorithms

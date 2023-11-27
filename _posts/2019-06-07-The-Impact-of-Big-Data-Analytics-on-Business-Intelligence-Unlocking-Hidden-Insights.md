@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data Analytics on Business Intelligence: Unlocking Hidden Insights"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Impact of Big Data Analytics on Business Intelligence: Unlocking Hidden Insights

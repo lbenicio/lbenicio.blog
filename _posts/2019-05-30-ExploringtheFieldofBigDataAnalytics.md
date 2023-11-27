@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ExploringtheFieldofBigDataAnalytics"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Exploring the Field of Big Data Analytics

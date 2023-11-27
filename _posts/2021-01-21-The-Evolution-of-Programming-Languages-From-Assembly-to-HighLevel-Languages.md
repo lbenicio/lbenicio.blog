@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Programming Languages: From Assembly to HighLevel Languages"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # The Evolution of Programming Languages: From Assembly to High-Level Languages

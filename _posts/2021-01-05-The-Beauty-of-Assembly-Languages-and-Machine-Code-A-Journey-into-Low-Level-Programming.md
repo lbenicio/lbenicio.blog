@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Beauty of Assembly Languages and Machine Code: A Journey into Low-Level Programming"
 icon: fa-comment-alt
 tag: programming
 categories: programming assembly machine code discussion
+toc: true
 ---
+
 
 As computer scientists, we are all familiar with high-level programming languages such as Python, Java, and C++, but how often do we think about the low-level languages that run beneath them? Assembly languages and machine code are the fundamental building blocks of every computer program, yet they are often overlooked and misunderstood. In this paper, we will delve into the world of low-level programming, exploring the beauty and intricacies of assembly languages and machine code.
 

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Cybersecurity: Threat Detection and Incident Response"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Exploring the World of Cybersecurity: Threat Detection and Incident Response

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Distributed Systems in Internet of Things"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Understanding the Principles of Distributed Systems in Internet of Things

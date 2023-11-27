@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Machine Learning on Cybersecurity"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Title: The Impact of Machine Learning on Cybersecurity: Fostering Resilience in the Digital Era

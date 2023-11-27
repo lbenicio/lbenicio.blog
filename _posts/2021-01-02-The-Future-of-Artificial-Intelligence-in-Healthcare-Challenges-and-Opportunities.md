@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Artificial Intelligence in Healthcare: Challenges and Opportunities"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # The Future of Artificial Intelligence in Healthcare: Challenges and Opportunities

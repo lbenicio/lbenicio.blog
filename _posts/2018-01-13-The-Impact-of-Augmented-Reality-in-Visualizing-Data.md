@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Augmented Reality in Visualizing Data"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # The Impact of Augmented Reality in Visualizing Data

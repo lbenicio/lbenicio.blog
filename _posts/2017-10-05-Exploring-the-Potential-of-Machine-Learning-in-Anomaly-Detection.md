@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Machine Learning in Anomaly Detection"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Exploring the Potential of Machine Learning in Anomaly Detection

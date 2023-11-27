@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Convolutional Neural Networks in Computer Vision"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # The Role of Convolutional Neural Networks in Computer Vision

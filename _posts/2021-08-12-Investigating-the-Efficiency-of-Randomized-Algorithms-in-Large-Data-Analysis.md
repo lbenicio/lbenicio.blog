@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Randomized Algorithms in Large Data Analysis"
 icon: fa-comment-alt
 tag: ComputerGraphics Algorithms MobileDevelopment
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Randomized Algorithms in Large Data Analysis

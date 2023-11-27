@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Artificial Intelligence in Healthcare"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Title: The Future of Artificial Intelligence in Healthcare: Pioneering a Revolution in Patient Care

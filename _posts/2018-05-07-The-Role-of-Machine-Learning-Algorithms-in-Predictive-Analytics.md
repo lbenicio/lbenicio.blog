@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Machine Learning Algorithms in Predictive Analytics"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # The Role of Machine Learning Algorithms in Predictive Analytics

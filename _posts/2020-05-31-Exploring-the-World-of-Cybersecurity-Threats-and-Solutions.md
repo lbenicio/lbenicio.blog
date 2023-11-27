@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Cybersecurity: Threats and Solutions"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Exploring the World of Cybersecurity: Threats and Solutions

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Geolocation Algorithms in Navigation Systems"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Geolocation Algorithms in Navigation Systems

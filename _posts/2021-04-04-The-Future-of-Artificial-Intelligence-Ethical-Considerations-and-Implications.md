@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Artificial Intelligence: Ethical Considerations and Implications"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # The Future of Artificial Intelligence: Ethical Considerations and Implications

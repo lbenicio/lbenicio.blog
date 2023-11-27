@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Genetic Programming in Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Exploring the Applications of Genetic Programming in Machine Learning

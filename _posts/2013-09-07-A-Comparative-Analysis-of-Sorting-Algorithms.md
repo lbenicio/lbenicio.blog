@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "A Comparative Analysis of Sorting Algorithms"
 icon: fa-comment-alt
 tag:
 categories: Databases
+toc: true
 ---
+
 
 
 # A Comparative Analysis of Sorting Algorithms

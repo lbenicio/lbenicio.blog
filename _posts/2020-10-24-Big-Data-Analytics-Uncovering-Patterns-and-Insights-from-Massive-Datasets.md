@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Big Data Analytics: Uncovering Patterns and Insights from Massive Datasets"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Big Data Analytics: Uncovering Patterns and Insights from Massive Datasets

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Natural Language Processing in Healthcare"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Exploring the Applications of Natural Language Processing in Healthcare

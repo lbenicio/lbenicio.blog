@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Exploring the Differences between AES and RSA Algorithms
 icon: fa-comment-alt
 tag: discussion
 categories: aes rsa discussion criptography security
+toc: true
 ---
+
 
 Encryption is a fundamental technique used in the field of computer security to secure sensitive information from unauthorized access. AES and RSA are two of the most widely used encryption algorithms in the world today. AES (Advanced Encryption Standard) is a symmetric-key algorithm, while RSA (Rivest–Shamir–Adleman) is an asymmetric-key algorithm. In this paper, we will discuss the differences between AES and RSA algorithms in detail, highlighting their strengths and weaknesses.
 

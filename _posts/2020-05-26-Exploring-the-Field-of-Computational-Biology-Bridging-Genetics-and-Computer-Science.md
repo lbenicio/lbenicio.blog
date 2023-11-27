@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computational Biology: Bridging Genetics and Computer Science"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Exploring the Field of Computational Biology: Bridging Genetics and Computer Science

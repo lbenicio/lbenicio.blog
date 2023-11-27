@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computational Geometry: Algorithms for Geometric Problems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Exploring the Field of Computational Geometry: Algorithms for Geometric Problems

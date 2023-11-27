@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unveiling the Power of Genetic Algorithms in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Unveiling the Power of Genetic Algorithms in Optimization Problems

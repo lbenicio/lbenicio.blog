@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Computer Graphics: From Pixel Art to Virtual Reality"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Evolution of Computer Graphics: From Pixel Art to Virtual Reality

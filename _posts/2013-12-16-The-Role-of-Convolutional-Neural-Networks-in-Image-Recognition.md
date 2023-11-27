@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Convolutional Neural Networks in Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # The Role of Convolutional Neural Networks in Image Recognition

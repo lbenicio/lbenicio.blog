@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Reinforcement Learning in Decision Making"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Understanding the Principles of Reinforcement Learning in Decision Making

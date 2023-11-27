@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Natural Language Processing: Enhancing HumanComputer Interaction"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Natural Language Processing: Enhancing Human-Computer Interaction

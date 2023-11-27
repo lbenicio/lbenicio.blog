@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Clustering Algorithms in Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Clustering Algorithms in Data Analysis

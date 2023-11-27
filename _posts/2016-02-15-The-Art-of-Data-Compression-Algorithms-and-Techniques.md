@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Art of Data Compression: Algorithms and Techniques"
 icon: fa-comment-alt
 tag: ComputerVision Bioinformatics CodeQuality
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # The Art of Data Compression: Algorithms and Techniques

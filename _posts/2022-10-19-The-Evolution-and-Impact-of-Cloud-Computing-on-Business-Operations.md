@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution and Impact of Cloud Computing on Business Operations"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # The Evolution and Impact of Cloud Computing on Business Operations

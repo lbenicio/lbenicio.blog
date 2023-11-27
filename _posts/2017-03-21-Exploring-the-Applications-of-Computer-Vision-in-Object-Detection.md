@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Computer Vision in Object Detection"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Exploring the Applications of Computer Vision in Object Detection

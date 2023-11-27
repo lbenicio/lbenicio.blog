@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "UnderstandingthePrinciplesofOperatingSystemsandTheirFunctionality"
 icon: fa-comment-alt
 tag:
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Understanding the Principles of Operating Systems and Their Functionality

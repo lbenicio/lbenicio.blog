@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Numerical Analysis: Solving Mathematical Problems in Computation"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Numerical Analysis: Solving Mathematical Problems in Computation

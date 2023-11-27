@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Cryptography: From Ancient Times to Modern Encryption"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Evolution of Cryptography: From Ancient Times to Modern Encryption

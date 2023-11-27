@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Natural Language Processing in Machine Translation"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Understanding the Principles of Natural Language Processing in Machine Translation

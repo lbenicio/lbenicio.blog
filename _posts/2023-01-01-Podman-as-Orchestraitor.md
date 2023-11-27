@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Podman as Orchestraitor
 icon: fa-comment-alt
 tag: tip, development, software, orchestraitor, containers
 categories: development
+toc: true
 ---
+
 
 Podman is an open source tool for managing containers and container images. It is an alternative to Docker and is designed to be more secure, efficient, and portable. As a container orchestrator, Podman provides an easy and efficient way to develop, test, and deploy software applications in containers.
 

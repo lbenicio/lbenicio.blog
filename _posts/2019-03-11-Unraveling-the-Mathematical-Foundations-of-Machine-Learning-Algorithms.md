@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Mathematical Foundations of Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Unraveling the Mathematical Foundations of Machine Learning Algorithms

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Reinforcement Learning in Robotics"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Title: Exploring the Applications of Reinforcement Learning in Robotics

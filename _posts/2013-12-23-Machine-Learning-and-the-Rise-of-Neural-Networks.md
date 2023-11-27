@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Machine Learning and the Rise of Neural Networks"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Machine Learning and the Rise of Neural Networks

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Divide and Conquer Algorithms in Problem Solving"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Divide and Conquer Algorithms in Problem Solving

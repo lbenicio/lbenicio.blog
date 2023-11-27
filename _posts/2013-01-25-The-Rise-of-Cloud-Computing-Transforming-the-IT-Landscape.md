@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Rise of Cloud Computing: Transforming the IT Landscape"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # The Rise of Cloud Computing: Transforming the IT Landscape

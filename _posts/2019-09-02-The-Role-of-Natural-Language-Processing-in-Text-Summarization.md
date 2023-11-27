@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Natural Language Processing in Text Summarization"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # The Role of Natural Language Processing in Text Summarization

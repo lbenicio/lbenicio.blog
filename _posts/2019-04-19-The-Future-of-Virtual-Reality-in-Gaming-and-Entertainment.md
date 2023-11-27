@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Virtual Reality in Gaming and Entertainment"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # The Future of Virtual Reality in Gaming and Entertainment

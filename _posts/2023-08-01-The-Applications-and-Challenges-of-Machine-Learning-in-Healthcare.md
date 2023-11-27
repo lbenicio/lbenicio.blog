@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Applications and Challenges of Machine Learning in Healthcare"
 icon: fa-comment-alt
 tag:
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Applications and Challenges of Machine Learning in Healthcare

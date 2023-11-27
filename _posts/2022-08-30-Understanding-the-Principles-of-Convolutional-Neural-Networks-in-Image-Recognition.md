@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Convolutional Neural Networks in Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Understanding the Principles of Convolutional Neural Networks in Image Recognition

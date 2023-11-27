@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: ""
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 # Topic: The Evolution of Machine Learning Algorithms: From Classic to Modern Trends
 

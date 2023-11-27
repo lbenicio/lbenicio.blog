@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "TheEvolutionofOperatingSystemsfromMainframestoCloudComputing"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # The Evolution of Operating Systems from Mainframes to Cloud Computing

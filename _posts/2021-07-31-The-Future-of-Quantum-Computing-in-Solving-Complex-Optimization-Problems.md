@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Quantum Computing in Solving Complex Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # The Future of Quantum Computing in Solving Complex Optimization Problems

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Use of Artificial Intelligence in Autonomous Vehicles"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # Exploring the Use of Artificial Intelligence in Autonomous Vehicles

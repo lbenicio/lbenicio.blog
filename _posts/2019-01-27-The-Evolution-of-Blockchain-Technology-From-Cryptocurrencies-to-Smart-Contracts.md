@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Blockchain Technology: From Cryptocurrencies to Smart Contracts"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # The Evolution of Blockchain Technology: From Cryptocurrencies to Smart Contracts

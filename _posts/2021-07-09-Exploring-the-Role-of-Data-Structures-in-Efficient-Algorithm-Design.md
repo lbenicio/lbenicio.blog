@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Role of Data Structures in Efficient Algorithm Design"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Exploring the Role of Data Structures in Efficient Algorithm Design

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Blockchain Technology in Secure Data Management"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Exploring the Potential of Blockchain Technology in Secure Data Management

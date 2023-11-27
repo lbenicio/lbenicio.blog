@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Fundamentals of Data Structures and Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # The Fundamentals of Data Structures and Algorithms

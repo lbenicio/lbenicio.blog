@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Deep Learning in Computer Vision"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # The Role of Deep Learning in Computer Vision

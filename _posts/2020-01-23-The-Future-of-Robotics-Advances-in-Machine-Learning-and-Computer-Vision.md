@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Robotics: Advances in Machine Learning and Computer Vision"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # The Future of Robotics: Advances in Machine Learning and Computer Vision

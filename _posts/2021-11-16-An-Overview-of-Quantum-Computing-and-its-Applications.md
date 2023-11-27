@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Overview of Quantum Computing and its Applications"
 icon: fa-comment-alt
 tag:
 categories: Databases
+toc: true
 ---
+
 
 
 # An Overview of Quantum Computing and its Applications

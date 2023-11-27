@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Machine Learning in Recommender Systems"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Investigating the Applications of Machine Learning in Recommender Systems

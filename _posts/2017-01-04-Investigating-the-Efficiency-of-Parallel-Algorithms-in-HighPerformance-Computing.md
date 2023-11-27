@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Parallel Algorithms in HighPerformance Computing"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Parallel Algorithms in High-Performance Computing

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Distributed Ledger Technology in Cryptocurrencies"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Understanding the Principles of Distributed Ledger Technology in Cryptocurrencies

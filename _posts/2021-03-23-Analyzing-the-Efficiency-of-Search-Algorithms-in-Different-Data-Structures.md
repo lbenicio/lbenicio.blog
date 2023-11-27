@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Search Algorithms in Different Data Structures"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Search Algorithms in Different Data Structures

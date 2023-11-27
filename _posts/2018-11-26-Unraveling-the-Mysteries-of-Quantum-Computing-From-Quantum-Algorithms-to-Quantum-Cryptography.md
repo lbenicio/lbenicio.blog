@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Mysteries of Quantum Computing: From Quantum Algorithms to Quantum Cryptography"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Unraveling the Mysteries of Quantum Computing: From Quantum Algorithms to Quantum Cryptography

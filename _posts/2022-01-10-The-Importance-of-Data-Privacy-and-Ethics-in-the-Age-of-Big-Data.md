@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Data Privacy and Ethics in the Age of Big Data"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Title: The Importance of Data Privacy and Ethics in the Age of Big Data

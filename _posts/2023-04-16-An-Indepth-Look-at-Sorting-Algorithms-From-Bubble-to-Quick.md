@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Indepth Look at Sorting Algorithms: From Bubble to Quick"
 icon: fa-comment-alt
 tag:
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # An In-depth Look at Sorting Algorithms: From Bubble to Quick

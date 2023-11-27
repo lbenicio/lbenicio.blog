@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computational Biology: Bioinformatics and Genomics"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Exploring the Field of Computational Biology: Bioinformatics and Genomics

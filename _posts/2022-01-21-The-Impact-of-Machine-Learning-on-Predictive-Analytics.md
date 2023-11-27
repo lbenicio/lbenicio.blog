@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Machine Learning on Predictive Analytics"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # The Impact of Machine Learning on Predictive Analytics

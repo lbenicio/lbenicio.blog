@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Cloud Computing Architecture and Virtualization"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Understanding the Principles of Cloud Computing Architecture and Virtualization

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Discovering the Power of Scala Programming Language: Solving Problems in a Concise and Elegant Way"
 icon: fa-comment-alt
 tag: ComputerGraphics Networking Bioinformatics
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Discovering the Power of Scala Programming Language: Solving Problems in a Concise and Elegant Way

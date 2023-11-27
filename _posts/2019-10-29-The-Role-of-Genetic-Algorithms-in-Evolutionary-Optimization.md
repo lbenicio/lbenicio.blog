@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Genetic Algorithms in Evolutionary Optimization"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # The Role of Genetic Algorithms in Evolutionary Optimization

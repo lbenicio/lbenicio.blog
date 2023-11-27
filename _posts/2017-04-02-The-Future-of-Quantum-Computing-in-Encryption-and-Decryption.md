@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Quantum Computing in Encryption and Decryption"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # The Future of Quantum Computing in Encryption and Decryption

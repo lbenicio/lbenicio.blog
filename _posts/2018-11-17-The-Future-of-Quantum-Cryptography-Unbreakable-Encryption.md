@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Quantum Cryptography: Unbreakable Encryption"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # The Future of Quantum Cryptography: Unbreakable Encryption

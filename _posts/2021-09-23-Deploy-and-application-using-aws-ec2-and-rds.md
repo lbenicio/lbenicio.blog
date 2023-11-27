@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Deploy an application using AWS EC2 and RDS
 icon: fa-comment-alt
 tag: aws deployment cloud tutorial
 categories: deployment
+toc: true
 ---
+
 
 AWS EC2 and RDS are powerful cloud-based services that allow you to easily deploy, manage, and scale your applications and websites on the Amazon Web Services (AWS) cloud. EC2 provides scalable computing capacity, while RDS provides managed relational database services. In this blog post, we will take a closer look at how to deploy an application on AWS EC2 and RDS.
 ## Deploy an application using AWS EC2 and RDS

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Tree Data Structures in Information Retrieval"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Tree Data Structures in Information Retrieval

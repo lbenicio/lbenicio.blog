@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data Analytics in Business Decision Making"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Title: The Impact of Big Data Analytics in Business Decision Making

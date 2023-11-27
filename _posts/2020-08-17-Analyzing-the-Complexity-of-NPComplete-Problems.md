@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Complexity of NPComplete Problems"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # Analyzing the Complexity of NP-Complete Problems

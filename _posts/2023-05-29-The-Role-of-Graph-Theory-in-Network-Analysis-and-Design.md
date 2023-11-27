@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Graph Theory in Network Analysis and Design"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Title: The Role of Graph Theory in Network Analysis and Design

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Recommendation Algorithms in Ecommerce Platforms"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Recommendation Algorithms in Ecommerce Platforms

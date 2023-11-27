@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Machine Learning in Natural Language Understanding"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Understanding the Principles of Machine Learning in Natural Language Understanding

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Numerical Methods in Solving Ordinary Differential Equations"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Numerical Methods in Solving Ordinary Differential Equations

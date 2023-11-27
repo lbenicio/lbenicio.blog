@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Complexity of Sorting Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Understanding the Complexity of Sorting Algorithms

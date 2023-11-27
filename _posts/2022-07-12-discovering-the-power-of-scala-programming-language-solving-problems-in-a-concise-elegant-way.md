@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Discovering the Power of Scala Programming Language: Solving Problems in a Concise, Elegant Way"
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 In the world of computer science, programming languages have become an essential tool for developers to create sophisticated software applications. With a myriad of programming languages available today, choosing the right language can be a challenging task for developers. In this article, we will explore Scala, a popular programming language that is gaining momentum in the industry. We will discuss its unique features, its history, and the problems it tries to solve.
 ## History of Scala

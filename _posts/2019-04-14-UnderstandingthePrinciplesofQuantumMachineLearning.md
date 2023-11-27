@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "UnderstandingthePrinciplesofQuantumMachineLearning"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Understanding the Principles of Quantum Machine Learning

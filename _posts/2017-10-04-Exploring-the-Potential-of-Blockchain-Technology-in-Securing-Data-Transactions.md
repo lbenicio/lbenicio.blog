@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Blockchain Technology in Securing Data Transactions"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Exploring the Potential of Blockchain Technology in Securing Data Transactions

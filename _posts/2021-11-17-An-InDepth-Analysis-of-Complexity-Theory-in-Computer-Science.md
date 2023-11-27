@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An InDepth Analysis of Complexity Theory in Computer Science"
 icon: fa-comment-alt
 tag:
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # An In-Depth Analysis of Complexity Theory in Computer Science

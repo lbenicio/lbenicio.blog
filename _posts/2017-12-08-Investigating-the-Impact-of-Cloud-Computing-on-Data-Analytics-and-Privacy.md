@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Impact of Cloud Computing on Data Analytics and Privacy"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Investigating the Impact of Cloud Computing on Data Analytics and Privacy

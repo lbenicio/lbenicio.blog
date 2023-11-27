@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Advancements in Computer Vision: From Image Recognition to Object Detection"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the Advancements in Computer Vision: From Image Recognition to Object Detection

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Big Data Analytics in Business Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Role of Big Data Analytics in Business Intelligence

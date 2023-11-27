@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Image Compression Algorithms in Multimedia Applications"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Title: Investigating the Efficiency of Image Compression Algorithms in Multimedia Applications

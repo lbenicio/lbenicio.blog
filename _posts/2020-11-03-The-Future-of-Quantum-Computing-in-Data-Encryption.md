@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Quantum Computing in Data Encryption"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Future of Quantum Computing in Data Encryption

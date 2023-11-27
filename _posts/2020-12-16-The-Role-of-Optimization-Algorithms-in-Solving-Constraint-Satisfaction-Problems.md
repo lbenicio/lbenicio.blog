@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Optimization Algorithms in Solving Constraint Satisfaction Problems"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # The Role of Optimization Algorithms in Solving Constraint Satisfaction Problems

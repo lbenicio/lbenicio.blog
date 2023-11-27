@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Evolution and Impact of Artificial Intelligence on Robotics"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Title: Exploring the Evolution and Impact of Artificial Intelligence on Robotics

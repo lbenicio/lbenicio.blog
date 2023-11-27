@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Search Algorithms: Linear vs. Binary"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Search Algorithms: Linear vs. Binary

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Mysteries of Genetic Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Unraveling the Mysteries of Genetic Algorithms

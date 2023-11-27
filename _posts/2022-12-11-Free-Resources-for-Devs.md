@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Free resources for Devs
 icon: fa-comment-alt
 tag: tip, resources
 categories: cloud
+toc: true
 ---
+
 
 Today we are going to have a small list of free resource for initial developers. The goal here is to list most useful resources and point to a longer list.
 

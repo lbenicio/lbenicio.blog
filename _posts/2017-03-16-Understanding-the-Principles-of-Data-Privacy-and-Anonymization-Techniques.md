@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Data Privacy and Anonymization Techniques"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Understanding the Principles of Data Privacy and Anonymization Techniques

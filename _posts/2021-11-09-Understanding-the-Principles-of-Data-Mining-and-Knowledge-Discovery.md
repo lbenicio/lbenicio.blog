@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Data Mining and Knowledge Discovery"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Understanding the Principles of Data Mining and Knowledge Discovery

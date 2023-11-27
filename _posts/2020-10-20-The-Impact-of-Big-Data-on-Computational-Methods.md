@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data on Computational Methods"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # The Impact of Big Data on Computational Methods

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Data Structures in Efficient Algorithm Design"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # The Role of Data Structures in Efficient Algorithm Design

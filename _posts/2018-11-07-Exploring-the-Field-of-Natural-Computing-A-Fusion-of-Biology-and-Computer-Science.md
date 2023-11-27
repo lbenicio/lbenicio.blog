@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Natural Computing: A Fusion of Biology and Computer Science"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Exploring the Field of Natural Computing: A Fusion of Biology and Computer Science

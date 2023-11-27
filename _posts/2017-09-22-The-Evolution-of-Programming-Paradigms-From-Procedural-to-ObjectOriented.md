@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Programming Paradigms: From Procedural to ObjectOriented"
 icon: fa-comment-alt
 tag:
 categories: TechTrends
+toc: true
 ---
+
 
 
 # The Evolution of Programming Paradigms: From Procedural to Object-Oriented

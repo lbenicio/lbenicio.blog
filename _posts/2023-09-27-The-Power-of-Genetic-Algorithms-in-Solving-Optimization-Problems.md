@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Genetic Algorithms in Solving Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 ## The Power of Genetic Algorithms in Solving Optimization Problems

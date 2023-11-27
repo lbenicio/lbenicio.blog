@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Parallel Algorithms in HighPerformance Computing"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Understanding the Principles of Parallel Algorithms in High-Performance Computing

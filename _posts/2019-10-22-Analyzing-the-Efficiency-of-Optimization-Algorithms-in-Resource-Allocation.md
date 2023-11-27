@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Optimization Algorithms in Resource Allocation"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Optimization Algorithms in Resource Allocation

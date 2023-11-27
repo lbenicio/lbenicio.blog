@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Machine Learning in Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Exploring the Potential of Machine Learning in Image Recognition

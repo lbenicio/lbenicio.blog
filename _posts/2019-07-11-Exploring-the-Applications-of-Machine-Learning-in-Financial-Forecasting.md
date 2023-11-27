@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Machine Learning in Financial Forecasting"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Exploring the Applications of Machine Learning in Financial Forecasting

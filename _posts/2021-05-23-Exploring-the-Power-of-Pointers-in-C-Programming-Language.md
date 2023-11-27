@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Exploring the Power of Pointers in C Programming Language
 icon: fa-comment-alt
 tag: pointers
 categories: pointers c programing
+toc: true
 ---
+
 
 C programming language is a popular and widely used language that is known for its powerful features such as pointers. Pointers in C provide the programmer with the ability to access and manipulate memory directly, which is essential for developing efficient and high-performance programs. In this paper, we will explore the power of pointers in C programming language and discuss their importance in the programming world. We will begin with an overview of pointers and their basic syntax, and then delve deeper into their applications in areas such as data structures, function pointers, and dynamic memory allocation. Finally, we will conclude by discussing some of the potential pitfalls of using pointers and best practices for avoiding them.
 

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Software Testing: Strategies and Best Practices"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Software Testing: Strategies and Best Practices

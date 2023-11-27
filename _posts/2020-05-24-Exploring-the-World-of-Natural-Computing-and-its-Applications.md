@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Natural Computing and its Applications"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the World of Natural Computing and its Applications

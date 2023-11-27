@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Computer Vision and Object Recognition"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Understanding the Principles of Computer Vision and Object Recognition

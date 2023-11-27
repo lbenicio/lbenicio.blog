@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ExploringtheApplicationsofMachineLearninginPredictiveMaintenance"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Exploring the Applications of Machine Learning in Predictive Maintenance

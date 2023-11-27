@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Algorithms in Recommender Systems and Personalization"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # The Role of Algorithms in Recommender Systems and Personalization

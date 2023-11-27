@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Blockchain Technology"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Understanding the Principles of Blockchain Technology

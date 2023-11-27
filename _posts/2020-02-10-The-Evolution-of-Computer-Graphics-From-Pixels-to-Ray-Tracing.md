@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Computer Graphics: From Pixels to Ray Tracing"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # The Evolution of Computer Graphics: From Pixels to Ray Tracing

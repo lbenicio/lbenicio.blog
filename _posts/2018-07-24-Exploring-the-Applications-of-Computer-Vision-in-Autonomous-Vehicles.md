@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Computer Vision in Autonomous Vehicles"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Exploring the Applications of Computer Vision in Autonomous Vehicles

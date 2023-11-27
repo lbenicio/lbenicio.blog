@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Machine Learning on Pattern Recognition"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Title: The Impact of Machine Learning on Pattern Recognition: Advancements, Challenges, and Future Prospects

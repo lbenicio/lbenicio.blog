@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Cloud Computing on Data Analytics and Business Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Title: The Impact of Cloud Computing on Data Analytics and Business Intelligence

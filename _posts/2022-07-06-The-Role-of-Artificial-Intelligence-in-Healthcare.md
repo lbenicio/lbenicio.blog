@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Artificial Intelligence in Healthcare"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Role of Artificial Intelligence in Healthcare

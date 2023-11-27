@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Why jailbreaking is important
 icon: fa-comment-alt
 tag: ios jailbreaking hacking
 categories: hacking
+toc: true
 ---
+
 
 Jailbreaking is the process of removing the limitations imposed on iOS devices by Apple. This allows users to gain access to the device's file system, install custom apps and themes, and modify the device's behavior in ways that are not possible with a stock iOS installation. Jailbreaking has been a popular practice among iOS users for many years, and it has played an important role in shaping the iOS ecosystem.
 

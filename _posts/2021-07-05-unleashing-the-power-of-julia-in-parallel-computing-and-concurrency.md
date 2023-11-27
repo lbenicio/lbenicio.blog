@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Unleashing the Power of Julia in Parallel Computing and Concurrency
 icon: fa-comment-alt
 tag: parallel progrmaing concurrency tutorial
 categories: tutorial
+toc: true
 ---
+
 
 Parallel computing and concurrency have become essential in today's world of computing, where the processing of vast amounts of data is common. Julia is a high-level, dynamic programming language that is gaining popularity in the scientific computing community. It is known for its speed and performance, making it ideal for scientific computing tasks. In this article, we will explore the power of Julia in parallel computing and concurrency, its benefits, and its applications.
 

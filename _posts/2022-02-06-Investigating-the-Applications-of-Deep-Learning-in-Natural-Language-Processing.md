@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Deep Learning in Natural Language Processing"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # Investigating the Applications of Deep Learning in Natural Language Processing

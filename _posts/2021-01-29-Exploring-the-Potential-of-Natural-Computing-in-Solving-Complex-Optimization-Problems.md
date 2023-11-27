@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Natural Computing in Solving Complex Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Exploring the Potential of Natural Computing in Solving Complex Optimization Problems

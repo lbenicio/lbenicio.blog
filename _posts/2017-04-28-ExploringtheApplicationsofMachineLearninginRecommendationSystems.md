@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ExploringtheApplicationsofMachineLearninginRecommendationSystems"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Exploring the Applications of Machine Learning in Recommendation Systems

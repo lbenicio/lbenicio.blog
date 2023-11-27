@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Impact of Blockchain Technology in Distributed Systems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Investigating the Impact of Blockchain Technology in Distributed Systems

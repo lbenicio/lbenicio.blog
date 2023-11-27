@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "AnalyzingtheEfficiencyofNumericalMethodsinSolvingPartialDifferentialEquations"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Numerical Methods in Solving Partial Differential Equations

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "TheRoleofDataMininginCustomerSegmentationandTargeting"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # The Role of Data Mining in Customer Segmentation and Targeting

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Introduction to Dynamic Programming: Solving Complex Problems Efficiently"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Introduction to Dynamic Programming: Solving Complex Problems Efficiently

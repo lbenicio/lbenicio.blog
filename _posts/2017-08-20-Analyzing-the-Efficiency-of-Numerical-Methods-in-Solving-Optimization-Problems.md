@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Numerical Methods in Solving Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Numerical Methods in Solving Optimization Problems

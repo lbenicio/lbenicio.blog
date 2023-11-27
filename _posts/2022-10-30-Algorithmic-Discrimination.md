@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Algorithmic Discrimination
 icon: fa-comment-alt
 tag: discrimination, algorithms
 categories: discussion
+toc: true
 ---
+
 
 Today we are going to have a different post again. We are going to talk about Algorithmic Discrimination.
 

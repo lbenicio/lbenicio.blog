@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Parallel Computing in Big Data Processing"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Understanding the Principles of Parallel Computing in Big Data Processing

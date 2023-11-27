@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "3. Unveiling the Power of Genetic Algorithms in Optimization Problems"
 icon: fa-comment-alt
 tag:
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Unveiling the Power of Genetic Algorithms in Optimization Problems

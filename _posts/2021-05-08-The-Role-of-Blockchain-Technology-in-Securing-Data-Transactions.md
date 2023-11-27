@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Blockchain Technology in Securing Data Transactions"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Title: The Role of Blockchain Technology in Securing Data Transactions

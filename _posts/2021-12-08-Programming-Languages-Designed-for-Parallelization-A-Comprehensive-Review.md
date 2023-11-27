@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Programming Languages Designed for Parallelization: A Comprehensive Review"
 icon: fa-comment-alt
 tag: parallelism
 categories: parallelism discussion programming languages
+toc: true
 ---
+
 
 The era of parallel computing has arrived, and programming languages that support parallelization are becoming increasingly important. With the rise of multi-core processors and distributed computing, the need for languages that can take advantage of parallel architectures is greater than ever. In this paper, we will explore some of the most popular programming languages that are designed to support parallelism, including their strengths and weaknesses.
 ## Cilk

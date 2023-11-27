@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Natural Language Processing in Chatbot Development"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Investigating the Applications of Natural Language Processing in Chatbot Development

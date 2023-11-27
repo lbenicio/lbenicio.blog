@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Natural Language Processing Algorithms in Text Summarization"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Natural Language Processing Algorithms in Text Summarization

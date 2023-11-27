@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Overview of Bioinspired Computing and its Applications"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # An Overview of Bioinspired Computing and its Applications

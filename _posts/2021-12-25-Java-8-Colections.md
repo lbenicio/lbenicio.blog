@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Java 8 collections
 icon: fa-comment-alt
 tag: java tutorial
 categories: javs
+toc: true
 ---
+
 
 Java 8 Collections refers to the various classes and interfaces available in the java.util package that enable the storage and manipulation of data in a program. It includes List, Set, Map, and Queue interfaces, as well as their various implementations such as ArrayList, HashSet, HashMap, and LinkedList.
 ## Java 8 collections

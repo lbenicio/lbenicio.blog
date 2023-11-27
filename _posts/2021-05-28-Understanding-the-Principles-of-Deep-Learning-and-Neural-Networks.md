@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Deep Learning and Neural Networks"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Understanding the Principles of Deep Learning and Neural Networks

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Virtual Reality and its Impact on Gaming"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Exploring the World of Virtual Reality and its Impact on Gaming

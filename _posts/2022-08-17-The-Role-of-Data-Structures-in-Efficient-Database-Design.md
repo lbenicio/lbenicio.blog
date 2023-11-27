@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Data Structures in Efficient Database Design"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Role of Data Structures in Efficient Database Design

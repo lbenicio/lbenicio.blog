@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Potential of Quantum Machine Learning in Financial Forecasting"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Potential of Quantum Machine Learning in Financial Forecasting

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Optimization Algorithms in Supply Chain Management"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Optimization Algorithms in Supply Chain Management

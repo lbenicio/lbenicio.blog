@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Artificial Intelligence: From Turing to Deep Learning"
 icon: fa-comment-alt
 tag:
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Evolution of Artificial Intelligence: From Turing to Deep Learning

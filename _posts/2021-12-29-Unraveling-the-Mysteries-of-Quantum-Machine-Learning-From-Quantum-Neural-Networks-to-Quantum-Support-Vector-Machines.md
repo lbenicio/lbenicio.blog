@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Mysteries of Quantum Machine Learning: From Quantum Neural Networks to Quantum Support Vector Machines"
 icon: fa-comment-alt
 tag: CodeQuality BigData SoftwareTesting
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Unraveling the Mysteries of Quantum Machine Learning: From Quantum Neural Networks to Quantum Support Vector Machines

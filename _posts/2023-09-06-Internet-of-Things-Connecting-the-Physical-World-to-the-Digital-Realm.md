@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Internet of Things: Connecting the Physical World to the Digital Realm"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Internet of Things: Connecting the Physical World to the Digital Realm

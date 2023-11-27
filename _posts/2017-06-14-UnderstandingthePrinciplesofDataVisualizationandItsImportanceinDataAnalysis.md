@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "UnderstandingthePrinciplesofDataVisualizationandItsImportanceinDataAnalysis"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Understanding the Principles of Data Visualization and Its Importance in Data Analysis

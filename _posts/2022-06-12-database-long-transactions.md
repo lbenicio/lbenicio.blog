@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Database Long Transactions
 icon: fa-comment-alt
 tag: database developer discussion
 categories: discussion
+toc: true
 ---
+
 
 In a database, a transaction is a unit of work that is performed as a single logical operation. Transactions are used to ensure the consistency and integrity of data, by allowing multiple operations to be executed as a single atomic unit. If any of the operations in a transaction fail, the entire transaction is rolled back, and the database is returned to its previous state.
 ## Database Long Transactions

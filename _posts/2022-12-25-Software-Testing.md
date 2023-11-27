@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Software Testing
 icon: fa-comment-alt
 tag: tip, resources, testing, tests, software
 categories: testing
+toc: true
 ---
+
 
 Software testing is an important aspect of the software development process, as it helps to ensure that a piece of software is working correctly and meets the requirements set out in the design phase. There are several different types of tests that can be performed on software, each with its own specific purpose and focus.
 

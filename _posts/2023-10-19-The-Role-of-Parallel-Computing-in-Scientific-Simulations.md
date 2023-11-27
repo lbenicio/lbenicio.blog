@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Parallel Computing in Scientific Simulations"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Role of Parallel Computing in Scientific Simulations

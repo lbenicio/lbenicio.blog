@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Data Structures in Algorithm Design"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Importance of Data Structures in Algorithm Design

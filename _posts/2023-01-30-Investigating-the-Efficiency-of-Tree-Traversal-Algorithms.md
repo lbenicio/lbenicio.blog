@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Tree Traversal Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Tree Traversal Algorithms
@@ -46,24 +49,4 @@ The time complexity of threaded binary tree traversal depends on the chosen trav
 To compare the efficiency of the discussed tree traversal algorithms, we summarize their time complexity and space requirements in the table below:
 
 | Algorithm        | Time Complexity | Space Requirements |
-|------------------|-----------------|--------------------|
-| DFS              | O(V + E)        | O(V)               |
-| BFS              | O(V + E)        | O(V)               |
-| Morris Traversal | O(n)            | O(1)               |
-| Threaded Binary  | O(n) to O(1)    | O(1) to O(n)       |
-| Trees            |                 |                    |
-
-As shown in the table, Morris traversal and threaded binary trees offer better time complexity or space efficiency compared to DFS and BFS. However, it is crucial to consider the specific requirements of the application and potential trade-offs when selecting an algorithm.
-
-## 7. Conclusion
-
-Efficient tree traversal algorithms are vital for various computer science applications. In this article, we investigated the efficiency of classic and modern tree traversal algorithms, including DFS, BFS, Morris traversal, and threaded binary trees. We analyzed their time complexity and space requirements, providing valuable insights into their strengths and weaknesses.
-
-When selecting a tree traversal algorithm, researchers and practitioners should consider factors such as the size and structure of the tree, memory constraints, and the specific goals of the application. By understanding the efficiency characteristics of these algorithms, one can make informed decisions to optimize the performance of their computational tasks.
-
-Future research may focus on further advancements in tree traversal algorithms, exploring hybrid approaches that combine the strengths of different algorithms or investigating parallel implementations to leverage the power of multi-core processors. Such advancements can further enhance the efficiency and scalability of tree traversal in various computational domains.
-
-## References
-
-1. Skiena, S. S. (2008). The Algorithm Design Manual. Springer Science & Business Media.
-2. Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009). Introduction to Algorithms (3rd ed.). MIT Press.
+|

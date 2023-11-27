@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: Load Test Software
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: testing, load
 categories:
   - discussion
   - load test
+toc: true
 ---
+
 
 Hi folks, today we are going discuss load test solutions. Let us do it.
 

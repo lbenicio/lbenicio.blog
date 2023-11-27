@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Genetic Algorithms in Evolutionary Optimization"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # The Power of Genetic Algorithms in Evolutionary Optimization

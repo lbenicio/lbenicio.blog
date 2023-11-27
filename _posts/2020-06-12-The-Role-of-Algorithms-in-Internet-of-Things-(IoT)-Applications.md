@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Algorithms in Internet of Things (IoT) Applications"
 icon: fa-comment-alt
 tag:   C r
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # The Role of Algorithms in Internet of Things (IoT) Applications

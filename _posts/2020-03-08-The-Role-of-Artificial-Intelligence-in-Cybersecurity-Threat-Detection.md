@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Artificial Intelligence in Cybersecurity Threat Detection"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Role of Artificial Intelligence in Cybersecurity Threat Detection

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Advancements in Computer Vision Techniques for Object Detection"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Advancements in Computer Vision Techniques for Object Detection

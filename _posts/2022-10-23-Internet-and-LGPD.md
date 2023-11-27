@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Internet and LGPD
 icon: fa-comment-alt
 tag: internet, lgpd, law
 categories: discussion
+toc: true
 ---
+
 
 Hi folks, today we are going to have a different post. We are going to talk about Internet and LGPD.
 

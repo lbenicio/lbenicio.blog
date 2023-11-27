@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Reinforcement Learning in Game Theory"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Exploring the Applications of Reinforcement Learning in Game Theory

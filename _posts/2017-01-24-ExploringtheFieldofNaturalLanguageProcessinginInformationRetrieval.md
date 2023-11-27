@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ExploringtheFieldofNaturalLanguageProcessinginInformationRetrieval"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Exploring the Field of Natural Language Processing in Information Retrieval

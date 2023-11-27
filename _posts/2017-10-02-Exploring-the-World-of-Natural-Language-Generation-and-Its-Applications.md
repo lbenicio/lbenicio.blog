@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Natural Language Generation and Its Applications"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Exploring the World of Natural Language Generation and Its Applications

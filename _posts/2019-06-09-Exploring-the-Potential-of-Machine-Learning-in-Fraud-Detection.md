@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Machine Learning in Fraud Detection"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Title: Exploring the Potential of Machine Learning in Fraud Detection

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Introduction to Reinforcement Learning: From Theory to Applications"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Introduction to Reinforcement Learning: From Theory to Applications

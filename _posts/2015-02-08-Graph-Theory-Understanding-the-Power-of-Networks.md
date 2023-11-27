@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Graph Theory: Understanding the Power of Networks"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Graph Theory: Understanding the Power of Networks

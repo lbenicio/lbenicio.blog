@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Neural Networks in Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Title: The Power of Neural Networks in Image Recognition

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Deploy an application using AWS ECS
 icon: fa-comment-alt
 tag: aws deployment cloud tutorial
 categories: deployment
+toc: true
 ---
+
 
 AWS Elastic Container Service (ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on the AWS cloud. Whether you are deploying a simple web application or a complex microservices architecture, ECS provides the resources and tools you need to deploy and manage your containers in the cloud. In this blog post, we will take a closer look at how to deploy an application on AWS ECS.
 

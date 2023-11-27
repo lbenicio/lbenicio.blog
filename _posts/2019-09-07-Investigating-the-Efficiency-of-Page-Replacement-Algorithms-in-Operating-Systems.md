@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Page Replacement Algorithms in Operating Systems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Page Replacement Algorithms in Operating Systems

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power and Limitations of Artificial Intelligence in Natural Language Understanding"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # The Power and Limitations of Artificial Intelligence in Natural Language Understanding

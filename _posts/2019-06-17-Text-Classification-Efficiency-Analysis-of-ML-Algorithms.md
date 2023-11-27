@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Text Classification: Efficiency Analysis of ML Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Text Classification: Efficiency Analysis of ML Algorithms

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Data Structures in Network Routing Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # The Role of Data Structures in Network Routing Algorithms

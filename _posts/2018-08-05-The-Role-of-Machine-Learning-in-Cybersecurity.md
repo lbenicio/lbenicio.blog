@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Machine Learning in Cybersecurity"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # The Role of Machine Learning in Cybersecurity

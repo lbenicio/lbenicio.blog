@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Quantum Machine Learning in Solving Financial Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Exploring the Field of Quantum Machine Learning in Solving Financial Optimization Problems

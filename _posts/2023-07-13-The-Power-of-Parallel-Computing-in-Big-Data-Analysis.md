@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Parallel Computing in Big Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # The Power of Parallel Computing in Big Data Analysis

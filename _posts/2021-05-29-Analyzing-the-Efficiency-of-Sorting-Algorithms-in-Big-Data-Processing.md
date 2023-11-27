@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Sorting Algorithms in Big Data Processing"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Sorting Algorithms in Big Data Processing

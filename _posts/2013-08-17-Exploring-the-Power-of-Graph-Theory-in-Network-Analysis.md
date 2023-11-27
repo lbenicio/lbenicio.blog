@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Power of Graph Theory in Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Exploring the Power of Graph Theory in Network Analysis

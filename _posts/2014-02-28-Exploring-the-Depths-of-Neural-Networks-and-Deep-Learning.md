@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Depths of Neural Networks and Deep Learning"
 icon: fa-comment-alt
 tag:
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Exploring the Depths of Neural Networks and Deep Learning

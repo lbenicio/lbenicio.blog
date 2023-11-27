@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Graph Theory in Network Routing Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Role of Graph Theory in Network Routing Algorithms

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unveiling the Power of Genetic Algorithms in Optimization"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Unveiling the Power of Genetic Algorithms in Optimization

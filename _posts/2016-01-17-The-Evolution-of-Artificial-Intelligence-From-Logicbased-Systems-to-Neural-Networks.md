@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Artificial Intelligence: From Logicbased Systems to Neural Networks"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # The Evolution of Artificial Intelligence: From Logic-based Systems to Neural Networks

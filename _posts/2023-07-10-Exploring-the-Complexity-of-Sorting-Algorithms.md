@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Complexity of Sorting Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Exploring the Complexity of Sorting Algorithms

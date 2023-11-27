@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Dimensionality Reduction Algorithms in HighDimensional Data"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Dimensionality Reduction Algorithms in High-Dimensional Data

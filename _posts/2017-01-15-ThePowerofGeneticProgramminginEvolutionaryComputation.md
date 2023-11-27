@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ThePowerofGeneticProgramminginEvolutionaryComputation"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # The Power of Genetic Programming in Evolutionary Computation

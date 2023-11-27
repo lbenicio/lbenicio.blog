@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Exploratory analysis on Ruby on Rails application performance test compare
 icon: fa-comment-alt
 tag: scaling, ruby on rails, kubernetes, container orchestration #no-spell-check-line
 categories: analysis
+toc: true
 ---
+
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis.
 

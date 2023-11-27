@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Numerical Methods in Solving Differential Equations"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Numerical Methods in Solving Differential Equations

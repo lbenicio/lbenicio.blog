@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Internet of Things on Smart Cities: Enhancing Efficiency and Sustainability"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # The Impact of Internet of Things on Smart Cities: Enhancing Efficiency and Sustainability

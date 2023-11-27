@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Deep Learning in Computer Vision"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Exploring the Applications of Deep Learning in Computer Vision

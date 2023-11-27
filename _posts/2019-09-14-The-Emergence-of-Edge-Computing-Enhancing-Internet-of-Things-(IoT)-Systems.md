@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Emergence of Edge Computing: Enhancing Internet of Things (IoT) Systems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # The Emergence of Edge Computing: Enhancing Internet of Things (IoT) Systems

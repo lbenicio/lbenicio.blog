@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "NP Problem"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Title: Unveiling the Complexity of NP Problems: A Journey through the Classics and New Trends in Computation and Algorithms

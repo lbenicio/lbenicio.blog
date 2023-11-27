@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Rise of Cloud Computing: Benefits and Challenges"
 icon: fa-comment-alt
 tag:
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # The Rise of Cloud Computing: Benefits and Challenges

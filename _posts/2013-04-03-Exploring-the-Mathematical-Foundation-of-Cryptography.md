@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Mathematical Foundation of Cryptography"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Exploring the Mathematical Foundation of Cryptography

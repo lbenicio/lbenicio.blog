@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Data Mining in Customer Relationship Management"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # Exploring the Applications of Data Mining in Customer Relationship Management

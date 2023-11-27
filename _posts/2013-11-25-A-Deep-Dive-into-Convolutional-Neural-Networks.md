@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "A Deep Dive into Convolutional Neural Networks"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # A Deep Dive into Convolutional Neural Networks

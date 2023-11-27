@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Operating Systems: From Monolithic to Microkernel"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # The Evolution of Operating Systems: From Monolithic to Microkernel

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Discovering the Power of Scala Programming Language in Concise Problem Solving"
 icon: fa-comment-alt
 tag:     e
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Discovering the Power of Scala Programming Language in Concise Problem Solving

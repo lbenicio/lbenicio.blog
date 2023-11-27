@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Machine Learning Algorithms in Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Exploring the Applications of Machine Learning Algorithms in Image Recognition

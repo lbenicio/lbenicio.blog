@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Parallel Computing in Scientific Simulations"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Parallel Computing in Scientific Simulations

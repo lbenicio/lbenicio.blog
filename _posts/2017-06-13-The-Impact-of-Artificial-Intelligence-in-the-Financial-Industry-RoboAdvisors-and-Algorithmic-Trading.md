@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Artificial Intelligence in the Financial Industry: RoboAdvisors and Algorithmic Trading"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Title: The Impact of Artificial Intelligence in the Financial Industry: RoboAdvisors and Algorithmic Trading

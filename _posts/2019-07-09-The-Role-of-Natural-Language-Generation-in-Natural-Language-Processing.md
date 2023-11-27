@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Natural Language Generation in Natural Language Processing"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # The Role of Natural Language Generation in Natural Language Processing

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Why it is important to study functional programing
 icon: fa-comment-alt
 tag: discussion functional "functional programming"
 categories: discussion
+toc: true
 ---
+
 
 
 

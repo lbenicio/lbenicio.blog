@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Cybersecurity: From Encryption to Intrusion Detection Systems"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Exploring the Field of Cybersecurity: From Encryption to Intrusion Detection Systems

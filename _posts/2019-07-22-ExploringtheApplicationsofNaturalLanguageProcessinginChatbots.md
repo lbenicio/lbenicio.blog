@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ExploringtheApplicationsofNaturalLanguageProcessinginChatbots"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Exploring the Applications of Natural Language Processing in Chatbots

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Data Compression Algorithms in Image Processing."
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Data Compression Algorithms in Image Processing

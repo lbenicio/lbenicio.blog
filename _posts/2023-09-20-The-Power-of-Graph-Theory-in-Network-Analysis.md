@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Graph Theory in Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # The Power of Graph Theory in Network Analysis

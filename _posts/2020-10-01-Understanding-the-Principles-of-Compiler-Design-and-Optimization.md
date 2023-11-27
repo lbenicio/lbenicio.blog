@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Compiler Design and Optimization"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # Understanding the Principles of Compiler Design and Optimization

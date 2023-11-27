@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Parallel Algorithms in Big Data Processing"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Parallel Algorithms in Big Data Processing

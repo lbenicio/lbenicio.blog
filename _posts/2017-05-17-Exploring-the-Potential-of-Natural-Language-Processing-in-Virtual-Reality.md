@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Natural Language Processing in Virtual Reality"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Exploring the Potential of Natural Language Processing in Virtual Reality

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Data Visualization in Exploratory Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # The Importance of Data Visualization in Exploratory Data Analysis

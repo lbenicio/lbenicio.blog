@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Bioinformatics: From Protein Structure Prediction to Drug Discovery"
 icon: fa-comment-alt
 tag:     i
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Exploring the Field of Bioinformatics: From Protein Structure Prediction to Drug Discovery

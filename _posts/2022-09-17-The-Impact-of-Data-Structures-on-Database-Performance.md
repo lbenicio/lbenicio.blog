@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Data Structures on Database Performance"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Impact of Data Structures on Database Performance

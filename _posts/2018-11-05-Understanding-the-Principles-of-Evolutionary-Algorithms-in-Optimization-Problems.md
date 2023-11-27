@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Evolutionary Algorithms in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 ## Understanding the Principles of Evolutionary Algorithms in Optimization Problems

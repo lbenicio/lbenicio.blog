@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Introduction to Machine Learning Algorithms for Classification"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # An Introduction to Machine Learning Algorithms for Classification

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "A Comprehensive Study on the Complexity of Sorting Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # A Comprehensive Study on the Complexity of Sorting Algorithms

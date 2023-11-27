@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Blockchain Technology on Data Security and Privacy"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # The Impact of Blockchain Technology on Data Security and Privacy

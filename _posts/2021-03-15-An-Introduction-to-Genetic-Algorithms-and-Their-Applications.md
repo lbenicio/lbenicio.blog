@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Introduction to Genetic Algorithms and Their Applications"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # An Introduction to Genetic Algorithms and Their Applications

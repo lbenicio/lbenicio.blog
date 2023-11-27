@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Artificial Intelligence: Challenges and Opportunities"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # The Future of Artificial Intelligence: Challenges and Opportunities

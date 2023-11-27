@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Artificial Intelligence: Advancements and Challenges"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # The Future of Artificial Intelligence: Advancements and Challenges

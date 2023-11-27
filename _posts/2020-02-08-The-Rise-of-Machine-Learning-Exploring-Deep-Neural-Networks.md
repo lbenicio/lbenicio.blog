@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Rise of Machine Learning: Exploring Deep Neural Networks"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # The Rise of Machine Learning: Exploring Deep Neural Networks

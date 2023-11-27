@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Robotics and Artificial Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Exploring the Field of Robotics and Artificial Intelligence

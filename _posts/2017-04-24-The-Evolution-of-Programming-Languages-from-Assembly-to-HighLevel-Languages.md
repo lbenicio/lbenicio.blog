@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Programming Languages from Assembly to HighLevel Languages"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # The Evolution of Programming Languages from Assembly to High-Level Languages

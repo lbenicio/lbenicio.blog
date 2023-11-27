@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Graph Theory: Applications in Computer Science"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Exploring the World of Graph Theory: Applications in Computer Science

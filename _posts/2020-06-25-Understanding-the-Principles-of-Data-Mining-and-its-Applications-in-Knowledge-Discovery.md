@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Data Mining and its Applications in Knowledge Discovery"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Understanding the Principles of Data Mining and its Applications in Knowledge Discovery

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Ethics of Artificial Intelligence: Challenges and Considerations"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # The Ethics of Artificial Intelligence: Challenges and Considerations

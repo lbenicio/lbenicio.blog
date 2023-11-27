@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Blockchain Technology on Distributed Systems"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # The Impact of Blockchain Technology on Distributed Systems

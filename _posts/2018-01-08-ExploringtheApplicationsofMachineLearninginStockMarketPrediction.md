@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ExploringtheApplicationsofMachineLearninginStockMarketPrediction"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Exploring the Applications of Machine Learning in Stock Market Prediction

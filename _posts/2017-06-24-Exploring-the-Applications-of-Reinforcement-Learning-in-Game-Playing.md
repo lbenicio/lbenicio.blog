@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Reinforcement Learning in Game Playing"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Exploring the Applications of Reinforcement Learning in Game Playing

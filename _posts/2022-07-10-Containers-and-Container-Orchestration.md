@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Containers and Container Orchestration
 icon: fa-comment-alt
 tag: docker, kubernetes, orcherstration, containers
 categories: containers
+toc: true
 ---
+
 
 Today we are going to talk about container and container orchestration, and solution like docker and Kubernetes.
 

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Machine Learning in Predictive Analytics"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # The Power of Machine Learning in Predictive Analytics

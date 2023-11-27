@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computational Biology: From Genomics to Proteomics"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # Exploring the Field of Computational Biology: From Genomics to Proteomics

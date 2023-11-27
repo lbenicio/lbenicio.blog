@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Quantum Computing: Challenges and Opportunities"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # The Future of Quantum Computing: Challenges and Opportunities

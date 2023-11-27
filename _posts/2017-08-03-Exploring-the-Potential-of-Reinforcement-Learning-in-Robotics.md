@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Reinforcement Learning in Robotics"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Exploring the Potential of Reinforcement Learning in Robotics

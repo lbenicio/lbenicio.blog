@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Data Mining Techniques: Uncovering Hidden Patterns in Large Datasets"
 icon: fa-comment-alt
 tag:
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # Data Mining Techniques: Uncovering Hidden Patterns in Large Datasets

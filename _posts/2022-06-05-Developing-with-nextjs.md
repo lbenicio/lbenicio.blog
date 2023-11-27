@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Developing with NextJS
 icon: fa-comment-alt
 tag: javascript node nextjs next developer
 categories: tutorial
+toc: true
 ---
+
 
 Next.js is a popular framework for building server-rendered React applications. It is easy to get started with and offers a number of features that make it a great choice for building web applications, including automatic code splitting, optimized performance, and easy integration with other tools and libraries.
 ## Developing with NextJS

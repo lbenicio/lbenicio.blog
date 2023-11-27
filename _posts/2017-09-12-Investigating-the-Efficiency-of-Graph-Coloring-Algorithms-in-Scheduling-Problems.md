@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Graph Coloring Algorithms in Scheduling Problems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Graph Coloring Algorithms in Scheduling Problems

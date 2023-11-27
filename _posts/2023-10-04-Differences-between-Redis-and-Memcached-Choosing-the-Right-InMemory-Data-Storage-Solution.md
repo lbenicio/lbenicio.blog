@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Differences between Redis and Memcached: Choosing the Right InMemory Data Storage Solution"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Differences between Redis and Memcached: Choosing the Right In-Memory Data Storage Solution

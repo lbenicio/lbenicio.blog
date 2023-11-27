@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Matrix Factorization Algorithms in Collaborative Filtering"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Matrix Factorization Algorithms in Collaborative Filtering

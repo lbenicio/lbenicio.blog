@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Blockchain Technology in Supply Chain Management"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Investigating the Applications of Blockchain Technology in Supply Chain Management

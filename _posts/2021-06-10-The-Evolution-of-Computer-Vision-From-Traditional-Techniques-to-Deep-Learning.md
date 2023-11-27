@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Computer Vision: From Traditional Techniques to Deep Learning"
 icon: fa-comment-alt
 tag: i e p
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # The Evolution of Computer Vision: From Traditional Techniques to Deep Learning

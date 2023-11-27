@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "TheInfluenceofDataStructuresinAlgorithmDesign"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Influence of Data Structures in Algorithm Design

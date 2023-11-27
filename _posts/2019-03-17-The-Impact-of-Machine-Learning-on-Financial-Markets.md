@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Machine Learning on Financial Markets"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # The Impact of Machine Learning on Financial Markets

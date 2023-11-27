@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Genetic Algorithms and Their Applications"
 icon: fa-comment-alt
 tag:
 categories: Networking
+toc: true
 ---
+
 
 
 # Understanding the Principles of Genetic Algorithms and Their Applications

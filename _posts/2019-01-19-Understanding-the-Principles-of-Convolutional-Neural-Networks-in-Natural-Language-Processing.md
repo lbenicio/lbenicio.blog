@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Convolutional Neural Networks in Natural Language Processing"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Understanding the Principles of Convolutional Neural Networks in Natural Language Processing

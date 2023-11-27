@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Fundamentals of Convolutional Neural Networks in Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Understanding the Fundamentals of Convolutional Neural Networks in Image Recognition

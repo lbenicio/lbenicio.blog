@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Data Structures in Algorithm Design and Analysis"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # The Role of Data Structures in Algorithm Design and Analysis

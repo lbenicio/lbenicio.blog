@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Parallel Computing: Techniques and Architectures"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Understanding the Principles of Parallel Computing: Techniques and Architectures

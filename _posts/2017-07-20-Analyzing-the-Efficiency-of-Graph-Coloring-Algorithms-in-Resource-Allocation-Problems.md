@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Graph Coloring Algorithms in Resource Allocation Problems"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Graph Coloring Algorithms in Resource Allocation Problems

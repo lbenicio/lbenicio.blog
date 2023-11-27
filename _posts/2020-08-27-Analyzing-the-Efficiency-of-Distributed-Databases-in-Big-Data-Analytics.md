@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Distributed Databases in Big Data Analytics"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Distributed Databases in Big Data Analytics

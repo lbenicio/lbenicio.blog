@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Deep Learning in Neural Networks"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Understanding the Principles of Deep Learning in Neural Networks

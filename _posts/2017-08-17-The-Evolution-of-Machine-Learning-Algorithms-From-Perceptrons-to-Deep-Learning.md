@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Machine Learning Algorithms: From Perceptrons to Deep Learning"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # The Evolution of Machine Learning Algorithms: From Perceptrons to Deep Learning

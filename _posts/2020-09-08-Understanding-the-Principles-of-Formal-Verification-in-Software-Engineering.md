@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Formal Verification in Software Engineering"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Understanding the Principles of Formal Verification in Software Engineering

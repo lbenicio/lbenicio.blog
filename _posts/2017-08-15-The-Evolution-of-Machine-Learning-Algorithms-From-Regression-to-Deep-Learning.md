@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Machine Learning Algorithms: From Regression to Deep Learning"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # The Evolution of Machine Learning Algorithms: From Regression to Deep Learning

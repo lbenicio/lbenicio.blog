@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Neural Networks in Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # The Power of Neural Networks in Image Recognition

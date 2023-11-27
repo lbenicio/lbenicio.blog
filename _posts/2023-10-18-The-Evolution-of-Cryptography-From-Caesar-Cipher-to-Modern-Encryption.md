@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Cryptography: From Caesar Cipher to Modern Encryption"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # The Evolution of Cryptography: From Caesar Cipher to Modern Encryption

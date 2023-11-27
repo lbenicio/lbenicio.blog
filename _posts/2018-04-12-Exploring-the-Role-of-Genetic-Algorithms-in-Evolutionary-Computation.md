@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Role of Genetic Algorithms in Evolutionary Computation"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Exploring the Role of Genetic Algorithms in Evolutionary Computation

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Analysis of Different Graph Algorithms for Social Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # An Analysis of Different Graph Algorithms for Social Network Analysis

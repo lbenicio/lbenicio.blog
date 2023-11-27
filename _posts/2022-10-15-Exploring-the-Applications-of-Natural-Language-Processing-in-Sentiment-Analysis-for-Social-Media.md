@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Natural Language Processing in Sentiment Analysis for Social Media"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Exploring the Applications of Natural Language Processing in Sentiment Analysis for Social Media

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Recurrent Neural Networks in Natural Language Processing"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Understanding the Principles of Recurrent Neural Networks in Natural Language Processing

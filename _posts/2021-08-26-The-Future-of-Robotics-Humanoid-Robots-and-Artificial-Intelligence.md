@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Robotics: Humanoid Robots and Artificial Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # The Future of Robotics: Humanoid Robots and Artificial Intelligence

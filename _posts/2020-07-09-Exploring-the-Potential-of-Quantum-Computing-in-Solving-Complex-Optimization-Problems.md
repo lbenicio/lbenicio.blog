@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Quantum Computing in Solving Complex Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Exploring the Potential of Quantum Computing in Solving Complex Optimization Problems

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Distributed Systems"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Understanding the Principles of Distributed Systems

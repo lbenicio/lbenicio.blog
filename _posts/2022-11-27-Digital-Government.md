@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Digital Government
 icon: fa-comment-alt
 tag: digital, government
 categories: discussion
+toc: true
 ---
+
 
 On last season we were talking about different topic than usual hard skills. Let us talk now about Digital Government.
 

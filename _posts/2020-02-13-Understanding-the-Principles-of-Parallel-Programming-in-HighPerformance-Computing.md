@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Parallel Programming in HighPerformance Computing"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Understanding the Principles of Parallel Programming in High-Performance Computing

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Art of Software Engineering: Best Practices and Methodologies in Development"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Art of Software Engineering: Best Practices and Methodologies in Development

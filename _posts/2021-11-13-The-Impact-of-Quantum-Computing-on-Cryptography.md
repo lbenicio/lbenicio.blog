@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Quantum Computing on Cryptography"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # The Impact of Quantum Computing on Cryptography

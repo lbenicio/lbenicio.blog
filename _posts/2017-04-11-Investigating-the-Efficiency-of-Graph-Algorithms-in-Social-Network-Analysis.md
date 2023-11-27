@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Graph Algorithms in Social Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Title: Investigating the Efficiency of Graph Algorithms in Social Network Analysis

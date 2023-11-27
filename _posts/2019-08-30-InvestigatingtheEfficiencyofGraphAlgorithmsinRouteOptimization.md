@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "InvestigatingtheEfficiencyofGraphAlgorithmsinRouteOptimization"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Graph Algorithms in Route Optimization

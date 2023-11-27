@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Computer Graphics: From Pixel to Ray Tracing"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # The Evolution of Computer Graphics: From Pixel to Ray Tracing

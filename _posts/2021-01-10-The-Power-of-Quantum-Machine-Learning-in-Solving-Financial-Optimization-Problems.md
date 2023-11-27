@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Quantum Machine Learning in Solving Financial Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # The Power of Quantum Machine Learning in Solving Financial Optimization Problems

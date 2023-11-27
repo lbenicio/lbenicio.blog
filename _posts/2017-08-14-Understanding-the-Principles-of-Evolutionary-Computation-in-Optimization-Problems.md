@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Evolutionary Computation in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Understanding the Principles of Evolutionary Computation in Optimization Problems

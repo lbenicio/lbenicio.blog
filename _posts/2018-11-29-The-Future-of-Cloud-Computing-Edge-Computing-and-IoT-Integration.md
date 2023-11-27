@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Cloud Computing: Edge Computing and IoT Integration"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # The Future of Cloud Computing: Edge Computing and IoT Integration

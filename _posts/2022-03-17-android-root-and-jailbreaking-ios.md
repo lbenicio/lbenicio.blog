@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Android root and jailbreaking ios
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 The Android root ecosystem refers to the community of users and developers who have gained access to the root of the Android operating system. This allows them to modify the system in ways that are not possible with a stock Android installation, including installing custom ROMs, custom kernels, and other modifications. This ecosystem is often compared to the jailbreaking community on iOS, as both communities involve users who are looking to gain more control over their devices and customize them in ways that are not possible with a stock installation.
 ## Android root and jailbreaking ios

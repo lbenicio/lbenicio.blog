@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Computer Vision: From Image Recognition to Object Detection"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # The Evolution of Computer Vision: From Image Recognition to Object Detection

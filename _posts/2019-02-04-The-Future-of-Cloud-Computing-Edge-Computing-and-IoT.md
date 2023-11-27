@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Cloud Computing: Edge Computing and IoT"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # The Future of Cloud Computing: Edge Computing and IoT

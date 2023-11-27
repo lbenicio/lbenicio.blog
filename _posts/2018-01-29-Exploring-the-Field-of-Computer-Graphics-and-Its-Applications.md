@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computer Graphics and Its Applications"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Exploring the Field of Computer Graphics and Its Applications

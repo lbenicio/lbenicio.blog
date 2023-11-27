@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: The Linux kernel
 icon: fa-comment-alt
 tag: kernel linux discussion
 categories: discussion
+toc: true
 ---
+
 
 The Linux kernel is a powerful and flexible piece of software that forms the heart of the Linux operating system. It was first released in 1991 by Linus Torvalds, a student at the University of Helsinki, and has since grown into one of the most widely used operating systems in the world. In this essay, we will take a closer look at the history of the Linux kernel and the ideas that have driven its development over the years.
 

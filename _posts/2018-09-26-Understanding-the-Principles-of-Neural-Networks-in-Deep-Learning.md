@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Neural Networks in Deep Learning"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Understanding the Principles of Neural Networks in Deep Learning

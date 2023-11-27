@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "TheRoleofDataMininginKnowledgeDiscovery"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # The Role of Data Mining in Knowledge Discovery

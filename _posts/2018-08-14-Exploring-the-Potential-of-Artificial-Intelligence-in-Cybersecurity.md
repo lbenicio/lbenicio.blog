@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Artificial Intelligence in Cybersecurity"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Exploring the Potential of Artificial Intelligence in Cybersecurity

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Artificial Intelligence in Cybersecurity"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Role of Artificial Intelligence in Cybersecurity

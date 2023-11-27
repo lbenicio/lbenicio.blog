@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Parallel Computing in Largescale Data Processing"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Parallel Computing in Largescale Data Processing

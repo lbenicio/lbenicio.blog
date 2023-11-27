@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Genetic Algorithms in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Genetic Algorithms in Optimization Problems

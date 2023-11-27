@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Computer Vision in Augmented Reality"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Exploring the Applications of Computer Vision in Augmented Reality

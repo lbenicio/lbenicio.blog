@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Advancements in Robotics: From Industrial Automation to Humanoid Robots"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Advancements in Robotics: From Industrial Automation to Humanoid Robots

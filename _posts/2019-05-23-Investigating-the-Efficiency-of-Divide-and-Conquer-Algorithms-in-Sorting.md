@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Divide and Conquer Algorithms in Sorting"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Divide and Conquer Algorithms in Sorting

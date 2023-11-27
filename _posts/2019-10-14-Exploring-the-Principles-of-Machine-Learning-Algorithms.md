@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Principles of Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Exploring the Principles of Machine Learning Algorithms

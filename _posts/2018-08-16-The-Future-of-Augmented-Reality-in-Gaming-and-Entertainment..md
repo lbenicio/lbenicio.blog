@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Augmented Reality in Gaming and Entertainment."
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # The Future of Augmented Reality in Gaming and Entertainment

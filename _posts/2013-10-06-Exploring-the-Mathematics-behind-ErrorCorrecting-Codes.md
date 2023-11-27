@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Mathematics behind ErrorCorrecting Codes"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Exploring the Mathematics behind Error Correcting Codes

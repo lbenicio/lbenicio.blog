@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Impact of Big Data on Business Analytics"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Investigating the Impact of Big Data on Business Analytics

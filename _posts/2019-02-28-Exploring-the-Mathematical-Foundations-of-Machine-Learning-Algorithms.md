@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Mathematical Foundations of Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Exploring the Mathematical Foundations of Machine Learning Algorithms

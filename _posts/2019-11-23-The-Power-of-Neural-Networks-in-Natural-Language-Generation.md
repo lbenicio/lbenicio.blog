@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Neural Networks in Natural Language Generation"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # The Power of Neural Networks in Natural Language Generation

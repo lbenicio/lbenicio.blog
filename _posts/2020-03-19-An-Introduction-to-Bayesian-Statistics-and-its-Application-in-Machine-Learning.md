@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Introduction to Bayesian Statistics and its Application in Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # An Introduction to Bayesian Statistics and its Application in Machine Learning

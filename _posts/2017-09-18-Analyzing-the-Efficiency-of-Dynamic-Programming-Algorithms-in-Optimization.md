@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Dynamic Programming Algorithms in Optimization"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Dynamic Programming Algorithms in Optimization

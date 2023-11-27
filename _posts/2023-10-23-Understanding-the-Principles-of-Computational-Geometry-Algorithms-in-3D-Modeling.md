@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Computational Geometry Algorithms in 3D Modeling"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Understanding the Principles of Computational Geometry Algorithms in 3D Modeling

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Genetic Algorithms in Feature Selection"
 icon: fa-comment-alt
 tag: e i  
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Genetic Algorithms in Feature Selection

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Cryptography and Its Role in Data Security"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Understanding the Principles of Cryptography and Its Role in Data Security

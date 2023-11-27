@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Genetic Algorithms in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Genetic Algorithms in Optimization Problems

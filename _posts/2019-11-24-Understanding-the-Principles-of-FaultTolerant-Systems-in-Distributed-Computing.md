@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of FaultTolerant Systems in Distributed Computing"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Understanding the Principles of Fault-Tolerant Systems in Distributed Computing

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Natural Language Generation"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Exploring the Field of Natural Language Generation

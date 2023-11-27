@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Natural Language Processing in Information Retrieval"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # The Role of Natural Language Processing in Information Retrieval

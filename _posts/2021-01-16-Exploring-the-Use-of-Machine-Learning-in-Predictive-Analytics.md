@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Use of Machine Learning in Predictive Analytics"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the Use of Machine Learning in Predictive Analytics

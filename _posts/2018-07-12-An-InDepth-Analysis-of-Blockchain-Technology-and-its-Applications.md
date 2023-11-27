@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An InDepth Analysis of Blockchain Technology and its Applications"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # An In-Depth Analysis of Blockchain Technology and its Applications

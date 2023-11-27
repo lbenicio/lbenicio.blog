@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computer Vision: Algorithms and Applications"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Exploring the Field of Computer Vision: Algorithms and Applications

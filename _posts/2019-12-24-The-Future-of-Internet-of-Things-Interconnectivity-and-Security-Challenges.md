@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Internet of Things: Interconnectivity and Security Challenges"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # The Future of Internet of Things: Interconnectivity and Security Challenges

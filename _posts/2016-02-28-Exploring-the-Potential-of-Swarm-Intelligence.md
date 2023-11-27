@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Swarm Intelligence"
 icon: fa-comment-alt
 tag: MachineLearning Blockchain ComputerArchitecture
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the Potential of Swarm Intelligence

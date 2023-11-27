@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Graph Clustering Algorithms in Social Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Title: Analyzing the Efficiency of Graph Clustering Algorithms in Social Network Analysis

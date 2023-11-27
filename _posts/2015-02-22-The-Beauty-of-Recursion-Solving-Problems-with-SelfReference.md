@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Beauty of Recursion: Solving Problems with SelfReference"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # The Beauty of Recursion: Solving Problems with Self-Reference

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Machine Learning: Exploring the Power of Neural Networks"
 icon: fa-comment-alt
 tag: C o r
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Machine Learning: Exploring the Power of Neural Networks

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ExploringtheApplicationsofBlockchainTechnologyinSupplyChainManagement"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Exploring the Applications of Blockchain Technology in Supply Chain Management

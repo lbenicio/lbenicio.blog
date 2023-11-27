@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data on Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # The Impact of Big Data on Machine Learning Algorithms

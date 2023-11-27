@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "AnalyzingtheEfficiencyofStringMatchingAlgorithmsinTextProcessing"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of String Matching Algorithms in Text Processing

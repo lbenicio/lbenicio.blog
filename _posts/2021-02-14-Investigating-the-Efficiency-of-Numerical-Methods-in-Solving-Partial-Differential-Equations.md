@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Numerical Methods in Solving Partial Differential Equations"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Numerical Methods in Solving Partial Differential Equations

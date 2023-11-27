@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ExploringtheFieldofNaturalLanguageProcessing"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Exploring the Field of Natural Language Processing

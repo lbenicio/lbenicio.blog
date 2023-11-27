@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Beyond C: Exploring the Absence of Pointers in Other Programming Languages"
 icon: fa-comment-alt
 tag: pointers
 categories: pointers programming
+toc: true
 ---
+
 
 Pointers are a fundamental concept in programming, allowing programmers to manipulate memory directly. However, surprisingly, they are not present in many popular programming languages outside of C. This paper seeks to explore why pointers are not present in other programming languages, as well as the potential benefits and drawbacks of their inclusion.
 

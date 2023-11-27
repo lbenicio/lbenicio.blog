@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Genetic Algorithms in Evolutionary Computation: From Darwin's Theory to Modern Applications"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Title: The Role of Genetic Algorithms in Evolutionary Computation: From Darwin's Theory to Modern Applications

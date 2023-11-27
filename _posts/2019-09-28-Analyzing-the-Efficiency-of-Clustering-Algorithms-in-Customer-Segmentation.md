@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Clustering Algorithms in Customer Segmentation"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Clustering Algorithms in Customer Segmentation

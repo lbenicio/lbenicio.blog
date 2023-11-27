@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Cloud Computing: Trends and Challenges"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Future of Cloud Computing: Trends and Challenges

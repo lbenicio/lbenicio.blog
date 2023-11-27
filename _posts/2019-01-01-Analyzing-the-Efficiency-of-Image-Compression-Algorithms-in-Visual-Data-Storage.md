@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Image Compression Algorithms in Visual Data Storage"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Image Compression Algorithms in Visual Data Storage

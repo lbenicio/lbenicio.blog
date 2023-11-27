@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Numerical Methods in Solving Partial Differential Equations"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Numerical Methods in Solving Partial Differential Equations

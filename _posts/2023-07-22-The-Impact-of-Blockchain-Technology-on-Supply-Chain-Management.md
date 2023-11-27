@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Blockchain Technology on Supply Chain Management"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # The Impact of Blockchain Technology on Supply Chain Management

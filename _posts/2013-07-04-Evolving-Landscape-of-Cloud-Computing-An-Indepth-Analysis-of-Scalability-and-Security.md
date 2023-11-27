@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: ""
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 # A Comprehensive Overview of Quantum Computing and its Influence on Classic Algorithms 
 

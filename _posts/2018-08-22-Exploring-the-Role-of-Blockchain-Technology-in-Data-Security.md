@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Role of Blockchain Technology in Data Security"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Exploring the Role of Blockchain Technology in Data Security

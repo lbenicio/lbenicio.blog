@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Principles of Image Recognition and Computer Vision"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Investigating the Principles of Image Recognition and Computer Vision

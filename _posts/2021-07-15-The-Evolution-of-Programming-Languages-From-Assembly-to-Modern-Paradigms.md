@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Programming Languages: From Assembly to Modern Paradigms"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Evolution of Programming Languages: From Assembly to Modern Paradigms

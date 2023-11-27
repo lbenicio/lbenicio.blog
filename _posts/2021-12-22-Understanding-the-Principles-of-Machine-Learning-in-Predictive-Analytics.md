@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Machine Learning in Predictive Analytics"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Understanding the Principles of Machine Learning in Predictive Analytics

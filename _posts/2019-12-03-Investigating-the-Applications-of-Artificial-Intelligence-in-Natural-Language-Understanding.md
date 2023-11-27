@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Artificial Intelligence in Natural Language Understanding"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Investigating the Applications of Artificial Intelligence in Natural Language Understanding

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Functional Programming in Software Development"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Understanding the Principles of Functional Programming in Software Development

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Fundamentals of Neural Networks"
 icon: fa-comment-alt
 tag: MobileDevelopment CloudComputing QuantumComputing
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Understanding the Fundamentals of Neural Networks

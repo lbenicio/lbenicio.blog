@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Genetic Algorithms in Solving Traveling Salesman Problem"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Genetic Algorithms in Solving the Traveling Salesman Problem

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "UnderstandingthePrinciplesofRecommenderSystems"
 icon: fa-comment-alt
 tag:
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Understanding the Principles of Recommender Systems

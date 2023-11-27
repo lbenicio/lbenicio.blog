@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Bioinformatics: From Sequence Alignment to Protein Folding"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # Exploring the Field of Bioinformatics: From Sequence Alignment to Protein Folding

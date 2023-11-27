@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Parallel Algorithms in HighPerformance Computing"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Parallel Algorithms in High-Performance Computing

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Computer Vision in Object Recognition"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Exploring the Applications of Computer Vision in Object Recognition

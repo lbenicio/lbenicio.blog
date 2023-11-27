@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Potential of Quantum Machine Learning in Drug Discovery"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Potential of Quantum Machine Learning in Drug Discovery

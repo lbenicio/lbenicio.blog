@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computer Graphics: Rendering and Animation Techniques"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Exploring the Field of Computer Graphics: Rendering and Animation Techniques

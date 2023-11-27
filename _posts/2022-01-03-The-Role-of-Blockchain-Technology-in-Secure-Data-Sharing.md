@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Blockchain Technology in Secure Data Sharing"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # The Role of Blockchain Technology in Secure Data Sharing

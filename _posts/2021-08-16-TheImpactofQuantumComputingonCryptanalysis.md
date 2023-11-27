@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "TheImpactofQuantumComputingonCryptanalysis"
 icon: fa-comment-alt
 tag:
 categories: DataStructures
+toc: true
 ---
+
 
 
 # The Impact of Quantum Computing on Cryptanalysis

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Intellectual Property
 icon: fa-comment-alt
 tag: intelectual, property
 categories: discussion
+toc: true
 ---
+
 
 Follow our current trend, this week are discussing Intellectual Property.
 

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Parallel Computing: Harnessing the Power of Multiple Processors"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Parallel Computing: Harnessing the Power of Multiple Processors

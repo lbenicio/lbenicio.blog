@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution and Impact of Quantum Computing on Modern Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Title: The Evolution and Impact of Quantum Computing on Modern Algorithms

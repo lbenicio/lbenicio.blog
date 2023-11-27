@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Game Theory in Multiagent Systems"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # The Role of Game Theory in Multiagent Systems

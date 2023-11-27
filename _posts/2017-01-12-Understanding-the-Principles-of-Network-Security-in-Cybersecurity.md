@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Network Security in Cybersecurity"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # Understanding the Principles of Network Security in Cybersecurity

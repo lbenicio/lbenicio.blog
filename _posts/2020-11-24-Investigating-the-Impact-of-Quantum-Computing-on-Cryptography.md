@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Impact of Quantum Computing on Cryptography"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Investigating the Impact of Quantum Computing on Cryptography

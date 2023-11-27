@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Graph Algorithms in Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # The Role of Graph Algorithms in Network Analysis

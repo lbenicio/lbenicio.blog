@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Turing Machines in Computability Theory"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # The Role of Turing Machines in Computability Theory

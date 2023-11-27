@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Optimization Algorithms in Solving Linear Programming Problems"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Optimization Algorithms in Solving Linear Programming Problems

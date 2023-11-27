@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Optimization Algorithms in Resource Allocation"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Optimization Algorithms in Resource Allocation

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Reinforcement Learning in Game AI"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Power of Reinforcement Learning in Game AI

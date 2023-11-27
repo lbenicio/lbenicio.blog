@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Cloud Computing: Scalability and Privacy Concerns"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # The Future of Cloud Computing: Scalability and Privacy Concerns

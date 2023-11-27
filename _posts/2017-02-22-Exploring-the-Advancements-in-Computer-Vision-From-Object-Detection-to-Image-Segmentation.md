@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Advancements in Computer Vision: From Object Detection to Image Segmentation"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Exploring the Advancements in Computer Vision: From Object Detection to Image Segmentation

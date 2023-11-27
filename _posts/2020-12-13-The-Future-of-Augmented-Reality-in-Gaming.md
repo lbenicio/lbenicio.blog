@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Augmented Reality in Gaming"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # The Future of Augmented Reality in Gaming

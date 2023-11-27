@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Robotics: Advances in Artificial Intelligence and Automation"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # The Future of Robotics: Advances in Artificial Intelligence and Automation

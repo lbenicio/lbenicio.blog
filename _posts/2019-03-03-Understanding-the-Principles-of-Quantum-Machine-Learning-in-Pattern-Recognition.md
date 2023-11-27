@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Quantum Machine Learning in Pattern Recognition"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Understanding the Principles of Quantum Machine Learning in Pattern Recognition

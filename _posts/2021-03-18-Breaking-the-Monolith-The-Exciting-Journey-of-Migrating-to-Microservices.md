@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Breaking the Monolith: The Exciting Journey of Migrating to Microservices"
 icon: fa-comment-alt
 tag: micro-services
 categories: best practices micro-services monolith
+toc: true
 ---
+
 
 echnologies and trends. One of the hottest topics in recent years is the migration from monolithic applications to microservices. This is because monolithic applications can become difficult to maintain and scale as they grow in size and complexity. On the other hand, microservices offer many advantages, such as increased flexibility, scalability, and resilience. In this paper, we will explore the exciting journey of migrating from monolithic applications to microservices.
 

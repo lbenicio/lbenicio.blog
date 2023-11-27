@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Quantum Computing: A Paradigm Shift in Computation"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Quantum Computing: A Paradigm Shift in Computation

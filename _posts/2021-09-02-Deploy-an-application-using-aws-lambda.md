@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Deploy an application using AWS Lambda
 icon: fa-comment-alt
 tag: aws deployment cloud tutorial
 categories: deployment
+toc: true
 ---
+
 
 AWS Lambda is a serverless computing platform that enables you to run your code without having to worry about infrastructure. In this blog post, we will learn how to deploy an application on AWS Lambda.
 ## Deploy an application using AWS Lambda

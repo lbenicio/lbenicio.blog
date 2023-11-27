@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Theory of Computation: Finite Automata and Turing Machines"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Exploring the Theory of Computation: Finite Automata and Turing Machines

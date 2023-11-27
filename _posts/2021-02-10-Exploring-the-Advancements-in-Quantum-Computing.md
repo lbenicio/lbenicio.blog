@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Advancements in Quantum Computing"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Exploring the Advancements in Quantum Computing

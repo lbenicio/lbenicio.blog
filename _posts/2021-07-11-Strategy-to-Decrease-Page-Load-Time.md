@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Strategy to Decrease Page Load Time"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Strategy to Decrease Page Load Time

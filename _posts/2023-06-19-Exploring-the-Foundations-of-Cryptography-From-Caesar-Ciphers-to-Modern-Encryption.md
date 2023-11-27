@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Foundations of Cryptography: From Caesar Ciphers to Modern Encryption"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Exploring the Foundations of Cryptography: From Caesar Ciphers to Modern Encryption

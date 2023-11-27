@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Natural Computing and Its Applications"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Exploring the World of Natural Computing and Its Applications

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Computer Graphics: From Pixel Art to RealTime Ray Tracing"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # The Evolution of Computer Graphics: From Pixel Art to Real-Time Ray Tracing

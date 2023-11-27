@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Genetic Algorithms in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Exploring the Potential of Genetic Algorithms in Optimization Problems

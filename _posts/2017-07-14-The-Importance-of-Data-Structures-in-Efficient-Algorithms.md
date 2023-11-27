@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Data Structures in Efficient Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # The Importance of Data Structures in Efficient Algorithms

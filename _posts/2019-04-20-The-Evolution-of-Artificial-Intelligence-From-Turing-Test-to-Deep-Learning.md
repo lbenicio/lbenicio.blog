@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Artificial Intelligence: From Turing Test to Deep Learning"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # The Evolution of Artificial Intelligence: From Turing Test to Deep Learning

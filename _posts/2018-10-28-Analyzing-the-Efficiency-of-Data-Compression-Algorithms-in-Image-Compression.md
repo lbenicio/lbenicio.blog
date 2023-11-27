@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Data Compression Algorithms in Image Compression"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Data Compression Algorithms in Image Compression

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Power of Convolutional Neural Networks"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Exploring the Power of Convolutional Neural Networks

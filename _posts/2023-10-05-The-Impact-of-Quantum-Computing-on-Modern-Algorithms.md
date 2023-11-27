@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Quantum Computing on Modern Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # The Impact of Quantum Computing on Modern Algorithms

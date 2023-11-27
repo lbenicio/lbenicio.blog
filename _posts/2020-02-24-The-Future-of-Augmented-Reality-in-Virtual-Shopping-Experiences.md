@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Augmented Reality in Virtual Shopping Experiences"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # The Future of Augmented Reality in Virtual Shopping Experiences

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Tests methodology and enhancements proposal
 icon: fa-comment-alt
 tag: scaling, ruby on rails, kubernetes, container orchestration
 categories: analysis
+toc: true
 ---
+
 
 Continuing our post series about rails app performance. This week we are going to see our tests methodology and enhancements proposal.
 

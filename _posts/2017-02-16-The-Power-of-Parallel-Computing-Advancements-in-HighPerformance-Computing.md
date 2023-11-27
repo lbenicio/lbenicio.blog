@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Parallel Computing: Advancements in HighPerformance Computing"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # The Power of Parallel Computing: Advancements in High-Performance Computing

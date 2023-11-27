@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Internet Consumer
 icon: fa-comment-alt
 tag: consumer, internet
 categories: discussion
+toc: true
 ---
+
 
 Yet another different common post, now we are going to talk about Internet Consumer.
 

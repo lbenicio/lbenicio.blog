@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Robotics: Advancements in Machine Learning and Computer Vision"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Future of Robotics: Advancements in Machine Learning and Computer Vision

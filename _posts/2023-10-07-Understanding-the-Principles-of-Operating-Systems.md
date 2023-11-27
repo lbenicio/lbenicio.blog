@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Operating Systems"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Understanding the Principles of Operating Systems

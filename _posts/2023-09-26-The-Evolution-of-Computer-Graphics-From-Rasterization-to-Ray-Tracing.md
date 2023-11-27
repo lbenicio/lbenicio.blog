@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Computer Graphics: From Rasterization to Ray Tracing"
 icon: fa-comment-alt
 tag:
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # The Evolution of Computer Graphics: From Rasterization to Ray Tracing

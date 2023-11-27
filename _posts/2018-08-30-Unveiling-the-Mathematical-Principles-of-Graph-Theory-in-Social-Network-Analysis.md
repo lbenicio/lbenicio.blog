@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unveiling the Mathematical Principles of Graph Theory in Social Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Unveiling the Mathematical Principles of Graph Theory in Social Network Analysis

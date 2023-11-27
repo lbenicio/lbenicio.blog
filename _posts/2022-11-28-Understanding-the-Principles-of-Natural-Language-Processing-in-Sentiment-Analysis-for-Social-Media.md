@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Natural Language Processing in Sentiment Analysis for Social Media"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Understanding the Principles of Natural Language Processing in Sentiment Analysis for Social Media

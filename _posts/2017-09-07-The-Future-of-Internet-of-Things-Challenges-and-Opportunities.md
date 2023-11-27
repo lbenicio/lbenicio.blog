@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Internet of Things: Challenges and Opportunities"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # The Future of Internet of Things: Challenges and Opportunities

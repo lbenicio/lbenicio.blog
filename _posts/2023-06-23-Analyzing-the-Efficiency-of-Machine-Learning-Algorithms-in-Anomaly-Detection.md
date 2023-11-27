@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Machine Learning Algorithms in Anomaly Detection"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Machine Learning Algorithms in Anomaly Detection

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Fundamentals of Algorithm Analysis and Complexity Theory"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Exploring the Fundamentals of Algorithm Analysis and Complexity Theory

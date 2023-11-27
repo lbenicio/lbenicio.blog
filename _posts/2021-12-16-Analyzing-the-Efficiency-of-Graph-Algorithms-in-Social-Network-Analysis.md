@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Graph Algorithms in Social Network Analysis"
 icon: fa-comment-alt
 tag: ComputerGraphics EthicalHacking BigData
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Graph Algorithms in Social Network Analysis

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Role of Machine Learning in Natural Language Understanding"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Exploring the Role of Machine Learning in Natural Language Understanding

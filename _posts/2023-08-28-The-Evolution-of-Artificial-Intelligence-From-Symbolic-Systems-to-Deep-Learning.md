@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Artificial Intelligence: From Symbolic Systems to Deep Learning"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # The Evolution of Artificial Intelligence: From Symbolic Systems to Deep Learning

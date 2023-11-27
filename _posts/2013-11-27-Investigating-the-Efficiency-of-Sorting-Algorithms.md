@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Sorting Algorithms"
 icon: fa-comment-alt
 tag:
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Sorting Algorithms

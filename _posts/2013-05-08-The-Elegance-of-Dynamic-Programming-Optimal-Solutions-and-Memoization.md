@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Elegance of Dynamic Programming: Optimal Solutions and Memoization"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Elegance of Dynamic Programming: Optimal Solutions and Memoization

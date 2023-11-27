@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: The magic of C pointers
 icon: fa-comment-alt
 tag: languages program tutorial
 categories: languages
+toc: true
 ---
+
 
 Pointers are one of the most powerful and unique features of the C programming language. They are a fundamental part of C and are used to manipulate memory directly, providing low-level access to the underlying system. This ability to manipulate memory directly is what makes C such a powerful and flexible language, and is one of the main reasons why it is still widely used today, despite being over 40 years old.
 ## The magic of C pointers

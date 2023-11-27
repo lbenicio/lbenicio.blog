@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Role of Machine Learning in Fraud Detection"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Investigating the Role of Machine Learning in Fraud Detection

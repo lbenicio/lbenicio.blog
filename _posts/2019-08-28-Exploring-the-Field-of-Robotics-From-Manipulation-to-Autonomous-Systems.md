@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Robotics: From Manipulation to Autonomous Systems"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Exploring the Field of Robotics: From Manipulation to Autonomous Systems

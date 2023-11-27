@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Use of Blockchain in Supply Chain Management"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Exploring the Use of Blockchain in Supply Chain Management

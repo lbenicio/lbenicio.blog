@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data on Business Intelligence and Analytics"
 icon: fa-comment-alt
 tag:
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Title: The Impact of Big Data on Business Intelligence and Analytics

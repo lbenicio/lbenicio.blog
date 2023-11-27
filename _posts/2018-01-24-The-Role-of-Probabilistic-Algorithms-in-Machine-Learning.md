@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Probabilistic Algorithms in Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # The Role of Probabilistic Algorithms in Machine Learning

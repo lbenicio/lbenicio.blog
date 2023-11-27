@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Advancements in Image Processing: From Edge Detection to Image Restoration"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # Advancements in Image Processing: From Edge Detection to Image Restoration

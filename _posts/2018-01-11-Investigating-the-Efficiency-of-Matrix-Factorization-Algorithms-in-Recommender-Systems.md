@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Matrix Factorization Algorithms in Recommender Systems"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Matrix Factorization Algorithms in Recommender Systems

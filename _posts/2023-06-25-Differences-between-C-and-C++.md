@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Differences between C and C++"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 ## Differences between C and C++

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "6. Cryptography: Safeguarding Data in the Digital Age"
 icon: fa-comment-alt
 tag: ComputerGraphics Blockchain ComputerScience
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Cryptography: Safeguarding Data in the Digital Age

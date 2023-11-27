@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Quantum Computing and Its Potential in Solving Complex Problems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Understanding the Principles of Quantum Computing and Its Potential in Solving Complex Problems

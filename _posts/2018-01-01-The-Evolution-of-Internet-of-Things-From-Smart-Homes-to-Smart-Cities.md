@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Internet of Things: From Smart Homes to Smart Cities"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Evolution of Internet of Things: From Smart Homes to Smart Cities

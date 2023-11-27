@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Data Mining Algorithms in Customer Segmentation"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Data Mining Algorithms in Customer Segmentation

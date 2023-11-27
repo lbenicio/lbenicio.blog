@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Influence of Quantum Computing on Cryptography"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # The Influence of Quantum Computing on Cryptography

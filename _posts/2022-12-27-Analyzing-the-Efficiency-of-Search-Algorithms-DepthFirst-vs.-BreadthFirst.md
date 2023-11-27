@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Search Algorithms: DepthFirst vs. BreadthFirst"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Search Algorithms: DepthFirst vs. BreadthFirst

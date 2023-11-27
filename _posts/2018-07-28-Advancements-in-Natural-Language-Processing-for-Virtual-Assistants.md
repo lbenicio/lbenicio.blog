@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Advancements in Natural Language Processing for Virtual Assistants"
 icon: fa-comment-alt
 tag:      
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # Advancements in Natural Language Processing for Virtual Assistants

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Complexity of NPComplete Problems"
 icon: fa-comment-alt
 tag:
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Understanding the Complexity of NP-Complete Problems

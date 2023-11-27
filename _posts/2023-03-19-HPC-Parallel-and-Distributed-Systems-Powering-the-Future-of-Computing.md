@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "HPC Parallel and Distributed Systems: Powering the Future of Computing"
 icon: fa-comment-alt
 tag: parallel hpc distributed systems
 categories: devops
+toc: true
 ---
+
 
 ## Fundamentals of HPC Parallel and Distributed Systems
 

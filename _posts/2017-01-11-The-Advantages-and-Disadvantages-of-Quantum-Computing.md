@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Advantages and Disadvantages of Quantum Computing"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # The Advantages and Disadvantages of Quantum Computing

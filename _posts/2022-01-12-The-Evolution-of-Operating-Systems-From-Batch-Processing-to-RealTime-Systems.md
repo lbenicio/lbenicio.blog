@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Operating Systems: From Batch Processing to RealTime Systems"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # The Evolution of Operating Systems: From Batch Processing to Real-Time Systems

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Why you should study programming on a university
 icon: fa-comment-alt
 tag: university study graduation self-thought
 categories: discussion
+toc: true
 ---
+
 
 A professional programmer who has graduated from a university and someone who has taught themselves programming online both possess unique skills and experiences that make them valuable in the field of software development. However, there are distinct differences between the two that should be considered when evaluating their qualifications and abilities.
 

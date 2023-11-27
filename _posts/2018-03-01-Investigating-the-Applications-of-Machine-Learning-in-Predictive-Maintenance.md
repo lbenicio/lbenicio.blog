@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Machine Learning in Predictive Maintenance"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Investigating the Applications of Machine Learning in Predictive Maintenance

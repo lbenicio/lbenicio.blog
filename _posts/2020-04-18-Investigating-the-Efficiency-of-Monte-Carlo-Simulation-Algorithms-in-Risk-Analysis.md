@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Monte Carlo Simulation Algorithms in Risk Analysis"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Monte Carlo Simulation Algorithms in Risk Analysis

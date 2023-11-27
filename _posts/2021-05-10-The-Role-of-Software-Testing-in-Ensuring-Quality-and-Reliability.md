@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Software Testing in Ensuring Quality and Reliability"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # The Role of Software Testing in Ensuring Quality and Reliability

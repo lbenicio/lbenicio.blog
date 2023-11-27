@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Programming Languages: From Assembly to ObjectOriented"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # The Evolution of Programming Languages: From Assembly to Object-Oriented

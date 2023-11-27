@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: JavaScript map and common practices
 icon: fa-comment-alt
 tag: javascript tutorial
 categories: javascript
+toc: true
 ---
+
 
 The JavaScript Map is a collection of keyed data items, just like an Object. But the main difference between them is that Map allows keys of any type.
 

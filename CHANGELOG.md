@@ -60,3 +60,13 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - change url pattern
+
+## v1.3.0
+
+### Changed
+
+- fix navigation
+- fix blog url
+- add table of contents
+- add reading time to blog posts
+- add blog post navigation

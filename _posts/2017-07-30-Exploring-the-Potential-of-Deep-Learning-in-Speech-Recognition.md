@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Deep Learning in Speech Recognition"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Exploring the Potential of Deep Learning in Speech Recognition

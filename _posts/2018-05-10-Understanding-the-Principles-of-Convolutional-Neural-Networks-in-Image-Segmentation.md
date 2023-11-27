@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Convolutional Neural Networks in Image Segmentation"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Understanding the Principles of Convolutional Neural Networks in Image Segmentation

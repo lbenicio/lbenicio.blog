@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Augmented Reality in Gaming and Entertainment"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Title: Exploring the Potential of Augmented Reality in Gaming and Entertainment

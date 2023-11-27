@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Algorithmic Thinking in Problem Solving"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # The Importance of Algorithmic Thinking in Problem Solving

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Machine Learning Algorithms in Fraud Detection"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # The Role of Machine Learning Algorithms in Fraud Detection

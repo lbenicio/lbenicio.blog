@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Evolutionary Computation: A New Paradigm for Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Evolutionary Computation: A New Paradigm for Optimization Problems

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Importance of Optimization Algorithms in Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Understanding the Importance of Optimization Algorithms in Machine Learning

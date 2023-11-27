@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Rise of Blockchain Technology and its Potential"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # The Rise of Blockchain Technology and its Potential

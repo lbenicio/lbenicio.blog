@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Artificial Intelligence: Ethical Considerations and Responsible Development"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Future of Artificial Intelligence: Ethical Considerations and Responsible Development

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Deep Reinforcement Learning"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Understanding the Principles of Deep Reinforcement Learning

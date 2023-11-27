@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Quantum Computing: A Leap Beyond Classical Computation"
 icon: fa-comment-alt
 tag: computing
 categories: computation quantum
+toc: true
 ---
+
 
 ## Introduction
 

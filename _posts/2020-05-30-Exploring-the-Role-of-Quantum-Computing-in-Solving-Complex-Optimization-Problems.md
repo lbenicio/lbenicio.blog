@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Role of Quantum Computing in Solving Complex Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Exploring the Role of Quantum Computing in Solving Complex Optimization Problems

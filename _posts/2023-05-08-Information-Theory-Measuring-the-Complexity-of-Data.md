@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Information Theory: Measuring the Complexity of Data"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Title: Information Theory: Measuring the Complexity of Data

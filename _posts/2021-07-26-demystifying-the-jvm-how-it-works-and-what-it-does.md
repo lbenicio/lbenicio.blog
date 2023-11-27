@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Demystifying the JVM: how it works and what it does"
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 The Java Virtual Machine (JVM) is an essential component of the Java platform. It is responsible for executing Java bytecode, which allows Java programs to run on any platform that supports the JVM. Despite its importance, many developers are not familiar with how the JVM works and what it does. In this post, we will discuss the JVM in detail, including its architecture, memory model, and garbage collection.
 

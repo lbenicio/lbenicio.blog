@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Data Privacy and Security in Cloud Computing"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # The Importance of Data Privacy and Security in Cloud Computing

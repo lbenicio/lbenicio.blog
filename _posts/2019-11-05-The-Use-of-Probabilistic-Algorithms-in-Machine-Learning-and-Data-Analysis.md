@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Use of Probabilistic Algorithms in Machine Learning and Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # The Use of Probabilistic Algorithms in Machine Learning and Data Analysis

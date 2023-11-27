@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Deep Learning in Natural Language Understanding"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Title: Exploring the Potential of Deep Learning in Natural Language Understanding

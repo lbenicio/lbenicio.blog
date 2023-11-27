@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Performance of Evolutionary Algorithms in Solving Complex Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # Analyzing the Performance of Evolutionary Algorithms in Solving Complex Optimization Problems

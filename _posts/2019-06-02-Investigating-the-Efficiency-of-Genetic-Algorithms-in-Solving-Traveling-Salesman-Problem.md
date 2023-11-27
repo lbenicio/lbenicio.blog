@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Genetic Algorithms in Solving Traveling Salesman Problem"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Genetic Algorithms in Solving Traveling Salesman Problem

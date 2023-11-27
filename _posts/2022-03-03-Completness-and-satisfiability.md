@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Completness and satisfiability
 icon: fa-comment-alt
 tag: theory completness satisfiability
 categories: theory
+toc: true
 ---
+
 
 The P vs NP problem is one of the most famous open problems in theoretical computer science. At its core, it asks whether or not all problems whose solutions can be verified in polynomial time, can also be solved in polynomial time. The class of problems that can be solved in polynomial time is called P, while the class of problems whose solutions can be verified in polynomial time is called NP.
 

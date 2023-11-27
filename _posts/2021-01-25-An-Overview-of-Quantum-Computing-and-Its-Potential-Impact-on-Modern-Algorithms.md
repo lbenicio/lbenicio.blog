@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Overview of Quantum Computing and Its Potential Impact on Modern Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # An Overview of Quantum Computing and Its Potential Impact on Modern Algorithms

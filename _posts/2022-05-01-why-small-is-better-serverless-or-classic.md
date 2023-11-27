@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: What is better serverless of classic
 icon: fa-comment-alt
 tag: discussion serverless devops deployment
 categories: discussion
+toc: true
 ---
+
 
 As a hobby developer, you may have considered building small applications for personal use or as a way to learn new technologies. One approach that is becoming increasingly popular for small projects is serverless architecture.
 

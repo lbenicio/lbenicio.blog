@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Data Structures in Efficient Algorithm Design"
 icon: fa-comment-alt
 tag:
 categories: Bioinformatics
+toc: true
 ---
+
 
 
 # The Importance of Data Structures in Efficient Algorithm Design

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Data Visualization in Data Analysis and Decision Making"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # The Role of Data Visualization in Data Analysis and Decision Making

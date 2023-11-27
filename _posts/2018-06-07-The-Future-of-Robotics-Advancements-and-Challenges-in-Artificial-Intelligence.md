@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Robotics: Advancements and Challenges in Artificial Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Future of Robotics: Advancements and Challenges in Artificial Intelligence

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Differences between java 7 and java 8
 icon: fa-comment-alt
 tag: discussion java tutorial
 categories: java
+toc: true
 ---
+
 
 Java 8, which was released in 2014, is a major upgrade from Java 7 and offers many new features and improvements. In this essay, we will explore some of the key differences between Java 7 and Java 8, and why someone should study Java 8 instead of Java 7.
 

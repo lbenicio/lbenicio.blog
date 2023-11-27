@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Natural Computing in Problem Solving"
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # Exploring the Potential of Natural Computing in Problem Solving

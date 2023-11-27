@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Natural Language Processing in Voice Assistants"
 icon: fa-comment-alt
 tag:      
 categories: OperatingSystems
+toc: true
 ---
+
 
 
 # The Impact of Natural Language Processing in Voice Assistants

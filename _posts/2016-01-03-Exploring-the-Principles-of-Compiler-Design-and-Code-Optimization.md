@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Principles of Compiler Design and Code Optimization"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the Principles of Compiler Design and Code Optimization

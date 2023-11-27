@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution and Impact of Quantum Computing on Modern Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # The Evolution and Impact of Quantum Computing on Modern Machine Learning Algorithms

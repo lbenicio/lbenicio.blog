@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Cryptography in Information Security: From Caesar Cipher to Modern Encryption."
 icon: fa-comment-alt
 tag:      
 categories: DataStructures
+toc: true
 ---
+
 
 
 # The Role of Cryptography in Information Security: From Caesar Cipher to Modern Encryption

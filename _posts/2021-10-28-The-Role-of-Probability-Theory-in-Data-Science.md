@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Probability Theory in Data Science"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # The Role of Probability Theory in Data Science

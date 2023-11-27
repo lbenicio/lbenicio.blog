@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Neural Networks in Natural Language Processing"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Understanding the Principles of Neural Networks in Natural Language Processing

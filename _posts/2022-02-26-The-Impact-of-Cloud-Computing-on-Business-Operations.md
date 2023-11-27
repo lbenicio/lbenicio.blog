@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Cloud Computing on Business Operations"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Title: The Impact of Cloud Computing on Business Operations: Revolutionizing Efficiency and Innovation

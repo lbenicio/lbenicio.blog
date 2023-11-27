@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Deploy and application using AWS S3
 icon: fa-comment-alt
 tag: aws deployment cloud tutorial
 categories: deployment
+toc: true
 ---
+
 
 AWS S3 (Simple Storage Service) is a scalable and reliable object storage service that makes it easy to host and serve static websites. In this blog post, we will learn how to deploy a static website using AWS S3.
 

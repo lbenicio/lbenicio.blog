@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Cloud vs hybrid vs on premises deployment
 icon: fa-comment-alt
 tag: deployment cloud "on premise" onpremise onprem hybrid hybrid-cloud
 categories: deployment
+toc: true
 ---
+
 
 The deployment of software solutions has come a long way in recent years, with the rise of cloud computing and other new technologies offering new and innovative ways to deploy and manage software. One of the most important considerations when choosing a deployment model is the level of control and ownership you want to have over your software and infrastructure, as well as the cost and performance requirements of your solution. In this essay, we will take a closer look at the differences between cloud, hybrid, and on-premises deployment models and explore the advantages and disadvantages of each.
 ## Cloud vs hybrid vs on premises deployment

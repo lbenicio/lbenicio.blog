@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Power of Quantum Computing in Data Encryption"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Exploring the Power of Quantum Computing in Data Encryption

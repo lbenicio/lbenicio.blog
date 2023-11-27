@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Differences between ecma script 2019 and ecma script 2017
 icon: fa-comment-alt
 tag: ecmascript ecma discussion javascript
 categories: discussion
+toc: true
 ---
+
 
 ECMAScript is the standardized scripting language that underlies JavaScript, one of the most popular programming languages in use today. ECMAScript is developed and maintained by the European Computer Manufacturers Association (ECMA) and is designed to provide a standardized, cross-platform language for scripting applications.
 

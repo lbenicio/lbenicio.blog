@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Evolutionary Computation and its Applications in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # Understanding the Principles of Evolutionary Computation and its Applications in Optimization Problems

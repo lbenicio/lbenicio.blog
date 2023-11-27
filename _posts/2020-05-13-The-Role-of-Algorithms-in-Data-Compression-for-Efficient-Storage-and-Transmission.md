@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Algorithms in Data Compression for Efficient Storage and Transmission"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # The Role of Algorithms in Data Compression for Efficient Storage and Transmission

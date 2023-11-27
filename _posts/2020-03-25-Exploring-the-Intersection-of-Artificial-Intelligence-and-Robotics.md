@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Intersection of Artificial Intelligence and Robotics"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Exploring the Intersection of Artificial Intelligence and Robotics

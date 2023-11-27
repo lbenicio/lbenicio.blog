@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Impact of Machine Learning on Natural Language Processing"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Exploring the Impact of Machine Learning on Natural Language Processing

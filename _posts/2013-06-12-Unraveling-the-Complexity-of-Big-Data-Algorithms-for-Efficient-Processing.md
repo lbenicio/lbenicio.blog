@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Complexity of Big Data: Algorithms for Efficient Processing"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Unraveling the Complexity of Big Data: Algorithms for Efficient Processing

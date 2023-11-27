@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Natural Language Processing in Sentiment Analysis"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Exploring the Potential of Natural Language Processing in Sentiment Analysis

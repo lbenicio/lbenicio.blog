@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "InvestigatingtheEfficiencyofApproximationAlgorithmsinOptimizationProblems"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Approximation Algorithms in Optimization Problems

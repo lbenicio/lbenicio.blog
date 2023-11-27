@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Optimization Techniques in Solving Realworld Problems"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # The Role of Optimization Techniques in Solving Real-world Problems

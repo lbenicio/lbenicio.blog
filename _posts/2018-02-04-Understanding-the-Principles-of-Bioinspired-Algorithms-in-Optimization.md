@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Bioinspired Algorithms in Optimization"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # Understanding the Principles of Bioinspired Algorithms in Optimization

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Pattern Matching Algorithms in Text Processing"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Pattern Matching Algorithms in Text Processing

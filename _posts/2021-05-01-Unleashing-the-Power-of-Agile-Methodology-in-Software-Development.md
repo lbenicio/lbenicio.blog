@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Unleashing the Power of Agile Methodology in Software Development
 icon: fa-comment-alt
 tag: agile
 categories: agile methodoly 
+toc: true
 ---
+
 
 Agile methodology has revolutionized the way software development projects are executed. It is an iterative and incremental approach that emphasizes collaboration, flexibility, and customer satisfaction. The traditional waterfall model of software development has been replaced by this more dynamic and adaptable methodology, which allows for changes and modifications throughout the development process. Agile methodology has become popular in the software industry due to its ability to deliver high-quality software within a short period of time.
 

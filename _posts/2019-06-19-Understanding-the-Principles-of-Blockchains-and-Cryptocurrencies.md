@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Blockchains and Cryptocurrencies"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Understanding the Principles of Blockchains and Cryptocurrencies

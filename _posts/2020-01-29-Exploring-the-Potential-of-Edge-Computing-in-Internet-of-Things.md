@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Edge Computing in Internet of Things"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Exploring the Potential of Edge Computing in Internet of Things

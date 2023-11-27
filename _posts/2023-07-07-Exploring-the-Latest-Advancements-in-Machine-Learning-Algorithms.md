@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Latest Advancements in Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: IoT Internet of Things
+toc: true
 ---
+
 
 
 # Exploring the Latest Advancements in Machine Learning Algorithms

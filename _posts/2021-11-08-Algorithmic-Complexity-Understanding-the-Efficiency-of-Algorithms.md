@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Algorithmic Complexity: Understanding the Efficiency of Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Algorithmic Complexity: Understanding the Efficiency of Algorithms

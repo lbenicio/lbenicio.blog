@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Search Algorithms: Linear vs. Binary"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Title: Analyzing the Efficiency of Search Algorithms: Linear vs. Binary

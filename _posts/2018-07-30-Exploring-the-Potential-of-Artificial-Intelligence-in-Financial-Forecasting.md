@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Artificial Intelligence in Financial Forecasting"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Exploring the Potential of Artificial Intelligence in Financial Forecasting

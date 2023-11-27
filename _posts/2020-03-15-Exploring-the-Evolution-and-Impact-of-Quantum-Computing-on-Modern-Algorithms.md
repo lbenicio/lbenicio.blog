@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Evolution and Impact of Quantum Computing on Modern Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Exploring the Evolution and Impact of Quantum Computing on Modern Algorithms

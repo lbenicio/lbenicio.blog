@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Data Mining Algorithms in Big Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Data Mining Algorithms in Big Data Analysis

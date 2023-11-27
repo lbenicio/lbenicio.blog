@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Swarm Intelligence Algorithms in Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # Exploring the Potential of Swarm Intelligence Algorithms in Optimization Problems

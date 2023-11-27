@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Role of Machine Learning in Natural Language Processing"
 icon: fa-comment-alt
 tag: WebDevelopment ComputerGraphics CodeReview
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Exploring the Role of Machine Learning in Natural Language Processing

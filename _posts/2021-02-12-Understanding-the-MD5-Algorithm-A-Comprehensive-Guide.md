@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the MD5 Algorithm: A Comprehensive Guide"
 icon: fa-comment-alt
 tag: security
 categories: security criptography md5 algorithm
+toc: true
 ---
+
 
 The MD5 algorithm is a widely used cryptographic hash function that is used to generate a unique digital fingerprint of a message or data. It was developed by Ronald Rivest in 1991, and since then, it has become one of the most widely used hash functions in the world. In this paper, we will explore how the MD5 algorithm works, its strengths and weaknesses, and its various applications in different fields. By the end of this paper, you will have a clear understanding of how the MD5 algorithm functions and its practical uses.
 ## What is a hash function?

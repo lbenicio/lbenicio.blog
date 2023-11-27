@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Quantum Machine Learning and its Potential in Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Understanding the Principles of Quantum Machine Learning and its Potential in Data Analysis

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Embracing Agility: An Exploration of Extreme Programming Methodology"
 icon: fa-comment-alt
 tag: agile
 categories: agile extreme programming methodfology 
+toc: true
 ---
+
 
 Agile methodologies have transformed the software development landscape over the past few decades, with Extreme Programming (XP) being one of the most prominent. XP is an agile methodology that emphasizes communication, simplicity, feedback, and customer satisfaction. It provides a flexible and responsive framework that supports rapid development and incremental delivery, which is essential in today's fast-paced digital world. In this paper, we will explore the core principles and practices of XP, including its benefits and limitations, and discuss how it can be applied in software development projects.
 

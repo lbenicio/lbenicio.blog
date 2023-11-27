@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Image Compression Algorithms in Multimedia Systems"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Image Compression Algorithms in Multimedia Systems

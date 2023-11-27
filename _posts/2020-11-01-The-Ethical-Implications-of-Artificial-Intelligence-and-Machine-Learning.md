@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Ethical Implications of Artificial Intelligence and Machine Learning"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Ethical Implications of Artificial Intelligence and Machine Learning

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Genetic Programming in Artificial Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Understanding the Principles of Genetic Programming in Artificial Intelligence

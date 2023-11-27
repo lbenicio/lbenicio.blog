@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Genetic Algorithms in Solving Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # The Impact of Genetic Algorithms in Solving Optimization Problems

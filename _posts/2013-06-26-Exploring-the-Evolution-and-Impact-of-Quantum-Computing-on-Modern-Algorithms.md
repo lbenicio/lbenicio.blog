@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: ""
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 Topic: Evolutions in Quantum Computing and their Impact on Traditional Computation and Algorithms
 

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Genetic Algorithms and Their Applications in Optimization Problems"
 icon: fa-comment-alt
 tag:
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Exploring the World of Genetic Algorithms and Their Applications in Optimization Problems

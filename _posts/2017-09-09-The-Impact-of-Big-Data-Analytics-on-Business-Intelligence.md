@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data Analytics on Business Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Title: The Impact of Big Data Analytics on Business Intelligence: Unleashing the Power of Data-Driven Decision Making

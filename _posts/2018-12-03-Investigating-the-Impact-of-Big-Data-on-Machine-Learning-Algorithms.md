@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Impact of Big Data on Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: BigData
+toc: true
 ---
+
 
 
 # Investigating the Impact of Big Data on Machine Learning Algorithms

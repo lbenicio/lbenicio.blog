@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Concepts of Cryptography in Network Security"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Understanding the Concepts of Cryptography in Network Security

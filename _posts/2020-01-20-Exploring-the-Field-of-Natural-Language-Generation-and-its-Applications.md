@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Natural Language Generation and its Applications"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Exploring the Field of Natural Language Generation and its Applications

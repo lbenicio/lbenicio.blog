@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Fundamentals of Cryptography"
 icon: fa-comment-alt
 tag:     i
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Understanding the Fundamentals of Cryptography

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Cryptography and Encryption Techniques"
 icon: fa-comment-alt
 tag: e f i
 categories: ComputerScience
+toc: true
 ---
+
 
 
 # Understanding the Principles of Cryptography and Encryption Techniques

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Information Theory in Data Compression"
 icon: fa-comment-alt
 tag:      
 categories: Databases
+toc: true
 ---
+
 
 
 # Understanding the Principles of Information Theory in Data Compression

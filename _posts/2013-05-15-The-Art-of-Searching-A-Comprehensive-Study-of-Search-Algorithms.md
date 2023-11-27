@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Art of Searching: A Comprehensive Study of Search Algorithms"
 icon: fa-comment-alt
 tag: MachineLearning ComputerVision CodeQuality
 categories: Algorithms
+toc: true
 ---
+
 
 
 # The Art of Searching: A Comprehensive Study of Search Algorithms

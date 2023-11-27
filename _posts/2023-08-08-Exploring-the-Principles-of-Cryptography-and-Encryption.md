@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Principles of Cryptography and Encryption"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # Exploring the Principles of Cryptography and Encryption

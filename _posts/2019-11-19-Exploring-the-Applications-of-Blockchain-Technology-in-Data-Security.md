@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Blockchain Technology in Data Security"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # Exploring the Applications of Blockchain Technology in Data Security

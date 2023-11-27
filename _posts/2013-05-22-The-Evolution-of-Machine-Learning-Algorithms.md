@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # The Evolution of Machine Learning Algorithms

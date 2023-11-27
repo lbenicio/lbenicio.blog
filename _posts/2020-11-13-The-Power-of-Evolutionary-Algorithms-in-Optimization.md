@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Evolutionary Algorithms in Optimization"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # The Power of Evolutionary Algorithms in Optimization

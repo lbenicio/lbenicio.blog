@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Quantum Computing on Cryptography"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 ## Title: The Impact of Quantum Computing on Cryptography: A Paradigm Shift in Information Security

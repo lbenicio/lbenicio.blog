@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Natural Language Processing in Sentiment Analysis for Social Media."
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Title: Exploring the Applications of Natural Language Processing in Sentiment Analysis for Social Media

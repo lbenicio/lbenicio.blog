@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Linked Lists"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Title: Linked Lists: Unraveling the Classic Data Structure and Exploring Modern Innovations

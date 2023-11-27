@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Discovering the Power of Scala Programming Language in Solving Problems in a Concise and Elegant Way"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Discovering the Power of Scala Programming Language in Solving Problems in a Concise and Elegant Way

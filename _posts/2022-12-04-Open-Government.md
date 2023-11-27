@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Open Government
 icon: fa-comment-alt
 tag: open, government
 categories: discussion
+toc: true
 ---
+
 
 Finally, our season of soft topics is ending. This is our last topic, and it is Open Government.
 

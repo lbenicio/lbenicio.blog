@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Mathematical Foundations of Cryptography: Beyond Caesar Cipher"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # The Mathematical Foundations of Cryptography: Beyond Caesar Cipher

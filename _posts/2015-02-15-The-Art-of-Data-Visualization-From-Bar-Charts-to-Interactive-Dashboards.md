@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Art of Data Visualization: From Bar Charts to Interactive Dashboards"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # The Art of Data Visualization: From Bar Charts to Interactive Dashboards

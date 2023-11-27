@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Advancements in Natural Language Generation: From Rulebased to Neural Language Models."
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Advancements in Natural Language Generation: From Rule-based to Neural Language Models

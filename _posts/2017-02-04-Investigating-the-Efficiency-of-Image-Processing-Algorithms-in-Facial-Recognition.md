@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Image Processing Algorithms in Facial Recognition"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Image Processing Algorithms in Facial Recognition

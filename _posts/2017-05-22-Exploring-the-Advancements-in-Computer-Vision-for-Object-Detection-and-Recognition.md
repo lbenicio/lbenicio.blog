@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Advancements in Computer Vision for Object Detection and Recognition"
 icon: fa-comment-alt
 tag:      
 categories: CloudComputing
+toc: true
 ---
+
 
 
 # Exploring the Advancements in Computer Vision for Object Detection and Recognition

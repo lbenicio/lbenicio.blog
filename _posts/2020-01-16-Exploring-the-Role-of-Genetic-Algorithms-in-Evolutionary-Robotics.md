@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Role of Genetic Algorithms in Evolutionary Robotics"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # Exploring the Role of Genetic Algorithms in Evolutionary Robotics

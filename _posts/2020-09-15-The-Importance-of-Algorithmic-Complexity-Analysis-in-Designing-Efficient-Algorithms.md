@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Importance of Algorithmic Complexity Analysis in Designing Efficient Algorithms"
 icon: fa-comment-alt
 tag:
 categories: Blockchain
+toc: true
 ---
+
 
 
 # Title: The Importance of Algorithmic Complexity Analysis in Designing Efficient Algorithms

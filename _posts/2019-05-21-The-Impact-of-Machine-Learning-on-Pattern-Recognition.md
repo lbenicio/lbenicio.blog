@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Impact of Machine Learning on Pattern Recognition"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Title: The Impact of Machine Learning on Pattern Recognition: Unveiling New Frontiers in Computation and Algorithms

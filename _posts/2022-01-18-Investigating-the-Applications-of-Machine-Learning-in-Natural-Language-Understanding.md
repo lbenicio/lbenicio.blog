@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Machine Learning in Natural Language Understanding"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # Investigating the Applications of Machine Learning in Natural Language Understanding

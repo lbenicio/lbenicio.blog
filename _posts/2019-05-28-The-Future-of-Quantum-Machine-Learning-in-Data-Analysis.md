@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Quantum Machine Learning in Data Analysis"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # The Future of Quantum Machine Learning in Data Analysis

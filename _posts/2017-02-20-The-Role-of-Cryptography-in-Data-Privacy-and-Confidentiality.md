@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Cryptography in Data Privacy and Confidentiality"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # The Role of Cryptography in Data Privacy and Confidentiality

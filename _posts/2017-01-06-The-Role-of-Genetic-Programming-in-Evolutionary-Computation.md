@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Genetic Programming in Evolutionary Computation"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Role of Genetic Programming in Evolutionary Computation

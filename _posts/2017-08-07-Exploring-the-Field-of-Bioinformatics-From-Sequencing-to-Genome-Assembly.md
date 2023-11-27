@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Bioinformatics: From Sequencing to Genome Assembly"
 icon: fa-comment-alt
 tag:      
 categories: NaturalLanguageProcessing
+toc: true
 ---
+
 
 
 # Exploring the Field of Bioinformatics: From Sequencing to Genome Assembly

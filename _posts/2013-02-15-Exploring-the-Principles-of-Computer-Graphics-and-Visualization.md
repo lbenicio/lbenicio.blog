@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Principles of Computer Graphics and Visualization"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # Exploring the Principles of Computer Graphics and Visualization

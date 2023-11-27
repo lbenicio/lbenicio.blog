@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Programming Languages: A Historical Perspective"
 icon: fa-comment-alt
 tag:      
 categories: TechTrends
+toc: true
 ---
+
 
 
 # The Evolution of Programming Languages: A Historical Perspective

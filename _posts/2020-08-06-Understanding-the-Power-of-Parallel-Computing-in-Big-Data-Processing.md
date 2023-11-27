@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Power of Parallel Computing in Big Data Processing"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareTesting
+toc: true
 ---
+
 
 
 # Understanding the Power of Parallel Computing in Big Data Processing

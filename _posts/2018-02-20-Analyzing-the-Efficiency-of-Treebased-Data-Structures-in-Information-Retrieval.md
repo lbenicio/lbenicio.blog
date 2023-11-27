@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Treebased Data Structures in Information Retrieval"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # Analyzing the Efficiency of Tree-based Data Structures in Information Retrieval

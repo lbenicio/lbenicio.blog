@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Future of Cloud Computing: Edge Computing and Fog Computing"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # The Future of Cloud Computing: Edge Computing and Fog Computing

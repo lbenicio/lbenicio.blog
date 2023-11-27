@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Information Theory in Data Compression"
 icon: fa-comment-alt
 tag:      
 categories: Programming
+toc: true
 ---
+
 
 
 # The Role of Information Theory in Data Compression

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Mathematical Foundations of Machine Learning Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # The Mathematical Foundations of Machine Learning Algorithms

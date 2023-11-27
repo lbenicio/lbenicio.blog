@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Deep Learning in Natural Language Understanding"
 icon: fa-comment-alt
 tag:      
 categories: QuantumComputing
+toc: true
 ---
+
 
 
 # Exploring the Applications of Deep Learning in Natural Language Understanding

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution of Computer Networks: From Ethernet to WiFi"
 icon: fa-comment-alt
 tag:      
 categories: ComputerArchitecture
+toc: true
 ---
+
 
 
 # The Evolution of Computer Networks: From Ethernet to WiFi

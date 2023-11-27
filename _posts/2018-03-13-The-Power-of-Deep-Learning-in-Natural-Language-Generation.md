@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Deep Learning in Natural Language Generation"
 icon: fa-comment-alt
 tag:      
 categories: MobileDevelopment
+toc: true
 ---
+
 
 
 # The Power of Deep Learning in Natural Language Generation

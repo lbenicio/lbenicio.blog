@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Parallel Computing in Big Data Analytics"
 icon: fa-comment-alt
 tag:      
 categories: Cryptography
+toc: true
 ---
+
 
 
 # The Role of Parallel Computing in Big Data Analytics

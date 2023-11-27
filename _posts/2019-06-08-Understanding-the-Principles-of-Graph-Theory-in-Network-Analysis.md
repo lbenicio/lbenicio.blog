@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Graph Theory in Network Analysis"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # Understanding the Principles of Graph Theory in Network Analysis

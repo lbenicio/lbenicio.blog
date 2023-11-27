@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Unveiling the Power of Genetic Algorithms in Solving Complex Problems
 icon: fa-comment-alt
 tag: IoT Internet of Things Algorithms CodeQuality
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Unveiling the Power of Genetic Algorithms in Solving Complex Problems

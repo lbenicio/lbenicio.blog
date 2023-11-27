@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Reinforcement Learning in Autonomous Systems"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # Exploring the Applications of Reinforcement Learning in Autonomous Systems

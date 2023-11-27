@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Mathematics of Cryptography: From DiffieHellman to Elliptic Curve Cryptography"
 icon: fa-comment-alt
 tag:      
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Unraveling the Mathematics of Cryptography: From Diffie-Hellman to Elliptic Curve Cryptography

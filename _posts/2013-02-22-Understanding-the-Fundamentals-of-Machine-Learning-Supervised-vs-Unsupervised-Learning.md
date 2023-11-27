@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Fundamentals of Machine Learning: Supervised vs Unsupervised Learning"
 icon: fa-comment-alt
 tag: 
 categories: ComputerGraphics
+toc: true
 ---
+
 
 
 # Understanding the Fundamentals of Machine Learning: Supervised vs Unsupervised Learning

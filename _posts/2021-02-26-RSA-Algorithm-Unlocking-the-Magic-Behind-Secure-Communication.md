@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: RSA Algorithm - Unlocking the Magic Behind Secure Communication
 icon: fa-comment-alt
 tag: security
 categories: security criptography rsa algorithm
+toc: true
 ---
+
 
 In today's digital age, secure communication is paramount. The RSA algorithm, named after its creators Ron Rivest, Adi Shamir, and Leonard Adleman, is one of the most widely used asymmetric encryption algorithms. The RSA algorithm is based on the mathematical principles of modular arithmetic and the difficulty of factoring large numbers. In this paper, we will discuss how the RSA algorithm works, its strengths, and limitations.
 ## Modular Arithmetic

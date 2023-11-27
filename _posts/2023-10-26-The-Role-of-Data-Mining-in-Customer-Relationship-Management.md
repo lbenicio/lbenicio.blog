@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Data Mining in Customer Relationship Management"
 icon: fa-comment-alt
 tag:
 categories: Cryptography
+toc: true
 ---
+
 
 
 # The Role of Data Mining in Customer Relationship Management

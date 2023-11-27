@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the World of Computer Vision and Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Exploring the World of Computer Vision and Image Recognition

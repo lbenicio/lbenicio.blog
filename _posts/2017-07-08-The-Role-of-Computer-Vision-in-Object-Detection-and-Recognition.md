@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Computer Vision in Object Detection and Recognition"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # The Role of Computer Vision in Object Detection and Recognition

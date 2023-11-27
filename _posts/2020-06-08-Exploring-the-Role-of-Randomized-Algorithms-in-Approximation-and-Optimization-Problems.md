@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Role of Randomized Algorithms in Approximation and Optimization Problems"
 icon: fa-comment-alt
 tag:      
 categories: Networking
+toc: true
 ---
+
 
 
 # Exploring the Role of Randomized Algorithms in Approximation and Optimization Problems

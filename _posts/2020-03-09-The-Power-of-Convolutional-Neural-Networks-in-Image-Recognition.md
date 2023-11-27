@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Power of Convolutional Neural Networks in Image Recognition"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # The Power of Convolutional Neural Networks in Image Recognition

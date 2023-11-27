@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Convolutional Neural Networks in Object Detection"
 icon: fa-comment-alt
 tag:      
 categories: CodeReview
+toc: true
 ---
+
 
 
 # The Role of Convolutional Neural Networks in Object Detection

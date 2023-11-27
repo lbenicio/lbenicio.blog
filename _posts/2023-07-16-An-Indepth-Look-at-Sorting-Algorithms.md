@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Indepth Look at Sorting Algorithms"
 icon: fa-comment-alt
 tag:      
 categories: WebDevelopment
+toc: true
 ---
+
 
 
 # An In-depth Look at Sorting Algorithms

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Unraveling the Mathematical Foundations of Machine Learning: From Linear Regression to Neural Networks"
 icon: fa-comment-alt
 tag:      
 categories: ArtificialIntelligence
+toc: true
 ---
+
 
 
 # Unraveling the Mathematical Foundations of Machine Learning: From Linear Regression to Neural Networks

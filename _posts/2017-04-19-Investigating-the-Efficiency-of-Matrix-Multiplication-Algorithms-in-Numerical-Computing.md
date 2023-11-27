@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Matrix Multiplication Algorithms in Numerical Computing"
 icon: fa-comment-alt
 tag:      
 categories: ComputerVision
+toc: true
 ---
+
 
 
 # Investigating the Efficiency of Matrix Multiplication Algorithms in Numerical Computing

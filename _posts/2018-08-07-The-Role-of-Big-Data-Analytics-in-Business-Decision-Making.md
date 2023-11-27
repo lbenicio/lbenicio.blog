@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Big Data Analytics in Business Decision Making"
 icon: fa-comment-alt
 tag:      
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # The Role of Big Data Analytics in Business Decision Making

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Deploy an application using AWS Lightsail
 icon: fa-comment-alt
 tag: aws deployment cloud tutorial
 categories: deployment
+toc: true
 ---
+
 
 AWS Lightsail is a simplified platform for deploying and managing web applications and websites on the Amazon Web Services (AWS) cloud. With Lightsail, you can easily deploy, manage, and scale your applications and websites without having to worry about the complexities of infrastructure management. In this blog post, we will take a closer look at how to deploy an application on AWS Lightsail, using a simple example and code snippets.
 

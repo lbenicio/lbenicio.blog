@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "UnderstandingthePrinciplesofNaturalLanguageProcessinginTextSummarization"
 icon: fa-comment-alt
 tag:      
 categories: Cybersecurity
+toc: true
 ---
+
 
 
 # Understanding the Principles of Natural Language Processing in Text Summarization

@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Cryptographic Hash Functions in Data Integrity"
 icon: fa-comment-alt
 tag:      
 categories: MachineLearning
+toc: true
 ---
+
 
 
 # Understanding the Principles of Cryptographic Hash Functions in Data Integrity

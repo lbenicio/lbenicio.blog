@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Role of Data Mining in Business Intelligence"
 icon: fa-comment-alt
 tag:      
 categories: Blockchain
+toc: true
 ---
+
 
 
 # The Role of Data Mining in Business Intelligence

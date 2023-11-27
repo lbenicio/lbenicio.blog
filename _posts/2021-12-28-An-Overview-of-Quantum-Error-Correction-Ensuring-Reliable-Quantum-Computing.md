@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Overview of Quantum Error Correction: Ensuring Reliable Quantum Computing"
 icon: fa-comment-alt
 tag:
 categories: EthicalHacking
+toc: true
 ---
+
 
 
 # An Overview of Quantum Error Correction: Ensuring Reliable Quantum Computing

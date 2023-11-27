@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "Exploring the Concepts of Big Data and Data Analytics"
 icon: fa-comment-alt
 tag:      
 categories: Algorithms
+toc: true
 ---
+
 
 
 # Exploring the Concepts of Big Data and Data Analytics

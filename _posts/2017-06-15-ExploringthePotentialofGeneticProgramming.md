@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "ExploringthePotentialofGeneticProgramming"
 icon: fa-comment-alt
 tag:      
 categories: CodeQuality
+toc: true
 ---
+
 
 
 # Exploring the Potential of Genetic Programming

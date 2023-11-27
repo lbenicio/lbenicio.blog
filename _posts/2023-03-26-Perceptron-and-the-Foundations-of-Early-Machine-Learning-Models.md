@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: Perceptron and the Foundations of Early Machine Learning Models
 icon: fa-comment-alt
 tag: 
 categories: 
+toc: true
 ---
+
 
 Machine learning has become one of the most important fields of study in computer science, and it has led to breakthroughs in various fields such as natural language processing, computer vision, and robotics. However, to fully understand the current state of machine learning, it is essential to go back to the early days of the field and explore the foundations upon which it was built. One of the earliest and most influential machine learning models is the perceptron, which was introduced in the 1950s by Frank Rosenblatt. In this paper, we will explore the history and principles behind the perceptron and how it helped pave the way for modern machine learning models.
 

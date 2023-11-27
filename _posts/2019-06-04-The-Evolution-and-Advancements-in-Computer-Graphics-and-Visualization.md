@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "The Evolution and Advancements in Computer Graphics and Visualization"
 icon: fa-comment-alt
 tag:      
 categories: DebuggingTips
+toc: true
 ---
+
 
 
 # The Evolution and Advancements in Computer Graphics and Visualization

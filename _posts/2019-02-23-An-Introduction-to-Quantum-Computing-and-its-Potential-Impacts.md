@@ -1,10 +1,13 @@
 ---
+
 layout: posts
 title: "An Introduction to Quantum Computing and its Potential Impacts"
 icon: fa-comment-alt
 tag:      
 categories: SoftwareEngineering
+toc: true
 ---
+
 
 
 # An Introduction to Quantum Computing and its Potential Impacts
