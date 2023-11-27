@@ -70,3 +70,9 @@ All notable changes to this project will be documented in this file.
 - add table of contents
 - add reading time to blog posts
 - add blog post navigation
+
+## v1.3.1
+
+### Changed
+
+- fix jekyll tagging

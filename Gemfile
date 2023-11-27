@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3.2"
+gem "jekyll"
 gem "lbenicio-minimal-v1", "1.3.2"
 gem "rouge"
 gem "rake"
@@ -20,7 +20,7 @@ group :jekyll_plugins do
 end
 
 group :development, :test do
-  gem "rubocop", "~> 1.42.0"
+  gem "rubocop"
   gem "rubocop-minitest"
   gem "rubocop-performance"
   gem "rubocop-rake"
@@ -48,7 +48,3 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo"
   gem "tzinfo-data"
 end
-
-# Performance-booster for watching directories on Windows
-gem "wdm", :platforms => [:mingw, :x64_mingw, :mswin]
-
