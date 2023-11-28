@@ -76,3 +76,10 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - fix jekyll tagging
+
+## v1.4.0
+
+### Changed
+
+- update theme version
+- fix links
