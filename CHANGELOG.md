@@ -83,3 +83,10 @@ All notable changes to this project will be documented in this file.
 
 - update theme version
 - fix links
+
+## v1.4.1
+
+### Changed
+
+- update theme version
+- fix links

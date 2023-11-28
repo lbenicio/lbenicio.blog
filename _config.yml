@@ -7,7 +7,7 @@ tagline: Leonardo Benicio personal website.
 description: Leonardo Benicio personal blog.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "/" # the base hostname & protocol for your site, e.g. http://example.com
-default_url: "https://lbenicio.dev" # the base hostname & protocol for your site, e.g. http://example.com
+default_url: "https://lbenicio.dev/" # the base hostname & protocol for your site, e.g. http://example.com
 blog: "/"
 twitter_username: lbenicio_
 keybase_username: lbenicio
