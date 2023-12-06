@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "jekyll"
-gem "lbenicio-minimal-v1", "1.5.3"
+gem "lbenicio-minimal-v1", "1.6.3"
 gem "rouge"
 gem "rake"
 
@@ -17,6 +17,9 @@ group :jekyll_plugins do
   gem "jekyll-paginate-v2", git: "https://github.com/lbenicio/jekyll-paginate-v2/"
   gem "jekyll-minifier"
   gem "liquid_reading_time"
+  gem 'jekyll-algolia'
+  gem 'jekyll-uglify'
+  gem 'jekyll-assets'
 end
 
 group :development, :test do

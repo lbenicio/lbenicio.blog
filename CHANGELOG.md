@@ -90,3 +90,9 @@ All notable changes to this project will be documented in this file.
 
 - update theme version
 - fix links
+
+## v1.5.0
+
+### Changed
+
+- add search for posts
