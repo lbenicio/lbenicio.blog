@@ -16,7 +16,7 @@ github_username: lbenicio
 linkedin_username: leonardo-benicio-1a55a1ba
 mastodon_username: lbenicio
 
-# seach
+# search
 algolia:
   application_id: '0LUMG2U2NT'
   index_name: 'lbenicio-blog'
