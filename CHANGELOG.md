@@ -2,97 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-## v1.0.0
+## v0.0.4
 
 ### Changed
 
 - Initial Release
 
-## v1.0.1
+## v0.0.5
 
 ### Changed
 
-- fix footer mobile devices
-
-## v1.0.2
-
-### Changed
-
-- keep CNAME file on deployed version
-- report job status now send each job status
-- add active page visual identifier
-
-## v1.1.0
-
-### Changed
-
-- fix ci
-- add new theme
-
-## v1.1.1
-
-### Changed
-
-- fix ci
-- fix dependabot
-
-## v1.1.2
-
-### Changed
-
-- fix ci
-- fix dependabot
-
-## v1.2.0
-
-### Changed
-
-- update theme
-
-## v1.2.1
-
-### Changed
-
-- fix tags
-
-## v1.2.2
-
-### Changed
-
-- change url pattern
-
-## v1.3.0
-
-### Changed
-
-- fix navigation
-- fix blog url
-- add table of contents
-- add reading time to blog posts
-- add blog post navigation
-
-## v1.3.1
-
-### Changed
-
-- fix jekyll tagging
-
-## v1.4.0
-
-### Changed
-
-- update theme version
-- fix links
-
-## v1.4.1
-
-### Changed
-
-- update theme version
-- fix links
-
-## v1.5.0
-
-### Changed
-
-- add search for posts
+- change config files to yaml
+- update theme version to support social footer
+- add more social networks

@@ -1,38 +1,21 @@
-[![Gem Version](https://img.shields.io/gem/v/jekyll.svg?style=flat-square)](https://rubygems.org)
-[![CI/CD Pipeline](https://github.com/lbenicio/lbenicio.blog/actions/workflows/ci.yaml/badge.svg)](https://github.com/lbenicio/lbenicio.blog/actions/workflows/ci.yaml)
-![GitHub issues](https://img.shields.io/github/issues-raw/lbenicio/lbenicio.blog?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/lbenicio/lbenicio.blog?style=flat-square)
-![license](https://img.shields.io/github/license/lbenicio/lbenicio.blog?style=flat-square)
+# Personal blog
 
-# Leonardo Benicio profile page
-This is my personal blog made in jekyll. Feel free to clone and use it!
+Personal blog using tailwind css and hugo
 
-## Instalation
-clone this git repository
+## Install dependencies
 
 ```bash
-gem install bundler
-```
-```bash
-bundle install
+npm install
 ```
 
-## Running
+## Run
+
 ```bash
-bundle exec jekyll serve
+hugo server
 ```
 
-## Unit tests
-```bash
-bundle exec rake test
-```
+## Build
 
-## Profiling
 ```bash
-bundle exec rake profile:memory
-```
-
-## Benchmark
-```bash
-bundle exec ruby benchmark/capture-assign.rb
+hugo 
 ```

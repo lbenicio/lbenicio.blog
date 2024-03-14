@@ -1,12 +1,19 @@
-_site
-_drafts
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-Gemfile.lock
+# hugo
+public
+.hugo_build.lock
+resources
+
+# NodeJS
+node_modules
+
+# macOS
 .DS_Store
+
+# tmp
 tmp
-.bundle
-.idea
+
+# VS Code
+.vscode
+
+# environemnt
 .env
