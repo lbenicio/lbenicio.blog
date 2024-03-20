@@ -7,6 +7,7 @@ description: >-
   experiences.
 theme: minimalist-simple-dev-theme
 paginate: 100
+enableRobotsTXT: true
 menus:
   main:
     - name: Home
