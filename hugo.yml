@@ -1,32 +1,33 @@
-baseURL: 'https://blog.lbenicio.dev'
+baseURL: "https://blog.lbenicio.dev"
 languageCode: en-us
 title: Leonardo Benicio
 description: >-
-  A minimal website/blog by leonardo benicio. It is a simple and clean homepage/blog
-  where i showcase my work and write about my
-  experiences.
+    A minimal website/blog by leonardo benicio. It is a simple and clean homepage/blog
+    where i showcase my work and write about my
+    experiences.
 theme: minimalist-simple-dev-theme
 paginate: 100
 enableRobotsTXT: true
 menus:
-  main:
-    - name: Home
-      url: 'https://lbenicio.dev/'
-      weight: 10
-      pre: fas fa-home
-    - name: About me
-      url: 'https://lbenicio.dev/aboutme'
-      weight: 20
-      pre: fas fa-address-card
-    - name: Contact
-      url: 'https://lbenicio.dev/contact'
-      weight: 30
-      pre: fas fa-envelope-open
-    - name: Articles
-      url: /
-      weight: 40
-      pre: fas fa-comment-alt
+    main:
+        - name: Home
+          url: "https://lbenicio.dev/"
+          weight: 10
+          pre: fas fa-home
+        - name: About me
+          url: "https://lbenicio.dev/aboutme"
+          weight: 20
+          pre: fas fa-address-card
+        - name: Contact
+          url: "https://lbenicio.dev/contact"
+          weight: 30
+          pre: fas fa-envelope-open
+        - name: Articles
+          url: /
+          weight: 40
+          pre: fas fa-comment-alt
 params:
+<<<<<<< HEAD
   author: Leonardo Benicio
   email: hello@lbenicio.dev
   blogURL: https://blog.lbenicio.dev
@@ -61,9 +62,46 @@ params:
       instance: instagram.com
       visible: false
       icon: fab fa-instagram
+=======
+    author: Leonardo Benicio
+    email: hello@lbenicio.dev
+    blogURL: https://blog.lbenicio.dev
+    subscribeForm: https://cdn.forms-content-1.sg-form.com/bb7a97b1-feb6-11ee-a302-4e5d13f5dd42
+    social:
+        twitter:
+            username: lbenicio_
+            instance: twitter.com
+            icon: fab fa-twitter
+            visible: true
+        github:
+            username: lbenicio
+            instance: github.com
+            icon: fab fa-github
+            visible: true
+        linkedin:
+            username: in/leonardo-benicio-1a55a1ba
+            instance: linkedin.com
+            icon: fab fa-linkedin-in
+            visible: true
+        mastodon:
+            username: lbenicio
+            instance: mastodon.social
+            visible: false
+            icon: fab fa-mastodon
+        reddit:
+            username: /u/lbenicio
+            instance: reddit.com
+            visible: false
+            icon: fab fa-reddit
+        instagram:
+            username: lbenicio_
+            instance: instagram.com
+            visible: false
+            icon: fab fa-instagram
+>>>>>>> 8a54ca2 (add pagefind and subscribeform)
 analytics:
-  google: G-TZ4BSC3K2P
+    google: G-TZ4BSC3K2P
 module:
-  hugoVersion:
-    extended: false
-    min: 0.116.0
+    hugoVersion:
+        extended: false
+        min: 0.116.0
