@@ -81,6 +81,9 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                   path: ./public
+            - name: test
+              run: |
+                   ls ./public && ls ./public/github-pages && ls ./public/github-pages/artifact
             - name: Generate indexes
               run: |
                   npx pagefind --site public/github-pages
