@@ -81,7 +81,7 @@ jobs:
                    mkdir public/github-pages-build/artifact
             - name: Extract artifact
               run: |
-                   tar -xvf public/github-pages-build/artifact.tar -C public/github-pages/artifact
+                   tar -xvf public/github-pages-build/artifact.tar -C public/github-pages-build/artifact
             - name: Generate indexes
               run: |
                   npx pagefind --site public/github-pages-build/artifact
