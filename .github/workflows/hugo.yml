@@ -61,6 +61,7 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
+                  name: github-pages-build
                   path: ./public
 
     generateIndexes:
@@ -77,17 +78,18 @@ jobs:
                   path: ./public
             - name: Generate payload
               run: |
-                   mkdir public/github-pages/artifact
+                   mkdir public/github-pages-build/artifact
             - name: Extract artifact
               run: |
-                   tar -xvf public/github-pages/artifact.tar -C public/github-pages/artifact
+                   tar -xvf public/github-pages-build/artifact.tar -C public/github-pages/artifact
             - name: Generate indexes
               run: |
-                  npx pagefind --site public/github-pages/artifact
+                  npx pagefind --site public/github-pages-build/artifact
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: public/github-pages/artifact
+                  name: github-pages
+                  path: public/github-pages-build/artifact
 
     # Deployment job
     deploy:
