@@ -27,42 +27,6 @@ menus:
           weight: 40
           pre: fas fa-comment-alt
 params:
-<<<<<<< HEAD
-  author: Leonardo Benicio
-  email: hello@lbenicio.dev
-  blogURL: https://blog.lbenicio.dev
-  social:
-    twitter:
-      username: lbenicio_
-      instance: twitter.com
-      icon: fab fa-twitter
-      visible: true
-    github:
-      username: lbenicio
-      instance: github.com
-      icon: fab fa-github
-      visible: true
-    linkedin:
-      username: in/leonardo-benicio
-      instance: linkedin.com
-      icon: fab fa-linkedin-in
-      visible: true
-    mastodon:
-      username: lbenicio
-      instance: mastodon.social
-      visible: false
-      icon: fab fa-mastodon
-    reddit:
-      username: u/lbenicio
-      instance: reddit.com
-      visible: false
-      icon: fab fa-reddit
-    instagram:
-      username: lbenicio_
-      instance: instagram.com
-      visible: false
-      icon: fab fa-instagram
-=======
     author: Leonardo Benicio
     email: hello@lbenicio.dev
     blogURL: https://blog.lbenicio.dev
@@ -79,17 +43,17 @@ params:
             icon: fab fa-github
             visible: true
         linkedin:
-            username: in/leonardo-benicio-1a55a1ba
+            username: in/leonardo-benicio
             instance: linkedin.com
             icon: fab fa-linkedin-in
             visible: true
         mastodon:
-            username: lbenicio
+            username: "@lbenicio"
             instance: mastodon.social
             visible: false
             icon: fab fa-mastodon
         reddit:
-            username: /u/lbenicio
+            username: u/lbenicio
             instance: reddit.com
             visible: false
             icon: fab fa-reddit
@@ -98,7 +62,6 @@ params:
             instance: instagram.com
             visible: false
             icon: fab fa-instagram
->>>>>>> 8a54ca2 (add pagefind and subscribeform)
 analytics:
     google: G-TZ4BSC3K2P
 module:
