@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography in Information Security
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2022-01-17"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Natural Language Processing in Text Summarization"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: DataStructures ComputerVision ComputerGraphics
 categories: EthicalHacking
 toc: true
 date: 2024-01-12
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Natural Language Processing in Text Summarization](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Natural-Language-Processing-in-Text-Summarization)

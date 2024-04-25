@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2018-01-20"
+type: posts
 ---
+
 
 
 

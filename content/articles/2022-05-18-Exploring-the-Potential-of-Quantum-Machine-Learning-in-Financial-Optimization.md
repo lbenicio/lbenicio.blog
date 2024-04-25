@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Optimization
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2022-05-18"
+type: posts
 ---
+
 
 
 

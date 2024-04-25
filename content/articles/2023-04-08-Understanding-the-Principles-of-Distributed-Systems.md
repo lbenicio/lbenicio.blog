@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 toc: true
 date: "2023-04-08"
+type: posts
 ---
+
 
 
 

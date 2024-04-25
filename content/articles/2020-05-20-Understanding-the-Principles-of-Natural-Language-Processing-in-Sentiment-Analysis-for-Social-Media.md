@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Sentiment Analysis
   for Social Media
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-05-20"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: ExploringtheApplicationsofMachineLearninginPredictiveMaintenance
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-08-25"
+type: posts
 ---
+
 
 
 

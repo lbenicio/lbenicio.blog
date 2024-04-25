@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Machine Learning in Fraud Detection and Prevention
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2017-06-17"
+type: posts
 ---
+
 
 
 

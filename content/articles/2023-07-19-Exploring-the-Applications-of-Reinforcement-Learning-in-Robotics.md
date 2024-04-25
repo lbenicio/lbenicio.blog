@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 toc: true
 date: "2023-07-19"
+type: posts
 ---
+
 
 
 

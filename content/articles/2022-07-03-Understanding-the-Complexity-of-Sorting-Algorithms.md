@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2022-07-03"
+type: posts
 ---
+
 
 
 

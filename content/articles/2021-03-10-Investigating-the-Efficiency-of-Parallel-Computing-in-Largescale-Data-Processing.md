@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Parallel Computing in Largescale Data Processing
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2021-03-10"
+type: posts
 ---
+
 
 
 

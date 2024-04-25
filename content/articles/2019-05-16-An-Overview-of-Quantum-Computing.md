@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Overview of Quantum Computing
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2019-05-16"
+type: posts
 ---
+
 
 
 

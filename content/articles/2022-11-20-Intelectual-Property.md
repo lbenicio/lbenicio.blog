@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Intellectual Property
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: intelectual, property
 categories: ["discussion"]
 toc: true
 date: "2022-11-20"
+type: posts
 ---
+
 
 
 Follow our current trend, this week are discussing Intellectual Property.

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing in Solving Complex Problems
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2020-12-10"
+type: posts
 ---
+
 
 
 

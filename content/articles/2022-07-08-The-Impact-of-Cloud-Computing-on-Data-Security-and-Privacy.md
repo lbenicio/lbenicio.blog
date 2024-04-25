@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Data Security and Privacy
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2022-07-08"
+type: posts
 ---
+
 
 
 

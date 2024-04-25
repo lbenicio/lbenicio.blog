@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Virtual Assistants
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2019-02-24"
+type: posts
 ---
+
 
 
 

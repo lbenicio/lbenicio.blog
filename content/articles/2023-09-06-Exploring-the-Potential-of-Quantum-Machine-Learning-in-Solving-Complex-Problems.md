@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Solving Complex Problems
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 toc: true
 date: "2023-09-06"
+type: posts
 ---
+
 
 
 

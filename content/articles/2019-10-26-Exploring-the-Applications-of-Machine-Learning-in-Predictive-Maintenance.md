@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Predictive Maintenance
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-10-26"
+type: posts
 ---
+
 
 
 

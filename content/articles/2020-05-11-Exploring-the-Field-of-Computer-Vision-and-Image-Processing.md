@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computer Vision and Image Processing
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2020-05-11"
+type: posts
 ---
+
 
 
 

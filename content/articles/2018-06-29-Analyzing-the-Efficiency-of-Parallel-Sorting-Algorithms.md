@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Sorting Algorithms
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2018-06-29"
+type: posts
 ---
+
 
 
 

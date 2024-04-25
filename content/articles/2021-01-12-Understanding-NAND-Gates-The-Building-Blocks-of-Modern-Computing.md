@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Understanding NAND Gates: The Building Blocks of Modern Computing'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: algebra
 categories: ["boolean', 'algebra', 'mathematic', 'computing', 'logic', 'discussion"]
 
 date: "2021-01-12"
+type: posts
 ---
+
 
 
 In the world of digital logic, NAND gates are among the most fundamental building blocks. A NAND gate is a type of logic gate that performs a logical "NOT-AND" operation. This means that if both of its input signals are HIGH (1), the output signal will be LOW (0), and if either input signal is LOW (0), the output signal will be HIGH (1). In this paper, we will discuss the history of NAND gates, how they work, and their important role in modern computing.

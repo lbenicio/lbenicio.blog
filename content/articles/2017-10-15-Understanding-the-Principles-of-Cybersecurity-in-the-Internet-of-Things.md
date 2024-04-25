@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cybersecurity in the Internet of Things
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-10-15"
+type: posts
 ---
+
 
 
 

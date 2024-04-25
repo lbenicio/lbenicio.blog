@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Power of Neural Networks in Speech Recognition"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerVision Cybersecurity QuantumComputing
 categories: EthicalHacking
 toc: true
 date: 2024-02-13
+type: posts
 ---
+
 
 
 ![The Power of Neural Networks in Speech Recognition](https://cdn.lbenicio.dev/posts/The-Power-of-Neural-Networks-in-Speech-Recognition)

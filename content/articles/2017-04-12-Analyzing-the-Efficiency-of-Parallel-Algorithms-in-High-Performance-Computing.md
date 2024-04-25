@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Algorithms in High Performance Computing
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2017-04-12"
+type: posts
 ---
+
 
 
 

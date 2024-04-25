@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolutionary Optimization
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2019-05-11"
+type: posts
 ---
+
 
 
 

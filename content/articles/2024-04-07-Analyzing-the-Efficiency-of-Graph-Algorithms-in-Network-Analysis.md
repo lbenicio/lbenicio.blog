@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Graph Algorithms in Network Analysis"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CodeQuality SoftwareTesting Blockchain
 categories: WebDevelopment
 toc: true
 date: 2024-04-07
+type: posts
 ---
+
 
 
 ![Analyzing the Efficiency of Graph Algorithms in Network Analysis](https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Graph-Algorithms-in-Network-Analysis)

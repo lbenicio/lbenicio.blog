@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2021-02-24"
+type: posts
 ---
+
 
 
 

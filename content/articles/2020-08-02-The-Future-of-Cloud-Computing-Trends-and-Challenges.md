@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Cloud Computing: Trends and Challenges'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-08-02"
+type: posts
 ---
+
 
 
 

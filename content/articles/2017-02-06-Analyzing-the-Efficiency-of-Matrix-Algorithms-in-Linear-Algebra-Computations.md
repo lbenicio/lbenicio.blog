@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Matrix Algorithms in Linear Algebra Computations
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-02-06"
+type: posts
 ---
+
 
 
 

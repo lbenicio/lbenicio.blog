@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Natural Language Processing Algorithms in Text
   Summarization
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2018-09-17"
+type: posts
 ---
+
 
 
 

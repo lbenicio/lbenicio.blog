@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-02-26"
+type: posts
 ---
+
 
 
 

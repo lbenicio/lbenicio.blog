@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Text Classification
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-05-27"
+type: posts
 ---
+
 
 
 

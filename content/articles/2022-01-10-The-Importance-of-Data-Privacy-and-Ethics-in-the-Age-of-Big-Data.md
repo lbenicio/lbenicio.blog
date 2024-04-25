@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Data Privacy and Ethics in the Age of Big Data
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2022-01-10"
+type: posts
 ---
+
 
 
 

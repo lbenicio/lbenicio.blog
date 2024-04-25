@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Treebased Algorithms in Classification Problems
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2018-07-21"
+type: posts
 ---
+
 
 
 

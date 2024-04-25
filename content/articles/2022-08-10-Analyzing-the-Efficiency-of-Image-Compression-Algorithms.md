@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Image Compression Algorithms
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 toc: true
 date: "2022-08-10"
+type: posts
 ---
+
 
 
 

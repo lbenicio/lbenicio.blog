@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Evolving Trends of Cybersecurity in Cloud Computing Paradigms"
 
 date: "2013-11-11"
+type: posts
 ---
+
 
 # Evolution and Future Trends in Computation and Algorithms
 

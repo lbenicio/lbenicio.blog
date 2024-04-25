@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Algorithms in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-09-23"
+type: posts
 ---
+
 
 
 

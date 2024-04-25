@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Searching Algorithms in Data Structures
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2022-02-01"
+type: posts
 ---
+
 
 
 

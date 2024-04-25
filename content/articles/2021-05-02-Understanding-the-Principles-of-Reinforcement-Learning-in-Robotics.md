@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2021-05-02"
+type: posts
 ---
+
 
 
 

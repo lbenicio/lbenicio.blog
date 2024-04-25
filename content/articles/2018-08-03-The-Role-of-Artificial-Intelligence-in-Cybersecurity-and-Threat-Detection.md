@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Cybersecurity and Threat Detection
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-08-03"
+type: posts
 ---
+
 
 
 

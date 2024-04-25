@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2020-10-18"
+type: posts
 ---
+
 
 
 

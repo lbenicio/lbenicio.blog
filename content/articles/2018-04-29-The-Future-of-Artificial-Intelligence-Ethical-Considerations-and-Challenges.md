@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Artificial Intelligence: Ethical Considerations and Challenges'
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2018-04-29"
+type: posts
 ---
+
 
 
 

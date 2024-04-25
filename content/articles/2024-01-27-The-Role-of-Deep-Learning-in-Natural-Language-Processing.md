@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Role of Deep Learning in Natural Language Processing"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: IoT Internet of Things ComputerScience EthicalHacking
 categories: TechTrends
 toc: true
 date: 2024-01-27
+type: posts
 ---
+
 
 
 ![The Role of Deep Learning in Natural Language Processing](https://cdn.lbenicio.dev/posts/The-Role-of-Deep-Learning-in-Natural-Language-Processing)

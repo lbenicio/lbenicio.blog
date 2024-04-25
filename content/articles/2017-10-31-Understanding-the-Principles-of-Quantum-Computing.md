@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2017-10-31"
+type: posts
 ---
+
 
 
 

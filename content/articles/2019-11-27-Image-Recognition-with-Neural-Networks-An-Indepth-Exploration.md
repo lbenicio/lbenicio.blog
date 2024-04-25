@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Image Recognition with Neural Networks: An Indepth Exploration'
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-11-27"
+type: posts
 ---
+
 
 
 

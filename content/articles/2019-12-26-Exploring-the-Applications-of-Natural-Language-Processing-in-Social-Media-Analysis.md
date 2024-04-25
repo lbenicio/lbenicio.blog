@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Social Media Analysis
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2019-12-26"
+type: posts
 ---
+
 
 
 

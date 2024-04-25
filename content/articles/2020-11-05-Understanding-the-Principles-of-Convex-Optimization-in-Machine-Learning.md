@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convex Optimization in Machine Learning
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-11-05"
+type: posts
 ---
+
 
 
 

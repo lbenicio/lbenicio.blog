@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unveiling the Power of Genetic Algorithms in Optimization
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-02-22"
+type: posts
 ---
+
 
 
 

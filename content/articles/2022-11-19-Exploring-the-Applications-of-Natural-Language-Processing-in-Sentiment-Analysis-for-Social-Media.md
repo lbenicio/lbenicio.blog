@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Sentiment Analysis
   for Social Media
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 toc: true
 date: "2022-11-19"
+type: posts
 ---
+
 
 
 

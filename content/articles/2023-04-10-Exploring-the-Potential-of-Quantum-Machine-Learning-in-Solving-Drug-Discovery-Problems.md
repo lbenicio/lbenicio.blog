@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Solving Drug Discovery
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2023-04-10"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Financial Trading
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2017-12-14"
+type: posts
 ---
+
 
 
 

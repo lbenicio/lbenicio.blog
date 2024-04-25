@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Bioinformatics: Bridging Biology and Computer Science'
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-08-20"
+type: posts
 ---
+
 
 
 

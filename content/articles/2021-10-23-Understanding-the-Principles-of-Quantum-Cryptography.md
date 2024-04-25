@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Cryptography
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2021-10-23"
+type: posts
 ---
+
 
 
 

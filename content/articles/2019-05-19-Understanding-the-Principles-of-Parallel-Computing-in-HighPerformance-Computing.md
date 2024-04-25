@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-05-19"
+type: posts
 ---
+
 
 
 

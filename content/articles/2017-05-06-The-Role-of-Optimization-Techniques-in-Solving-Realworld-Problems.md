@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Optimization Techniques in Solving Realworld Problems
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-05-06"
+type: posts
 ---
+
 
 
 

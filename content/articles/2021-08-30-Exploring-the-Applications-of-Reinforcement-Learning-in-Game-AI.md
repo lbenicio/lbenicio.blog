@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Game AI
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2021-08-30"
+type: posts
 ---
+
 
 
 

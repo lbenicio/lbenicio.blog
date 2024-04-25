@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Virtual Reality
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2018-04-23"
+type: posts
 ---
+
 
 
 

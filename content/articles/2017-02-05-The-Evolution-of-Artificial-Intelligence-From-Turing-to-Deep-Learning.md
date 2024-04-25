@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Artificial Intelligence: From Turing to Deep Learning'
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2017-02-05"
+type: posts
 ---
+
 
 
 

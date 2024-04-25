@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Database Design
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 toc: true
 date: "2022-08-16"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Digital Data
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: digital, data
 categories: ["discussion"]
 toc: true
 date: "2022-11-06"
+type: posts
 ---
+
 
 
 Today we are going to have a different post again, it is getting common, isn't it? We are going to talk about Digital Data. And more than never, this topic seen valid.

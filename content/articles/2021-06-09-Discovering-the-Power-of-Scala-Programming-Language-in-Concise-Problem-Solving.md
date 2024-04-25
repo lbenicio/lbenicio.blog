@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Discovering the Power of Scala Programming Language in Concise Problem Solving
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: e
 categories: ["SoftwareEngineering"]
 
 date: "2021-06-09"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Quantum Computing in Solving Complex Optimization Problems
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-05-30"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mathematical Foundations of Cryptography: From Caesar Cipher
   to RSA'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2022-03-22"
+type: posts
 ---
+
 
 
 

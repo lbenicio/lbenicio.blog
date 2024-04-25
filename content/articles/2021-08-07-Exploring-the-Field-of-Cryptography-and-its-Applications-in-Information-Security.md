@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Cryptography and its Applications in Information Security
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2021-08-07"
+type: posts
 ---
+
 
 
 

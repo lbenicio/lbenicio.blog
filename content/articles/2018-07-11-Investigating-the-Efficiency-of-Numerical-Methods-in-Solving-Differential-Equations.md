@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-07-11"
+type: posts
 ---
+
 
 
 

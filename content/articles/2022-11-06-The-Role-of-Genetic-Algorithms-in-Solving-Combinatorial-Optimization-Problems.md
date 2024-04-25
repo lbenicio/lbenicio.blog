@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Solving Combinatorial Optimization Problems
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 toc: true
 date: "2022-11-06"
+type: posts
 ---
+
 
 
 

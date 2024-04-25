@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Computer Vision in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2022-01-07"
+type: posts
 ---
+
 
 
 

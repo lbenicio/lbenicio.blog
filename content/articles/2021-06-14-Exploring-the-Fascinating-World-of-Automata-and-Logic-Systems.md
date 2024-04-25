@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Fascinating World of Automata and Logic Systems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: automato logs decision maker
 categories: ["automatos"]
 
 date: "2021-06-14"
+type: posts
 ---
+
 
 
 Automata and logic systems have been an important topic of research in computer science for several decades. They are the backbone of computer science, and the foundation of many critical applications in artificial intelligence, software engineering, and information technology. In this paper, we will discuss the basics of automata and logic systems, their history, and their applications. We will also explore the different types of automata, including finite automata, pushdown automata, and Turing machines, and their respective models. Additionally, we will examine various logic systems, such as propositional logic and first-order logic, and their use in problem-solving and automated reasoning.

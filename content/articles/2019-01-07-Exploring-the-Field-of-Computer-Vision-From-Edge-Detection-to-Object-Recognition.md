@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computer Vision: From Edge Detection to Object Recognition'
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-01-07"
+type: posts
 ---
+
 
 
 

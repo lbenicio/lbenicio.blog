@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computer Vision: Image Recognition and Object Detection'
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2017-08-06"
+type: posts
 ---
+
 
 
 

@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Unraveling the Mathematical Foundations of Cryptography From Caesar Cipher to RSA"
 
 date: "2020-06-26"
+type: posts
 ---
+
 
 # Topic: The Evolution and Future Trends of Algorithms in Computer Science
 

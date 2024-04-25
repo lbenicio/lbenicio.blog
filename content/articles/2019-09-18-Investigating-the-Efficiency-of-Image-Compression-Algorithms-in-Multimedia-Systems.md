@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Image Compression Algorithms in Multimedia
   Systems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2019-09-18"
+type: posts
 ---
+
 
 
 

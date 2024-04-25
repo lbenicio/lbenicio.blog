@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2022-02-18"
+type: posts
 ---
+
 
 # The Power of Neural Networks in Image Recognition
 

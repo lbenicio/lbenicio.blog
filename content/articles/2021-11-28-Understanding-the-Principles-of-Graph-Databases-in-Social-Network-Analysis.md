@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Graph Databases in Social Network Analysis
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-11-28"
+type: posts
 ---
+
 
 
 

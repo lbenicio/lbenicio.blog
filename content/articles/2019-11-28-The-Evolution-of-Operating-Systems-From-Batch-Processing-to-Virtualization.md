@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Operating Systems: From Batch Processing to Virtualization'
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2019-11-28"
+type: posts
 ---
+
 
 
 

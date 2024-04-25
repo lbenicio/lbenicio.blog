@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Machine Learning in Image Recognition
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2015-02-01"
+type: posts
 ---
+
 
 
 

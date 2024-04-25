@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: ExploringtheApplicationsofMachineLearninginRecommendationSystems
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-04-28"
+type: posts
 ---
+
 
 
 

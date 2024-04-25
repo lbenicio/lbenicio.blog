@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Cryptocurrency: Blockchain Technology and Beyond'
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-01-11"
+type: posts
 ---
+
 
 
 

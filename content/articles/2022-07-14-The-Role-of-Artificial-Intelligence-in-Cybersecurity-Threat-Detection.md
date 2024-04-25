@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Cybersecurity Threat Detection
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2022-07-14"
+type: posts
 ---
+
 
 
 

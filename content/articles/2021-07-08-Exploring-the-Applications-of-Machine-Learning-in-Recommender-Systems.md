@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2021-07-08"
+type: posts
 ---
+
 
 
 

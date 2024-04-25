@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Artificial Intelligence: From Symbolic Systems to Deep Learning'
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2023-08-21"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Tree Traversal Algorithms
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2023-02-19"
+type: posts
 ---
+
 
 
 

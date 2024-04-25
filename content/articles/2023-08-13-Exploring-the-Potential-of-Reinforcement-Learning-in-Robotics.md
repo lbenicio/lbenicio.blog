@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["Blockchain"]
 toc: true
 date: "2023-08-13"
+type: posts
 ---
+
 
 
 

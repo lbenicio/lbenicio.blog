@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Quantum Computing and its Implications for Artificial Intelligence
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-01-18"
+type: posts
 ---
+
 
 
 

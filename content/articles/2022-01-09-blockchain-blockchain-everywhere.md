@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Blockchain blockchain everywhere
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discussion blockchain
 categories: ["blockchain"]
 
 date: "2022-01-09"
+type: posts
 ---
+
 
 
 Blockchain technology is a revolutionary new way of storing and sharing information that has the potential to disrupt a wide range of industries. At its core, a blockchain is a decentralized and distributed digital ledger that records transactions across a network of computers. This technology is the backbone of the cryptocurrency market, however, it has the potential to be used in many other applications such as supply chain management, voting systems, digital identity, and more.

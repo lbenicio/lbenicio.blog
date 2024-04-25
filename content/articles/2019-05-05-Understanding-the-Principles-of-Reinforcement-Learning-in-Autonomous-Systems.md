@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Autonomous Systems
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-05-05"
+type: posts
 ---
+
 
 
 

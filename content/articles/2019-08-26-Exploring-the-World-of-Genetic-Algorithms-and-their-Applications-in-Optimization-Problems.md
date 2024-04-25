@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and their Applications in Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2019-08-26"
+type: posts
 ---
+
 
 
 

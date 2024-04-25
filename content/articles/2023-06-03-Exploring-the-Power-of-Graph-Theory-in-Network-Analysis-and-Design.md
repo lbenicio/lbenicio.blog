@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Power of Graph Theory in Network Analysis and Design
 icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2023-06-03"
+type: posts
 ---
+
 
 
 

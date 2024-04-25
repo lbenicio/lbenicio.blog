@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Internet of Things: Connecting the Physical World to the Digital Realm'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2023-09-06"
+type: posts
 ---
+
 
 
 

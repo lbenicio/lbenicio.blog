@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Fundamentals of Algorithm Analysis and Complexity Theory
 icon: fa-comment-alt
 categories: ["Cryptography"]
 toc: true
 date: "2022-08-24"
+type: posts
 ---
+
 
 
 

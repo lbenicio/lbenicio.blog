@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Power of Parallel Computing: Advancements in HighPerformance Computing'
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2017-02-16"
+type: posts
 ---
+
 
 
 

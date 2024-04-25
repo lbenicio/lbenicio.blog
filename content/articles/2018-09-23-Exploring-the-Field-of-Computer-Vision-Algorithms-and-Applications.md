@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computer Vision: Algorithms and Applications'
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-09-23"
+type: posts
 ---
+
 
 
 

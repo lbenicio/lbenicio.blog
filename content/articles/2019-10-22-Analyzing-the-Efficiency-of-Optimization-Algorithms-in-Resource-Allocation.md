@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Optimization Algorithms in Resource Allocation
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2019-10-22"
+type: posts
 ---
+
 
 
 

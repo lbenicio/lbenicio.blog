@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Parallel Computing in Big Data Analysis
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 toc: true
 date: "2023-07-13"
+type: posts
 ---
+
 
 
 

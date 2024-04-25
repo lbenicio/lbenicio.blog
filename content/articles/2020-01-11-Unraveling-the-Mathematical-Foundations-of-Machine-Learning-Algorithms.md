@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-01-11"
+type: posts
 ---
+
 
 
 

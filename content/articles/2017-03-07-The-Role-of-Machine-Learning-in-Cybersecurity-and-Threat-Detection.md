@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Cybersecurity and Threat Detection
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-03-07"
+type: posts
 ---
+
 
 
 

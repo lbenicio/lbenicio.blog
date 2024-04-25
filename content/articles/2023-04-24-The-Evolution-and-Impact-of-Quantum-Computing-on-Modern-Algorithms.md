@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Impact of Quantum Computing on Modern Algorithms
 icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2023-04-24"
+type: posts
 ---
+
 
 
 

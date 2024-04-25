@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["TechTrends"]
 toc: true
 date: "2023-03-31"
+type: posts
 ---
+
 
 
 

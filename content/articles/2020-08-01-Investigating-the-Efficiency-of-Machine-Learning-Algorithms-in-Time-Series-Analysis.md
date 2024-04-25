@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Machine Learning Algorithms in Time Series
   Analysis
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2020-08-01"
+type: posts
 ---
+
 
 
 

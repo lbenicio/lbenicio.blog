@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Machine Learning Algorithms in Predictive Analytics"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Networking ArtificialIntelligence Databases
 categories: Bioinformatics
 toc: true
 date: 2024-03-04
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Machine Learning Algorithms in Predictive Analytics](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Machine-Learning-Algorithms-in-Predictive-Analytics)

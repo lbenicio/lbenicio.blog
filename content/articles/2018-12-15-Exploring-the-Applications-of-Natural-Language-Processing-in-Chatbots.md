@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2018-12-15"
+type: posts
 ---
+
 
 
 

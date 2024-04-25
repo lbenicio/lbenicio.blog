@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Internet of Things: Interconnectivity and Security Challenges'
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2019-12-24"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 layout: posts
 title: "The Role of Machine Learning in Predictive Analytics"
 icon: fa-comment-alt
 tag: Cybersecurity ArtificialIntelligence Networking
 categories: QuantumComputing
 toc: true
+type: posts
 ---
+
 
 
 ![The Role of Machine Learning in Predictive Analytics](https://cdn.lbenicio.dev/posts/The-Role-of-Machine-Learning-in-Predictive-Analytics)

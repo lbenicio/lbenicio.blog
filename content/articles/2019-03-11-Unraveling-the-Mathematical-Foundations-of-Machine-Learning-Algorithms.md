@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2019-03-11"
+type: posts
 ---
+
 
 
 

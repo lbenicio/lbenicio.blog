@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Robotics
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2017-05-12"
+type: posts
 ---
+
 
 
 

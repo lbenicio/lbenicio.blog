@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Robotics: From Industrial Automation to Humanoid Robots'
 icon: fa-comment-alt
 categories: ["TechTrends"]
 toc: true
 date: "2023-11-03"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Deep Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2021-11-07"
+type: posts
 ---
+
 
 
 

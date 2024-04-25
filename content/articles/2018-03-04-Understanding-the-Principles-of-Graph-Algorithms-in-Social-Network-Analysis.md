@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-03-04"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Ethics of Artificial Intelligence: Challenges and Considerations'
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-07-26"
+type: posts
 ---
+
 
 
 

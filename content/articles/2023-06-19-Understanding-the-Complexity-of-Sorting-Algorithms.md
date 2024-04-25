@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["Blockchain"]
 toc: true
 date: "2023-06-19"
+type: posts
 ---
+
 
 
 

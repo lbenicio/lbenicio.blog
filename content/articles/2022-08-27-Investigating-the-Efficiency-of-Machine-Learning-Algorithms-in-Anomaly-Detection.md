@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Machine Learning Algorithms in Anomaly Detection
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 toc: true
 date: "2022-08-27"
+type: posts
 ---
+
 
 
 

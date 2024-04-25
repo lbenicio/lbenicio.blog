@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Financial Forecasting
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-03-20"
+type: posts
 ---
+
 
 
 

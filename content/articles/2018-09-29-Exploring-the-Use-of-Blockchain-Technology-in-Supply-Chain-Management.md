@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Use of Blockchain Technology in Supply Chain Management
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2018-09-29"
+type: posts
 ---
+
 
 
 

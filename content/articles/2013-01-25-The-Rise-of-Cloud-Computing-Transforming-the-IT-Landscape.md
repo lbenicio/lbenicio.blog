@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: "The Rise of Cloud Computing: Transforming the IT Landscape"
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2013-01-25"
+type: posts
 ---
+
 
 
 

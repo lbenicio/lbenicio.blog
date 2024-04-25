@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Mining and its Applications in Knowledge
   Discovery
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-06-25"
+type: posts
 ---
+
 
 
 

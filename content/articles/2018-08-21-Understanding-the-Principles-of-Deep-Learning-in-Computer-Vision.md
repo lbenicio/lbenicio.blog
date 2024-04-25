@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Learning in Computer Vision
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-08-21"
+type: posts
 ---
+
 
 
 

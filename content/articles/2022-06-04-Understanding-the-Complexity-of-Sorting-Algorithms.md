@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2022-06-04"
+type: posts
 ---
+
 
 
 

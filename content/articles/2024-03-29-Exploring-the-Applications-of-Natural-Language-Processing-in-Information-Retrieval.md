@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Natural Language Processing in Information Retrieval"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: IoT Internet of Things EthicalHacking Databases
 categories: OperatingSystems
 toc: true
 date: 2024-03-29
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Natural Language Processing in Information Retrieval](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Natural-Language-Processing-in-Information-Retrieval)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 toc: true
 date: "2023-06-09"
+type: posts
 ---
+
 
 
 

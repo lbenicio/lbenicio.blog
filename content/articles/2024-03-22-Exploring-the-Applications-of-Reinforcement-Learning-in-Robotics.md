@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Reinforcement Learning in Robotics"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Cryptography CodeReview ComputerGraphics
 categories: Databases
 toc: true
 date: 2024-03-22
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Reinforcement Learning in Robotics](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Reinforcement-Learning-in-Robotics)

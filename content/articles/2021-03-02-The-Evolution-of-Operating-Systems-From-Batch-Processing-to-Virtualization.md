@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Operating Systems: From Batch Processing to Virtualization'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2021-03-02"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Machine Learning on Cybersecurity
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-07-24"
+type: posts
 ---
+
 
 
 

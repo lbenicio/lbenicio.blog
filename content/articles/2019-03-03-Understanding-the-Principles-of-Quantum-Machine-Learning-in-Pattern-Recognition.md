@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Machine Learning in Pattern Recognition
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2019-03-03"
+type: posts
 ---
+
 
 
 

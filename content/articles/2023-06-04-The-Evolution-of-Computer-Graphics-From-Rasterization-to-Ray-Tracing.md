@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Graphics: From Rasterization to Ray Tracing'
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 toc: true
 date: "2023-06-04"
+type: posts
 ---
+
 
 
 

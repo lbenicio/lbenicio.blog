@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Image Compression Algorithms
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-10-07"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Solving Financial Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2021-09-27"
+type: posts
 ---
+
 
 
 

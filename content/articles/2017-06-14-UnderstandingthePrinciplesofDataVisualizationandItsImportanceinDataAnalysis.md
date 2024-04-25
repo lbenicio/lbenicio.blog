@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: UnderstandingthePrinciplesofDataVisualizationandItsImportanceinDataAnalysis
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-06-14"
+type: posts
 ---
+
 
 
 

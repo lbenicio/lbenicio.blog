@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Simulation and Modeling
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2021-12-20"
+type: posts
 ---
+
 
 
 

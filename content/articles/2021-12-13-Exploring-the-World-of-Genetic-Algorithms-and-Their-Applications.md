@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-12-13"
+type: posts
 ---
+
 
 
 

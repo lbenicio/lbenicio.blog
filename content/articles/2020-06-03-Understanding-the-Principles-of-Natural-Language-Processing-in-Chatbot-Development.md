@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Chatbot Development
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-06-03"
+type: posts
 ---
+
 
 
 

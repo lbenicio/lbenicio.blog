@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: MachineLearning ComputerGraphics ComputerScience
 categories: ["TechTrends"]
 
 date: "2018-03-23"
+type: posts
 ---
+
 
 
 

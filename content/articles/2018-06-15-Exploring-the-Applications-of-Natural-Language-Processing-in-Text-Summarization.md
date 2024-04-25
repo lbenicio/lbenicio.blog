@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Text Summarization
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-06-15"
+type: posts
 ---
+
 
 
 

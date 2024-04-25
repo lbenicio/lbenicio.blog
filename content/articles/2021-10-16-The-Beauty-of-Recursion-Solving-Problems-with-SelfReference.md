@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Beauty of Recursion: Solving Problems with SelfReference'
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2021-10-16"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Quantum Computing in Cryptography"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: MobileDevelopment NaturalLanguageProcessing ArtificialIntelligence
 categories: WebDevelopment
 toc: true
 date: 2024-04-16
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Quantum Computing in Cryptography](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Quantum-Computing-in-Cryptography)

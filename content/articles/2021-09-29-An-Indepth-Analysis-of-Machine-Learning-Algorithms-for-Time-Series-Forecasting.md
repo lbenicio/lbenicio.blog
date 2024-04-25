@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Indepth Analysis of Machine Learning Algorithms for Time Series Forecasting
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-09-29"
+type: posts
 ---
+
 
 
 

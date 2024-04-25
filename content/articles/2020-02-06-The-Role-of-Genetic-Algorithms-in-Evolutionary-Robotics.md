@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolutionary Robotics
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2020-02-06"
+type: posts
 ---
+
 
 
 

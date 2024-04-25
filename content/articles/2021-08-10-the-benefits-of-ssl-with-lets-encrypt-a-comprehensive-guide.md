@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Benefits of SSL with Lets Encrypt: A Comprehensive Guide'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: ssl security https http2
 categories: ["security"]
 
 date: "2021-08-10"
+type: posts
 ---
+
 
 
 As the internet continues to evolve, the need for secure connections between clients and servers has become more crucial. One of the most popular ways to secure connections is by using SSL (Secure Socket Layer) encryption. Let's Encrypt is a free, open-source SSL certificate authority that provides a hassle-free way to secure your website or application. In this article, we will discuss the benefits of using SSL with Let's Encrypt and how to implement it on your website.

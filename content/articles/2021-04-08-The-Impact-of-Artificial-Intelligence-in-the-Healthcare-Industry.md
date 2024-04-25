@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence in the Healthcare Industry
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2021-04-08"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Blockchain Technology in Cybersecurity
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-10-18"
+type: posts
 ---
+
 
 
 

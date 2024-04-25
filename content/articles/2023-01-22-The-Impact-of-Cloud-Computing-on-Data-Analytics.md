@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Data Analytics
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 toc: true
 date: "2023-01-22"
+type: posts
 ---
+
 
 
 

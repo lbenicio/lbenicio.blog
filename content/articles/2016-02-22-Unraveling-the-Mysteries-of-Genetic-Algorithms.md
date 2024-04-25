@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mysteries of Genetic Algorithms
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2016-02-22"
+type: posts
 ---
+
 
 
 

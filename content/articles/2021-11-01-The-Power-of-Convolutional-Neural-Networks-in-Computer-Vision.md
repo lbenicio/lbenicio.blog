@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Convolutional Neural Networks in Computer Vision
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2021-11-01"
+type: posts
 ---
+
 
 
 

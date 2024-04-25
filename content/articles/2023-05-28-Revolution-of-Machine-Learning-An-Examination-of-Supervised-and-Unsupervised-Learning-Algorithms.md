@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Revolution of Machine Learning: An Examination of Supervised and Unsupervised
   Learning Algorithms'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 toc: true
 date: "2023-05-28"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Approximation Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2021-11-23"
+type: posts
 ---
+
 
 
 

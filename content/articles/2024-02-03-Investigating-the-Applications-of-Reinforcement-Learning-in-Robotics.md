@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Reinforcement Learning in Robotics"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: EthicalHacking DebuggingTips Algorithms
 categories: NaturalLanguageProcessing
 toc: true
 date: 2024-02-03
+type: posts
 ---
+
 
 
 ![Investigating the Applications of Reinforcement Learning in Robotics](https://cdn.lbenicio.dev/posts/Investigating-the-Applications-of-Reinforcement-Learning-in-Robotics)

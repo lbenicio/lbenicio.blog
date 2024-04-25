@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data on Decision Making
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2014-01-25"
+type: posts
 ---
+
 
 
 

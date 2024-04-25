@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-08-30"
+type: posts
 ---
+
 
 
 

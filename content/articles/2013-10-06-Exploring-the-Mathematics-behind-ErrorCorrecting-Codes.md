@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Mathematics behind ErrorCorrecting Codes
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2013-10-06"
+type: posts
 ---
+
 
 
 

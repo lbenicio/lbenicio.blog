@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Search Algorithms in Different Data Structures
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-03-23"
+type: posts
 ---
+
 
 
 

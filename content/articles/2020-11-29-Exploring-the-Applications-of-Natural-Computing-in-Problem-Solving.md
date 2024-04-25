@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing in Problem Solving
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-11-29"
+type: posts
 ---
+
 
 
 

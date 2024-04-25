@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-12-14"
+type: posts
 ---
+
 
 
 

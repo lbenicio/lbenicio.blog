@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data on Business Decision Making
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2021-11-14"
+type: posts
 ---
+
 
 
 

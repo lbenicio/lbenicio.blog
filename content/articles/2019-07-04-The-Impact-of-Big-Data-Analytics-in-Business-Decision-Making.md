@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data Analytics in Business Decision Making
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2019-07-04"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Principles of Image Recognition and Computer Vision
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 toc: true
 date: "2023-09-29"
+type: posts
 ---
+
 
 
 

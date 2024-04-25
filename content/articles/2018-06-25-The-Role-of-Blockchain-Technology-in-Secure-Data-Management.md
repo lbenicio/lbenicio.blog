@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Blockchain Technology in Secure Data Management
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2018-06-25"
+type: posts
 ---
+
 
 
 

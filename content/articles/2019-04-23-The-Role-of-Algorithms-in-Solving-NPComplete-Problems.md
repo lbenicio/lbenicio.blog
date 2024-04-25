@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Algorithms in Solving NPComplete Problems
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2019-04-23"
+type: posts
 ---
+
 
 
 

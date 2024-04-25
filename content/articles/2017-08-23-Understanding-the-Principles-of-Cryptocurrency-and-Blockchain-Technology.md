@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptocurrency and Blockchain Technology
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-08-23"
+type: posts
 ---
+
 
 
 

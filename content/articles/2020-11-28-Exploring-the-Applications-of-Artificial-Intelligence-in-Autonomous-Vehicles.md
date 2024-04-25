@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-11-28"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Cybersecurity
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2018-05-22"
+type: posts
 ---
+
 
 
 

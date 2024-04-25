@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing The Next Frontier in Computer Science"
 
 date: "2017-02-28"
+type: posts
 ---
+
 
 # Topic: The Evolution of Machine Learning Algorithms: From Classic to Modern Trends
 

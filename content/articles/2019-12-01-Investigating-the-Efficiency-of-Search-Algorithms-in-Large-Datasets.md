@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Search Algorithms in Large Datasets
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2019-12-01"
+type: posts
 ---
+
 
 
 

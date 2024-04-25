@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Sorting Algorithms in Large Datasets
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-05-14"
+type: posts
 ---
+
 
 
 

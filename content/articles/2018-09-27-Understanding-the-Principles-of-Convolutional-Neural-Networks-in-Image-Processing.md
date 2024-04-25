@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Image Processing
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2018-09-27"
+type: posts
 ---
+
 
 
 

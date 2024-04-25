@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: InvestigatingtheEfficiencyofGraphAlgorithmsinRouteOptimization
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2019-08-30"
+type: posts
 ---
+
 
 
 

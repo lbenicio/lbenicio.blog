@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Computer Science
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 toc: true
 date: "2023-03-23"
+type: posts
 ---
+
 
 
 

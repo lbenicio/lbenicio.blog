@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Artificial Neural Networks in Pattern Recognition
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2021-07-01"
+type: posts
 ---
+
 
 
 

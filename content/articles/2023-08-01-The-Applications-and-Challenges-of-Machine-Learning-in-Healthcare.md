@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Applications and Challenges of Machine Learning in Healthcare
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 toc: true
 date: "2023-08-01"
+type: posts
 ---
+
 
 
 

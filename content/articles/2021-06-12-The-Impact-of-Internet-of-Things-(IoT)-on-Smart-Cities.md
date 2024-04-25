@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Internet of Things (IoT) on Smart Cities
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2021-06-12"
+type: posts
 ---
+
 
 
 

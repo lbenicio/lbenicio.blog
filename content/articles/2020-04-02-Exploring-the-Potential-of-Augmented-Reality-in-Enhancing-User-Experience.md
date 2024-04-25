@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Augmented Reality in Enhancing User Experience
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-04-02"
+type: posts
 ---
+
 
 
 

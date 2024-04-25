@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems in Cloud Computing
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2022-02-27"
+type: posts
 ---
+
 
 
 

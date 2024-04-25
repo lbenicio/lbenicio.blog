@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Internet of Things in Smart Cities
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2017-02-18"
+type: posts
 ---
+
 
 # Title: The Impact of Internet of Things in Smart Cities
 

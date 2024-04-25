@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Role of Machine Learning in Fraud Detection and Prevention"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: DataStructures Databases Bioinformatics
 categories: MobileDevelopment
 toc: true
 date: 2024-02-09
+type: posts
 ---
+
 
 
 ![The Role of Machine Learning in Fraud Detection and Prevention](https://cdn.lbenicio.dev/posts/The-Role-of-Machine-Learning-in-Fraud-Detection-and-Prevention)

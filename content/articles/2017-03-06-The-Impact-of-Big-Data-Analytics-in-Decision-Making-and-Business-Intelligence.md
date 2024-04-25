@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data Analytics in Decision Making and Business Intelligence
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2017-03-06"
+type: posts
 ---
+
 
 
 

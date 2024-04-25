@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution of Programming Languages from Assembly to HighLevel Languages
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2017-04-24"
+type: posts
 ---
+
 
 
 

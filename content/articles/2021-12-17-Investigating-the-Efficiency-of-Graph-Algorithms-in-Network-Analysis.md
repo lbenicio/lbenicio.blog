@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2021-12-17"
+type: posts
 ---
+
 
 
 

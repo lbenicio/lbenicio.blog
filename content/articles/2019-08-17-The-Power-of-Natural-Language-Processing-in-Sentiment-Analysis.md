@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Natural Language Processing in Sentiment Analysis
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-08-17"
+type: posts
 ---
+
 
 
 

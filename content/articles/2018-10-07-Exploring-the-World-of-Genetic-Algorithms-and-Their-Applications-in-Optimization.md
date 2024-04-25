@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications in Optimization
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-10-07"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Differences between C and C++
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 toc: true
 date: "2023-06-25"
+type: posts
 ---
+
 
 
 

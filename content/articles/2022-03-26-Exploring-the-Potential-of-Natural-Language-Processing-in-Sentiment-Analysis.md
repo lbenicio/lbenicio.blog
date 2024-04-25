@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Natural Language Processing in Sentiment Analysis
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2022-03-26"
+type: posts
 ---
+
 
 
 

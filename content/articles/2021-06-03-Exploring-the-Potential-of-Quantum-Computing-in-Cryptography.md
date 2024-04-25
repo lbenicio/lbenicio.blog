@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2021-06-03"
+type: posts
 ---
+
 
 
 

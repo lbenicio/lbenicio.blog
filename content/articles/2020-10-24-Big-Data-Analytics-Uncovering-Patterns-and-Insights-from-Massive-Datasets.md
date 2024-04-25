@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Big Data Analytics: Uncovering Patterns and Insights from Massive Datasets'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-10-24"
+type: posts
 ---
+
 
 
 

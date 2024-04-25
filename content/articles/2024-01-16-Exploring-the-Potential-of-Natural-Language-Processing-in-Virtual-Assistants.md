@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Natural Language Processing in Virtual Assistants"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Cybersecurity WebDevelopment DebuggingTips
 categories: DebuggingTips
 toc: true
 date: 2024-01-16
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Natural Language Processing in Virtual Assistants](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Natural-Language-Processing-in-Virtual-Assistants)

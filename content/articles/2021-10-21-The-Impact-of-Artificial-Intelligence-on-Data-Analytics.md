@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence on Data Analytics
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2021-10-21"
+type: posts
 ---
+
 
 
 

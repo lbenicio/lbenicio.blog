@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Image Compression Algorithms in Multimedia Applications"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerArchitecture Algorithms OperatingSystems
 categories: Bioinformatics
 toc: true
 date: 2024-01-23
+type: posts
 ---
+
 
 
 ![Analyzing the Efficiency of Image Compression Algorithms in Multimedia Applications](https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Image-Compression-Algorithms-in-Multimedia-Applications)

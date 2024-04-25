@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Randomized Algorithms in Large Data Analysis
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: ComputerGraphics Algorithms MobileDevelopment
 categories: ["Algorithms"]
 
 date: "2021-08-12"
+type: posts
 ---
+
 
 
 

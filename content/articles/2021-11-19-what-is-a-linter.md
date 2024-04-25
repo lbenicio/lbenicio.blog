@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: What is a linter
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: develper tutorial
 categories: ["developer"]
 
 date: "2021-11-19"
+type: posts
 ---
+
 
 
 A linter is a tool that helps developers write better and more consistent code. It does this by analyzing code for potential problems and violations of coding standards, and providing warnings and suggestions for improvement.

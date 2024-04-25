@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Natural Language Processing in Sentiment Analysis
 icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2023-10-28"
+type: posts
 ---
+
 
 
 

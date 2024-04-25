@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Fraud Detection
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-06-05"
+type: posts
 ---
+
 
 # Exploring the Applications of Machine Learning in Fraud Detection
 

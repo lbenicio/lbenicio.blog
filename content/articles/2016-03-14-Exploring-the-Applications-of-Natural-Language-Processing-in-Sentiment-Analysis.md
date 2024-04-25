@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Sentiment Analysis
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2016-03-14"
+type: posts
 ---
+
 
 
 

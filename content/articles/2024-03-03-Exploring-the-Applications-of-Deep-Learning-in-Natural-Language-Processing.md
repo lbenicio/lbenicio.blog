@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Deep Learning in Natural Language Processing"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ArtificialIntelligence TechTrends CodeReview
 categories: Networking
 toc: true
 date: 2024-03-03
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Deep Learning in Natural Language Processing](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Deep-Learning-in-Natural-Language-Processing)

@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Demystifying the Role of Cybersecurity in a Digitally Transformed World"
 
 date: "2020-01-10"
+type: posts
 ---
+
 
 # Topic: Machine Learning Algorithms: Trends and Classics
 

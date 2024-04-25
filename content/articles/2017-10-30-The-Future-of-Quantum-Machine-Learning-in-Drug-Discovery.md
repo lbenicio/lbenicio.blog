@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Quantum Machine Learning in Drug Discovery
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-10-30"
+type: posts
 ---
+
 
 
 

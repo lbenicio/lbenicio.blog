@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2022-05-21"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mysteries of Golang: Understanding How Golang Projects are
   Built and How They Work'
@@ -7,7 +8,9 @@ tags: golang go tutorial discussion
 categories: ["tutorial"]
 
 date: "2021-07-19"
+type: posts
 ---
+
 
 
 Golang, also known as Go, is a popular programming language that has been gaining traction over the years. It was created in 2007 by Google's Robert Griesemer, Rob Pike, and Ken Thompson, with the aim of being a simple, fast, and efficient language that can handle modern software development needs. One of the unique features of Golang is its ability to handle concurrency with ease, making it ideal for building large-scale distributed systems. In this article, we'll dive into the details of Golang projects, how they are built, and how they work.

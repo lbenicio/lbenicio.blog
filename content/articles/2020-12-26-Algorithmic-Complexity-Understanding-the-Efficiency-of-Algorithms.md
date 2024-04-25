@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Algorithmic Complexity: Understanding the Efficiency of Algorithms'
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-12-26"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics and Autonomous
   Systems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2017-12-05"
+type: posts
 ---
+
 
 
 

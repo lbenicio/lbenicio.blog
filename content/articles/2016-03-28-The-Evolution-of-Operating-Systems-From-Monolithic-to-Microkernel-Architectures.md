@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Operating Systems: From Monolithic to Microkernel Architectures'
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2016-03-28"
+type: posts
 ---
+
 
 
 

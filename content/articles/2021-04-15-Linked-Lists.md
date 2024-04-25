@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Linked Lists
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-04-15"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Anomaly Detection
 icon: fa-comment-alt
 categories: ["TechTrends"]
 toc: true
 date: "2022-09-11"
+type: posts
 ---
+
 
 
 

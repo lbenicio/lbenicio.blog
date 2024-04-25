@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: NP Problem
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-05-22"
+type: posts
 ---
+
 
 
 

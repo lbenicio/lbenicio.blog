@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Mathematical Foundation of Cryptography
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2013-04-03"
+type: posts
 ---
+
 
 
 

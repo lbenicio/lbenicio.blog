@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Hashing Algorithms for Data Integrity Verification
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2022-02-11"
+type: posts
 ---
+
 
 
 

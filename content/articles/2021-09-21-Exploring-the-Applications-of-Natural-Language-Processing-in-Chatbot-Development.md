@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbot Development
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-09-21"
+type: posts
 ---
+
 
 
 

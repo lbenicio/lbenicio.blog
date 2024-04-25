@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Quantum Machine Learning in Pattern Recognition"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Cybersecurity IoT Internet of Things Cryptography
 categories: DataStructures
 toc: true
 date: 2024-02-19
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Quantum Machine Learning in Pattern Recognition](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Quantum-Machine-Learning-in-Pattern-Recognition)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Art of Data Compression: Exploring Lossless and Lossy Algorithms'
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2019-04-09"
+type: posts
 ---
+
 
 
 

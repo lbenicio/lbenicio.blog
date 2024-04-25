@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Network Routing Algorithms
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 toc: true
 date: "2023-09-02"
+type: posts
 ---
+
 
 
 

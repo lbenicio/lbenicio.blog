@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Data Mining in Customer Relationship Management
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-12-20"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data Analytics on Business Intelligence
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2017-09-09"
+type: posts
 ---
+
 
 
 

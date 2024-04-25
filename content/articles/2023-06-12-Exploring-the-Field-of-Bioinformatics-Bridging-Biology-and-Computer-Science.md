@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Bioinformatics: Bridging Biology and Computer Science'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: QuantumComputing SoftwareEngineering ComputerArchitecture
 categories: ["DebuggingTips"]
 toc: true
 date: "2023-06-12"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Fundamentals of Graph Theory in Computer Science
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-01-27"
+type: posts
 ---
+
 
 
 

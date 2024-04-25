@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring the Impact and Evolution of Quantum Computing in Modern Technology"
 
 date: "2015-01-17"
+type: posts
 ---
+
 
 # Topic: Quantum Computing and its Potential Impact on Classic Algorithms
 

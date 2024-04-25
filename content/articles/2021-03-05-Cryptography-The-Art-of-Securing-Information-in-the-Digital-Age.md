@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Cryptography: The Art of Securing Information in the Digital Age'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: criptography
 categories: ["criptography', 'security"]
 
 date: "2021-03-05"
+type: posts
 ---
+
 
 
 In today's digital age, data is king. From financial records to personal information, the amount of data we generate and share online has never been greater. However, with this increased reliance on digital communication comes the need for security measures to protect sensitive information from falling into the wrong hands. This is where cryptography comes in.

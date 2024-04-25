@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Bioinformatics in Genomics Research
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-03-29"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Augmented Reality
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-06-07"
+type: posts
 ---
+
 
 
 

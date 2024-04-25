@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Natural Language Generation
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-12-29"
+type: posts
 ---
+
 
 
 

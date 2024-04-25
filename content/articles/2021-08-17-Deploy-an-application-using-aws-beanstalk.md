@@ -1,10 +1,13 @@
 ---
+
 type: "posts"
 title: Deploy an application using AWS beanstalk
 icon: fa-comment-alt
 
 date: "2021-08-17"
+type: posts
 ---
+
 
 
 AWS Beanstalk is a fully managed service from AWS that makes it easy to deploy, run, and manage web applications. In this blog post, we will learn how to deploy an application on AWS using Beanstalk.

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence on Cybersecurity
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2021-04-24"
+type: posts
 ---
+
 
 
 

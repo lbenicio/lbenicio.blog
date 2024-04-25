@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Hashing Algorithms in Data Retrieval
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2017-03-08"
+type: posts
 ---
+
 
 
 

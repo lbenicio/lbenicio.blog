@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Financial Forecasting
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2017-10-07"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mathematical Foundations of Cryptography: From Caesar Cipher
   to RSA'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2023-03-11"
+type: posts
 ---
+
 
 # Unraveling the Mathematical Foundations of Cryptography: From Caesar Cipher to RSA
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Graph Algorithms in Network Analysis"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: SoftwareTesting ComputerGraphics WebDevelopment
 categories: ComputerGraphics
 toc: true
 date: 2023-12-30
+type: posts
 ---
+
 
 
 ![Analyzing the Efficiency of Graph Algorithms in Network Analysis](https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Graph-Algorithms-in-Network-Analysis)

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'HPC Parallel and Distributed Systems: Powering the Future of Computing'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: parallel hpc distributed systems
 categories: ["devops"]
 toc: true
 date: "2023-03-19"
+type: posts
 ---
+
 
 
 ## Fundamentals of HPC Parallel and Distributed Systems

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computational Biology: Bioinformatics and Genomics'
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2020-05-18"
+type: posts
 ---
+
 
 
 

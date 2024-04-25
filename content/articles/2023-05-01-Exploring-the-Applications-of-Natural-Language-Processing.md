@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing
 icon: fa-comment-alt
 categories: ["DataStructures"]
 toc: true
 date: "2023-05-01"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Computer Science
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2022-10-28"
+type: posts
 ---
+
 
 
 

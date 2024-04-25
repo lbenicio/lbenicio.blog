@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Networks: From ARPANET to the Internet of Things'
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2017-02-23"
+type: posts
 ---
+
 
 
 

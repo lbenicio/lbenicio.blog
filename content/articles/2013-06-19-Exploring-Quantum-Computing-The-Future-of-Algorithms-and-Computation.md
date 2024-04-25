@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing The Future of Algorithms and Computation"
 
 date: "2013-06-19"
+type: posts
 ---
+
 
 # Topic: Quantum Computing: The New Frontier in Computer Science
 

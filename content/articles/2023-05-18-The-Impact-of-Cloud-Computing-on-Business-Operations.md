@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["DataStructures"]
 toc: true
 date: "2023-05-18"
+type: posts
 ---
+
 
 
 

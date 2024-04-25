@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: UnderstandingthePrinciplesofRecommenderSystems
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2021-08-14"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Mining Algorithms in Customer Segmentation
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-07-07"
+type: posts
 ---
+
 
 
 

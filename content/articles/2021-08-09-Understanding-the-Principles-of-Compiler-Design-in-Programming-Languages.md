@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Compiler Design in Programming Languages
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2021-08-09"
+type: posts
 ---
+
 
 
 

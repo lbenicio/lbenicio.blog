@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Impact of Data Mining in Business Intelligence: Extracting Insights from
   Big Data'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-04-16"
+type: posts
 ---
+
 
 
 

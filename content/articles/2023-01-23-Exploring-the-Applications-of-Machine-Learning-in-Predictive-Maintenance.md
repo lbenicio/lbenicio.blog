@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Predictive Maintenance
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2023-01-23"
+type: posts
 ---
+
 
 
 

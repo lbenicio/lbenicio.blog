@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Text Mining
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-08-25"
+type: posts
 ---
+
 
 
 

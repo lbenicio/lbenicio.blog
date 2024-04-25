@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-06-11"
+type: posts
 ---
+
 
 
 

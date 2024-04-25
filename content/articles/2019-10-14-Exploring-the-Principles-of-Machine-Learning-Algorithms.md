@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Principles of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2019-10-14"
+type: posts
 ---
+
 
 
 

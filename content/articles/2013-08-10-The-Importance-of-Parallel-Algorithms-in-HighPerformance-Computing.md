@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Parallel Algorithms in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2013-08-10"
+type: posts
 ---
+
 
 
 

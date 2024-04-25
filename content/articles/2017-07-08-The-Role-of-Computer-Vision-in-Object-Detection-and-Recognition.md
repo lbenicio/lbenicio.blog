@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Computer Vision in Object Detection and Recognition
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2017-07-08"
+type: posts
 ---
+
 
 
 

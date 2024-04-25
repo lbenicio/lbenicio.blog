@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Application of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-10-20"
+type: posts
 ---
+
 
 
 

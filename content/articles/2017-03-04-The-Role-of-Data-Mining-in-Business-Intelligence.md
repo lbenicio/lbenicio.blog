@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Mining in Business Intelligence
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2017-03-04"
+type: posts
 ---
+
 
 
 

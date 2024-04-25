@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 toc: true
 date: "2023-06-13"
+type: posts
 ---
+
 
 
 

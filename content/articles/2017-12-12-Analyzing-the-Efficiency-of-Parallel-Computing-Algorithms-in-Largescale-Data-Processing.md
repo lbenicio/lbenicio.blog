@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Computing Algorithms in Largescale Data
   Processing
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2017-12-12"
+type: posts
 ---
+
 
 
 

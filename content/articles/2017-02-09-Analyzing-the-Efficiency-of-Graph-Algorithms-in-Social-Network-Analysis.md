@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2017-02-09"
+type: posts
 ---
+
 
 
 

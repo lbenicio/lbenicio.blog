@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2018-05-23"
+type: posts
 ---
+
 
 
 

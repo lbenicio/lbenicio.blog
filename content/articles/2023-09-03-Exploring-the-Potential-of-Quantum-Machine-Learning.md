@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning
 icon: fa-comment-alt
 categories: ["DataStructures"]
 toc: true
 date: "2023-09-03"
+type: posts
 ---
+
 
 
 

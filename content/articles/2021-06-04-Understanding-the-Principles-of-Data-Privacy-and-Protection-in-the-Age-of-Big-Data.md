@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Privacy and Protection in the Age of Big
   Data
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2021-06-04"
+type: posts
 ---
+
 
 
 

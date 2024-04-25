@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2019-01-12"
+type: posts
 ---
+
 
 
 

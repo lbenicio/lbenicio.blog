@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Applications of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-09-15"
+type: posts
 ---
+
 
 
 

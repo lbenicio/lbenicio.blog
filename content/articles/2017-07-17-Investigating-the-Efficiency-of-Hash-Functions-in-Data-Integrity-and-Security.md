@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Hash Functions in Data Integrity and Security
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2017-07-17"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Use of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2021-01-16"
+type: posts
 ---
+
 
 
 

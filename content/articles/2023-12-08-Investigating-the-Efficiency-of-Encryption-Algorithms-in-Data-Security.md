@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Encryption Algorithms in Data Security"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: SoftwareEngineering Programming Algorithms
 categories: Algorithms
 toc: true
 date: 2023-12-08
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Encryption Algorithms in Data Security](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Encryption-Algorithms-in-Data-Security)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data on Artificial Intelligence
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2021-10-25"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing and Its Potential in Solving
   Complex Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2021-03-21"
+type: posts
 ---
+
 
 
 

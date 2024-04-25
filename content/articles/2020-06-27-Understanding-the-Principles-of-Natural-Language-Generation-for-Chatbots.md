@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Generation for Chatbots
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-06-27"
+type: posts
 ---
+
 
 
 

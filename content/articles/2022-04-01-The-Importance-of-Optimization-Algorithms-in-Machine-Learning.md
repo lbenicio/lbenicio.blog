@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Optimization Algorithms in Machine Learning
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2022-04-01"
+type: posts
 ---
+
 
 
 

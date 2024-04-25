@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2017-09-21"
+type: posts
 ---
+
 
 
 

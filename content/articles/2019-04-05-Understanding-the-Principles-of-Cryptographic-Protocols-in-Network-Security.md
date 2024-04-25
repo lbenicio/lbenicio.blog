@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptographic Protocols in Network Security
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-04-05"
+type: posts
 ---
+
 
 
 

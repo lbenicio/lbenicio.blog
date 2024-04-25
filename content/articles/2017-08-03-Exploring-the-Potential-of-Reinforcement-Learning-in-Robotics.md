@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2017-08-03"
+type: posts
 ---
+
 
 
 

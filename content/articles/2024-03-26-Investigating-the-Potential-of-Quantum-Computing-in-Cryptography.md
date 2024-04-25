@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Potential of Quantum Computing in Cryptography"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Bioinformatics ArtificialIntelligence CloudComputing
 categories: SoftwareTesting
 toc: true
 date: 2024-03-26
+type: posts
 ---
+
 
 
 ![Investigating the Potential of Quantum Computing in Cryptography](https://cdn.lbenicio.dev/posts/Investigating-the-Potential-of-Quantum-Computing-in-Cryptography)

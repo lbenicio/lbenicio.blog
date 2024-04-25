@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Cybersecurity
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2019-03-15"
+type: posts
 ---
+
 
 
 

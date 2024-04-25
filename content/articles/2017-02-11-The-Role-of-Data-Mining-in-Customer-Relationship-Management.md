@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Mining in Customer Relationship Management
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-02-11"
+type: posts
 ---
+
 
 
 

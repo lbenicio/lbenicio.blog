@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-10-08"
+type: posts
 ---
+
 
 
 

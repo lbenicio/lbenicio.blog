@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Genetic Algorithms in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-11-09"
+type: posts
 ---
+
 
 
 

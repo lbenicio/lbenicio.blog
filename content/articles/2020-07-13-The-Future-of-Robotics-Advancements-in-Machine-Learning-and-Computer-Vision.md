@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Robotics: Advancements in Machine Learning and Computer Vision'
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-07-13"
+type: posts
 ---
+
 
 
 

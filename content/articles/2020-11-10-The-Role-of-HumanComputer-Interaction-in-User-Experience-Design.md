@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of HumanComputer Interaction in User Experience Design
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2020-11-10"
+type: posts
 ---
+
 
 
 

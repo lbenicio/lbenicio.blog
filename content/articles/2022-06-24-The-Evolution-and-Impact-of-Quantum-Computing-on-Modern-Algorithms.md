@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Impact of Quantum Computing on Modern Algorithms
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2022-06-24"
+type: posts
 ---
+
 
 
 

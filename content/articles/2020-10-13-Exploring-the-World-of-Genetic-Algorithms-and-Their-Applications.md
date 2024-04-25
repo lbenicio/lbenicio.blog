@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2020-10-13"
+type: posts
 ---
+
 
 
 

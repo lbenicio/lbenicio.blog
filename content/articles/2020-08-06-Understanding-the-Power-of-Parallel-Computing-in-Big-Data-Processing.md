@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Power of Parallel Computing in Big Data Processing
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2020-08-06"
+type: posts
 ---
+
 
 
 

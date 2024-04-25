@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications in Optimization
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-03-14"
+type: posts
 ---
+
 
 
 

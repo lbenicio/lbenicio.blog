@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-02-18"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: A Comparative Analysis of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2013-09-07"
+type: posts
 ---
+
 
 
 

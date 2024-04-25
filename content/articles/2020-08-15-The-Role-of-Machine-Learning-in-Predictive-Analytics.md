@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-08-15"
+type: posts
 ---
+
 
 
 

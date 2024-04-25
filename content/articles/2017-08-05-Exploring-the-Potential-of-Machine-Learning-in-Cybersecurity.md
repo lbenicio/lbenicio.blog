@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Machine Learning in Cybersecurity
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2017-08-05"
+type: posts
 ---
+
 
 
 

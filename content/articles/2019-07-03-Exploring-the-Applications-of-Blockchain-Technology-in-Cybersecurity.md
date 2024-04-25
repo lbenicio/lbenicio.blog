@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Blockchain Technology in Cybersecurity
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-07-03"
+type: posts
 ---
+
 
 
 

@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing The Future of Algorithms and Computation"
 
 date: "2020-04-24"
+type: posts
 ---
+
 
 # Topic: The Evolution and Future Trends in Machine Learning Algorithms
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Healthcare Diagnosis
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 toc: true
 date: "2022-12-16"
+type: posts
 ---
+
 
 
 

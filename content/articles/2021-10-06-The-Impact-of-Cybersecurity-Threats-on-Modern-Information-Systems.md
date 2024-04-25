@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cybersecurity Threats on Modern Information Systems
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2021-10-06"
+type: posts
 ---
+
 
 
 

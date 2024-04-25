@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Parallel Algorithms in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-01-04"
+type: posts
 ---
+
 
 
 

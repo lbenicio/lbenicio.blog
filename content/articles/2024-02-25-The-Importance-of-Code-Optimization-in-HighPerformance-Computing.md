@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Importance of Code Optimization in HighPerformance Computing"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: MachineLearning ArtificialIntelligence BigData
 categories: Bioinformatics
 toc: true
 date: 2024-02-25
+type: posts
 ---
+
 
 
 ![The Importance of Code Optimization in HighPerformance Computing](https://cdn.lbenicio.dev/posts/The-Importance-of-Code-Optimization-in-HighPerformance-Computing)

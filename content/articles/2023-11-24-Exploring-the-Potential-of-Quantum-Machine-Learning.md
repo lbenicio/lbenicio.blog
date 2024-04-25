@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: Cybersecurity Networking DataStructures
 categories: ["ComputerVision"]
 toc: true
 date: "2023-11-24"
+type: posts
 ---
+
 
 
 # Exploring the Potential of Quantum Machine Learning

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: All the ways you can deploy a web application on google cloud platform
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: tutorial discussion "google cloud platform"
 categories: ["tutorial"]
 toc: true
 date: "2023-02-26"
+type: posts
 ---
+
 
 
 Google Cloud Platform (GCP) offers a wide range of tools and services that can be used to deploy web applications. The platform provides flexibility and scalability, making it a popular choice for developers. In this post, we will discuss all the ways you can deploy a web application on GCP, including Compute Engine, Kubernetes Engine, App Engine, and Cloud Run.

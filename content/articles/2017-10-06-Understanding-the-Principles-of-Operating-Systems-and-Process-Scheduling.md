@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Operating Systems and Process Scheduling
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-10-06"
+type: posts
 ---
+
 
 
 

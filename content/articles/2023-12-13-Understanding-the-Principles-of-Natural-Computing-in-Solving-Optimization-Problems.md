@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Natural Computing in Solving Optimization Problems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ArtificialIntelligence ComputerGraphics ComputerVision
 categories: SoftwareEngineering
 toc: true
 date: 2023-12-13
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Natural Computing in Solving Optimization Problems](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Natural-Computing-in-Solving-Optimization-Problems)

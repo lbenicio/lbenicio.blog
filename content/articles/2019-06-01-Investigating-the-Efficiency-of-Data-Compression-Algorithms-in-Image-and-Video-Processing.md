@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Image and Video
   Processing
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2019-06-01"
+type: posts
 ---
+
 
 
 

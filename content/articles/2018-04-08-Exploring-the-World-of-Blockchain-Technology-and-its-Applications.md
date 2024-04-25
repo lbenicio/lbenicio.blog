@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Blockchain Technology and its Applications
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-04-08"
+type: posts
 ---
+
 
 
 

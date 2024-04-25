@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Computer Vision
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-08-31"
+type: posts
 ---
+
 
 
 

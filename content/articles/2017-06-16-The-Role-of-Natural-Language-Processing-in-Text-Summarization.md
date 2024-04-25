@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Natural Language Processing in Text Summarization
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-06-16"
+type: posts
 ---
+
 
 
 

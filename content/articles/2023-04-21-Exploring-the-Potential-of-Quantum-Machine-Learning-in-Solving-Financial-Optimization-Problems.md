@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Solving Financial Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 toc: true
 date: "2023-04-21"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Data Storage and Management
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 toc: true
 date: "2023-01-06"
+type: posts
 ---
+
 
 
 

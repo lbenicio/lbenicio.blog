@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Solving Complex Problems
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 toc: true
 date: "2023-08-25"
+type: posts
 ---
+
 
 
 

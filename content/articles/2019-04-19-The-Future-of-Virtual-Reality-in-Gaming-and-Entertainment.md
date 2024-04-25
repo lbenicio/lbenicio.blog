@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Virtual Reality in Gaming and Entertainment
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2019-04-19"
+type: posts
 ---
+
 
 
 

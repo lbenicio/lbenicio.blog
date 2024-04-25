@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Hashing Algorithms in Data Storage
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2017-07-10"
+type: posts
 ---
+
 
 
 

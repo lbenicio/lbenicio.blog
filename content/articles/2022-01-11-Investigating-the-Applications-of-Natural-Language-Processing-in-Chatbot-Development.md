@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Applications of Natural Language Processing in Chatbot Development
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2022-01-11"
+type: posts
 ---
+
 
 
 

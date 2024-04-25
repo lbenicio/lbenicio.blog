@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Speech Recognition and Natural
   Language Understanding
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2020-09-04"
+type: posts
 ---
+
 
 
 

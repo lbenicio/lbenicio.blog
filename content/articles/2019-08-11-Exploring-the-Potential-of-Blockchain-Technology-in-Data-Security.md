@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Data Security
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-08-11"
+type: posts
 ---
+
 
 
 

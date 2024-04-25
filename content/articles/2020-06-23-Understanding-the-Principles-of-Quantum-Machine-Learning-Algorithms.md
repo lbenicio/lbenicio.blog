@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2020-06-23"
+type: posts
 ---
+
 
 
 

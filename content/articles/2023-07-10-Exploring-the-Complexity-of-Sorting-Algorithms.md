@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 toc: true
 date: "2023-07-10"
+type: posts
 ---
+
 
 
 

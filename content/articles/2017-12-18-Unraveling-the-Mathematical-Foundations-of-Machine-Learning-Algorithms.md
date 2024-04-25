@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-12-18"
+type: posts
 ---
+
 
 
 

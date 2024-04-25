@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2021-01-09"
+type: posts
 ---
+
 
 
 

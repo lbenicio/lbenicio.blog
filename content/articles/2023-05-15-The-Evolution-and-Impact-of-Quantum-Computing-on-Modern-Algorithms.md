@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Impact of Quantum Computing on Modern Algorithms
 icon: fa-comment-alt
 categories: ["Programming"]
 toc: true
 date: "2023-05-15"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-04-04"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Solving Financial Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2020-10-16"
+type: posts
 ---
+
 
 
 

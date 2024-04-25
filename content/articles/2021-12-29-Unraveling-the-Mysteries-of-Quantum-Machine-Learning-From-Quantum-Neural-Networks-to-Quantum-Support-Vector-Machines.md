@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mysteries of Quantum Machine Learning: From Quantum Neural
   Networks to Quantum Support Vector Machines'
@@ -7,7 +8,9 @@ tags: CodeQuality BigData SoftwareTesting
 categories: ["SoftwareEngineering"]
 
 date: "2021-12-29"
+type: posts
 ---
+
 
 
 

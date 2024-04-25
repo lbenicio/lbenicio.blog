@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Question Answering
   Systems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2019-07-27"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Solving Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["TechTrends"]
 toc: true
 date: "2023-07-02"
+type: posts
 ---
+
 
 
 

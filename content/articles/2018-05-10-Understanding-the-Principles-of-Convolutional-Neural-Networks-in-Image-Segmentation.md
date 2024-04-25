@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Image Segmentation
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-05-10"
+type: posts
 ---
+
 
 
 

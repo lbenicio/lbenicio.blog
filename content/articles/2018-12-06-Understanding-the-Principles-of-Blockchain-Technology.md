@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Blockchain Technology
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-12-06"
+type: posts
 ---
+
 
 
 

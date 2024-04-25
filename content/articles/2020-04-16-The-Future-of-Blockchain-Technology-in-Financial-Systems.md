@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Blockchain Technology in Financial Systems
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-04-16"
+type: posts
 ---
+
 
 
 

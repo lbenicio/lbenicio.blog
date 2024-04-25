@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Advancements in Computer Vision: From Image Recognition to Object
   Detection'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2023-08-05"
+type: posts
 ---
+
 
 
 

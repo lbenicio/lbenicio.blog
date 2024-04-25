@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Machine Learning
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-11-28"
+type: posts
 ---
+
 
 
 

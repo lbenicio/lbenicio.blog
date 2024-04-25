@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Concurrency Problem in Deploying Databases on Clusters
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: cluster
 categories: ["databases', 'cluster', 'parallism', 'concurrency"]
 
 date: "2021-03-25"
+type: posts
 ---
+
 
 
 Databases are crucial components in modern information systems. They are responsible for storing and managing data efficiently, securely, and reliably. However, as the amount of data increases and the need for high availability and fault tolerance grows, deploying a single database instance may not be sufficient. In such cases, deploying databases on clusters of machines can be a viable solution. Clustering allows for load balancing, replication, and failover capabilities that can improve performance and reliability. However, clustering also introduces a new set of challenges, particularly when it comes to concurrency.

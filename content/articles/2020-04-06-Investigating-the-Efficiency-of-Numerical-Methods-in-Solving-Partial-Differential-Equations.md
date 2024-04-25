@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Numerical Methods in Solving Partial Differential
   Equations
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2020-04-06"
+type: posts
 ---
+
 
 
 

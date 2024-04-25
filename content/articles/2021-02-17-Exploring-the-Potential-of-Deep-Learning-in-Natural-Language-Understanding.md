@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Deep Learning in Natural Language Understanding
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2021-02-17"
+type: posts
 ---
+
 
 
 

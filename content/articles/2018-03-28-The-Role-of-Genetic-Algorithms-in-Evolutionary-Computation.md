@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-03-28"
+type: posts
 ---
+
 
 
 

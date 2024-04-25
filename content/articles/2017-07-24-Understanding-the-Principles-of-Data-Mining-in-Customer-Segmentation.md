@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Mining in Customer Segmentation
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2017-07-24"
+type: posts
 ---
+
 
 
 

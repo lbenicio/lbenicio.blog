@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["Blockchain"]
 toc: true
 date: "2022-11-07"
+type: posts
 ---
+
 
 
 

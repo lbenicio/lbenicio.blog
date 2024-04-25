@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Cloud Computing: Edge Computing and IoT Integration'
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2018-11-29"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Role of Genetic Algorithms in Evolutionary Computation: From Darwin''s
   Theory to Modern Applications'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-12-01"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Rise of Blockchain Technology and its Potential
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2014-02-15"
+type: posts
 ---
+
 
 
 

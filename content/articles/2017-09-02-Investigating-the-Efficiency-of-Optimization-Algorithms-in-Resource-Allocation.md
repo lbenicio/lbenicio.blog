@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Optimization Algorithms in Resource Allocation
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2017-09-02"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Artificial Intelligence: From Turing to Deep Learning'
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-07-11"
+type: posts
 ---
+
 
 
 

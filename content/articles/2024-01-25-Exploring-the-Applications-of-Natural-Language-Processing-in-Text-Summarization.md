@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Natural Language Processing in Text Summarization"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Algorithms Bioinformatics ArtificialIntelligence
 categories: NaturalLanguageProcessing
 toc: true
 date: 2024-01-25
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Natural Language Processing in Text Summarization](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Natural-Language-Processing-in-Text-Summarization)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems in Cloud Computing
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-01-31"
+type: posts
 ---
+
 
 
 

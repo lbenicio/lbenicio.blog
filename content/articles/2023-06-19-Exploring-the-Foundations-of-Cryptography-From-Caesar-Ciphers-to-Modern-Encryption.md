@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Foundations of Cryptography: From Caesar Ciphers to Modern Encryption'
 icon: fa-comment-alt
 categories: ["Networking"]
 toc: true
 date: "2023-06-19"
+type: posts
 ---
+
 
 
 

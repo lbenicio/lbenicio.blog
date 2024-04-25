@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Fault Tolerance in Distributed Systems
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2018-05-04"
+type: posts
 ---
+
 
 
 

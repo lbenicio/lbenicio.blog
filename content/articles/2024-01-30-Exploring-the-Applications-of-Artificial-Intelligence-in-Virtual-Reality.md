@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Artificial Intelligence in Virtual Reality"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ArtificialIntelligence MachineLearning NaturalLanguageProcessing
 categories: BigData
 toc: true
 date: 2024-01-30
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Artificial Intelligence in Virtual Reality](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Artificial-Intelligence-in-Virtual-Reality)

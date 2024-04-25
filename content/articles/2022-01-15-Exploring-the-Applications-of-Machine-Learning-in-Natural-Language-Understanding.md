@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Understanding
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2022-01-15"
+type: posts
 ---
+
 
 
 

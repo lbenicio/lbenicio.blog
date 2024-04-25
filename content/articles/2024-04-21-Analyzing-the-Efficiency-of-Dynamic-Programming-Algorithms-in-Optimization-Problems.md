@@ -1,11 +1,14 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Dynamic Programming Algorithms in Optimization Problems"
 icon: fa-comment-alt
 tag: Algorithms CodeReview SoftwareTesting
 categories: NaturalLanguageProcessing
 toc: true
+type: posts
 ---
+
 
 
 ![Analyzing the Efficiency of Dynamic Programming Algorithms in Optimization Problems](https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Dynamic-Programming-Algorithms-in-Optimization-Problems)

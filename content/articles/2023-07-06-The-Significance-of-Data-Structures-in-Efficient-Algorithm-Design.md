@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Significance of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-07-06"
+type: posts
 ---
+
 
 
 

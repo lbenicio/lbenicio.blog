@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Image Compression Algorithms
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-10-18"
+type: posts
 ---
+
 
 
 

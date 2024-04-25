@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["Blockchain"]
 toc: true
 date: "2022-11-08"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2022-07-10"
+type: posts
 ---
+
 
 
 

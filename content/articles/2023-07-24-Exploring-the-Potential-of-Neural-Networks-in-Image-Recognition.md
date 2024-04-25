@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 toc: true
 date: "2023-07-24"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Data Structures on Database Performance
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2014-05-22"
+type: posts
 ---
+
 
 
 

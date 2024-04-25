@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Challenges and Opportunities in Natural Language Generation
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-07-26"
+type: posts
 ---
+
 
 
 

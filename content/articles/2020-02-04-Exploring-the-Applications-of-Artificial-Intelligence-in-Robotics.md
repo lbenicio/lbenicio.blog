@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Robotics
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2020-02-04"
+type: posts
 ---
+
 
 
 

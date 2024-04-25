@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Deploy an application using AWS cloud formation
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: aws deployment cloud tutorial
 categories: ["deployment"]
 
 date: "2021-08-24"
+type: posts
 ---
+
 
 
 CloudFormation is a powerful and flexible service from AWS that enables you to automate the creation, deployment, and management of your AWS infrastructure. In this blog post, we will learn how to deploy an application on AWS using CloudFormation.

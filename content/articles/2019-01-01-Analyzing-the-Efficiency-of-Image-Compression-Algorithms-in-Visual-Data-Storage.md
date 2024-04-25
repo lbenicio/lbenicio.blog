@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Image Compression Algorithms in Visual Data Storage
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-01-01"
+type: posts
 ---
+
 
 
 

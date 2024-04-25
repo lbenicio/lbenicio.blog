@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Quantum Cryptography for Secure Communication"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerVision ArtificialIntelligence OperatingSystems
 categories: CodeQuality
 toc: true
 date: 2024-03-20
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Quantum Cryptography for Secure Communication](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Quantum-Cryptography-for-Secure-Communication)

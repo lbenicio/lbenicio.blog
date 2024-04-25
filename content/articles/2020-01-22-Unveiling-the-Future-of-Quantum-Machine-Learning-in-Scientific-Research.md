@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unveiling the Future of Quantum Machine Learning in Scientific Research
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-01-22"
+type: posts
 ---
+
 
 
 

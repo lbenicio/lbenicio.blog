@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Blockchain Technology in Supply Chain Traceability"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: OperatingSystems CodeQuality Blockchain
 categories: WebDevelopment
 toc: true
 date: 2024-02-08
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Blockchain Technology in Supply Chain Traceability](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Blockchain-Technology-in-Supply-Chain-Traceability)

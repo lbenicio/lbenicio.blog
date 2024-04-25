@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-08-28"
+type: posts
 ---
+
 
 
 

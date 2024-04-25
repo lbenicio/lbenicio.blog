@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Algorithmic Thinking in Problem Solving
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2019-12-13"
+type: posts
 ---
+
 
 
 

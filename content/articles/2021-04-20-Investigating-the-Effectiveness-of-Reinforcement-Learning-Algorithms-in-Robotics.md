@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Effectiveness of Reinforcement Learning Algorithms in Robotics
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2021-04-20"
+type: posts
 ---
+
 
 
 

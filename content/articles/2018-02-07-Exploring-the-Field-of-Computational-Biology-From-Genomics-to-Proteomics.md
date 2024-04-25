@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computational Biology: From Genomics to Proteomics'
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-02-07"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Smart Homes
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2017-05-15"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Mining Techniques
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2017-08-09"
+type: posts
 ---
+
 
 
 

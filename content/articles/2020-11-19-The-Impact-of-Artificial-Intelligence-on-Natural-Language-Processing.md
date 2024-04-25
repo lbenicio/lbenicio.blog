@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence on Natural Language Processing
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2020-11-19"
+type: posts
 ---
+
 
 # The Impact of Artificial Intelligence on Natural Language Processing
 

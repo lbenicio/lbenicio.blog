@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: CloudComputing NaturalLanguageProcessing Bioinformatics
 categories: ["DebuggingTips"]
 
 date: "2021-11-21"
+type: posts
 ---
+
 
 
 

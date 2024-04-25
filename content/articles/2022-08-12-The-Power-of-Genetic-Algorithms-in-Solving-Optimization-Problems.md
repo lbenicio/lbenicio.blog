@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Genetic Algorithms in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 toc: true
 date: "2022-08-12"
+type: posts
 ---
+
 
 
 

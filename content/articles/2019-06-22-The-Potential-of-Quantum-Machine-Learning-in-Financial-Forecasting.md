@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Potential of Quantum Machine Learning in Financial Forecasting
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2019-06-22"
+type: posts
 ---
+
 
 
 

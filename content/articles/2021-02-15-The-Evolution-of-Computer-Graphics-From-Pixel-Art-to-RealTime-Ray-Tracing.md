@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Graphics: From Pixel Art to RealTime Ray Tracing'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-02-15"
+type: posts
 ---
+
 
 
 

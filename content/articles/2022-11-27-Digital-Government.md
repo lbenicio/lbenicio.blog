@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Digital Government
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: digital, government
 categories: ["discussion"]
 toc: true
 date: "2022-11-27"
+type: posts
 ---
+
 
 
 On last season we were talking about different topic than usual hard skills. Let us talk now about Digital Government.

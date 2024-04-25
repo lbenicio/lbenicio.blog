@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Software Testing: Strategies and Best Practices'
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2021-07-24"
+type: posts
 ---
+
 
 # Software Testing: Strategies and Best Practices
 

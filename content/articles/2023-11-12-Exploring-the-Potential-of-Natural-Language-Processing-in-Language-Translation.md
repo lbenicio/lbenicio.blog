@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Natural Language Processing in Language Translation
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: BigData SoftwareEngineering Networking
 categories: ["ArtificialIntelligence"]
 toc: true
 date: "2023-11-12"
+type: posts
 ---
+
 
 
 # Exploring the Potential of Natural Language Processing in Language Translation

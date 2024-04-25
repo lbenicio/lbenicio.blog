@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Edge Computing and its Impact on IoT
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2017-05-31"
+type: posts
 ---
+
 
 
 

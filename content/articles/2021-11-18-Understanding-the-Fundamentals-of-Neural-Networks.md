@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Neural Networks
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: MobileDevelopment CloudComputing QuantumComputing
 categories: ["ComputerScience"]
 
 date: "2021-11-18"
+type: posts
 ---
+
 
 # Understanding the Fundamentals of Neural Networks
 

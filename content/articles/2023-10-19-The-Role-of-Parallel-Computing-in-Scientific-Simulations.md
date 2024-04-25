@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Parallel Computing in Scientific Simulations
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2023-10-19"
+type: posts
 ---
+
 
 
 

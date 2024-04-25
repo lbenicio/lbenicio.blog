@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Database Management Systems: Relational to NoSQL'
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2022-02-04"
+type: posts
 ---
+
 
 # The Evolution of Database Management Systems: Relational to NoSQL
 

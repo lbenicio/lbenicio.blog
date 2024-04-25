@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Paradigms: From Procedural to ObjectOriented'
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2017-09-22"
+type: posts
 ---
+
 
 
 

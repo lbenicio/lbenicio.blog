@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Applications of Deep Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2022-02-06"
+type: posts
 ---
+
 
 
 

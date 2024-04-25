@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2020-04-13"
+type: posts
 ---
+
 
 
 

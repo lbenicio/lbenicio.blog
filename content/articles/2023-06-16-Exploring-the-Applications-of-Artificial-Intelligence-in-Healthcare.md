@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Healthcare
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2023-06-16"
+type: posts
 ---
+
 
 
 

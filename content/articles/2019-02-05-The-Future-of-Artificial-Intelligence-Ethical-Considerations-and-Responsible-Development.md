@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Future of Artificial Intelligence: Ethical Considerations and Responsible
   Development'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-02-05"
+type: posts
 ---
+
 
 
 

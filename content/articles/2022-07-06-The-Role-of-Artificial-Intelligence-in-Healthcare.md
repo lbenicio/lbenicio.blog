@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Healthcare
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2022-07-06"
+type: posts
 ---
+
 
 
 

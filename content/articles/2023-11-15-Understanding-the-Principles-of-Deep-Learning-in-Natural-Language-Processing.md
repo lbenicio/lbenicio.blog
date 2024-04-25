@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Learning in Natural Language Processing
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: NaturalLanguageProcessing Cybersecurity SoftwareEngineering
 categories: ["MachineLearning"]
 toc: true
 date: "2023-11-15"
+type: posts
 ---
+
 
 
 # Understanding the Principles of Deep Learning in Natural Language Processing

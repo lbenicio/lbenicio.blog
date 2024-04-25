@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Sentiment Analysis
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2022-08-18"
+type: posts
 ---
+
 
 
 

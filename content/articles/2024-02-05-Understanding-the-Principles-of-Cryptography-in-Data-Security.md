@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Cryptography in Data Security"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: QuantumComputing CloudComputing ComputerGraphics
 categories: Networking
 toc: true
 date: 2024-02-05
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Cryptography in Data Security](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Cryptography-in-Data-Security)

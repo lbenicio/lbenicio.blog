@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing in Simulation Algorithms
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-06-20"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Cloud Computing: Edge Computing and Fog Computing'
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2018-02-17"
+type: posts
 ---
+
 
 
 

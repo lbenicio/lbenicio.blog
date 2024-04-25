@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Natural Language
   Processing
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2019-01-19"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Optimization Problems
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-06-20"
+type: posts
 ---
+
 
 
 

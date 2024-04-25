@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Strategy to Decrease Page Load Time
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-07-11"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Optimization Problems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: DataStructures ComputerVision Bioinformatics
 categories: ["ArtificialIntelligence"]
 toc: true
 date: "2023-11-23"
+type: posts
 ---
+
 
 
 # Exploring the Potential of Quantum Computing in Optimization Problems

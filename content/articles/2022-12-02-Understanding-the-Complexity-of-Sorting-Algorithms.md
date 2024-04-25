@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["DataStructures"]
 toc: true
 date: "2022-12-02"
+type: posts
 ---
+
 
 
 

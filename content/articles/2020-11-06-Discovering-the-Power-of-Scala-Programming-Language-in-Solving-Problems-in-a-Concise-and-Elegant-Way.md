@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Discovering the Power of Scala Programming Language in Solving Problems in
   a Concise and Elegant Way
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-11-06"
+type: posts
 ---
+
 
 
 

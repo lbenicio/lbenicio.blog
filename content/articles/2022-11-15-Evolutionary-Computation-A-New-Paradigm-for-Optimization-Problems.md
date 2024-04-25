@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Evolutionary Computation: A New Paradigm for Optimization Problems'
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 toc: true
 date: "2022-11-15"
+type: posts
 ---
+
 
 
 

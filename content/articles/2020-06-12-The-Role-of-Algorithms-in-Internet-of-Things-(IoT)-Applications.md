@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Role of Algorithms in Internet of Things (IoT) Applications
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: C r
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2020-06-12"
+type: posts
 ---
+
 
 
 

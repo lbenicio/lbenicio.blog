@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Indepth Analysis of Graph Theory Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2018-12-12"
+type: posts
 ---
+
 
 
 

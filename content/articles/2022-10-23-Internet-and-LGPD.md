@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Internet and LGPD
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: internet, lgpd, law
 categories: ["discussion"]
 toc: true
 date: "2022-10-23"
+type: posts
 ---
+
 
 
 Hi folks, today we are going to have a different post. We are going to talk about Internet and LGPD.

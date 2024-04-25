@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Robotics
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2019-06-30"
+type: posts
 ---
+
 
 
 

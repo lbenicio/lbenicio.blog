@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2021-11-22"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Supply Chain Management
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2021-12-27"
+type: posts
 ---
+
 
 # Exploring the Potential of Blockchain Technology in Supply Chain Management
 

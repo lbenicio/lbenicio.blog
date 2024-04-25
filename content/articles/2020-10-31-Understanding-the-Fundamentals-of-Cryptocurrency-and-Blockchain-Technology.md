@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Cryptocurrency and Blockchain Technology
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-10-31"
+type: posts
 ---
+
 
 
 

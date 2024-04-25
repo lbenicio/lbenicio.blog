@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2013-06-05"
+type: posts
 ---
+
 
 
 

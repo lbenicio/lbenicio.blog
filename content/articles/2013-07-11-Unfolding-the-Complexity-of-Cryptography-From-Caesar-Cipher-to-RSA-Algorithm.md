@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Unfolding the Complexity of Cryptography From Caesar Cipher to RSA Algorithm"
 
 date: "2013-07-11"
+type: posts
 ---
+
 
 # Topic: Quantum Computing: The Future of Computation and Algorithms
 

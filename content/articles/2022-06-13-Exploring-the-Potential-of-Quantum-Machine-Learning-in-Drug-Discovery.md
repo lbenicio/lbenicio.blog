@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Drug Discovery
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2022-06-13"
+type: posts
 ---
+
 
 
 

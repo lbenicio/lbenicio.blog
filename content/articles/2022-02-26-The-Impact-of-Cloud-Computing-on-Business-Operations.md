@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2022-02-26"
+type: posts
 ---
+
 
 # Title: The Impact of Cloud Computing on Business Operations: Revolutionizing Efficiency and Innovation
 

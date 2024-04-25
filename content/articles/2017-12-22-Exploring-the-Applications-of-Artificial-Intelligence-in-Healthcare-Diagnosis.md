@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Healthcare Diagnosis
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2017-12-22"
+type: posts
 ---
+
 
 
 

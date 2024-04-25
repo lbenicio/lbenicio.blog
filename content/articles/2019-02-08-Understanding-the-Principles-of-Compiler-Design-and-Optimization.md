@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Compiler Design and Optimization
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2019-02-08"
+type: posts
 ---
+
 
 
 

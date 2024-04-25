@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data Analytics in Business Intelligence"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Algorithms Programming ComputerArchitecture
 categories: SoftwareTesting
 toc: true
 date: 2024-01-02
+type: posts
 ---
+
 
 
 ![The Impact of Big Data Analytics in Business Intelligence](https://cdn.lbenicio.dev/posts/The-Impact-of-Big-Data-Analytics-in-Business-Intelligence)

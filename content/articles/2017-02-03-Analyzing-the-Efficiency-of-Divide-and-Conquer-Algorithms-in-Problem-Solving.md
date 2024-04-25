@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Divide and Conquer Algorithms in Problem Solving
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-02-03"
+type: posts
 ---
+
 
 
 

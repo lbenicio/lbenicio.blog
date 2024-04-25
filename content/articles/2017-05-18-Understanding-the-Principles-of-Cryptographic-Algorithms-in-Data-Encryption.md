@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptographic Algorithms in Data Encryption
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-05-18"
+type: posts
 ---
+
 
 
 

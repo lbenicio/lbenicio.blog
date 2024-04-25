@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Influence of Quantum Computing on Cryptography
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2019-11-29"
+type: posts
 ---
+
 
 
 

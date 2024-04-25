@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Principles of Image Recognition and Computer Vision
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 toc: true
 date: "2023-01-10"
+type: posts
 ---
+
 
 
 

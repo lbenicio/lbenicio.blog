@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Robotics
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-04-29"
+type: posts
 ---
+
 
 
 

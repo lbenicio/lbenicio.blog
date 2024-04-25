@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Being agile
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: agile "extreme programming" kanban scrum
 categories: ["agile"]
 
 date: "2022-02-03"
+type: posts
 ---
+
 
 
 Extreme Programming (XP) is a software development methodology that emphasizes the importance of communication, simplicity, and feedback in the development process. The goal of XP is to produce high-quality software that meets the needs of the customer in a timely and efficient manner.

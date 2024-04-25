@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computational Geometry and its Applications
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2017-05-28"
+type: posts
 ---
+
 
 
 

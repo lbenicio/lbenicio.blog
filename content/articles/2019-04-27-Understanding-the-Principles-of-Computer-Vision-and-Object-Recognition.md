@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Computer Vision and Object Recognition
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2019-04-27"
+type: posts
 ---
+
 
 # Understanding the Principles of Computer Vision and Object Recognition
 

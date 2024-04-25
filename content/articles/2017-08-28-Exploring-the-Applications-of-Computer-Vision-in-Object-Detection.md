@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Object Detection
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2017-08-28"
+type: posts
 ---
+
 
 
 

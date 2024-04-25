@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Introduction to Bayesian Statistics and its Application in Machine Learning
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-03-19"
+type: posts
 ---
+
 
 
 

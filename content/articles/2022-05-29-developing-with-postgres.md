@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Developing with Postgres
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: tutorial database development
 categories: ["tutorial"]
 
 date: "2022-05-29"
+type: posts
 ---
+
 
 
 PostgreSQL, also known as Postgres, is a powerful and feature-rich open-source relational database management system. It is a popular choice for many developers and organizations, thanks to its robust set of features and excellent performance.

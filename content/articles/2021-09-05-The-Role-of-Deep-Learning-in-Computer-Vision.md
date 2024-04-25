@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Deep Learning in Computer Vision
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2021-09-05"
+type: posts
 ---
+
 
 
 

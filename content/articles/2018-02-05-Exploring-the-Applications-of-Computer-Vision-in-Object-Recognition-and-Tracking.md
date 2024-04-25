@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Object Recognition and Tracking
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-02-05"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Game AI
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2021-09-03"
+type: posts
 ---
+
 
 
 

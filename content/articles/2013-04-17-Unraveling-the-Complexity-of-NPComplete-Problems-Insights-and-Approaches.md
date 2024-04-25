@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Complexity of NPComplete Problems: Insights and Approaches'
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2013-04-17"
+type: posts
 ---
+
 
 
 

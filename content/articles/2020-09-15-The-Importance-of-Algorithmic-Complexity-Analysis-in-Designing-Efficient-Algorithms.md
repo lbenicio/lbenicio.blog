@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Algorithmic Complexity Analysis in Designing Efficient Algorithms
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-09-15"
+type: posts
 ---
+
 
 
 

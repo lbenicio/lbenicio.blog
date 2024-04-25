@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Principles of Compiler Design and Code Optimization
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2016-01-03"
+type: posts
 ---
+
 
 
 

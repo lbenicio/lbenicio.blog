@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Quantum Computing on Cryptography
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-05-19"
+type: posts
 ---
+
 
 
 

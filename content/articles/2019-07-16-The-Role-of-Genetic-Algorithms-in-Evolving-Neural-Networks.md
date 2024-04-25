@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolving Neural Networks
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-07-16"
+type: posts
 ---
+
 
 
 

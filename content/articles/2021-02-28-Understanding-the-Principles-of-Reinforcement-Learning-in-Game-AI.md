@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Game AI
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2021-02-28"
+type: posts
 ---
+
 
 
 

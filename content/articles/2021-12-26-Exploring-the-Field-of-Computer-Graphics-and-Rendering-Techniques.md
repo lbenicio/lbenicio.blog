@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computer Graphics and Rendering Techniques
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2021-12-26"
+type: posts
 ---
+
 
 
 

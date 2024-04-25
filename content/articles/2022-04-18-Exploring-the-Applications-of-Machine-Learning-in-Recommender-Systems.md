@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2022-04-18"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Divide and Conquer Algorithms in Sorting
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2019-05-23"
+type: posts
 ---
+
 
 
 

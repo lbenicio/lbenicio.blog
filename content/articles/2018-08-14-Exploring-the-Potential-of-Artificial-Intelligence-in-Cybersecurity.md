@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Artificial Intelligence in Cybersecurity
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2018-08-14"
+type: posts
 ---
+
 
 
 

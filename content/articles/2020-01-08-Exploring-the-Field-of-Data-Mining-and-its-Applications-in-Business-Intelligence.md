@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Data Mining and its Applications in Business Intelligence
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-01-08"
+type: posts
 ---
+
 
 
 

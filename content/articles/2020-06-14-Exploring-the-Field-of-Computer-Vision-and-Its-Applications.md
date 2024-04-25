@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computer Vision and Its Applications
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-06-14"
+type: posts
 ---
+
 
 
 

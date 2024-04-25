@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Blockchains and Cryptocurrencies
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2019-06-19"
+type: posts
 ---
+
 
 
 

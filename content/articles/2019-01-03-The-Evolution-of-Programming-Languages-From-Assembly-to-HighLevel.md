@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Languages: From Assembly to HighLevel'
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2019-01-03"
+type: posts
 ---
+
 
 
 

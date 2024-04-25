@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Network Security in Cybersecurity
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2017-01-12"
+type: posts
 ---
+
 
 
 

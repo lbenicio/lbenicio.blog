@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Materials Science
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-06-27"
+type: posts
 ---
+
 
 
 

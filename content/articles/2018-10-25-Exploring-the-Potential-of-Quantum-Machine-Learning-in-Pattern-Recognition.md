@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Pattern Recognition
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2018-10-25"
+type: posts
 ---
+
 
 
 

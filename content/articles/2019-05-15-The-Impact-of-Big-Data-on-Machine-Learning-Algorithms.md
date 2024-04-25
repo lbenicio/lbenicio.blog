@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data on Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2019-05-15"
+type: posts
 ---
+
 
 
 

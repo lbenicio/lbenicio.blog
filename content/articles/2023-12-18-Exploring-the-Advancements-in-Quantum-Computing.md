@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Advancements in Quantum Computing"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerArchitecture Cryptography ComputerGraphics
 categories: TechTrends
 toc: true
 date: 2023-12-18
+type: posts
 ---
+
 
 
 ![Exploring the Advancements in Quantum Computing](https://cdn.lbenicio.dev/posts/Exploring-the-Advancements-in-Quantum-Computing)

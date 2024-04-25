@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-03-31"
+type: posts
 ---
+
 
 
 

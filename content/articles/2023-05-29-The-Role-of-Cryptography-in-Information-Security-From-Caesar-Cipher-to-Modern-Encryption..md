@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Role of Cryptography in Information Security: From Caesar Cipher to Modern
   Encryption.'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["DataStructures"]
 toc: true
 date: "2023-05-29"
+type: posts
 ---
+
 
 
 

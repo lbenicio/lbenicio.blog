@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Importance of Data Mining: Extracting Insights from Big Data'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-02-15"
+type: posts
 ---
+
 
 
 

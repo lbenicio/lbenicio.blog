@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Natural Language Processing in Text Summarization"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: BigData ComputerArchitecture CloudComputing
 categories: CodeQuality
 toc: true
 date: 2024-04-03
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Natural Language Processing in Text Summarization](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Natural-Language-Processing-in-Text-Summarization)

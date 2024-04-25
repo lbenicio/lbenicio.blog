@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2020-12-21"
+type: posts
 ---
+
 
 
 

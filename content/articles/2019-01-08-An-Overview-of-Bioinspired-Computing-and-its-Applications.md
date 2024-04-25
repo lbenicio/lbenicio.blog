@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Overview of Bioinspired Computing and its Applications
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-01-08"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computer Graphics: From Rendering Techniques to Virtual
   Reality'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2017-07-21"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Intersection of Artificial Intelligence and Robotics
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2020-03-25"
+type: posts
 ---
+
 
 
 

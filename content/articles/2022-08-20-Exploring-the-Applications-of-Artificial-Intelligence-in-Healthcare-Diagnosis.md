@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Healthcare Diagnosis
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 toc: true
 date: "2022-08-20"
+type: posts
 ---
+
 
 
 

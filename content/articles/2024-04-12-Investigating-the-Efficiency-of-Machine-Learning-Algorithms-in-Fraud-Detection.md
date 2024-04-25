@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Machine Learning Algorithms in Fraud Detection"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerVision CloudComputing MachineLearning
 categories: ArtificialIntelligence
 toc: true
 date: 2024-04-12
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Machine Learning Algorithms in Fraud Detection](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Machine-Learning-Algorithms-in-Fraud-Detection)

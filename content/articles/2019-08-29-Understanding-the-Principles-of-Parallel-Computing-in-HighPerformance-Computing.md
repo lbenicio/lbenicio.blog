@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2019-08-29"
+type: posts
 ---
+
 
 
 

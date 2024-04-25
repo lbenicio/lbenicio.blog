@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Network Routing
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-03-02"
+type: posts
 ---
+
 
 
 

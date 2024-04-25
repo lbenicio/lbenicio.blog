@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2023-04-03"
+type: posts
 ---
+
 
 
 

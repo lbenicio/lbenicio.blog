@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Genetic Algorithms in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2018-04-02"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Clustering Algorithms in Customer Segmentation
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-09-28"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Artificial Intelligence in Healthcare
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2020-07-05"
+type: posts
 ---
+
 
 
 

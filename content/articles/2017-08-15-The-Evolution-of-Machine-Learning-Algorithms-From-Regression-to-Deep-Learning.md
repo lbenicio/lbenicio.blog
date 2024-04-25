@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Machine Learning Algorithms: From Regression to Deep Learning'
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-08-15"
+type: posts
 ---
+
 
 
 

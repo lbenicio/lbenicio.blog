@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Blockchain Technology in Data Security
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2019-11-19"
+type: posts
 ---
+
 
 
 

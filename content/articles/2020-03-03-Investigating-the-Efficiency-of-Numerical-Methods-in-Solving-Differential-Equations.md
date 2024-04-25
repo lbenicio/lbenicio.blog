@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-03-03"
+type: posts
 ---
+
 
 
 

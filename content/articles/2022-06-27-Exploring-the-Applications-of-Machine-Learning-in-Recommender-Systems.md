@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2022-06-27"
+type: posts
 ---
+
 
 
 

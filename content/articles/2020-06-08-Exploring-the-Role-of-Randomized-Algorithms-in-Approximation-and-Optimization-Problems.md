@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Randomized Algorithms in Approximation and Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2020-06-08"
+type: posts
 ---
+
 
 
 

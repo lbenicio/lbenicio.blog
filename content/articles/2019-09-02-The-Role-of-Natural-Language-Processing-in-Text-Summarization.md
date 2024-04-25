@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Natural Language Processing in Text Summarization
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2019-09-02"
+type: posts
 ---
+
 
 
 

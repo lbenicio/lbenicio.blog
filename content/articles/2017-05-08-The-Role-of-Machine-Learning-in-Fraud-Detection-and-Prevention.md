@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Fraud Detection and Prevention
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-05-08"
+type: posts
 ---
+
 
 # The Role of Machine Learning in Fraud Detection and Prevention
 

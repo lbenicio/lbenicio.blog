@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Analyzing the Efficiency of Data Compression Algorithms: Lossless vs. Lossy
   Compression'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2020-05-02"
+type: posts
 ---
+
 
 
 

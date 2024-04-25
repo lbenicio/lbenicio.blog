@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2021-04-17"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Natural Language Generation and its Applications
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2020-01-20"
+type: posts
 ---
+
 
 
 

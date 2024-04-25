@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: A Comprehensive Study on the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["Databases"]
 toc: true
 date: "2023-08-22"
+type: posts
 ---
+
 
 
 

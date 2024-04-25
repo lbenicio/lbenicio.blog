@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Boolean Algebra and its Significance in Computing
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: algebra
 categories: ["discussion', 'boolean', 'algebra', 'computing"]
 
 date: "2021-01-19"
+type: posts
 ---
+
 
 
 Boolean algebra is the branch of algebra that deals with variables that can take on only two values, true or false. The principles of boolean algebra are widely used in computer science, as they provide a mathematical basis for the design and analysis of digital circuits and computer programs. In this paper, we will explore the key concepts of boolean algebra and their significance in computing.

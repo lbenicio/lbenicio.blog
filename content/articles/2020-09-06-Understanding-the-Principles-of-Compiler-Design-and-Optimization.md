@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Compiler Design and Optimization
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-09-06"
+type: posts
 ---
+
 
 # Title: Understanding the Principles of Compiler Design and Optimization
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Sorting Algorithms in Large Datasets
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 toc: true
 date: "2023-04-06"
+type: posts
 ---
+
 
 
 

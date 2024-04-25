@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Potential of Quantum Computing in Solving Complex Mathematical Problems
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2021-04-25"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-03-20"
+type: posts
 ---
+
 
 
 

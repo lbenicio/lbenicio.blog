@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Internet of Things (IoT) on Smart Cities
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2013-10-13"
+type: posts
 ---
+
 
 
 

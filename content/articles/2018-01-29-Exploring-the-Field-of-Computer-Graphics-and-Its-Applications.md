@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computer Graphics and Its Applications
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2018-01-29"
+type: posts
 ---
+
 
 
 

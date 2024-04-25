@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Divide and Conquer Algorithms
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-03-28"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An InDepth Analysis of Complexity Theory in Computer Science
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2021-11-17"
+type: posts
 ---
+
 
 
 

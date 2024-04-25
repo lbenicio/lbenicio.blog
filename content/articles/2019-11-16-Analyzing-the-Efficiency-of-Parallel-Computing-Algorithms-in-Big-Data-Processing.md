@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Computing Algorithms in Big Data Processing
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2019-11-16"
+type: posts
 ---
+
 
 
 

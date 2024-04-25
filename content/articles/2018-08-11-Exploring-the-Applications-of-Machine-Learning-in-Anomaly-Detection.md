@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Anomaly Detection
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2018-08-11"
+type: posts
 ---
+
 
 
 

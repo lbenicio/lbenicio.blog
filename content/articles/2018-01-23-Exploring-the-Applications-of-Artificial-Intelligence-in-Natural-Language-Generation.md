@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Natural Language Generation
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-01-23"
+type: posts
 ---
+
 
 
 

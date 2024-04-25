@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["DataStructures"]
 toc: true
 date: "2023-07-18"
+type: posts
 ---
+
 
 
 

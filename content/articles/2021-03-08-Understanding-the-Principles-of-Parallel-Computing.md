@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2021-03-08"
+type: posts
 ---
+
 
 
 

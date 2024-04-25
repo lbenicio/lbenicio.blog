@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Augmented Reality in Education
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2018-03-22"
+type: posts
 ---
+
 
 
 

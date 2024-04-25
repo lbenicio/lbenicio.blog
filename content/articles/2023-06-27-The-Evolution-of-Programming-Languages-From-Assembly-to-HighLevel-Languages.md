@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Languages: From Assembly to HighLevel Languages'
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-06-27"
+type: posts
 ---
+
 
 
 

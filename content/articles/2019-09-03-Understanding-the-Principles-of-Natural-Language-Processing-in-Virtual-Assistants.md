@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Virtual Assistants
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2019-09-03"
+type: posts
 ---
+
 
 
 

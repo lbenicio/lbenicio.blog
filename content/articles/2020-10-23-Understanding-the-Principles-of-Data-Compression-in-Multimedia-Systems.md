@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Compression in Multimedia Systems
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2020-10-23"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Impact of Artificial Intelligence on Human Resources and Job Automation"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Cybersecurity QuantumComputing IoT Internet of Things
 categories: CloudComputing
 toc: true
 date: 2024-04-10
+type: posts
 ---
+
 
 
 ![The Impact of Artificial Intelligence on Human Resources and Job Automation](https://cdn.lbenicio.dev/posts/The-Impact-of-Artificial-Intelligence-on-Human-Resources-and-Job-Automation)

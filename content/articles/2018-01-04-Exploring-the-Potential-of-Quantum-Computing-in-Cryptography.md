@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-01-04"
+type: posts
 ---
+
 
 
 

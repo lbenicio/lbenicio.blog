@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Fraud Detection Systems
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2022-01-28"
+type: posts
 ---
+
 
 
 

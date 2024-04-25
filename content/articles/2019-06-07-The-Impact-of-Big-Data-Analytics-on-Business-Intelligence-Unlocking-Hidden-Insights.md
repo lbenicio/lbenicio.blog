@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Impact of Big Data Analytics on Business Intelligence: Unlocking Hidden
   Insights'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-06-07"
+type: posts
 ---
+
 
 
 

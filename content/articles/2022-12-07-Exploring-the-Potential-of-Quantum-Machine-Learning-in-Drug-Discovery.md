@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Drug Discovery
 icon: fa-comment-alt
 categories: ["Blockchain"]
 toc: true
 date: "2022-12-07"
+type: posts
 ---
+
 
 
 

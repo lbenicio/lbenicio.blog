@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Principles of Cryptography and Encryption
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 toc: true
 date: "2023-08-08"
+type: posts
 ---
+
 
 
 

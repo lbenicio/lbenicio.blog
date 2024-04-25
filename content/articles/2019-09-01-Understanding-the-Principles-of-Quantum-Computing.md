@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-09-01"
+type: posts
 ---
+
 
 
 

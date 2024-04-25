@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Game AI
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: SoftwareEngineering Networking CodeQuality
 categories: ["CodeReview"]
 toc: true
 date: "2023-11-05"
+type: posts
 ---
+
 
 
 # Understanding the Principles of Reinforcement Learning in Game AI

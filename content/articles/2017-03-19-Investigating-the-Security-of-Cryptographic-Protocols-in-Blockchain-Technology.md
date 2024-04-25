@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Security of Cryptographic Protocols in Blockchain Technology
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-03-19"
+type: posts
 ---
+
 
 
 

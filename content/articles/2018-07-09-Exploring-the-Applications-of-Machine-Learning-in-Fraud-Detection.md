@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Fraud Detection
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2018-07-09"
+type: posts
 ---
+
 
 
 

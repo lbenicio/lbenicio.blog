@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Complexity of Quantum Computing
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2019-12-22"
+type: posts
 ---
+
 
 
 

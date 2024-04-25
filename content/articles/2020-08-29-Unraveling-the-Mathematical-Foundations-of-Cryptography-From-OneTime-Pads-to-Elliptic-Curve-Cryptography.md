@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mathematical Foundations of Cryptography: From OneTime Pads
   to Elliptic Curve Cryptography'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-08-29"
+type: posts
 ---
+
 
 
 

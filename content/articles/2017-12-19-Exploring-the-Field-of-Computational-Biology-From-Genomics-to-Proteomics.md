@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computational Biology: From Genomics to Proteomics'
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2017-12-19"
+type: posts
 ---
+
 
 
 

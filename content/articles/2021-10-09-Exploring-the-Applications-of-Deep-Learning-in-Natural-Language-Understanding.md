@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Natural Language Understanding
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2021-10-09"
+type: posts
 ---
+
 
 
 

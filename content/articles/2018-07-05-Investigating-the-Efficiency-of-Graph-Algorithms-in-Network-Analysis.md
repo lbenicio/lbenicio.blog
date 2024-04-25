@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2018-07-05"
+type: posts
 ---
+
 
 
 

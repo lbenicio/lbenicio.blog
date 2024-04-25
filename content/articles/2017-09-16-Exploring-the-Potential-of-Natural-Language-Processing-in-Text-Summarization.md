@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Natural Language Processing in Text Summarization
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-09-16"
+type: posts
 ---
+
 
 
 

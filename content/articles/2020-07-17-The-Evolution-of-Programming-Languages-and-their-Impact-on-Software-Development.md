@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution of Programming Languages and their Impact on Software Development
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-07-17"
+type: posts
 ---
+
 
 
 

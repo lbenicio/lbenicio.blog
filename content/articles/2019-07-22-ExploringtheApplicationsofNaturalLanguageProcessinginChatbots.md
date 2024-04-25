@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: ExploringtheApplicationsofNaturalLanguageProcessinginChatbots
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2019-07-22"
+type: posts
 ---
+
 
 
 

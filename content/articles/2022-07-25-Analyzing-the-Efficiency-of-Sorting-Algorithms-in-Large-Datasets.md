@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Sorting Algorithms in Large Datasets
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 toc: true
 date: "2022-07-25"
+type: posts
 ---
+
 
 
 

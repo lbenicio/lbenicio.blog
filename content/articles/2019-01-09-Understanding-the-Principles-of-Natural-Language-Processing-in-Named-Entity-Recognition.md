@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Named Entity
   Recognition
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2019-01-09"
+type: posts
 ---
+
 
 
 

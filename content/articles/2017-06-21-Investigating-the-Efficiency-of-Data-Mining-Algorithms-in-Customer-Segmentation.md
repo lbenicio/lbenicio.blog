@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Mining Algorithms in Customer Segmentation
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-06-21"
+type: posts
 ---
+
 
 
 

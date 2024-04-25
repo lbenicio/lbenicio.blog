@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2018-05-18"
+type: posts
 ---
+
 
 
 

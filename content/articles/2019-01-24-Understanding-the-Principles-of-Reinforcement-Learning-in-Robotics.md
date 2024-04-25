@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2019-01-24"
+type: posts
 ---
+
 
 
 

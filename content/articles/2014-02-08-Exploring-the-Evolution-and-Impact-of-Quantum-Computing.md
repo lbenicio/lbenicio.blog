@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring the Evolution and Impact of Quantum Computing"
 
 date: "2014-02-08"
+type: posts
 ---
+
 
 # Topic: Deep Learning Algorithms and their Applications in Modern Technology
 

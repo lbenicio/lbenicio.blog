@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-11-30"
+type: posts
 ---
+
 
 
 

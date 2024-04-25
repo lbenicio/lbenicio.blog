@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Fraud Detection
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-04-04"
+type: posts
 ---
+
 
 
 

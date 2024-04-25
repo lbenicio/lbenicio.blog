@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Data Structures in Algorithm Design
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-12-23"
+type: posts
 ---
+
 
 
 

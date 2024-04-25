@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: InvestigatingtheRoleofGeneticProgramminginEvolutionaryComputing
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2021-07-06"
+type: posts
 ---
+
 
 
 

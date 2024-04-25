@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptocurrency and Blockchain Technology
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2021-04-06"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Parallel Computing in Big Data Analysis
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2023-09-20"
+type: posts
 ---
+
 
 
 

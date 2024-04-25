@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Probabilistic Algorithms in Machine Learning
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2018-01-24"
+type: posts
 ---
+
 
 
 

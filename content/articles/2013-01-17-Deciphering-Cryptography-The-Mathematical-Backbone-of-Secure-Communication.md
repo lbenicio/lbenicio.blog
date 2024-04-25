@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Deciphering Cryptography The Mathematical Backbone of Secure Communication"
 
 date: "2013-01-17"
+type: posts
 ---
+
 
 # Topic: Quantum Computing and its Potential Impact on Classical Algorithms
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: UnderstandingthePrinciplesofDataMininginKnowledgeDiscovery
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2019-07-08"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-06-28"
+type: posts
 ---
+
 
 
 

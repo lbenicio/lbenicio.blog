@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2017-09-05"
+type: posts
 ---
+
 
 
 

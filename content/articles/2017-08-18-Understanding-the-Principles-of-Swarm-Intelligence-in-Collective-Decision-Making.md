@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Swarm Intelligence in Collective Decision Making
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-08-18"
+type: posts
 ---
+
 
 
 

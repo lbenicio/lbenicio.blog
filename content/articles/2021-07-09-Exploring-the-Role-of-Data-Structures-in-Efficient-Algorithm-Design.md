@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2021-07-09"
+type: posts
 ---
+
 
 
 

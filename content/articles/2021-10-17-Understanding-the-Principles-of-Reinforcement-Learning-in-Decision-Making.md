@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Decision Making
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2021-10-17"
+type: posts
 ---
+
 
 
 

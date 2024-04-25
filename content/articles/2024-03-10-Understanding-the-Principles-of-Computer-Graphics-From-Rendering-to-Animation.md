@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Computer Graphics: From Rendering to Animation"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Blockchain Databases ComputerVision
 categories: CodeQuality
 toc: true
 date: 2024-03-10
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Computer Graphics: From Rendering to Animation](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Computer-Graphics:-From-Rendering-to-Animation)

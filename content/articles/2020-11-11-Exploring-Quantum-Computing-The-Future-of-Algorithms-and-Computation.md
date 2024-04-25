@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing The Future of Algorithms and Computation"
 
 date: "2020-11-11"
+type: posts
 ---
+
 
 ## Topic: Quantum Computing and its Potential Impact on Classical Algorithms
 

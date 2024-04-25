@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Genetic Algorithms in Evolutionary Robotics
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2020-01-16"
+type: posts
 ---
+
 
 
 

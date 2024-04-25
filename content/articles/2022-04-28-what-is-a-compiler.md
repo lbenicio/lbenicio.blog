@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: What is a compiler
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discussion theory compiler
 categories: ["theory"]
 
 date: "2022-04-28"
+type: posts
 ---
+
 
 
 A compiler is a type of computer program that converts code written in a high-level programming language into machine code that can be executed by a computer. Essentially, it "compiles" the code into a form that the computer can understand and run.

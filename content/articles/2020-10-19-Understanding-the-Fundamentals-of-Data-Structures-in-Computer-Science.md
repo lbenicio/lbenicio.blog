@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Data Structures in Computer Science
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2020-10-19"
+type: posts
 ---
+
 
 
 

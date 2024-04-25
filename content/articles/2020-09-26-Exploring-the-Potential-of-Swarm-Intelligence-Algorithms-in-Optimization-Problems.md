@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Swarm Intelligence Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-09-26"
+type: posts
 ---
+
 
 
 

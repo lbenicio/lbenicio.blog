@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: '6. Cryptography: Safeguarding Data in the Digital Age'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: ComputerGraphics Blockchain ComputerScience
 categories: ["DebuggingTips"]
 
 date: "2013-02-08"
+type: posts
 ---
+
 
 
 

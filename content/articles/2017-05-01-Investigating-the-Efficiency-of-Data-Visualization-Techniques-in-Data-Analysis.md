@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Visualization Techniques in Data Analysis
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-05-01"
+type: posts
 ---
+
 
 
 

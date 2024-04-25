@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography in Information Security
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2021-05-17"
+type: posts
 ---
+
 
 
 

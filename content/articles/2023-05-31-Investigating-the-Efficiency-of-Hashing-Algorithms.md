@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Hashing Algorithms
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2023-05-31"
+type: posts
 ---
+
 
 
 

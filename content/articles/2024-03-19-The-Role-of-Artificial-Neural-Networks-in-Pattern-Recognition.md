@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Role of Artificial Neural Networks in Pattern Recognition"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: DebuggingTips CodeQuality MobileDevelopment
 categories: MachineLearning
 toc: true
 date: 2024-03-19
+type: posts
 ---
+
 
 
 ![The Role of Artificial Neural Networks in Pattern Recognition](https://cdn.lbenicio.dev/posts/The-Role-of-Artificial-Neural-Networks-in-Pattern-Recognition)

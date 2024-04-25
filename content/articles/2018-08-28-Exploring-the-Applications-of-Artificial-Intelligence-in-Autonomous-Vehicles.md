@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-08-28"
+type: posts
 ---
+
 
 
 

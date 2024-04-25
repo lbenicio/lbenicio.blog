@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Partial Differential
   Equations
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-11-01"
+type: posts
 ---
+
 
 
 

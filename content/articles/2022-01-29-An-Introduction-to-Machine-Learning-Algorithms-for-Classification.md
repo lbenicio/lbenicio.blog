@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Introduction to Machine Learning Algorithms for Classification
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2022-01-29"
+type: posts
 ---
+
 
 
 

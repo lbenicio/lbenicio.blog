@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Computing Algorithms
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-04-23"
+type: posts
 ---
+
 
 
 

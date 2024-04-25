@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Machine Learning on Predictive Analytics
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2022-01-21"
+type: posts
 ---
+
 
 
 

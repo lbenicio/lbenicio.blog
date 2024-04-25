@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computational Geometry: Algorithms for Geometric Problems'
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-03-15"
+type: posts
 ---
+
 
 
 

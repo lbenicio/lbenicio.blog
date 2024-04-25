@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Languages: From Assembly to HighLevel Languages'
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2021-09-20"
+type: posts
 ---
+
 
 
 

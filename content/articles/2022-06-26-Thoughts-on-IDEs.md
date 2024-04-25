@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Thoughts of IDEs
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: ide, customization, theming, tutorial
 categories: ["tutorial"]
 
 date: "2022-06-26"
+type: posts
 ---
+
 
 
 Ok, we are, my second post, I never thought I would reach this milestone. Jokes aside, we are here to a brief post to talk about Text Editors on steroids. IDEs.

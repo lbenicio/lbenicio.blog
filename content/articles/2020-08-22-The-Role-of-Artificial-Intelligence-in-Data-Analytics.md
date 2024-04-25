@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Data Analytics
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-08-22"
+type: posts
 ---
+
 
 
 

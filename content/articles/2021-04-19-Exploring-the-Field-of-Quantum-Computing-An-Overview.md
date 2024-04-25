@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Quantum Computing: An Overview'
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2021-04-19"
+type: posts
 ---
+
 
 
 

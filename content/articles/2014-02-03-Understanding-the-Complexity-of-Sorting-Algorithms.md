@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2014-02-03"
+type: posts
 ---
+
 
 
 

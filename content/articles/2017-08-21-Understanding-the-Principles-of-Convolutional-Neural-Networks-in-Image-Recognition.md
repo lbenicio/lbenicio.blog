@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2017-08-21"
+type: posts
 ---
+
 
 
 

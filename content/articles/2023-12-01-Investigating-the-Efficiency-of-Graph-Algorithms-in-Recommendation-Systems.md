@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Recommendation Systems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: DebuggingTips Networking ComputerArchitecture
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-12-01"
+type: posts
 ---
+
 
 
 # Investigating the Efficiency of Graph Algorithms in Recommendation Systems

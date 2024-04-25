@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Artificial Intelligence in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-03-11"
+type: posts
 ---
+
 
 
 

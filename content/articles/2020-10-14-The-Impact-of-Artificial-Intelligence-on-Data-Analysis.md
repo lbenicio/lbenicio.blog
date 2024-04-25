@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence on Data Analysis
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-10-14"
+type: posts
 ---
+
 
 
 

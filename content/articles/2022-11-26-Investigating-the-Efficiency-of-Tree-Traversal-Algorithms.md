@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Tree Traversal Algorithms
 icon: fa-comment-alt
 categories: ["BigData"]
 toc: true
 date: "2022-11-26"
+type: posts
 ---
+
 
 
 

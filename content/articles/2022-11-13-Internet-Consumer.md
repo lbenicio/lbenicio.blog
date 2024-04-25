@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Internet Consumer
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: consumer, internet
 categories: ["discussion"]
 toc: true
 date: "2022-11-13"
+type: posts
 ---
+
 
 
 Yet another different common post, now we are going to talk about Internet Consumer.

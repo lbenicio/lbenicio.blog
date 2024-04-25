@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Investigating the Efficiency of Data Structures: Arrays vs Linked Lists'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-10-11"
+type: posts
 ---
+
 
 
 

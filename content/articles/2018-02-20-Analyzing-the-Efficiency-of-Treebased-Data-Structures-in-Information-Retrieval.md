@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Treebased Data Structures in Information Retrieval
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2018-02-20"
+type: posts
 ---
+
 
 
 

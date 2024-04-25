@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-07-03"
+type: posts
 ---
+
 
 
 

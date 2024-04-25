@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency and Performance of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2016-01-10"
+type: posts
 ---
+
 
 
 

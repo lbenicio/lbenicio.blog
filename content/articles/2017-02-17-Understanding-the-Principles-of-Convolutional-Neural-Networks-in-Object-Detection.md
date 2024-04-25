@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Object Detection
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2017-02-17"
+type: posts
 ---
+
 
 
 

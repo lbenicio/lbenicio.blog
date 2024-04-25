@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-04-03"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Genetic Algorithms in Feature Selection
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-09-17"
+type: posts
 ---
+
 
 
 

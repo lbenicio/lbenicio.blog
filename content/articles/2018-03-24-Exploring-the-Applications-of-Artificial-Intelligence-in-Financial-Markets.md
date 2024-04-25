@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Financial Markets
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2018-03-24"
+type: posts
 ---
+
 
 
 

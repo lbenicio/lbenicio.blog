@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 toc: true
 date: "2022-09-06"
+type: posts
 ---
+
 
 
 

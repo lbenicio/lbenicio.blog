@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Sentiment Analysis
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2022-06-05"
+type: posts
 ---
+
 
 
 

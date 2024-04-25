@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2023-06-26"
+type: posts
 ---
+
 
 
 

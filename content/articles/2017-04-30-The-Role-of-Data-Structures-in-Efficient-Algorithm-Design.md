@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-04-30"
+type: posts
 ---
+
 
 
 

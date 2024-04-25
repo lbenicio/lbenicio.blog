@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of NPComplete Problems
 icon: fa-comment-alt
 categories: ["TechTrends"]
 toc: true
 date: "2023-06-05"
+type: posts
 ---
+
 
 
 

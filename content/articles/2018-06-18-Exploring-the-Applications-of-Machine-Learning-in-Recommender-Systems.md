@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2018-06-18"
+type: posts
 ---
+
 
 
 

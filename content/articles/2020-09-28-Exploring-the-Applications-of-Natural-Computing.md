@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-09-28"
+type: posts
 ---
+
 
 
 

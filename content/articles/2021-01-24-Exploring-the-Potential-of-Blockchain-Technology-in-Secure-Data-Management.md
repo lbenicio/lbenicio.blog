@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Secure Data Management
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-01-24"
+type: posts
 ---
+
 
 
 

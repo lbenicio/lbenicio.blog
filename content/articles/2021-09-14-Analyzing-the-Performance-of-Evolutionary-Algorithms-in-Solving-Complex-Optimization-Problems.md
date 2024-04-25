@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Performance of Evolutionary Algorithms in Solving Complex Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2021-09-14"
+type: posts
 ---
+
 
 
 

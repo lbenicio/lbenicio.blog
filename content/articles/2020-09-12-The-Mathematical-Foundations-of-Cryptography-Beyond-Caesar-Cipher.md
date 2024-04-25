@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Mathematical Foundations of Cryptography: Beyond Caesar Cipher'
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-09-12"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-04-22"
+type: posts
 ---
+
 
 
 

@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Interplay of Discrete Mathematics and Computer Science A Comprehensive Analysis"
 
 date: "2016-01-25"
+type: posts
 ---
+
 
 # Quantum Computing: A New Frontier in Computation and Algorithms
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-04-07"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Ordinary Differential
   Equations
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-10-21"
+type: posts
 ---
+
 
 
 

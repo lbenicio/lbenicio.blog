@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Computing and Its Applications
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2018-09-13"
+type: posts
 ---
+
 
 
 

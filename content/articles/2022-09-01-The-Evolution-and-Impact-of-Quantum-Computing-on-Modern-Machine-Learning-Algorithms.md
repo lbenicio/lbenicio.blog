@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Impact of Quantum Computing on Modern Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2022-09-01"
+type: posts
 ---
+
 
 
 

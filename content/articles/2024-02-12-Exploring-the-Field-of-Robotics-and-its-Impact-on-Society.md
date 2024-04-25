@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Robotics and its Impact on Society"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: EthicalHacking ComputerGraphics ComputerScience
 categories: EthicalHacking
 toc: true
 date: 2024-02-12
+type: posts
 ---
+
 
 
 ![Exploring the Field of Robotics and its Impact on Society](https://cdn.lbenicio.dev/posts/Exploring-the-Field-of-Robotics-and-its-Impact-on-Society)

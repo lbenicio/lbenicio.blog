@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Concepts of Cryptography in Network Security
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2017-06-23"
+type: posts
 ---
+
 
 
 

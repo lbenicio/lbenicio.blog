@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Computer Vision in Facial Recognition"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Algorithms ComputerGraphics SoftwareEngineering
 categories: MachineLearning
 toc: true
 date: 2024-01-21
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Computer Vision in Facial Recognition](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Computer-Vision-in-Facial-Recognition)

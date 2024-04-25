@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Quantum Machine Learning in Pattern Recognition"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerVision Cybersecurity ComputerGraphics
 categories: Programming
 toc: true
 date: 2024-01-07
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Quantum Machine Learning in Pattern Recognition](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Quantum-Machine-Learning-in-Pattern-Recognition)

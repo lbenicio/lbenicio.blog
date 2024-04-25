@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Understanding the Principles of Parallel Computing: Techniques and Architectures'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-07-27"
+type: posts
 ---
+
 
 
 

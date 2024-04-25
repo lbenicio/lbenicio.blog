@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Artificial Intelligence and Robotics"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Bioinformatics NaturalLanguageProcessing Cryptography
 categories: CloudComputing
 toc: true
 date: 2024-01-28
+type: posts
 ---
+
 
 
 ![Exploring the Field of Artificial Intelligence and Robotics](https://cdn.lbenicio.dev/posts/Exploring-the-Field-of-Artificial-Intelligence-and-Robotics)

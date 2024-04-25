@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Graphics: From Pixel to Ray Tracing'
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2021-10-20"
+type: posts
 ---
+
 
 
 

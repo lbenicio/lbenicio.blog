@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Science and Predictive Analytics
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: Blockchain ComputerScience WebDevelopment
 categories: ["ComputerArchitecture"]
 toc: true
 date: "2023-11-25"
+type: posts
 ---
+
 
 
 # Understanding the Principles of Data Science and Predictive Analytics

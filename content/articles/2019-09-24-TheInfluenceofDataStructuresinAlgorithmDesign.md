@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: TheInfluenceofDataStructuresinAlgorithmDesign
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-09-24"
+type: posts
 ---
+
 
 
 

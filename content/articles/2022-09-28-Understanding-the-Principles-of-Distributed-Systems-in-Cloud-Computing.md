@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems in Cloud Computing
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 toc: true
 date: "2022-09-28"
+type: posts
 ---
+
 
 
 

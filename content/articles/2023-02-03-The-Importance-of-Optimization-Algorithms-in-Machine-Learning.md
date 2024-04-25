@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Optimization Algorithms in Machine Learning
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-02-03"
+type: posts
 ---
+
 
 
 

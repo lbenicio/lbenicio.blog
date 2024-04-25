@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Graph Theory: Understanding the Power of Networks'
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2015-02-08"
+type: posts
 ---
+
 
 
 

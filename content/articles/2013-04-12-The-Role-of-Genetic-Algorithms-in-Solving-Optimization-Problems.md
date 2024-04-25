@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2013-04-12"
+type: posts
 ---
+
 
 
 

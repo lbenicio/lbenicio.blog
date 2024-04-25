@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Parallel Computing in Largescale Data Processing
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2018-04-13"
+type: posts
 ---
+
 
 
 

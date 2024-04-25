@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing and its Potential Applications
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-04-04"
+type: posts
 ---
+
 
 
 

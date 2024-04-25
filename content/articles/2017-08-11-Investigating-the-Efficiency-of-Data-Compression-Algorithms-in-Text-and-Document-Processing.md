@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Text and Document
   Processing
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2017-08-11"
+type: posts
 ---
+
 
 
 

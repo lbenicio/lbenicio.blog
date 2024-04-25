@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Internet of Things on Smart Homes and Cities
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2017-04-05"
+type: posts
 ---
+
 
 
 

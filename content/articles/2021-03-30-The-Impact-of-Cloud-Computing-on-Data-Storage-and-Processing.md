@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Data Storage and Processing
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2021-03-30"
+type: posts
 ---
+
 
 
 

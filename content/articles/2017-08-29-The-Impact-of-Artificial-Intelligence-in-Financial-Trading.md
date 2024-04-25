@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence in Financial Trading
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-08-29"
+type: posts
 ---
+
 
 
 

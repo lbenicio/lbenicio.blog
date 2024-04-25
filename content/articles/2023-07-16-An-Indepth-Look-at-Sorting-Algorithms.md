@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Indepth Look at Sorting Algorithms
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 toc: true
 date: "2023-07-16"
+type: posts
 ---
+
 
 
 

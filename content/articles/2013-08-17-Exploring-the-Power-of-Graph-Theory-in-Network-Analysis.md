@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Power of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2013-08-17"
+type: posts
 ---
+
 
 
 

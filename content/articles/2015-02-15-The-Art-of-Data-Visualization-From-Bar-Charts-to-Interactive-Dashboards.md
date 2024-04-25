@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Art of Data Visualization: From Bar Charts to Interactive Dashboards'
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2015-02-15"
+type: posts
 ---
+
 
 
 

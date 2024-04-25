@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convex Optimization in Machine Learning
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2017-03-26"
+type: posts
 ---
+
 
 
 

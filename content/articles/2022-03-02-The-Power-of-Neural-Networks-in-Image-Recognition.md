@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2022-03-02"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Virtual Reality
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-12-15"
+type: posts
 ---
+
 
 
 

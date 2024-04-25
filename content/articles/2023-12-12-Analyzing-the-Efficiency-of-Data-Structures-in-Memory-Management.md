@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Data Structures in Memory Management"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: MachineLearning EthicalHacking ComputerGraphics
 categories: CodeReview
 toc: true
 date: 2023-12-12
+type: posts
 ---
+
 
 
 ![Analyzing the Efficiency of Data Structures in Memory Management](https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Data-Structures-in-Memory-Management)

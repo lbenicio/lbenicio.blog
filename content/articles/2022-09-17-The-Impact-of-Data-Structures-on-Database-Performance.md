@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Data Structures on Database Performance
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2022-09-17"
+type: posts
 ---
+
 
 
 

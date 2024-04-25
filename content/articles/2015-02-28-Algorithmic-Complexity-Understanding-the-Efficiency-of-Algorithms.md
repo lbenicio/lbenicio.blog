@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Algorithmic Complexity: Understanding the Efficiency of Algorithms'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2015-02-28"
+type: posts
 ---
+
 
 
 

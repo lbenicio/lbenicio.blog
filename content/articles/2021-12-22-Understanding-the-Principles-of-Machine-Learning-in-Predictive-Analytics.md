@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-12-22"
+type: posts
 ---
+
 
 
 

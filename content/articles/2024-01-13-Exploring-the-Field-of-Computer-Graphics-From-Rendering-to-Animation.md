@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Field of Computer Graphics: From Rendering to Animation"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: OperatingSystems ArtificialIntelligence Cybersecurity
 categories: Blockchain
 toc: true
 date: 2024-01-13
+type: posts
 ---
+
 
 
 ![Exploring the Field of Computer Graphics: From Rendering to Animation](https://cdn.lbenicio.dev/posts/Exploring-the-Field-of-Computer-Graphics:-From-Rendering-to-Animation)

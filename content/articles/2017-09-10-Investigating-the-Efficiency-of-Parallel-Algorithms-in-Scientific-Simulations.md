@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Parallel Algorithms in Scientific Simulations
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-09-10"
+type: posts
 ---
+
 
 
 

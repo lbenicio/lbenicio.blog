@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Optimization
 icon: fa-comment-alt
 categories: ["Networking"]
 toc: true
 date: "2022-08-02"
+type: posts
 ---
+
 
 
 

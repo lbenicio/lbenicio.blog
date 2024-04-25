@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Hashing Algorithms in Data Storage
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2017-10-19"
+type: posts
 ---
+
 
 
 

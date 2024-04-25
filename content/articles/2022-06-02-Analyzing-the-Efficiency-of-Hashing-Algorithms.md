@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Hashing Algorithms
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2022-06-02"
+type: posts
 ---
+
 
 
 

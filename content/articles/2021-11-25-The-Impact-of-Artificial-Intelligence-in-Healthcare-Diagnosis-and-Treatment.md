@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Impact of Artificial Intelligence in Healthcare: Diagnosis and Treatment'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-11-25"
+type: posts
 ---
+
 
 
 

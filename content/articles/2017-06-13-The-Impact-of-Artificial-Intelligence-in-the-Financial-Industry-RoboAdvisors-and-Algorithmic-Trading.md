@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Impact of Artificial Intelligence in the Financial Industry: RoboAdvisors
   and Algorithmic Trading'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2017-06-13"
+type: posts
 ---
+
 
 
 

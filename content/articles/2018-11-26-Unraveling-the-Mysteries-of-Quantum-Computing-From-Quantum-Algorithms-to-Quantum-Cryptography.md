@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mysteries of Quantum Computing: From Quantum Algorithms to
   Quantum Cryptography'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2018-11-26"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Recommendation Algorithms in Ecommerce Platforms
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2019-12-04"
+type: posts
 ---
+
 
 
 

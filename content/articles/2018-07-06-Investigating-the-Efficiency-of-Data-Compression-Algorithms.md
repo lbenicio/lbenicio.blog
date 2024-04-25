@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2018-07-06"
+type: posts
 ---
+
 
 
 

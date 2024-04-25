@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Application and network Load Balancers
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: load balance balancers network topology application architecture
 categories: ["network"]
 toc: true
 date: "2023-02-12"
+type: posts
 ---
+
 
 
 Load balancing is a critical aspect of modern computing infrastructure. The primary objective of load balancing is to distribute workloads across multiple resources to optimize resource utilization, increase reliability and minimize downtime. Load balancing enables organizations to scale their applications and services to meet the growing demands of their customers.

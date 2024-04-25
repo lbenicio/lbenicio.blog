@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Artificial Intelligence in Cybersecurity
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 toc: true
 date: "2023-08-02"
+type: posts
 ---
+
 
 
 

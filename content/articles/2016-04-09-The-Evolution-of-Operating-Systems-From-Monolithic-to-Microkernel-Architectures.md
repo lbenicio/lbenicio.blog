@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Operating Systems: From Monolithic to Microkernel Architectures'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2016-04-09"
+type: posts
 ---
+
 
 
 

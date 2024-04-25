@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Advancements in Quantum Computing
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2017-07-01"
+type: posts
 ---
+
 
 
 

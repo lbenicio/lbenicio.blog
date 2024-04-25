@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-06-18"
+type: posts
 ---
+
 
 
 

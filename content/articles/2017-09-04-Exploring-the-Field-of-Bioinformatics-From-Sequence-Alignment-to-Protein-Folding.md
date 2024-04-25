@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Bioinformatics: From Sequence Alignment to Protein
   Folding'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2017-09-04"
+type: posts
 ---
+
 
 
 

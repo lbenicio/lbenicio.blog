@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Ethical Implications of Artificial Intelligence and Machine Learning
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2020-11-01"
+type: posts
 ---
+
 
 
 

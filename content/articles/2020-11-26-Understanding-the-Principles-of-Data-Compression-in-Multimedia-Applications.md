@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Compression in Multimedia Applications
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2020-11-26"
+type: posts
 ---
+
 
 
 

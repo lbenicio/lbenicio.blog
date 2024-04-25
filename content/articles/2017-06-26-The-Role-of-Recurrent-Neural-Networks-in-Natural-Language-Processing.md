@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Recurrent Neural Networks in Natural Language Processing
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2017-06-26"
+type: posts
 ---
+
 
 
 

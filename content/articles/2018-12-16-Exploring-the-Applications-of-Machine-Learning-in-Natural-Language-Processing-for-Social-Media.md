@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Processing
   for Social Media
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-12-16"
+type: posts
 ---
+
 
 
 

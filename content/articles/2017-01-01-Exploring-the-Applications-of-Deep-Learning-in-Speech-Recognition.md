@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Speech Recognition
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: G
 categories: ["Bioinformatics"]
 
 date: "2017-01-01"
+type: posts
 ---
+
 
 
 

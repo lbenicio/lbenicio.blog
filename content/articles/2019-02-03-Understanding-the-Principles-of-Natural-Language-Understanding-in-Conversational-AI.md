@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Understanding in Conversational
   AI
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2019-02-03"
+type: posts
 ---
+
 
 
 

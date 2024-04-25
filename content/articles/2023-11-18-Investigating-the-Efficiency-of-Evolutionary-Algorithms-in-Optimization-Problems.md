@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Evolutionary Algorithms in Optimization Problems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: IoT Internet of Things ComputerScience Bioinformatics
 categories: ["WebDevelopment"]
 toc: true
 date: "2023-11-18"
+type: posts
 ---
+
 
 
 # Investigating the Efficiency of Evolutionary Algorithms in Optimization Problems

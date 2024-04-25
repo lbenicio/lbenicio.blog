@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: ExploringtheApplicationsofMachineLearninginStockMarketPrediction
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-01-08"
+type: posts
 ---
+
 
 
 

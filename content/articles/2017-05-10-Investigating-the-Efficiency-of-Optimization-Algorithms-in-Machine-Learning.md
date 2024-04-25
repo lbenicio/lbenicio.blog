@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Optimization Algorithms in Machine Learning
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-05-10"
+type: posts
 ---
+
 
 
 

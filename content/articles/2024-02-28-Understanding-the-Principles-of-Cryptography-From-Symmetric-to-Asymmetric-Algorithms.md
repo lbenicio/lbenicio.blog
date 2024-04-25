@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Cryptography: From Symmetric to Asymmetric Algorithms"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Programming Databases ComputerScience
 categories: SoftwareEngineering
 toc: true
 date: 2024-02-28
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Cryptography: From Symmetric to Asymmetric Algorithms](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Cryptography:-From-Symmetric-to-Asymmetric-Algorithms)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2017-01-02"
+type: posts
 ---
+
 
 
 

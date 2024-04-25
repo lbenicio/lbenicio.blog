@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of FaultTolerant Systems in Distributed Computing
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-11-24"
+type: posts
 ---
+
 
 
 

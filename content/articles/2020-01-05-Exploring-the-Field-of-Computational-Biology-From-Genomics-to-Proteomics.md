@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computational Biology: From Genomics to Proteomics'
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-01-05"
+type: posts
 ---
+
 
 
 

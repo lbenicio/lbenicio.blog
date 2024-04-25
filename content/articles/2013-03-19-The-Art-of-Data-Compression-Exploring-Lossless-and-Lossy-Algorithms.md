@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Art of Data Compression: Exploring Lossless and Lossy Algorithms'
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2013-03-19"
+type: posts
 ---
+
 
 
 

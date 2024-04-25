@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Intricacies of Natural Language Processing and Sentiment Analysis
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2013-02-01"
+type: posts
 ---
+
 
 # Title: The Intricacies of Natural Language Processing and Sentiment Analysis
 

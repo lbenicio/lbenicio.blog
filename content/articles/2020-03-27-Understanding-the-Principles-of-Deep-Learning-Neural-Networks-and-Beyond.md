@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Understanding the Principles of Deep Learning: Neural Networks and Beyond'
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2020-03-27"
+type: posts
 ---
+
 
 
 

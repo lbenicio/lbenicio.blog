@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Genetic Programming in Machine Learning
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-11-27"
+type: posts
 ---
+
 
 # Exploring the Applications of Genetic Programming in Machine Learning
 

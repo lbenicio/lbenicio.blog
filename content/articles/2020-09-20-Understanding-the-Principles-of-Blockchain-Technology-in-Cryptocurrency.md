@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Blockchain Technology in Cryptocurrency
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-09-20"
+type: posts
 ---
+
 
 
 

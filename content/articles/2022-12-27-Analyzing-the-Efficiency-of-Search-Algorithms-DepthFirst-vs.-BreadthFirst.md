@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Analyzing the Efficiency of Search Algorithms: DepthFirst vs. BreadthFirst'
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2022-12-27"
+type: posts
 ---
+
 
 
 

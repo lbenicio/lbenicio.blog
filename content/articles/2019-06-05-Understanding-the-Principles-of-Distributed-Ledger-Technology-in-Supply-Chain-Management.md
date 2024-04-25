@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Ledger Technology in Supply Chain
   Management
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2019-06-05"
+type: posts
 ---
+
 
 
 

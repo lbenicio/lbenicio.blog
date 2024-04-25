@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Genetic Algorithms in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 toc: true
 date: "2022-12-28"
+type: posts
 ---
+
 
 
 

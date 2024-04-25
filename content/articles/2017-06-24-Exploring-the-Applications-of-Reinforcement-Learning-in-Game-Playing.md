@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Game Playing
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-06-24"
+type: posts
 ---
+
 
 
 

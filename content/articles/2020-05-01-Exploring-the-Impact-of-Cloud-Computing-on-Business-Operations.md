@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-05-01"
+type: posts
 ---
+
 
 
 

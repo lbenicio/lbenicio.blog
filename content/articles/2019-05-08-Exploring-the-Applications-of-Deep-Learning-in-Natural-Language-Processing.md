@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-05-08"
+type: posts
 ---
+
 
 
 

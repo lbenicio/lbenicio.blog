@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 toc: true
 date: "2023-07-15"
+type: posts
 ---
+
 
 
 

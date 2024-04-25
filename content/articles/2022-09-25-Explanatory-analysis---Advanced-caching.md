@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Explanatory analysis - Advanced caching
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: scaling, ruby on rails, kubernetes, container orchestration
 categories: ["analysis"]
 toc: true
 date: "2022-09-25"
+type: posts
 ---
+
 
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis.

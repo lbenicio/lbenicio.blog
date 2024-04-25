@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Potential of Natural Language Processing in Customer Service Automation
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-02-27"
+type: posts
 ---
+
 
 
 

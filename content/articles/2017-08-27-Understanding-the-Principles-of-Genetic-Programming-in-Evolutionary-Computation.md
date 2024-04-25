@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Genetic Programming in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-08-27"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2021-06-16"
+type: posts
 ---
+
 
 
 

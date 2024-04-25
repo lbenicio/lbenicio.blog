@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring the Evolution and Impact of Quantum Computing on Modern Algorithms"
 
 date: "2018-01-17"
+type: posts
 ---
+
 
 # Topic: The Evolution and Future Trends in Quantum Computing and Algorithms
 

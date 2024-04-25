@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Parallel Computing in Big Data Analytics
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-01-06"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Deep Learning in Natural Language Understanding"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: DebuggingTips Databases WebDevelopment
 categories: Algorithms
 toc: true
 date: 2024-04-09
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Deep Learning in Natural Language Understanding](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Deep-Learning-in-Natural-Language-Understanding)

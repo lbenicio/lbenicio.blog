@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Discovering the Power of Scala Programming Language: Solving Problems in a
   Concise and Elegant Way'
@@ -7,7 +8,9 @@ tags: ComputerGraphics Networking Bioinformatics
 categories: ["Cryptography"]
 
 date: "2021-11-30"
+type: posts
 ---
+
 
 
 

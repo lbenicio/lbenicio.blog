@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2021-11-29"
+type: posts
 ---
+
 
 
 

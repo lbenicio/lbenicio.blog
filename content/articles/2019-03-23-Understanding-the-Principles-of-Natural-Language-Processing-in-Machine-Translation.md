@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-03-23"
+type: posts
 ---
+
 
 
 

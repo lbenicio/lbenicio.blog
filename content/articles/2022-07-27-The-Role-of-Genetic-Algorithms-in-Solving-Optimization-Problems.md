@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 toc: true
 date: "2022-07-27"
+type: posts
 ---
+
 
 
 

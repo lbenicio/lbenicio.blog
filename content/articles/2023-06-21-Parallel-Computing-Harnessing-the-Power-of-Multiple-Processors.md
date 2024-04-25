@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Parallel Computing: Harnessing the Power of Multiple Processors'
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-06-21"
+type: posts
 ---
+
 
 
 

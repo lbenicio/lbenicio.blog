@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: A Comparative Analysis of Relational and Graph Databases
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2021-04-27"
+type: posts
 ---
+
 
 
 

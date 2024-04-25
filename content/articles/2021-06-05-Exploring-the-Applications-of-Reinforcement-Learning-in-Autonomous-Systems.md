@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Autonomous Systems
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2021-06-05"
+type: posts
 ---
+
 
 
 

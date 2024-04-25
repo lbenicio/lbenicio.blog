@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Convolutional Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2022-03-14"
+type: posts
 ---
+
 
 
 

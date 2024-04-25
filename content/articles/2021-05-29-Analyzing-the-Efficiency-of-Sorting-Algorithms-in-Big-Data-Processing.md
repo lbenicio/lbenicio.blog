@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Sorting Algorithms in Big Data Processing
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2021-05-29"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Customer Service
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2018-09-30"
+type: posts
 ---
+
 
 
 

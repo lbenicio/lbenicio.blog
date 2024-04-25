@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Machine Learning in Fraud Detection
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2019-12-30"
+type: posts
 ---
+
 
 
 

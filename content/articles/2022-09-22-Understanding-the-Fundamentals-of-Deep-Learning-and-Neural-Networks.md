@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Deep Learning and Neural Networks
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 toc: true
 date: "2022-09-22"
+type: posts
 ---
+
 
 
 

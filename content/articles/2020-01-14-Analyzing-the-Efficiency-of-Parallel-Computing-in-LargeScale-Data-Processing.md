@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Computing in LargeScale Data Processing
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-01-14"
+type: posts
 ---
+
 
 
 

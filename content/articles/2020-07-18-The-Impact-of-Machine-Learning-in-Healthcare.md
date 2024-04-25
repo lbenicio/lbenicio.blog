@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Machine Learning in Healthcare
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-07-18"
+type: posts
 ---
+
 
 
 

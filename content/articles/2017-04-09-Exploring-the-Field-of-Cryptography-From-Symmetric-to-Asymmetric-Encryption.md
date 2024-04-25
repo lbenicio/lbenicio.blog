@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Cryptography: From Symmetric to Asymmetric Encryption'
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2017-04-09"
+type: posts
 ---
+
 
 
 

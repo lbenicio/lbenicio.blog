@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Robotics
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2021-03-11"
+type: posts
 ---
+
 
 
 

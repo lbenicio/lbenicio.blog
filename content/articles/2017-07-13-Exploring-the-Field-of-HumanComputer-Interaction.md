@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of HumanComputer Interaction
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-07-13"
+type: posts
 ---
+
 
 
 

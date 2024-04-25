@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Computer Science
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-04-17"
+type: posts
 ---
+
 
 
 

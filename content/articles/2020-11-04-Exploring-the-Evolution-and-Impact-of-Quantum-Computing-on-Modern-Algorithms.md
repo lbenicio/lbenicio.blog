@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: Exploring the Evolution and Impact of Quantum Computing on Modern Algorithms
 
 date: "2020-11-04"
+type: posts
 ---
+
 
 Topic: Quantum Computing and its Interaction with Classical Algorithms
 

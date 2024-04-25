@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Networks: From ARPANET to the Internet of Things'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-01-24"
+type: posts
 ---
+
 
 
 

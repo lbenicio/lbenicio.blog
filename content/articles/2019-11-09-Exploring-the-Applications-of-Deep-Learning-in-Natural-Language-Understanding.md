@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Natural Language Understanding
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2019-11-09"
+type: posts
 ---
+
 
 
 

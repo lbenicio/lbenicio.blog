@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Healthcare Diagnosis
 icon: fa-comment-alt
 categories: ["Networking"]
 toc: true
 date: "2023-02-11"
+type: posts
 ---
+
 
 
 

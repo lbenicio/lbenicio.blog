@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Generation
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-05-31"
+type: posts
 ---
+
 
 
 

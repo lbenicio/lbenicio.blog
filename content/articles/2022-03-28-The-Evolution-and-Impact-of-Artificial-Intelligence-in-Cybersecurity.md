@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Impact of Artificial Intelligence in Cybersecurity
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2022-03-28"
+type: posts
 ---
+
 
 
 

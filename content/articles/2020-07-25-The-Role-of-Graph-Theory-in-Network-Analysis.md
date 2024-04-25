@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-07-25"
+type: posts
 ---
+
 
 
 

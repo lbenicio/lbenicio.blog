@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Hashing Algorithms
 icon: fa-comment-alt
 categories: ["Blockchain"]
 toc: true
 date: "2023-03-13"
+type: posts
 ---
+
 
 
 

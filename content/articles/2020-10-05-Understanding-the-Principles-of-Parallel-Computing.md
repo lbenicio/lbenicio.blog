@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2020-10-05"
+type: posts
 ---
+
 
 # Understanding the Principles of Parallel Computing
 

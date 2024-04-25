@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "The P vs NP Problem A Fundamental Challenge in Computational Theory"
 
 date: "2017-02-01"
+type: posts
 ---
+
 
 # Quantum Computing: The New Frontier in Computation and Algorithms
 

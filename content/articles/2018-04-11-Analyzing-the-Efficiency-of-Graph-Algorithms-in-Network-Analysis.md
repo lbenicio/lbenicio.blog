@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2018-04-11"
+type: posts
 ---
+
 
 
 

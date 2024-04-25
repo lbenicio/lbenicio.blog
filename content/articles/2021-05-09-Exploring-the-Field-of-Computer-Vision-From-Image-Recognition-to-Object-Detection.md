@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computer Vision: From Image Recognition to Object Detection'
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2021-05-09"
+type: posts
 ---
+
 
 
 

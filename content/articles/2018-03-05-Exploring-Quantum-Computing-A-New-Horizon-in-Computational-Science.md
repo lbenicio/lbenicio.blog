@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing A New Horizon in Computational Science"
 
 date: "2018-03-05"
+type: posts
 ---
+
 
 # Topic: Quantum Computing and its Impact on Algorithms
 

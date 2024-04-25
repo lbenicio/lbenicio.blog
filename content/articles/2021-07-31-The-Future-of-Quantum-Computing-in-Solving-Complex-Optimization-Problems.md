@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Quantum Computing in Solving Complex Optimization Problems
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2021-07-31"
+type: posts
 ---
+
 
 
 

@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing The Future of Algorithms and Computation"
 
 date: "2015-01-03"
+type: posts
 ---
+
 
 # Topic: Quantum Computing: The Future of Algorithmic Processing
 

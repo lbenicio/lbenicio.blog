@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Artificial Intelligence
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2021-03-19"
+type: posts
 ---
+
 
 
 

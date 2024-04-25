@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Deep Learning in Natural Language Generation
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-03-13"
+type: posts
 ---
+
 
 
 

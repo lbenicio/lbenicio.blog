@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Quantum Computing in Solving NPHard Problems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ArtificialIntelligence EthicalHacking Databases
 categories: Blockchain
 toc: true
 date: 2024-02-20
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Quantum Computing in Solving NPHard Problems](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Quantum-Computing-in-Solving-NPHard-Problems)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel and Distributed Computing
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2021-09-17"
+type: posts
 ---
+
 
 
 

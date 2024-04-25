@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Quantum Machine Learning in Solving Financial Optimization Problems
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2021-01-10"
+type: posts
 ---
+
 
 
 

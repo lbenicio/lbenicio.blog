@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Machine Learning: Exploring the Power of Neural Networks'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: C o r
 categories: ["Algorithms"]
 
 date: "2017-02-08"
+type: posts
 ---
+
 
 
 

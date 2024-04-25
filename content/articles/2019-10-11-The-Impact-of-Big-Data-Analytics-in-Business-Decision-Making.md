@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data Analytics in Business Decision Making
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2019-10-11"
+type: posts
 ---
+
 
 
 

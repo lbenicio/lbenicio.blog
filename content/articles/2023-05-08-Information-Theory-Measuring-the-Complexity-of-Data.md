@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Information Theory: Measuring the Complexity of Data'
 icon: fa-comment-alt
 categories: ["Cryptography"]
 toc: true
 date: "2023-05-08"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Robotics: Current Applications and Future Prospects'
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2013-07-18"
+type: posts
 ---
+
 
 
 

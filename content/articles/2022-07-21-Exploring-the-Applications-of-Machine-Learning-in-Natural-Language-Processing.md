@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Databases"]
 toc: true
 date: "2022-07-21"
+type: posts
 ---
+
 
 
 

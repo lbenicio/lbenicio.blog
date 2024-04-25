@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2021-07-29"
+type: posts
 ---
+
 
 
 

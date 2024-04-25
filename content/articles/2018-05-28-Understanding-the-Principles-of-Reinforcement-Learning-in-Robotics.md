@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-05-28"
+type: posts
 ---
+
 
 
 

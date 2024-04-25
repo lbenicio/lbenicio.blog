@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Cybersecurity and Its Importance in the Digital Age
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2018-06-09"
+type: posts
 ---
+
 
 
 

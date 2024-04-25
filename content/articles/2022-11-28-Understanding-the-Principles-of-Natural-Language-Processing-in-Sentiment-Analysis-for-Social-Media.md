@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Sentiment Analysis
   for Social Media
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["WebDevelopment"]
 toc: true
 date: "2022-11-28"
+type: posts
 ---
+
 
 
 

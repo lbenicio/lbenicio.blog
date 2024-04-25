@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Artificial Intelligence
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2018-09-04"
+type: posts
 ---
+
 
 
 

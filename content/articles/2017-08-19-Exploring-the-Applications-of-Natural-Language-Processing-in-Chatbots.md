@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2017-08-19"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Advancements in Natural Language Generation: From Rulebased to Neural Language
   Models.'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-01-09"
+type: posts
 ---
+
 
 
 

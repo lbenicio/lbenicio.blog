@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Search Algorithms
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2022-06-12"
+type: posts
 ---
+
 
 
 

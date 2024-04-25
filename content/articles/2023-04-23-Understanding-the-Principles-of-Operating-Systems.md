@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Operating Systems
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2023-04-23"
+type: posts
 ---
+
 
 
 

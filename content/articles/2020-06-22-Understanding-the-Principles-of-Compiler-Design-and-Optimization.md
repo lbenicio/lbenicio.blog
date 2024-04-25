@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Compiler Design and Optimization
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2020-06-22"
+type: posts
 ---
+
 
 
 

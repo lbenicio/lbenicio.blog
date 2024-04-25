@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Mining in Business Intelligence
 icon: fa-comment-alt
 categories: ["Algorithms"]
 toc: true
 date: "2023-09-18"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["Programming"]
 toc: true
 date: "2022-10-19"
+type: posts
 ---
+
 
 
 

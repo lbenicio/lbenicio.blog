@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computational Geometry and Its Applications
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2019-11-07"
+type: posts
 ---
+
 
 
 

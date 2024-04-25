@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Quantum Machine Learning in Solving Financial Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2020-07-16"
+type: posts
 ---
+
 
 
 

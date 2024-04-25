@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2017-04-22"
+type: posts
 ---
+
 
 
 

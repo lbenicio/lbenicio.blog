@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Artificial Intelligence
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-07-14"
+type: posts
 ---
+
 
 
 

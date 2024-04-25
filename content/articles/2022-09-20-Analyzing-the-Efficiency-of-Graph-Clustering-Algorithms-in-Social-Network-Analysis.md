@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Clustering Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 toc: true
 date: "2022-09-20"
+type: posts
 ---
+
 
 
 

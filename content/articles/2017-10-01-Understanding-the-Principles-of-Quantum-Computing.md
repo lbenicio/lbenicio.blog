@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-10-01"
+type: posts
 ---
+
 
 
 

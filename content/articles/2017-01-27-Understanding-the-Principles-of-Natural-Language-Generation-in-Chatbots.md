@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Generation in Chatbots
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2017-01-27"
+type: posts
 ---
+
 
 
 

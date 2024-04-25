@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: ComputerGraphics MobileDevelopment BigData
 categories: ["DataStructures"]
 
 date: "2021-08-18"
+type: posts
 ---
+
 
 
 

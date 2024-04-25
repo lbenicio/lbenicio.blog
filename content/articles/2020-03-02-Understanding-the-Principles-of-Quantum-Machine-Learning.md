@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Machine Learning
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-03-02"
+type: posts
 ---
+
 
 
 

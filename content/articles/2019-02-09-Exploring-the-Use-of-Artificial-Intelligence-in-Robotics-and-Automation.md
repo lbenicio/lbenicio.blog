@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Use of Artificial Intelligence in Robotics and Automation
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2019-02-09"
+type: posts
 ---
+
 
 
 

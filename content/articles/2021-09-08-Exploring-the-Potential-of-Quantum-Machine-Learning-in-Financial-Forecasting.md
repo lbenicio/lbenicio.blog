@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Forecasting
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2021-09-08"
+type: posts
 ---
+
 
 
 

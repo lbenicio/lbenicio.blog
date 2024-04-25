@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Natural Language Processing Techniques
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2022-11-05"
+type: posts
 ---
+
 
 
 

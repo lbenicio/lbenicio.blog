@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Complexity of Graph Coloring Algorithms
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2019-09-26"
+type: posts
 ---
+
 
 
 

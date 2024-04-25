@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Natural Language Generation in Automated Content Creation
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-09-15"
+type: posts
 ---
+
 
 
 

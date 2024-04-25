@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-08-26"
+type: posts
 ---
+
 
 
 

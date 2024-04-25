@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Advancements in Image Processing: From Edge Detection to Image Restoration'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2017-09-03"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Impact of Big Data on Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2018-12-03"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications in Optimization
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2021-02-21"
+type: posts
 ---
+
 
 
 

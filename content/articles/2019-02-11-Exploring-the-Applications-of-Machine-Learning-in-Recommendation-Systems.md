@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommendation Systems
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2019-02-11"
+type: posts
 ---
+
 
 
 

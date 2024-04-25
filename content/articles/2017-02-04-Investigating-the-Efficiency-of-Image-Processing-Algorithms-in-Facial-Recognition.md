@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Image Processing Algorithms in Facial Recognition
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2017-02-04"
+type: posts
 ---
+
 
 
 

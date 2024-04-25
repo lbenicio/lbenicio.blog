@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Role of Data Mining in Customer Relationship Management"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: QuantumComputing MobileDevelopment TechTrends
 categories: MobileDevelopment
 toc: true
 date: 2024-01-24
+type: posts
 ---
+
 
 
 ![Investigating the Role of Data Mining in Customer Relationship Management](https://cdn.lbenicio.dev/posts/Investigating-the-Role-of-Data-Mining-in-Customer-Relationship-Management)

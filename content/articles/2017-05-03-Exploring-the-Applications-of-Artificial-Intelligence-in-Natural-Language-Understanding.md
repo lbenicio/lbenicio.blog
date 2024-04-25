@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Natural Language Understanding
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2017-05-03"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Machine Learning on Pattern Recognition
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2020-05-08"
+type: posts
 ---
+
 
 
 

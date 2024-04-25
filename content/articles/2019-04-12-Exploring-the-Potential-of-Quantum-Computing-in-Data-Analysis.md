@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Data Analysis
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2019-04-12"
+type: posts
 ---
+
 
 
 

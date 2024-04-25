@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2022-02-15"
+type: posts
 ---
+
 
 
 

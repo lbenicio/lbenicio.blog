@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2020-06-21"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unveiling the Power of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2022-02-07"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Impact of Big Data on Business Analytics
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2019-07-02"
+type: posts
 ---
+
 
 
 

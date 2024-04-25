@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Routing Algorithms in Network Communications
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-05-11"
+type: posts
 ---
+
 
 
 

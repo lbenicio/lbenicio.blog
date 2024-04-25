@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Impact of Quantum Computing on Cryptography
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2020-05-21"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploratory analysis on Ruby on Rails application performance
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: scaling, ruby on rails, kubernetes, container orchestration
 categories: ["analysis"]
 toc: true
 date: "2022-08-06"
+type: posts
 ---
+
 
 
 Hi folks, this week we are going to take a look at our experiments running a fixed amount of memory, 9000mb, but varying our core count, to understand the processor impact on our cluster simulation. Let's dive in!

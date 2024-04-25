@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2020-11-20"
+type: posts
 ---
+
 
 
 

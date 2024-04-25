@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Evolutionary Algorithms in Optimization
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-11-13"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Natural Language Processing in Chatbot Development
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2017-11-30"
+type: posts
 ---
+
 
 
 

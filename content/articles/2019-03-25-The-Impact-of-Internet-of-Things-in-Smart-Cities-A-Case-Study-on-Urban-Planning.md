@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Impact of Internet of Things in Smart Cities: A Case Study on Urban Planning'
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2019-03-25"
+type: posts
 ---
+
 
 
 

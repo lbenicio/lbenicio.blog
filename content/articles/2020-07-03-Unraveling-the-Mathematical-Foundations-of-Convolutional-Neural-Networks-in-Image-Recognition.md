@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Unraveling the Mathematical Foundations of Convolutional Neural Networks in
   Image Recognition
@@ -7,7 +8,9 @@ tags: Bioinformatics Programming Cryptography
 categories: ["CodeQuality"]
 
 date: "2020-07-03"
+type: posts
 ---
+
 
 
 

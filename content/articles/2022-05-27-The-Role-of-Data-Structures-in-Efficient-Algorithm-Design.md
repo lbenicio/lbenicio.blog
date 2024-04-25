@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2022-05-27"
+type: posts
 ---
+
 
 
 

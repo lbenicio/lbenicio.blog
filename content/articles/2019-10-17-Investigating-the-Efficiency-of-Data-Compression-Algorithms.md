@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2019-10-17"
+type: posts
 ---
+
 
 
 

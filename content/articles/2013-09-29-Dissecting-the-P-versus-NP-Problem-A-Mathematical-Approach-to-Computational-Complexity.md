@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Dissecting the P versus NP Problem A Mathematical Approach to Computational Complexity"
 
 date: "2013-09-29"
+type: posts
 ---
+
 
 # Quantum Computing: The Future of Computation and Algorithms
 

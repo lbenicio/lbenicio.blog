@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2020-07-15"
+type: posts
 ---
+
 
 
 

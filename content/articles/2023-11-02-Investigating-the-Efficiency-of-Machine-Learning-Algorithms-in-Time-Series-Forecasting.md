@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Machine Learning Algorithms in Time Series
   Forecasting
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 toc: true
 date: "2023-11-02"
+type: posts
 ---
+
 
 
 

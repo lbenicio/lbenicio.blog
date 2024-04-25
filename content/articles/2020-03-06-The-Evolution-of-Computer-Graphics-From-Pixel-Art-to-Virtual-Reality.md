@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Graphics: From Pixel Art to Virtual Reality'
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2020-03-06"
+type: posts
 ---
+
 
 
 

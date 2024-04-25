@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Compiler Design in Programming Language Implementation
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2018-05-14"
+type: posts
 ---
+
 
 
 

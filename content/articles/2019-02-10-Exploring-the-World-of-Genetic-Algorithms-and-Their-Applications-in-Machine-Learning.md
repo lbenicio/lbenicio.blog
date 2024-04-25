@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications in Machine
   Learning
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-02-10"
+type: posts
 ---
+
 
 
 

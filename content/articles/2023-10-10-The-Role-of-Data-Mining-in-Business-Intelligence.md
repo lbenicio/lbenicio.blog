@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Mining in Business Intelligence
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 toc: true
 date: "2023-10-10"
+type: posts
 ---
+
 
 
 

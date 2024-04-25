@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: What is the linux kernel and differences to userspace
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discussion theory kernel
 categories: ["theory"]
 
 date: "2022-04-14"
+type: posts
 ---
+
 
 
 The Linux kernel is the heart of the Linux operating system. It is the low-level software that controls the communication between the computer's hardware and the software that runs on top of it. The kernel is responsible for managing the system's resources, such as memory, processors, and storage devices, and providing a stable and secure environment for other software to run on.

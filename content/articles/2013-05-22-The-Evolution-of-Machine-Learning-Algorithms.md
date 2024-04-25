@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2013-05-22"
+type: posts
 ---
+
 
 
 

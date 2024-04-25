@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Computer Vision in Object Recognition
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-08-01"
+type: posts
 ---
+
 
 
 

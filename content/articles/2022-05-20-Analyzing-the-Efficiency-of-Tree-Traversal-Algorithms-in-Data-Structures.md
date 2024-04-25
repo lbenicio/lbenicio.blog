@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Tree Traversal Algorithms in Data Structures
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2022-05-20"
+type: posts
 ---
+
 
 
 

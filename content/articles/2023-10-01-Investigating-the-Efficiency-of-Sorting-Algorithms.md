@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Sorting Algorithms
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: DataStructures WebDevelopment ComputerArchitecture
 categories: ["ArtificialIntelligence"]
 toc: true
 date: "2023-10-01"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2019-09-12"
+type: posts
 ---
+
 
 
 

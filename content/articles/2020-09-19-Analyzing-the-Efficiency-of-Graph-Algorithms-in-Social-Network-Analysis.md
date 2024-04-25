@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-09-19"
+type: posts
 ---
+
 
 
 

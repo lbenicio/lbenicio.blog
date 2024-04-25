@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Genetic Programming in Artificial Intelligence
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2022-01-06"
+type: posts
 ---
+
 
 
 

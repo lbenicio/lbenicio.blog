@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Power of Fortran in Matrix Multiplication
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: tutorial
 categories: ["tutorial', 'fortran', 'programing', 'language"]
 
 date: "2021-06-28"
+type: posts
 ---
+
 
 Fortran, short for "Formula Translation", is a high-level programming language that has been widely used in scientific computing for over six decades. One of the key advantages of Fortran is its ability to efficiently handle numerical computations, particularly matrix multiplication. In this article, we will discuss the advantages of Fortran in matrix multiplication and explore how it has been used in scientific computing.
 

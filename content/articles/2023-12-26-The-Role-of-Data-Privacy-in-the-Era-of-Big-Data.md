@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Role of Data Privacy in the Era of Big Data"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: OperatingSystems IoT Internet of Things QuantumComputing
 categories: CodeQuality
 toc: true
 date: 2023-12-26
+type: posts
 ---
+
 
 
 ![The Role of Data Privacy in the Era of Big Data](https://cdn.lbenicio.dev/posts/The-Role-of-Data-Privacy-in-the-Era-of-Big-Data)

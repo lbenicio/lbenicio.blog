@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Algorithms in Image Processing
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2019-09-13"
+type: posts
 ---
+
 
 
 

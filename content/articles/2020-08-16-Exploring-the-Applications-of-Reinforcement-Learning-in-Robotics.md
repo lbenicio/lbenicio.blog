@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-08-16"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing in Big Data Processing
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2019-03-05"
+type: posts
 ---
+
 
 
 

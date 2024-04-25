@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Influence of Quantum Computing on Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2018-08-04"
+type: posts
 ---
+
 
 
 

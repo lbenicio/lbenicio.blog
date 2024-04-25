@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Tree Traversal Algorithms
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 toc: true
 date: "2022-09-24"
+type: posts
 ---
+
 
 
 

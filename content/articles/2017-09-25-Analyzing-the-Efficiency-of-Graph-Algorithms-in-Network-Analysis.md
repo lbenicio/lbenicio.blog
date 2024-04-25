@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: i
 categories: ["Cybersecurity"]
 
 date: "2017-09-25"
+type: posts
 ---
+
 
 
 

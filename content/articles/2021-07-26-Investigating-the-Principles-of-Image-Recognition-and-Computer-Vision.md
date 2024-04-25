@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Principles of Image Recognition and Computer Vision
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2021-07-26"
+type: posts
 ---
+
 
 
 

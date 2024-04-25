@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Information Retrieval
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2017-08-16"
+type: posts
 ---
+
 
 
 

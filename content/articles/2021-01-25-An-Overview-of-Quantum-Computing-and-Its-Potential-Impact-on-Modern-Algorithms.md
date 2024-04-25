@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Overview of Quantum Computing and Its Potential Impact on Modern Algorithms
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2021-01-25"
+type: posts
 ---
+
 
 
 

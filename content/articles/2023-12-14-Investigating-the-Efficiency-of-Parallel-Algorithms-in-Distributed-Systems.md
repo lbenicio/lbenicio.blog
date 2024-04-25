@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Parallel Algorithms in Distributed Systems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: SoftwareTesting SoftwareEngineering MobileDevelopment
 categories: Algorithms
 toc: true
 date: 2023-12-14
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Parallel Algorithms in Distributed Systems](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Parallel-Algorithms-in-Distributed-Systems)

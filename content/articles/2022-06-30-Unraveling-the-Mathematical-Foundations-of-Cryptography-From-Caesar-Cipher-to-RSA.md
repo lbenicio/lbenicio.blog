@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mathematical Foundations of Cryptography: From Caesar Cipher
   to RSA'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2022-06-30"
+type: posts
 ---
+
 
 
 

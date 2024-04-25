@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Neural Networks and Deep Learning
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2017-07-29"
+type: posts
 ---
+
 
 
 

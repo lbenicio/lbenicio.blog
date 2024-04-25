@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Blockchain Technology on Data Security and Privacy
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2018-02-12"
+type: posts
 ---
+
 
 
 

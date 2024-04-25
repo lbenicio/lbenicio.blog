@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["Cryptography"]
 toc: true
 date: "2023-10-21"
+type: posts
 ---
+
 
 
 

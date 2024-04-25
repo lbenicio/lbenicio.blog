@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: What is Kubernetes HA
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: kubernetes discussion
 categories: ["kubernetes"]
 
 date: "2021-12-11"
+type: posts
 ---
+
 
 
 Kubernetes is a popular open-source platform for automating the deployment, scaling, and management of containerized applications. It was developed by Google and is now maintained by the Cloud Native Computing Foundation.

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Edge Computing in Internet of Things
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-01-29"
+type: posts
 ---
+
 
 
 

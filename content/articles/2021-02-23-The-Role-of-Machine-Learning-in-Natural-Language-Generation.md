@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Natural Language Generation
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2021-02-23"
+type: posts
 ---
+
 
 
 

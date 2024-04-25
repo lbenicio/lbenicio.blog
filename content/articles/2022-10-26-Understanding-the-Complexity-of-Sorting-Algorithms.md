@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2022-10-26"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Evolution and Impact of Blockchain Technology on Cybersecurity
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-03-30"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Advancements in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-01-25"
+type: posts
 ---
+
 
 
 

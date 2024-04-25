@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Parallel Computing in Scientific Simulations"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CodeReview Programming CodeQuality
 categories: CodeReview
 toc: true
 date: 2023-12-15
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Parallel Computing in Scientific Simulations](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Parallel-Computing-in-Scientific-Simulations)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 toc: true
 date: "2023-08-03"
+type: posts
 ---
+
 
 
 

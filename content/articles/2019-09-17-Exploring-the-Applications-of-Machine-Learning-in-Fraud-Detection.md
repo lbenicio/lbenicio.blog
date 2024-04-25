@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Fraud Detection
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2019-09-17"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Learning in Computer Vision
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2019-12-23"
+type: posts
 ---
+
 
 
 

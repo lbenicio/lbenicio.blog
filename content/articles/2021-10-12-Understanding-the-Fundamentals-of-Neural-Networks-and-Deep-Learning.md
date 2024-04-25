@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Neural Networks and Deep Learning
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2021-10-12"
+type: posts
 ---
+
 
 
 

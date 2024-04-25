@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Genetic Algorithms in Feature Selection
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2019-05-03"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unlocking the Power of Kanban: A Comprehensive Study of the Kanban Method
   in Software Development'
@@ -7,7 +8,9 @@ tags: agile
 categories: ["agile', 'kanban', 'xp', 'extreme', 'programming"]
 
 date: "2021-04-23"
+type: posts
 ---
+
 
 
 The Kanban method is a widely used approach to agile software development that has been gaining popularity in recent years. Originally developed by Taiichi Ohno at Toyota to improve manufacturing processes, the Kanban method has since been adapted for use in software development teams to manage workflows and increase efficiency. Kanban is a visual management system that helps teams to visualize work, limit work in progress, and optimize flow, ultimately leading to faster delivery of high-quality software. In this paper, we will provide a comprehensive study of the Kanban method in software development, exploring its principles, practices, and benefits.

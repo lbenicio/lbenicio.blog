@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data on Business Analytics
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2021-12-19"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2022-04-12"
+type: posts
 ---
+
 
 
 

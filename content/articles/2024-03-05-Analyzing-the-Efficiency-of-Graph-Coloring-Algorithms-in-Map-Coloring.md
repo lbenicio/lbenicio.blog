@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Graph Coloring Algorithms in Map Coloring"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerVision Cybersecurity ArtificialIntelligence
 categories: ComputerVision
 toc: true
 date: 2024-03-05
+type: posts
 ---
+
 
 
 ![Analyzing the Efficiency of Graph Coloring Algorithms in Map Coloring](https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Graph-Coloring-Algorithms-in-Map-Coloring)

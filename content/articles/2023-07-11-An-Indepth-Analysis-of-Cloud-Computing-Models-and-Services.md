@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: An Indepth Analysis of Cloud Computing Models and Services
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: DebuggingTips MachineLearning Programming
 categories: ["EthicalHacking"]
 toc: true
 date: "2023-07-11"
+type: posts
 ---
+
 
 
 

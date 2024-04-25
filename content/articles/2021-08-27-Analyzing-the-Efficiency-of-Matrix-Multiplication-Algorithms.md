@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Matrix Multiplication Algorithms
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2021-08-27"
+type: posts
 ---
+
 
 
 

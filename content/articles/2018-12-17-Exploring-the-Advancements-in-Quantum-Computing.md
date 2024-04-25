@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Advancements in Quantum Computing
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2018-12-17"
+type: posts
 ---
+
 
 
 

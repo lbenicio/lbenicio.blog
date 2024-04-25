@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Natural Computing: A Fusion of Biology and Computer
   Science'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2018-11-07"
+type: posts
 ---
+
 
 
 

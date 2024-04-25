@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Divide and Conquer Algorithms
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2017-03-01"
+type: posts
 ---
+
 
 
 

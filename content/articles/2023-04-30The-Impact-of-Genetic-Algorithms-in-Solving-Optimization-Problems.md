@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Genetic Algorithms in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["Algorithms"]
 toc: true
 date: "2023-04-30"
+type: posts
 ---
+
 
 
 

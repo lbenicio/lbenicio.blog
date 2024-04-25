@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2022-11-09"
+type: posts
 ---
+
 
 
 

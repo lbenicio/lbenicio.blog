@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Cryptocurrency and Blockchain Technology
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2021-09-11"
+type: posts
 ---
+
 
 
 

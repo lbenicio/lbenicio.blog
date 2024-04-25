@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "The Evolution of Cybersecurity From Cryptography to Blockchain Technologies"
 
 date: "2013-09-15"
+type: posts
 ---
+
 
 # Quantum Computing: A Paradigm Shift in Computation and Algorithms
 

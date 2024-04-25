@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: DataStructures EthicalHacking CloudComputing
 categories: ["Databases"]
 toc: true
 date: "2023-11-09"
+type: posts
 ---
+
 
 
 # Analyzing the Efficiency of Graph Algorithms in Network Analysis

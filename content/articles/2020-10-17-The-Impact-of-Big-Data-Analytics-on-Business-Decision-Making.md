@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data Analytics on Business Decision Making
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-10-17"
+type: posts
 ---
+
 
 
 

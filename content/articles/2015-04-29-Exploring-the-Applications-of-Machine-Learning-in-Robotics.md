@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Robotics
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2015-04-29"
+type: posts
 ---
+
 
 
 

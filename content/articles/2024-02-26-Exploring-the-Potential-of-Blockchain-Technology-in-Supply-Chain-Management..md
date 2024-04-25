@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Blockchain Technology in Supply Chain Management."
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerArchitecture Programming SoftwareTesting
 categories: SoftwareTesting
 toc: true
 date: 2024-02-26
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Blockchain Technology in Supply Chain Management.](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Blockchain-Technology-in-Supply-Chain-Management.)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 3. Unveiling the Power of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2013-05-01"
+type: posts
 ---
+
 
 
 

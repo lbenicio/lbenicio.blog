@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Augmented Reality in Gaming and Entertainment.
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2018-08-16"
+type: posts
 ---
+
 
 
 

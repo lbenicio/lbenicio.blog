@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Image Compression Algorithms
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2021-01-22"
+type: posts
 ---
+
 
 
 

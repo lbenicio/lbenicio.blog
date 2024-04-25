@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 toc: true
 date: "2023-01-26"
+type: posts
 ---
+
 
 
 

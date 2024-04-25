@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Blockchain Technology on Data Security
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2019-07-21"
+type: posts
 ---
+
 
 
 

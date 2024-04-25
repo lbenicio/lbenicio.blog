@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Graph Theory in Network Analysis Bridging the Gap Between Mathematics and Computer Science"
 
 date: "2013-05-28"
+type: posts
 ---
+
 
 # Topic: Quantum Computing: The Future of Algorithms and Computation
 

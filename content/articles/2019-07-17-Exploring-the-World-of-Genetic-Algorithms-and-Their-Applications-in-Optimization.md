@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications in Optimization
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2019-07-17"
+type: posts
 ---
+
 
 
 

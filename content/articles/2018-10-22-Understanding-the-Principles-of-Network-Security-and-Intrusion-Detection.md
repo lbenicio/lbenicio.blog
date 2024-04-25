@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Network Security and Intrusion Detection
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2018-10-22"
+type: posts
 ---
+
 
 
 

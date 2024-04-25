@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Vision: From Classic Techniques to Deep Learning'
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-10-23"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Parallel Computing in Computational Physics"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CloudComputing ComputerScience NaturalLanguageProcessing
 categories: Cybersecurity
 toc: true
 date: 2023-12-05
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Parallel Computing in Computational Physics](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Parallel-Computing-in-Computational-Physics)

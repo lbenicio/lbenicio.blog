@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 toc: true
 date: "2023-06-24"
+type: posts
 ---
+
 
 
 

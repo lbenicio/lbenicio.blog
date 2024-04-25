@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "The Interplay of Calculus and Computer Programming A Deeper Insight"
 
 date: "2013-03-12"
+type: posts
 ---
+
 
 # Topic: Quantum Computing and its Implications for the Future of Algorithm Development
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2017-11-18"
+type: posts
 ---
+
 
 
 

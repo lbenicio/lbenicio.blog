@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Data Visualization in Exploratory Data Analysis
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2022-01-13"
+type: posts
 ---
+
 
 
 

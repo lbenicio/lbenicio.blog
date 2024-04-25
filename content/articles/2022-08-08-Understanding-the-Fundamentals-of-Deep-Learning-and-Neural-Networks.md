@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Deep Learning and Neural Networks
 icon: fa-comment-alt
 categories: ["DataStructures"]
 toc: true
 date: "2022-08-08"
+type: posts
 ---
+
 
 
 

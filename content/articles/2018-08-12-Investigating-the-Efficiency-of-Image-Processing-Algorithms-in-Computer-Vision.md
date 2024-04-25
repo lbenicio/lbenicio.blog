@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Image Processing Algorithms in Computer Vision
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-08-12"
+type: posts
 ---
+
 
 
 

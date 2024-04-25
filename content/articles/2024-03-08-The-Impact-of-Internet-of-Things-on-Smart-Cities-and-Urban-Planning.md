@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Impact of Internet of Things on Smart Cities and Urban Planning"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: SoftwareTesting EthicalHacking QuantumComputing
 categories: CodeQuality
 toc: true
 date: 2024-03-08
+type: posts
 ---
+
 
 
 ![The Impact of Internet of Things on Smart Cities and Urban Planning](https://cdn.lbenicio.dev/posts/The-Impact-of-Internet-of-Things-on-Smart-Cities-and-Urban-Planning)

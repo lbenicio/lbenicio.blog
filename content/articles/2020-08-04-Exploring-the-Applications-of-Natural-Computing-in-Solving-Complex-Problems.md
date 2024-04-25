@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing in Solving Complex Problems
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2020-08-04"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Advancements in Computer Graphics and Visualization
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2019-06-04"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Distributed Databases in Big Data Analytics
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-08-27"
+type: posts
 ---
+
 
 
 

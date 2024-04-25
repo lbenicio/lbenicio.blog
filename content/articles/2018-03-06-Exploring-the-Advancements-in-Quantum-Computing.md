@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Advancements in Quantum Computing
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2018-03-06"
+type: posts
 ---
+
 
 
 

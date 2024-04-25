@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Virtual Reality and its Impact on Gaming
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2018-12-29"
+type: posts
 ---
+
 
 
 

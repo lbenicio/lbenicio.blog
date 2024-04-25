@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Mining Algorithms in Big Data Analysis
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2019-04-06"
+type: posts
 ---
+
 
 
 

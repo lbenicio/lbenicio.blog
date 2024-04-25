@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Introduction to Reinforcement Learning: From Theory to Applications'
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-03-26"
+type: posts
 ---
+
 
 
 

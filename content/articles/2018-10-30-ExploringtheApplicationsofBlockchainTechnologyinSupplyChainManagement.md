@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: ExploringtheApplicationsofBlockchainTechnologyinSupplyChainManagement
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2018-10-30"
+type: posts
 ---
+
 
 
 

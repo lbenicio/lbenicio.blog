@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Natural Language Processing: Enhancing HumanComputer Interaction'
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2013-10-27"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Drug Discovery
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2018-08-02"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Anomaly Detection
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 toc: true
 date: "2023-01-24"
+type: posts
 ---
+
 
 
 

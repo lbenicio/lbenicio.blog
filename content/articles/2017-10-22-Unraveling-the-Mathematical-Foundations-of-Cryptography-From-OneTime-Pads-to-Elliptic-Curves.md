@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mathematical Foundations of Cryptography: From OneTime Pads
   to Elliptic Curves'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-10-22"
+type: posts
 ---
+
 
 
 

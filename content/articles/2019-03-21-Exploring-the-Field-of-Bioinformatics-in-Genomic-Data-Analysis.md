@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Bioinformatics in Genomic Data Analysis
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-03-21"
+type: posts
 ---
+
 
 
 

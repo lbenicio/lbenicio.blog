@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Power of Convolutional Neural Networks
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 toc: true
 date: "2023-07-03"
+type: posts
 ---
+
 
 
 

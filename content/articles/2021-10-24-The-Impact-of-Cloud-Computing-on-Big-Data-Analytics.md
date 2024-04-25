@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Big Data Analytics
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2021-10-24"
+type: posts
 ---
+
 
 
 

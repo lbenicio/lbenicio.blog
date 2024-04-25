@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: TheImpactofBigDataonDecisionMaking
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2021-06-26"
+type: posts
 ---
+
 
 
 

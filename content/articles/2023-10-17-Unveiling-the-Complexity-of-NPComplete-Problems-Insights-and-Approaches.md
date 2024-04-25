@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unveiling the Complexity of NPComplete Problems: Insights and Approaches'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: DebuggingTips WebDevelopment Databases
 categories: ["ComputerScience"]
 toc: true
 date: "2023-10-17"
+type: posts
 ---
+
 
 
 

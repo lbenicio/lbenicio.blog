@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Secure Transactions
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2022-01-01"
+type: posts
 ---
+
 
 
 

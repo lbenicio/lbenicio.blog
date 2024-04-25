@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Power of Quantum Computing in Data Encryption
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2021-06-23"
+type: posts
 ---
+
 
 
 

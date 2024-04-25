@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Deep Learning in Natural Language Understanding and Translation
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2016-04-21"
+type: posts
 ---
+
 
 
 

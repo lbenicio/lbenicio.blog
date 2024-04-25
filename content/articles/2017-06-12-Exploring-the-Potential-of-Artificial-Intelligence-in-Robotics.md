@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Artificial Intelligence in Robotics
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2017-06-12"
+type: posts
 ---
+
 
 
 

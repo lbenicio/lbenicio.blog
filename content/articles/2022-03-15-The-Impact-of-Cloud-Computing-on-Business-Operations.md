@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2022-03-15"
+type: posts
 ---
+
 
 
 

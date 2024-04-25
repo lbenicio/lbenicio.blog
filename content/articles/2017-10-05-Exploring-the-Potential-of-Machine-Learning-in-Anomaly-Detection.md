@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Machine Learning in Anomaly Detection
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-10-05"
+type: posts
 ---
+
 
 
 

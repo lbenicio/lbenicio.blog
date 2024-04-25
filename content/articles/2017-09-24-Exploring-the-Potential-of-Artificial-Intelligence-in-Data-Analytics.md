@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Artificial Intelligence in Data Analytics
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2017-09-24"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Algorithms in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-12-24"
+type: posts
 ---
+
 
 
 

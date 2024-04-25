@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems in Internet of Things
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2020-05-03"
+type: posts
 ---
+
 
 
 

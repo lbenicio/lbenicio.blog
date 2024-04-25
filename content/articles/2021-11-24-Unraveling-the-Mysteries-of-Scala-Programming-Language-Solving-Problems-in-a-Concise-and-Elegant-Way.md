@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mysteries of Scala Programming Language: Solving Problems in
   a Concise and Elegant Way'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2021-11-24"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Treebased Search Algorithms
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-07-20"
+type: posts
 ---
+
 
 # Investigating the Efficiency of Tree-based Search Algorithms
 

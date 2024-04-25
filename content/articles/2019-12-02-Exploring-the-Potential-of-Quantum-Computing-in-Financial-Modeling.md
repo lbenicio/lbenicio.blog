@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Financial Modeling
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-12-02"
+type: posts
 ---
+
 
 
 

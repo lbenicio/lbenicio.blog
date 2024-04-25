@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2013-06-03"
+type: posts
 ---
+
 
 
 

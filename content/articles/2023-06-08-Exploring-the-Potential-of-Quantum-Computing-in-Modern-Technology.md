@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Modern Technology
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 toc: true
 date: "2023-06-08"
+type: posts
 ---
+
 
 
 

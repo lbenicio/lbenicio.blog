@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbot Development
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2021-04-22"
+type: posts
 ---
+
 
 # Exploring the Applications of Natural Language Processing in Chatbot Development
 

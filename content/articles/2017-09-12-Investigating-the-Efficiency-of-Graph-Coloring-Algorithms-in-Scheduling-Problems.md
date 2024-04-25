@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Coloring Algorithms in Scheduling Problems
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2017-09-12"
+type: posts
 ---
+
 
 
 

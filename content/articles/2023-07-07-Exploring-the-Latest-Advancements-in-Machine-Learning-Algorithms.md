@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Latest Advancements in Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2023-07-07"
+type: posts
 ---
+
 
 
 

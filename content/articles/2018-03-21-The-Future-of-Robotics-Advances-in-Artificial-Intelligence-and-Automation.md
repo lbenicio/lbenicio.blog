@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Robotics: Advances in Artificial Intelligence and Automation'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-03-21"
+type: posts
 ---
+
 
 
 

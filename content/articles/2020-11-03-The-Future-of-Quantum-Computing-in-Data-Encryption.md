@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Quantum Computing in Data Encryption
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2020-11-03"
+type: posts
 ---
+
 
 
 

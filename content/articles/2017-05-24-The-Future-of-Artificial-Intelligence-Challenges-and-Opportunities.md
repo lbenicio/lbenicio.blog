@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Artificial Intelligence: Challenges and Opportunities'
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-05-24"
+type: posts
 ---
+
 
 
 

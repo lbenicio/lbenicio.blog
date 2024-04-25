@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The importance of health checks
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: health check containers devops
 categories: ["healthcheck"]
 toc: true
 date: "2023-02-19"
+type: posts
 ---
+
 
 
 Containers are rapidly becoming the preferred method of deploying applications. They provide a lightweight and efficient way to package an application with all its dependencies into a single image that can run consistently across different environments. However, with the increased use of containers comes the need to ensure that they are running correctly and efficiently. This is where health checks come in. In this post, we'll discuss the importance of creating health checks for your containers and why they are crucial for the overall health and stability of your application.

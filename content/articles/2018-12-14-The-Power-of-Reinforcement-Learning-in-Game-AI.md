@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Reinforcement Learning in Game AI
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2018-12-14"
+type: posts
 ---
+
 
 
 

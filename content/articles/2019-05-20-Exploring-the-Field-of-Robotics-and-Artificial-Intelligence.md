@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Robotics and Artificial Intelligence
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-05-20"
+type: posts
 ---
+
 
 
 

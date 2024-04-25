@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Natural Language Processing in Voice Assistants
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2018-01-25"
+type: posts
 ---
+
 
 
 

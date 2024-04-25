@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Risk Analysis
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2022-03-30"
+type: posts
 ---
+
 
 
 

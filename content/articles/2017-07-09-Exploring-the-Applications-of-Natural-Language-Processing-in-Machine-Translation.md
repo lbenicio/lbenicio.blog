@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2017-07-09"
+type: posts
 ---
+
 
 
 

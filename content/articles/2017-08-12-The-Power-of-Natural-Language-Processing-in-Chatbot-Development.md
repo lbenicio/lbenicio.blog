@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Natural Language Processing in Chatbot Development
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-08-12"
+type: posts
 ---
+
 
 
 

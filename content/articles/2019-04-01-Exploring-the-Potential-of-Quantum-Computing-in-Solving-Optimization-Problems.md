@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2019-04-01"
+type: posts
 ---
+
 
 
 

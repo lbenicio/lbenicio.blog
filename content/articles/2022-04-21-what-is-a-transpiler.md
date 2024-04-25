@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: What is a transpiler
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discussion theory transpiler
 categories: ["theory"]
 
 date: "2022-04-21"
+type: posts
 ---
+
 
 
 A transpiler, also known as a source-to-source compiler, is a type of computer program that converts code written in one programming language into another programming language. It essentially "transpiles" the code from one language to another, while maintaining the same functionality and behavior of the original code.

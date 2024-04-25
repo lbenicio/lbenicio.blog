@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution of Programming Languages and Their Impact on Software Development
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-03-26"
+type: posts
 ---
+
 
 
 

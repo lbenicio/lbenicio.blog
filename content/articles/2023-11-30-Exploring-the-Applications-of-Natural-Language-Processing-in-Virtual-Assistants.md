@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Virtual Assistants
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: CodeReview BigData IoT Internet of Things
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-11-30"
+type: posts
 ---
+
 
 
 # Exploring the Applications of Natural Language Processing in Virtual Assistants

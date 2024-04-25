@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Game Theory
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2017-02-19"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Impact of Artificial Intelligence on Computer Graphics"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: DebuggingTips BigData MobileDevelopment
 categories: IoT Internet of Things
 toc: true
 date: 2024-01-11
+type: posts
 ---
+
 
 
 ![The Impact of Artificial Intelligence on Computer Graphics](https://cdn.lbenicio.dev/posts/The-Impact-of-Artificial-Intelligence-on-Computer-Graphics)

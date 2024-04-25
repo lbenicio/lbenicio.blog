@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Deep Learning in Natural Language Understanding"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Bioinformatics Cybersecurity ComputerGraphics
 categories: Cybersecurity
 toc: true
 date: 2024-03-01
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Deep Learning in Natural Language Understanding](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Deep-Learning-in-Natural-Language-Understanding)

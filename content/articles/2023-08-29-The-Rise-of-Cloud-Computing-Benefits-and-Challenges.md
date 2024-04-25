@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Rise of Cloud Computing: Benefits and Challenges'
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2023-08-29"
+type: posts
 ---
+
 
 
 

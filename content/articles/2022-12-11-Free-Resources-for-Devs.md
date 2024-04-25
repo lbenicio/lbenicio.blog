@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Free resources for Devs
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: tip, resources
 categories: ["cloud"]
 toc: true
 date: "2022-12-11"
+type: posts
 ---
+
 
 
 Today we are going to have a small list of free resource for initial developers. The goal here is to list most useful resources and point to a longer list.

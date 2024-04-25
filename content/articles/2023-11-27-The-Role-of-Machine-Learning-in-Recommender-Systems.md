@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Recommender Systems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: SoftwareEngineering TechTrends NaturalLanguageProcessing
 categories: ["DataStructures"]
 toc: true
 date: "2023-11-27"
+type: posts
 ---
+
 
 
 # The Role of Machine Learning in Recommender Systems

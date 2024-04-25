@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Computing in Big Data Processing
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2019-03-14"
+type: posts
 ---
+
 
 
 

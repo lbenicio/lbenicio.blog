@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: ThePowerofGeneticProgramminginEvolutionaryComputation
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2017-01-15"
+type: posts
 ---
+
 
 # The Power of Genetic Programming in Evolutionary Computation
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-05-12"
+type: posts
 ---
+
 
 # Exploring the Applications of Natural Language Processing in Chatbots
 

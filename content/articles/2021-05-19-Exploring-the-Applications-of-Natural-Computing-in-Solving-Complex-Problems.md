@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing in Solving Complex Problems
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2021-05-19"
+type: posts
 ---
+
 
 
 

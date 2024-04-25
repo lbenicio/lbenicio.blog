@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: ExploringtheFieldofNaturalLanguageProcessing
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2021-08-02"
+type: posts
 ---
+
 
 
 

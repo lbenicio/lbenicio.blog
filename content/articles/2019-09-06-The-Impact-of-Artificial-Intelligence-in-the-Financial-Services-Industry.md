@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence in the Financial Services Industry
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2019-09-06"
+type: posts
 ---
+
 
 
 

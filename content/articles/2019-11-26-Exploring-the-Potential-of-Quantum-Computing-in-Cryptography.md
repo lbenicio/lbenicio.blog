@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2019-11-26"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Cybersecurity
 icon: fa-comment-alt
 categories: ["Networking"]
 toc: true
 date: "2023-06-06"
+type: posts
 ---
+
 
 
 

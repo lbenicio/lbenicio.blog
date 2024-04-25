@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-03-11"
+type: posts
 ---
+
 
 
 

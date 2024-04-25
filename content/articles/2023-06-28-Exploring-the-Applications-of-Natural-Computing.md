@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 toc: true
 date: "2023-06-28"
+type: posts
 ---
+
 
 
 

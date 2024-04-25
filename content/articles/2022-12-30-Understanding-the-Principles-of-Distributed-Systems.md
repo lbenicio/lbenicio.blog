@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2022-12-30"
+type: posts
 ---
+
 
 
 

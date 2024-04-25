@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Convolutional Neural Networks in Object Detection
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2020-02-20"
+type: posts
 ---
+
 
 
 

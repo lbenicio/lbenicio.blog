@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2019-01-13"
+type: posts
 ---
+
 
 
 

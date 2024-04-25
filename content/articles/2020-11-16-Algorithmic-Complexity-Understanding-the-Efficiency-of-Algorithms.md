@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Algorithmic Complexity: Understanding the Efficiency of Algorithms'
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-11-16"
+type: posts
 ---
+
 
 
 

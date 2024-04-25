@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Monte Carlo Simulation in Risk Analysis
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2017-04-15"
+type: posts
 ---
+
 
 
 

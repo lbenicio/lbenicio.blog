@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Data Mining in Customer Segmentation
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-03-22"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-05-04"
+type: posts
 ---
+
 
 
 

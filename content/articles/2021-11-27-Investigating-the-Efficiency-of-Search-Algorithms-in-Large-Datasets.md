@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Search Algorithms in Large Datasets
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2021-11-27"
+type: posts
 ---
+
 
 # Investigating the Efficiency of Search Algorithms in Large Datasets
 

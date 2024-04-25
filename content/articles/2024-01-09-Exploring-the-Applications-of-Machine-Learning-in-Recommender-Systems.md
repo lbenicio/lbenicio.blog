@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Machine Learning in Recommender Systems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: OperatingSystems QuantumComputing Algorithms
 categories: WebDevelopment
 toc: true
 date: 2024-01-09
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Machine Learning in Recommender Systems](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Machine-Learning-in-Recommender-Systems)

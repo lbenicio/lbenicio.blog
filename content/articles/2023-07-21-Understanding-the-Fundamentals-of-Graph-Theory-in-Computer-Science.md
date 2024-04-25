@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Computer Science
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: ComputerScience Bioinformatics Programming
 categories: ["OperatingSystems"]
 toc: true
 date: "2023-07-21"
+type: posts
 ---
+
 
 
 

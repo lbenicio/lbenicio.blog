@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Overview of Quantum Computing and Its Potential Impact on Cybersecurity
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2021-04-26"
+type: posts
 ---
+
 
 
 

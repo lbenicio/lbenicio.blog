@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Hashing Algorithms in Data Structures
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2017-08-25"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2020-06-13"
+type: posts
 ---
+
 
 
 

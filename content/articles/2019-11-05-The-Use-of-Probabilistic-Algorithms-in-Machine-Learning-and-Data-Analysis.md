@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Use of Probabilistic Algorithms in Machine Learning and Data Analysis
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-11-05"
+type: posts
 ---
+
 
 
 

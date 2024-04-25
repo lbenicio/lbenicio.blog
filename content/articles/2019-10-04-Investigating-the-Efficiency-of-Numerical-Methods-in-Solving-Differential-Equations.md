@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2019-10-04"
+type: posts
 ---
+
 
 
 

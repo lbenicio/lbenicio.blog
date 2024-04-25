@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Natural Language Processing Techniques
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2022-03-01"
+type: posts
 ---
+
 
 
 

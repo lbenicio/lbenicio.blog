@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Load Test Software
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: testing, load
 categories: ["discussion', 'load test"]
 toc: true
 date: "2022-07-17"
+type: posts
 ---
+
 
 
 Hi folks, today we are going discuss load test solutions. Let us do it.

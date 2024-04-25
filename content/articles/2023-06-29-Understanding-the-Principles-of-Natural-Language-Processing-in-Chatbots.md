@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-06-29"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: TheRoleofDataMininginCustomerSegmentationandTargeting
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2018-07-14"
+type: posts
 ---
+
 
 
 

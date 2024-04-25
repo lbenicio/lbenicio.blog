@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Graphics: From Rasterization to Ray Tracing'
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-09-08"
+type: posts
 ---
+
 
 
 

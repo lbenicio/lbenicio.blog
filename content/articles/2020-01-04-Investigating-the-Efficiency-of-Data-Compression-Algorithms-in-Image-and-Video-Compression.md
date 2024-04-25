@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Image and Video
   Compression
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-01-04"
+type: posts
 ---
+
 
 
 

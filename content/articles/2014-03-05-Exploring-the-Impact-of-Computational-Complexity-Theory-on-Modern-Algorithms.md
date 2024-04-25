@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring-the Impact of Computational Complexity Theory on Modern Algorithms"
 
 date: "2014-03-05"
+type: posts
 ---
+
 
 # Quantum Computing: The Future of Computation and Algorithms
 

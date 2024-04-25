@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computational Complexity: P vs NP Problem'
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2017-03-02"
+type: posts
 ---
+
 
 
 

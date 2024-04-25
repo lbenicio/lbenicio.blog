@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Why it is important to study functional programing
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discussion functional "functional programming"
 categories: ["discussion"]
 
 date: "2022-01-02"
+type: posts
 ---
+
 
 
 

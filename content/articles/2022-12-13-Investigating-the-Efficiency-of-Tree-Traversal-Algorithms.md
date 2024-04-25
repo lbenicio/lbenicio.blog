@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Tree Traversal Algorithms
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 toc: true
 date: "2022-12-13"
+type: posts
 ---
+
 
 
 

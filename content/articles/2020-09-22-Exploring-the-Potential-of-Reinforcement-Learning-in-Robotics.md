@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-09-22"
+type: posts
 ---
+
 
 
 

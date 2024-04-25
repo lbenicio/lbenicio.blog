@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2017-09-11"
+type: posts
 ---
+
 
 
 

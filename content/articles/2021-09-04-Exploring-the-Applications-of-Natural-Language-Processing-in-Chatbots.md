@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-09-04"
+type: posts
 ---
+
 
 
 

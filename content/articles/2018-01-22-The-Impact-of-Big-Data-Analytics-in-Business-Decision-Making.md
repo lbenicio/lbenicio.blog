@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data Analytics in Business Decision Making
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-01-22"
+type: posts
 ---
+
 
 
 

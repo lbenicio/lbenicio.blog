@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Tests methodology and enhancements proposal
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: scaling, ruby on rails, kubernetes, container orchestration
 categories: ["analysis"]
 toc: true
 date: "2022-09-04"
+type: posts
 ---
+
 
 
 Continuing our post series about rails app performance. This week we are going to see our tests methodology and enhancements proposal.

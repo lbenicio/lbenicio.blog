@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Power of Graph Theory in Network Analysis and Design
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 toc: true
 date: "2022-10-30"
+type: posts
 ---
+
 
 
 

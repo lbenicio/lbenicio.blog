@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Sorting Algorithms
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-07-07"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Bayesian Inference in Machine Learning
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2018-12-09"
+type: posts
 ---
+
 
 
 

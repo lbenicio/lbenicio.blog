@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography in Data Security
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2019-11-17"
+type: posts
 ---
+
 
 
 

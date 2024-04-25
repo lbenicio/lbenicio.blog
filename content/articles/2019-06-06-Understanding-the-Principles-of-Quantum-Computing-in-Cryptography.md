@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-06-06"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Graphics: From Pixels to Ray Tracing'
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2020-02-10"
+type: posts
 ---
+
 
 
 

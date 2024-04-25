@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Genetic Algorithms in Solving Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2019-03-12"
+type: posts
 ---
+
 
 
 

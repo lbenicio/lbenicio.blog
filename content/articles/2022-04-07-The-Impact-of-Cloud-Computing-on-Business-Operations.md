@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2022-04-07"
+type: posts
 ---
+
 
 
 

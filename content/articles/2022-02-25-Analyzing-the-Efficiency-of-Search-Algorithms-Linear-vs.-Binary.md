@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Analyzing the Efficiency of Search Algorithms: Linear vs. Binary'
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2022-02-25"
+type: posts
 ---
+
 
 
 

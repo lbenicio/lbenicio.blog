@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Neural Networks in Deep Learning
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2018-09-26"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Blockchain Technology in Securing Digital Transactions
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2021-07-25"
+type: posts
 ---
+
 
 
 

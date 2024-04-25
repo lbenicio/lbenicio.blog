@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Anomaly Detection
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-02-25"
+type: posts
 ---
+
 
 
 

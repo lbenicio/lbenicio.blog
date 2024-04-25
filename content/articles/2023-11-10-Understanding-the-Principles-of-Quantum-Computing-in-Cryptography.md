@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing in Cryptography
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: Blockchain ComputerVision MachineLearning
 categories: ["DataStructures"]
 toc: true
 date: "2023-11-10"
+type: posts
 ---
+
 
 
 # Understanding the Principles of Quantum Computing in Cryptography

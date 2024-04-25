@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Reinforcement Learning in Autonomous Robotics
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2019-07-05"
+type: posts
 ---
+
 
 
 

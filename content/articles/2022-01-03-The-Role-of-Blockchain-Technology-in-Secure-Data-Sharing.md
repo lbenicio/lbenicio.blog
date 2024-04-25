@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Blockchain Technology in Secure Data Sharing
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2022-01-03"
+type: posts
 ---
+
 
 
 

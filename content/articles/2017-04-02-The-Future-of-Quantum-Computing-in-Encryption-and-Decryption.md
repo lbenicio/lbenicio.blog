@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Quantum Computing in Encryption and Decryption
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2017-04-02"
+type: posts
 ---
+
 
 
 

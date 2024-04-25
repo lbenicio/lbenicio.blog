@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Neural Networks in Pattern Recognition
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-06-11"
+type: posts
 ---
+
 
 
 

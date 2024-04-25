@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Analyzing the Efficiency of Sort Algorithms: QuickSort vs. MergeSort'
 icon: fa-comment-alt
 categories: ["Networking"]
 toc: true
 date: "2022-12-23"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Natural Language Generation
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-04-18"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Geolocation Algorithms in Navigation Systems
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-11-08"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Differences between Redis and Memcached: Choosing the Right InMemory Data
   Storage Solution'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2023-10-04"
+type: posts
 ---
+
 
 
 

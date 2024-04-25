@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 toc: true
 date: "2023-08-11"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Power of CUDA: Cases where you should use CUDA to write your program'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: parallelism
 categories: ["parallelism', 'cuda', 'discussion"]
 
 date: "2020-12-15"
+type: posts
 ---
+
 
 
 The advent of CUDA technology has revolutionized the way we approach high-performance computing. CUDA, an acronym for Compute Unified Device Architecture, is a parallel computing platform and programming model developed by NVIDIA that allows developers to harness the power of Graphics Processing Units (GPUs) for general-purpose computing.

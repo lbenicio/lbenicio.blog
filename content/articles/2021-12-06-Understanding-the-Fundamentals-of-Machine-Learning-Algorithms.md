@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2021-12-06"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Network Routing
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2018-09-05"
+type: posts
 ---
+
 
 
 

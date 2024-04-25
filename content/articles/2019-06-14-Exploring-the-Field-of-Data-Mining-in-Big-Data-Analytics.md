@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Data Mining in Big Data Analytics
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2019-06-14"
+type: posts
 ---
+
 
 
 

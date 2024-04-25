@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Cybersecurity
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-02-02"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Emergence of Edge Computing: A Paradigm Shift in Data Processing'
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-03-19"
+type: posts
 ---
+
 
 
 

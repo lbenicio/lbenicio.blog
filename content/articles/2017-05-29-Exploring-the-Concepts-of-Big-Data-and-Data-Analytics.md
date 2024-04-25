@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Concepts of Big Data and Data Analytics
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2017-05-29"
+type: posts
 ---
+
 
 
 

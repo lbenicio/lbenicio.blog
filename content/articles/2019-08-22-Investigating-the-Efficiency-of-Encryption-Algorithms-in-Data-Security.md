@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Encryption Algorithms in Data Security
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2019-08-22"
+type: posts
 ---
+
 
 
 

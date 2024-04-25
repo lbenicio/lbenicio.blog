@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Role of Data Privacy in Big Data Analytics"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Blockchain ComputerScience SoftwareTesting
 categories: ComputerArchitecture
 toc: true
 date: 2023-12-27
+type: posts
 ---
+
 
 
 ![The Role of Data Privacy in Big Data Analytics](https://cdn.lbenicio.dev/posts/The-Role-of-Data-Privacy-in-Big-Data-Analytics)

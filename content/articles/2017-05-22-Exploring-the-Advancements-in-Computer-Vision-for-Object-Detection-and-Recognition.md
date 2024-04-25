@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Advancements in Computer Vision for Object Detection and Recognition
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-05-22"
+type: posts
 ---
+
 
 
 

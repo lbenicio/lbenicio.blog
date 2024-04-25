@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Solving Complex Optimization Problems
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2021-06-30"
+type: posts
 ---
+
 
 
 

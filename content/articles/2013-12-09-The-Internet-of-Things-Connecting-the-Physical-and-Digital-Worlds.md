@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Internet of Things: Connecting the Physical and Digital Worlds'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2013-12-09"
+type: posts
 ---
+
 
 
 

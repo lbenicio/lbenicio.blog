@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Deep Learning in Natural Language Processing"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Bioinformatics Cryptography ArtificialIntelligence
 categories: ComputerGraphics
 toc: true
 date: 2024-03-30
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Deep Learning in Natural Language Processing](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Deep-Learning-in-Natural-Language-Processing)

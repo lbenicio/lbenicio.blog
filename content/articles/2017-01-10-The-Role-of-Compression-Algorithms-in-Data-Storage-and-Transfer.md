@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Compression Algorithms in Data Storage and Transfer
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2017-01-10"
+type: posts
 ---
+
 
 
 

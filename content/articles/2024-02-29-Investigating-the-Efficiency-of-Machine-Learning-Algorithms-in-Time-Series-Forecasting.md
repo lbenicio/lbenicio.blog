@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Machine Learning Algorithms in Time Series Forecasting"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: OperatingSystems Cybersecurity EthicalHacking
 categories: MachineLearning
 toc: true
 date: 2024-02-29
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Machine Learning Algorithms in Time Series Forecasting](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Machine-Learning-Algorithms-in-Time-Series-Forecasting)

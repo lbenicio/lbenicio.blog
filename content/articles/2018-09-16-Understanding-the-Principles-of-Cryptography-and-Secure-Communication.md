@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography and Secure Communication
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-09-16"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: UnderstandingthePrinciplesofDataCompressionAlgorithms
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2018-03-29"
+type: posts
 ---
+
 
 
 

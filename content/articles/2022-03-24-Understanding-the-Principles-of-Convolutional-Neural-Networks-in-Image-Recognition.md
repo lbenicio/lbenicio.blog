@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2022-03-24"
+type: posts
 ---
+
 
 
 

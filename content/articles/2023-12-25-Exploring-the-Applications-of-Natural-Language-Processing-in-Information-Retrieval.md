@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Natural Language Processing in Information Retrieval"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CodeReview Networking ComputerVision
 categories: BigData
 toc: true
 date: 2023-12-25
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Natural Language Processing in Information Retrieval](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Natural-Language-Processing-in-Information-Retrieval)

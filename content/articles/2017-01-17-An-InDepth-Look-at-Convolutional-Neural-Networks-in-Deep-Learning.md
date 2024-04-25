@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An InDepth Look at Convolutional Neural Networks in Deep Learning
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2017-01-17"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence in Customer Relationship Management
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2017-05-27"
+type: posts
 ---
+
 
 
 

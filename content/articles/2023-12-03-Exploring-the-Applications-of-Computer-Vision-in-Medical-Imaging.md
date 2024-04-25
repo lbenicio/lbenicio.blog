@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Medical Imaging
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: CloudComputing Networking Programming
 categories: ["EthicalHacking"]
 toc: true
 date: "2023-12-03"
+type: posts
 ---
+
 
 
 # Exploring the Applications of Computer Vision in Medical Imaging

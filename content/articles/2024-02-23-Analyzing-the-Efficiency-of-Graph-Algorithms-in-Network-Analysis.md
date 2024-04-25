@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Graph Algorithms in Network Analysis"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: EthicalHacking Bioinformatics MobileDevelopment
 categories: Cybersecurity
 toc: true
 date: 2024-02-23
+type: posts
 ---
+
 
 
 ![Analyzing the Efficiency of Graph Algorithms in Network Analysis](https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Graph-Algorithms-in-Network-Analysis)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-03-18"
+type: posts
 ---
+
 
 
 

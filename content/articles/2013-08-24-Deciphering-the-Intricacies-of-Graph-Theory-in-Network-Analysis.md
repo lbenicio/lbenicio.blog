@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Deciphering the Intricacies of Graph Theory in Network Analysis"
 
 date: "2013-08-24"
+type: posts
 ---
+
 
 # Quantum Computing: A New Frontier in Algorithms and Computation
 

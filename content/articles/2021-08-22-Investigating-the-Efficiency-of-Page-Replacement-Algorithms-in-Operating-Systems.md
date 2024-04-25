@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Page Replacement Algorithms in Operating Systems
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-08-22"
+type: posts
 ---
+
 
 
 

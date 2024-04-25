@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Advancements in Natural Language Processing: A Computational Linguistics Perspective'
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 toc: true
 date: "2023-01-04"
+type: posts
 ---
+
 
 
 

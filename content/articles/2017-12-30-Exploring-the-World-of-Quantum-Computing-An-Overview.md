@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Quantum Computing: An Overview'
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2017-12-30"
+type: posts
 ---
+
 
 
 

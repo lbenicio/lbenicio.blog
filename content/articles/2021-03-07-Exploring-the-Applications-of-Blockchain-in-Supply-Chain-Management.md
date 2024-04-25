@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Blockchain in Supply Chain Management
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2021-03-07"
+type: posts
 ---
+
 
 
 

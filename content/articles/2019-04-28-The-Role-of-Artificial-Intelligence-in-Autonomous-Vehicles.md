@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-04-28"
+type: posts
 ---
+
 
 
 

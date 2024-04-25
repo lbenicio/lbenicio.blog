@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-10-04"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Parallel Computing: Harnessing the Power of Multiple Processors'
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2013-07-25"
+type: posts
 ---
+
 
 
 

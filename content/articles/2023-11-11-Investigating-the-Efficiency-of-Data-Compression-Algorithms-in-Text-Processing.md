@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Text Processing
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: IoT Internet of Things ComputerArchitecture MachineLearning
 categories: ["OperatingSystems"]
 toc: true
 date: "2023-11-11"
+type: posts
 ---
+
 
 
 # Investigating the Efficiency of Data Compression Algorithms in Text Processing

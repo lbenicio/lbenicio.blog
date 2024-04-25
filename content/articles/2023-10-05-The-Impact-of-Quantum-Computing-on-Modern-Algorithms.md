@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Quantum Computing on Modern Algorithms
 icon: fa-comment-alt
 categories: ["DataStructures"]
 toc: true
 date: "2023-10-05"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Natural Language Generation in Natural Language Processing
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2019-07-09"
+type: posts
 ---
+
 
 
 

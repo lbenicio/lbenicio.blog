@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Forecasting
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2020-03-10"
+type: posts
 ---
+
 
 
 

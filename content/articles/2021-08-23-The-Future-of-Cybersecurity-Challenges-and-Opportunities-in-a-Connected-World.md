@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Cybersecurity: Challenges and Opportunities in a Connected World'
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2021-08-23"
+type: posts
 ---
+
 
 
 

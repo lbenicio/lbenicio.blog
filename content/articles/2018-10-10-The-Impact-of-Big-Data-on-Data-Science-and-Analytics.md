@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data on Data Science and Analytics
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2018-10-10"
+type: posts
 ---
+
 
 
 

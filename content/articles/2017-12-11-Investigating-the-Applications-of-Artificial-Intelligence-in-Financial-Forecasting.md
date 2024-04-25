@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Applications of Artificial Intelligence in Financial Forecasting
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-12-11"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Convolutional Neural Networks in Video Processing"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CloudComputing ComputerScience CodeReview
 categories: Cybersecurity
 toc: true
 date: 2024-01-19
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Convolutional Neural Networks in Video Processing](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Convolutional-Neural-Networks-in-Video-Processing)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Virtual Reality and Augmented Reality in Gaming
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-06-25"
+type: posts
 ---
+
 
 
 

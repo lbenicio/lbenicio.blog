@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Principles of Image Recognition and Computer Vision
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2013-11-18"
+type: posts
 ---
+
 
 
 

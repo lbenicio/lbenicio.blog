@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Advancements in Computer Vision and Object Recognition
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2014-01-17"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications in Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-12-14"
+type: posts
 ---
+
 
 
 

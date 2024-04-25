@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolutionary Optimization
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2017-11-17"
+type: posts
 ---
+
 
 
 

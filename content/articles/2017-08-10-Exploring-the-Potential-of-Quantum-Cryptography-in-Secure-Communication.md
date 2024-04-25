@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Cryptography in Secure Communication
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2017-08-10"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Augmented Reality in Gaming and Entertainment
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-01-29"
+type: posts
 ---
+
 
 
 

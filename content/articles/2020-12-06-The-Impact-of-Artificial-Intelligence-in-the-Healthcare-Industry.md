@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence in the Healthcare Industry
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2020-12-06"
+type: posts
 ---
+
 
 
 

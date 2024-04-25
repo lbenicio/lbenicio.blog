@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Depths of Neural Networks and Deep Learning
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2014-02-28"
+type: posts
 ---
+
 
 
 

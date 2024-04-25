@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Natural Language Understanding
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-05-13"
+type: posts
 ---
+
 
 
 

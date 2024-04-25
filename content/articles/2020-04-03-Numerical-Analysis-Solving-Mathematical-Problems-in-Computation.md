@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Numerical Analysis: Solving Mathematical Problems in Computation'
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2020-04-03"
+type: posts
 ---
+
 
 
 

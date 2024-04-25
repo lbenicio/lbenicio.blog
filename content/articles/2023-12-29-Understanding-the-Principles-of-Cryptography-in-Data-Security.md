@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Cryptography in Data Security"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Programming MobileDevelopment ArtificialIntelligence
 categories: CodeReview
 toc: true
 date: 2023-12-29
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Cryptography in Data Security](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Cryptography-in-Data-Security)

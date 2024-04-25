@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Software Testing in Ensuring Quality and Reliability
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2021-05-10"
+type: posts
 ---
+
 
 
 

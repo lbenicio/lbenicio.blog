@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 toc: true
 date: "2023-03-24"
+type: posts
 ---
+
 
 
 

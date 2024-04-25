@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Quantum Computing: An Overview'
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-01-25"
+type: posts
 ---
+
 
 
 

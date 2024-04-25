@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Natural Language Processing in Text Summarization
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2017-02-14"
+type: posts
 ---
+
 
 
 

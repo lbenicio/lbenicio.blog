@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Structures in Memory Management
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2017-12-31"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2021-09-30"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: UnderstandingthePrinciplesofNaturalLanguageProcessinginTextSummarization
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2017-04-13"
+type: posts
 ---
+
 
 
 

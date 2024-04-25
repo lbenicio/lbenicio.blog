@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Mining in Big Data Analytics
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2018-06-16"
+type: posts
 ---
+
 
 
 

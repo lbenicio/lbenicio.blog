@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-04-14"
+type: posts
 ---
+
 
 
 

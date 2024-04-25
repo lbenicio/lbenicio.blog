@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Image Compression Algorithms in Multimedia
   Applications
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2017-07-11"
+type: posts
 ---
+
 
 
 

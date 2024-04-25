@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Machine Learning
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-01-11"
+type: posts
 ---
+
 
 # Understanding the Principles of Quantum Machine Learning
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Optimization Algorithms in Resource Allocation
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-03-19"
+type: posts
 ---
+
 
 
 

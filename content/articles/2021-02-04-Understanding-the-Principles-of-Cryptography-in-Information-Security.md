@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography in Information Security
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2021-02-04"
+type: posts
 ---
+
 
 
 

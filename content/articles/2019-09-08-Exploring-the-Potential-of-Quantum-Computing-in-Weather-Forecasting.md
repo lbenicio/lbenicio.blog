@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Weather Forecasting
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2019-09-08"
+type: posts
 ---
+
 
 
 

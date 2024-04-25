@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Application of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2022-01-25"
+type: posts
 ---
+
 
 
 

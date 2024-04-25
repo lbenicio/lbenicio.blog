@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 toc: true
 date: "2023-09-01"
+type: posts
 ---
+
 
 
 

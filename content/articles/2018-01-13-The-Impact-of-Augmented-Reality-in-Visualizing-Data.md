@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Augmented Reality in Visualizing Data
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2018-01-13"
+type: posts
 ---
+
 
 
 

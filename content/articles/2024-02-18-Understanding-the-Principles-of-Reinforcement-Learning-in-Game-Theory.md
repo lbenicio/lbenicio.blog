@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Reinforcement Learning in Game Theory"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: MachineLearning CodeQuality ComputerArchitecture
 categories: CodeQuality
 toc: true
 date: 2024-02-18
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Reinforcement Learning in Game Theory](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Reinforcement-Learning-in-Game-Theory)

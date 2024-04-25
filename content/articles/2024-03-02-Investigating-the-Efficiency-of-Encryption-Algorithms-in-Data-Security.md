@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Encryption Algorithms in Data Security"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: BigData CodeReview ArtificialIntelligence
 categories: CloudComputing
 toc: true
 date: 2024-03-02
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Encryption Algorithms in Data Security](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Encryption-Algorithms-in-Data-Security)

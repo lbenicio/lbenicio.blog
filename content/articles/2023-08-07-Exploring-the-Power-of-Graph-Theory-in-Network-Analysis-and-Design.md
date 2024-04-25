@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Power of Graph Theory in Network Analysis and Design
 icon: fa-comment-alt
 categories: ["Blockchain"]
 toc: true
 date: "2023-08-07"
+type: posts
 ---
+
 
 
 

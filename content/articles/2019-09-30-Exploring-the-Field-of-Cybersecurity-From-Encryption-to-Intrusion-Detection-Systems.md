@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Cybersecurity: From Encryption to Intrusion Detection
   Systems'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2019-09-30"
+type: posts
 ---
+
 
 
 

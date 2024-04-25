@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Introduction to Quantum Computing and its Potential Impacts
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2019-02-23"
+type: posts
 ---
+
 
 
 

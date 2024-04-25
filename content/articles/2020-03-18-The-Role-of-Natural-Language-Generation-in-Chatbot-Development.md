@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Natural Language Generation in Chatbot Development
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2020-03-18"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Compression Algorithms in Data Storage"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Networking Algorithms Cybersecurity
 categories: MobileDevelopment
 toc: true
 date: 2024-04-02
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Compression Algorithms in Data Storage](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Compression-Algorithms-in-Data-Storage)

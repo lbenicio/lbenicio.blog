@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Operating Systems: From Batch Processing to Multitasking'
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2019-12-12"
+type: posts
 ---
+
 
 
 

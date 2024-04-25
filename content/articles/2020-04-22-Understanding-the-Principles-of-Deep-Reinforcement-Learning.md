@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Reinforcement Learning
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-04-22"
+type: posts
 ---
+
 
 
 

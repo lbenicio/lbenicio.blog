@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2020-02-29"
+type: posts
 ---
+
 
 
 

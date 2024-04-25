@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Cloud Computing: Edge Computing and IoT'
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2019-02-04"
+type: posts
 ---
+
 
 
 

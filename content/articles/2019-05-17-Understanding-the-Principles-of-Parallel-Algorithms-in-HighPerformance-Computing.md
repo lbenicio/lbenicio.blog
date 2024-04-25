@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Algorithms in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2019-05-17"
+type: posts
 ---
+
 
 
 

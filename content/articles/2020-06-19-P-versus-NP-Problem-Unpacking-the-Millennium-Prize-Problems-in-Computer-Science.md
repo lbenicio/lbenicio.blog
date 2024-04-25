@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "P versus NP Problem Unpacking the Millennium Prize Problems in Computer Science"
 
 date: "2020-06-19"
+type: posts
 ---
+
 
 # Topic: The Evolution of Quantum Computing and its Impact on Cryptography
 

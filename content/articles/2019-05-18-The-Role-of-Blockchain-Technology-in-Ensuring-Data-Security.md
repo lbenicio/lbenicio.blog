@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Blockchain Technology in Ensuring Data Security
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2019-05-18"
+type: posts
 ---
+
 
 
 

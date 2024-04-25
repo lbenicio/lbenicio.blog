@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Virtual Reality and
   Augmented Reality
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2018-02-06"
+type: posts
 ---
+
 
 
 

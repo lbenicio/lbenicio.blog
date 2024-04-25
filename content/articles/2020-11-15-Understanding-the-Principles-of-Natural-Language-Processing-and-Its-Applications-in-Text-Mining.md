@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing and Its Applications
   in Text Mining
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-11-15"
+type: posts
 ---
+
 
 
 

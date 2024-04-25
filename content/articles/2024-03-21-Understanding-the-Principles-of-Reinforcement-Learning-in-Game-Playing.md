@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Reinforcement Learning in Game Playing"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Algorithms ComputerGraphics MachineLearning
 categories: ArtificialIntelligence
 toc: true
 date: 2024-03-21
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Reinforcement Learning in Game Playing](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Reinforcement-Learning-in-Game-Playing)

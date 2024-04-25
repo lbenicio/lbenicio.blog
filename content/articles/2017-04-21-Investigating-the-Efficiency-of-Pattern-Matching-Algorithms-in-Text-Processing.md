@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Pattern Matching Algorithms in Text Processing
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2017-04-21"
+type: posts
 ---
+
 
 
 

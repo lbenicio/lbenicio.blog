@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An InDepth Analysis of Blockchain Technology and its Applications
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2018-07-12"
+type: posts
 ---
+
 
 
 

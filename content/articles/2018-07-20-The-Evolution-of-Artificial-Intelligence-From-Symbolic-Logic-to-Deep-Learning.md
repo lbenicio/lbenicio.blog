@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Artificial Intelligence: From Symbolic Logic to Deep Learning'
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2018-07-20"
+type: posts
 ---
+
 
 
 

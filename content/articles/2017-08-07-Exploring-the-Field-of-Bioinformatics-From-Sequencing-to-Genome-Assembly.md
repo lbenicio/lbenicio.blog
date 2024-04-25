@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Bioinformatics: From Sequencing to Genome Assembly'
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2017-08-07"
+type: posts
 ---
+
 
 
 

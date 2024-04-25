@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Compression Algorithms in Data Storage
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2021-03-22"
+type: posts
 ---
+
 
 # Investigating the Efficiency of Compression Algorithms in Data Storage
 

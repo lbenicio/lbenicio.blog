@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence on Cybersecurity
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-01-13"
+type: posts
 ---
+
 
 
 

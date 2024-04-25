@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Advancements in Natural Language Processing A Computational Linguistics Perspective"
 
 date: "2018-01-10"
+type: posts
 ---
+
 
 # Topic: The Evolution of Quantum Computing and its Potential Impact on Classical Algorithms
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Data Security and Privacy
 icon: fa-comment-alt
 categories: ["TechTrends"]
 toc: true
 date: "2022-08-23"
+type: posts
 ---
+
 
 
 

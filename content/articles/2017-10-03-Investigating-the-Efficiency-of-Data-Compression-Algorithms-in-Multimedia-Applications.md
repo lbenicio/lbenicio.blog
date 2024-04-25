@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Multimedia Applications
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-10-03"
+type: posts
 ---
+
 
 
 

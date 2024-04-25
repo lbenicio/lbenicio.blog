@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Data Structures: Abstracting for Efficiency and Flexibility'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discussion
 categories: ["data', 'structures', 'discussion', 'evolution"]
 
 date: "2020-12-22"
+type: posts
 ---
+
 
 
 Data structures are an essential part of computer science, as they provide a way to organize, store, and retrieve data efficiently. However, as technology evolves and becomes more complex, the need for more abstract data structures arises. In this paper, we will discuss the reasons why data structures are getting more abstract, the advantages and disadvantages of abstract data structures, and some examples of these structures.

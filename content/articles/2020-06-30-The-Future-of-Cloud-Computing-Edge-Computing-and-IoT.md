@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Cloud Computing: Edge Computing and IoT'
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-06-30"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Principles of Image Recognition and Computer Vision
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2020-06-05"
+type: posts
 ---
+
 
 
 

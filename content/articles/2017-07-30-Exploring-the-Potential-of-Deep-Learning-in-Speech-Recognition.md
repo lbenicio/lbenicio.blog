@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Deep Learning in Speech Recognition
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2017-07-30"
+type: posts
 ---
+
 
 
 

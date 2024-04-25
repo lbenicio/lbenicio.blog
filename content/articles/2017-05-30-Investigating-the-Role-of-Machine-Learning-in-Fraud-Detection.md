@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Role of Machine Learning in Fraud Detection
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-05-30"
+type: posts
 ---
+
 
 
 

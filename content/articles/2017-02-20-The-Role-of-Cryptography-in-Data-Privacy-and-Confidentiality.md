@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Cryptography in Data Privacy and Confidentiality
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2017-02-20"
+type: posts
 ---
+
 
 
 

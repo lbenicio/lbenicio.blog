@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2021-05-05"
+type: posts
 ---
+
 
 
 

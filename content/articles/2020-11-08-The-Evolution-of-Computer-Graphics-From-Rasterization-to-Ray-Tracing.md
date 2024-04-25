@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Graphics: From Rasterization to Ray Tracing'
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-11-08"
+type: posts
 ---
+
 
 
 

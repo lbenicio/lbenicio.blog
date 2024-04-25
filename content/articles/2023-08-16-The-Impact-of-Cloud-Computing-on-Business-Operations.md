@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["BigData"]
 toc: true
 date: "2023-08-16"
+type: posts
 ---
+
 
 
 

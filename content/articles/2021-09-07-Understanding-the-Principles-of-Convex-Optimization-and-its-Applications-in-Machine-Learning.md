@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convex Optimization and its Applications in
   Machine Learning
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2021-09-07"
+type: posts
 ---
+
 
 
 

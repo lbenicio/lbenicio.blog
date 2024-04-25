@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Impact of Blockchain Technology in Distributed Systems
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2021-12-31"
+type: posts
 ---
+
 
 
 

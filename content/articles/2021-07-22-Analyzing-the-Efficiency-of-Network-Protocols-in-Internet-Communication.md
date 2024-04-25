@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Network Protocols in Internet Communication
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2021-07-22"
+type: posts
 ---
+
 
 
 

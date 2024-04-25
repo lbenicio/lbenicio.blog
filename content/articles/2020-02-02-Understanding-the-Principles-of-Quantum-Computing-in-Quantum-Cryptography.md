@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing in Quantum Cryptography
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2020-02-02"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Optimizing Process Scheduling in Operating Systems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: operating system
 categories: ["operating', 'systems', 'process', 'scheduling"]
 
 date: "2021-05-30"
+type: posts
 ---
+
 
 
 Process scheduling is a crucial aspect of modern operating systems. It ensures that the CPU is utilized efficiently and that all processes get a fair share of the available resources. In this paper, we will explore various process scheduling algorithms and their implementations in operating systems. We will also discuss some of the challenges faced by operating systems when scheduling processes and how these challenges can be addressed.

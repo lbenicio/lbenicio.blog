@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Error Correction
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2020-08-11"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Algorithmic Discrimination
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discrimination, algorithms
 categories: ["discussion"]
 toc: true
 date: "2022-10-30"
+type: posts
 ---
+
 
 
 Today we are going to have a different post again. We are going to talk about Algorithmic Discrimination.

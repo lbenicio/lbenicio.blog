@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Analyzing the Efficiency of Search Algorithms: DepthFirst vs. BreadthFirst'
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2022-05-22"
+type: posts
 ---
+
 
 
 

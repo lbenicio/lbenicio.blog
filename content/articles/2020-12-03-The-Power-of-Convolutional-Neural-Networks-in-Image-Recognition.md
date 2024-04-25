@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Convolutional Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-12-03"
+type: posts
 ---
+
 
 
 

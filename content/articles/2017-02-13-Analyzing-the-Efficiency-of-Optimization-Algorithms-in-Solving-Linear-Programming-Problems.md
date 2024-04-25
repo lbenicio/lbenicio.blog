@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Optimization Algorithms in Solving Linear Programming
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-02-13"
+type: posts
 ---
+
 
 
 

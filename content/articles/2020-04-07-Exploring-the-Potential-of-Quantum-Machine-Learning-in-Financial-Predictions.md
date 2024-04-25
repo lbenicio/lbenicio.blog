@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Predictions
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2020-04-07"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Algorithmic Complexity: Understanding the Efficiency of Algorithms'
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-03-27"
+type: posts
 ---
+
 
 
 

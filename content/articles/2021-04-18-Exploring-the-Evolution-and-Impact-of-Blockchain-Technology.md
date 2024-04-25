@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Evolution and Impact of Blockchain Technology
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2021-04-18"
+type: posts
 ---
+
 
 
 

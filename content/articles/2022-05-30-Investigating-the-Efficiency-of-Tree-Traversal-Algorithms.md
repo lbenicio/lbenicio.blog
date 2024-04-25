@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Tree Traversal Algorithms
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2022-05-30"
+type: posts
 ---
+
 
 
 

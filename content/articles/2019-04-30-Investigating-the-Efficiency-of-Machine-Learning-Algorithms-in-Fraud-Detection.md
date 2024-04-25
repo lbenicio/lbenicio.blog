@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Machine Learning Algorithms in Fraud Detection
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2019-04-30"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: ExploringthePotentialofGeneticProgramming
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-06-15"
+type: posts
 ---
+
 
 
 

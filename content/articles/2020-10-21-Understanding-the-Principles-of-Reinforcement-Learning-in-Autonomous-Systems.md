@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Autonomous Systems
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2020-10-21"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Image Compression Algorithms
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2019-08-21"
+type: posts
 ---
+
 
 
 

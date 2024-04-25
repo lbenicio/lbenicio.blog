@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-08-13"
+type: posts
 ---
+
 
 
 

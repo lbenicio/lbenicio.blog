@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Generation
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2019-10-16"
+type: posts
 ---
+
 
 
 

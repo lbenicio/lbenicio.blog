@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Convolutional Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2013-12-16"
+type: posts
 ---
+
 
 
 

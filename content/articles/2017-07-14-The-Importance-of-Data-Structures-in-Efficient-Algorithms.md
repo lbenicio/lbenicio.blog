@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Data Structures in Efficient Algorithms
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-07-14"
+type: posts
 ---
+
 
 
 

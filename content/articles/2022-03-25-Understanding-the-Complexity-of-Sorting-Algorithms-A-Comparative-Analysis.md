@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Understanding the Complexity of Sorting Algorithms: A Comparative Analysis'
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2022-03-25"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Fraud Detection
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2022-01-30"
+type: posts
 ---
+
 
 
 

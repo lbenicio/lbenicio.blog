@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-06-01"
+type: posts
 ---
+
 
 
 

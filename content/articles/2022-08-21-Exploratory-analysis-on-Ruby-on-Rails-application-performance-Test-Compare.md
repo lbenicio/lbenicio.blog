@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploratory analysis on Ruby on Rails application performance test compare
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: scaling, ruby on rails, kubernetes, container orchestration
 categories: ["analysis"]
 toc: true
 date: "2022-08-21"
+type: posts
 ---
+
 
 
 Continuing our post series about rails app performance. This week we are going to see a summary of our current analysis.

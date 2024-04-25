@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-12-17"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2022-06-25"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Analysis of Different Graph Algorithms for Social Network Analysis
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2021-10-18"
+type: posts
 ---
+
 
 
 

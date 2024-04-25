@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power and Limitations of Artificial Intelligence in Natural Language Understanding
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2018-09-21"
+type: posts
 ---
+
 
 
 

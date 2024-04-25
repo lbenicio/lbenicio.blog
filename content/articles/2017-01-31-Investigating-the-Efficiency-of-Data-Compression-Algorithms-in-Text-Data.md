@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Text Data
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2017-01-31"
+type: posts
 ---
+
 
 
 

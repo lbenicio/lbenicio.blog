@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Rise of Machine Learning: Exploring Deep Neural Networks'
 icon: fa-comment-alt
 categories: ["Databases"]
 toc: true
 date: "2023-07-05"
+type: posts
 ---
+
 
 
 

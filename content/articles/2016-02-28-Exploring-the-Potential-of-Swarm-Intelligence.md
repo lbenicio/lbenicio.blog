@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Swarm Intelligence
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: MachineLearning Blockchain ComputerArchitecture
 categories: ["CodeReview"]
 
 date: "2016-02-28"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-03-08"
+type: posts
 ---
+
 
 
 

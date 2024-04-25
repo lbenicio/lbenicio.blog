@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2019-04-03"
+type: posts
 ---
+
 
 
 

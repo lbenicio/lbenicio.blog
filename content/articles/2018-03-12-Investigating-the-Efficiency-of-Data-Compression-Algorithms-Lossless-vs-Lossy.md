@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Investigating the Efficiency of Data Compression Algorithms: Lossless vs Lossy'
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2018-03-12"
+type: posts
 ---
+
 
 
 

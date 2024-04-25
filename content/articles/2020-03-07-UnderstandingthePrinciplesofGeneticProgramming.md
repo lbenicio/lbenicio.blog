@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: UnderstandingthePrinciplesofGeneticProgramming
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-03-07"
+type: posts
 ---
+
 
 
 

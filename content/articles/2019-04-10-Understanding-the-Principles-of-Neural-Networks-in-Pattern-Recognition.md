@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Neural Networks in Pattern Recognition
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-04-10"
+type: posts
 ---
+
 
 
 

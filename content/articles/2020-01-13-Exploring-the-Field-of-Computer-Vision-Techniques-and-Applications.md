@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computer Vision: Techniques and Applications'
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-01-13"
+type: posts
 ---
+
 
 
 

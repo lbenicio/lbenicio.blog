@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 toc: true
 date: "2023-05-27"
+type: posts
 ---
+
 
 
 

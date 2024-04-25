@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'An Overview of Quantum Error Correction: Ensuring Reliable Quantum Computing'
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2021-12-28"
+type: posts
 ---
+
 
 
 

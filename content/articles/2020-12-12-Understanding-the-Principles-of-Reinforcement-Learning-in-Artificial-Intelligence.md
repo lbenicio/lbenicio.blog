@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Artificial Intelligence
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-12-12"
+type: posts
 ---
+
 
 # Understanding the Principles of Reinforcement Learning in Artificial Intelligence
 

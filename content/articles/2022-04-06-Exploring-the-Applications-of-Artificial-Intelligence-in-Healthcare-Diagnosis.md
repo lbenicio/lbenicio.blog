@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Healthcare Diagnosis
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2022-04-06"
+type: posts
 ---
+
 
 
 

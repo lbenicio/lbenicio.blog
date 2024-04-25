@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Supply Chain Management
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2019-05-13"
+type: posts
 ---
+
 
 
 

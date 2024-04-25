@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-01-06"
+type: posts
 ---
+
 
 
 

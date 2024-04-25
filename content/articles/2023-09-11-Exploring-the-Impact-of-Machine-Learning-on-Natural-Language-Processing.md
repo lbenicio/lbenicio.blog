@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Impact of Machine Learning on Natural Language Processing
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2023-09-11"
+type: posts
 ---
+
 
 
 

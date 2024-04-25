@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Matrix Multiplication Algorithms in Numerical
   Computing
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-04-19"
+type: posts
 ---
+
 
 
 

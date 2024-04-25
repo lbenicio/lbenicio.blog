@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Graphics: From Rasterization to Ray Tracing'
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2020-12-17"
+type: posts
 ---
+
 
 
 

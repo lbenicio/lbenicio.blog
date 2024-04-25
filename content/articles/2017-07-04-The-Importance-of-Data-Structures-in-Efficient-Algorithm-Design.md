@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2017-07-04"
+type: posts
 ---
+
 
 
 

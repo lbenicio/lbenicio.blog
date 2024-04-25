@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Robotics: From Manipulation to Autonomous Systems'
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2019-08-28"
+type: posts
 ---
+
 
 
 

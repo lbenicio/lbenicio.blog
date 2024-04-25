@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Structures in Largescale Databases
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2021-07-23"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Speech Recognition
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2018-03-07"
+type: posts
 ---
+
 
 
 

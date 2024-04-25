@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computational Biology and its Impact on Medicine
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-06-30"
+type: posts
 ---
+
 
 
 

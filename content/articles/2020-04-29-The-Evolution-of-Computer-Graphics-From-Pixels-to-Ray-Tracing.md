@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Graphics: From Pixels to Ray Tracing'
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2020-04-29"
+type: posts
 ---
+
 
 
 

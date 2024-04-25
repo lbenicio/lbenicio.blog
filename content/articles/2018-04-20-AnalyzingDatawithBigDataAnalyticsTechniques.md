@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: AnalyzingDatawithBigDataAnalyticsTechniques
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2018-04-20"
+type: posts
 ---
+
 
 
 

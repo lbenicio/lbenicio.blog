@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Data Mining in Customer Segmentation"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Databases CloudComputing Bioinformatics
 categories: CloudComputing
 toc: true
 date: 2024-01-08
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Data Mining in Customer Segmentation](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Data-Mining-in-Customer-Segmentation)

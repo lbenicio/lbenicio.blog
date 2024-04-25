@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Artificial Intelligence in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-01-26"
+type: posts
 ---
+
 
 
 

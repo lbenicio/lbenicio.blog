@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Applications of Blockchain Technology in Cybersecurity
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2020-09-25"
+type: posts
 ---
+
 
 
 

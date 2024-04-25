@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Cybersecurity
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-07-17"
+type: posts
 ---
+
 
 
 

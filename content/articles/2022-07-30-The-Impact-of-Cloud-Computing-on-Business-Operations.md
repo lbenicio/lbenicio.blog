@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 toc: true
 date: "2022-07-30"
+type: posts
 ---
+
 
 
 

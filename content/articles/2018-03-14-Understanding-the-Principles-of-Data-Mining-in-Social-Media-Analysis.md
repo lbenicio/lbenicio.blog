@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Mining in Social Media Analysis
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2018-03-14"
+type: posts
 ---
+
 
 
 

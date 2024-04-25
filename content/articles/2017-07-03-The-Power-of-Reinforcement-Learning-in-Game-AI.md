@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Reinforcement Learning in Game AI
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2017-07-03"
+type: posts
 ---
+
 
 
 

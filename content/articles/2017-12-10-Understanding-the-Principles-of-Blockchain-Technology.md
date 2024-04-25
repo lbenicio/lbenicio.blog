@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Blockchain Technology
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2017-12-10"
+type: posts
 ---
+
 
 
 

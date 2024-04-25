@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-02-05"
+type: posts
 ---
+
 
 
 

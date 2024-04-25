@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Blockchain Technology in Data Security
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2020-01-21"
+type: posts
 ---
+
 
 
 

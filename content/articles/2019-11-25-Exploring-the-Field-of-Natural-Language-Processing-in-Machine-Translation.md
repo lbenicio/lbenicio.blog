@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2019-11-25"
+type: posts
 ---
+
 
 
 

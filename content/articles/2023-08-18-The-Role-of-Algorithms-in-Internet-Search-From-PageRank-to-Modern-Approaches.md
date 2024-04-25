@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Role of Algorithms in Internet Search: From PageRank to Modern Approaches'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2023-08-18"
+type: posts
 ---
+
 
 
 

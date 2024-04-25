@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Natural Computing: From Cellular Automata to Genetic
   Programming'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-12-28"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Quantum Computing: An Overview'
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2021-08-01"
+type: posts
 ---
+
 
 
 

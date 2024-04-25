@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Data Storage and Management
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2021-01-07"
+type: posts
 ---
+
 
 
 

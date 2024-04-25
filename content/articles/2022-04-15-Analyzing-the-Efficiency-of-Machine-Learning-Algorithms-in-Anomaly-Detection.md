@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Anomaly Detection
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2022-04-15"
+type: posts
 ---
+
 
 
 

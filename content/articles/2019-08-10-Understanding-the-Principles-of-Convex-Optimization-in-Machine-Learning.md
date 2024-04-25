@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convex Optimization in Machine Learning
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-08-10"
+type: posts
 ---
+
 
 
 

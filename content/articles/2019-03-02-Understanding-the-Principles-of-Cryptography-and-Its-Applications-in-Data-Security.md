@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography and Its Applications in Data Security
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2019-03-02"
+type: posts
 ---
+
 
 
 

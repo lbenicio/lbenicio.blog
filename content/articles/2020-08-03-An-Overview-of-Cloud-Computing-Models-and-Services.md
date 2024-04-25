@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: An Overview of Cloud Computing Models and Services
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: CloudComputing Bioinformatics ComputerVision
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2020-08-03"
+type: posts
 ---
+
 
 
 

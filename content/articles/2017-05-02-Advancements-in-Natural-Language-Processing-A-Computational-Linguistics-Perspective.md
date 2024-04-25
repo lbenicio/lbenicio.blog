@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Advancements in Natural Language Processing: A Computational Linguistics Perspective'
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-05-02"
+type: posts
 ---
+
 
 
 

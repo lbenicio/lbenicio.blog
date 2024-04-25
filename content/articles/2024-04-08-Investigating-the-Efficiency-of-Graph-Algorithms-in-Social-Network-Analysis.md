@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Graph Algorithms in Social Network Analysis"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: MachineLearning Programming DataStructures
 categories: ComputerVision
 toc: true
 date: 2024-04-08
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Graph Algorithms in Social Network Analysis](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Graph-Algorithms-in-Social-Network-Analysis)

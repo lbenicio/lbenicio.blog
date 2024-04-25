@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Predictive Analytics
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2019-05-22"
+type: posts
 ---
+
 
 
 

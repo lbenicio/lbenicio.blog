@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-02-06"
+type: posts
 ---
+
 
 
 

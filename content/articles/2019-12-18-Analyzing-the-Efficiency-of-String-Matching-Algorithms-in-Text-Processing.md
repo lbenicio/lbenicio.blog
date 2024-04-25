@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of String Matching Algorithms in Text Processing
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2019-12-18"
+type: posts
 ---
+
 
 
 

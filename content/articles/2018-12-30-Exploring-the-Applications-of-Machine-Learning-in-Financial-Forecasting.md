@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Financial Forecasting
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2018-12-30"
+type: posts
 ---
+
 
 
 

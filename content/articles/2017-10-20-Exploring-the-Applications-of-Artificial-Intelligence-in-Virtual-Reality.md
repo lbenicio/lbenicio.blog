@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Virtual Reality
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-10-20"
+type: posts
 ---
+
 
 
 

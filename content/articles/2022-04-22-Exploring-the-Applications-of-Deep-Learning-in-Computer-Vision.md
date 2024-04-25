@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Computer Vision
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2022-04-22"
+type: posts
 ---
+
 
 
 

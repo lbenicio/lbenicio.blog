@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Applications of Machine Learning in Recommender Systems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: MachineLearning QuantumComputing CloudComputing
 categories: ComputerVision
 toc: true
 date: 2024-03-13
+type: posts
 ---
+
 
 
 ![Investigating the Applications of Machine Learning in Recommender Systems](https://cdn.lbenicio.dev/posts/Investigating-the-Applications-of-Machine-Learning-in-Recommender-Systems)

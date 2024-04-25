@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 toc: true
 date: "2023-08-20"
+type: posts
 ---
+
 
 
 

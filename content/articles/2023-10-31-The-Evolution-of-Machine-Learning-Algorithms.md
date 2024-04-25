@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 toc: true
 date: "2023-10-31"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-09-21"
+type: posts
 ---
+
 
 
 

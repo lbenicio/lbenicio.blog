@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Matrix Factorization Algorithms in Recommender
   Systems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2018-01-11"
+type: posts
 ---
+
 
 
 

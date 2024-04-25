@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Machine Learning on Pattern Recognition
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2019-05-21"
+type: posts
 ---
+
 
 
 

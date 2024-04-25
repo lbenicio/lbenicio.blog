@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Deep Learning and Neural Networks
 icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2022-12-31"
+type: posts
 ---
+
 
 
 

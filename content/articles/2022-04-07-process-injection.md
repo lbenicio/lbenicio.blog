@@ -1,10 +1,13 @@
 ---
+
 type: "posts"
 title: Process Injection
 icon: fa-comment-alt
 
 date: "2022-04-07"
+type: posts
 ---
+
 
 
 The process of injecting code into a running application, often referred to as "code injection," is a powerful technique that can be used to modify the behavior of an application without modifying its original code. This technique is commonly used in the field of software development, as well as in the field of security and penetration testing.

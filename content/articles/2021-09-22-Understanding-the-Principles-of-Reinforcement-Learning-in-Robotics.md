@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2021-09-22"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Bioinformatics: Bridging Biology and Computer Science'
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-01-15"
+type: posts
 ---
+
 
 
 

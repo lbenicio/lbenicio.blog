@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Convolutional Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-11-23"
+type: posts
 ---
+
 
 
 

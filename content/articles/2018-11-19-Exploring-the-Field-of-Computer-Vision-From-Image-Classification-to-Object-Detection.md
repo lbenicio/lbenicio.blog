@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computer Vision: From Image Classification to Object
   Detection'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2018-11-19"
+type: posts
 ---
+
 
 
 

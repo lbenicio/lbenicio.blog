@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Cryptography
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2017-08-30"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Knowledge Graph Construction
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-07-15"
+type: posts
 ---
+
 
 
 

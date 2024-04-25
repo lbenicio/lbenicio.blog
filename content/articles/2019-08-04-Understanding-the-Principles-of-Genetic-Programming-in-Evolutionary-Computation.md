@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Genetic Programming in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2019-08-04"
+type: posts
 ---
+
 
 
 

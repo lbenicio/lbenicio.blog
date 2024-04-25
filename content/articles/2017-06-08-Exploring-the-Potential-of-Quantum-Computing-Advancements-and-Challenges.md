@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Potential of Quantum Computing: Advancements and Challenges'
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-06-08"
+type: posts
 ---
+
 
 
 

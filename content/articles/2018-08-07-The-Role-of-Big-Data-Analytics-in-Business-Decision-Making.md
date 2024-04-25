@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Big Data Analytics in Business Decision Making
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-08-07"
+type: posts
 ---
+
 
 
 

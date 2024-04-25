@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Potential of Machine Learning in Fraud Detection
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-06-04"
+type: posts
 ---
+
 
 
 

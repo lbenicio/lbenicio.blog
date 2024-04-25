@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computer Vision and Its Applications
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2021-02-16"
+type: posts
 ---
+
 
 
 

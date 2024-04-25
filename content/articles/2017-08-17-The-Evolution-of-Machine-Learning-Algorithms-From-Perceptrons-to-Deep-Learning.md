@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Machine Learning Algorithms: From Perceptrons to Deep Learning'
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2017-08-17"
+type: posts
 ---
+
 
 
 

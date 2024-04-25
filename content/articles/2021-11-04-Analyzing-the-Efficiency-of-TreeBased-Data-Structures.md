@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of TreeBased Data Structures
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2021-11-04"
+type: posts
 ---
+
 
 
 

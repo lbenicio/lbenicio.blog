@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Understanding in Chatbots
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-06-28"
+type: posts
 ---
+
 
 
 

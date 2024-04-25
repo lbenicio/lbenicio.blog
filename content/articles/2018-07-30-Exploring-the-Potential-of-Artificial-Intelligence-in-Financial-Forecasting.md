@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Artificial Intelligence in Financial Forecasting
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-07-30"
+type: posts
 ---
+
 
 
 

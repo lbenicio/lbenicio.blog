@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Evolving Landscape of Cloud Computing: An Indepth Analysis of Scalability
   and Security'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["BigData"]
 toc: true
 date: "2022-08-21"
+type: posts
 ---
+
 
 
 

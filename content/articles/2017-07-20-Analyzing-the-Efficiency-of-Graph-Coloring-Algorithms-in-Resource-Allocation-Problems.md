@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Coloring Algorithms in Resource Allocation
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2017-07-20"
+type: posts
 ---
+
 
 
 

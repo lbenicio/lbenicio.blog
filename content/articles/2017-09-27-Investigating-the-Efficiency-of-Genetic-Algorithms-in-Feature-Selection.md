@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Genetic Algorithms in Feature Selection
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: e i
 categories: ["MachineLearning"]
 
 date: "2017-09-27"
+type: posts
 ---
+
 
 # Investigating the Efficiency of Genetic Algorithms in Feature Selection
 

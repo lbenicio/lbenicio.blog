@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: ExploringtheFieldofNaturalLanguageProcessinginInformationRetrieval
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-01-24"
+type: posts
 ---
+
 
 
 

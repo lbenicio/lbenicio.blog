@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Generation
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2020-01-28"
+type: posts
 ---
+
 
 
 

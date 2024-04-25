@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Autonomous Systems
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2017-09-14"
+type: posts
 ---
+
 
 
 

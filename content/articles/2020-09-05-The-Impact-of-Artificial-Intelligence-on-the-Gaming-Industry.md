@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence on the Gaming Industry
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-09-05"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Storage Optimization
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2018-04-15"
+type: posts
 ---
+
 
 
 

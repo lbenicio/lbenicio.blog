@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Importance of Cryptography in Securing Your Data
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: security
 categories: ["security', 'criptography', 'discussion"]
 
 date: "2021-01-26"
+type: posts
 ---
+
 
 
 The proliferation of technology has brought about a digital age, which has significantly impacted various aspects of life, including communication, commerce, and social interactions. However, the convenience and efficiency of digital communication come with a significant downside - the vulnerability of data to cyber threats. With the rise of cyber attacks such as hacking, identity theft, and data breaches, there is an urgent need to secure digital data.

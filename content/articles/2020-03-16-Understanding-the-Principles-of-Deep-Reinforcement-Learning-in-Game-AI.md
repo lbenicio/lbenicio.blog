@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Reinforcement Learning in Game AI
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-03-16"
+type: posts
 ---
+
 
 
 

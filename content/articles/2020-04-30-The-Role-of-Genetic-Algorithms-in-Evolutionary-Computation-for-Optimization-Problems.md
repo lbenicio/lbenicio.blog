@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolutionary Computation for Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2020-04-30"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Sorting Algorithms in Large Datasets
 icon: fa-comment-alt
 categories: ["Cryptography"]
 toc: true
 date: "2022-12-10"
+type: posts
 ---
+
 
 
 

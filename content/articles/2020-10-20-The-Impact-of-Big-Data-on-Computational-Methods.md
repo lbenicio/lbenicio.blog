@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data on Computational Methods
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2020-10-20"
+type: posts
 ---
+
 
 
 

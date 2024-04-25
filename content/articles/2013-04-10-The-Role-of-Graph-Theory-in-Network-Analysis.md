@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2013-04-10"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Data Mining and its Applications in Business Intelligence"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerArchitecture QuantumComputing SoftwareEngineering
 categories: ComputerVision
 toc: true
 date: 2024-04-15
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Data Mining and its Applications in Business Intelligence](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Data-Mining-and-its-Applications-in-Business-Intelligence)

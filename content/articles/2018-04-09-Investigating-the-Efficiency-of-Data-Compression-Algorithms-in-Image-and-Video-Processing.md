@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Image and Video
   Processing
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2018-04-09"
+type: posts
 ---
+
 
 
 

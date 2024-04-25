@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2019-01-22"
+type: posts
 ---
+
 
 
 

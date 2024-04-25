@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Advancements in Quantum Computing
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2021-02-10"
+type: posts
 ---
+
 
 
 

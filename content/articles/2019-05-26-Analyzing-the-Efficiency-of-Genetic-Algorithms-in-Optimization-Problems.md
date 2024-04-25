@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2019-05-26"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 toc: true
 date: "2023-09-20"
+type: posts
 ---
+
 
 
 

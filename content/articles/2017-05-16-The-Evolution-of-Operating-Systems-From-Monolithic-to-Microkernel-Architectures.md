@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Operating Systems: From Monolithic to Microkernel Architectures'
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-05-16"
+type: posts
 ---
+
 
 
 

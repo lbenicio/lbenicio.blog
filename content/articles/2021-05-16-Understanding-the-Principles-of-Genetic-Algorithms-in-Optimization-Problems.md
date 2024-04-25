@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2021-05-16"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Use of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-06-10"
+type: posts
 ---
+
 
 
 

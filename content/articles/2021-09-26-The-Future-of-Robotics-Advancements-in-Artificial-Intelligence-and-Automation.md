@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Robotics: Advancements in Artificial Intelligence and Automation'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-09-26"
+type: posts
 ---
+
 
 
 

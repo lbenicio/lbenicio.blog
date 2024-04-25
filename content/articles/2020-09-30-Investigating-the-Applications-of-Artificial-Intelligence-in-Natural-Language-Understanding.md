@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Applications of Artificial Intelligence in Natural Language
   Understanding
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-09-30"
+type: posts
 ---
+
 
 
 

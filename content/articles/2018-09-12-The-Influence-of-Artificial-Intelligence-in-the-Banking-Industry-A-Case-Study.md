@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Influence of Artificial Intelligence in the Banking Industry: A Case Study'
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-09-12"
+type: posts
 ---
+
 
 
 

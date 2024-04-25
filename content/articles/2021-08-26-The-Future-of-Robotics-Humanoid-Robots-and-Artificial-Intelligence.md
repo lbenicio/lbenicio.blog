@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Robotics: Humanoid Robots and Artificial Intelligence'
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-08-26"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Art of Searching: A Comprehensive Study of Search Algorithms'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: MachineLearning ComputerVision CodeQuality
 categories: ["Algorithms"]
 
 date: "2013-05-15"
+type: posts
 ---
+
 
 
 

@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring the Evolution and Impact of Quantum Computing on Traditional Algorithms"
 
 date: "2020-08-24"
+type: posts
 ---
+
 
 # Quantum Computing: A Revolutionary Trend and Its Impact on Algorithms
 

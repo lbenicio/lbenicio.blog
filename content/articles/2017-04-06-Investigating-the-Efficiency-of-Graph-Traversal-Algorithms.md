@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Traversal Algorithms
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2017-04-06"
+type: posts
 ---
+
 
 
 

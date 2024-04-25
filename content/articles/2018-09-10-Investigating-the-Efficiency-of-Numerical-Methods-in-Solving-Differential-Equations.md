@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2018-09-10"
+type: posts
 ---
+
 
 
 

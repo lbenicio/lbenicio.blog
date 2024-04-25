@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Augmented Reality in Education
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2018-10-09"
+type: posts
 ---
+
 
 
 

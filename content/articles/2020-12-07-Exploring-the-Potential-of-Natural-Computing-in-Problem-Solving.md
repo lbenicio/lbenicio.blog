@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Natural Computing in Problem Solving
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2020-12-07"
+type: posts
 ---
+
 
 
 

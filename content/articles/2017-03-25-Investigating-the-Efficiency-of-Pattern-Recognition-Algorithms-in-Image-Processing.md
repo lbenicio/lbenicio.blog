@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Pattern Recognition Algorithms in Image Processing
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-03-25"
+type: posts
 ---
+
 
 
 

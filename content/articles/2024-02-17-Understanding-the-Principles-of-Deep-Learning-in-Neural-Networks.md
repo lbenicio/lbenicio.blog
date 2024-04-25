@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Deep Learning in Neural Networks"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Cryptography CodeReview CloudComputing
 categories: Cryptography
 toc: true
 date: 2024-02-17
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Deep Learning in Neural Networks](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Deep-Learning-in-Neural-Networks)

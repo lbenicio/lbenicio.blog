@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Cybersecurity: Threat Detection and Incident Response'
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2018-12-27"
+type: posts
 ---
+
 
 
 

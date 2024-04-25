@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Probability Theory in Data Science
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2021-10-28"
+type: posts
 ---
+
 
 
 

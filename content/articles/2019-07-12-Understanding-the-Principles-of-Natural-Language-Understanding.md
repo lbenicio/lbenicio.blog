@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Understanding
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2019-07-12"
+type: posts
 ---
+
 
 
 

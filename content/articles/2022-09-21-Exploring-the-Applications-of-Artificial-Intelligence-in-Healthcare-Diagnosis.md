@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Healthcare Diagnosis
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2022-09-21"
+type: posts
 ---
+
 
 
 

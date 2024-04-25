@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Optimization
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-03-25"
+type: posts
 ---
+
 
 
 

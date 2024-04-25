@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Computational Geometry in Computer Graphics
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2021-09-15"
+type: posts
 ---
+
 
 
 

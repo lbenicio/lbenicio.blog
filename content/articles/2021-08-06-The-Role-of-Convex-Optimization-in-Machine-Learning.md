@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Convex Optimization in Machine Learning
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2021-08-06"
+type: posts
 ---
+
 
 
 

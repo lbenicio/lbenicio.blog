@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Clustering Algorithms in Data Mining
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-05-26"
+type: posts
 ---
+
 
 
 

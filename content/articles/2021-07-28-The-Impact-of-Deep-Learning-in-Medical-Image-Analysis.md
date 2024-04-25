@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Deep Learning in Medical Image Analysis
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2021-07-28"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Parallel Computing: Harnessing the Power of Multiple Processors'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: CodeQuality Cybersecurity ComputerGraphics
 categories: ["MachineLearning"]
 toc: true
 date: "2023-07-01"
+type: posts
 ---
+
 
 
 

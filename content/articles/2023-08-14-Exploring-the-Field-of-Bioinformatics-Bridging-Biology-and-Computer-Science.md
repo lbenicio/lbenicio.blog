@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Bioinformatics: Bridging Biology and Computer Science'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 toc: true
 date: "2023-08-14"
+type: posts
 ---
+
 
 
 

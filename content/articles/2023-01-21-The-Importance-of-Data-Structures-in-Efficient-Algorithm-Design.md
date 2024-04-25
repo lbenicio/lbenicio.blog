@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 toc: true
 date: "2023-01-21"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Algorithms in Image and Video Compression
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2021-06-22"
+type: posts
 ---
+
 
 
 

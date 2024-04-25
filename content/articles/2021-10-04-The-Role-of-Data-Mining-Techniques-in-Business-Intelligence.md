@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Mining Techniques in Business Intelligence
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2021-10-04"
+type: posts
 ---
+
 
 
 

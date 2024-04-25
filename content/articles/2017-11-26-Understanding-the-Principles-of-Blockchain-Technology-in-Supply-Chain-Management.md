@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Blockchain Technology in Supply Chain Management
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-11-26"
+type: posts
 ---
+
 
 
 

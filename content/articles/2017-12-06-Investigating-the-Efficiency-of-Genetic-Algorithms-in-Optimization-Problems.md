@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-12-06"
+type: posts
 ---
+
 
 
 

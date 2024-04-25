@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Computer Vision and Image Processing
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2021-10-27"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Data Mining Algorithms in Big Data Analytics"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Programming EthicalHacking Blockchain
 categories: ComputerVision
 toc: true
 date: 2023-12-21
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Data Mining Algorithms in Big Data Analytics](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Data-Mining-Algorithms-in-Big-Data-Analytics)

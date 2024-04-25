@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2018-01-30"
+type: posts
 ---
+
 
 
 

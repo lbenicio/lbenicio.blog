@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-09-10"
+type: posts
 ---
+
 
 
 

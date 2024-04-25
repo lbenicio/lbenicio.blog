@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Computer Vision
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 toc: true
 date: "2022-10-29"
+type: posts
 ---
+
 
 
 

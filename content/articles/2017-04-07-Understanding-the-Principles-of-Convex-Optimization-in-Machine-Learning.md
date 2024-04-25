@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convex Optimization in Machine Learning
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-04-07"
+type: posts
 ---
+
 
 
 

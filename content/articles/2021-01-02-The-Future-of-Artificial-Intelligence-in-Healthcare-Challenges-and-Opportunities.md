@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Artificial Intelligence in Healthcare: Challenges and Opportunities'
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2021-01-02"
+type: posts
 ---
+
 
 
 

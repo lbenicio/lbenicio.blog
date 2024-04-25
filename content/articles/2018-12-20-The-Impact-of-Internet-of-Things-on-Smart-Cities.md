@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Internet of Things on Smart Cities
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2018-12-20"
+type: posts
 ---
+
 
 
 

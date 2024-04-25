@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence in the Financial Industry
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-01-21"
+type: posts
 ---
+
 
 
 

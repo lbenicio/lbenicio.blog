@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Time Series Analysis
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2020-08-12"
+type: posts
 ---
+
 
 
 

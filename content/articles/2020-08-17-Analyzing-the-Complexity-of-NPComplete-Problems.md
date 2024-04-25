@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Complexity of NPComplete Problems
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-08-17"
+type: posts
 ---
+
 
 
 

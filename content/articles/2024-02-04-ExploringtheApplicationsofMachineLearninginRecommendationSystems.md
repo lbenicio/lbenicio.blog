@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "ExploringtheApplicationsofMachineLearninginRecommendationSystems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Cybersecurity ComputerVision BigData
 categories: OperatingSystems
 toc: true
 date: 2024-02-04
+type: posts
 ---
+
 
 
 ![ExploringtheApplicationsofMachineLearninginRecommendationSystems](https://cdn.lbenicio.dev/posts/ExploringtheApplicationsofMachineLearninginRecommendationSystems)

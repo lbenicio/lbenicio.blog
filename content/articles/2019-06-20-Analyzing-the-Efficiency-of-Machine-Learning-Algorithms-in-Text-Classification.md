@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Text Classification
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2019-06-20"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Optimization Algorithms in Constraint Satisfaction
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-11-21"
+type: posts
 ---
+
 
 
 

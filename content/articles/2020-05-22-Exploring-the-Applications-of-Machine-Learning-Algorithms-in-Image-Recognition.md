@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning Algorithms in Image Recognition
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2020-05-22"
+type: posts
 ---
+
 
 
 

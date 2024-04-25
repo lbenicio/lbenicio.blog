@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Voice Assistants
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-09-30"
+type: posts
 ---
+
 
 
 

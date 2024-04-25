@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Cryptography: From Caesar Cipher to Quantum Cryptography'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: criptography
 categories: ["criptography', 'history"]
 
 date: "2021-06-21"
+type: posts
 ---
+
 
 
 Cryptography is the practice of securing information by converting it into a code that can only be read by someone who has the key to decipher it. Cryptography has been used for centuries to protect sensitive information, from military secrets to financial transactions. In this article, we will explore the different cryptographic systems, their usage, advantages, and disadvantages, and how cryptography has evolved over the years.

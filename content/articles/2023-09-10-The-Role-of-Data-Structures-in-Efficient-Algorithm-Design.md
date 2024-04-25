@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 toc: true
 date: "2023-09-10"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Cybersecurity
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-08-05"
+type: posts
 ---
+
 
 
 

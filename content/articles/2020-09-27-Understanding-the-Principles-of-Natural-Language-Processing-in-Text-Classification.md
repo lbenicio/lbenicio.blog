@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Text Classification
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-09-27"
+type: posts
 ---
+
 
 
 

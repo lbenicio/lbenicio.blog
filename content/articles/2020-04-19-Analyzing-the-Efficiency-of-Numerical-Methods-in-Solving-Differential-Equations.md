@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2020-04-19"
+type: posts
 ---
+
 
 
 

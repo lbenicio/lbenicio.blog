@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Blockchain Technology on Cybersecurity
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2021-07-21"
+type: posts
 ---
+
 
 
 

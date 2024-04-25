@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: InvestigatingtheEfficiencyofApproximationAlgorithmsinOptimizationProblems
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-06-06"
+type: posts
 ---
+
 
 
 

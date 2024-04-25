@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2017-11-24"
+type: posts
 ---
+
 
 
 

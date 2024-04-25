@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Parallel Algorithms in Big Data Processing"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Networking MobileDevelopment CodeQuality
 categories: Programming
 toc: true
 date: 2023-12-23
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Parallel Algorithms in Big Data Processing](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Parallel-Algorithms-in-Big-Data-Processing)

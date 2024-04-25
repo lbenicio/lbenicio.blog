@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Sentiment Analysis
   for Customer Reviews
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2018-11-03"
+type: posts
 ---
+
 
 
 

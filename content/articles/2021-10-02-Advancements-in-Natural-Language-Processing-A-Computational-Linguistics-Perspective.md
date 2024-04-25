@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Advancements in Natural Language Processing: A Computational Linguistics Perspective'
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2021-10-02"
+type: posts
 ---
+
 
 
 

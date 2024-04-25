@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-06-12"
+type: posts
 ---
+
 
 
 

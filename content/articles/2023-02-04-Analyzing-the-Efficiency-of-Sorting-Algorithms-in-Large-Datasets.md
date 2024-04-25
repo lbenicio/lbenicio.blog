@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Sorting Algorithms in Large Datasets
 icon: fa-comment-alt
 categories: ["Algorithms"]
 toc: true
 date: "2023-02-04"
+type: posts
 ---
+
 
 
 

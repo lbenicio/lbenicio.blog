@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Impact of Cybersecurity Threats on the Internet of Things"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Bioinformatics SoftwareTesting IoT Internet of Things
 categories: CodeReview
 toc: true
 date: 2023-12-28
+type: posts
 ---
+
 
 
 ![The Impact of Cybersecurity Threats on the Internet of Things](https://cdn.lbenicio.dev/posts/The-Impact-of-Cybersecurity-Threats-on-the-Internet-of-Things)

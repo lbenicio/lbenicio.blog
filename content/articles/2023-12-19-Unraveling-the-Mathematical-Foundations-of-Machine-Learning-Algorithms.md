@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Unraveling the Mathematical Foundations of Machine Learning Algorithms"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: OperatingSystems Cryptography ComputerScience
 categories: MachineLearning
 toc: true
 date: 2023-12-19
+type: posts
 ---
+
 
 
 ![Unraveling the Mathematical Foundations of Machine Learning Algorithms](https://cdn.lbenicio.dev/posts/Unraveling-the-Mathematical-Foundations-of-Machine-Learning-Algorithms)

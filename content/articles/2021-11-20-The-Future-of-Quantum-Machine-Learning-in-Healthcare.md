@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Quantum Machine Learning in Healthcare
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2021-11-20"
+type: posts
 ---
+
 
 
 

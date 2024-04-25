@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-09-17"
+type: posts
 ---
+
 
 
 

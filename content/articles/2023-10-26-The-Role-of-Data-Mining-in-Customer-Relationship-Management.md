@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Mining in Customer Relationship Management
 icon: fa-comment-alt
 categories: ["Cryptography"]
 toc: true
 date: "2023-10-26"
+type: posts
 ---
+
 
 
 

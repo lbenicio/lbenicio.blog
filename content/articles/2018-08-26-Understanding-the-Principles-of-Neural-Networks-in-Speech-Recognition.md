@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Neural Networks in Speech Recognition
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2018-08-26"
+type: posts
 ---
+
 
 
 

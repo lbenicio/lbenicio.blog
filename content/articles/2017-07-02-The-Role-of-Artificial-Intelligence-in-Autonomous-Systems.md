@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Autonomous Systems
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-07-02"
+type: posts
 ---
+
 
 
 

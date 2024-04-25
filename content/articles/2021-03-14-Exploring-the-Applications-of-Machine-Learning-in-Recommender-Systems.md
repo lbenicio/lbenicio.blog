@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2021-03-14"
+type: posts
 ---
+
 
 
 

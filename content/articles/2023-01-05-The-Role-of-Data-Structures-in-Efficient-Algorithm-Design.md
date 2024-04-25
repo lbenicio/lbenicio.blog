@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-01-05"
+type: posts
 ---
+
 
 # The Role of Data Structures in Efficient Algorithm Design
 

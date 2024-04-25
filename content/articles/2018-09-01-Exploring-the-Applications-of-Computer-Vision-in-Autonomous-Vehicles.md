@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2018-09-01"
+type: posts
 ---
+
 
 
 

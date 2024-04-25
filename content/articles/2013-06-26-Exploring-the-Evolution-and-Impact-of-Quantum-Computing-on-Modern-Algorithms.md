@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring the Evolution and Impact of Quantum Computing on Modern Algorithms"
 
 date: "2013-06-26"
+type: posts
 ---
+
 
 Topic: Evolutions in Quantum Computing and their Impact on Traditional Computation and Algorithms
 

@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "From RSA to ECC Evolution of Cryptography in Information Security"
 
 date: "2020-10-27"
+type: posts
 ---
+
 
 # Topic: Quantum Computing and its Impact on Classical Algorithms
 

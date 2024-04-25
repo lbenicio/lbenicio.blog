@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2022-05-15"
+type: posts
 ---
+
 
 
 

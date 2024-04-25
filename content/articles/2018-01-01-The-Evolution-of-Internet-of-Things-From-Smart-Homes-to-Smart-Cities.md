@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Internet of Things: From Smart Homes to Smart Cities'
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-01-01"
+type: posts
 ---
+
 
 
 

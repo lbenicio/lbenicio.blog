@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Functional Programming in Software Development
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-04-30"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Computer Vision
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-11-16"
+type: posts
 ---
+
 
 
 

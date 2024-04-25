@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Genetic Programming in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-04-14"
+type: posts
 ---
+
 
 
 

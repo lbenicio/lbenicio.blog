@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-02-18"
+type: posts
 ---
+
 
 
 

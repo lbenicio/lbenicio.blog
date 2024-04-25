@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Art of Software Engineering: Best Practices and Methodologies in Development'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2022-02-02"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Genetic Algorithms in Solving Traveling Salesman
   Problem
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2019-12-10"
+type: posts
 ---
+
 
 
 

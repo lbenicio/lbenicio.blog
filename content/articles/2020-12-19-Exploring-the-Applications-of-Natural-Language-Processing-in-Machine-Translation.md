@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-12-19"
+type: posts
 ---
+
 
 
 

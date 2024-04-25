@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography and Its Applications in Data Security
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-07-27"
+type: posts
 ---
+
 
 
 

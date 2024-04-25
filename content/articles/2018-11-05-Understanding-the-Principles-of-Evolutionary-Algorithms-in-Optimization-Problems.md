@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Evolutionary Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-11-05"
+type: posts
 ---
+
 
 
 

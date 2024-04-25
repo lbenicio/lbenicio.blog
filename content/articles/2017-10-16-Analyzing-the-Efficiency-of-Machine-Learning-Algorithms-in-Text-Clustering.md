@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Text Clustering
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2017-10-16"
+type: posts
 ---
+
 
 
 

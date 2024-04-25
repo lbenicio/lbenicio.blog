@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 toc: true
 date: "2023-02-01"
+type: posts
 ---
+
 
 
 

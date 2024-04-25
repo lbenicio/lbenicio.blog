@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Database Consistence Modes
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discussion database
 categories: ["discussion"]
 toc: true
 date: "2023-01-15"
+type: posts
 ---
+
 
 
 In a database, data consistency refers to the accuracy and integrity of data. It is important to maintain data consistency in order to ensure that the data in the database is correct and reliable. There are several different models for maintaining data consistency in a database, including the following:

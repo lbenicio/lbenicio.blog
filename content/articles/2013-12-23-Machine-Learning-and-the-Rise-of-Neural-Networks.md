@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Machine Learning and the Rise of Neural Networks
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2013-12-23"
+type: posts
 ---
+
 
 
 

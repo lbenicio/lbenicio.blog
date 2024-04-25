@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-10-25"
+type: posts
 ---
+
 
 
 

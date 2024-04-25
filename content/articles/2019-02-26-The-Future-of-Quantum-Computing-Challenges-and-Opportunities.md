@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Quantum Computing: Challenges and Opportunities'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2019-02-26"
+type: posts
 ---
+
 
 
 

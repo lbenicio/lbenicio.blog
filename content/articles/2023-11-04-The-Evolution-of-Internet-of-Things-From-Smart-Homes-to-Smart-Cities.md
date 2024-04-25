@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Internet of Things: From Smart Homes to Smart Cities'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: CloudComputing ComputerGraphics SoftwareEngineering
 categories: ["Cryptography"]
 toc: true
 date: "2023-11-04"
+type: posts
 ---
+
 
 
 # The Evolution of Internet of Things: From Smart Homes to Smart Cities

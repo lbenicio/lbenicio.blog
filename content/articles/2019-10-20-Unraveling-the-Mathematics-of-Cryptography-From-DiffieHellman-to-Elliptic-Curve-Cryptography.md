@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mathematics of Cryptography: From DiffieHellman to Elliptic
   Curve Cryptography'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2019-10-20"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Speech Recognition
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2019-01-26"
+type: posts
 ---
+
 
 
 

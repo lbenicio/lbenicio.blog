@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptocurrency Mining and Blockchain Consensus
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2019-10-09"
+type: posts
 ---
+
 
 
 

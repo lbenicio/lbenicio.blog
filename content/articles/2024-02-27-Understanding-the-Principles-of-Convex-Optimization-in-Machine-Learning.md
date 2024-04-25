@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Convex Optimization in Machine Learning"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: SoftwareTesting ComputerGraphics QuantumComputing
 categories: ArtificialIntelligence
 toc: true
 date: 2024-02-27
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Convex Optimization in Machine Learning](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Convex-Optimization-in-Machine-Learning)

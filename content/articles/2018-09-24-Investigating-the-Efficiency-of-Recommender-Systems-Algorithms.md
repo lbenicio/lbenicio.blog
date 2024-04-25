@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Recommender Systems Algorithms
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-09-24"
+type: posts
 ---
+
 
 
 

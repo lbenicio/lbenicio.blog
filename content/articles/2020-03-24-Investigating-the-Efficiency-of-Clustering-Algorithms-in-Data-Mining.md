@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Clustering Algorithms in Data Mining
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2020-03-24"
+type: posts
 ---
+
 
 
 

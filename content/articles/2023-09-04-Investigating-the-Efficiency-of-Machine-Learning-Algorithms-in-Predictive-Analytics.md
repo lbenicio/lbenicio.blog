@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Machine Learning Algorithms in Predictive Analytics
 icon: fa-comment-alt
 categories: ["TechTrends"]
 toc: true
 date: "2023-09-04"
+type: posts
 ---
+
 
 
 

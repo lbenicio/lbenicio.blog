@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Page Replacement Algorithms in Operating Systems
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2019-09-07"
+type: posts
 ---
+
 
 
 

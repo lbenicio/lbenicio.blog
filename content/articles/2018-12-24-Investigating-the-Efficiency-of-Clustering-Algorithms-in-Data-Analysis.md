@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Clustering Algorithms in Data Analysis
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-12-24"
+type: posts
 ---
+
 
 
 

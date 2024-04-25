@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Quantum Machine Learning in Data Analysis
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2019-05-28"
+type: posts
 ---
+
 
 
 

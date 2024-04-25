@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Approximation Algorithms in NPHard Problems
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-03-24"
+type: posts
 ---
+
 
 
 

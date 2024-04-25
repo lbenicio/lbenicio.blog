@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Bioinformatics: Bridging Biology and Computer Science'
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-10-10"
+type: posts
 ---
+
 
 
 

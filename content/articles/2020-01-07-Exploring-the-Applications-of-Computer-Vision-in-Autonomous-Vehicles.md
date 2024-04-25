@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-01-07"
+type: posts
 ---
+
 
 
 

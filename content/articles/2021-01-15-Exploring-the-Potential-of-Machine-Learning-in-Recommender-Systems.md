@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-01-15"
+type: posts
 ---
+
 
 
 

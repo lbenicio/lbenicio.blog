@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Quantum Cryptography: Unbreakable Encryption'
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2018-11-17"
+type: posts
 ---
+
 
 
 

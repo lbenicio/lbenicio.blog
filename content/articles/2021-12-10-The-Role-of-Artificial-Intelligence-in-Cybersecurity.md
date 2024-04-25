@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Cybersecurity
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2021-12-10"
+type: posts
 ---
+
 
 
 

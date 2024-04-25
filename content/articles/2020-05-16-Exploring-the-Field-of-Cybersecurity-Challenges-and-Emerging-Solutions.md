@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Cybersecurity: Challenges and Emerging Solutions'
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2020-05-16"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Text Summarization
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-11-23"
+type: posts
 ---
+
 
 
 

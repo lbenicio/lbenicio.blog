@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Artificial Intelligence in Cybersecurity
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2021-02-18"
+type: posts
 ---
+
 
 
 

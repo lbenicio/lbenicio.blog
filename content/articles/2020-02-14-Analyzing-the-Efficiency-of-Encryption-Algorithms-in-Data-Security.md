@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Encryption Algorithms in Data Security
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-02-14"
+type: posts
 ---
+
 
 
 

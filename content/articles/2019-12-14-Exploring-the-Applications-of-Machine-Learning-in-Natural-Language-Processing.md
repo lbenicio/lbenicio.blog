@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2019-12-14"
+type: posts
 ---
+
 
 
 

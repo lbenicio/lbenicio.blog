@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-05-23"
+type: posts
 ---
+
 
 
 

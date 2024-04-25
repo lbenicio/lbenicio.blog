@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Hashing Algorithms
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2020-11-18"
+type: posts
 ---
+
 
 
 

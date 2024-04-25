@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Game Theory in Algorithm Design
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2020-02-15"
+type: posts
 ---
+
 
 
 

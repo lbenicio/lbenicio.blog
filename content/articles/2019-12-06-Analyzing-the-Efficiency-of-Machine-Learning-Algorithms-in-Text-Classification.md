@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Text Classification
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2019-12-06"
+type: posts
 ---
+
 
 
 

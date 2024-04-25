@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Medical Imaging
 icon: fa-comment-alt
 categories: ["DataStructures"]
 toc: true
 date: "2023-11-01"
+type: posts
 ---
+
 
 
 

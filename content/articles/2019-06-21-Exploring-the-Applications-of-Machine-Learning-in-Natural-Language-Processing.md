@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2019-06-21"
+type: posts
 ---
+
 
 
 

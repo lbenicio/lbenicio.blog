@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring Minimal Spamming Trees in Graphs
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: minimal spamming trees graphs
 categories: ["graphs"]
 toc: true
 date: "2023-04-02"
+type: posts
 ---
+
 
 
 Graphs are an essential concept in computer science, used in various fields such as network routing, social network analysis, and image segmentation. One of the significant challenges in graph theory is finding the most efficient way to traverse the graph. The Minimal Spamming Tree (MST) is a widely-used technique that helps to determine the most optimal path between the nodes in a graph. MST is a subset of edges that connect all nodes in a weighted graph with the smallest possible total edge weight. In this paper, we will explore MSTs in graphs, their various applications, and algorithms to compute them.

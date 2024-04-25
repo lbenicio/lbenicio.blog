@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Differences between C and Cpp
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: languages program tutorial
 categories: ["languages"]
 
 date: "2021-11-05"
+type: posts
 ---
+
 
 
 C and C++ are two popular programming languages that have been widely used for decades. Both languages have a rich history and are widely used for system programming, game development, and a wide range of other applications. Despite having many similarities, C and C++ also have some key differences that make them suitable for different kinds of programming tasks.

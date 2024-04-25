@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-03-31"
+type: posts
 ---
+
 
 
 

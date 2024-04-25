@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Artificial Intelligence in Virtual Assistants"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CloudComputing QuantumComputing Databases
 categories: SoftwareTesting
 toc: true
 date: 2024-03-06
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Artificial Intelligence in Virtual Assistants](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Artificial-Intelligence-in-Virtual-Assistants)

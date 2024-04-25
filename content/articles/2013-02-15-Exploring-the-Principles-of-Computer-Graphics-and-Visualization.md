@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Principles of Computer Graphics and Visualization
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2013-02-15"
+type: posts
 ---
+
 
 
 

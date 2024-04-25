@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Role of Machine Learning in Predictive Analytics"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ComputerArchitecture Blockchain ComputerScience
 categories: BigData
 toc: true
 date: 2024-04-17
+type: posts
 ---
+
 
 
 ![The Role of Machine Learning in Predictive Analytics](https://cdn.lbenicio.dev/posts/The-Role-of-Machine-Learning-in-Predictive-Analytics)

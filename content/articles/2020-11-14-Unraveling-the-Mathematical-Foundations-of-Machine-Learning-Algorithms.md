@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-11-14"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Graph Theory: Applications in Computer Science'
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2017-01-03"
+type: posts
 ---
+
 
 
 

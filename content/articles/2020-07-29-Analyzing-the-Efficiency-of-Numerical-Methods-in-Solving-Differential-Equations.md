@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-07-29"
+type: posts
 ---
+
 
 
 

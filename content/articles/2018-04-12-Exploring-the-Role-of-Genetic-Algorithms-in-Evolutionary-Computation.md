@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Genetic Algorithms in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-04-12"
+type: posts
 ---
+
 
 
 

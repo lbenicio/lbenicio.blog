@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-06-16"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Robotics: Advances in Machine Learning and Computer Vision'
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2020-01-23"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Analyzing the Efficiency of Search Algorithms: Linear vs. Binary'
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2022-09-14"
+type: posts
 ---
+
 
 
 

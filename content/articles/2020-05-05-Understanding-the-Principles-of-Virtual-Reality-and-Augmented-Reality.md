@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Virtual Reality and Augmented Reality
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-05-05"
+type: posts
 ---
+
 
 
 

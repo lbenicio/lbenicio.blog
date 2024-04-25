@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["Algorithms"]
 toc: true
 date: "2023-10-06"
+type: posts
 ---
+
 
 
 

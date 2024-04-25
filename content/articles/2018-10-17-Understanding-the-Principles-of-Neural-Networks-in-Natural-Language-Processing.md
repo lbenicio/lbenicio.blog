@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Neural Networks in Natural Language Processing
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-10-17"
+type: posts
 ---
+
 
 
 

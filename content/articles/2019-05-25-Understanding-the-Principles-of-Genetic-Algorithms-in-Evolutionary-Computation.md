@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Genetic Algorithms in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2019-05-25"
+type: posts
 ---
+
 
 
 

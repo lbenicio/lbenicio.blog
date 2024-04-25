@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-01-14"
+type: posts
 ---
+
 
 
 

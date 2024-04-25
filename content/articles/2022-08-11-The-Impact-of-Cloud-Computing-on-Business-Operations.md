@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Business Operations
 icon: fa-comment-alt
 categories: ["Programming"]
 toc: true
 date: "2022-08-11"
+type: posts
 ---
+
 
 
 

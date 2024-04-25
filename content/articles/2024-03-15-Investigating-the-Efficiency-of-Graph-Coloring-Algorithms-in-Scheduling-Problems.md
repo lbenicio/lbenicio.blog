@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Graph Coloring Algorithms in Scheduling Problems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: WebDevelopment CloudComputing ComputerGraphics
 categories: CodeReview
 toc: true
 date: 2024-03-15
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Graph Coloring Algorithms in Scheduling Problems](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Graph-Coloring-Algorithms-in-Scheduling-Problems)

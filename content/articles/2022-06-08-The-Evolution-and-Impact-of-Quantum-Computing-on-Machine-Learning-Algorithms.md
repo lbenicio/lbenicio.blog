@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Impact of Quantum Computing on Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2022-06-08"
+type: posts
 ---
+
 
 
 

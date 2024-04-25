@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Optimization Algorithms in Machine Learning
 icon: fa-comment-alt
 categories: ["Blockchain"]
 toc: true
 date: "2023-07-14"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Algorithms in Data Mining and Knowledge Discovery
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2020-08-18"
+type: posts
 ---
+
 
 
 

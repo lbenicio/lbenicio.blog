@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mysteries of Quantum Computing and its Potential Applications
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2020-11-22"
+type: posts
 ---
+
 
 
 

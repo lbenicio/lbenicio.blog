@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning Algorithms in Fraud Detection
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-12-13"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptographic Hash Functions in Data Integrity
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2018-04-26"
+type: posts
 ---
+
 
 
 

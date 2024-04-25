@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Genetic Programming in Machine Learning"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Cryptography DebuggingTips EthicalHacking
 categories: Cryptography
 toc: true
 date: 2023-12-31
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Genetic Programming in Machine Learning](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Genetic-Programming-in-Machine-Learning)

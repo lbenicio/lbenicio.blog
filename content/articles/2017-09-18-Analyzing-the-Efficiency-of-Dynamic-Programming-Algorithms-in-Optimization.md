@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Dynamic Programming Algorithms in Optimization
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-09-18"
+type: posts
 ---
+
 
 
 

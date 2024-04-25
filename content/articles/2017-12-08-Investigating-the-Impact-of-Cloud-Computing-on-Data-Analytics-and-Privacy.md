@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Impact of Cloud Computing on Data Analytics and Privacy
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2017-12-08"
+type: posts
 ---
+
 
 
 

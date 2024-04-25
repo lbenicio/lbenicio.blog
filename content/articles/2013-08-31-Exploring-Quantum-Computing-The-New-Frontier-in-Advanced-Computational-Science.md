@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing The New Frontier in Advanced Computational Science"
 
 date: "2013-08-31"
+type: posts
 ---
+
 
 # Topic: Quantum Computing: A Revolution in Computational Science and Algorithms
 

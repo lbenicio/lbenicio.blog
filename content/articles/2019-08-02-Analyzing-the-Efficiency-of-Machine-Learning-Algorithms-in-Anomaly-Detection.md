@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Anomaly Detection
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-08-02"
+type: posts
 ---
+
 
 
 

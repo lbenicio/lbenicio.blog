@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Cybersecurity Threats and Countermeasures: A Comprehensive Overview'
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2016-03-05"
+type: posts
 ---
+
 
 # Cybersecurity Threats and Countermeasures: A Comprehensive Overview
 

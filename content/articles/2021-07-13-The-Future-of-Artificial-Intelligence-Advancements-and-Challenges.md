@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Artificial Intelligence: Advancements and Challenges'
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2021-07-13"
+type: posts
 ---
+
 
 
 

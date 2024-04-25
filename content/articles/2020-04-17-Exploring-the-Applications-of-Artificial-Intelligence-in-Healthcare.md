@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Healthcare
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2020-04-17"
+type: posts
 ---
+
 
 
 

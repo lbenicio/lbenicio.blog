@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'A Comprehensive Study of Sorting Algorithms: From Bubble Sort to Quick Sort'
 icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2022-07-31"
+type: posts
 ---
+
 
 
 

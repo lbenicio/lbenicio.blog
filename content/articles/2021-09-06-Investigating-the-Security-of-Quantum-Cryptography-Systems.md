@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Security of Quantum Cryptography Systems
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2021-09-06"
+type: posts
 ---
+
 
 
 

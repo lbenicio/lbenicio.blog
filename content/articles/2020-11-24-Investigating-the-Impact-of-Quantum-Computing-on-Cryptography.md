@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Impact of Quantum Computing on Cryptography
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-11-24"
+type: posts
 ---
+
 
 
 

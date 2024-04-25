@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Optimization Algorithms in Operations Research
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-09-08"
+type: posts
 ---
+
 
 
 

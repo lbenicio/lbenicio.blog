@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Traversal Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 toc: true
 date: "2023-01-15"
+type: posts
 ---
+
 
 
 

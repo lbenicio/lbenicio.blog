@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Optimization
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2022-06-26"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Machine Learning
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-10-01"
+type: posts
 ---
+
 
 
 

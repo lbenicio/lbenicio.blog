@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Networks: From Ethernet to WiFi'
 icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2023-09-22"
+type: posts
 ---
+
 
 
 

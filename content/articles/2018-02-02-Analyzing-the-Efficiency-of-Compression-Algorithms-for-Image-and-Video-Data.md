@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Compression Algorithms for Image and Video Data
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-02-02"
+type: posts
 ---
+
 
 
 

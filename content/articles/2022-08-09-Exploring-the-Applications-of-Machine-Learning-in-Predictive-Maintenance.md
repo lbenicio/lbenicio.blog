@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Predictive Maintenance
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 toc: true
 date: "2022-08-09"
+type: posts
 ---
+
 
 
 

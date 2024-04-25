@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: WebDevelopment ComputerGraphics CodeReview
 categories: ["Blockchain"]
 toc: true
 date: "2023-07-20"
+type: posts
 ---
+
 
 
 

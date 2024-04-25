@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "The Art of Cryptography Unveiling the Mathematics Behind RSA Algorithm"
 
 date: "2013-03-05"
+type: posts
 ---
+
 
 # The Evolution of Algorithms
 

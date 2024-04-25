@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Big Data Analytics
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2017-01-30"
+type: posts
 ---
+
 
 
 

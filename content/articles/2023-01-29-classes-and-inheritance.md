@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Classes and Inheritance
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: theory classes discussion inheritance
 categories: ["discussion"]
 toc: true
 date: "2023-01-29"
+type: posts
 ---
+
 
 
 Object-oriented programming (OOP) is a programming paradigm that is centered around the concept of "objects," which represent data and the functions that operate on that data. OOP languages, such as Java and Python, are designed to help developers build more organized, reusable, and scalable code.

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Natural Language Processing in Text Summarization
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2017-09-20"
+type: posts
 ---
+
 
 
 

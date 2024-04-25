@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Optimization
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2022-02-17"
+type: posts
 ---
+
 
 
 

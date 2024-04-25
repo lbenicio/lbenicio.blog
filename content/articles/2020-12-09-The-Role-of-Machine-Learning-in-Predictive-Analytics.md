@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-12-09"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Algorithm Design and Analysis
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2018-09-09"
+type: posts
 ---
+
 
 
 

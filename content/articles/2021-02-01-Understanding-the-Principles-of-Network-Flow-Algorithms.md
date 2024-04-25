@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Network Flow Algorithms
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-02-01"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Compression in Multimedia Systems
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-10-24"
+type: posts
 ---
+
 
 
 

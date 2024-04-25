@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Pattern Recognition Algorithms in Biometrics
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2017-09-26"
+type: posts
 ---
+
 
 
 

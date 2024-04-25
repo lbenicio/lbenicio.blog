@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Algorithmic Complexity: Understanding the Efficiency of Algorithms'
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2021-11-08"
+type: posts
 ---
+
 
 
 

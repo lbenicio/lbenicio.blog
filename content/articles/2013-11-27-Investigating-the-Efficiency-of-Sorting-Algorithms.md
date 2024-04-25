@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2013-11-27"
+type: posts
 ---
+
 
 
 

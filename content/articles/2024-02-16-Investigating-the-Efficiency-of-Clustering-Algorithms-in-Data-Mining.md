@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Clustering Algorithms in Data Mining"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: IoT Internet of Things ComputerArchitecture Cryptography
 categories: ComputerVision
 toc: true
 date: 2024-02-16
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Clustering Algorithms in Data Mining](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Clustering-Algorithms-in-Data-Mining)

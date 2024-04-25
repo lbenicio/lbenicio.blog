@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Analyzing the Efficiency of Genetic Algorithms in Optimization Problems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: BigData CloudComputing CodeReview
 categories: BigData
 toc: true
 date: 2024-02-06
+type: posts
 ---
+
 
 
 ![Analyzing the Efficiency of Genetic Algorithms in Optimization Problems](https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Genetic-Algorithms-in-Optimization-Problems)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Graph Theory in Network Analysis and Design
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 toc: true
 date: "2023-05-29"
+type: posts
 ---
+
 
 
 

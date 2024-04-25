@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Data Compression Algorithms in Image Processing.
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2022-01-04"
+type: posts
 ---
+
 
 
 

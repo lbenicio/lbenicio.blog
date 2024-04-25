@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Machine Learning in Natural Language Understanding"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CodeReview Blockchain Cybersecurity
 categories: CloudComputing
 toc: true
 date: 2024-02-10
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Machine Learning in Natural Language Understanding](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Machine-Learning-in-Natural-Language-Understanding)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Compression Algorithms in Data Storage
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2018-12-04"
+type: posts
 ---
+
 
 
 

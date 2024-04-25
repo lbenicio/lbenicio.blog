@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Internet of Things in Smart Cities
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2019-05-06"
+type: posts
 ---
+
 
 
 

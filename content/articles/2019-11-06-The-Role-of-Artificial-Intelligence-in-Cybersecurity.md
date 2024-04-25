@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Artificial Intelligence in Cybersecurity
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-11-06"
+type: posts
 ---
+
 
 
 

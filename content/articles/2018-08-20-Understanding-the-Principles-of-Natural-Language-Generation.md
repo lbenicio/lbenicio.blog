@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Generation
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-08-20"
+type: posts
 ---
+
 
 
 

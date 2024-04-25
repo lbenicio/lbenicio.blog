@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Sorting Algorithms in Large Datasets
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2022-07-13"
+type: posts
 ---
+
 
 
 

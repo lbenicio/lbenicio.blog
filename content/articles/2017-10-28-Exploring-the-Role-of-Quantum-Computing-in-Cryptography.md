@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2017-10-28"
+type: posts
 ---
+
 
 
 

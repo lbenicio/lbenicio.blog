@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Machine Learning in Natural Language Processing"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CodeQuality QuantumComputing EthicalHacking
 categories: Programming
 toc: true
 date: 2023-12-20
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Machine Learning in Natural Language Processing](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Machine-Learning-in-Natural-Language-Processing)

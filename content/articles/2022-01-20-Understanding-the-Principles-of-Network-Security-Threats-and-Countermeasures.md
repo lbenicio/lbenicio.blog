@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Understanding the Principles of Network Security: Threats and Countermeasures'
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2022-01-20"
+type: posts
 ---
+
 
 
 

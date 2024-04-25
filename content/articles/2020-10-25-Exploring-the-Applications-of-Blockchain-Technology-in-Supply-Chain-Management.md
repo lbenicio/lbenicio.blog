@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Blockchain Technology in Supply Chain Management
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-10-25"
+type: posts
 ---
+
 
 
 

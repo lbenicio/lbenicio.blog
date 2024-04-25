@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Applications of Machine Learning in Natural Language Understanding
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2022-01-18"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: AnalyzingtheEfficiencyofNumericalMethodsinSolvingPartialDifferentialEquations
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2021-07-14"
+type: posts
 ---
+
 
 
 

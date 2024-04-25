@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Computing in Scientific Simulations
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2018-07-02"
+type: posts
 ---
+
 
 # Analyzing the Efficiency of Parallel Computing in Scientific Simulations
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Information Theory in Data Compression
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2013-09-22"
+type: posts
 ---
+
 
 
 

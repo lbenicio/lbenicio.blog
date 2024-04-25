@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2018-09-20"
+type: posts
 ---
+
 
 
 

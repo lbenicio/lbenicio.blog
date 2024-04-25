@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Principles of Image Recognition and Computer Vision
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2015-03-08"
+type: posts
 ---
+
 
 
 

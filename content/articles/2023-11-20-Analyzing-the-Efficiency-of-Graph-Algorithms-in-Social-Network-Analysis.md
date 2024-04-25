@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: CloudComputing MachineLearning QuantumComputing
 categories: ["Databases"]
 toc: true
 date: "2023-11-20"
+type: posts
 ---
+
 
 
 # Analyzing the Efficiency of Graph Algorithms in Social Network Analysis

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2021-03-03"
+type: posts
 ---
+
 
 
 

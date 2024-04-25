@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Tree Data Structures in Information Retrieval
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2022-01-05"
+type: posts
 ---
+
 
 
 

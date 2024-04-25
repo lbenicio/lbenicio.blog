@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography and Its Applications
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2019-03-22"
+type: posts
 ---
+
 
 
 

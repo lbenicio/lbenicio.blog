@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 toc: true
 date: "2022-07-18"
+type: posts
 ---
+
 
 
 

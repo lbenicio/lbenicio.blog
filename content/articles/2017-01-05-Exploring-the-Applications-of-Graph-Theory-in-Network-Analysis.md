@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2017-01-05"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Analyzing the Efficiency of Search Algorithms: Linear vs. Binary'
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2022-05-02"
+type: posts
 ---
+
 
 
 

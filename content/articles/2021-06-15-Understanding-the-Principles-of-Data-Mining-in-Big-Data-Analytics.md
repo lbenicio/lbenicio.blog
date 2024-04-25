@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Mining in Big Data Analytics
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2021-06-15"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Genetic Algorithms in Optimization Problems
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2018-08-09"
+type: posts
 ---
+
 
 
 

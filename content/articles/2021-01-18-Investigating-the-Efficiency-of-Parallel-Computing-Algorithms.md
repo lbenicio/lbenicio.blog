@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Parallel Computing Algorithms
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-01-18"
+type: posts
 ---
+
 
 
 

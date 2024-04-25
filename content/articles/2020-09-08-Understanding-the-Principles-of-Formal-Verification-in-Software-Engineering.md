@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Formal Verification in Software Engineering
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-09-08"
+type: posts
 ---
+
 
 
 

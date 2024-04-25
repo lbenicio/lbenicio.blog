@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Cybersecurity: Threats and Solutions'
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2020-05-31"
+type: posts
 ---
+
 
 
 

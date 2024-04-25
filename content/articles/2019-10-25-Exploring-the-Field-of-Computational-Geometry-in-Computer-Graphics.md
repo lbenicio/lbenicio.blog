@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computational Geometry in Computer Graphics
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2019-10-25"
+type: posts
 ---
+
 
 
 

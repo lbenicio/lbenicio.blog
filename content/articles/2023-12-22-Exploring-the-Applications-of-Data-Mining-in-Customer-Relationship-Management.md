@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Data Mining in Customer Relationship Management"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Bioinformatics ComputerScience ComputerArchitecture
 categories: BigData
 toc: true
 date: 2023-12-22
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Data Mining in Customer Relationship Management](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Data-Mining-in-Customer-Relationship-Management)

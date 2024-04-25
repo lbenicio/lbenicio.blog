@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Machine Learning in Robotics
 icon: fa-comment-alt
 categories: ["Programming"]
 toc: true
 date: "2023-10-16"
+type: posts
 ---
+
 
 
 

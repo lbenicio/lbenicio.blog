@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Coloring Algorithms
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-02-27"
+type: posts
 ---
+
 
 
 

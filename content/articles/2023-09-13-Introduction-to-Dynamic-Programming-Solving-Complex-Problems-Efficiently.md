@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Introduction to Dynamic Programming: Solving Complex Problems Efficiently'
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 toc: true
 date: "2023-09-13"
+type: posts
 ---
+
 
 
 

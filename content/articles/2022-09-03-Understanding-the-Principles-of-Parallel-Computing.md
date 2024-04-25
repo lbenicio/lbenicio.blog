@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 toc: true
 date: "2022-09-03"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Clustering Algorithms in Data Analysis
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-02-07"
+type: posts
 ---
+
 
 
 

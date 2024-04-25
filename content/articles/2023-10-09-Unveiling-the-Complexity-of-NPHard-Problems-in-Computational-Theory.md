@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unveiling the Complexity of NPHard Problems in Computational Theory
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 toc: true
 date: "2023-10-09"
+type: posts
 ---
+
 
 
 

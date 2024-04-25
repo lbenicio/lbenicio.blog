@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2021-01-03"
+type: posts
 ---
+
 
 
 

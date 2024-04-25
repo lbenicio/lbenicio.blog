@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-06-08"
+type: posts
 ---
+
 
 
 

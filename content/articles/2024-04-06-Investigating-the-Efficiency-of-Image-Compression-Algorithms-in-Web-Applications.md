@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Image Compression Algorithms in Web Applications"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: IoT Internet of Things CloudComputing MobileDevelopment
 categories: DataStructures
 toc: true
 date: 2024-04-06
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Image Compression Algorithms in Web Applications](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Image-Compression-Algorithms-in-Web-Applications)

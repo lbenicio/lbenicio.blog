@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-05-02"
+type: posts
 ---
+
 
 
 

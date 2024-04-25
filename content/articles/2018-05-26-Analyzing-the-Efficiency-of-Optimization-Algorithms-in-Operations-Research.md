@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Optimization Algorithms in Operations Research
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2018-05-26"
+type: posts
 ---
+
 
 
 

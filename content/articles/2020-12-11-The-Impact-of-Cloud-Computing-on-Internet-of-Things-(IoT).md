@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Internet of Things (IoT)
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2020-12-11"
+type: posts
 ---
+
 
 
 

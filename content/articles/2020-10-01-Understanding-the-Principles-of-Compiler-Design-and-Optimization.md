@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Compiler Design and Optimization
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2020-10-01"
+type: posts
 ---
+
 
 
 

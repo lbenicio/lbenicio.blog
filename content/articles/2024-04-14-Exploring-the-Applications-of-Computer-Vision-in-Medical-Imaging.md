@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Computer Vision in Medical Imaging"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: SoftwareTesting Cybersecurity DataStructures
 categories: QuantumComputing
 toc: true
 date: 2024-04-14
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Computer Vision in Medical Imaging](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Computer-Vision-in-Medical-Imaging)

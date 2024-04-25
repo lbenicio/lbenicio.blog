@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Data Structures on Database Performance
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2013-03-27"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Virtual Reality in Education and Training"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: SoftwareEngineering OperatingSystems Cryptography
 categories: ComputerArchitecture
 toc: true
 date: 2024-02-07
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Virtual Reality in Education and Training](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Virtual-Reality-in-Education-and-Training)

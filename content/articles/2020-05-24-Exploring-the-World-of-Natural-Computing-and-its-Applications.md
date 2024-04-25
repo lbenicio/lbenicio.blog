@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Natural Computing and its Applications
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2020-05-24"
+type: posts
 ---
+
 
 
 

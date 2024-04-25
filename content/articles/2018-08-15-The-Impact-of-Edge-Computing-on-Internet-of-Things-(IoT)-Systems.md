@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Edge Computing on Internet of Things (IoT) Systems
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2018-08-15"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Computer Science
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 toc: true
 date: "2023-07-26"
+type: posts
 ---
+
 
 
 

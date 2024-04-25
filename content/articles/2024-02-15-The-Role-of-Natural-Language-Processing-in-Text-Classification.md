@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Role of Natural Language Processing in Text Classification"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: SoftwareEngineering MachineLearning Algorithms
 categories: CodeQuality
 toc: true
 date: 2024-02-15
+type: posts
 ---
+
 
 
 ![The Role of Natural Language Processing in Text Classification](https://cdn.lbenicio.dev/posts/The-Role-of-Natural-Language-Processing-in-Text-Classification)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Data Analytics and Business Intelligence
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-06-02"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Machine Learning in Natural Language Understanding
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 toc: true
 date: "2022-11-22"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Augmented Reality in Gaming
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2020-12-13"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Data Security and Privacy
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 toc: true
 date: "2023-02-07"
+type: posts
 ---
+
 
 
 

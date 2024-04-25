@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing The Next Frontier in Advanced Computation"
 
 date: "2013-11-04"
+type: posts
 ---
+
 
 # The Evolution and Future Trends of Machine Learning Algorithms
 

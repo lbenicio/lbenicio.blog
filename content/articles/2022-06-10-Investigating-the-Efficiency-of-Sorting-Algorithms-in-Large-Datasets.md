@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Sorting Algorithms in Large Datasets
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2022-06-10"
+type: posts
 ---
+
 
 
 

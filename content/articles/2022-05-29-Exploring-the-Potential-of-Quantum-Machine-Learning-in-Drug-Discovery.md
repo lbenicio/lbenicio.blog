@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Drug Discovery
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2022-05-29"
+type: posts
 ---
+
 
 
 

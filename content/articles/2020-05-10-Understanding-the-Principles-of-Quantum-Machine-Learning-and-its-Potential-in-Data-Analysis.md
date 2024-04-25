@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Machine Learning and its Potential
   in Data Analysis
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2020-05-10"
+type: posts
 ---
+
 
 
 

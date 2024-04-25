@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-05-27"
+type: posts
 ---
+
 
 
 

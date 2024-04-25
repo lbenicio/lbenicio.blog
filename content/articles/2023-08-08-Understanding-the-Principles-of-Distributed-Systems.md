@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems
 icon: fa-comment-alt
 categories: ["Networking"]
 toc: true
 date: "2023-08-08"
+type: posts
 ---
+
 
 
 

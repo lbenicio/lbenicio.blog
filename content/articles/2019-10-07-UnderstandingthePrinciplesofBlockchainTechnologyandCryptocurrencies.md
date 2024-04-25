@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: UnderstandingthePrinciplesofBlockchainTechnologyandCryptocurrencies
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2019-10-07"
+type: posts
 ---
+
 
 
 

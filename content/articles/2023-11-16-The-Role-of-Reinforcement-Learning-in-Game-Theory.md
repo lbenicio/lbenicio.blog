@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Role of Reinforcement Learning in Game Theory
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: DataStructures DebuggingTips CodeQuality
 categories: ["ComputerScience"]
 toc: true
 date: "2023-11-16"
+type: posts
 ---
+
 
 
 # The Role of Reinforcement Learning in Game Theory

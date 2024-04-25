@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Blockchain Technology in Secure Transactions
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2019-03-09"
+type: posts
 ---
+
 
 
 

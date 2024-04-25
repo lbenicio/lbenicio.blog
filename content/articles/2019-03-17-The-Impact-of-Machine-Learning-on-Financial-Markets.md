@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Machine Learning on Financial Markets
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2019-03-17"
+type: posts
 ---
+
 
 
 

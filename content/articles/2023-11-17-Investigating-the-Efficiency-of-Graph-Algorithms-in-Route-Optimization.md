@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Route Optimization
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: SoftwareTesting DataStructures ComputerScience
 categories: ["Cybersecurity"]
 toc: true
 date: "2023-11-17"
+type: posts
 ---
+
 
 
 # Investigating the Efficiency of Graph Algorithms in Route Optimization

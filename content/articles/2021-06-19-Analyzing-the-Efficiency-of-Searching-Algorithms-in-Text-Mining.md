@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Searching Algorithms in Text Mining
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2021-06-19"
+type: posts
 ---
+
 
 
 

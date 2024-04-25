@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Artificial Intelligence in Cybersecurity
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 toc: true
 date: "2023-07-31"
+type: posts
 ---
+
 
 
 

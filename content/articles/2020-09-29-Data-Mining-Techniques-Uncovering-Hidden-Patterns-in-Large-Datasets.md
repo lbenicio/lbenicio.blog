@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Data Mining Techniques: Uncovering Hidden Patterns in Large Datasets'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-09-29"
+type: posts
 ---
+
 
 
 

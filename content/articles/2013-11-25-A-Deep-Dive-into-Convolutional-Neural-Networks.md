@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: A Deep Dive into Convolutional Neural Networks
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2013-11-25"
+type: posts
 ---
+
 
 
 

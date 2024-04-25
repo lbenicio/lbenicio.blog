@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications in Evolutionary
   Computation
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-01-28"
+type: posts
 ---
+
 
 
 

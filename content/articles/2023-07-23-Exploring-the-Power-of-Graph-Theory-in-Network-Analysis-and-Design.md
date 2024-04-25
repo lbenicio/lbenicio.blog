@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Power of Graph Theory in Network Analysis and Design
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 toc: true
 date: "2023-07-23"
+type: posts
 ---
+
 
 
 

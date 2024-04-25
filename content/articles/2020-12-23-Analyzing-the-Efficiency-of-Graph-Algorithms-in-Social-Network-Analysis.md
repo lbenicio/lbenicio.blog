@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2020-12-23"
+type: posts
 ---
+
 
 
 

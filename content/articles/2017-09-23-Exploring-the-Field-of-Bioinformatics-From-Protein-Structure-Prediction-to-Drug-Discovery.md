@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Bioinformatics: From Protein Structure Prediction to
   Drug Discovery'
@@ -7,7 +8,9 @@ tags: i
 categories: ["ComputerVision"]
 
 date: "2017-09-23"
+type: posts
 ---
+
 
 
 

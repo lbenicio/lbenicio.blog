@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Natural Computing in Solving Complex Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2021-01-29"
+type: posts
 ---
+
 
 
 

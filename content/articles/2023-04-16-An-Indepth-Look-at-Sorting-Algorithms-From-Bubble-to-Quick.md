@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'An Indepth Look at Sorting Algorithms: From Bubble to Quick'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 toc: true
 date: "2023-04-16"
+type: posts
 ---
+
 
 
 

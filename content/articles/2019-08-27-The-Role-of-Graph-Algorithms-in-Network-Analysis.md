@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2019-08-27"
+type: posts
 ---
+
 
 
 

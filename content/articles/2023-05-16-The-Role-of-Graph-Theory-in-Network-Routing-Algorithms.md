@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Graph Theory in Network Routing Algorithms
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 toc: true
 date: "2023-05-16"
+type: posts
 ---
+
 
 
 

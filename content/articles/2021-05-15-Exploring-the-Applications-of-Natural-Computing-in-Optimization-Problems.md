@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing in Optimization Problems
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2021-05-15"
+type: posts
 ---
+
 
 
 

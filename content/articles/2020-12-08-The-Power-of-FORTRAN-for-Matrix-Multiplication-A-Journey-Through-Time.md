@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Power of FORTRAN for Matrix Multiplication: A Journey Through Time'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: programming
 categories: ["programming', 'language', 'matrix', 'multiplication', 'mathematics"]
 
 date: "2020-12-08"
+type: posts
 ---
+
 
 
 When it comes to scientific computing, one programming language stands out from the rest: FORTRAN. Developed in the 1950s by IBM, FORTRAN has been the go-to language for numerical calculations in engineering, physics, and mathematics ever since. But why is FORTRAN still so popular today, especially when it comes to matrix multiplication?

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications in Optimization
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2018-09-18"
+type: posts
 ---
+
 
 
 

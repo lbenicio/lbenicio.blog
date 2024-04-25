@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Artificial Intelligence: From Turing Test to Deep Learning'
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2019-04-20"
+type: posts
 ---
+
 
 
 

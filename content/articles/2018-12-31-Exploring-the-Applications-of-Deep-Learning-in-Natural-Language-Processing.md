@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2018-12-31"
+type: posts
 ---
+
 
 
 

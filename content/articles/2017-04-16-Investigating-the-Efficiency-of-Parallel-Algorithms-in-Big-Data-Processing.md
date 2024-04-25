@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Parallel Algorithms in Big Data Processing
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-04-16"
+type: posts
 ---
+
 
 
 

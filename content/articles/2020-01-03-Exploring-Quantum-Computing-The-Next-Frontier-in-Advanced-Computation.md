@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing The Next Frontier in Advanced Computation"
 
 date: "2020-01-03"
+type: posts
 ---
+
 
 # Topic: The Evolution and Impact of Quantum Computing
 

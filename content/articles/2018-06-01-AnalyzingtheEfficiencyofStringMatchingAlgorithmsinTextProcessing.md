@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: AnalyzingtheEfficiencyofStringMatchingAlgorithmsinTextProcessing
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-06-01"
+type: posts
 ---
+
 
 
 

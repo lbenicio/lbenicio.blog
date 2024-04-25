@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Analyzing the Efficiency of Search Algorithms: Linear vs. Binary'
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2020-05-15"
+type: posts
 ---
+
 
 
 

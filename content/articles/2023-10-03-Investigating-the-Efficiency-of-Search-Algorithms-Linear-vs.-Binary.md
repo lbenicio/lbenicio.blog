@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Investigating the Efficiency of Search Algorithms: Linear vs. Binary'
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2023-10-03"
+type: posts
 ---
+
 
 
 

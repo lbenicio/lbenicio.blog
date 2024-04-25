@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Ledger Technology in Cryptocurrencies
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-08-20"
+type: posts
 ---
+
 
 
 

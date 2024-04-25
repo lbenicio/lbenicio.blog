@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-07-20"
+type: posts
 ---
+
 
 
 

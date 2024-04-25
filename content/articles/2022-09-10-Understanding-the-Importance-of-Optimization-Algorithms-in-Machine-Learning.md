@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Importance of Optimization Algorithms in Machine Learning
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 toc: true
 date: "2022-09-10"
+type: posts
 ---
+
 
 
 

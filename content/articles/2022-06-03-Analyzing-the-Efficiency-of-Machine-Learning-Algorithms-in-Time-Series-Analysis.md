@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Time Series Analysis
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2022-06-03"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Machine Learning Explainability and Interpretability
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2017-07-31"
+type: posts
 ---
+
 
 
 

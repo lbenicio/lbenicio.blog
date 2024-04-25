@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Overview of Data Mining Techniques in Big Data Analytics
 icon: fa-comment-alt
 categories: ["Networking"]
 toc: true
 date: "2023-10-29"
+type: posts
 ---
+
 
 
 

@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Advancements in Natural Language Processing Revolutionizing HumanComputer Interaction"
 
 date: "2020-09-07"
+type: posts
 ---
+
 
 # Topic: Quantum Computing and its Potential Impact on Algorithms
 

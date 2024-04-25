@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing A Revolution in Algorithm Design and Computational Efficiency"
 
 date: "2020-08-31"
+type: posts
 ---
+
 
 # Topic: The Evolution of Algorithms and their Role in Modern Computing
 

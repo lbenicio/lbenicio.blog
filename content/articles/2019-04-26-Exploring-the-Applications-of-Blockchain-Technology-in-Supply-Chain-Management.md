@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Blockchain Technology in Supply Chain Management
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2019-04-26"
+type: posts
 ---
+
 
 # Exploring the Applications of Blockchain Technology in Supply Chain Management
 

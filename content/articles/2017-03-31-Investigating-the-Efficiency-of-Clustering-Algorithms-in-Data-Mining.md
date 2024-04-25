@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Clustering Algorithms in Data Mining
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-03-31"
+type: posts
 ---
+
 
 
 

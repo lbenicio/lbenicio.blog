@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Software Testing Best Practices and Techniques
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2023-07-09"
+type: posts
 ---
+
 
 
 

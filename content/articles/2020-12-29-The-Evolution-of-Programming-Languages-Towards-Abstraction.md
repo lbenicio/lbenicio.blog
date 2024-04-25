@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Languages: Towards Abstraction'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discussion
 categories: ["discussion', 'programming', 'evolution', 'abstraction"]
 
 date: "2020-12-29"
+type: posts
 ---
+
 
 
 Programming languages have come a long way since the first high-level language was introduced in the 1950s. With the advent of technology, programming languages have been evolving and getting more abstract with time. The development of programming languages has been driven by the need for efficiency, speed, and ease of use. In this paper, we explore the reasons why programming languages are getting more abstract and how this evolution is affecting the programming world.

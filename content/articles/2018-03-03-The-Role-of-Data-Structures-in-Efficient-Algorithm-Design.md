@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-03-03"
+type: posts
 ---
+
 
 
 

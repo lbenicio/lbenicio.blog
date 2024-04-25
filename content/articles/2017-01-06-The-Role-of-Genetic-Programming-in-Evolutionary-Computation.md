@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Programming in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2017-01-06"
+type: posts
 ---
+
 
 
 

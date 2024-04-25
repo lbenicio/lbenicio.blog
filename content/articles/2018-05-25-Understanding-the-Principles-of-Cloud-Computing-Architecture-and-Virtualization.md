@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cloud Computing Architecture and Virtualization
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2018-05-25"
+type: posts
 ---
+
 
 
 

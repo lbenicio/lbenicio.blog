@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications in Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2019-10-31"
+type: posts
 ---
+
 
 
 

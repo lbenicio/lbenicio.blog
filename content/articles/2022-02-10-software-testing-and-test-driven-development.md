@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Software testing and test driven development
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: software test testing development "best practices"
 categories: ["test"]
 
 date: "2022-02-10"
+type: posts
 ---
+
 
 
 Test-driven development (TDD) is a software development methodology in which tests are written for a piece of code before the code itself is written. The goal of TDD is to ensure that the code is thoroughly tested and is of high quality before it is deployed to production.

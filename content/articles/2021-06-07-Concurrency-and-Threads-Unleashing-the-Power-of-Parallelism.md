@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Concurrency and Threads: Unleashing the Power of Parallelism'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: parallelism concurrecy
 categories: ["parallelism"]
 
 date: "2021-06-07"
+type: posts
 ---
+
 
 
 Concurrency and parallelism have been buzzwords in computer science for many years. With the advent of multicore processors, parallelism has become even more relevant, enabling software to take full advantage of hardware resources. Concurrency is a fundamental concept in computer science, and threads are the most common way to implement it. However, implementing concurrency can be challenging, and there are many pitfalls to avoid. In this paper, we will explore the concepts of concurrency and threads, discuss their advantages and disadvantages, and provide some guidelines for their effective use.

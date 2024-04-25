@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Virtual Reality
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2018-09-06"
+type: posts
 ---
+
 
 
 

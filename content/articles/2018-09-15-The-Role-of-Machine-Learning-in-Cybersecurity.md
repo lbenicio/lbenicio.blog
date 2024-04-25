@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Cybersecurity
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2018-09-15"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Convolutional Neural Networks in Computer Vision
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-04-25"
+type: posts
 ---
+
 
 
 

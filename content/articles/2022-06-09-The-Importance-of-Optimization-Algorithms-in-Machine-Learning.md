@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Optimization Algorithms in Machine Learning
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2022-06-09"
+type: posts
 ---
+
 
 
 

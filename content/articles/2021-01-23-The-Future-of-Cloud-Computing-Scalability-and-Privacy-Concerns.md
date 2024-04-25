@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Cloud Computing: Scalability and Privacy Concerns'
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-01-23"
+type: posts
 ---
+
 
 
 

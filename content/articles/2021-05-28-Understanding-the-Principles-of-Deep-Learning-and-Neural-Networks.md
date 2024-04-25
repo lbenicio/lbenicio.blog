@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Learning and Neural Networks
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2021-05-28"
+type: posts
 ---
+
 
 
 

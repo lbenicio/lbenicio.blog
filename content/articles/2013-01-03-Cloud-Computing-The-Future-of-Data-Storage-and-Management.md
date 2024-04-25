@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Cloud Computing The Future of Data Storage and Management"
 
 date: "2013-01-03"
+type: posts
 ---
+
 
 # The Evolution and Impact of Quantum Computing
 

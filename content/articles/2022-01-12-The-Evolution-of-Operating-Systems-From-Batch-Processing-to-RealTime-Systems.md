@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Operating Systems: From Batch Processing to RealTime Systems'
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2022-01-12"
+type: posts
 ---
+
 
 
 

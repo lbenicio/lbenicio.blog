@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Power of Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 toc: true
 date: "2023-04-13"
+type: posts
 ---
+
 
 
 

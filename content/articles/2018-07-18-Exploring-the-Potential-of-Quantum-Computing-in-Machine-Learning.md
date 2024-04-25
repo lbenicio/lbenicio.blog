@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Machine Learning
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2018-07-18"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Languages: A Historical Perspective'
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2019-11-02"
+type: posts
 ---
+
 
 
 

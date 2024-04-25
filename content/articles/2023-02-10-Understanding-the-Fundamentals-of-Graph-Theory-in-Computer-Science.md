@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Computer Science
 icon: fa-comment-alt
 categories: ["Cryptography"]
 toc: true
 date: "2023-02-10"
+type: posts
 ---
+
 
 
 

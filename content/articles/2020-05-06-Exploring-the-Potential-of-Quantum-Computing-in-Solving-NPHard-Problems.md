@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Solving NPHard Problems
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-05-06"
+type: posts
 ---
+
 
 
 

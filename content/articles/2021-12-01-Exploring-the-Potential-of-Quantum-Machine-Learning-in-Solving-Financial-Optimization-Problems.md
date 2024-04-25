@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Solving Financial Optimization
   Problems
@@ -7,7 +8,9 @@ tags: Cybersecurity QuantumComputing MachineLearning
 categories: ["Cybersecurity"]
 
 date: "2021-12-01"
+type: posts
 ---
+
 
 
 

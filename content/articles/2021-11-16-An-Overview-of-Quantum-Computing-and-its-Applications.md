@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Overview of Quantum Computing and its Applications
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2021-11-16"
+type: posts
 ---
+
 
 
 

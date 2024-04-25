@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Impact of Artificial Intelligence in Healthcare: Opportunities
   and Challenges'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-04-12"
+type: posts
 ---
+
 
 # Exploring the Impact of Artificial Intelligence in Healthcare: Opportunities and Challenges
 

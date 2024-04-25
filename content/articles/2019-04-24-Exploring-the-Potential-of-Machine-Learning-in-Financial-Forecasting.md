@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Machine Learning in Financial Forecasting
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2019-04-24"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Artificial Intelligence
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2020-07-22"
+type: posts
 ---
+
 
 
 

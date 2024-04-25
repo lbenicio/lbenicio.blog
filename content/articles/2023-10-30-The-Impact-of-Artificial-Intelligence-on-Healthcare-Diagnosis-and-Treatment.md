@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence on Healthcare Diagnosis and Treatment
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: OperatingSystems IoT Internet of Things ComputerVision
 categories: ["ComputerVision"]
 toc: true
 date: "2023-10-30"
+type: posts
 ---
+
 
 
 

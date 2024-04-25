@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Artificial Intelligence: Ethical Considerations and Implications'
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2021-04-04"
+type: posts
 ---
+
 
 
 

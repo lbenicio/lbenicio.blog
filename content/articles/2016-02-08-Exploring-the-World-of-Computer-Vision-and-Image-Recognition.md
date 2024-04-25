@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Computer Vision and Image Recognition
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2016-02-08"
+type: posts
 ---
+
 
 
 

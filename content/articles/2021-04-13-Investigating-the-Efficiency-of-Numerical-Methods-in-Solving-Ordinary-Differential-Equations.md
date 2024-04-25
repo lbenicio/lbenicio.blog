@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Numerical Methods in Solving Ordinary Differential
   Equations
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2021-04-13"
+type: posts
 ---
+
 
 
 

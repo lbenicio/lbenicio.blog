@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Computational Models in Predictive Analytics
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2020-01-31"
+type: posts
 ---
+
 
 
 

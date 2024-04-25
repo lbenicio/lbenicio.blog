@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Route Optimization
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-08-21"
+type: posts
 ---
+
 
 
 

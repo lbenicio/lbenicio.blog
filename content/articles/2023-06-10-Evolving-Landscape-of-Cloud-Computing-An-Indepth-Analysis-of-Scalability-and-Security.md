@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Evolving Landscape of Cloud Computing: An Indepth Analysis of Scalability
   and Security'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 toc: true
 date: "2023-06-10"
+type: posts
 ---
+
 
 
 

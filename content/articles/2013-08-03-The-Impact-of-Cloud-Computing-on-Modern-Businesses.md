@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Modern Businesses
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2013-08-03"
+type: posts
 ---
+
 
 
 

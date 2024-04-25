@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2017-12-02"
+type: posts
 ---
+
 
 
 

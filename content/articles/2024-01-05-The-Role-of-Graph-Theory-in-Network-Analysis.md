@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Role of Graph Theory in Network Analysis"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: EthicalHacking CloudComputing MobileDevelopment
 categories: TechTrends
 toc: true
 date: 2024-01-05
+type: posts
 ---
+
 
 
 ![The Role of Graph Theory in Network Analysis](https://cdn.lbenicio.dev/posts/The-Role-of-Graph-Theory-in-Network-Analysis)

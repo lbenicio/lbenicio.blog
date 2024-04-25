@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Augmented Reality in Education"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: IoT Internet of Things Cybersecurity WebDevelopment
 categories: NaturalLanguageProcessing
 toc: true
 date: 2024-03-24
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Augmented Reality in Education](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Augmented-Reality-in-Education)

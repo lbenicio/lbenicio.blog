@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-04-25"
+type: posts
 ---
+
 
 
 

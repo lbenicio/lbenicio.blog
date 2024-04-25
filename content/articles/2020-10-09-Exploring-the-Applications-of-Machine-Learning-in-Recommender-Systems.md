@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-10-09"
+type: posts
 ---
+
 
 
 

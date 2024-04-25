@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Sentiment Analysis
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2023-01-09"
+type: posts
 ---
+
 
 
 

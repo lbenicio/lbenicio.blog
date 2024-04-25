@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Understanding in Chatbots
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2018-09-11"
+type: posts
 ---
+
 
 
 

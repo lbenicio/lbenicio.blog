@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Cryptography: From Ancient Times to Modern Encryption'
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2019-05-07"
+type: posts
 ---
+
 
 
 

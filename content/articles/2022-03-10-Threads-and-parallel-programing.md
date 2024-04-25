@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Threads and parallel programing
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: threads parallel posix
 categories: ["parallel"]
 
 date: "2022-03-10"
+type: posts
 ---
+
 
 
 POSIX threads, also known as Pthreads, are a standardized set of C library routines that provide a way to create and manipulate multiple threads of execution within a single process. These threads share the same memory space and can communicate with each other, making them a powerful tool for concurrent programming.

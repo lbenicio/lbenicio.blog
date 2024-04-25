@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: AnalyzingtheEfficiencyofNumericalMethodsinSolvingDifferentialEquations
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2017-11-04"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Securing Data Transactions
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2017-10-04"
+type: posts
 ---
+
 
 
 

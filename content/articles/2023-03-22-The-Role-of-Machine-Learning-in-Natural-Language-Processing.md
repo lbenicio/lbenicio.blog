@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-03-22"
+type: posts
 ---
+
 
 # The Role of Machine Learning in Natural Language Processing
 

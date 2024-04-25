@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Languages: From Assembly to HighLevel Languages'
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-04-01"
+type: posts
 ---
+
 
 
 

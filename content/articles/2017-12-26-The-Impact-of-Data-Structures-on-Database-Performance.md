@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Data Structures on Database Performance
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-12-26"
+type: posts
 ---
+
 
 
 

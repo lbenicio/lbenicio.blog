@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Quantum Computing on Cryptography
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-07-19"
+type: posts
 ---
+
 
 
 

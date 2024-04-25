@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Speech Recognition
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: ComputerGraphics MachineLearning OperatingSystems
 categories: ["ComputerScience"]
 toc: true
 date: "2023-11-07"
+type: posts
 ---
+
 
 
 # Exploring the Applications of Machine Learning in Speech Recognition

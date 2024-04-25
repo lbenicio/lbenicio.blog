@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Analyzing the Efficiency of Search Algorithms: Linear vs. Binary'
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2022-03-05"
+type: posts
 ---
+
 
 
 

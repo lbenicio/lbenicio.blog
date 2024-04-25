@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Quantum Cryptography and its Security Applications
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2020-04-09"
+type: posts
 ---
+
 
 
 

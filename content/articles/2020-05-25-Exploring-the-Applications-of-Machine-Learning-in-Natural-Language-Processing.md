@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2020-05-25"
+type: posts
 ---
+
 
 
 

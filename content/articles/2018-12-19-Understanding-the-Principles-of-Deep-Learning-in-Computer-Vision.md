@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Learning in Computer Vision
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2018-12-19"
+type: posts
 ---
+
 
 
 

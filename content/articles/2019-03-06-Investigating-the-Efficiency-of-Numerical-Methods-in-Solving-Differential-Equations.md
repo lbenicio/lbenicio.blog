@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2019-03-06"
+type: posts
 ---
+
 
 
 

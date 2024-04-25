@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Blockchain Technology: From Cryptocurrencies to Smart Contracts'
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-01-27"
+type: posts
 ---
+
 
 
 

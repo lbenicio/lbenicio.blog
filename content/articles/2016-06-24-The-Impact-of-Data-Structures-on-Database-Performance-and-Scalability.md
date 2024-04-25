@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Impact of Data Structures on Database Performance and Scalability
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: DebuggingTips DataStructures Blockchain
 categories: ["Blockchain"]
 
 date: "2016-06-24"
+type: posts
 ---
+
 
 
 

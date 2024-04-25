@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Quantum Computing: A Paradigm Shift in Computation'
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2021-03-29"
+type: posts
 ---
+
 
 
 

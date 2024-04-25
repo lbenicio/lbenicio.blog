@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Healthcare
 icon: fa-comment-alt
 categories: ["Databases"]
 toc: true
 date: "2022-10-22"
+type: posts
 ---
+
 
 
 

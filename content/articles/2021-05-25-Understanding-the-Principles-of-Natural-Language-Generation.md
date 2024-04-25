@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Generation
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2021-05-25"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Secure Data Management
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2018-01-14"
+type: posts
 ---
+
 
 
 

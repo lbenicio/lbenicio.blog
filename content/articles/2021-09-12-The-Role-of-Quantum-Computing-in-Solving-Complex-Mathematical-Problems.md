@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Quantum Computing in Solving Complex Mathematical Problems
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-09-12"
+type: posts
 ---
+
 
 
 

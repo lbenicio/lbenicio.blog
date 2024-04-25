@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Computing in Bioinformatics
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-01-12"
+type: posts
 ---
+
 
 
 

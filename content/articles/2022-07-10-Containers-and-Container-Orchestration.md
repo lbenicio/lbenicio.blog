@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Containers and Container Orchestration
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: docker, kubernetes, orcherstration, containers
 categories: ["containers"]
 
 date: "2022-07-10"
+type: posts
 ---
+
 
 
 Today we are going to talk about container and container orchestration, and solution like docker and Kubernetes.

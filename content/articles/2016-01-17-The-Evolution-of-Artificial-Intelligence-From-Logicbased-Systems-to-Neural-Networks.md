@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Artificial Intelligence: From Logicbased Systems to Neural
   Networks'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2016-01-17"
+type: posts
 ---
+
 
 
 

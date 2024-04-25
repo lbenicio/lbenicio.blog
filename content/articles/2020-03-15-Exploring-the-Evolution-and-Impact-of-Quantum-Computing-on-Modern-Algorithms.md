@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Evolution and Impact of Quantum Computing on Modern Algorithms
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-03-15"
+type: posts
 ---
+
 
 
 

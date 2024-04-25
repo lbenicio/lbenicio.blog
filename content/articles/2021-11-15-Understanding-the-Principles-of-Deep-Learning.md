@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Learning
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-11-15"
+type: posts
 ---
+
 
 
 

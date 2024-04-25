@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Significance of Data Structures in Algorithm Design
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2018-02-08"
+type: posts
 ---
+
 
 
 

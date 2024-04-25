@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Advantages and Disadvantages of Quantum Computing
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2017-01-11"
+type: posts
 ---
+
 
 
 

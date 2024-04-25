@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Introduction to Compiler Design and Optimization Techniques
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2014-01-03"
+type: posts
 ---
+
 
 
 

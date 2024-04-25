@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Drug Discovery
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2017-04-27"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Genetic Programming in Evolutionary Computation"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CodeReview DebuggingTips Databases
 categories: TechTrends
 toc: true
 date: 2024-03-27
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Genetic Programming in Evolutionary Computation](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Genetic-Programming-in-Evolutionary-Computation)

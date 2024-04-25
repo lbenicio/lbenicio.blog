@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Compiler Design and Optimization
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2019-06-13"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Neural Networks in Deep Learning
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: Networking QuantumComputing ComputerVision
 categories: ["Blockchain"]
 toc: true
 date: "2023-11-29"
+type: posts
 ---
+
 
 
 # Understanding the Principles of Neural Networks in Deep Learning

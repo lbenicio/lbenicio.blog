@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems in Cloud Computing
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 toc: true
 date: "2022-08-05"
+type: posts
 ---
+
 
 
 

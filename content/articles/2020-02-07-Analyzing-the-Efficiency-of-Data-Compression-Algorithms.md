@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Data Compression Algorithms
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2020-02-07"
+type: posts
 ---
+
 
 
 

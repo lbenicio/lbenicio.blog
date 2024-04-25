@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: TheEvolutionofOperatingSystemsfromMainframestoCloudComputing
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2019-10-12"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: TheRoleofDataMininginKnowledgeDiscovery
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-06-29"
+type: posts
 ---
+
 
 
 

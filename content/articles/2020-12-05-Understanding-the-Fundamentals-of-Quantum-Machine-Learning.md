@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Quantum Machine Learning
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-12-05"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Mathematical Foundations of Machine Learning: From Linear Regression
   to Neural Networks'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2018-04-21"
+type: posts
 ---
+
 
 
 

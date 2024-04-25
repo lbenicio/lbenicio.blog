@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2013-08-12"
+type: posts
 ---
+
 
 
 

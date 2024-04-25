@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2018-02-03"
+type: posts
 ---
+
 
 
 

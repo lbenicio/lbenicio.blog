@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2019-11-04"
+type: posts
 ---
+
 
 
 

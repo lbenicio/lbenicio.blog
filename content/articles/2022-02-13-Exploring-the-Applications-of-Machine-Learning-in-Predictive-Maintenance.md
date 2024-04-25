@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Predictive Maintenance
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2022-02-13"
+type: posts
 ---
+
 
 
 

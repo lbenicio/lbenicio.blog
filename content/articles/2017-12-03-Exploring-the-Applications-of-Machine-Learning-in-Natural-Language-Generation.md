@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Generation
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2017-12-03"
+type: posts
 ---
+
 
 
 

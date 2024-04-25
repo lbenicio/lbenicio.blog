@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Dynamic Programming Algorithms
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2022-02-12"
+type: posts
 ---
+
 
 
 

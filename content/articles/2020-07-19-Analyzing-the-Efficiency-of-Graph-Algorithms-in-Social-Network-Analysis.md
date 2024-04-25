@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2020-07-19"
+type: posts
 ---
+
 
 
 

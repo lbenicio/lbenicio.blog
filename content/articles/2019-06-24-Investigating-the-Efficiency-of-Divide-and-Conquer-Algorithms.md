@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Divide and Conquer Algorithms
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-06-24"
+type: posts
 ---
+
 
 
 

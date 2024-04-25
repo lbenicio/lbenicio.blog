@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Parallel Algorithms in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2017-01-21"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Blockchain Technology in Security and Privacy
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-12-13"
+type: posts
 ---
+
 
 
 

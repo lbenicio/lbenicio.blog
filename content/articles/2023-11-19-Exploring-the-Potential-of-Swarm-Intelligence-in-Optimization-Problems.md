@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Swarm Intelligence in Optimization Problems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: IoT Internet of Things BigData ComputerScience
 categories: ["SoftwareTesting"]
 toc: true
 date: "2023-11-19"
+type: posts
 ---
+
 
 
 # Exploring the Potential of Swarm Intelligence in Optimization Problems

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Robotics and Autonomous Systems
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2017-12-27"
+type: posts
 ---
+
 
 
 

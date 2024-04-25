@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Impact of Virtual Reality in Immersive User Experiences
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: SoftwareTesting SoftwareEngineering CodeQuality
 categories: ["EthicalHacking"]
 toc: true
 date: "2023-11-06"
+type: posts
 ---
+
 
 
 # The Impact of Virtual Reality in Immersive User Experiences

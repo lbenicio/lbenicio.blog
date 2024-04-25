@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-03-13"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Differential Privacy in Data Analysis
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2018-01-07"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Advancements in Natural Language Processing for Virtual Assistants
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2018-07-28"
+type: posts
 ---
+
 
 
 

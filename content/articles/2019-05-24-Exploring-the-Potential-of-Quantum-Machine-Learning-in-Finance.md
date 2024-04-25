@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Finance
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2019-05-24"
+type: posts
 ---
+
 
 
 

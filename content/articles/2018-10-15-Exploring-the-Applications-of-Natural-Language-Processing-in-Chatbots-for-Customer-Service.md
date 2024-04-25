@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Chatbots for Customer
   Service
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-10-15"
+type: posts
 ---
+
 
 
 

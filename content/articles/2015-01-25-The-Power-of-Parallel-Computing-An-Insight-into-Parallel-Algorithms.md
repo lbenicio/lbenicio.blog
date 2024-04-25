@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Power of Parallel Computing: An Insight into Parallel Algorithms'
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2015-01-25"
+type: posts
 ---
+
 
 
 

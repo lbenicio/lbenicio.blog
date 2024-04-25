@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Evolution of Cryptography: From Classical Ciphers to Modern
   Encryption'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2022-01-31"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Edge Computing: Decentralized Processing and Low Latency'
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2017-06-29"
+type: posts
 ---
+
 
 
 

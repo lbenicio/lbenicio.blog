@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computational Geometry in Computer Graphics
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-01-18"
+type: posts
 ---
+
 
 
 

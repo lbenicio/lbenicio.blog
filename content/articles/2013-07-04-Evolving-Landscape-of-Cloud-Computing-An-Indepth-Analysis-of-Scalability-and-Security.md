@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Evolving Landscape of Cloud Computing An Indepth Analysis of Scalability and Security"
 
 date: "2013-07-04"
+type: posts
 ---
+
 
 # A Comprehensive Overview of Quantum Computing and its Influence on Classic Algorithms
 

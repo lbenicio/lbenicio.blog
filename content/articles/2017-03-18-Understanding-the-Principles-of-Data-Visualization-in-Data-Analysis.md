@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Visualization in Data Analysis
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2017-03-18"
+type: posts
 ---
+
 
 
 

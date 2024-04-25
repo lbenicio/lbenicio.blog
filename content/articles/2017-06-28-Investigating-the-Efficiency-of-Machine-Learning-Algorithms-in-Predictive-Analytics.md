@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Machine Learning Algorithms in Predictive Analytics
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-06-28"
+type: posts
 ---
+
 
 
 

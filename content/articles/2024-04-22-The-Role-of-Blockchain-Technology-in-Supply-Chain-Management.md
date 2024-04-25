@@ -1,11 +1,14 @@
 ---
+
 layout: posts
 title: "The Role of Blockchain Technology in Supply Chain Management"
 icon: fa-comment-alt
 tag: ComputerVision DataStructures Programming
 categories: TechTrends
 toc: true
+type: posts
 ---
+
 
 
 ![The Role of Blockchain Technology in Supply Chain Management](https://cdn.lbenicio.dev/posts/The-Role-of-Blockchain-Technology-in-Supply-Chain-Management)

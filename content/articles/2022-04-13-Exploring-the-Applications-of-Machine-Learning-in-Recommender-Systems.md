@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2022-04-13"
+type: posts
 ---
+
 
 
 

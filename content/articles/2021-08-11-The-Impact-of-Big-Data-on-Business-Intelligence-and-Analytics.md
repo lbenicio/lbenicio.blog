@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data on Business Intelligence and Analytics
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2021-08-11"
+type: posts
 ---
+
 
 
 

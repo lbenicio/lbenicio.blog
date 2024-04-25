@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 toc: true
 date: "2023-03-28"
+type: posts
 ---
+
 
 
 

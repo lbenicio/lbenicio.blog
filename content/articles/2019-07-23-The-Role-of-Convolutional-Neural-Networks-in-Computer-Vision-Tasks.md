@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Convolutional Neural Networks in Computer Vision Tasks
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2019-07-23"
+type: posts
 ---
+
 
 
 

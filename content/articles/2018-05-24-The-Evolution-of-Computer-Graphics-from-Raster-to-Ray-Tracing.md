@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution of Computer Graphics from Raster to Ray Tracing
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-05-24"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Customer Sentiment
   Analysis
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CodeQuality"]
 toc: true
 date: "2023-02-23"
+type: posts
 ---
+
 
 
 

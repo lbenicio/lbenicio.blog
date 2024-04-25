@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Impact of Internet of Things on Smart Cities: Enhancing Efficiency and
   Sustainability'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2017-02-24"
+type: posts
 ---
+
 
 
 

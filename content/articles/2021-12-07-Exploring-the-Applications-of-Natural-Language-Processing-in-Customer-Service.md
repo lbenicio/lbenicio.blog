@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Customer Service
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2021-12-07"
+type: posts
 ---
+
 
 
 

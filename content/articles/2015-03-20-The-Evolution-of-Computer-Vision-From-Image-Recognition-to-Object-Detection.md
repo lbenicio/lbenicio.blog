@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Vision: From Image Recognition to Object Detection'
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2015-03-20"
+type: posts
 ---
+
 
 
 

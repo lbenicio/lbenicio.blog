@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Robotics: Current Applications and Future Prospects'
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 toc: true
 date: "2023-10-14"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Text Classification: Efficiency Analysis of ML Algorithms'
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2019-06-17"
+type: posts
 ---
+
 
 
 

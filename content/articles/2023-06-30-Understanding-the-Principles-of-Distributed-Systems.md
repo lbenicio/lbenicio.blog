@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Distributed Systems
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 toc: true
 date: "2023-06-30"
+type: posts
 ---
+
 
 
 

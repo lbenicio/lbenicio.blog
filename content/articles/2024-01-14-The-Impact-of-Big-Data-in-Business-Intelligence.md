@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data in Business Intelligence"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CodeQuality CodeReview ComputerGraphics
 categories: Blockchain
 toc: true
 date: 2024-01-14
+type: posts
 ---
+
 
 
 ![The Impact of Big Data in Business Intelligence](https://cdn.lbenicio.dev/posts/The-Impact-of-Big-Data-in-Business-Intelligence)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Approximation Algorithms in NPHard Problems
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2017-04-18"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing in Simulation and Optimization
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-06-27"
+type: posts
 ---
+
 
 
 

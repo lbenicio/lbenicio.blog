@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Computer Graphics: Rendering and Animation Techniques'
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2017-10-26"
+type: posts
 ---
+
 
 
 

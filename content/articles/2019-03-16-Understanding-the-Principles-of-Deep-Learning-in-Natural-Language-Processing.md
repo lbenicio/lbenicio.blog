@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-03-16"
+type: posts
 ---
+
 
 
 

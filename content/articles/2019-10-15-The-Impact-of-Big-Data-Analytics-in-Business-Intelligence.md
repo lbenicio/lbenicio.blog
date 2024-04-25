@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data Analytics in Business Intelligence
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2019-10-15"
+type: posts
 ---
+
 
 # The Impact of Big Data Analytics in Business Intelligence
 

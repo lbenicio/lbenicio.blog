@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Neural Networks in Natural Language Generation
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2021-09-01"
+type: posts
 ---
+
 
 
 

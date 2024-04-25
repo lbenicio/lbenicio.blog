@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Evolutionary Computation in Optimization Problems
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-08-14"
+type: posts
 ---
+
 
 
 

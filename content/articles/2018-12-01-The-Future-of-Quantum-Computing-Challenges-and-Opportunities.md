@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Quantum Computing: Challenges and Opportunities'
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2018-12-01"
+type: posts
 ---
+
 
 
 

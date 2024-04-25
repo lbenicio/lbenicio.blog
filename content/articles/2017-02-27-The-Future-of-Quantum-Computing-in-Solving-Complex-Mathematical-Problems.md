@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Quantum Computing in Solving Complex Mathematical Problems
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-02-27"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Structures in Efficient Algorithm Design
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-06-06"
+type: posts
 ---
+
 
 
 

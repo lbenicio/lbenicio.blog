@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Robotics: Advancements and Challenges in Artificial Intelligence'
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2018-06-07"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Red-Black Binary Trees: A Deep Dive into their Complexity and Applications'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: binary tree red black
 categories: ["algorithms"]
 toc: true
 date: "2023-03-05"
+type: posts
 ---
+
 
 
 Red-Black Trees are a type of self-balancing binary search tree, first introduced by Rudolf Bayer in 1972. They are particularly useful in scenarios where a large number of insertions and deletions are performed on the tree, as their balance ensures a guaranteed worst-case time complexity of O(log n) for all operations. This paper explores the complexity of red-black trees, their properties and variations, and their applications in computer science.

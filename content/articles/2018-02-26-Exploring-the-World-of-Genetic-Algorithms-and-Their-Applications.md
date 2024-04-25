@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2018-02-26"
+type: posts
 ---
+
 
 
 

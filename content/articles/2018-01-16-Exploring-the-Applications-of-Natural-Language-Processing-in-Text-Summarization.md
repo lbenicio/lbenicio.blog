@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Text Summarization
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2018-01-16"
+type: posts
 ---
+
 
 
 

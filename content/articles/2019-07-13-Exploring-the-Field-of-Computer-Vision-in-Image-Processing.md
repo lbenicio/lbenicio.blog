@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computer Vision in Image Processing
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2019-07-13"
+type: posts
 ---
+
 
 
 

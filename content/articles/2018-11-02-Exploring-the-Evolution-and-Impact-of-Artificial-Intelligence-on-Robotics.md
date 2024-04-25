@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Evolution and Impact of Artificial Intelligence on Robotics
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2018-11-02"
+type: posts
 ---
+
 
 
 

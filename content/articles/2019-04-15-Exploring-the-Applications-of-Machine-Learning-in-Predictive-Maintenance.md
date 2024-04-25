@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Predictive Maintenance
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2019-04-15"
+type: posts
 ---
+
 
 
 

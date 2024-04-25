@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Intersection of Mathematics and Computer Science: Algorithms
   for Graph Theory'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-05-19"
+type: posts
 ---
+
 
 
 

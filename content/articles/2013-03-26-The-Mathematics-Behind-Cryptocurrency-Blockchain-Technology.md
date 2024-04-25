@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: "The Mathematics Behind Cryptocurrency: Blockchain Technology"
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2013-03-26"
+type: posts
 ---
+
 
 # The Mathematics Behind Cryptocurrency: Blockchain Technology
 

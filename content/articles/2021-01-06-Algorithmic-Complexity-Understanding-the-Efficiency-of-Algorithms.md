@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Algorithmic Complexity: Understanding the Efficiency of Algorithms'
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2021-01-06"
+type: posts
 ---
+
 
 
 

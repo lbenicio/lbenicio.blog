@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The different licenses of software
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: licences discussion development security
 categories: ["licences"]
 
 date: "2021-10-15"
+type: posts
 ---
+
 
 
 Open source software is a type of software that is made available to the public with a license that allows users to use, modify, and distribute the source code. This is in contrast to closed source software, which is proprietary software that is kept confidential and is only available for use under license. Free software, on the other hand, refers to software that is both open source and freely available for use, without any restrictions or fees.

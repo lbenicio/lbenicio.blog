@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Swarm Intelligence in Optimization Problems
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2018-03-31"
+type: posts
 ---
+
 
 
 

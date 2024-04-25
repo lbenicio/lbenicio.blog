@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Data Visualization in Data Analysis and Decision Making
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-01-26"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Clustering Algorithms in Data Mining
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2021-04-28"
+type: posts
 ---
+
 
 
 

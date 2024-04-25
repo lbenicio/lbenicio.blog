@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Languages: From Assembly to HighLevel Languages'
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2020-05-29"
+type: posts
 ---
+
 
 
 

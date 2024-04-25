@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Parallel Algorithms in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2021-10-30"
+type: posts
 ---
+
 
 
 

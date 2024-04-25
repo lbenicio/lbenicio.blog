@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2017-02-25"
+type: posts
 ---
+
 
 
 

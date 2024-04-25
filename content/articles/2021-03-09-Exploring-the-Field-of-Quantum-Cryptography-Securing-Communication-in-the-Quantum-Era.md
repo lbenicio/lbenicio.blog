@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Quantum Cryptography: Securing Communication in the
   Quantum Era'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-03-09"
+type: posts
 ---
+
 
 
 

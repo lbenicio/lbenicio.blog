@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Natural Language Processing in Text Summarization
 icon: fa-comment-alt
 categories: ["TechTrends"]
 toc: true
 date: "2023-10-08"
+type: posts
 ---
+
 
 
 

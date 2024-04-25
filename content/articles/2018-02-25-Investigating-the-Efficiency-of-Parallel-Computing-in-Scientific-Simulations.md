@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Parallel Computing in Scientific Simulations
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2018-02-25"
+type: posts
 ---
+
 
 
 

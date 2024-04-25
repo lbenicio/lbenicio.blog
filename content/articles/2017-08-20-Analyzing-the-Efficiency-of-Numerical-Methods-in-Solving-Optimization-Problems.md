@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Optimization Problems
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-08-20"
+type: posts
 ---
+
 
 
 

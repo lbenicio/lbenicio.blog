@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Revolution of Machine Learning An Examination of Supervised and Unsupervised Learning Algorithms"
 
 date: "2013-04-24"
+type: posts
 ---
+
 
 # Quantum Computing: The Next Frontier in Computer Science
 

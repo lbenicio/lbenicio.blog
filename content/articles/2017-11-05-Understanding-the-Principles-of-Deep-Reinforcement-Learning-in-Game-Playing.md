@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Reinforcement Learning in Game Playing
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2017-11-05"
+type: posts
 ---
+
 
 
 

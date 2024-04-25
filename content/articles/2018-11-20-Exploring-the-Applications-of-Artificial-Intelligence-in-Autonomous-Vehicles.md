@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2018-11-20"
+type: posts
 ---
+
 
 
 

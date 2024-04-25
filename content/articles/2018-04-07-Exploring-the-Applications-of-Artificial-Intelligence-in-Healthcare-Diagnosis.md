@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Healthcare Diagnosis
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2018-04-07"
+type: posts
 ---
+
 
 
 

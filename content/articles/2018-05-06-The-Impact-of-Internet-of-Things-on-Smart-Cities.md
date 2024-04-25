@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Internet of Things on Smart Cities
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2018-05-06"
+type: posts
 ---
+
 
 
 

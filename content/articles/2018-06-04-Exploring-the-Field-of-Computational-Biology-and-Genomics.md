@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computational Biology and Genomics
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2018-06-04"
+type: posts
 ---
+
 
 
 

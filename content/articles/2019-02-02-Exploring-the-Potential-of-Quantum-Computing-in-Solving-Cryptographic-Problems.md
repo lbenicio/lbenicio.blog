@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Solving Cryptographic Problems
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2019-02-02"
+type: posts
 ---
+
 
 # Exploring the Potential of Quantum Computing in Solving Cryptographic Problems
 

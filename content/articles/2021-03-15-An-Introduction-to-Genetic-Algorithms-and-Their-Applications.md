@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Introduction to Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-03-15"
+type: posts
 ---
+
 
 
 

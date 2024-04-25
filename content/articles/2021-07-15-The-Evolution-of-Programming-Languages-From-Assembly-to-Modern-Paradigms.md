@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Languages: From Assembly to Modern Paradigms'
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2021-07-15"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Anomaly Detection
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2022-01-08"
+type: posts
 ---
+
 
 
 

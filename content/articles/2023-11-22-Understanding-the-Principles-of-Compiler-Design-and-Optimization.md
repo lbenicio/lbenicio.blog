@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Compiler Design and Optimization
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: MachineLearning ComputerVision Cryptography
 categories: ["Bioinformatics"]
 toc: true
 date: "2023-11-22"
+type: posts
 ---
+
 
 
 # Understanding the Principles of Compiler Design and Optimization

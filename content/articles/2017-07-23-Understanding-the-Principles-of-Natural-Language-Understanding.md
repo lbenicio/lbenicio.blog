@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Understanding
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-07-23"
+type: posts
 ---
+
 
 
 

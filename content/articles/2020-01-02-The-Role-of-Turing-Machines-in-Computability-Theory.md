@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Turing Machines in Computability Theory
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-01-02"
+type: posts
 ---
+
 
 
 

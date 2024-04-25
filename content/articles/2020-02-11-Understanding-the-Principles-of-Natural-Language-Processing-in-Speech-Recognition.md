@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Speech Recognition
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2020-02-11"
+type: posts
 ---
+
 
 
 

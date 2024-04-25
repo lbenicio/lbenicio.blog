@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Convolutional Neural Networks in Image Processing
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2020-07-01"
+type: posts
 ---
+
 
 
 

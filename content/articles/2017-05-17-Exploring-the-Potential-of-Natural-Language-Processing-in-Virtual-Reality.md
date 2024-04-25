@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Natural Language Processing in Virtual Reality
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-05-17"
+type: posts
 ---
+
 
 
 

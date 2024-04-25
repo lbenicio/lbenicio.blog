@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: TheImpactofQuantumComputingonCryptanalysis
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-08-16"
+type: posts
 ---
+
 
 
 

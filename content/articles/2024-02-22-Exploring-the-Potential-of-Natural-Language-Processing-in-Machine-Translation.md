@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Natural Language Processing in Machine Translation"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: MachineLearning Bioinformatics NaturalLanguageProcessing
 categories: ComputerScience
 toc: true
 date: 2024-02-22
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Natural Language Processing in Machine Translation](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Natural-Language-Processing-in-Machine-Translation)

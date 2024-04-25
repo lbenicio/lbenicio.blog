@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Operating Systems: From Monolithic to Microkernel'
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2021-08-20"
+type: posts
 ---
+
 
 
 

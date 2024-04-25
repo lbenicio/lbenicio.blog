@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Blockchain Technology in Secure Data Management
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2018-05-31"
+type: posts
 ---
+
 
 
 

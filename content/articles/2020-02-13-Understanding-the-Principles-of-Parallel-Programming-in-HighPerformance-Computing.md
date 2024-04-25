@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Programming in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2020-02-13"
+type: posts
 ---
+
 
 
 

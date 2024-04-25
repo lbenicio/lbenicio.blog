@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Exploring Quantum Computing The Future of Algorithms and Computation"
 
 date: "2020-03-12"
+type: posts
 ---
+
 
 # Topic: Quantum Computing: Accelerating the Future of Computation and Algorithms
 

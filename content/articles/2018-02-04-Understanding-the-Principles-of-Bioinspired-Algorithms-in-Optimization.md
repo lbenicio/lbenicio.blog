@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Bioinspired Algorithms in Optimization
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-02-04"
+type: posts
 ---
+
 
 
 

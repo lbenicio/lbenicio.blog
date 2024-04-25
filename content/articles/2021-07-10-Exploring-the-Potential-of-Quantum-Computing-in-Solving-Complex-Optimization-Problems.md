@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Solving Complex Optimization
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2021-07-10"
+type: posts
 ---
+
 
 
 

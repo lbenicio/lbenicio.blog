@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Machine Learning
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2021-02-03"
+type: posts
 ---
+
 
 
 

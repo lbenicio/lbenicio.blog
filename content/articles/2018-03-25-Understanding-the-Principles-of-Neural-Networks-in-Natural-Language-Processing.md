@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Neural Networks in Natural Language Processing
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2018-03-25"
+type: posts
 ---
+
 
 
 

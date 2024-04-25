@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Machine Learning in Natural Language Generation
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-01-27"
+type: posts
 ---
+
 
 
 

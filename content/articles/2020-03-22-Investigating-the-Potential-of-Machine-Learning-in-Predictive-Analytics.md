@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Potential of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2020-03-22"
+type: posts
 ---
+
 
 
 

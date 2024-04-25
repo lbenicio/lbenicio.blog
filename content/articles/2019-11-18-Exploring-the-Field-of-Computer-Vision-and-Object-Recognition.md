@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computer Vision and Object Recognition
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2019-11-18"
+type: posts
 ---
+
 
 
 

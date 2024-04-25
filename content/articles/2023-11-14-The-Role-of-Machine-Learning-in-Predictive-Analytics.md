@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Predictive Analytics
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: BigData CodeReview ArtificialIntelligence
 categories: ["CodeQuality"]
 toc: true
 date: "2023-11-14"
+type: posts
 ---
+
 
 
 # The Role of Machine Learning in Predictive Analytics

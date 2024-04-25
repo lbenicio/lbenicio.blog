@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of HumanComputer Interaction: User Experience and Design'
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2019-03-29"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Graph Algorithms in Social Network Analysis"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: WebDevelopment CodeQuality SoftwareEngineering
 categories: CodeReview
 toc: true
 date: 2024-01-20
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Graph Algorithms in Social Network Analysis](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Graph-Algorithms-in-Social-Network-Analysis)

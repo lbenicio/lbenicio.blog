@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Fundamentals of Graph Theory in Network Analysis
 icon: fa-comment-alt
 categories: ["Programming"]
 toc: true
 date: "2022-12-17"
+type: posts
 ---
+
 
 
 

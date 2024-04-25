@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Machine Learning in Natural Language Generation
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2021-07-04"
+type: posts
 ---
+
 
 
 

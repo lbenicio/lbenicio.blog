@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Leveraging Reinforcement Learning in Autonomous Systems
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-02-28"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Evolution and Impact of Blockchain Technology
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2020-01-15"
+type: posts
 ---
+
 
 
 

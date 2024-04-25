@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Image Storage
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2019-01-02"
+type: posts
 ---
+
 
 
 

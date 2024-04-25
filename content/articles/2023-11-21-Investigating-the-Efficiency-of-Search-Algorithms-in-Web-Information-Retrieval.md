@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Search Algorithms in Web Information Retrieval
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: WebDevelopment QuantumComputing Programming
 categories: ["CodeReview"]
 toc: true
 date: "2023-11-21"
+type: posts
 ---
+
 
 
 # Investigating the Efficiency of Search Algorithms in Web Information Retrieval

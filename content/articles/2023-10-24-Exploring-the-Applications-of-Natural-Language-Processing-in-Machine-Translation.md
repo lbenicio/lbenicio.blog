@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 toc: true
 date: "2023-10-24"
+type: posts
 ---
+
 
 
 

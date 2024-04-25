@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computer Vision and its Applications
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2017-11-19"
+type: posts
 ---
+
 
 
 

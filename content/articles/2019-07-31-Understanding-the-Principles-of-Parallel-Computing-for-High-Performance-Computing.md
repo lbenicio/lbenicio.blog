@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing for High Performance Computing
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2019-07-31"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The GNU Foundation
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: linux gnu debian discussion
 categories: ["discussion"]
 
 date: "2021-10-22"
+type: posts
 ---
+
 
 
 The GNU Foundation and the Linux eco-system are two of the most important and influential forces in the world of computing today. Together, they have helped to shape the modern digital landscape and have opened up new opportunities and possibilities for people around the world. In this essay, we will take a closer look at the GNU Foundation and the Linux eco-system, exploring the history and impact of these organizations, and highlighting some of the key features and innovations that have helped to make them so successful.

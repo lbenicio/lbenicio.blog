@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Deep Learning for Neural Networks
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2021-03-16"
+type: posts
 ---
+
 
 
 

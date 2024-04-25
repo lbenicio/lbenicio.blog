@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the World of Natural Language Processing: Techniques and Applications'
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 toc: true
 date: "2023-10-04"
+type: posts
 ---
+
 
 
 

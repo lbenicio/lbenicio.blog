@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Robotics
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2021-10-07"
+type: posts
 ---
+
 
 
 

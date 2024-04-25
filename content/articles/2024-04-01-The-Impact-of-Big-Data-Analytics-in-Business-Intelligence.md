@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "The Impact of Big Data Analytics in Business Intelligence"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: DebuggingTips CodeReview WebDevelopment
 categories: Blockchain
 toc: true
 date: 2024-04-01
+type: posts
 ---
+
 
 
 ![The Impact of Big Data Analytics in Business Intelligence](https://cdn.lbenicio.dev/posts/The-Impact-of-Big-Data-Analytics-in-Business-Intelligence)

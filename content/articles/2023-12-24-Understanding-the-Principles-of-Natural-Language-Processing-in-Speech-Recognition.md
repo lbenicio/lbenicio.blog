@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Natural Language Processing in Speech Recognition"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: WebDevelopment IoT Internet of Things SoftwareEngineering
 categories: ComputerGraphics
 toc: true
 date: 2023-12-24
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Natural Language Processing in Speech Recognition](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Natural-Language-Processing-in-Speech-Recognition)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2021-01-01"
+type: posts
 ---
+
 
 
 

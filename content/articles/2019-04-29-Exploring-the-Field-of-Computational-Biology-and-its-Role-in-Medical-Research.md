@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computational Biology and its Role in Medical Research
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-04-29"
+type: posts
 ---
+
 
 
 

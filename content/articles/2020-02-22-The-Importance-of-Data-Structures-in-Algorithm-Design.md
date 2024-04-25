@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Data Structures in Algorithm Design
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2020-02-22"
+type: posts
 ---
+
 
 
 

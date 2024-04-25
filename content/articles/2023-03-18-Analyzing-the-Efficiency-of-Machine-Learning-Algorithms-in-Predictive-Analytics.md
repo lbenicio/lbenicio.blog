@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Machine Learning Algorithms in Predictive Analytics
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 toc: true
 date: "2023-03-18"
+type: posts
 ---
+
 
 
 

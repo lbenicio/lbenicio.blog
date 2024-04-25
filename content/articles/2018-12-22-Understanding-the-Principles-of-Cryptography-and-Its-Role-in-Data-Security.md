@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography and Its Role in Data Security
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2018-12-22"
+type: posts
 ---
+
 
 
 

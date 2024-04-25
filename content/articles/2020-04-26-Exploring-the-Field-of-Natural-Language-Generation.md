@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Natural Language Generation
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-04-26"
+type: posts
 ---
+
 
 
 

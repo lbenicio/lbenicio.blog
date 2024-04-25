@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Impact of Machine Learning in Healthcare Diagnosis
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 toc: true
 date: "2023-09-27"
+type: posts
 ---
+
 
 # Exploring the Impact of Machine Learning in Healthcare Diagnosis
 

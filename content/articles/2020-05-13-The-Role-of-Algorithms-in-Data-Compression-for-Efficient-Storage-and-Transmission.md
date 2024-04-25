@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Algorithms in Data Compression for Efficient Storage and Transmission
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2020-05-13"
+type: posts
 ---
+
 
 
 

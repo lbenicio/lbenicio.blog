@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Rise of Machine Learning: Exploring Deep Neural Networks'
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2020-02-08"
+type: posts
 ---
+
 
 
 

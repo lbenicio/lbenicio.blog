@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Field of Cybersecurity: Advanced Techniques and Emerging Threats'
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2018-03-26"
+type: posts
 ---
+
 
 
 

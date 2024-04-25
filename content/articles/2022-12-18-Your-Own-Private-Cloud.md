@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Your Own Private Cloud.
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: tip, resources
 categories: ["cloud"]
 toc: true
 date: "2022-12-18"
+type: posts
 ---
+
 
 
 Following previous week post, we will have, also, a small post about a list to build your own personal cloud. The idea here is using free resource to create a small cloud cluster to deploy small projects and study System Admin (SysAdmin) and System Operations (SysOps).

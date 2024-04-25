@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Advancements in Quantum Computing
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2017-05-23"
+type: posts
 ---
+
 
 
 

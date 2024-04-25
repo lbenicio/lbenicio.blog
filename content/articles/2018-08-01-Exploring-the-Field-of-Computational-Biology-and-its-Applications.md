@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computational Biology and its Applications
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2018-08-01"
+type: posts
 ---
+
 
 # Exploring the Field of Computational Biology and its Applications
 

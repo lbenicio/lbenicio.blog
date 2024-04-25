@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Data Compression Algorithms in Image Processing
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2019-03-28"
+type: posts
 ---
+
 
 
 

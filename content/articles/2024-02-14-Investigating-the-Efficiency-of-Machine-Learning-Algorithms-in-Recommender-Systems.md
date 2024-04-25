@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Machine Learning Algorithms in Recommender Systems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: CodeQuality ComputerScience SoftwareEngineering
 categories: CloudComputing
 toc: true
 date: 2024-02-14
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Machine Learning Algorithms in Recommender Systems](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Machine-Learning-Algorithms-in-Recommender-Systems)

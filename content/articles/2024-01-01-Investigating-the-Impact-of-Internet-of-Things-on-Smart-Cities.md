@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Impact of Internet of Things on Smart Cities"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: BigData Networking Blockchain
 categories: WebDevelopment
 toc: true
 date: 2024-01-01
+type: posts
 ---
+
 
 
 ![Investigating the Impact of Internet of Things on Smart Cities](https://cdn.lbenicio.dev/posts/Investigating-the-Impact-of-Internet-of-Things-on-Smart-Cities)

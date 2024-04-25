@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Genetic Algorithms in Evolving Neural Networks"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Programming ComputerVision Cryptography
 categories: CodeReview
 toc: true
 date: 2023-12-11
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Genetic Algorithms in Evolving Neural Networks](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Genetic-Algorithms-in-Evolving-Neural-Networks)

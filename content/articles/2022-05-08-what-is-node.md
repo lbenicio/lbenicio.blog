@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: What is Node
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: node javascript discussion theory
 categories: ["discussion"]
 
 date: "2022-05-08"
+type: posts
 ---
+
 
 
 Node.js is a runtime environment for executing JavaScript code outside of a web browser. It was created in 2009 by Ryan Dahl and has since become one of the most popular JavaScript runtime environments.

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-06-21"
+type: posts
 ---
+
 
 # Analyzing the Efficiency of Numerical Methods in Solving Differential Equations
 

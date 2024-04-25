@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Numerical Methods in Solving Differential Equations
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2017-10-29"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Natural Language Processing in Information Retrieval
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-04-25"
+type: posts
 ---
+
 
 
 

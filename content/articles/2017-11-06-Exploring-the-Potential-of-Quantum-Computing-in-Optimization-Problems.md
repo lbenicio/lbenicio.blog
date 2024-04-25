@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Optimization Problems
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2017-11-06"
+type: posts
 ---
+
 
 
 

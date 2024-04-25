@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Data Mining in Customer Relationship Management
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2017-04-01"
+type: posts
 ---
+
 
 
 

@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "An Indepth Analysis of Cloud Computing Opportunities and Challenges"
 
 date: "2014-02-22"
+type: posts
 ---
+
 
 # Topic: Quantum Computing and its Impact on Algorithms and Computation
 

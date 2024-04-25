@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Optimization Algorithms in Machine Learning
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-06-17"
+type: posts
 ---
+
 
 
 

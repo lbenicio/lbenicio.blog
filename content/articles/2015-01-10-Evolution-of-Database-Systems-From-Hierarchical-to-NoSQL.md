@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "Evolution of Database Systems From Hierarchical to NoSQL"
 
 date: "2015-01-10"
+type: posts
 ---
+
 
 # Topic: Quantum Computing: A Paradigm shift in Computation and Algorithms
 

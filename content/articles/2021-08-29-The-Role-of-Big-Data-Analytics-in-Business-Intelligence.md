@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Big Data Analytics in Business Intelligence
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2021-08-29"
+type: posts
 ---
+
 
 
 

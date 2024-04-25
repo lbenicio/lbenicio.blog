@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Genetic Algorithms in Evolutionary Optimization
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2018-05-17"
+type: posts
 ---
+
 
 
 

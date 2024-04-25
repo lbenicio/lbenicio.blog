@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography and Secure Communication
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2021-12-30"
+type: posts
 ---
+
 
 
 

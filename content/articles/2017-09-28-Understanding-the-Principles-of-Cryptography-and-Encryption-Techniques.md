@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptography and Encryption Techniques
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: e f i
 categories: ["ComputerScience"]
 
 date: "2017-09-28"
+type: posts
 ---
+
 
 
 

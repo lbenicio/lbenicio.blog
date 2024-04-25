@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Quantum Computing on Cryptography
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2021-11-11"
+type: posts
 ---
+
 
 
 

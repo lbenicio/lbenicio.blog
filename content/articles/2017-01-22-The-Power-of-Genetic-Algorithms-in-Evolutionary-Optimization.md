@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Genetic Algorithms in Evolutionary Optimization
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2017-01-22"
+type: posts
 ---
+
 
 
 

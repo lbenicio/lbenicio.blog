@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Financial Forecasting
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2021-07-27"
+type: posts
 ---
+
 
 
 

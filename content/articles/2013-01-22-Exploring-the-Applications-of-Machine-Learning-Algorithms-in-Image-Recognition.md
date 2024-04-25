@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning Algorithms in Image Recognition
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2013-01-22"
+type: posts
 ---
+
 
 
 

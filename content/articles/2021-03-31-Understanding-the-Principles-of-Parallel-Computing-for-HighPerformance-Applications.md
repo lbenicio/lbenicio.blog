@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing for HighPerformance Applications
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2021-03-31"
+type: posts
 ---
+
 
 
 

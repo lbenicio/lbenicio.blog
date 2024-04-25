@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Internet of Things on Smart Cities.
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2017-10-23"
+type: posts
 ---
+
 
 
 

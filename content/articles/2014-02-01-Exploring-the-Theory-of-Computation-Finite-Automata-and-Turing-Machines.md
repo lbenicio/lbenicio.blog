@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Exploring the Theory of Computation: Finite Automata and Turing Machines'
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2014-02-01"
+type: posts
 ---
+
 
 
 

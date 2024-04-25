@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Mining in Predictive Analytics
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2017-03-27"
+type: posts
 ---
+
 
 
 

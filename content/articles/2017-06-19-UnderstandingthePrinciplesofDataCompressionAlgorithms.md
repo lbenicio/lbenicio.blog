@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: UnderstandingthePrinciplesofDataCompressionAlgorithms
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-06-19"
+type: posts
 ---
+
 
 
 

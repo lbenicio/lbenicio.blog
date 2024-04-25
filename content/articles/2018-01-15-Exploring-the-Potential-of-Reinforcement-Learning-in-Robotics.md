@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Reinforcement Learning in Robotics
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2018-01-15"
+type: posts
 ---
+
 
 
 

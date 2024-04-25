@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Applications of Computer Vision in Augmented Reality"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: NaturalLanguageProcessing ComputerGraphics WebDevelopment
 categories: Databases
 toc: true
 date: 2023-12-07
+type: posts
 ---
+
 
 
 ![Exploring the Applications of Computer Vision in Augmented Reality](https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Computer-Vision-in-Augmented-Reality)

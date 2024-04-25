@@ -1,9 +1,12 @@
 ---
+
 type: "posts"
 title: "The P vs NP Problem A Mathematical Dilemma in the Realm of Computer Science"
 
 date: "2017-02-15"
+type: posts
 ---
+
 
 # Quantum Computing: A New Era of Computation and Algorithms
 

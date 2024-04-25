@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Advancements in Robotics: From Industrial Automation to Humanoid Robots'
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2017-06-10"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["QuantumComputing"]
 
 date: "2017-11-29"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Future of Augmented Reality in Virtual Shopping Experiences
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2020-02-24"
+type: posts
 ---
+
 
 
 

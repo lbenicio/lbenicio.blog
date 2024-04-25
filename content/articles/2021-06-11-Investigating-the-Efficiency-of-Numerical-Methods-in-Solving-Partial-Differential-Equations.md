@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Numerical Methods in Solving Partial Differential
   Equations
@@ -7,7 +8,9 @@ tags: ComputerGraphics MobileDevelopment Networking
 categories: ["CodeQuality"]
 
 date: "2021-06-11"
+type: posts
 ---
+
 
 
 

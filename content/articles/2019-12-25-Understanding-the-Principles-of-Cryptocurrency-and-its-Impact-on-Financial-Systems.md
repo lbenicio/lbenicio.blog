@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Cryptocurrency and its Impact on Financial
   Systems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-12-25"
+type: posts
 ---
+
 
 
 

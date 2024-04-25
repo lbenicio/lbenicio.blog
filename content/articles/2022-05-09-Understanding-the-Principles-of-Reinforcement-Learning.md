@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Reinforcement Learning
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2022-05-09"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Impact of Blockchain Technology on Supply Chain Management
 icon: fa-comment-alt
 categories: ["Algorithms"]
 toc: true
 date: "2023-08-04"
+type: posts
 ---
+
 
 
 

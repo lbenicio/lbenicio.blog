@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Cloud Computing on Data Security and Privacy
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 toc: true
 date: "2022-11-12"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Deep Learning in Computer Vision
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2021-11-06"
+type: posts
 ---
+
 
 
 

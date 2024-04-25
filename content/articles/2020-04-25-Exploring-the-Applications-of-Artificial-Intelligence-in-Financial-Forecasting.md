@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Artificial Intelligence in Financial Forecasting
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2020-04-25"
+type: posts
 ---
+
 
 
 

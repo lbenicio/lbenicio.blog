@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Operating Systems: From Mainframes to Cloud Computing'
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2017-05-19"
+type: posts
 ---
+
 
 
 

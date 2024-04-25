@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning Algorithms in Natural Language
   Processing
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["CloudComputing"]
 toc: true
 date: "2023-04-27"
+type: posts
 ---
+
 
 
 

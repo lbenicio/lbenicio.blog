@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Coloring Algorithms in Map Coloring Problems
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2017-08-04"
+type: posts
 ---
+
 
 
 

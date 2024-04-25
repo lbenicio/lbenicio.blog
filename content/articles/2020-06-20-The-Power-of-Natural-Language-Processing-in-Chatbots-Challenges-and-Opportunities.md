@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Power of Natural Language Processing in Chatbots: Challenges and Opportunities'
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2020-06-20"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Natural Computing and Its Applications
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-09-02"
+type: posts
 ---
+
 
 
 

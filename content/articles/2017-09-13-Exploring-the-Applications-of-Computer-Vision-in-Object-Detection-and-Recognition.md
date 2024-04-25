@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Object Detection and Recognition
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2017-09-13"
+type: posts
 ---
+
 
 
 

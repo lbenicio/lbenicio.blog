@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2021-05-20"
+type: posts
 ---
+
 
 
 

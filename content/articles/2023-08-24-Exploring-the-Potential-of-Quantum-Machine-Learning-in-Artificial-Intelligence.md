@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Artificial Intelligence
 icon: fa-comment-alt
 categories: ["Databases"]
 toc: true
 date: "2023-08-24"
+type: posts
 ---
+
 
 
 

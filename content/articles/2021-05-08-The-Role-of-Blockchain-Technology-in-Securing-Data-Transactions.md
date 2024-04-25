@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Blockchain Technology in Securing Data Transactions
 icon: fa-comment-alt
 categories: ["EthicalHacking"]
 
 date: "2021-05-08"
+type: posts
 ---
+
 
 
 

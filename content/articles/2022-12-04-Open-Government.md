@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Open Government
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: open, government
 categories: ["discussion"]
 toc: true
 date: "2022-12-04"
+type: posts
 ---
+
 
 Finally, our season of soft topics is ending. This is our last topic, and it is Open Government.
 

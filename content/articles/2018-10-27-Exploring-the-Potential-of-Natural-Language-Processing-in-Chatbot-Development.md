@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Natural Language Processing in Chatbot Development
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2018-10-27"
+type: posts
 ---
+
 
 
 

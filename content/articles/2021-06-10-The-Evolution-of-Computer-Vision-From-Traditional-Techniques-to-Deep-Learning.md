@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Vision: From Traditional Techniques to Deep Learning'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: i e p
 categories: ["DebuggingTips"]
 
 date: "2021-06-10"
+type: posts
 ---
+
 
 
 

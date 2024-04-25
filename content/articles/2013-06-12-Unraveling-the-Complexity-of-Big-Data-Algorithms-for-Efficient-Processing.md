@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Unraveling the Complexity of Big Data: Algorithms for Efficient Processing'
 icon: fa-comment-alt
 categories: ["IoT', 'Internet', 'of', 'Things"]
 
 date: "2013-06-12"
+type: posts
 ---
+
 
 
 

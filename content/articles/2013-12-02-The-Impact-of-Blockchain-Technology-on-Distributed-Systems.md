@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Blockchain Technology on Distributed Systems
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2013-12-02"
+type: posts
 ---
+
 
 
 

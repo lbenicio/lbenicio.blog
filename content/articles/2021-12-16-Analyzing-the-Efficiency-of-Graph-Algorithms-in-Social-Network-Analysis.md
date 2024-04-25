@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Social Network Analysis
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: ComputerGraphics EthicalHacking BigData
 categories: ["Blockchain"]
 
 date: "2021-12-16"
+type: posts
 ---
+
 
 
 

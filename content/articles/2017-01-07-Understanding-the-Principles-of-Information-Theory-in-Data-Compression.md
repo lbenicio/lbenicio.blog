@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Information Theory in Data Compression
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2017-01-07"
+type: posts
 ---
+
 
 
 

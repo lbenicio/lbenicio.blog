@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Machine Learning in Recommender Systems"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: ArtificialIntelligence Blockchain NaturalLanguageProcessing
 categories: DebuggingTips
 toc: true
 date: 2023-12-10
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Machine Learning in Recommender Systems](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Machine-Learning-in-Recommender-Systems)

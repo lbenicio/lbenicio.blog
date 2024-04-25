@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Advancements in Computer Vision Techniques for Object Detection
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2017-04-10"
+type: posts
 ---
+
 
 
 

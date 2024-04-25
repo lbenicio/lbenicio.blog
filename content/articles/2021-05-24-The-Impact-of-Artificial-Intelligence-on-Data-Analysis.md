@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence on Data Analysis
 icon: fa-comment-alt
 categories: ["TechTrends"]
 
 date: "2021-05-24"
+type: posts
 ---
+
 
 
 

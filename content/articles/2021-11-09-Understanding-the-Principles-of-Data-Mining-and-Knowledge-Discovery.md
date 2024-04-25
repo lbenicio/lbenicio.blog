@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Mining and Knowledge Discovery
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2021-11-09"
+type: posts
 ---
+
 
 
 

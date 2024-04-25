@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["Cryptography"]
 toc: true
 date: "2023-05-10"
+type: posts
 ---
+
 
 # Exploring the Role of Machine Learning in Natural Language Processing
 

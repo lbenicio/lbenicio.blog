@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2022-02-14"
+type: posts
 ---
+
 
 
 

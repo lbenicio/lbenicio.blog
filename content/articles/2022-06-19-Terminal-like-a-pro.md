@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Terminal like a pro
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: terminal, customization, theming, tutorial
 categories: ["tutorial"]
 
 date: "2022-06-19"
+type: posts
 ---
+
 
 
 It is my first post, or, in programming language, it means, a hello world post. So, let's talk about on how to tweak your terminal to make it look like the picture above. Let's dive in. To summarize, we need to tie together a couple of solutions, Nerd Fonts, Oh-My-ZSH, bash history, auto-completions, syntax highlight and interactive-cd plugins, powerlevel9k theme, and iTerm2 (for macOS users).

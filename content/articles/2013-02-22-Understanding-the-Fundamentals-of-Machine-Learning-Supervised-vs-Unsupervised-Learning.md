@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Understanding the Fundamentals of Machine Learning: Supervised vs Unsupervised
   Learning'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2013-02-22"
+type: posts
 ---
+
 
 
 

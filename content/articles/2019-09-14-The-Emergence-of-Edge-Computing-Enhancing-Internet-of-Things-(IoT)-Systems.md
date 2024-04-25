@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Emergence of Edge Computing: Enhancing Internet of Things (IoT) Systems'
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2019-09-14"
+type: posts
 ---
+
 
 
 

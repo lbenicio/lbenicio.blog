@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Exploring the Potential of Quantum Machine Learning in Data Analysis"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: WebDevelopment ComputerArchitecture ComputerVision
 categories: ArtificialIntelligence
 toc: true
 date: 2024-04-11
+type: posts
 ---
+
 
 
 ![Exploring the Potential of Quantum Machine Learning in Data Analysis](https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Quantum-Machine-Learning-in-Data-Analysis)

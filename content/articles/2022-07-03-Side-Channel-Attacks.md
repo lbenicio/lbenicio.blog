@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Side Channel Attacks
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: side channel, attacks
 categories: ["discussion"]
 
 date: "2022-07-03"
+type: posts
 ---
+
 
 This work briefly discusses some methods that I consider critical for the security of today's computing systems. For a better understanding of the discussion proposed here, the excerpt is divided into two sections.
 

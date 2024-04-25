@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Reinforcement Learning in Game Theory"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: DebuggingTips Programming Cryptography
 categories: ArtificialIntelligence
 toc: true
 date: 2024-03-23
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Reinforcement Learning in Game Theory](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Reinforcement-Learning-in-Game-Theory)

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Network Optimization
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-08-06"
+type: posts
 ---
+
 
 
 

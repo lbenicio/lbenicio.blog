@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data Analytics in Business Intelligence
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2017-02-10"
+type: posts
 ---
+
 
 
 

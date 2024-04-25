@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Clustering Algorithms in Customer Segmentation
 icon: fa-comment-alt
 categories: ["Cryptography"]
 
 date: "2017-03-20"
+type: posts
 ---
+
 
 
 

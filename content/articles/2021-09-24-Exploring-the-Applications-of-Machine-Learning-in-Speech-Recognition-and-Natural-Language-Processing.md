@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Speech Recognition and Natural
   Language Processing
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2021-09-24"
+type: posts
 ---
+
 
 
 

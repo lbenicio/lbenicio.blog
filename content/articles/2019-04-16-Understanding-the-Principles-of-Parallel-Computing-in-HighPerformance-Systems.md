@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing in HighPerformance Systems
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-04-16"
+type: posts
 ---
+
 
 
 

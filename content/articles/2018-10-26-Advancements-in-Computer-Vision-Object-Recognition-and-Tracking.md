@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'Advancements in Computer Vision: Object Recognition and Tracking'
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-10-26"
+type: posts
 ---
+
 
 
 

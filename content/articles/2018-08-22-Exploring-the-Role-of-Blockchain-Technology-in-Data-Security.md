@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Role of Blockchain Technology in Data Security
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2018-08-22"
+type: posts
 ---
+
 
 
 

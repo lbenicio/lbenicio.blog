@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["CodeReview"]
 toc: true
 date: "2022-08-04"
+type: posts
 ---
+
 
 
 

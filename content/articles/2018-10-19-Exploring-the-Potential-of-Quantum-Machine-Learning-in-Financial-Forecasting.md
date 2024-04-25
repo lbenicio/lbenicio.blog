@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Financial Forecasting
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2018-10-19"
+type: posts
 ---
+
 
 
 

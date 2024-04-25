@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Quantum Computing: Challenges and Possibilities'
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2020-12-24"
+type: posts
 ---
+
 
 
 

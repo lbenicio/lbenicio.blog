@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Quantum Computing: A Leap Beyond Classical Computation'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: computing
 categories: ["computation', 'quantum"]
 
 date: "2020-11-25"
+type: posts
 ---
+
 
 
 ## Introduction

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Autonomous Vehicles
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2018-07-24"
+type: posts
 ---
+
 
 
 

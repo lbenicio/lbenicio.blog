@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence in Financial Forecasting
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2019-12-21"
+type: posts
 ---
+
 
 
 

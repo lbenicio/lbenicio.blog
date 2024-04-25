@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Magic of Image Processing: Techniques and Applications'
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2013-02-28"
+type: posts
 ---
+
 
 
 

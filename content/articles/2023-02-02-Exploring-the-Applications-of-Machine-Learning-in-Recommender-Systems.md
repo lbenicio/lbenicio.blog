@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Recommender Systems
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 toc: true
 date: "2023-02-02"
+type: posts
 ---
+
 
 
 

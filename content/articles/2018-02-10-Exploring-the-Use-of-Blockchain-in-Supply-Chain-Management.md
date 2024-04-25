@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Use of Blockchain in Supply Chain Management
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2018-02-10"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Programming Languages: From Assembly to ObjectOriented'
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2022-02-09"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Unlocking Business Success with the Business Model Canvas
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: business
 categories: ["business', 'canvas', 'methododlogy"]
 
 date: "2021-04-09"
+type: posts
 ---
+
 
 
 Starting a business is challenging, and one of the most critical components of success is having a solid business model. To develop a sustainable business model, entrepreneurs need to understand their customers' needs, determine their value proposition, and analyze their competition. However, putting all of this information together can be difficult without a structured framework. Enter the Business Model Canvas (BMC). In this blog post, we will discuss what the BMC is, how it works, and why it is an essential tool for entrepreneurs and startups.

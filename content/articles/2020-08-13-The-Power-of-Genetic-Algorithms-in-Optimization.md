@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Genetic Algorithms in Optimization
 icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2020-08-13"
+type: posts
 ---
+
 
 
 

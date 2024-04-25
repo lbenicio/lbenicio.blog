@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Data Mining and Knowledge Discovery
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2019-08-03"
+type: posts
 ---
+
 
 
 

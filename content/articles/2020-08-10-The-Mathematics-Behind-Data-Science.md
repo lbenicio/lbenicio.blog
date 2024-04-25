@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Mathematics Behind Data Science
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2020-08-10"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Speech Recognition
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2021-10-26"
+type: posts
 ---
+
 
 # Exploring the Applications of Machine Learning in Speech Recognition
 

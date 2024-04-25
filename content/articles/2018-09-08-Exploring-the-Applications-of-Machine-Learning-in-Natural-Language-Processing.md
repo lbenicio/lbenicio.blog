@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Machine Learning in Natural Language Processing
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-09-08"
+type: posts
 ---
+
 
 
 

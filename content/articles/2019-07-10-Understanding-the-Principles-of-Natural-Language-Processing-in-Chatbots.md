@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["SoftwareEngineering"]
 
 date: "2019-07-10"
+type: posts
 ---
+
 
 
 

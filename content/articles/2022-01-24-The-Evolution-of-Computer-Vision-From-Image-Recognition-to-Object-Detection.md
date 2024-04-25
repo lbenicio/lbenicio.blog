@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Vision: From Image Recognition to Object Detection'
 icon: fa-comment-alt
 categories: ["ComputerArchitecture"]
 
 date: "2022-01-24"
+type: posts
 ---
+
 
 
 

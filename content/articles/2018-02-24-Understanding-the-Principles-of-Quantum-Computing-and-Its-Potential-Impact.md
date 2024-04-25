@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing and Its Potential Impact
 icon: fa-comment-alt
 categories: ["ComputerGraphics"]
 
 date: "2018-02-24"
+type: posts
 ---
+
 
 # Understanding the Principles of Quantum Computing and Its Potential Impact
 

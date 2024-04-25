@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Evolution and Impact of Quantum Computing on Modern Algorithms
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2022-03-21"
+type: posts
 ---
+
 
 
 

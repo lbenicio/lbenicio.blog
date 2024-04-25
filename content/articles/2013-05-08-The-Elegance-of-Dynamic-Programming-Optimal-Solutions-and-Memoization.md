@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Elegance of Dynamic Programming: Optimal Solutions and Memoization'
 icon: fa-comment-alt
 categories: ["ComputerVision"]
 
 date: "2013-05-08"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2017-06-22"
+type: posts
 ---
+
 
 
 

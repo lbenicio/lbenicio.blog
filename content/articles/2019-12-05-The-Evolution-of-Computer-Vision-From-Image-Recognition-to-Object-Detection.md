@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Vision: From Image Recognition to Object Detection'
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2019-12-05"
+type: posts
 ---
+
 
 
 

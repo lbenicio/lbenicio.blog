@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Optimization Problems
 icon: fa-comment-alt
 categories: ["Programming"]
 toc: true
 date: "2022-08-14"
+type: posts
 ---
+
 
 
 

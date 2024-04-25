@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Clustering Algorithms in Data Analysis
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2019-11-03"
+type: posts
 ---
+
 
 
 

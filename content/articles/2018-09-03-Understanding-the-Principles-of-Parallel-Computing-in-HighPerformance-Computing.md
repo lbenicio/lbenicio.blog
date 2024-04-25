@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Parallel Computing in HighPerformance Computing
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2018-09-03"
+type: posts
 ---
+
 
 
 

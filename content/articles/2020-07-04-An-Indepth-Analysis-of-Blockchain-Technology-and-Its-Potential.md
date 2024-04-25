@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: An Indepth Analysis of Blockchain Technology and Its Potential
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2020-07-04"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-11-12"
+type: posts
 ---
+
 
 
 

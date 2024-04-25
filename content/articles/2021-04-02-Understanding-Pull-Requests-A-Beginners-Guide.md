@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Understanding Pull Requests: A Beginners Guide'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: git
 categories: ["git', 'continuous', 'integration', 'best', 'practices"]
 
 date: "2021-04-02"
+type: posts
 ---
+
 
 
 As software development becomes increasingly collaborative, version control systems (VCS) like Git have become essential tools for managing code changes. One of the key features of Git is the pull request, which enables developers to propose changes to a codebase, request feedback, and merge those changes into the main branch. Pull requests are widely used in open-source projects, but they are also common in enterprise and smaller team settings. This paper will explain what pull requests are, how they work, and why they are important.

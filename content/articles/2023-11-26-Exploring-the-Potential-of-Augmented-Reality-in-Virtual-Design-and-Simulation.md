@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Augmented Reality in Virtual Design and Simulation
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: Blockchain CodeReview Databases
 categories: ["TechTrends"]
 toc: true
 date: "2023-11-26"
+type: posts
 ---
+
 
 
 # Exploring the Potential of Augmented Reality in Virtual Design and Simulation

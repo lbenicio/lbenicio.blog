@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Differences between Redis and Memcahced
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: discussion redis memcached cache nosql db database
 categories: ["discussion"]
 toc: true
 date: "2023-01-22"
+type: posts
 ---
+
 
 
 Redis and Memcached are both in-memory data stores that are commonly used as cache solutions. They both have high performance and can be used to store frequently accessed data to improve the speed of an application. However, there are several key differences between the two.

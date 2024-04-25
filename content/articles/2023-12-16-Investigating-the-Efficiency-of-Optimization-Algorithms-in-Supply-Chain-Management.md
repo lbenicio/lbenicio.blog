@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Investigating the Efficiency of Optimization Algorithms in Supply Chain Management"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: Blockchain QuantumComputing CodeQuality
 categories: ComputerArchitecture
 toc: true
 date: 2023-12-16
+type: posts
 ---
+
 
 
 ![Investigating the Efficiency of Optimization Algorithms in Supply Chain Management](https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Optimization-Algorithms-in-Supply-Chain-Management)

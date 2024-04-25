@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Quantum Computing and its Potential Impact
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2019-02-01"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Data Structures in Algorithm Design
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-09-25"
+type: posts
 ---
+
 
 
 

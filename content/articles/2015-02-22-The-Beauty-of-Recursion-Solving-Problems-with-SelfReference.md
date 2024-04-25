@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Beauty of Recursion: Solving Problems with SelfReference'
 icon: fa-comment-alt
 categories: ["DataStructures"]
 
 date: "2015-02-22"
+type: posts
 ---
+
 
 
 

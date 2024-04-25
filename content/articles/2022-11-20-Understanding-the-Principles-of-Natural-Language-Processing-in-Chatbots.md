@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Chatbots
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 toc: true
 date: "2022-11-20"
+type: posts
 ---
+
 
 
 

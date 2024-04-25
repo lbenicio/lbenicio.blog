@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Complexity of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2022-09-19"
+type: posts
 ---
+
 
 
 

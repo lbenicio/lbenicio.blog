@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Discovering the Power of Scala Programming Language: Solving Problems in a
   Concise Elegant Way'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2020-09-11"
+type: posts
 ---
+
 
 # Discovering the Power of Scala Programming Language: Solving Problems in a Concise Elegant Way
 

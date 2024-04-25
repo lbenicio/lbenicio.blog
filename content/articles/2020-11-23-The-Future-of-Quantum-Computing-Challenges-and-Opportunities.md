@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Quantum Computing: Challenges and Opportunities'
 icon: fa-comment-alt
 categories: ["CodeQuality"]
 
 date: "2020-11-23"
+type: posts
 ---
+
 
 
 

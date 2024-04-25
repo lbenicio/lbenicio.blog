@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Mathematical Foundations of Computer Science
 icon: fa-comment-alt
 categories: ["Blockchain"]
 
 date: "2014-01-10"
+type: posts
 ---
+
 
 
 

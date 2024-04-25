@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Graph Algorithms in Route Optimization
 icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2021-08-04"
+type: posts
 ---
+
 
 
 

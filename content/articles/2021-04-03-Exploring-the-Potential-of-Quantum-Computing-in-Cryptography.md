@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Computing in Cryptography
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2021-04-03"
+type: posts
 ---
+
 
 
 

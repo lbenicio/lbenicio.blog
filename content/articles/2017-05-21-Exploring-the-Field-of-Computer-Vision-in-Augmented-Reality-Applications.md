@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of Computer Vision in Augmented Reality Applications
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2017-05-21"
+type: posts
 ---
+
 
 
 

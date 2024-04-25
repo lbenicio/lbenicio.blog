@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Field of HumanComputer Interaction
 icon: fa-comment-alt
 categories: ["DebuggingTips"]
 
 date: "2019-06-27"
+type: posts
 ---
+
 
 
 

@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolutionary Computation and Evolutionary
   Optimization
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["OperatingSystems"]
 
 date: "2019-12-20"
+type: posts
 ---
+
 
 
 

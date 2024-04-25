@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Genetic Algorithms in Evolutionary Computation
 icon: fa-comment-alt
 categories: ["Algorithms"]
 
 date: "2019-03-08"
+type: posts
 ---
+
 
 
 

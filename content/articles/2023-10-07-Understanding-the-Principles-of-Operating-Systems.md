@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Operating Systems
 icon: fa-comment-alt
 categories: ["TechTrends"]
 toc: true
 date: "2023-10-07"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Complexity of Artificial Neural Networks in Pattern Recognition
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2018-04-06"
+type: posts
 ---
+
 
 
 

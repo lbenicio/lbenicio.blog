@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'Exploring the Advancements in Computer Vision: From Object Detection to Image
   Segmentation'
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2017-02-22"
+type: posts
 ---
+
 
 
 

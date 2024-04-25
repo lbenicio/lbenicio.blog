@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Mathematical Foundations of Machine Learning Algorithms
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2019-02-28"
+type: posts
 ---
+
 
 
 

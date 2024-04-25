@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Recurrent Neural Networks in Natural Language
   Processing
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-10-11"
+type: posts
 ---
+
 
 
 

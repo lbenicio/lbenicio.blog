@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Blockchain Technology on Data Security and Trust
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-05-05"
+type: posts
 ---
+
 
 
 

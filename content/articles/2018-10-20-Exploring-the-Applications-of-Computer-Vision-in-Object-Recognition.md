@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Applications of Computer Vision in Object Recognition
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2018-10-20"
+type: posts
 ---
+
 
 
 

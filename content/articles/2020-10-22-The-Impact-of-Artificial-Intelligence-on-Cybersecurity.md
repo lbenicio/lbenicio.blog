@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Artificial Intelligence on Cybersecurity
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2020-10-22"
+type: posts
 ---
+
 
 
 

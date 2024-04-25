@@ -1,4 +1,5 @@
 ---
+
 layout: posts
 title: "Understanding the Principles of Deep Learning in Computer Vision"
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tag: NaturalLanguageProcessing TechTrends MobileDevelopment
 categories: CodeReview
 toc: true
 date: 2024-01-18
+type: posts
 ---
+
 
 
 ![Understanding the Principles of Deep Learning in Computer Vision](https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Deep-Learning-in-Computer-Vision)

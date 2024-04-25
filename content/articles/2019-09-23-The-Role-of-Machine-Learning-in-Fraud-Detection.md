@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Role of Machine Learning in Fraud Detection
 icon: fa-comment-alt
 categories: ["Programming"]
 
 date: "2019-09-23"
+type: posts
 ---
+
 
 
 

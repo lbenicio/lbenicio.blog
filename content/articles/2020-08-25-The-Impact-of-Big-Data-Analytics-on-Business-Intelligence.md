@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Impact of Big Data Analytics on Business Intelligence
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2020-08-25"
+type: posts
 ---
+
 
 
 

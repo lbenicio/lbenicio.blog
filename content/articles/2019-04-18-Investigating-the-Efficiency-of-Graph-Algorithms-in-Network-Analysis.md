@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Graph Algorithms in Network Analysis
 icon: fa-comment-alt
 categories: ["CloudComputing"]
 
 date: "2019-04-18"
+type: posts
 ---
+
 
 
 

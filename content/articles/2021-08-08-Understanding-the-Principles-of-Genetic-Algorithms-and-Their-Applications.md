@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["Networking"]
 
 date: "2021-08-08"
+type: posts
 ---
+
 
 
 

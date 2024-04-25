@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Computer Networks: From ARPANET to the Internet of Things'
 icon: fa-comment-alt
 categories: ["Cryptography"]
 toc: true
 date: "2023-05-06"
+type: posts
 ---
+
 
 
 

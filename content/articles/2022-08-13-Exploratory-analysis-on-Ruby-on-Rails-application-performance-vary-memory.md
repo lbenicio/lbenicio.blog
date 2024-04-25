@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploratory analysis on Ruby on Rails application performance very memory
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: scaling, ruby on rails, kubernetes, container orchestration
 categories: ["analysis"]
 toc: true
 date: "2022-08-13"
+type: posts
 ---
+
 
 
 Continuing our post series about rails app performance. This week we are going to focus on varying the amount of memory of our simulated cluster.

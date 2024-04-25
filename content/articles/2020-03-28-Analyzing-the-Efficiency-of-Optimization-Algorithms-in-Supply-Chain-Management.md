@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Optimization Algorithms in Supply Chain Management
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2020-03-28"
+type: posts
 ---
+
 
 
 

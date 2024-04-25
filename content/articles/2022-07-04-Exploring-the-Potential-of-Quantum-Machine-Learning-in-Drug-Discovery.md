@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Machine Learning in Drug Discovery
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2022-07-04"
+type: posts
 ---
+
 
 
 

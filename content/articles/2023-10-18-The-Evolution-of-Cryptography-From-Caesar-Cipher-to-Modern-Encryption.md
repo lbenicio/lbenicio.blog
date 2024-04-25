@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Cryptography: From Caesar Cipher to Modern Encryption'
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 toc: true
 date: "2023-10-18"
+type: posts
 ---
+
 
 
 

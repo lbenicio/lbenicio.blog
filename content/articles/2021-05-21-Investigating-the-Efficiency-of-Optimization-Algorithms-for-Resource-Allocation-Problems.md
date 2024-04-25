@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Optimization Algorithms for Resource Allocation
   Problems
@@ -6,7 +7,9 @@ icon: fa-comment-alt
 categories: ["BigData"]
 
 date: "2021-05-21"
+type: posts
 ---
+
 
 
 

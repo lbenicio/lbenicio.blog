@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Analyzing the Efficiency of Data Structures in Memory Management
 icon: fa-comment-alt
 categories: ["SoftwareTesting"]
 
 date: "2018-09-22"
+type: posts
 ---
+
 
 
 

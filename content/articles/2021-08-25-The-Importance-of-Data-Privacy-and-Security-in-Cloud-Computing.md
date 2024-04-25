@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Importance of Data Privacy and Security in Cloud Computing
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2021-08-25"
+type: posts
 ---
+
 
 
 

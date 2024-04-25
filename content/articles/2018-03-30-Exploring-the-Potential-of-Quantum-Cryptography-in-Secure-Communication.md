@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Quantum Cryptography in Secure Communication
 icon: fa-comment-alt
 categories: ["Cybersecurity"]
 
 date: "2018-03-30"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Investigating the Efficiency of Sorting Algorithms
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2020-10-06"
+type: posts
 ---
+
 
 
 

@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Unraveling the Mysteries of Quantum Cryptography and Secure Communication
 icon: fa-comment-alt
 categories: ["Databases"]
 
 date: "2015-04-15"
+type: posts
 ---
+
 
 
 

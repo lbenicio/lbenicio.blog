@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the World of Natural Language Generation and Its Applications
 icon: fa-comment-alt
 categories: ["NaturalLanguageProcessing"]
 
 date: "2017-10-02"
+type: posts
 ---
+
 
 
 

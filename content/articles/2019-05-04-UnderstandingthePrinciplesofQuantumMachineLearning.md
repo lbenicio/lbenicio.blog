@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: UnderstandingthePrinciplesofQuantumMachineLearning
 icon: fa-comment-alt
 categories: ["ArtificialIntelligence"]
 
 date: "2019-05-04"
+type: posts
 ---
+
 
 
 

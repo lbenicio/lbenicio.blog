@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Neural Networks in Image Recognition
 icon: fa-comment-alt
 categories: ["ComputerScience"]
 
 date: "2022-04-14"
+type: posts
 ---
+
 
 
 

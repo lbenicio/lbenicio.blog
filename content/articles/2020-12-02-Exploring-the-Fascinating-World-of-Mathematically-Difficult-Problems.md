@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: Exploring the Fascinating World of Mathematically Difficult Problems
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: mathematics
 categories: ["mathematics', 'dicifult', 'discussion"]
 
 date: "2020-12-02"
+type: posts
 ---
+
 
 
 Mathematics is a fascinating field that has many unsolved problems waiting to be solved. Some problems are easy to solve, while others can be very difficult, requiring extensive knowledge and advanced techniques to solve. In this paper, we will explore the world of mathematically difficult problems, their properties, and some of the methods used to solve them.

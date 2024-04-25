@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Natural Language Processing in Machine Translation
 icon: fa-comment-alt
 categories: ["CodeReview"]
 
 date: "2018-01-09"
+type: posts
 ---
+
 
 
 

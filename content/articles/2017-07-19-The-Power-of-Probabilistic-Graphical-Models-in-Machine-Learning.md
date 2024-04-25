@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: The Power of Probabilistic Graphical Models in Machine Learning
 icon: fa-comment-alt
 categories: ["Bioinformatics"]
 
 date: "2017-07-19"
+type: posts
 ---
+
 
 
 

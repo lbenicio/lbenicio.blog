@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Exploring the Potential of Machine Learning in Fraud Detection
 icon: fa-comment-alt
 categories: ["MachineLearning"]
 
 date: "2019-06-09"
+type: posts
 ---
+
 
 
 

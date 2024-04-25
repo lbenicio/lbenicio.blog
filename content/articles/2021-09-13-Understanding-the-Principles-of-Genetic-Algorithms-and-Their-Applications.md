@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: Understanding the Principles of Genetic Algorithms and Their Applications
 icon: fa-comment-alt
 categories: ["MobileDevelopment"]
 
 date: "2021-09-13"
+type: posts
 ---
+
 
 
 

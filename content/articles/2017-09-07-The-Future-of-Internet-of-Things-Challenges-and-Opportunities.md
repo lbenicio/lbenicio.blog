@@ -1,11 +1,14 @@
 ---
+
 type: "posts"
 title: 'The Future of Internet of Things: Challenges and Opportunities'
 icon: fa-comment-alt
 categories: ["WebDevelopment"]
 
 date: "2017-09-07"
+type: posts
 ---
+
 
 
 

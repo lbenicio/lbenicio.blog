@@ -1,4 +1,5 @@
 ---
+
 type: "posts"
 title: 'The Evolution of Machine Learning: From Perceptrons to Deep Neural Networks'
 icon: fa-comment-alt
@@ -6,7 +7,9 @@ tags: DataStructures ArtificialIntelligence ComputerGraphics
 categories: ["BigData"]
 
 date: "2017-09-29"
+type: posts
 ---
+
 
 
 
