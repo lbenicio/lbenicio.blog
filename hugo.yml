@@ -62,6 +62,21 @@ params:
             instance: instagram.com
             visible: false
             icon: fab fa-instagram
+        youtube:
+            username: "@lbenicio"
+            instance: youtube.com
+            visible: false
+            icon: fab fa-youtube
+        bluesky:
+            username: profile/lbenicio.bsky.social
+            instance: bsky.app
+            visible: false
+            icon: fa-brands fa-bluesky
+        buyMeACoffee:
+            username: lbenicio
+            instance: buymeacoffee.com
+            visible: false
+            icon: fab fa-coffee
 analytics:
     google: G-TZ4BSC3K2P
 module:
