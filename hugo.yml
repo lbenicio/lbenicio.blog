@@ -76,7 +76,7 @@ params:
             username: lbenicio
             instance: buymeacoffee.com
             visible: false
-            icon: fab fa-coffee
+            icon: fa fa-coffee
 analytics:
     google: G-TZ4BSC3K2P
 module:
