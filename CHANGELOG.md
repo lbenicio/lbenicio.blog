@@ -6,11 +6,12 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
--   initial release
+- initial release
 
 ## v2.0.1
 
 ### Changed
 
--   add pagefind
--   add subscribe form
+- add pagefind
+- add subscribe form
+- switch to api endpoint for subscribe form
