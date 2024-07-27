@@ -48,6 +48,9 @@
         "googleapis": "^133.0.0",
         "dot-prop": "^8.0.2",
         "decompress": "^4.2.1",
-        "braces": "^3.0.2"
+        "braces": "^3.0.2",
+        "grunt-pagespeed": {
+            "psi": "^4.1.0"
+        }
     }
 }
