@@ -32,7 +32,7 @@ params:
     author: Leonardo Benicio
     email: hello@lbenicio.dev
     blogURL: https://blog.lbenicio.dev
-    SubscribeURL: https://mail.lbenicio.dev/api/subscribers
+    SubscribeURL: https://api.mail.lbenicio.dev
     SubscribeListId: 3
     SubscribeMethod: POST
     social:
