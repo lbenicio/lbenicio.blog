@@ -15,3 +15,9 @@ All notable changes to this project will be documented in this file.
 - add pagefind
 - add subscribe form
 - switch to api endpoint for subscribe form
+
+## v2.0.2
+
+## Changed
+
+- ropund up styling
