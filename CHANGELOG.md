@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 - add subscribe form
 - switch to api endpoint for subscribe form
 
-## v2.0.2
+## 2.0.2
 
 ## Changed
 
