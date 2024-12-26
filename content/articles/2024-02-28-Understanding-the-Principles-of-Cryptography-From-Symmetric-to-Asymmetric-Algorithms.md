@@ -10,7 +10,7 @@ date: 2024-02-28
 type: posts
 image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Cryptography:-From-Symmetric-to-Asymmetric-Algorithms
 
-image_alt: Understanding the Principles of Cryptography: From Symmetric to Asymmetric Algorithms
+image_alt: "Understanding the Principles of Cryptography: From Symmetric to Asymmetric Algorithms"
 
 ---
 
