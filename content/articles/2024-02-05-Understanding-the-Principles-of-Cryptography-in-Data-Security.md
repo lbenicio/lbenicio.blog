@@ -8,6 +8,10 @@ categories: Networking
 toc: true
 date: 2024-02-05
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Cryptography-in-Data-Security
+
+image_alt: Understanding the Principles of Cryptography in Data Security
+
 ---
 
 

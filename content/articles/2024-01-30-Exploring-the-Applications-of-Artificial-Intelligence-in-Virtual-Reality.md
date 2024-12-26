@@ -8,6 +8,10 @@ categories: BigData
 toc: true
 date: 2024-01-30
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Artificial-Intelligence-in-Virtual-Reality
+
+image_alt: Exploring the Applications of Artificial Intelligence in Virtual Reality
+
 ---
 
 

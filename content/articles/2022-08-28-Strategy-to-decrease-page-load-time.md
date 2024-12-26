@@ -8,6 +8,10 @@ categories: ["analysis"]
 toc: true
 date: "2022-08-28"
 type: posts
+image: /assets/imgs/fig-7.1.png
+
+image_alt: Different NoSQL databases on basis of Non-functional features from from Adity Gupta, Swati Tyagi, Nupur Panwar, Shelly Sachdeva and Upaang Saxena.
+
 ---
 
 

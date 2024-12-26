@@ -8,6 +8,10 @@ categories: WebDevelopment
 toc: true
 date: 2024-02-08
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Blockchain-Technology-in-Supply-Chain-Traceability
+
+image_alt: Understanding the Principles of Blockchain Technology in Supply Chain Traceability
+
 ---
 
 

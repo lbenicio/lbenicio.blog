@@ -8,6 +8,10 @@ categories: MachineLearning
 toc: true
 date: 2024-03-12
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Optimization-Algorithms-in-Supply-Chain-Management
+
+image_alt: Investigating the Efficiency of Optimization Algorithms in Supply Chain Management
+
 ---
 
 

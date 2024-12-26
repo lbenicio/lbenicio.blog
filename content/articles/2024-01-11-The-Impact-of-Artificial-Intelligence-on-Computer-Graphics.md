@@ -8,6 +8,10 @@ categories: IoT Internet of Things
 toc: true
 date: 2024-01-11
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Impact-of-Artificial-Intelligence-on-Computer-Graphics
+
+image_alt: The Impact of Artificial Intelligence on Computer Graphics
+
 ---
 
 

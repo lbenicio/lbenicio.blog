@@ -8,6 +8,10 @@ categories: Cybersecurity
 toc: true
 date: 2024-03-01
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Deep-Learning-in-Natural-Language-Understanding
+
+image_alt: Exploring the Applications of Deep Learning in Natural Language Understanding
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: EthicalHacking
 toc: true
 date: 2024-01-12
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Natural-Language-Processing-in-Text-Summarization
+
+image_alt: Understanding the Principles of Natural Language Processing in Text Summarization
+
 ---
 
 

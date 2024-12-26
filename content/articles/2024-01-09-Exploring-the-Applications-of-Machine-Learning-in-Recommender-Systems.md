@@ -8,6 +8,10 @@ categories: WebDevelopment
 toc: true
 date: 2024-01-09
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Machine-Learning-in-Recommender-Systems
+
+image_alt: Exploring the Applications of Machine Learning in Recommender Systems
+
 ---
 
 

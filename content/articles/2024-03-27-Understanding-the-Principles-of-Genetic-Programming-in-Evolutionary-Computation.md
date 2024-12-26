@@ -8,6 +8,10 @@ categories: TechTrends
 toc: true
 date: 2024-03-27
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Genetic-Programming-in-Evolutionary-Computation
+
+image_alt: Understanding the Principles of Genetic Programming in Evolutionary Computation
+
 ---
 
 

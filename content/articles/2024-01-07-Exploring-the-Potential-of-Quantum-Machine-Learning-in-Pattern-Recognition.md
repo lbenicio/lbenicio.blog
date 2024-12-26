@@ -8,6 +8,10 @@ categories: Programming
 toc: true
 date: 2024-01-07
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Quantum-Machine-Learning-in-Pattern-Recognition
+
+image_alt: Exploring the Potential of Quantum Machine Learning in Pattern Recognition
+
 ---
 
 

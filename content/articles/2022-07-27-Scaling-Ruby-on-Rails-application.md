@@ -8,6 +8,10 @@ categories: ["analysis"]
 toc: true
 date: "2022-07-27"
 type: posts
+image: https://github.com/consul/consul
+
+image_alt: Consul
+
 ---
 
 

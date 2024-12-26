@@ -8,6 +8,10 @@ categories: Algorithms
 toc: true
 date: 2023-12-04
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Field-of-Computer-Graphics:-From-Rendering-to-Animation
+
+image_alt: Exploring the Field of Computer Graphics: From Rendering to Animation
+
 ---
 
 

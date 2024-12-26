@@ -8,6 +8,10 @@ categories: ["parallelism', 'discussion', 'programming', 'languages"]
 
 date: "2021-12-08"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

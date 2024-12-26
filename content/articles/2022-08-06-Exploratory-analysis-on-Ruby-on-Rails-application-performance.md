@@ -8,6 +8,10 @@ categories: ["analysis"]
 toc: true
 date: "2022-08-06"
 type: posts
+image: /assets/imgs/2-9000.png
+
+image_alt: Percentage of successful requests 2 cores, 9000mb. Accessing for 1 second
+
 ---
 
 

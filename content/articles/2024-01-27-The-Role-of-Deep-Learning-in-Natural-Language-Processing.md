@@ -8,6 +8,10 @@ categories: TechTrends
 toc: true
 date: 2024-01-27
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Deep-Learning-in-Natural-Language-Processing
+
+image_alt: The Role of Deep Learning in Natural Language Processing
+
 ---
 
 

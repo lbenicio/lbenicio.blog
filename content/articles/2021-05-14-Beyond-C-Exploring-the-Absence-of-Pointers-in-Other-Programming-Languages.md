@@ -8,6 +8,10 @@ categories: ["pointers', 'programming"]
 
 date: "2021-05-14"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

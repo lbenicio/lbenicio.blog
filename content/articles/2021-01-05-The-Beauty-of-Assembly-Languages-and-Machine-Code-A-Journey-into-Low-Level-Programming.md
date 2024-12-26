@@ -9,6 +9,10 @@ categories: ["programming', 'assembly', 'machine', 'code', 'discussion"]
 
 date: "2021-01-05"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: ["graphs"]
 toc: true
 date: "2023-04-02"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

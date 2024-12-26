@@ -8,6 +8,10 @@ categories: OperatingSystems
 toc: true
 date: 2024-02-04
 type: posts
+image: https://cdn.lbenicio.dev/posts/ExploringtheApplicationsofMachineLearninginRecommendationSystems
+
+image_alt: ExploringtheApplicationsofMachineLearninginRecommendationSystems
+
 ---
 
 

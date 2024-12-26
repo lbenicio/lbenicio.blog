@@ -8,6 +8,10 @@ categories: WebDevelopment
 toc: true
 date: 2024-01-01
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Impact-of-Internet-of-Things-on-Smart-Cities
+
+image_alt: Investigating the Impact of Internet of Things on Smart Cities
+
 ---
 
 

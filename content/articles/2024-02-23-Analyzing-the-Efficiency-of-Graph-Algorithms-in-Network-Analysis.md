@@ -8,6 +8,10 @@ categories: Cybersecurity
 toc: true
 date: 2024-02-23
 type: posts
+image: https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Graph-Algorithms-in-Network-Analysis
+
+image_alt: Analyzing the Efficiency of Graph Algorithms in Network Analysis
+
 ---
 
 

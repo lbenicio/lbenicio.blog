@@ -8,6 +8,10 @@ categories: CodeQuality
 toc: true
 date: 2024-03-10
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Computer-Graphics:-From-Rendering-to-Animation
+
+image_alt: Understanding the Principles of Computer Graphics: From Rendering to Animation
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: Blockchain
 toc: true
 date: 2024-04-01
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Impact-of-Big-Data-Analytics-in-Business-Intelligence
+
+image_alt: The Impact of Big Data Analytics in Business Intelligence
+
 ---
 
 

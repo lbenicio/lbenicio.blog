@@ -6,6 +6,10 @@ icon: fa-comment-alt
 
 date: "2022-04-07"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

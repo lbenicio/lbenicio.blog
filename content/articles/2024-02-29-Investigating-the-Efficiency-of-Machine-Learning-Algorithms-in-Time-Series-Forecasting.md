@@ -8,6 +8,10 @@ categories: MachineLearning
 toc: true
 date: 2024-02-29
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Machine-Learning-Algorithms-in-Time-Series-Forecasting
+
+image_alt: Investigating the Efficiency of Machine Learning Algorithms in Time Series Forecasting
+
 ---
 
 

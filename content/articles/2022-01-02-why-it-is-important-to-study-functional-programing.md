@@ -8,6 +8,10 @@ categories: ["discussion"]
 
 date: "2022-01-02"
 type: posts
+image: #why-it-is-important-to-study-functional-programing
+
+image_alt: Why it is important to study functional programing
+
 ---
 
 

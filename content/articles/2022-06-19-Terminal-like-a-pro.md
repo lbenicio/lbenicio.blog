@@ -8,6 +8,10 @@ categories: ["tutorial"]
 
 date: "2022-06-19"
 type: posts
+image: /assets/imgs/terminalView.png
+
+image_alt: Tutorial's final terminal view
+
 ---
 
 

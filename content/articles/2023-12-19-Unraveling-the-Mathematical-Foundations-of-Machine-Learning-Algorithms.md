@@ -8,6 +8,10 @@ categories: MachineLearning
 toc: true
 date: 2023-12-19
 type: posts
+image: https://cdn.lbenicio.dev/posts/Unraveling-the-Mathematical-Foundations-of-Machine-Learning-Algorithms
+
+image_alt: Unraveling the Mathematical Foundations of Machine Learning Algorithms
+
 ---
 
 

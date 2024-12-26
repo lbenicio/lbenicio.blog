@@ -8,6 +8,10 @@ categories: ComputerArchitecture
 toc: true
 date: 2023-12-27
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Data-Privacy-in-Big-Data-Analytics
+
+image_alt: The Role of Data Privacy in Big Data Analytics
+
 ---
 
 

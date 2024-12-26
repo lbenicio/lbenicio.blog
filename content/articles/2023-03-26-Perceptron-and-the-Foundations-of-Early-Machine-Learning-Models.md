@@ -6,6 +6,10 @@ icon: fa-comment-alt
 toc: true
 date: "2023-03-26"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

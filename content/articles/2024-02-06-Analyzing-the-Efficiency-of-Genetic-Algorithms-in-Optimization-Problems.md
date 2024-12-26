@@ -8,6 +8,10 @@ categories: BigData
 toc: true
 date: 2024-02-06
 type: posts
+image: https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Genetic-Algorithms-in-Optimization-Problems
+
+image_alt: Analyzing the Efficiency of Genetic Algorithms in Optimization Problems
+
 ---
 
 

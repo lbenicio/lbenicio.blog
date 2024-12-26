@@ -8,6 +8,10 @@ categories: EthicalHacking
 toc: true
 date: 2024-03-07
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Machine-Learning-in-Recommender-Systems
+
+image_alt: Exploring the Potential of Machine Learning in Recommender Systems
+
 ---
 
 

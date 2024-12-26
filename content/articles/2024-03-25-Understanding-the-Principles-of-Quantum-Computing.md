@@ -8,6 +8,10 @@ categories: ComputerGraphics
 toc: true
 date: 2024-03-25
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Quantum-Computing
+
+image_alt: Understanding the Principles of Quantum Computing
+
 ---
 
 

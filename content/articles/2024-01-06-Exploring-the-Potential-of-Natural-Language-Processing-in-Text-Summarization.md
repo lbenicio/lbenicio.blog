@@ -8,6 +8,10 @@ categories: NaturalLanguageProcessing
 toc: true
 date: 2024-01-06
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Natural-Language-Processing-in-Text-Summarization
+
+image_alt: Exploring the Potential of Natural Language Processing in Text Summarization
+
 ---
 
 

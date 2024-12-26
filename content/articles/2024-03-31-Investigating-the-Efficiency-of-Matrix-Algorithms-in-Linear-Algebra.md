@@ -8,6 +8,10 @@ categories: WebDevelopment
 toc: true
 date: 2024-03-31
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Matrix-Algorithms-in-Linear-Algebra
+
+image_alt: Investigating the Efficiency of Matrix Algorithms in Linear Algebra
+
 ---
 
 

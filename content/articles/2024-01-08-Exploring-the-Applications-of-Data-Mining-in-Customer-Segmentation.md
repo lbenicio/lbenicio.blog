@@ -8,6 +8,10 @@ categories: CloudComputing
 toc: true
 date: 2024-01-08
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Data-Mining-in-Customer-Segmentation
+
+image_alt: Exploring the Applications of Data Mining in Customer Segmentation
+
 ---
 
 

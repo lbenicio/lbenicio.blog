@@ -8,6 +8,10 @@ categories: ComputerVision
 toc: true
 date: 2024-03-13
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Applications-of-Machine-Learning-in-Recommender-Systems
+
+image_alt: Investigating the Applications of Machine Learning in Recommender Systems
+
 ---
 
 

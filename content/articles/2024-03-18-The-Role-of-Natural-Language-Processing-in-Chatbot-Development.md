@@ -8,6 +8,10 @@ categories: SoftwareEngineering
 toc: true
 date: 2024-03-18
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Natural-Language-Processing-in-Chatbot-Development
+
+image_alt: The Role of Natural Language Processing in Chatbot Development
+
 ---
 
 

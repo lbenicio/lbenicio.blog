@@ -8,6 +8,10 @@ categories: Bioinformatics
 toc: true
 date: 2024-02-25
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Importance-of-Code-Optimization-in-HighPerformance-Computing
+
+image_alt: The Importance of Code Optimization in HighPerformance Computing
+
 ---
 
 

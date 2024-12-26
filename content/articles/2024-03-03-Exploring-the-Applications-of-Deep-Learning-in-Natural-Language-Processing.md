@@ -8,6 +8,10 @@ categories: Networking
 toc: true
 date: 2024-03-03
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Deep-Learning-in-Natural-Language-Processing
+
+image_alt: Exploring the Applications of Deep Learning in Natural Language Processing
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: ComputerGraphics
 toc: true
 date: 2023-12-24
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Natural-Language-Processing-in-Speech-Recognition
+
+image_alt: Understanding the Principles of Natural Language Processing in Speech Recognition
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: MachineLearning
 toc: true
 date: 2024-01-21
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Computer-Vision-in-Facial-Recognition
+
+image_alt: Exploring the Applications of Computer Vision in Facial Recognition
+
 ---
 
 

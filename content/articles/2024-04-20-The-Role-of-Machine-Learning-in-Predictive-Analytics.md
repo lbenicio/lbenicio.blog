@@ -7,6 +7,10 @@ tag: Cybersecurity ArtificialIntelligence Networking
 categories: QuantumComputing
 toc: true
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Machine-Learning-in-Predictive-Analytics
+
+image_alt: The Role of Machine Learning in Predictive Analytics
+
 ---
 
 

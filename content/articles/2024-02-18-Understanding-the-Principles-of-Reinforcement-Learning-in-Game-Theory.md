@@ -8,6 +8,10 @@ categories: CodeQuality
 toc: true
 date: 2024-02-18
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Reinforcement-Learning-in-Game-Theory
+
+image_alt: Understanding the Principles of Reinforcement Learning in Game Theory
+
 ---
 
 

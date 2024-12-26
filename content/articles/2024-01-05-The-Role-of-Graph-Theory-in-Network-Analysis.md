@@ -8,6 +8,10 @@ categories: TechTrends
 toc: true
 date: 2024-01-05
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Graph-Theory-in-Network-Analysis
+
+image_alt: The Role of Graph Theory in Network Analysis
+
 ---
 
 

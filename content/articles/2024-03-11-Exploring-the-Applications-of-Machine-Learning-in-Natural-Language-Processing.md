@@ -8,6 +8,10 @@ categories: ComputerVision
 toc: true
 date: 2024-03-11
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Machine-Learning-in-Natural-Language-Processing
+
+image_alt: Exploring the Applications of Machine Learning in Natural Language Processing
+
 ---
 
 

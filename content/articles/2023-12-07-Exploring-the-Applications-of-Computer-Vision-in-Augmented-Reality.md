@@ -8,6 +8,10 @@ categories: Databases
 toc: true
 date: 2023-12-07
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Computer-Vision-in-Augmented-Reality
+
+image_alt: Exploring the Applications of Computer Vision in Augmented Reality
+
 ---
 
 

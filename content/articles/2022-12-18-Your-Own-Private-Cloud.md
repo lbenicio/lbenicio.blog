@@ -8,6 +8,10 @@ categories: ["cloud"]
 toc: true
 date: "2022-12-18"
 type: posts
+image: https://docs.docker.com/engine/swarm/
+
+image_alt: https://docs.docker.com/engine/swarm/
+
 ---
 
 

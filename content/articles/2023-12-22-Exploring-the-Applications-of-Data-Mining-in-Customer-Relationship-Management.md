@@ -8,6 +8,10 @@ categories: BigData
 toc: true
 date: 2023-12-22
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Data-Mining-in-Customer-Relationship-Management
+
+image_alt: Exploring the Applications of Data Mining in Customer Relationship Management
+
 ---
 
 

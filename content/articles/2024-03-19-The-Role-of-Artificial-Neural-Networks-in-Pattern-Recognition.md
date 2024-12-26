@@ -8,6 +8,10 @@ categories: MachineLearning
 toc: true
 date: 2024-03-19
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Artificial-Neural-Networks-in-Pattern-Recognition
+
+image_alt: The Role of Artificial Neural Networks in Pattern Recognition
+
 ---
 
 

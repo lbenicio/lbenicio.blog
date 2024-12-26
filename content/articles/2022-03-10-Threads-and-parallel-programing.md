@@ -8,6 +8,10 @@ categories: ["parallel"]
 
 date: "2022-03-10"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

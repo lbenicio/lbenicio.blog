@@ -8,6 +8,10 @@ categories: WebDevelopment
 toc: true
 date: 2024-03-28
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Deep-Learning-in-Computer-Vision
+
+image_alt: Understanding the Principles of Deep Learning in Computer Vision
+
 ---
 
 

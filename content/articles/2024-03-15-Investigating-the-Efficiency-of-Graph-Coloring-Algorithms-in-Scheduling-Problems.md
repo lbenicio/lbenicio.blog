@@ -8,6 +8,10 @@ categories: CodeReview
 toc: true
 date: 2024-03-15
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Graph-Coloring-Algorithms-in-Scheduling-Problems
+
+image_alt: Investigating the Efficiency of Graph Coloring Algorithms in Scheduling Problems
+
 ---
 
 

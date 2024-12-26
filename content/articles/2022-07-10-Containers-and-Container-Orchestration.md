@@ -8,6 +8,10 @@ categories: ["containers"]
 
 date: "2022-07-10"
 type: posts
+image: /assets/imgs/dockerStack.png
+
+image_alt: Docker stack image
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: ["discussion', 'load test"]
 toc: true
 date: "2022-07-17"
 type: posts
+image: /assets/imgs/commitsAndReleasesOnMainRepositories.png
+
+image_alt: Commits and releases on main repositories
+
 ---
 
 

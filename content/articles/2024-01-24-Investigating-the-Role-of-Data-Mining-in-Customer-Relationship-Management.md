@@ -8,6 +8,10 @@ categories: MobileDevelopment
 toc: true
 date: 2024-01-24
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Role-of-Data-Mining-in-Customer-Relationship-Management
+
+image_alt: Investigating the Role of Data Mining in Customer Relationship Management
+
 ---
 
 

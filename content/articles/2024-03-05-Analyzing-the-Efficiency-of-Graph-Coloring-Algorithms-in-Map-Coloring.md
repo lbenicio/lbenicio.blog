@@ -8,6 +8,10 @@ categories: ComputerVision
 toc: true
 date: 2024-03-05
 type: posts
+image: https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Graph-Coloring-Algorithms-in-Map-Coloring
+
+image_alt: Analyzing the Efficiency of Graph Coloring Algorithms in Map Coloring
+
 ---
 
 

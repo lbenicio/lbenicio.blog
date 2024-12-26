@@ -8,6 +8,10 @@ categories: ["analysis"]
 toc: true
 date: "2022-09-11"
 type: posts
+image: /assets/imgs/fig-7.5.png
+
+image_alt: Completed requests with 2 cores and 8 GB RAM with ramp users accessing during 60 seconds.
+
 ---
 
 

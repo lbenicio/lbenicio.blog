@@ -8,6 +8,10 @@ categories: ["tutorial"]
 
 date: "2022-06-26"
 type: posts
+image: /assets/imgs/sublimeTextLogo.svg
+
+image_alt: Sublime Text logo
+
 ---
 
 

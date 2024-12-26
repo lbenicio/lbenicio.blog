@@ -8,6 +8,10 @@ categories: Cybersecurity
 toc: true
 date: 2024-01-19
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Convolutional-Neural-Networks-in-Video-Processing
+
+image_alt: Understanding the Principles of Convolutional Neural Networks in Video Processing
+
 ---
 
 

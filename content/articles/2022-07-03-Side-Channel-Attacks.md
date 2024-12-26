@@ -8,6 +8,10 @@ categories: ["discussion"]
 
 date: "2022-07-03"
 type: posts
+image: /assets/imgs/reductionOfTheAmbiguitySet.png
+
+image_alt: Reduction of the ambiguity set
+
 ---
 
 

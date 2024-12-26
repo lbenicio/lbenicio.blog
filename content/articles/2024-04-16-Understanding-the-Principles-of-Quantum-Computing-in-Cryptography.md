@@ -8,6 +8,10 @@ categories: WebDevelopment
 toc: true
 date: 2024-04-16
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Quantum-Computing-in-Cryptography
+
+image_alt: Understanding the Principles of Quantum Computing in Cryptography
+
 ---
 
 

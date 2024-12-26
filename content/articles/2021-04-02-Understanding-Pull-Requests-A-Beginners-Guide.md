@@ -8,6 +8,10 @@ categories: ["git', 'continuous', 'integration', 'best', 'practices"]
 
 date: "2021-04-02"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

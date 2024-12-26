@@ -8,6 +8,10 @@ categories: TechTrends
 toc: true
 date: 2023-12-18
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Advancements-in-Quantum-Computing
+
+image_alt: Exploring the Advancements in Quantum Computing
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: ["cloud"]
 toc: true
 date: "2022-12-11"
 type: posts
+image: https://www.oracle.com/cloud/free/
+
+image_alt: https://www.oracle.com/cloud/free/
+
 ---
 
 

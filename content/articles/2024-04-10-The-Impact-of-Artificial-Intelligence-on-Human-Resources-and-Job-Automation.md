@@ -8,6 +8,10 @@ categories: CloudComputing
 toc: true
 date: 2024-04-10
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Impact-of-Artificial-Intelligence-on-Human-Resources-and-Job-Automation
+
+image_alt: The Impact of Artificial Intelligence on Human Resources and Job Automation
+
 ---
 
 

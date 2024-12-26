@@ -8,6 +8,10 @@ categories: Cryptography
 toc: true
 date: 2023-12-06
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Compiler-Design-and-Optimization
+
+image_alt: Understanding the Principles of Compiler Design and Optimization
+
 ---
 
 

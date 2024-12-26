@@ -8,6 +8,10 @@ categories: ["tutorial', 'fortran', 'programing', 'language"]
 
 date: "2021-06-28"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

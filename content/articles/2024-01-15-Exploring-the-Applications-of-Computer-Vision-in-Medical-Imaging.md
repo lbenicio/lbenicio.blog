@@ -8,6 +8,10 @@ categories: Bioinformatics
 toc: true
 date: 2024-01-15
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Computer-Vision-in-Medical-Imaging
+
+image_alt: Exploring the Applications of Computer Vision in Medical Imaging
+
 ---
 
 

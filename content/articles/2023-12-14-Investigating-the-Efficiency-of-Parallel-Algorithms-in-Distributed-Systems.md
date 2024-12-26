@@ -8,6 +8,10 @@ categories: Algorithms
 toc: true
 date: 2023-12-14
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Parallel-Algorithms-in-Distributed-Systems
+
+image_alt: Investigating the Efficiency of Parallel Algorithms in Distributed Systems
+
 ---
 
 

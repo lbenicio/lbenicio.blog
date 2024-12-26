@@ -8,6 +8,10 @@ categories: CodeQuality
 toc: true
 date: 2024-02-15
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Natural-Language-Processing-in-Text-Classification
+
+image_alt: The Role of Natural Language Processing in Text Classification
+
 ---
 
 

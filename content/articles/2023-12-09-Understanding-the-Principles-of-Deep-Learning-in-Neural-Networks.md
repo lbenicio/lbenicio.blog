@@ -8,6 +8,10 @@ categories: Algorithms
 toc: true
 date: 2023-12-09
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Deep-Learning-in-Neural-Networks
+
+image_alt: Understanding the Principles of Deep Learning in Neural Networks
+
 ---
 
 

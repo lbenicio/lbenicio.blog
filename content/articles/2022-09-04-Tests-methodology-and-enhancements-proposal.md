@@ -8,6 +8,10 @@ categories: ["analysis"]
 toc: true
 date: "2022-09-04"
 type: posts
+image: /assets/imgs/fig-7.3.png
+
+image_alt: Overview of a typical client-server structure for Redis distributed storage service from Shanshan Chen, Xiaoxin Tang, Hongwei Wang, Han Zhao and Minyi Guo.
+
 ---
 
 

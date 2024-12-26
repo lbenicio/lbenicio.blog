@@ -8,6 +8,10 @@ categories: Blockchain
 toc: true
 date: 2024-02-20
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Quantum-Computing-in-Solving-NPHard-Problems
+
+image_alt: Exploring the Potential of Quantum Computing in Solving NPHard Problems
+
 ---
 
 

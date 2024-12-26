@@ -8,6 +8,10 @@ categories: ArtificialIntelligence
 toc: true
 date: 2024-03-21
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Reinforcement-Learning-in-Game-Playing
+
+image_alt: Understanding the Principles of Reinforcement Learning in Game Playing
+
 ---
 
 

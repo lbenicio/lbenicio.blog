@@ -8,6 +8,10 @@ categories: NaturalLanguageProcessing
 toc: true
 date: 2024-03-24
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Augmented-Reality-in-Education
+
+image_alt: Exploring the Potential of Augmented Reality in Education
+
 ---
 
 

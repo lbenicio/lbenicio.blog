@@ -8,6 +8,10 @@ categories: ["analysis"]
 toc: true
 date: "2022-10-02"
 type: posts
+image: /assets/imgs/fig-7.43-1.png
+
+image_alt: Response time in milliseconds for 50% requests.
+
 ---
 
 

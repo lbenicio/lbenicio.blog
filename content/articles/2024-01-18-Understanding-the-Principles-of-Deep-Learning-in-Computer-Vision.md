@@ -8,6 +8,10 @@ categories: CodeReview
 toc: true
 date: 2024-01-18
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Deep-Learning-in-Computer-Vision
+
+image_alt: Understanding the Principles of Deep Learning in Computer Vision
+
 ---
 
 

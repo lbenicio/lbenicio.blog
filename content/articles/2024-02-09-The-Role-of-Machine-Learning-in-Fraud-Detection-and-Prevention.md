@@ -8,6 +8,10 @@ categories: MobileDevelopment
 toc: true
 date: 2024-02-09
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Machine-Learning-in-Fraud-Detection-and-Prevention
+
+image_alt: The Role of Machine Learning in Fraud Detection and Prevention
+
 ---
 
 

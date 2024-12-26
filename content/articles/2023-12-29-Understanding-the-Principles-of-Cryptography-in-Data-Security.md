@@ -8,6 +8,10 @@ categories: CodeReview
 toc: true
 date: 2023-12-29
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Cryptography-in-Data-Security
+
+image_alt: Understanding the Principles of Cryptography in Data Security
+
 ---
 
 

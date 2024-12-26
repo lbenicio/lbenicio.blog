@@ -8,6 +8,10 @@ categories: ["analysis"]
 toc: true
 date: "2022-09-25"
 type: posts
+image: /assets/imgs/fig-7.33.png
+
+image_alt: Mean response time with 2 cores and 9gb RAM with ramp users accessing during 60 seconds.
+
 ---
 
 

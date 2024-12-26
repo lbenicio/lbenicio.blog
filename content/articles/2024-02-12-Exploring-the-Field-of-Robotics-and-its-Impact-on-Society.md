@@ -8,6 +8,10 @@ categories: EthicalHacking
 toc: true
 date: 2024-02-12
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Field-of-Robotics-and-its-Impact-on-Society
+
+image_alt: Exploring the Field of Robotics and its Impact on Society
+
 ---
 
 

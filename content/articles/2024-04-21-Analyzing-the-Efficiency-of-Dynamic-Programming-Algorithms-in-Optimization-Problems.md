@@ -7,6 +7,10 @@ tag: Algorithms CodeReview SoftwareTesting
 categories: NaturalLanguageProcessing
 toc: true
 type: posts
+image: https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Dynamic-Programming-Algorithms-in-Optimization-Problems
+
+image_alt: Analyzing the Efficiency of Dynamic Programming Algorithms in Optimization Problems
+
 ---
 
 

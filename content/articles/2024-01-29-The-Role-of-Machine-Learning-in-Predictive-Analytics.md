@@ -8,6 +8,10 @@ categories: ArtificialIntelligence
 toc: true
 date: 2024-01-29
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Machine-Learning-in-Predictive-Analytics
+
+image_alt: The Role of Machine Learning in Predictive Analytics
+
 ---
 
 

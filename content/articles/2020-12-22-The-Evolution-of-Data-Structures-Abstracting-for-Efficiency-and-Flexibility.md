@@ -8,6 +8,10 @@ categories: ["data', 'structures', 'discussion', 'evolution"]
 
 date: "2020-12-22"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

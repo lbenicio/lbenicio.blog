@@ -8,6 +8,10 @@ categories: DebuggingTips
 toc: true
 date: 2023-12-10
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Machine-Learning-in-Recommender-Systems
+
+image_alt: Understanding the Principles of Machine Learning in Recommender Systems
+
 ---
 
 

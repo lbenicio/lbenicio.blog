@@ -8,6 +8,10 @@ categories: ArtificialIntelligence
 toc: true
 date: 2024-02-27
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Convex-Optimization-in-Machine-Learning
+
+image_alt: Understanding the Principles of Convex Optimization in Machine Learning
+
 ---
 
 

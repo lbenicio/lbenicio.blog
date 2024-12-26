@@ -8,6 +8,10 @@ categories: CodeQuality
 toc: true
 date: 2023-12-26
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Data-Privacy-in-the-Era-of-Big-Data
+
+image_alt: The Role of Data Privacy in the Era of Big Data
+
 ---
 
 

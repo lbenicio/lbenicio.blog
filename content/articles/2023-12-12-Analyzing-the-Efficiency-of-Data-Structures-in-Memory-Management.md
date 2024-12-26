@@ -8,6 +8,10 @@ categories: CodeReview
 toc: true
 date: 2023-12-12
 type: posts
+image: https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Data-Structures-in-Memory-Management
+
+image_alt: Analyzing the Efficiency of Data Structures in Memory Management
+
 ---
 
 

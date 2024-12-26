@@ -8,6 +8,10 @@ categories: ["programming', 'language', 'matrix', 'multiplication', 'mathematics
 
 date: "2020-12-08"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

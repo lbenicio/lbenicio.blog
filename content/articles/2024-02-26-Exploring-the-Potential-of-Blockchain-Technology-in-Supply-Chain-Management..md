@@ -8,6 +8,10 @@ categories: SoftwareTesting
 toc: true
 date: 2024-02-26
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Blockchain-Technology-in-Supply-Chain-Management.
+
+image_alt: Exploring the Potential of Blockchain Technology in Supply Chain Management.
+
 ---
 
 

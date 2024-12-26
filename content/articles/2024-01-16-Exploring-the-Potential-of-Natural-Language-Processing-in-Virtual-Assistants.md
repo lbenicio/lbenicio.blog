@@ -8,6 +8,10 @@ categories: DebuggingTips
 toc: true
 date: 2024-01-16
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Natural-Language-Processing-in-Virtual-Assistants
+
+image_alt: Exploring the Potential of Natural Language Processing in Virtual Assistants
+
 ---
 
 

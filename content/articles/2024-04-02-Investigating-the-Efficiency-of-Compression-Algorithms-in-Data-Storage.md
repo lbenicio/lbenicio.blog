@@ -8,6 +8,10 @@ categories: MobileDevelopment
 toc: true
 date: 2024-04-02
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Compression-Algorithms-in-Data-Storage
+
+image_alt: Investigating the Efficiency of Compression Algorithms in Data Storage
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: SoftwareEngineering
 toc: true
 date: 2023-12-13
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Natural-Computing-in-Solving-Optimization-Problems
+
+image_alt: Understanding the Principles of Natural Computing in Solving Optimization Problems
+
 ---
 
 

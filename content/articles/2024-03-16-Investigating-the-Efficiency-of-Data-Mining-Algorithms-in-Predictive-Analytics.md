@@ -8,6 +8,10 @@ categories: NaturalLanguageProcessing
 toc: true
 date: 2024-03-16
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Data-Mining-Algorithms-in-Predictive-Analytics
+
+image_alt: Investigating the Efficiency of Data Mining Algorithms in Predictive Analytics
+
 ---
 
 

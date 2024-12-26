@@ -8,6 +8,10 @@ categories: CloudComputing
 toc: true
 date: 2024-02-10
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Machine-Learning-in-Natural-Language-Understanding
+
+image_alt: Exploring the Applications of Machine Learning in Natural Language Understanding
+
 ---
 
 

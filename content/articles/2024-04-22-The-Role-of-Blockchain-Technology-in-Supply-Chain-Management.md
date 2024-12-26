@@ -7,6 +7,10 @@ tag: ComputerVision DataStructures Programming
 categories: TechTrends
 toc: true
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Role-of-Blockchain-Technology-in-Supply-Chain-Management
+
+image_alt: The Role of Blockchain Technology in Supply Chain Management
+
 ---
 
 

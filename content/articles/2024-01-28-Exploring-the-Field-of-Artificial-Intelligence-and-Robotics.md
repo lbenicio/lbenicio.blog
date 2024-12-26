@@ -8,6 +8,10 @@ categories: CloudComputing
 toc: true
 date: 2024-01-28
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Field-of-Artificial-Intelligence-and-Robotics
+
+image_alt: Exploring the Field of Artificial Intelligence and Robotics
+
 ---
 
 

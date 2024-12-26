@@ -8,6 +8,10 @@ categories: Algorithms
 toc: true
 date: 2023-12-08
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Encryption-Algorithms-in-Data-Security
+
+image_alt: Investigating the Efficiency of Encryption Algorithms in Data Security
+
 ---
 
 

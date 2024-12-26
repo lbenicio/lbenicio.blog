@@ -8,6 +8,10 @@ categories: ComputerVision
 toc: true
 date: 2023-12-21
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Data-Mining-Algorithms-in-Big-Data-Analytics
+
+image_alt: Investigating the Efficiency of Data Mining Algorithms in Big Data Analytics
+
 ---
 
 

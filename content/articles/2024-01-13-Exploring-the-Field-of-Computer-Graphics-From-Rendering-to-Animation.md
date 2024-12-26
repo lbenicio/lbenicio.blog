@@ -8,6 +8,10 @@ categories: Blockchain
 toc: true
 date: 2024-01-13
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Field-of-Computer-Graphics:-From-Rendering-to-Animation
+
+image_alt: Exploring the Field of Computer Graphics: From Rendering to Animation
+
 ---
 
 

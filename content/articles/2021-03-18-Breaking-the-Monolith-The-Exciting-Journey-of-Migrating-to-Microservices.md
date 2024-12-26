@@ -8,6 +8,10 @@ categories: ["best', 'practices', 'micro-services', 'monolith"]
 
 date: "2021-03-18"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

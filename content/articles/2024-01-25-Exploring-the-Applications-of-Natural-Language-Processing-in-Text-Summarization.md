@@ -8,6 +8,10 @@ categories: NaturalLanguageProcessing
 toc: true
 date: 2024-01-25
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Natural-Language-Processing-in-Text-Summarization
+
+image_alt: Exploring the Applications of Natural Language Processing in Text Summarization
+
 ---
 
 

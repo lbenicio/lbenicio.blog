@@ -8,6 +8,10 @@ categories: SoftwareTesting
 toc: true
 date: 2024-03-09
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Graph-Coloring-Algorithms-in-Resource-Allocation
+
+image_alt: Investigating the Efficiency of Graph Coloring Algorithms in Resource Allocation
+
 ---
 
 

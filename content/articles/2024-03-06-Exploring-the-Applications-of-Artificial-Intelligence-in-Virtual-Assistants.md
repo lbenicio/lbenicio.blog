@@ -8,6 +8,10 @@ categories: SoftwareTesting
 toc: true
 date: 2024-03-06
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Artificial-Intelligence-in-Virtual-Assistants
+
+image_alt: Exploring the Applications of Artificial Intelligence in Virtual Assistants
+
 ---
 
 

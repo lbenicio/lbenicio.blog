@@ -8,6 +8,10 @@ categories: DataStructures
 toc: true
 date: 2024-02-19
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Quantum-Machine-Learning-in-Pattern-Recognition
+
+image_alt: Exploring the Potential of Quantum Machine Learning in Pattern Recognition
+
 ---
 
 

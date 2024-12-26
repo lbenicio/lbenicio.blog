@@ -8,6 +8,10 @@ categories: ["analysis"]
 toc: true
 date: "2022-08-13"
 type: posts
+image: /assets/imgs/1-8-16.png
+
+image_alt: Completed requests with 4 cores, 16384mb RAM for 60 seconds.
+
 ---
 
 

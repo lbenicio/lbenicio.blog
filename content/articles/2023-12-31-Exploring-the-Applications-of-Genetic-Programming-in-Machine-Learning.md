@@ -8,6 +8,10 @@ categories: Cryptography
 toc: true
 date: 2023-12-31
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Genetic-Programming-in-Machine-Learning
+
+image_alt: Exploring the Applications of Genetic Programming in Machine Learning
+
 ---
 
 

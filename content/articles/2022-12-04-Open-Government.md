@@ -8,6 +8,10 @@ categories: ["discussion"]
 toc: true
 date: "2022-12-04"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

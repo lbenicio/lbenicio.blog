@@ -8,6 +8,10 @@ categories: ComputerArchitecture
 toc: true
 date: 2024-02-07
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Virtual-Reality-in-Education-and-Training
+
+image_alt: Exploring the Potential of Virtual Reality in Education and Training
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: CodeQuality
 toc: true
 date: 2024-03-08
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Impact-of-Internet-of-Things-on-Smart-Cities-and-Urban-Planning
+
+image_alt: The Impact of Internet of Things on Smart Cities and Urban Planning
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: CodeReview
 toc: true
 date: 2023-12-28
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Impact-of-Cybersecurity-Threats-on-the-Internet-of-Things
+
+image_alt: The Impact of Cybersecurity Threats on the Internet of Things
+
 ---
 
 

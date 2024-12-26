@@ -8,6 +8,10 @@ categories: Bioinformatics
 toc: true
 date: 2024-01-23
 type: posts
+image: https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Image-Compression-Algorithms-in-Multimedia-Applications
+
+image_alt: Analyzing the Efficiency of Image Compression Algorithms in Multimedia Applications
+
 ---
 
 

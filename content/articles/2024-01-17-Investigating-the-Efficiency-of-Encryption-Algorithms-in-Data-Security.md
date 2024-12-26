@@ -8,6 +8,10 @@ categories: CloudComputing
 toc: true
 date: 2024-01-17
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Encryption-Algorithms-in-Data-Security
+
+image_alt: Investigating the Efficiency of Encryption Algorithms in Data Security
+
 ---
 
 

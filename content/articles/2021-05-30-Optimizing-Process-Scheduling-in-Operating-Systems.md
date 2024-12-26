@@ -8,6 +8,10 @@ categories: ["operating', 'systems', 'process', 'scheduling"]
 
 date: "2021-05-30"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

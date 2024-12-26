@@ -8,6 +8,10 @@ categories: DataStructures
 toc: true
 date: 2024-04-06
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Image-Compression-Algorithms-in-Web-Applications
+
+image_alt: Investigating the Efficiency of Image Compression Algorithms in Web Applications
+
 ---
 
 

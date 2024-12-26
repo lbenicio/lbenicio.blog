@@ -8,6 +8,10 @@ categories: ComputerVision
 toc: true
 date: 2024-04-15
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Data-Mining-and-its-Applications-in-Business-Intelligence
+
+image_alt: Understanding the Principles of Data Mining and its Applications in Business Intelligence
+
 ---
 
 

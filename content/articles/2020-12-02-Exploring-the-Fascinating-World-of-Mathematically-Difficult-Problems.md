@@ -8,6 +8,10 @@ categories: ["mathematics', 'dicifult', 'discussion"]
 
 date: "2020-12-02"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: ["deployment"]
 
 date: "2021-09-09"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: ComputerGraphics
 toc: true
 date: 2024-03-30
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Deep-Learning-in-Natural-Language-Processing
+
+image_alt: Exploring the Potential of Deep Learning in Natural Language Processing
+
 ---
 
 

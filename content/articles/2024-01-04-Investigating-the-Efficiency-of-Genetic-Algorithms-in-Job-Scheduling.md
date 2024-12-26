@@ -8,6 +8,10 @@ categories: BigData
 toc: true
 date: 2024-01-04
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Genetic-Algorithms-in-Job-Scheduling
+
+image_alt: Investigating the Efficiency of Genetic Algorithms in Job Scheduling
+
 ---
 
 

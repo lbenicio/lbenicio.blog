@@ -8,6 +8,10 @@ categories: ["analysis"]
 toc: true
 date: "2022-09-18"
 type: posts
+image: /assets/imgs/fig-7.20.png
+
+image_alt: Completed requests time with 8 cores, 26624mb RAM for 60 seconds for over 100 simultaneous users.
+
 ---
 
 

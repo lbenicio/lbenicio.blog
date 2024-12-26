@@ -8,6 +8,10 @@ categories: Programming
 toc: true
 date: 2024-01-26
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Graph-Algorithms-in-Social-Network-Analysis
+
+image_alt: Investigating the Efficiency of Graph Algorithms in Social Network Analysis
+
 ---
 
 

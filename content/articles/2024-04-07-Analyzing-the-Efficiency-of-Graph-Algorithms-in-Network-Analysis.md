@@ -8,6 +8,10 @@ categories: WebDevelopment
 toc: true
 date: 2024-04-07
 type: posts
+image: https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Graph-Algorithms-in-Network-Analysis
+
+image_alt: Analyzing the Efficiency of Graph Algorithms in Network Analysis
+
 ---
 
 

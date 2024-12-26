@@ -8,6 +8,10 @@ categories: Cybersecurity
 toc: true
 date: 2023-12-05
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Parallel-Computing-in-Computational-Physics
+
+image_alt: Understanding the Principles of Parallel Computing in Computational Physics
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: EthicalHacking
 toc: true
 date: 2024-02-13
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Power-of-Neural-Networks-in-Speech-Recognition
+
+image_alt: The Power of Neural Networks in Speech Recognition
+
 ---
 
 

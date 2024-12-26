@@ -8,6 +8,10 @@ categories: NaturalLanguageProcessing
 toc: true
 date: 2024-02-24
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Natural-Language-Processing-in-Information-Retrieval
+
+image_alt: Exploring the Applications of Natural Language Processing in Information Retrieval
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: NaturalLanguageProcessing
 toc: true
 date: 2024-02-03
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Applications-of-Reinforcement-Learning-in-Robotics
+
+image_alt: Investigating the Applications of Reinforcement Learning in Robotics
+
 ---
 
 

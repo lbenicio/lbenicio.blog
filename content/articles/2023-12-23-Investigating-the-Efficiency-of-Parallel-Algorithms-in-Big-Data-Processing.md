@@ -8,6 +8,10 @@ categories: Programming
 toc: true
 date: 2023-12-23
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Parallel-Algorithms-in-Big-Data-Processing
+
+image_alt: Investigating the Efficiency of Parallel Algorithms in Big Data Processing
+
 ---
 
 

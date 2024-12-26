@@ -8,6 +8,10 @@ categories: SoftwareTesting
 toc: true
 date: 2024-03-26
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Potential-of-Quantum-Computing-in-Cryptography
+
+image_alt: Investigating the Potential of Quantum Computing in Cryptography
+
 ---
 
 

@@ -7,6 +7,10 @@ tag: CloudComputing ComputerGraphics CodeQuality
 categories: OperatingSystems
 toc: true
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Potential-of-Natural-Language-Processing-in-Virtual-Assistants
+
+image_alt: Exploring the Potential of Natural Language Processing in Virtual Assistants
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: ArtificialIntelligence
 toc: true
 date: 2024-04-12
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Machine-Learning-Algorithms-in-Fraud-Detection
+
+image_alt: Investigating the Efficiency of Machine Learning Algorithms in Fraud Detection
+
 ---
 
 

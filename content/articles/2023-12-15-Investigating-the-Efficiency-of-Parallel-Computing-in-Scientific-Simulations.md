@@ -8,6 +8,10 @@ categories: CodeReview
 toc: true
 date: 2023-12-15
 type: posts
+image: https://cdn.lbenicio.dev/posts/Investigating-the-Efficiency-of-Parallel-Computing-in-Scientific-Simulations
+
+image_alt: Investigating the Efficiency of Parallel Computing in Scientific Simulations
+
 ---
 
 

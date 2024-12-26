@@ -8,6 +8,10 @@ categories: ["parallelism', 'cuda', 'discussion"]
 
 date: "2020-12-15"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

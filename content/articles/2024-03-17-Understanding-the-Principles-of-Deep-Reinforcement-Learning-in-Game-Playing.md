@@ -8,6 +8,10 @@ categories: DebuggingTips
 toc: true
 date: 2024-03-17
 type: posts
+image: https://cdn.lbenicio.dev/posts/Understanding-the-Principles-of-Deep-Reinforcement-Learning-in-Game-Playing
+
+image_alt: Understanding the Principles of Deep Reinforcement Learning in Game Playing
+
 ---
 
 

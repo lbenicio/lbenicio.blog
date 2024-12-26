@@ -8,6 +8,10 @@ categories: Databases
 toc: true
 date: 2024-03-22
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Reinforcement-Learning-in-Robotics
+
+image_alt: Exploring the Applications of Reinforcement Learning in Robotics
+
 ---
 
 

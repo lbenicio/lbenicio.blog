@@ -8,6 +8,10 @@ categories: OperatingSystems
 toc: true
 date: 2024-03-29
 type: posts
+image: https://cdn.lbenicio.dev/posts/Exploring-the-Applications-of-Natural-Language-Processing-in-Information-Retrieval
+
+image_alt: Exploring the Applications of Natural Language Processing in Information Retrieval
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: ["devops"]
 toc: true
 date: "2023-03-19"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

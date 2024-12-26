@@ -7,6 +7,10 @@ tag: ComputerVision MobileDevelopment ComputerArchitecture
 categories: ComputerVision
 toc: true
 type: posts
+image: https://cdn.lbenicio.dev/posts/Analyzing-the-Efficiency-of-Matrix-Algorithms-in-Linear-Algebra
+
+image_alt: Analyzing the Efficiency of Matrix Algorithms in Linear Algebra
+
 ---
 
 

@@ -8,6 +8,10 @@ categories: ["boolean', 'algebra', 'mathematic', 'computing', 'logic', 'discussi
 
 date: "2021-01-12"
 type: posts
+image: https://github.com/lbenicio/lbenicio.blog
+
+image_alt: https://github.com/lbenicio/lbenicio.blog
+
 ---
 
 

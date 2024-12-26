@@ -8,6 +8,10 @@ categories: Networking
 toc: true
 date: 2024-01-31
 type: posts
+image: https://cdn.lbenicio.dev/posts/The-Impact-of-Big-Data-Analytics-in-Business-Intelligence
+
+image_alt: The Impact of Big Data Analytics in Business Intelligence
+
 ---
 
 
