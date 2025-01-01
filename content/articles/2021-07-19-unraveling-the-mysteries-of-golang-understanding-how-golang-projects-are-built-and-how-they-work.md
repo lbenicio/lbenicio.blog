@@ -21,7 +21,7 @@ Golang, also known as Go, is a popular programming language that has been gainin
 
 ## Building Golang Projects
 
-To build a Golang project, you need to have the Go programming language installed on your system. Once you have installed Go, you can create a new project by creating a new directory, navigating to it in your terminal, and running the command go mod init <module-name>. This will create a new module, which is a collection of Go packages that can be versioned and managed using Go modules.
+To build a Golang project, you need to have the Go programming language installed on your system. Once you have installed Go, you can create a new project by creating a new directory, navigating to it in your terminal, and running the command go mod init module-name. This will create a new module, which is a collection of Go packages that can be versioned and managed using Go modules.
 
 Once you have created a new module, you can start creating Go files inside it. A Go file is a text file that contains Go code. Each file should have a package statement at the top, which declares which package the file belongs to. The main package is a special package that is used for executable programs. To build an executable program, you need to have a file named main.go inside your main package. This file should contain a main function, which is the entry point of your program.
 
