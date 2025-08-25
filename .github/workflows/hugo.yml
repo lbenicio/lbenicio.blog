@@ -59,7 +59,7 @@ jobs:
                     --environment production \
                     --baseURL "${{ steps.pages.outputs.base_url }}/"
             - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
+              uses: actions/upload-pages-artifact@v4
               with:
                   name: github-pages-build
                   path: ./public
@@ -86,7 +86,7 @@ jobs:
               run: |
                   npx pagefind --site public/github-pages-build/artifact
             - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
+              uses: actions/upload-pages-artifact@v4
               with:
                   name: github-pages
                   path: public/github-pages-build/artifact
