@@ -1,4 +1,6 @@
 name: Release
+permissions:
+  contents: write
 on:
   # Runs on pushes targeting the default branch
   push:
