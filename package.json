@@ -16,7 +16,7 @@
   "author": "Leonardo Benicio",
   "license": "GPLv3",
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.4.22",
     "grunt": "^1.6.1",
     "grunt-cli": "^1.5.0",
     "grunt-contrib-connect": "^5.0.1",
