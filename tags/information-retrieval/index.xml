@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Information-Retrieval on Leonardo Benicio</title><link>https://lbenicio.dev/tags/information-retrieval/</link><description>Recent content in Information-Retrieval on Leonardo Benicio</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 19 Jul 2023 10:00:00 +0000</lastBuildDate><atom:link href="https://lbenicio.dev/tags/information-retrieval/index.xml" rel="self" type="application/rss+xml"/><item><title>Reverse Indexing and Inverted Files: How Search Engines Fly</title><link>https://lbenicio.dev/blog/reverse-indexing-and-inverted-files-how-search-engines-fly/</link><pubDate>Wed, 19 Jul 2023 10:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/reverse-indexing-and-inverted-files-how-search-engines-fly/</guid><description>&lt;p&gt;Full‑text search is a masterclass in practical data structures. The inverted index—also called a reverse index—maps terms to the list of documents in which they occur. Everything else in a production search engine is optimization: reducing bytes, minimizing random I/O, and avoiding work you don’t have to do.&lt;/p&gt;
+&lt;p&gt;In this deep dive we’ll build a complete mental model of inverted files and the techniques that make them fast:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Parsing pipeline: tokenization, normalization, stemming/lemmatization, and multilingual realities&lt;/li&gt;
+&lt;li&gt;Index structure: vocabulary, postings (doc IDs), term frequencies, and positions for phrase queries&lt;/li&gt;
+&lt;li&gt;Compression: delta encoding, Variable‑Byte (VB), Simple‑8b, PForDelta, SIMD‑BP128, QMX, and how they trade space for CPU&lt;/li&gt;
+&lt;li&gt;Skipping and acceleration: skip lists, block max indexes, WAND/BMW dynamic pruning&lt;/li&gt;
+&lt;li&gt;Scoring: BM25, term and document statistics, field boosts, and normalization&lt;/li&gt;
+&lt;li&gt;Updates and merges: segment architecture (Lucene‑style), in‑place deletes, and background compaction&lt;/li&gt;
+&lt;li&gt;Caching and tiering: hot vs cold shards, result caching, and Bloom‑like structures&lt;/li&gt;
+&lt;li&gt;Distributed search: sharding, replication, and query fan‑out under tail latency pressure&lt;/li&gt;
+&lt;li&gt;Measuring and tuning: from recall/precision to p95 query time, heap usage, and GC pauses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By the end you’ll be able to reason about why each knob exists and which ones matter for your workload.&lt;/p&gt;</description></item></channel></rss>

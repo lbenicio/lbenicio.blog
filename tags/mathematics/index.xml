@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mathematics on Leonardo Benicio</title><link>https://lbenicio.dev/tags/mathematics/</link><description>Recent content in Mathematics on Leonardo Benicio</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lbenicio.dev/tags/mathematics/index.xml" rel="self" type="application/rss+xml"/><item><title>Floating Point: How Computers Represent Real Numbers</title><link>https://lbenicio.dev/blog/floating-point-how-computers-represent-real-numbers/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/floating-point-how-computers-represent-real-numbers/</guid><description>&lt;p&gt;Every programmer eventually encounters the classic puzzle: why does &lt;code&gt;0.1 + 0.2&lt;/code&gt; not equal &lt;code&gt;0.3&lt;/code&gt;? The answer lies in how computers represent real numbers using floating point arithmetic. Understanding IEEE 754 floating point is essential for anyone writing numerical code, financial software, scientific simulations, or graphics applications.&lt;/p&gt;
+&lt;h2 id="1-the-challenge-of-representing-real-numbers"&gt;1. The Challenge of Representing Real Numbers&lt;/h2&gt;
+&lt;p&gt;Computers work with finite binary representations, but real numbers are infinite.&lt;/p&gt;
+&lt;h3 id="11-the-fundamental-problem"&gt;1.1 The Fundamental Problem&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Integers are straightforward:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;42 in binary = 101010
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-7 in binary (two&amp;#39;s complement, 8-bit) = 11111001
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;But real numbers have infinite precision:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;π = 3.14159265358979323846...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1/3 = 0.33333333... (repeating)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Even simple decimals can be infinite in binary:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0.1 (decimal) = 0.0001100110011... (repeating in binary)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="12-why-not-fixed-point"&gt;1.2 Why Not Fixed Point?&lt;/h3&gt;
+&lt;p&gt;Fixed point representations dedicate a fixed number of bits to the integer and fractional parts:&lt;/p&gt;</description></item></channel></rss>
