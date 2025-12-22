@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Work-Stealing on Leonardo Benicio</title><link>https://lbenicio.dev/tags/work-stealing/</link><description>Recent content in Work-Stealing on Leonardo Benicio</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 12 Feb 2025 10:00:00 +0000</lastBuildDate><atom:link href="https://lbenicio.dev/tags/work-stealing/index.xml" rel="self" type="application/rss+xml"/><item><title>Scheduling: Trading Latency for Throughput (and Back Again)</title><link>https://lbenicio.dev/blog/scheduling-trading-latency-for-throughput-and-back-again/</link><pubDate>Wed, 12 Feb 2025 10:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/scheduling-trading-latency-for-throughput-and-back-again/</guid><description>&lt;p&gt;Schedulers encode policy: who runs next, on which core, and for how long. Those choices shuffle latency and throughput. Let’s make the trade‑offs explicit.&lt;/p&gt;
+&lt;h2 id="fifo-vs-priority-vs-fair"&gt;FIFO vs. priority vs. fair&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;FIFO: simple, minimal overhead; tail prone under bursty arrivals.&lt;/li&gt;
+&lt;li&gt;Priority: protects critical work; risks starvation without aging.&lt;/li&gt;
+&lt;li&gt;Fair (CFQ‑like): shares CPU evenly; may underutilize when work is imbalanced.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="work-stealing"&gt;Work stealing&lt;/h2&gt;
+&lt;p&gt;Great for irregular parallel workloads. Each worker has a deque; thieves steal from the tail. Pros: high utilization; Cons: cache locality losses and noisy tails under high contention.&lt;/p&gt;</description></item></channel></rss>

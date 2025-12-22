@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Llvm on Leonardo Benicio</title><link>https://lbenicio.dev/tags/llvm/</link><description>Recent content in Llvm on Leonardo Benicio</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 23 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://lbenicio.dev/tags/llvm/index.xml" rel="self" type="application/rss+xml"/><item><title>Compiler Optimizations: From Source Code to Fast Machine Code</title><link>https://lbenicio.dev/blog/compiler-optimizations-from-source-code-to-fast-machine-code/</link><pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/compiler-optimizations-from-source-code-to-fast-machine-code/</guid><description>&lt;p&gt;When you compile your code with &lt;code&gt;-O2&lt;/code&gt; or &lt;code&gt;-O3&lt;/code&gt;, something magical happens. The compiler applies dozens of optimization passes that can make your program run 10x faster—or more. Understanding these optimizations helps you write faster code and debug mysterious performance issues. Let&amp;rsquo;s explore how modern compilers transform source code into efficient machine code.&lt;/p&gt;
+&lt;h2 id="1-the-compilation-pipeline"&gt;1. The Compilation Pipeline&lt;/h2&gt;
+&lt;p&gt;Before diving into optimizations, let&amp;rsquo;s understand where they happen.&lt;/p&gt;
+&lt;h3 id="11-compiler-phases"&gt;1.1 Compiler Phases&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Source Code
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;┌─────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Front-end │ Parsing, type checking, AST generation
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ (Language- │ C, C++, Rust, Swift → IR
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ specific) │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└────────┬────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;┌─────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Middle-end │ ★ MOST OPTIMIZATIONS HAPPEN HERE ★
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ (IR-based │ Constant folding, inlining, loop opts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ optimization) │ Dead code elimination, vectorization
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└────────┬────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;┌─────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Back-end │ Instruction selection, register allocation
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ (Target- │ Instruction scheduling, peephole opts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ specific) │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└────────┬────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Machine Code
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="12-intermediate-representation-ir"&gt;1.2 Intermediate Representation (IR)&lt;/h3&gt;
+&lt;p&gt;LLVM IR is a popular intermediate representation:&lt;/p&gt;</description></item></channel></rss>
