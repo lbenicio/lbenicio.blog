@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Allocation on Leonardo Benicio</title><link>https://lbenicio.dev/tags/allocation/</link><description>Recent content in Allocation on Leonardo Benicio</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://lbenicio.dev/tags/allocation/index.xml" rel="self" type="application/rss+xml"/><item><title>Memory Allocation and Garbage Collection: How Programs Manage Memory</title><link>https://lbenicio.dev/blog/memory-allocation-and-garbage-collection-how-programs-manage-memory/</link><pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/memory-allocation-and-garbage-collection-how-programs-manage-memory/</guid><description>&lt;p&gt;Every program needs memory, and every byte eventually becomes garbage. Between allocation and collection lies a fascinating world of algorithms, data structures, and engineering trade-offs that profoundly affect application performance. Whether you&amp;rsquo;re debugging memory leaks, optimizing allocation patterns, or choosing between languages, understanding memory management internals gives you the mental models to make better decisions.&lt;/p&gt;
+&lt;h2 id="1-the-memory-landscape"&gt;1. The Memory Landscape&lt;/h2&gt;
+&lt;p&gt;Before diving into allocation strategies, let&amp;rsquo;s understand the terrain.&lt;/p&gt;
+&lt;h3 id="11-virtual-address-space-layout"&gt;1.1 Virtual Address Space Layout&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Typical Process Memory Layout (Linux x86-64):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;┌─────────────────────────────────┐ 0x7FFFFFFFFFFF (high)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Stack │ ← Grows downward
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ ↓ │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Unmapped Region │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ ↑ │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Heap │ ← Grows upward
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ BSS Segment │ ← Uninitialized globals
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Data Segment │ ← Initialized globals
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Text Segment │ ← Program code (read-only)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└─────────────────────────────────┘ 0x400000 (low)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The stack and heap grow toward each other from opposite ends of the address space. The stack handles function call frames automatically, while the heap requires explicit management—either by the programmer or by a garbage collector.&lt;/p&gt;</description></item></channel></rss>

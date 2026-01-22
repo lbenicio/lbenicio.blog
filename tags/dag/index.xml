@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dag on Leonardo Benicio</title><link>https://lbenicio.dev/tags/dag/</link><description>Recent content in Dag on Leonardo Benicio</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 19 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://lbenicio.dev/tags/dag/index.xml" rel="self" type="application/rss+xml"/><item><title>From MapReduce to Spark: The Arc of Data-Parallel Systems</title><link>https://lbenicio.dev/blog/from-mapreduce-to-spark-the-arc-of-data-parallel-systems/</link><pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/from-mapreduce-to-spark-the-arc-of-data-parallel-systems/</guid><description>&lt;p&gt;MapReduce popularized large-scale batch processing with a simple model (map, shuffle, reduce) and immutable intermediate state on HDFS. It optimized for throughput and fault tolerance via re-execution.&lt;/p&gt;
+&lt;p&gt;Spark expanded the model:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RDDs: immutable, partitioned datasets with lineage, enabling recomputation on failure.&lt;/li&gt;
+&lt;li&gt;DAG scheduler: plans multi-stage jobs, pipelining narrow transformations and materializing wide ones.&lt;/li&gt;
+&lt;li&gt;In-memory caching: keeps hot datasets in RAM to accelerate iterative workloads.&lt;/li&gt;
+&lt;li&gt;Higher-level APIs: DataFrames/Datasets and SQL, plus MLlib and Structured Streaming.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="checkpointing-and-lineage"&gt;Checkpointing and lineage&lt;/h3&gt;
+&lt;p&gt;RDD lineage can grow large; Spark checkpoints to cut recomputation cost. For streaming, write-ahead logs plus checkpoints enable recovery.&lt;/p&gt;</description></item></channel></rss>

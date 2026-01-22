@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Memory on Leonardo Benicio</title><link>https://lbenicio.dev/tags/memory/</link><description>Recent content in Memory on Leonardo Benicio</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://lbenicio.dev/tags/memory/index.xml" rel="self" type="application/rss+xml"/><item><title>Memory Allocation and Garbage Collection: How Programs Manage Memory</title><link>https://lbenicio.dev/blog/memory-allocation-and-garbage-collection-how-programs-manage-memory/</link><pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/memory-allocation-and-garbage-collection-how-programs-manage-memory/</guid><description>&lt;p&gt;Every program needs memory, and every byte eventually becomes garbage. Between allocation and collection lies a fascinating world of algorithms, data structures, and engineering trade-offs that profoundly affect application performance. Whether you&amp;rsquo;re debugging memory leaks, optimizing allocation patterns, or choosing between languages, understanding memory management internals gives you the mental models to make better decisions.&lt;/p&gt;
+&lt;h2 id="1-the-memory-landscape"&gt;1. The Memory Landscape&lt;/h2&gt;
+&lt;p&gt;Before diving into allocation strategies, let&amp;rsquo;s understand the terrain.&lt;/p&gt;
+&lt;h3 id="11-virtual-address-space-layout"&gt;1.1 Virtual Address Space Layout&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Typical Process Memory Layout (Linux x86-64):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;┌─────────────────────────────────┐ 0x7FFFFFFFFFFF (high)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Stack │ ← Grows downward
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ ↓ │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Unmapped Region │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ ↑ │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Heap │ ← Grows upward
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ BSS Segment │ ← Uninitialized globals
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Data Segment │ ← Initialized globals
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ Text Segment │ ← Program code (read-only)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└─────────────────────────────────┘ 0x400000 (low)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The stack and heap grow toward each other from opposite ends of the address space. The stack handles function call frames automatically, while the heap requires explicit management—either by the programmer or by a garbage collector.&lt;/p&gt;</description></item><item><title>Tuning CUDA with the GPU Memory Hierarchy</title><link>https://lbenicio.dev/blog/tuning-cuda-with-the-gpu-memory-hierarchy/</link><pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/tuning-cuda-with-the-gpu-memory-hierarchy/</guid><description>&lt;p&gt;CUDA performance hinges on moving data efficiently through a &lt;em&gt;hierarchy&lt;/em&gt; of memories that differ by latency, bandwidth, scope (visibility), and capacity. Raw FLOP throughput is rarely the first limiter—memory behavior, access ordering, and reuse patterns almost always dominate performance envelopes.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="1-the-hierarchy-at-a-glance"&gt;1. The Hierarchy at a Glance&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Level&lt;/th&gt;
+ &lt;th&gt;Scope / Visibility&lt;/th&gt;
+ &lt;th&gt;Approx Latency (cycles)*&lt;/th&gt;
+ &lt;th&gt;Bandwidth&lt;/th&gt;
+ &lt;th&gt;Capacity (per SM / device)&lt;/th&gt;
+ &lt;th&gt;Notes&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Registers&lt;/td&gt;
+ &lt;td&gt;Thread private&lt;/td&gt;
+ &lt;td&gt;~1&lt;/td&gt;
+ &lt;td&gt;Extreme&lt;/td&gt;
+ &lt;td&gt;Tens of k per SM (allocated per thread)&lt;/td&gt;
+ &lt;td&gt;Allocation affects occupancy; spilling -&amp;gt; local memory&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Shared Memory (SMEM)&lt;/td&gt;
+ &lt;td&gt;Block (CTA)&lt;/td&gt;
+ &lt;td&gt;~20–35&lt;/td&gt;
+ &lt;td&gt;Very high&lt;/td&gt;
+ &lt;td&gt;48–228 KB configurable (arch dependent)&lt;/td&gt;
+ &lt;td&gt;Banked; subject to conflicts; optional split w/ L1&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;L1 / Texture Cache&lt;/td&gt;
+ &lt;td&gt;SM&lt;/td&gt;
+ &lt;td&gt;~30–60&lt;/td&gt;
+ &lt;td&gt;High&lt;/td&gt;
+ &lt;td&gt;~128–256 KB (unified)&lt;/td&gt;
+ &lt;td&gt;Serves global loads; spatial locality &amp;amp; coalescing still matter&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;L2 Cache&lt;/td&gt;
+ &lt;td&gt;Device-wide&lt;/td&gt;
+ &lt;td&gt;~200–300&lt;/td&gt;
+ &lt;td&gt;High&lt;/td&gt;
+ &lt;td&gt;Multi-MB&lt;/td&gt;
+ &lt;td&gt;Coherent across SMs; crucial for global data reuse&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Global DRAM&lt;/td&gt;
+ &lt;td&gt;Device-wide&lt;/td&gt;
+ &lt;td&gt;~400–800&lt;/td&gt;
+ &lt;td&gt;High (GB/s)&lt;/td&gt;
+ &lt;td&gt;Many GB&lt;/td&gt;
+ &lt;td&gt;Long latency—hide with parallelism &amp;amp; coalescing&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Constant Cache&lt;/td&gt;
+ &lt;td&gt;Device-wide (read-only)&lt;/td&gt;
+ &lt;td&gt;~ L1 hit if cached&lt;/td&gt;
+ &lt;td&gt;High (broadcast)&lt;/td&gt;
+ &lt;td&gt;64 KB&lt;/td&gt;
+ &lt;td&gt;Broadcast to warp if all threads read same address&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Texture / Read-Only Cache&lt;/td&gt;
+ &lt;td&gt;Device-wide (cached)&lt;/td&gt;
+ &lt;td&gt;Similar to L1&lt;/td&gt;
+ &lt;td&gt;High&lt;/td&gt;
+ &lt;td&gt;N/A&lt;/td&gt;
+ &lt;td&gt;Provides specialized spatial filtering &amp;amp; relaxed coalescing&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Local Memory&lt;/td&gt;
+ &lt;td&gt;Thread (spill/backing)&lt;/td&gt;
+ &lt;td&gt;DRAM latency&lt;/td&gt;
+ &lt;td&gt;DRAM&lt;/td&gt;
+ &lt;td&gt;Per-thread virtual&lt;/td&gt;
+ &lt;td&gt;“Local” is misnomer if spilled—same as global latency&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;Indicative ranges; varies by architecture generation (e.g., Turing, Ampere, Hopper). Absolute numbers less important than ratio gaps.&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Memory Allocators: From malloc to Modern Arena Allocators</title><link>https://lbenicio.dev/blog/memory-allocators-from-malloc-to-modern-arena-allocators/</link><pubDate>Thu, 14 Sep 2023 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/memory-allocators-from-malloc-to-modern-arena-allocators/</guid><description>&lt;p&gt;Memory allocation is one of those fundamental operations that most programmers take for granted. You call &lt;code&gt;malloc()&lt;/code&gt;, memory appears; you call &lt;code&gt;free()&lt;/code&gt;, it goes away. But beneath this simple interface lies a fascinating world of algorithms, trade-offs, and optimizations that can make or break your application&amp;rsquo;s performance. This post explores memory allocation from first principles to modern high-performance allocators.&lt;/p&gt;
+&lt;h2 id="1-why-memory-allocation-matters"&gt;1. Why Memory Allocation Matters&lt;/h2&gt;
+&lt;p&gt;Consider a web server handling thousands of requests per second. Each request might allocate dozens of objects: strings, buffers, data structures. If each allocation takes 1 microsecond, and a request needs 50 allocations, that&amp;rsquo;s 50 microseconds just in allocation overhead—potentially more than the actual request processing time.&lt;/p&gt;</description></item><item><title>Garbage Collection Algorithms: From Mark-and-Sweep to ZGC</title><link>https://lbenicio.dev/blog/garbage-collection-algorithms-from-mark-and-sweep-to-zgc/</link><pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/garbage-collection-algorithms-from-mark-and-sweep-to-zgc/</guid><description>&lt;p&gt;Manual memory management is powerful but error-prone. Forget to free memory and you leak; free too early and you corrupt. Garbage collection promises to solve this by automatically reclaiming unused memory. But this convenience comes with costs and trade-offs that every systems programmer should understand. This post explores garbage collection from first principles to cutting-edge concurrent collectors.&lt;/p&gt;
+&lt;h2 id="1-why-garbage-collection"&gt;1. Why Garbage Collection?&lt;/h2&gt;
+&lt;p&gt;Consider the challenges of manual memory management:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;void&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;process_request&lt;/span&gt;(Request&lt;span style="color:#ff7b72;font-weight:bold"&gt;*&lt;/span&gt; req) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72"&gt;char&lt;/span&gt;&lt;span style="color:#ff7b72;font-weight:bold"&gt;*&lt;/span&gt; buffer &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;malloc&lt;/span&gt;(&lt;span style="color:#a5d6ff"&gt;1024&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Result&lt;span style="color:#ff7b72;font-weight:bold"&gt;*&lt;/span&gt; result &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;compute&lt;/span&gt;(req, buffer);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72"&gt;if&lt;/span&gt; (result&lt;span style="color:#ff7b72;font-weight:bold"&gt;-&amp;gt;&lt;/span&gt;error) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#8b949e;font-style:italic"&gt;// Oops! Forgot to free buffer
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72"&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;send_response&lt;/span&gt;(result);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;free&lt;/span&gt;(buffer);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;free&lt;/span&gt;(result); &lt;span style="color:#8b949e;font-style:italic"&gt;// Did compute() allocate this? Or is it static?
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Common bugs include:&lt;/p&gt;</description></item><item><title>CPU Caches and Cache Coherence: The Memory Hierarchy That Makes Modern Computing Fast</title><link>https://lbenicio.dev/blog/cpu-caches-and-cache-coherence-the-memory-hierarchy-that-makes-modern-computing-fast/</link><pubDate>Tue, 12 Jul 2022 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/cpu-caches-and-cache-coherence-the-memory-hierarchy-that-makes-modern-computing-fast/</guid><description>&lt;p&gt;Modern CPUs can execute billions of instructions per second, but main memory takes hundreds of cycles to respond. Without caches, processors would spend most of their time waiting for data. The cache hierarchy is one of the most important innovations in computer architecture, and understanding it is essential for writing high-performance software.&lt;/p&gt;
+&lt;h2 id="1-the-memory-wall-problem"&gt;1. The Memory Wall Problem&lt;/h2&gt;
+&lt;p&gt;The fundamental challenge that caches solve.&lt;/p&gt;
+&lt;h3 id="11-the-speed-gap"&gt;1.1 The Speed Gap&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Component Access Time Relative Speed
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;─────────────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;CPU Register ~0.3 ns 1x (baseline)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;L1 Cache ~1 ns ~3x slower
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;L2 Cache ~3-4 ns ~10x slower
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;L3 Cache ~10-20 ns ~30-60x slower
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Main Memory ~50-100 ns ~150-300x slower
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;NVMe SSD ~20,000 ns ~60,000x slower
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;HDD ~10,000,000 ns ~30,000,000x slower
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="12-why-the-gap-exists"&gt;1.2 Why the Gap Exists&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Memory technology tradeoffs:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;SRAM (caches):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─ Fast: 6 transistors per bit
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─ Expensive: ~100x cost per bit vs DRAM
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─ Power hungry
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└─ Low density
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;DRAM (main memory):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─ Slow: 1 transistor + 1 capacitor per bit
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─ Cheap: high density
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├─ Needs refresh (capacitors leak)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└─ Better power per bit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="13-the-solution-caching"&gt;1.3 The Solution: Caching&lt;/h3&gt;
+&lt;p&gt;Caches exploit two key principles:&lt;/p&gt;</description></item><item><title>Virtual Memory and Page Tables: How Operating Systems Manage Memory</title><link>https://lbenicio.dev/blog/virtual-memory-and-page-tables-how-operating-systems-manage-memory/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/virtual-memory-and-page-tables-how-operating-systems-manage-memory/</guid><description>&lt;p&gt;Every process believes it has the entire machine to itself. It sees a vast, contiguous address space starting from zero, completely isolated from other processes. This illusion is virtual memory—one of the most important abstractions in computing. Understanding how operating systems and hardware collaborate to maintain this illusion reveals fundamental insights about performance, security, and system design.&lt;/p&gt;
+&lt;h2 id="1-the-need-for-virtual-memory"&gt;1. The Need for Virtual Memory&lt;/h2&gt;
+&lt;p&gt;Before virtual memory, programming was a constant juggling act.&lt;/p&gt;</description></item><item><title>CPU Caches and Memory Hierarchy: The Hidden Architecture Behind Performance</title><link>https://lbenicio.dev/blog/cpu-caches-and-memory-hierarchy-the-hidden-architecture-behind-performance/</link><pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/cpu-caches-and-memory-hierarchy-the-hidden-architecture-behind-performance/</guid><description>&lt;p&gt;The gap between processor speed and memory speed is one of the defining challenges of modern computing. While CPUs can execute billions of operations per second, main memory takes hundreds of cycles to respond to a single request. CPU caches bridge this gap through a hierarchy of progressively larger and slower memories that exploit the patterns in how programs access data. Understanding cache behavior transforms how you think about algorithm design, data structure layout, and system performance.&lt;/p&gt;</description></item><item><title>Cache‑Friendly Data Layouts: AoS vs. SoA (and the Hybrid In‑Between)</title><link>https://lbenicio.dev/blog/cachefriendly-data-layouts-aos-vs.-soa-and-the-hybrid-inbetween/</link><pubDate>Thu, 18 Mar 2021 10:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/cachefriendly-data-layouts-aos-vs.-soa-and-the-hybrid-inbetween/</guid><description>&lt;p&gt;The fastest code you’ll ever write usually isn’t a brand‑new algorithm—it’s the same algorithm organized in memory so the CPU (or GPU) can consume it efficiently. That journey often starts with a deceptively small choice: Array‑of‑Structs (AoS) or Struct‑of‑Arrays (SoA). The layout you choose determines which cachelines move, which prefetchers trigger, how branch predictors behave, and whether SIMD units stay busy or starve.&lt;/p&gt;
+&lt;p&gt;In this post we’ll build an intuitive mental model for cachelines, TLBs, prefetchers, and vector units; examine AoS and SoA under realistic access patterns; then derive a hybrid (AoSoA) that quietly powers many high‑performance systems—from physics engines to databases to ML dataloaders. We’ll also walk through migration strategies, benchmarking pitfalls, and checklists you can apply this week.&lt;/p&gt;</description></item><item><title>Speculative Prefetchers: Designing Memory Systems That Read the Future</title><link>https://lbenicio.dev/blog/speculative-prefetchers-designing-memory-systems-that-read-the-future/</link><pubDate>Thu, 14 Feb 2019 10:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/speculative-prefetchers-designing-memory-systems-that-read-the-future/</guid><description>&lt;p&gt;At 2:17 a.m., the on-call performance engineer watches another alert crawl across the dashboard. The new machine image promised higher throughput for a latency-sensitive analytics service, yet caches still thrash whenever end-of-day reconciliation jobs arrive. Each job walks a sparsely linked graph of customer transactions, and the CPU spends more time waiting on memory than executing instructions. &amp;ldquo;If only the hardware could guess where the program was going next,&amp;rdquo; she sighs. That daydream is the seed of speculative prefetching—the art of reading tomorrow’s memory today.&lt;/p&gt;</description></item></channel></rss>
