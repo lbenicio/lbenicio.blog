@@ -1,0 +1,1157 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>Memory Allocation and Garbage Collection: How Programs Manage Memory · Leonardo Benicio</title><meta name=description content="A deep dive into how programming languages allocate, track, and reclaim memory. Understand malloc internals, garbage collection algorithms, and the trade-offs that shape runtime performance."><link rel=alternate type=application/rss+xml title=RSS href=https://lbenicio.dev/index.xml><link rel=canonical href=https://blog.lbenicio.dev/blog/memory-allocation-and-garbage-collection-how-programs-manage-memory/><link rel=preload href=/static/fonts/OpenSans-Regular.ttf as=font type=font/ttf crossorigin><link rel="stylesheet" href="/assets/css/fonts.min.40e2054b739ac45a0f9c940f4b44ec00c3b372356ebf61440a413c0337c5512e.css" crossorigin="anonymous" integrity="sha256-QOIFS3OaxFoPnJQPS0TsAMOzcjVuv2FECkE8AzfFUS4="><link rel="shortcut icon" href=/static/assets/favicon/favicon.ico><link rel=icon type=image/x-icon href=/static/assets/favicon/favicon.ico><link rel=icon href=/static/assets/favicon/favicon.svg type=image/svg+xml><link rel=icon href=/static/assets/favicon/favicon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/static/assets/favicon/favicon-16x16.png sizes=16x16 type=image/png><link rel=apple-touch-icon href=/static/assets/favicon/apple-touch-icon.png><link rel=manifest href=/static/assets/favicon/site.webmanifest><link rel=mask-icon href=/static/assets/favicon/safari-pinned-tab.svg color=#209cee><meta name=msapplication-TileColor content="#209cee"><meta name=msapplication-config content="/static/assets/favicon/browserconfig.xml"><meta name=theme-color content="#d2e9f8"><meta property="og:title" content="Memory Allocation and Garbage Collection: How Programs Manage Memory · Leonardo Benicio"><meta property="og:description" content="A deep dive into how programming languages allocate, track, and reclaim memory. Understand malloc internals, garbage collection algorithms, and the trade-offs that shape runtime performance."><meta property="og:url" content="https://blog.lbenicio.dev/blog/memory-allocation-and-garbage-collection-how-programs-manage-memory/"><meta property="og:type" content="article"><meta property="og:image" content="https://blog.lbenicio.dev/static/assets/images/blog/memory-allocation-garbage-collection-internals.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Memory Allocation and Garbage Collection: How Programs Manage Memory · Leonardo Benicio"><meta name=twitter:description content="A deep dive into how programming languages allocate, track, and reclaim memory. Understand malloc internals, garbage collection algorithms, and the trade-offs that shape runtime performance."><meta name=twitter:site content="@lbenicio_"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"About Leonardo Benicio","url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Person","name":"Leonardo Benicio","sameAs":["https://github.com/lbenicio","https://www.linkedin.com/in/leonardo-benicio","https://twitter.com/lbenicio_"],"url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Home","position":1},{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Blog","position":2},{"@type":"ListItem","item":"https://blog.lbenicio.dev/blog/memory-allocation-and-garbage-collection-how-programs-manage-memory/","name":"Memory Allocation and Garbage Collection How Programs Manage Memory","position":3}]}</script><link rel="stylesheet" href="/assets/css/main.min.1e8a566ac8bc3f0664d0db4ec8a015b07421c33fa11d336a6b914522a9cabf30.css" crossorigin="anonymous" integrity="sha256-6lhUOpwCHMSMROmggsVSp3AHKud6gBrIFGTzl3GV4BY="></head><body class="c6942b3 c03620d cf3bd2e"><script>(function(){try{document.addEventListener("gesturestart",function(e){e.preventDefault()}),document.addEventListener("touchstart",function(e){e.touches&&e.touches.length>1&&e.preventDefault()},{passive:!1});var e=0;document.addEventListener("touchend",function(t){var n=Date.now();n-e<=300&&t.preventDefault(),e=n},{passive:!1})}catch{}})()</script><a href=#content class="cba5854 c21e770 caffa6e cc5f604 cf2c31d cdd44dd c10dda9 c43876e c787e9b cddc2d2 cf55a7b c6dfb1e c9391e2">Skip to content</a>
+<script>(function(){try{const e=localStorage.getItem("theme");e==="dark"&&document.documentElement.classList.add("dark");const t=document.querySelector('button[aria-label="Toggle theme"]');t&&t.setAttribute("aria-pressed",String(e==="dark"))}catch{}})();function toggleTheme(e){const s=document.documentElement,t=s.classList.toggle("dark");try{localStorage.setItem("theme",t?"dark":"light")}catch{}try{var n=e&&e.nodeType===1?e:document.querySelector('button[aria-label="Toggle theme"]');n&&n.setAttribute("aria-pressed",String(!!t))}catch{}}(function(){function e(){try{return document.documentElement.classList.contains("dark")?"dark":"light"}catch{return"light"}}function n(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(0)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!1,s.style.display="block"}catch{}o.setAttribute("aria-expanded","true"),n.setAttribute("aria-hidden","false");try{document.body.classList.add("c150bbe")}catch{}const i=document.getElementById("i190984");i&&i.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_open",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function t(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(100%)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!0,s.style.display="none"}catch{}o.setAttribute("aria-expanded","false"),n.setAttribute("aria-hidden","true");try{document.body.classList.remove("c150bbe")}catch{}o.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_close",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function s(e){e.key==="Escape"&&t("escape")}window.__openMobileMenu=n,window.__closeMobileMenu=t;try{window.addEventListener("keydown",s,!0)}catch{}})()</script><header class="cd019ba c98dfae cdd44dd cfdda01 c9ee25d ce2dc7a cd72dd7 cc0dc37" role=banner><div class="cfdda01 c6942b3 ccf47f4 c7c11d8"><a href=/ class="c87e2b0 c6942b3 c7c11d8 c1838fa cb594e4" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=32 height=32 class="c3de71a c4d5191">
+<span class="cf8f011 c4d1253 cbd72bc cd7e69e">Leonardo Benicio</span></a><div class="c6942b3 c85cbd4 c7c11d8 ca798da c1838fa c7a0580"><nav class="cc1689c cd9b445 c75065d c04bab1" aria-label=Main><a href=/ class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Home</a>
+<a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">About</a>
+<a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Timeline</a>
+<a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Reading</a>
+<a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Publications</a>
+<a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Contact</a></nav><button id="i1d73d4" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 c097fa1 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" onclick=toggleTheme(this) aria-label="Toggle theme" aria-pressed=false title="Toggle theme">
+<svg class="cb26e41 c50ceea cb69a5c c4f45c8 c8c2c40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="cb26e41 c8fca2b cb69a5c c4f45c8 cc1689c c9c27ff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M6.34 17.66l2.83-2.83"/><path d="M14.83 9.17l2.83-2.83"/></svg>
+<span class="cba5854">Toggle theme</span></button><div class="c658bcf c097fa1"><button id="i975fb5" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" aria-label="Open menu" aria-controls="i98aca2" aria-expanded=false onclick='window.__openMobileMenu("button")' data-d38f920=mobile_menu_open_click>
+<svg class="c20e4eb cb58471" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<span class="cba5854">Open menu</span></button></div></div></div></header><div id="iad2af0" class="caffa6e ce4b5f4 c14639a" style=background-color:hsl(var(--background)) hidden onclick='window.__closeMobileMenu("overlay")' data-d38f920=mobile_menu_overlay_click></div><aside id="i98aca2" class="caffa6e c9efbc5 c437fa9 c49e97e c6c6936 c7cacca c7b34a4 c787e9b c88daee cad071a c6942b3 c03620d" role=dialog aria-modal=true aria-hidden=true aria-label="Mobile navigation" style="transform:translateX(100%);transition:transform 200ms ease-out;will-change:transform"><div class="c6942b3 c7c11d8 c82c52d c5df473 ccf47f4 c9ee25d"><a href=/ class="c6942b3 c7c11d8 c1838fa" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=24 height=24 class="c20e4eb cb58471">
+<span class="c62aaf0 c7c1b66 cbd72bc">Leonardo Benicio</span>
+</a><button id="i190984" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c514027 c286dd7 c2bd687 cfdce1d" aria-label="Close menu" onclick='window.__closeMobileMenu("button")' data-d38f920=mobile_menu_close_click>
+<svg class="c16e528 c61f467" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<span class="cba5854">Close</span></button></div><nav class="c85cbd4 ca0eaa4 c5df473 c6689b9"><ul class="cd69733"><li><a href=/ class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Home</a></li><li><a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>About</a></li><li><a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Timeline</a></li><li><a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Reading</a></li><li><a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Publications</a></li><li><a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Contact</a></li></ul></nav><div class="c60a4cc ccdf0e8 c277478 c13044e"><p>&copy; 2026 Leonardo Benicio</p></div></aside><div class="caffa6e c437fa9 ce9aced c97bba6 c15da2a c975cba" role=complementary aria-label="GitHub repository"><div class="c9d056d c252f85 ca22532 ca88a1a c876315"><div class="c6942b3 c7c11d8 c1d0018 cd1fd22 c6066e4 c43876e ce3d5b6 caa20d2 c3ecea6 c0cd2e2 cddc2d2 c3ed5c9 cd4074c c876315"><a href=https://github.com/lbenicio/aboutme target=_blank rel="noopener noreferrer" class="c6942b3 c7c11d8 cd1fd22 c71bae8 cfac1ac c19ee42 c25dc7c cb40739 cbbda39 cf55a7b" aria-label="View source on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cb26e41 c41bcd4 cf17690 cfa4e34 c78d562" aria-hidden="true"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+<span class="cb5c327 cd7e69e">Fork me</span></a></div></div></div><main id="i7eccc0" class="cfdda01 c5df473 c0eecc8 c85cbd4" role=main aria-label=Content><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Memory Allocation and Garbage Collection How Programs Manage Memory</span></li></ol></nav><article class="c461ba0 c1c203f cfb6084 c995404 c6ca165"><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Memory Allocation and Garbage Collection How Programs Manage Memory</span></li></ol></nav><header class="c8aedc7"><h1 class="cf304bc c6fb0fe cf8f011 cc484e1">Memory Allocation and Garbage Collection: How Programs Manage Memory</h1><div class="c277478 c3ecea6 c8fb24a">2025-02-20
+· Leonardo Benicio</div><div class="c1a1a3f c8124f2"><img src=/static/assets/images/blog/memory-allocation-garbage-collection-internals.png alt class="cfdda01 c524300 c677556"></div><p class="lead c3ecea6">A deep dive into how programming languages allocate, track, and reclaim memory. Understand malloc internals, garbage collection algorithms, and the trade-offs that shape runtime performance.</p></header><div class="content"><p>Every program needs memory, and every byte eventually becomes garbage. Between allocation and collection lies a fascinating world of algorithms, data structures, and engineering trade-offs that profoundly affect application performance. Whether you&rsquo;re debugging memory leaks, optimizing allocation patterns, or choosing between languages, understanding memory management internals gives you the mental models to make better decisions.</p><h2 id="1-the-memory-landscape">1. The Memory Landscape</h2><p>Before diving into allocation strategies, let&rsquo;s understand the terrain.</p><h3 id="11-virtual-address-space-layout">1.1 Virtual Address Space Layout</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Typical Process Memory Layout (Linux x86-64):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────────────────────────────┐ 0x7FFFFFFFFFFF (high)
+</span></span><span style=display:flex><span>│           Stack                 │ ← Grows downward
+</span></span><span style=display:flex><span>│             ↓                   │
+</span></span><span style=display:flex><span>├─────────────────────────────────┤
+</span></span><span style=display:flex><span>│                                 │
+</span></span><span style=display:flex><span>│        Unmapped Region          │
+</span></span><span style=display:flex><span>│                                 │
+</span></span><span style=display:flex><span>├─────────────────────────────────┤
+</span></span><span style=display:flex><span>│             ↑                   │
+</span></span><span style=display:flex><span>│           Heap                  │ ← Grows upward
+</span></span><span style=display:flex><span>├─────────────────────────────────┤
+</span></span><span style=display:flex><span>│         BSS Segment             │ ← Uninitialized globals
+</span></span><span style=display:flex><span>├─────────────────────────────────┤
+</span></span><span style=display:flex><span>│        Data Segment             │ ← Initialized globals
+</span></span><span style=display:flex><span>├─────────────────────────────────┤
+</span></span><span style=display:flex><span>│        Text Segment             │ ← Program code (read-only)
+</span></span><span style=display:flex><span>└─────────────────────────────────┘ 0x400000 (low)
+</span></span></code></pre></div><p>The stack and heap grow toward each other from opposite ends of the address space. The stack handles function call frames automatically, while the heap requires explicit management—either by the programmer or by a garbage collector.</p><h3 id="12-stack-vs-heap-allocation">1.2 Stack vs Heap Allocation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Stack allocation - automatic, fast, limited
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>stack_example</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>int</span> local <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>42</span>;           <span style=color:#8b949e;font-style:italic>// 4 bytes on stack
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> buffer[<span style=color:#a5d6ff>1024</span>];        <span style=color:#8b949e;font-style:italic>// 1KB on stack
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> Point p <span style=color:#ff7b72;font-weight:700>=</span> {<span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>2</span>};  <span style=color:#8b949e;font-style:italic>// sizeof(Point) on stack
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// All automatically freed when function returns
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Heap allocation - manual, flexible, slower
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>heap_example</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>int</span><span style=color:#ff7b72;font-weight:700>*</span> ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>malloc</span>(<span style=color:#ff7b72>sizeof</span>(<span style=color:#ff7b72>int</span>));  <span style=color:#8b949e;font-style:italic>// 4+ bytes on heap
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> buf <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>malloc</span>(<span style=color:#a5d6ff>1024</span>);        <span style=color:#8b949e;font-style:italic>// 1KB+ on heap
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Must explicitly free
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>free</span>(ptr);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>free</span>(buf);
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Forgetting = memory leak
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Stack allocation is essentially free—just moving a pointer. Heap allocation involves complex bookkeeping, potential system calls, and careful lifetime management.</p><h3 id="13-the-allocation-problem">1.3 The Allocation Problem</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>The fundamental challenge:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Given:
+</span></span><span style=display:flex><span>- Programs request memory in varying sizes
+</span></span><span style=display:flex><span>- Requests arrive in unpredictable order
+</span></span><span style=display:flex><span>- Memory is freed in unpredictable order
+</span></span><span style=display:flex><span>- Physical memory is limited
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Goals:
+</span></span><span style=display:flex><span>- Fast allocation (minimize time per malloc)
+</span></span><span style=display:flex><span>- Fast deallocation (minimize time per free)
+</span></span><span style=display:flex><span>- Low fragmentation (maximize usable memory)
+</span></span><span style=display:flex><span>- Low overhead (minimize metadata per allocation)
+</span></span><span style=display:flex><span>- Good locality (related allocations near each other)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Trade-offs are unavoidable:
+</span></span><span style=display:flex><span>- Speed vs fragmentation
+</span></span><span style=display:flex><span>- Metadata overhead vs allocation flexibility
+</span></span><span style=display:flex><span>- Simplicity vs optimal memory usage
+</span></span></code></pre></div><h2 id="2-manual-memory-management-malloc-internals">2. Manual Memory Management: malloc Internals</h2><p>The C runtime&rsquo;s malloc and free functions hide sophisticated algorithms.</p><h3 id="21-basic-heap-structure">2.1 Basic Heap Structure</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Simple free list implementation:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Each block has a header:
+</span></span><span style=display:flex><span>┌──────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  size (includes header) | in_use bit │  ← Header (8-16 bytes)
+</span></span><span style=display:flex><span>├──────────────────────────────────────┤
+</span></span><span style=display:flex><span>│                                      │
+</span></span><span style=display:flex><span>│           User Data                  │  ← What malloc returns
+</span></span><span style=display:flex><span>│                                      │
+</span></span><span style=display:flex><span>└──────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Free blocks are linked:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌────────┐    ┌────────┐    ┌────────┐
+</span></span><span style=display:flex><span>│ Header │───►│ Header │───►│ Header │───► NULL
+</span></span><span style=display:flex><span>│  Free  │    │  Free  │    │  Free  │
+</span></span><span style=display:flex><span>│  256B  │    │  128B  │    │  512B  │
+</span></span><span style=display:flex><span>└────────┘    └────────┘    └────────┘
+</span></span></code></pre></div><h3 id="22-allocation-strategies">2.2 Allocation Strategies</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>First Fit:
+</span></span><span style=display:flex><span>- Walk the free list
+</span></span><span style=display:flex><span>- Return first block &gt;= requested size
+</span></span><span style=display:flex><span>- Fast but causes fragmentation at list head
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Best Fit:
+</span></span><span style=display:flex><span>- Walk entire free list
+</span></span><span style=display:flex><span>- Return smallest block &gt;= requested size
+</span></span><span style=display:flex><span>- Less fragmentation but slower (O(n) search)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Worst Fit:
+</span></span><span style=display:flex><span>- Return largest available block
+</span></span><span style=display:flex><span>- Leaves larger remaining fragments
+</span></span><span style=display:flex><span>- Rarely used in practice
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Next Fit:
+</span></span><span style=display:flex><span>- Like first fit, but resume search from last position
+</span></span><span style=display:flex><span>- Distributes fragmentation throughout heap
+</span></span></code></pre></div><h3 id="23-splitting-and-coalescing">2.3 Splitting and Coalescing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// When a block is larger than needed, split it
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span><span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#d2a8ff;font-weight:700>malloc_with_split</span>(<span style=color:#ff7b72>size_t</span> size) {
+</span></span><span style=display:flex><span>    Block<span style=color:#ff7b72;font-weight:700>*</span> block <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>find_free_block</span>(size);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>size_t</span> remaining <span style=color:#ff7b72;font-weight:700>=</span> block<span style=color:#ff7b72;font-weight:700>-&gt;</span>size <span style=color:#ff7b72;font-weight:700>-</span> size <span style=color:#ff7b72;font-weight:700>-</span> HEADER_SIZE;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (remaining <span style=color:#ff7b72;font-weight:700>&gt;=</span> MIN_BLOCK_SIZE) {
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Split: create new free block from remainder
+</span></span></span><span style=display:flex><span>        Block<span style=color:#ff7b72;font-weight:700>*</span> new_block <span style=color:#ff7b72;font-weight:700>=</span> (Block<span style=color:#ff7b72;font-weight:700>*</span>)((<span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span>)block <span style=color:#ff7b72;font-weight:700>+</span> size <span style=color:#ff7b72;font-weight:700>+</span> HEADER_SIZE);
+</span></span><span style=display:flex><span>        new_block<span style=color:#ff7b72;font-weight:700>-&gt;</span>size <span style=color:#ff7b72;font-weight:700>=</span> remaining;
+</span></span><span style=display:flex><span>        new_block<span style=color:#ff7b72;font-weight:700>-&gt;</span>free <span style=color:#ff7b72;font-weight:700>=</span> true;
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>insert_free_list</span>(new_block);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        block<span style=color:#ff7b72;font-weight:700>-&gt;</span>size <span style=color:#ff7b72;font-weight:700>=</span> size;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    block<span style=color:#ff7b72;font-weight:700>-&gt;</span>free <span style=color:#ff7b72;font-weight:700>=</span> false;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> block<span style=color:#ff7b72;font-weight:700>-&gt;</span>data;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// When freeing, merge with adjacent free blocks
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>free_with_coalesce</span>(<span style=color:#ff7b72>void</span><span style=color:#ff7b72;font-weight:700>*</span> ptr) {
+</span></span><span style=display:flex><span>    Block<span style=color:#ff7b72;font-weight:700>*</span> block <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>get_header</span>(ptr);
+</span></span><span style=display:flex><span>    block<span style=color:#ff7b72;font-weight:700>-&gt;</span>free <span style=color:#ff7b72;font-weight:700>=</span> true;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Coalesce with next block if free
+</span></span></span><span style=display:flex><span>    Block<span style=color:#ff7b72;font-weight:700>*</span> next <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>get_next_block</span>(block);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (next <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> next<span style=color:#ff7b72;font-weight:700>-&gt;</span>free) {
+</span></span><span style=display:flex><span>        block<span style=color:#ff7b72;font-weight:700>-&gt;</span>size <span style=color:#ff7b72;font-weight:700>+=</span> next<span style=color:#ff7b72;font-weight:700>-&gt;</span>size <span style=color:#ff7b72;font-weight:700>+</span> HEADER_SIZE;
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>remove_from_free_list</span>(next);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Coalesce with previous block if free
+</span></span></span><span style=display:flex><span>    Block<span style=color:#ff7b72;font-weight:700>*</span> prev <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>get_prev_block</span>(block);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (prev <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> prev<span style=color:#ff7b72;font-weight:700>-&gt;</span>free) {
+</span></span><span style=display:flex><span>        prev<span style=color:#ff7b72;font-weight:700>-&gt;</span>size <span style=color:#ff7b72;font-weight:700>+=</span> block<span style=color:#ff7b72;font-weight:700>-&gt;</span>size <span style=color:#ff7b72;font-weight:700>+</span> HEADER_SIZE;
+</span></span><span style=display:flex><span>        block <span style=color:#ff7b72;font-weight:700>=</span> prev;  <span style=color:#8b949e;font-style:italic>// prev absorbs current
+</span></span></span><span style=display:flex><span>    } <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>insert_free_list</span>(block);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="24-boundary-tags">2.4 Boundary Tags</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Problem: How do we find the previous block for coalescing?
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Solution: Boundary tags - duplicate size at end of block
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────────┬────────────────────────┬─────────────┐
+</span></span><span style=display:flex><span>│ Header: 256 │       User Data        │ Footer: 256 │
+</span></span><span style=display:flex><span>└─────────────┴────────────────────────┴─────────────┘
+</span></span><span style=display:flex><span>                                        ↑
+</span></span><span style=display:flex><span>                    Next block can read this to find previous
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Trade-off:
+</span></span><span style=display:flex><span>- Extra 4-8 bytes per block
+</span></span><span style=display:flex><span>- O(1) coalescing with previous block
+</span></span><span style=display:flex><span>- Most modern allocators use this for free blocks only
+</span></span></code></pre></div><h2 id="3-modern-allocator-designs">3. Modern Allocator Designs</h2><p>Production allocators use sophisticated techniques for performance.</p><h3 id="31-segregated-free-lists">3.1 Segregated Free Lists</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Instead of one free list, maintain many by size class:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Size Class 0 (16 bytes):   ●──●──●──●──NULL
+</span></span><span style=display:flex><span>Size Class 1 (32 bytes):   ●──●──NULL
+</span></span><span style=display:flex><span>Size Class 2 (64 bytes):   ●──●──●──NULL
+</span></span><span style=display:flex><span>Size Class 3 (128 bytes):  ●──NULL
+</span></span><span style=display:flex><span>Size Class 4 (256 bytes):  ●──●──NULL
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>Size Class N (large):      ●──NULL
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- O(1) allocation for small sizes
+</span></span><span style=display:flex><span>- No splitting needed for exact-fit classes
+</span></span><span style=display:flex><span>- Reduced fragmentation within size classes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Used by: glibc malloc, jemalloc, tcmalloc
+</span></span></code></pre></div><h3 id="32-slab-allocation">3.2 Slab Allocation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>For fixed-size objects (common in kernels and object pools):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Slab for 64-byte objects:
+</span></span><span style=display:flex><span>┌────┬────┬────┬────┬────┬────┬────┬────┐
+</span></span><span style=display:flex><span>│ Obj│ Obj│FREE│ Obj│FREE│FREE│ Obj│ Obj│
+</span></span><span style=display:flex><span>│  1 │  2 │    │  4 │    │    │  7 │  8 │
+</span></span><span style=display:flex><span>└────┴────┴────┴────┴────┴────┴────┴────┘
+</span></span><span style=display:flex><span>         ↓         ↓     ↓
+</span></span><span style=display:flex><span>      Free list: 3 ──► 5 ──► 6 ──► NULL
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- Zero fragmentation for that object size
+</span></span><span style=display:flex><span>- O(1) allocation and deallocation
+</span></span><span style=display:flex><span>- Objects can be pre-initialized
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Linux kernel uses slab allocators extensively:
+</span></span><span style=display:flex><span>- kmem_cache_create() for specific object types
+</span></span><span style=display:flex><span>- SLUB (default), SLAB, SLOB variants
+</span></span></code></pre></div><h3 id="33-thread-local-caches">3.3 Thread-Local Caches</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Problem: malloc lock contention in multi-threaded programs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Solution: Per-thread caches (tcmalloc, jemalloc)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Thread 1 Cache        Thread 2 Cache        Central Heap
+</span></span><span style=display:flex><span>┌─────────────┐       ┌─────────────┐       ┌──────────────┐
+</span></span><span style=display:flex><span>│ 16B: ●●●●   │       │ 16B: ●●     │       │              │
+</span></span><span style=display:flex><span>│ 32B: ●●     │       │ 32B: ●●●●●  │       │   Spans of   │
+</span></span><span style=display:flex><span>│ 64B: ●●●    │       │ 64B: ●      │       │   Pages      │
+</span></span><span style=display:flex><span>└─────────────┘       └─────────────┘       │              │
+</span></span><span style=display:flex><span>     │                      │               └──────────────┘
+</span></span><span style=display:flex><span>     └──────────────────────┴───── Refill when empty
+</span></span><span style=display:flex><span>                                    Return when too full
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- No locking for thread-local allocations
+</span></span><span style=display:flex><span>- Batch transfers amortize central heap access
+</span></span><span style=display:flex><span>- Significant speedup for allocation-heavy workloads
+</span></span></code></pre></div><h3 id="34-arena-allocation">3.4 Arena Allocation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>For request-scoped allocations (web servers, compilers):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Request starts:
+</span></span><span style=display:flex><span>┌────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│                    Arena                        │
+</span></span><span style=display:flex><span>│  ┌────┐ ┌────┐ ┌────┐ ┌────────┐              │
+</span></span><span style=display:flex><span>│  │Obj1│ │Obj2│ │Obj3│ │  Obj4  │   Free →    │
+</span></span><span style=display:flex><span>│  └────┘ └────┘ └────┘ └────────┘              │
+</span></span><span style=display:flex><span>│  Bump pointer: ──────────────────────────►    │
+</span></span><span style=display:flex><span>└────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Request ends:
+</span></span><span style=display:flex><span>reset(arena);  // One operation frees everything
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- Allocation is just pointer increment (ultra-fast)
+</span></span><span style=display:flex><span>- No individual free() calls needed
+</span></span><span style=display:flex><span>- No fragmentation within arena lifetime
+</span></span><span style=display:flex><span>- Perfect for batch processing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Used by: Apache APR pools, Rust&#39;s bumpalo, game engines
+</span></span></code></pre></div><h2 id="4-fragmentation-deep-dive">4. Fragmentation Deep Dive</h2><p>Memory fragmentation is the silent performance killer.</p><h3 id="41-types-of-fragmentation">4.1 Types of Fragmentation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Internal Fragmentation:
+</span></span><span style=display:flex><span>Wasted space INSIDE allocated blocks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Request 20 bytes, allocator rounds to 32:
+</span></span><span style=display:flex><span>┌──────────────────────────────────┐
+</span></span><span style=display:flex><span>│ Header │    20 used   │ 12 waste │
+</span></span><span style=display:flex><span>└──────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>External Fragmentation:
+</span></span><span style=display:flex><span>Wasted space BETWEEN allocated blocks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Total free: 300 bytes, but largest contiguous: 100 bytes
+</span></span><span style=display:flex><span>┌────┐    ┌────┐    ┌────┐    ┌────┐
+</span></span><span style=display:flex><span>│USED│FREE│USED│FREE│USED│FREE│USED│
+</span></span><span style=display:flex><span>│ 50 │100 │ 50 │100 │ 50 │100 │ 50 │
+</span></span><span style=display:flex><span>└────┘    └────┘    └────┘    └────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Can&#39;t satisfy 200-byte request despite having 300 free!
+</span></span></code></pre></div><h3 id="42-measuring-fragmentation">4.2 Measuring Fragmentation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Simple fragmentation metric
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> <span style=color:#d2a8ff;font-weight:700>fragmentation_ratio</span>(Heap<span style=color:#ff7b72;font-weight:700>*</span> heap) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>size_t</span> total_free <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>size_t</span> largest_free <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (Block<span style=color:#ff7b72;font-weight:700>*</span> b <span style=color:#ff7b72;font-weight:700>=</span> heap<span style=color:#ff7b72;font-weight:700>-&gt;</span>free_list; b; b <span style=color:#ff7b72;font-weight:700>=</span> b<span style=color:#ff7b72;font-weight:700>-&gt;</span>next) {
+</span></span><span style=display:flex><span>        total_free <span style=color:#ff7b72;font-weight:700>+=</span> b<span style=color:#ff7b72;font-weight:700>-&gt;</span>size;
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (b<span style=color:#ff7b72;font-weight:700>-&gt;</span>size <span style=color:#ff7b72;font-weight:700>&gt;</span> largest_free) {
+</span></span><span style=display:flex><span>            largest_free <span style=color:#ff7b72;font-weight:700>=</span> b<span style=color:#ff7b72;font-weight:700>-&gt;</span>size;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (total_free <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0</span>) <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0.0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Ratio: 0 = no fragmentation, 1 = completely fragmented
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>1.0</span> <span style=color:#ff7b72;font-weight:700>-</span> ((<span style=color:#ff7b72>double</span>)largest_free <span style=color:#ff7b72;font-weight:700>/</span> total_free);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="43-real-world-fragmentation-patterns">4.3 Real-World Fragmentation Patterns</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Long-running servers often see fragmentation grow:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Hour 0:   [████████████████████████████████] 0% fragmented
+</span></span><span style=display:flex><span>Hour 12:  [██░░██░░██████░░██░░████░░██░░██] 25% fragmented
+</span></span><span style=display:flex><span>Hour 48:  [█░█░░█░█░░█░░█░█░░█░█░░█░░█░█░░] 50% fragmented
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Common causes:
+</span></span><span style=display:flex><span>1. Varying allocation sizes mixed together
+</span></span><span style=display:flex><span>2. Long-lived allocations interspersed with short-lived
+</span></span><span style=display:flex><span>3. Allocation patterns that prevent coalescing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Solutions:
+</span></span><span style=display:flex><span>- Segregated allocators reduce size-mixing
+</span></span><span style=display:flex><span>- Arena allocation for request-scoped data
+</span></span><span style=display:flex><span>- Periodic heap compaction (if supported)
+</span></span><span style=display:flex><span>- Restart services periodically (crude but effective)
+</span></span></code></pre></div><h2 id="5-garbage-collection-fundamentals">5. Garbage Collection Fundamentals</h2><p>Garbage collection automates memory reclamation.</p><h3 id="51-the-reachability-problem">5.1 The Reachability Problem</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Which objects can be freed?
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Root Set: Starting points for reachability
+</span></span><span style=display:flex><span>- Global variables
+</span></span><span style=display:flex><span>- Stack variables (local variables, parameters)
+</span></span><span style=display:flex><span>- CPU registers
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Root Set
+</span></span><span style=display:flex><span>       │
+</span></span><span style=display:flex><span>       ▼
+</span></span><span style=display:flex><span>    ┌─────┐     ┌─────┐     ┌─────┐
+</span></span><span style=display:flex><span>    │  A  │────►│  B  │────►│  C  │  ← All reachable
+</span></span><span style=display:flex><span>    └─────┘     └─────┘     └─────┘
+</span></span><span style=display:flex><span>                   │
+</span></span><span style=display:flex><span>                   ▼
+</span></span><span style=display:flex><span>                ┌─────┐     ┌─────┐
+</span></span><span style=display:flex><span>                │  D  │     │  E  │  ← D reachable, E is garbage
+</span></span><span style=display:flex><span>                └─────┘     └─────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>An object is garbage if no chain of references leads to it from roots.
+</span></span></code></pre></div><h3 id="52-reference-counting">5.2 Reference Counting</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Simplest GC: Count incoming references
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Object creation: refcount = 1
+</span></span><span style=display:flex><span>Assignment (ptr = obj): obj.refcount++
+</span></span><span style=display:flex><span>Going out of scope: refcount--
+</span></span><span style=display:flex><span>When refcount == 0: object is garbage
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────┐ refcount=2  ┌─────────┐ refcount=1
+</span></span><span style=display:flex><span>│    A    │◄────────────│    B    │
+</span></span><span style=display:flex><span>└─────────┘             └─────────┘
+</span></span><span style=display:flex><span>     │                       ▲
+</span></span><span style=display:flex><span>     │       refcount=1      │
+</span></span><span style=display:flex><span>     └──────►┌─────────┐─────┘
+</span></span><span style=display:flex><span>             │    C    │
+</span></span><span style=display:flex><span>             └─────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem: Cycles!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────┐ refcount=1  ┌─────────┐ refcount=1
+</span></span><span style=display:flex><span>│    A    │────────────►│    B    │
+</span></span><span style=display:flex><span>└─────────┘◄────────────└─────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Neither can be collected even if unreachable from roots!
+</span></span></code></pre></div><h3 id="53-cycle-collection">5.3 Cycle Collection</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Python combines reference counting with cycle detection</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Immediate collection for acyclic garbage:</span>
+</span></span><span style=display:flex><span>x <span style=color:#ff7b72;font-weight:700>=</span> SomeObject()  <span style=color:#8b949e;font-style:italic># refcount = 1</span>
+</span></span><span style=display:flex><span>x <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>None</span>          <span style=color:#8b949e;font-style:italic># refcount = 0, immediately freed</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Periodic cycle detection for circular references:</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>Node</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>next <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>a <span style=color:#ff7b72;font-weight:700>=</span> Node()
+</span></span><span style=display:flex><span>b <span style=color:#ff7b72;font-weight:700>=</span> Node()
+</span></span><span style=display:flex><span>a<span style=color:#ff7b72;font-weight:700>.</span>next <span style=color:#ff7b72;font-weight:700>=</span> b  <span style=color:#8b949e;font-style:italic># b.refcount = 2</span>
+</span></span><span style=display:flex><span>b<span style=color:#ff7b72;font-weight:700>.</span>next <span style=color:#ff7b72;font-weight:700>=</span> a  <span style=color:#8b949e;font-style:italic># a.refcount = 2</span>
+</span></span><span style=display:flex><span>a <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>None</span>    <span style=color:#8b949e;font-style:italic># a.refcount = 1 (still referenced by b)</span>
+</span></span><span style=display:flex><span>b <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>None</span>    <span style=color:#8b949e;font-style:italic># b.refcount = 1 (still referenced by a)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># gc.collect() will find and free the cycle</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>gc</span>
+</span></span><span style=display:flex><span>gc<span style=color:#ff7b72;font-weight:700>.</span>collect()  <span style=color:#8b949e;font-style:italic># Runs cycle detector</span>
+</span></span></code></pre></div><h2 id="6-mark-and-sweep-collection">6. Mark and Sweep Collection</h2><p>The foundational tracing garbage collector.</p><h3 id="61-algorithm-overview">6.1 Algorithm Overview</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Phase 1: Mark
+</span></span><span style=display:flex><span>- Start from roots
+</span></span><span style=display:flex><span>- Recursively mark all reachable objects
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Phase 2: Sweep
+</span></span><span style=display:flex><span>- Scan entire heap
+</span></span><span style=display:flex><span>- Free all unmarked objects
+</span></span><span style=display:flex><span>- Clear marks for next collection
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Before Collection:
+</span></span><span style=display:flex><span>┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐
+</span></span><span style=display:flex><span>│ A │ │ B │ │ C │ │ D │ │ E │ │ F │ │ G │ │ H │
+</span></span><span style=display:flex><span>└───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘
+</span></span><span style=display:flex><span>  ↑           ↑           ↑
+</span></span><span style=display:flex><span> root        root        root
+</span></span><span style=display:flex><span>  │           │           │
+</span></span><span style=display:flex><span>  └────►B     └────►D     └────►F────►G
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>After Mark Phase:
+</span></span><span style=display:flex><span>┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐
+</span></span><span style=display:flex><span>│ A●│ │ B●│ │ C │ │ D●│ │ E●│ │ F●│ │ G●│ │ H │
+</span></span><span style=display:flex><span>└───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘ └───┘
+</span></span><span style=display:flex><span>  ●=marked
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>After Sweep Phase:
+</span></span><span style=display:flex><span>┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐
+</span></span><span style=display:flex><span>│ A │ │ B │ │ D │ │ E │ │ F │ │ G │   C and H freed
+</span></span><span style=display:flex><span>└───┘ └───┘ └───┘ └───┘ └───┘ └───┘
+</span></span></code></pre></div><h3 id="62-implementation-details">6.2 Implementation Details</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Mark phase: recursive marking
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>mark</span>(Object<span style=color:#ff7b72;font-weight:700>*</span> obj) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (obj <span style=color:#ff7b72;font-weight:700>==</span> NULL <span style=color:#ff7b72;font-weight:700>||</span> obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>marked) <span style=color:#ff7b72>return</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>marked <span style=color:#ff7b72;font-weight:700>=</span> true;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Recursively mark referenced objects
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>num_refs; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>mark</span>(obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>refs[i]);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>mark_from_roots</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Mark from stack roots
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (StackFrame<span style=color:#ff7b72;font-weight:700>*</span> frame <span style=color:#ff7b72;font-weight:700>=</span> current_frame; frame; frame <span style=color:#ff7b72;font-weight:700>=</span> frame<span style=color:#ff7b72;font-weight:700>-&gt;</span>prev) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> frame<span style=color:#ff7b72;font-weight:700>-&gt;</span>num_locals; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>mark</span>(frame<span style=color:#ff7b72;font-weight:700>-&gt;</span>locals[i]);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Mark from global roots
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> num_globals; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>mark</span>(globals[i]);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Sweep phase: reclaim unmarked objects
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>sweep</span>() {
+</span></span><span style=display:flex><span>    Object<span style=color:#ff7b72;font-weight:700>*</span> prev <span style=color:#ff7b72;font-weight:700>=</span> NULL;
+</span></span><span style=display:flex><span>    Object<span style=color:#ff7b72;font-weight:700>*</span> curr <span style=color:#ff7b72;font-weight:700>=</span> heap_start;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>while</span> (curr <span style=color:#ff7b72;font-weight:700>!=</span> NULL) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>curr<span style=color:#ff7b72;font-weight:700>-&gt;</span>marked) {
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic>// Garbage - free it
+</span></span></span><span style=display:flex><span>            <span style=color:#ff7b72>if</span> (prev) prev<span style=color:#ff7b72;font-weight:700>-&gt;</span>next <span style=color:#ff7b72;font-weight:700>=</span> curr<span style=color:#ff7b72;font-weight:700>-&gt;</span>next;
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>else</span> heap_start <span style=color:#ff7b72;font-weight:700>=</span> curr<span style=color:#ff7b72;font-weight:700>-&gt;</span>next;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            Object<span style=color:#ff7b72;font-weight:700>*</span> garbage <span style=color:#ff7b72;font-weight:700>=</span> curr;
+</span></span><span style=display:flex><span>            curr <span style=color:#ff7b72;font-weight:700>=</span> curr<span style=color:#ff7b72;font-weight:700>-&gt;</span>next;
+</span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>free</span>(garbage);
+</span></span><span style=display:flex><span>        } <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic>// Live - clear mark for next GC
+</span></span></span><span style=display:flex><span>            curr<span style=color:#ff7b72;font-weight:700>-&gt;</span>marked <span style=color:#ff7b72;font-weight:700>=</span> false;
+</span></span><span style=display:flex><span>            prev <span style=color:#ff7b72;font-weight:700>=</span> curr;
+</span></span><span style=display:flex><span>            curr <span style=color:#ff7b72;font-weight:700>=</span> curr<span style=color:#ff7b72;font-weight:700>-&gt;</span>next;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="63-mark-sweep-trade-offs">6.3 Mark-Sweep Trade-offs</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Advantages:
+</span></span><span style=display:flex><span>- Handles cycles naturally
+</span></span><span style=display:flex><span>- No overhead during normal execution (no refcount updates)
+</span></span><span style=display:flex><span>- Can collect arbitrary object graphs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Disadvantages:
+</span></span><span style=display:flex><span>- Stop-the-world pauses (must pause program during collection)
+</span></span><span style=display:flex><span>- Proportional to heap size (must scan everything)
+</span></span><span style=display:flex><span>- Fragmentation (doesn&#39;t compact, leaves holes)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Pause time estimation:
+</span></span><span style=display:flex><span>- Mark time ∝ live objects (reachable set)
+</span></span><span style=display:flex><span>- Sweep time ∝ heap size (total objects)
+</span></span><span style=display:flex><span>- Large heaps = long pauses
+</span></span></code></pre></div><h2 id="7-copying-and-compacting-collectors">7. Copying and Compacting Collectors</h2><p>Solutions to fragmentation from mark-sweep.</p><h3 id="71-semi-space-copying-collection">7.1 Semi-Space Copying Collection</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Divide heap into two equal halves:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>From-Space (active)          To-Space (empty)
+</span></span><span style=display:flex><span>┌─────────────────────┐     ┌─────────────────────┐
+</span></span><span style=display:flex><span>│ A B C D E F G H     │     │                     │
+</span></span><span style=display:flex><span>└─────────────────────┘     └─────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>After collection (only A, B, D, F, G survive):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>From-Space (now empty)       To-Space (now active)
+</span></span><span style=display:flex><span>┌─────────────────────┐     ┌─────────────────────┐
+</span></span><span style=display:flex><span>│                     │     │ A B D F G           │
+</span></span><span style=display:flex><span>└─────────────────────┘     └─────────────────────┘
+</span></span><span style=display:flex><span>                               ↑
+</span></span><span style=display:flex><span>                            Objects compacted!
+</span></span></code></pre></div><h3 id="72-cheneys-algorithm">7.2 Cheney&rsquo;s Algorithm</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Elegant breadth-first copying collector
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>collect</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> scan <span style=color:#ff7b72;font-weight:700>=</span> to_space;   <span style=color:#8b949e;font-style:italic>// Next object to process
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> free <span style=color:#ff7b72;font-weight:700>=</span> to_space;   <span style=color:#8b949e;font-style:italic>// Next free location
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Copy roots to to-space
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (each root r) {
+</span></span><span style=display:flex><span>        r <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>copy</span>(r, <span style=color:#ff7b72;font-weight:700>&amp;</span>free);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Process copied objects (breadth-first)
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>while</span> (scan <span style=color:#ff7b72;font-weight:700>&lt;</span> free) {
+</span></span><span style=display:flex><span>        Object<span style=color:#ff7b72;font-weight:700>*</span> obj <span style=color:#ff7b72;font-weight:700>=</span> (Object<span style=color:#ff7b72;font-weight:700>*</span>)scan;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Update this object&#39;s references
+</span></span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> (each reference ref in obj) {
+</span></span><span style=display:flex><span>            ref <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>copy</span>(ref, <span style=color:#ff7b72;font-weight:700>&amp;</span>free);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        scan <span style=color:#ff7b72;font-weight:700>+=</span> obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>size;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Swap spaces
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>swap</span>(from_space, to_space);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Object<span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#d2a8ff;font-weight:700>copy</span>(Object<span style=color:#ff7b72;font-weight:700>*</span> obj, <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>**</span> free) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (obj <span style=color:#ff7b72;font-weight:700>==</span> NULL) <span style=color:#ff7b72>return</span> NULL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Already copied? Return forwarding address
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>forwarding <span style=color:#ff7b72;font-weight:700>!=</span> NULL) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>forwarding;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Copy to to-space
+</span></span></span><span style=display:flex><span>    Object<span style=color:#ff7b72;font-weight:700>*</span> new_obj <span style=color:#ff7b72;font-weight:700>=</span> (Object<span style=color:#ff7b72;font-weight:700>*</span>)<span style=color:#ff7b72;font-weight:700>*</span>free;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>memcpy</span>(new_obj, obj, obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>size);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72;font-weight:700>*</span>free <span style=color:#ff7b72;font-weight:700>+=</span> obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>size;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Leave forwarding pointer
+</span></span></span><span style=display:flex><span>    obj<span style=color:#ff7b72;font-weight:700>-&gt;</span>forwarding <span style=color:#ff7b72;font-weight:700>=</span> new_obj;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> new_obj;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="73-compaction-trade-offs">7.3 Compaction Trade-offs</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Copying collector advantages:
+</span></span><span style=display:flex><span>- Compaction eliminates fragmentation
+</span></span><span style=display:flex><span>- Allocation is trivial (bump pointer)
+</span></span><span style=display:flex><span>- Only touches live objects (good for mostly-garbage heaps)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Copying collector disadvantages:
+</span></span><span style=display:flex><span>- Requires 2x memory (only half usable at once)
+</span></span><span style=display:flex><span>- Copies all live data every collection
+</span></span><span style=display:flex><span>- Bad for mostly-live heaps (copies everything)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Mark-Compact alternative:
+</span></span><span style=display:flex><span>- Mark live objects in place
+</span></span><span style=display:flex><span>- Compute new addresses
+</span></span><span style=display:flex><span>- Update all pointers
+</span></span><span style=display:flex><span>- Slide objects down
+</span></span><span style=display:flex><span>- Avoids 2x memory requirement but more complex
+</span></span></code></pre></div><h2 id="8-generational-garbage-collection">8. Generational Garbage Collection</h2><p>The most important optimization in modern GC.</p><h3 id="81-the-generational-hypothesis">8.1 The Generational Hypothesis</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Empirical observation about program behavior:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&#34;Most objects die young&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Object Lifetime Distribution:
+</span></span><span style=display:flex><span>│
+</span></span><span style=display:flex><span>│ ████
+</span></span><span style=display:flex><span>│ ████
+</span></span><span style=display:flex><span>│ ████
+</span></span><span style=display:flex><span>│ ████ ██
+</span></span><span style=display:flex><span>│ ████ ██ █
+</span></span><span style=display:flex><span>│ ████ ██ █ █               ▁ ▁
+</span></span><span style=display:flex><span>└─────────────────────────────────►
+</span></span><span style=display:flex><span>  Young    ← Age →           Old
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Implications:
+</span></span><span style=display:flex><span>- Frequently collecting young objects yields most garbage
+</span></span><span style=display:flex><span>- Old objects rarely become garbage
+</span></span><span style=display:flex><span>- Don&#39;t waste time scanning old objects repeatedly
+</span></span></code></pre></div><h3 id="82-generational-heap-structure">8.2 Generational Heap Structure</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Typical two-generation layout:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Young Generation (collected frequently)
+</span></span><span style=display:flex><span>┌──────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Eden          │ Survivor 0 │ Survivor 1 │
+</span></span><span style=display:flex><span>│  (new allocs)  │    (S0)    │    (S1)    │
+</span></span><span style=display:flex><span>└──────────────────────────────────────────┘
+</span></span><span style=display:flex><span>                        │
+</span></span><span style=display:flex><span>                   Promotion after N survivals
+</span></span><span style=display:flex><span>                        ↓
+</span></span><span style=display:flex><span>Old Generation (collected infrequently)
+</span></span><span style=display:flex><span>┌──────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│                                          │
+</span></span><span style=display:flex><span>│         Long-lived objects               │
+</span></span><span style=display:flex><span>│                                          │
+</span></span><span style=display:flex><span>└──────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Collection frequency:
+</span></span><span style=display:flex><span>- Minor GC (young only): Hundreds per second possible
+</span></span><span style=display:flex><span>- Major GC (full heap): Seconds to minutes apart
+</span></span></code></pre></div><h3 id="83-write-barriers">8.3 Write Barriers</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Problem: Old objects can reference young objects
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Old Generation        Young Generation
+</span></span><span style=display:flex><span>    ┌─────────────┐       ┌─────────────┐
+</span></span><span style=display:flex><span>    │     A ──────┼──────►│      B      │
+</span></span><span style=display:flex><span>    └─────────────┘       └─────────────┘
+</span></span><span style=display:flex><span>                                ↑
+</span></span><span style=display:flex><span>    If we only scan young gen, we&#39;d miss this reference!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Solution: Write barrier tracks cross-generation pointers
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>void write_barrier(Object* old, Object* young) {
+</span></span><span style=display:flex><span>    if (is_old(old) &amp;&amp; is_young(young)) {
+</span></span><span style=display:flex><span>        // Remember this old object has young reference
+</span></span><span style=display:flex><span>        add_to_remembered_set(old);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Minor GC roots = stack + remembered set
+</span></span><span style=display:flex><span>// The write barrier has runtime cost but enables generational GC
+</span></span></code></pre></div><h3 id="84-survivor-spaces-and-aging">8.4 Survivor Spaces and Aging</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Minor GC process:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Allocate in Eden until full
+</span></span><span style=display:flex><span>   Eden: [AAAAaaaBBBbbbCCCccc...FULL]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Minor GC: Copy live objects to S0
+</span></span><span style=display:flex><span>   Eden: [empty]
+</span></span><span style=display:flex><span>   S0: [A B C] (survivors, age=1)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. More allocation in Eden
+</span></span><span style=display:flex><span>   Eden: [DDDdddEEEeee...FULL]
+</span></span><span style=display:flex><span>   S0: [A B C]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. Minor GC: Copy Eden+S0 live to S1
+</span></span><span style=display:flex><span>   Eden: [empty]
+</span></span><span style=display:flex><span>   S0: [empty]
+</span></span><span style=display:flex><span>   S1: [A B D E] (A,B age=2; D,E age=1)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>5. After N survivals, promote to Old Gen
+</span></span><span style=display:flex><span>   Age threshold typically 15 (configurable)
+</span></span><span style=display:flex><span>   Old: [A B] (promoted after 15 minor GCs)
+</span></span></code></pre></div><h2 id="9-concurrent-and-incremental-collection">9. Concurrent and Incremental Collection</h2><p>Reducing pause times for interactive applications.</p><h3 id="91-the-pause-problem">9.1 The Pause Problem</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Stop-the-world collection:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Thread 1: ████████░░░░░░░░████████
+</span></span><span style=display:flex><span>Thread 2: ████████░░░░░░░░████████
+</span></span><span style=display:flex><span>Thread 3: ████████░░░░░░░░████████
+</span></span><span style=display:flex><span>                 ↑       ↑
+</span></span><span style=display:flex><span>              GC Start  GC End
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>              100ms pause = unacceptable for:
+</span></span><span style=display:flex><span>              - Real-time games (16ms frame budget)
+</span></span><span style=display:flex><span>              - Trading systems (microsecond latency)
+</span></span><span style=display:flex><span>              - Interactive UIs (user perceives &gt;100ms)
+</span></span></code></pre></div><h3 id="92-incremental-collection">9.2 Incremental Collection</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Break GC work into small chunks:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Traditional:    [──────────────GC──────────────]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Incremental:    [─GC─][─app─][─GC─][─app─][─GC─][─app─][─GC─]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Each GC slice does a little work:
+</span></span><span style=display:flex><span>- Mark a few objects
+</span></span><span style=display:flex><span>- Process one generation
+</span></span><span style=display:flex><span>- Update some pointers
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Pause time per slice: 1-10ms instead of 100ms+
+</span></span><span style=display:flex><span>Total GC time may increase (more context switches)
+</span></span></code></pre></div><h3 id="93-concurrent-marking">9.3 Concurrent Marking</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Run marking phase concurrently with application:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Time ──────────────────────────────────────────►
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Mutator:   ████████████████████████████████████
+</span></span><span style=display:flex><span>                ↑             ↑            ↑
+</span></span><span style=display:flex><span>GC Marker: ░░░░████████████████████████░░░░░░░
+</span></span><span style=display:flex><span>               Start         End       Remark
+</span></span><span style=display:flex><span>               mark          mark      (STW)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenge: Application modifies object graph during marking
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tri-color marking:
+</span></span><span style=display:flex><span>- White: Not yet seen (potential garbage)
+</span></span><span style=display:flex><span>- Gray:  Seen, but references not yet scanned
+</span></span><span style=display:flex><span>- Black: Scanned, all references traced
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Invariant: Black objects never point to white objects
+</span></span><span style=display:flex><span>           (enforced by write barriers)
+</span></span></code></pre></div><h3 id="94-tri-color-abstraction">9.4 Tri-Color Abstraction</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Initial state (all white):
+</span></span><span style=display:flex><span>○ ○ ○ ○ ○ ○ ○ ○
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Mark roots gray:
+</span></span><span style=display:flex><span>● ○ ○ ○ ○ ○ ○ ○  (● = gray)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Process gray objects (mark references gray, self becomes black):
+</span></span><span style=display:flex><span>◆ ● ● ○ ○ ○ ○ ○  (◆ = black)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Continue until no gray objects:
+</span></span><span style=display:flex><span>◆ ◆ ◆ ◆ ● ○ ○ ○
+</span></span><span style=display:flex><span>◆ ◆ ◆ ◆ ◆ ○ ○ ○  ← All white objects are garbage
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Write barrier during concurrent mark:
+</span></span><span style=display:flex><span>If black object gets reference to white object:
+</span></span><span style=display:flex><span>  - Either gray the white object (snapshot-at-beginning)
+</span></span><span style=display:flex><span>  - Or gray the black object (incremental update)
+</span></span></code></pre></div><h2 id="10-real-world-gc-implementations">10. Real-World GC Implementations</h2><p>Different language runtimes make different trade-offs.</p><h3 id="101-jvm-garbage-collectors">10.1 JVM Garbage Collectors</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>G1 (Garbage First) - Default since JDK 9:
+</span></span><span style=display:flex><span>┌────┬────┬────┬────┬────┬────┬────┬────┐
+</span></span><span style=display:flex><span>│Eden│Eden│Surv│Old │Old │ H  │Free│Free│
+</span></span><span style=display:flex><span>└────┴────┴────┴────┴────┴────┴────┴────┘
+</span></span><span style=display:flex><span>     Regions (~1-32MB each)     H=Humongous
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>- Heap divided into ~2000 regions
+</span></span><span style=display:flex><span>- Collects regions with most garbage first
+</span></span><span style=display:flex><span>- Target pause time (default 200ms)
+</span></span><span style=display:flex><span>- Concurrent marking, parallel collection
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ZGC (Z Garbage Collector) - JDK 15+:
+</span></span><span style=display:flex><span>- Sub-millisecond pauses (&lt;1ms target)
+</span></span><span style=display:flex><span>- Concurrent relocation using colored pointers
+</span></span><span style=display:flex><span>- Handles multi-terabyte heaps
+</span></span><span style=display:flex><span>- Load barriers instead of write barriers
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Shenandoah:
+</span></span><span style=display:flex><span>- Similar goals to ZGC
+</span></span><span style=display:flex><span>- Concurrent compaction
+</span></span><span style=display:flex><span>- Brooks forwarding pointers
+</span></span></code></pre></div><h3 id="102-gos-garbage-collector">10.2 Go&rsquo;s Garbage Collector</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Go GC: Concurrent, tri-color, mark-sweep
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Design priorities:
+</span></span><span style=display:flex><span>1. Low latency (sub-millisecond pauses)
+</span></span><span style=display:flex><span>2. Simplicity (no generational complexity)
+</span></span><span style=display:flex><span>3. Predictability (consistent pause times)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>GC Phases:
+</span></span><span style=display:flex><span>1. Mark Setup (STW, very brief)
+</span></span><span style=display:flex><span>2. Concurrent Mark (runs with application)
+</span></span><span style=display:flex><span>3. Mark Termination (STW, very brief)
+</span></span><span style=display:flex><span>4. Concurrent Sweep (runs with application)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tuning via GOGC:
+</span></span><span style=display:flex><span>GOGC=100 (default): Collect when heap doubles
+</span></span><span style=display:flex><span>GOGC=50: Collect when heap grows 50%
+</span></span><span style=display:flex><span>GOGC=200: Collect when heap triples
+</span></span><span style=display:flex><span>GOGC=off: Disable GC entirely
+</span></span></code></pre></div><h3 id="103-pythons-memory-management">10.3 Python&rsquo;s Memory Management</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Python: Reference counting + generational cycle collector</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>sys</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>gc</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>x <span style=color:#ff7b72;font-weight:700>=</span> []
+</span></span><span style=display:flex><span>print(sys<span style=color:#ff7b72;font-weight:700>.</span>getrefcount(x))  <span style=color:#8b949e;font-style:italic># 2 (x + getrefcount arg)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>y <span style=color:#ff7b72;font-weight:700>=</span> x
+</span></span><span style=display:flex><span>print(sys<span style=color:#ff7b72;font-weight:700>.</span>getrefcount(x))  <span style=color:#8b949e;font-style:italic># 3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>del</span> y
+</span></span><span style=display:flex><span>print(sys<span style=color:#ff7b72;font-weight:700>.</span>getrefcount(x))  <span style=color:#8b949e;font-style:italic># 2</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Cycle collector for circular references</span>
+</span></span><span style=display:flex><span>gc<span style=color:#ff7b72;font-weight:700>.</span>get_threshold()  <span style=color:#8b949e;font-style:italic># (700, 10, 10)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Gen 0 collected every 700 allocations</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Gen 1 collected every 10 Gen 0 collections</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Gen 2 collected every 10 Gen 1 collections</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Manual control</span>
+</span></span><span style=display:flex><span>gc<span style=color:#ff7b72;font-weight:700>.</span>disable()        <span style=color:#8b949e;font-style:italic># Disable automatic collection</span>
+</span></span><span style=display:flex><span>gc<span style=color:#ff7b72;font-weight:700>.</span>collect()        <span style=color:#8b949e;font-style:italic># Force full collection</span>
+</span></span><span style=display:flex><span>gc<span style=color:#ff7b72;font-weight:700>.</span>set_threshold(<span style=color:#a5d6ff>1000</span>, <span style=color:#a5d6ff>15</span>, <span style=color:#a5d6ff>15</span>)  <span style=color:#8b949e;font-style:italic># Adjust thresholds</span>
+</span></span></code></pre></div><h3 id="104-rusts-ownership-model">10.4 Rust&rsquo;s Ownership Model</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-rust" data-lang=rust><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Rust: No GC needed - ownership and borrowing
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>main</span>()<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span>s1<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>String::from(<span style=color:#a5d6ff>&#34;hello&#34;</span>);<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// s1 owns the string
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span>s2<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>s1;<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// Ownership moves to s2
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// println!(&#34;{}&#34;, s1);  // Error! s1 no longer valid
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span>s3<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>s2.clone();<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// Explicit copy
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#d2a8ff;font-weight:700>println!</span>(<span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff> </span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff>&#34;</span>,<span style=color:#6e7681> </span>s2,<span style=color:#6e7681> </span>s3);<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// Both valid
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// s2 and s3 dropped here, memory freed
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Borrowing for temporary access
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>print_length</span>(s: <span style=color:#79c0ff>&amp;</span>String)<span style=color:#6e7681> </span>{<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// Borrows, doesn&#39;t own
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#d2a8ff;font-weight:700>println!</span>(<span style=color:#a5d6ff>&#34;Length: </span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff>&#34;</span>,<span style=color:#6e7681> </span>s.len());<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// s goes out of scope, but doesn&#39;t drop the string
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Lifetimes ensure references are valid
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>longest</span><span style=color:#ff7b72;font-weight:700>&lt;</span>&#39;a<span style=color:#ff7b72;font-weight:700>&gt;</span>(x: <span style=color:#79c0ff>&amp;</span>&#39;a <span style=color:#ff7b72>str</span>,<span style=color:#6e7681> </span>y: <span style=color:#79c0ff>&amp;</span>&#39;a <span style=color:#ff7b72>str</span>)<span style=color:#6e7681> </span>-&gt; <span style=color:#79c0ff>&amp;</span>&#39;a <span style=color:#ff7b72>str</span> {<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>if</span><span style=color:#6e7681> </span>x.len()<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>&gt;</span><span style=color:#6e7681> </span>y.len()<span style=color:#6e7681> </span>{<span style=color:#6e7681> </span>x<span style=color:#6e7681> </span>}<span style=color:#6e7681> </span><span style=color:#ff7b72>else</span><span style=color:#6e7681> </span>{<span style=color:#6e7681> </span>y<span style=color:#6e7681> </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span></code></pre></div><h2 id="11-escape-analysis-and-stack-allocation">11. Escape Analysis and Stack Allocation</h2><p>Compiler optimizations can avoid heap allocation entirely.</p><h3 id="111-what-is-escape-analysis">11.1 What is Escape Analysis?</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-java" data-lang=java><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Java: JIT compiler analyzes if objects &#34;escape&#34;</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>public</span><span style=color:#6e7681> </span><span style=color:#ff7b72>int</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>sumPoints</span>()<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// This Point doesn&#39;t escape the method</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>Point<span style=color:#6e7681> </span>p<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span><span style=color:#ff7b72>new</span><span style=color:#6e7681> </span>Point(3,<span style=color:#6e7681> </span>4);<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// Could be stack allocated</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>return</span><span style=color:#6e7681> </span>p.x<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>+</span><span style=color:#6e7681> </span>p.y;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>public</span><span style=color:#6e7681> </span>Point<span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>createPoint</span>()<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// This Point escapes - returned to caller</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>return</span><span style=color:#6e7681> </span><span style=color:#ff7b72>new</span><span style=color:#6e7681> </span>Point(3,<span style=color:#6e7681> </span>4);<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// Must be heap allocated</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>public</span><span style=color:#6e7681> </span><span style=color:#ff7b72>void</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>storePoint</span>(List<span style=color:#ff7b72;font-weight:700>&lt;</span>Point<span style=color:#ff7b72;font-weight:700>&gt;</span><span style=color:#6e7681> </span>list)<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>Point<span style=color:#6e7681> </span>p<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span><span style=color:#ff7b72>new</span><span style=color:#6e7681> </span>Point(3,<span style=color:#6e7681> </span>4);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>list.add(p);<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// Escapes into list - heap allocated</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span></code></pre></div><h3 id="112-escape-analysis-benefits">11.2 Escape Analysis Benefits</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>When objects don&#39;t escape:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Stack Allocation
+</span></span><span style=display:flex><span>   - No GC overhead
+</span></span><span style=display:flex><span>   - Automatic deallocation
+</span></span><span style=display:flex><span>   - Better cache locality
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Scalar Replacement
+</span></span><span style=display:flex><span>   // Instead of:
+</span></span><span style=display:flex><span>   Point p = new Point(3, 4);
+</span></span><span style=display:flex><span>   return p.x + p.y;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   // Compiler generates:
+</span></span><span style=display:flex><span>   int p_x = 3;
+</span></span><span style=display:flex><span>   int p_y = 4;
+</span></span><span style=display:flex><span>   return p_x + p_y;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   // No object created at all!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Lock Elision
+</span></span><span style=display:flex><span>   // If object doesn&#39;t escape:
+</span></span><span style=display:flex><span>   synchronized(localObject) { ... }
+</span></span><span style=display:flex><span>   // Lock can be eliminated entirely
+</span></span></code></pre></div><h3 id="113-gos-escape-analysis">11.3 Go&rsquo;s Escape Analysis</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-go" data-lang=go><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Go makes escape analysis visible</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>package</span><span style=color:#6e7681> </span>main<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>func</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>main</span>()<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>x<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>:=</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>createLocal</span>()<span style=color:#6e7681>   </span><span style=color:#8b949e;font-style:italic>// x allocated on stack</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>y<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>:=</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>createEscaping</span>()<span style=color:#6e7681> </span><span style=color:#8b949e;font-style:italic>// *y allocated on heap</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>_<span style=color:#6e7681> </span>=<span style=color:#6e7681> </span>x<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>_<span style=color:#6e7681> </span>=<span style=color:#6e7681> </span>y<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>func</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>createLocal</span>()<span style=color:#6e7681> </span><span style=color:#ff7b72>int</span><span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>n<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>:=</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>42</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>return</span><span style=color:#6e7681> </span>n<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// int copied, n doesn&#39;t escape</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>func</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>createEscaping</span>()<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#ff7b72>int</span><span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>n<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>:=</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>42</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>return</span><span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>&amp;</span>n<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// Address escapes! n moved to heap</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Build with: go build -gcflags=&#34;-m&#34; main.go</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Output:</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>//   ./main.go:13:2: moved to heap: n</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>//   ./main.go:8:2: n does not escape</span><span style=color:#6e7681>
+</span></span></span></code></pre></div><h2 id="12-memory-pools-and-object-recycling">12. Memory Pools and Object Recycling</h2><p>Application-level memory management patterns.</p><h3 id="121-object-pools">12.1 Object Pools</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-go" data-lang=go><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// sync.Pool in Go - amortize allocation cost</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>var</span><span style=color:#6e7681> </span>bufferPool<span style=color:#6e7681> </span>=<span style=color:#6e7681> </span>sync.Pool{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>New:<span style=color:#6e7681> </span><span style=color:#ff7b72>func</span>()<span style=color:#6e7681> </span><span style=color:#ff7b72>interface</span>{}<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>        </span><span style=color:#ff7b72>return</span><span style=color:#6e7681> </span>make([]<span style=color:#ff7b72>byte</span>,<span style=color:#6e7681> </span><span style=color:#a5d6ff>4096</span>)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>},<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>func</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>processRequest</span>(data<span style=color:#6e7681> </span>[]<span style=color:#ff7b72>byte</span>)<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// Get buffer from pool (or create new)</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>buf<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>:=</span><span style=color:#6e7681> </span>bufferPool.<span style=color:#d2a8ff;font-weight:700>Get</span>().([]<span style=color:#ff7b72>byte</span>)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// Use buffer</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>copy(buf,<span style=color:#6e7681> </span>data)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#d2a8ff;font-weight:700>process</span>(buf)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// Return to pool for reuse</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>bufferPool.<span style=color:#d2a8ff;font-weight:700>Put</span>(buf)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Benefits:</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Reduces allocation pressure</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Reduces GC work</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Improves throughput for allocation-heavy workloads</span><span style=color:#6e7681>
+</span></span></span></code></pre></div><h3 id="122-free-lists-in-application-code">12.2 Free Lists in Application Code</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Custom free list for game entities
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define MAX_ENTITIES 10000
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>typedef</span> <span style=color:#ff7b72>struct</span> Entity {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>int</span> id;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>float</span> x, y, z;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> Entity<span style=color:#ff7b72;font-weight:700>*</span> next_free;  <span style=color:#8b949e;font-style:italic>// Union with game data in real code
+</span></span></span><span style=display:flex><span>} Entity;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Entity entities[MAX_ENTITIES];
+</span></span><span style=display:flex><span>Entity<span style=color:#ff7b72;font-weight:700>*</span> free_list <span style=color:#ff7b72;font-weight:700>=</span> NULL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>init_entity_pool</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> MAX_ENTITIES <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>1</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        entities[i].next_free <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72;font-weight:700>&amp;</span>entities[i <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>1</span>];
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    entities[MAX_ENTITIES <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>1</span>].next_free <span style=color:#ff7b72;font-weight:700>=</span> NULL;
+</span></span><span style=display:flex><span>    free_list <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72;font-weight:700>&amp;</span>entities[<span style=color:#a5d6ff>0</span>];
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Entity<span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#d2a8ff;font-weight:700>alloc_entity</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (free_list <span style=color:#ff7b72;font-weight:700>==</span> NULL) <span style=color:#ff7b72>return</span> NULL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Entity<span style=color:#ff7b72;font-weight:700>*</span> e <span style=color:#ff7b72;font-weight:700>=</span> free_list;
+</span></span><span style=display:flex><span>    free_list <span style=color:#ff7b72;font-weight:700>=</span> e<span style=color:#ff7b72;font-weight:700>-&gt;</span>next_free;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> e;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>free_entity</span>(Entity<span style=color:#ff7b72;font-weight:700>*</span> e) {
+</span></span><span style=display:flex><span>    e<span style=color:#ff7b72;font-weight:700>-&gt;</span>next_free <span style=color:#ff7b72;font-weight:700>=</span> free_list;
+</span></span><span style=display:flex><span>    free_list <span style=color:#ff7b72;font-weight:700>=</span> e;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="123-arena-patterns-in-practice">12.3 Arena Patterns in Practice</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-rust" data-lang=rust><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Rust&#39;s bumpalo arena allocator
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>use</span><span style=color:#6e7681> </span>bumpalo::Bump;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>process_request</span>()<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// Create arena for this request
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span>arena<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>Bump::new();<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// All allocations from arena
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span>name<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>arena.alloc_str(<span style=color:#a5d6ff>&#34;hello&#34;</span>);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span>numbers<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>arena.alloc_slice_copy(<span style=color:#ff7b72;font-weight:700>&amp;</span>[<span style=color:#a5d6ff>1</span>,<span style=color:#6e7681> </span><span style=color:#a5d6ff>2</span>,<span style=color:#6e7681> </span><span style=color:#a5d6ff>3</span>,<span style=color:#6e7681> </span><span style=color:#a5d6ff>4</span>,<span style=color:#6e7681> </span><span style=color:#a5d6ff>5</span>]);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span>obj<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>arena.alloc(MyStruct::new());<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// Use allocated data...
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>process(name,<span style=color:#6e7681> </span>numbers,<span style=color:#6e7681> </span>obj);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// Arena dropped here - all memory freed at once
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// No individual destructors, no fragmentation
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span></code></pre></div><h2 id="13-debugging-memory-issues">13. Debugging Memory Issues</h2><p>Practical techniques for memory problems.</p><h3 id="131-memory-leak-detection">13.1 Memory Leak Detection</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Valgrind for C/C++
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// $ valgrind --leak-check=full ./myprogram
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>==</span><span style=color:#a5d6ff>12345</span><span style=color:#ff7b72;font-weight:700>==</span> LEAK <span style=color:#79c0ff;font-weight:700>SUMMARY</span>:
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>==</span><span style=color:#a5d6ff>12345</span><span style=color:#ff7b72;font-weight:700>==</span>    definitely <span style=color:#79c0ff;font-weight:700>lost</span>: <span style=color:#a5d6ff>1</span>,<span style=color:#a5d6ff>024</span> bytes in <span style=color:#a5d6ff>2</span> blocks
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>==</span><span style=color:#a5d6ff>12345</span><span style=color:#ff7b72;font-weight:700>==</span>    indirectly <span style=color:#79c0ff;font-weight:700>lost</span>: <span style=color:#a5d6ff>0</span> bytes in <span style=color:#a5d6ff>0</span> blocks
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>==</span><span style=color:#a5d6ff>12345</span><span style=color:#ff7b72;font-weight:700>==</span>    possibly <span style=color:#79c0ff;font-weight:700>lost</span>: <span style=color:#a5d6ff>512</span> bytes in <span style=color:#a5d6ff>1</span> blocks
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>==</span><span style=color:#a5d6ff>12345</span><span style=color:#ff7b72;font-weight:700>==</span>    still <span style=color:#79c0ff;font-weight:700>reachable</span>: <span style=color:#a5d6ff>2</span>,<span style=color:#a5d6ff>04</span><span style=color:#a5d6ff>8</span> bytes in <span style=color:#a5d6ff>4</span> blocks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// AddressSanitizer (faster, less complete)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// $ clang -fsanitize=address -g myprogram.c
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Common leak patterns:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 1. Forgetting to free
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#d2a8ff;font-weight:700>leak1</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#d2a8ff;font-weight:700>malloc</span>(<span style=color:#a5d6ff>100</span>);  <span style=color:#8b949e;font-style:italic>// Caller must free
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2. Losing last reference
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>leak2</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> p <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>malloc</span>(<span style=color:#a5d6ff>100</span>);
+</span></span><span style=display:flex><span>    p <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>malloc</span>(<span style=color:#a5d6ff>200</span>);  <span style=color:#8b949e;font-style:italic>// Original 100 bytes leaked
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>free</span>(p);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 3. Exception paths
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>leak3</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> p <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>malloc</span>(<span style=color:#a5d6ff>100</span>);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>error_condition</span>()) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span>;  <span style=color:#8b949e;font-style:italic>// Leaked!
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>free</span>(p);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="132-gc-tuning-and-monitoring">13.2 GC Tuning and Monitoring</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-java" data-lang=java><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// JVM GC logging</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// -Xlog:gc*:file=gc.log:time,uptime:filecount=5,filesize=10m</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Example output:</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>0.150s<span style=color:#ff7b72;font-weight:700>][</span>info<span style=color:#ff7b72;font-weight:700>][</span>gc<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>GC</span>(0)<span style=color:#6e7681> </span>Pause<span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>Young</span><span style=color:#6e7681> </span>(Normal)<span style=color:#6e7681> </span>(G1<span style=color:#6e7681> </span>Evacuation<span style=color:#6e7681> </span>Pause)<span style=color:#6e7681> </span>24M<span style=color:#ff7b72;font-weight:700>-&gt;</span>8M(256M)<span style=color:#6e7681> </span>5.123ms<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>0.350s<span style=color:#ff7b72;font-weight:700>][</span>info<span style=color:#ff7b72;font-weight:700>][</span>gc<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>GC</span>(1)<span style=color:#6e7681> </span>Pause<span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>Young</span><span style=color:#6e7681> </span>(Normal)<span style=color:#6e7681> </span>(G1<span style=color:#6e7681> </span>Evacuation<span style=color:#6e7681> </span>Pause)<span style=color:#6e7681> </span>32M<span style=color:#ff7b72;font-weight:700>-&gt;</span>12M(256M)<span style=color:#6e7681> </span>4.567ms<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>2.100s<span style=color:#ff7b72;font-weight:700>][</span>info<span style=color:#ff7b72;font-weight:700>][</span>gc<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>GC</span>(2)<span style=color:#6e7681> </span>Pause<span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>Young</span><span style=color:#6e7681> </span>(Concurrent<span style=color:#6e7681> </span>Start)<span style=color:#6e7681> </span>(G1<span style=color:#6e7681> </span>Humongous<span style=color:#6e7681> </span>Allocation)<span style=color:#6e7681> </span>128M<span style=color:#ff7b72;font-weight:700>-&gt;</span>64M(256M)<span style=color:#6e7681> </span>8.901ms<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>2.500s<span style=color:#ff7b72;font-weight:700>][</span>info<span style=color:#ff7b72;font-weight:700>][</span>gc<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>GC</span>(2)<span style=color:#6e7681> </span>Concurrent<span style=color:#6e7681> </span>Mark<span style=color:#6e7681> </span>completed<span style=color:#6e7681> </span>400.123ms<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Key metrics to monitor:</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Pause times (aim for &lt;200ms for most apps)</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - GC frequency (too often = heap too small)</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Heap occupancy after GC (growing = potential leak)</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Promotion rate (high = objects living too long)</span><span style=color:#6e7681>
+</span></span></span></code></pre></div><h3 id="133-heap-dumps-and-profiling">13.3 Heap Dumps and Profiling</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Python memory profiling</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># tracemalloc for allocation tracking</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>tracemalloc</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>tracemalloc<span style=color:#ff7b72;font-weight:700>.</span>start()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Your code here</span>
+</span></span><span style=display:flex><span>data <span style=color:#ff7b72;font-weight:700>=</span> [list(range(<span style=color:#a5d6ff>1000</span>)) <span style=color:#ff7b72>for</span> _ <span style=color:#ff7b72;font-weight:700>in</span> range(<span style=color:#a5d6ff>1000</span>)]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>snapshot <span style=color:#ff7b72;font-weight:700>=</span> tracemalloc<span style=color:#ff7b72;font-weight:700>.</span>take_snapshot()
+</span></span><span style=display:flex><span>top_stats <span style=color:#ff7b72;font-weight:700>=</span> snapshot<span style=color:#ff7b72;font-weight:700>.</span>statistics(<span style=color:#a5d6ff>&#39;lineno&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> stat <span style=color:#ff7b72;font-weight:700>in</span> top_stats[:<span style=color:#a5d6ff>10</span>]:
+</span></span><span style=display:flex><span>    print(stat)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Output:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># &lt;filename&gt;:5: size=7.6 MiB, count=1001, average=7.8 KiB</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># memory_profiler for line-by-line analysis</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># @profile decorator + python -m memory_profiler script.py</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># objgraph for object graphs</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>objgraph</span>
+</span></span><span style=display:flex><span>objgraph<span style=color:#ff7b72;font-weight:700>.</span>show_most_common_types(limit<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>10</span>)
+</span></span><span style=display:flex><span>objgraph<span style=color:#ff7b72;font-weight:700>.</span>show_backrefs(some_object, max_depth<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>3</span>)
+</span></span></code></pre></div><h2 id="14-performance-implications">14. Performance Implications</h2><p>Memory management directly affects application performance.</p><h3 id="141-allocation-cost-comparison">14.1 Allocation Cost Comparison</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Allocation costs (approximate, varies by platform):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Stack allocation:     ~1 CPU cycle (just move pointer)
+</span></span><span style=display:flex><span>Thread-local cache:   ~20-50 cycles (tcmalloc/jemalloc fast path)
+</span></span><span style=display:flex><span>General malloc:       ~100-500 cycles (may involve locks)
+</span></span><span style=display:flex><span>System call (mmap):   ~10,000+ cycles (kernel involvement)
+</span></span><span style=display:flex><span>GC allocation:        ~10-100 cycles (bump pointer + barrier)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Takeaways:
+</span></span><span style=display:flex><span>- Prefer stack allocation when possible
+</span></span><span style=display:flex><span>- Pool frequently allocated objects
+</span></span><span style=display:flex><span>- Batch allocations to amortize overhead
+</span></span><span style=display:flex><span>- Profile before optimizing!
+</span></span></code></pre></div><h3 id="142-gc-pause-impact">14.2 GC Pause Impact</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>GC pause effects on latency distribution:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Without GC optimization:
+</span></span><span style=display:flex><span>p50: 2ms    p99: 15ms    p99.9: 250ms ← GC pauses!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>With GC tuning:
+</span></span><span style=display:flex><span>p50: 2ms    p99: 12ms    p99.9: 50ms
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>With concurrent GC:
+</span></span><span style=display:flex><span>p50: 2.5ms  p99: 10ms    p99.9: 20ms
+</span></span><span style=display:flex><span>                         ↑
+</span></span><span style=display:flex><span>             Slightly higher median, but consistent
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Strategies:
+</span></span><span style=display:flex><span>- Tune heap size (larger = less frequent GC, longer pauses)
+</span></span><span style=display:flex><span>- Use concurrent/incremental collectors
+</span></span><span style=display:flex><span>- Reduce allocation rate
+</span></span><span style=display:flex><span>- Use off-heap storage for large data
+</span></span></code></pre></div><h3 id="143-cache-effects-of-allocation">14.3 Cache Effects of Allocation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Memory layout affects cache performance:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Sequential allocation (arena, bump allocator):
+</span></span><span style=display:flex><span>┌─────┬─────┬─────┬─────┬─────┐
+</span></span><span style=display:flex><span>│  A  │  B  │  C  │  D  │  E  │  ← Contiguous, cache-friendly
+</span></span><span style=display:flex><span>└─────┴─────┴─────┴─────┴─────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Fragmented heap after churn:
+</span></span><span style=display:flex><span>┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐
+</span></span><span style=display:flex><span>│  A  │ │░░░░░│ │  C  │ │░░░░░│ │  E  │  ← Scattered
+</span></span><span style=display:flex><span>└─────┘ └─────┘ └─────┘ └─────┘ └─────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Processing all items:
+</span></span><span style=display:flex><span>- Contiguous: 1 cache miss, then hits
+</span></span><span style=display:flex><span>- Fragmented: Potential miss per item
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>For data-intensive work:
+</span></span><span style=display:flex><span>- Use arrays of values, not arrays of pointers
+</span></span><span style=display:flex><span>- Allocate related objects together
+</span></span><span style=display:flex><span>- Consider data-oriented design patterns
+</span></span></code></pre></div><h2 id="15-language-design-trade-offs">15. Language Design Trade-offs</h2><p>How languages balance memory management concerns.</p><h3 id="151-manual-vs-automatic-management">15.1 Manual vs Automatic Management</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Manual (C, C++):
+</span></span><span style=display:flex><span>+ Maximum control and performance
+</span></span><span style=display:flex><span>+ Predictable timing (no GC pauses)
+</span></span><span style=display:flex><span>+ No runtime overhead
+</span></span><span style=display:flex><span>- Bugs: leaks, use-after-free, double-free
+</span></span><span style=display:flex><span>- Developer burden
+</span></span><span style=display:flex><span>- Security vulnerabilities
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Reference Counting (Swift, Python, some C++):
+</span></span><span style=display:flex><span>+ Deterministic destruction
+</span></span><span style=display:flex><span>+ Simple mental model
+</span></span><span style=display:flex><span>+ Interop with manual code
+</span></span><span style=display:flex><span>- Can&#39;t handle cycles automatically
+</span></span><span style=display:flex><span>- Write overhead for refcount updates
+</span></span><span style=display:flex><span>- Thread safety concerns
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tracing GC (Java, Go, JavaScript):
+</span></span><span style=display:flex><span>+ Handles cycles
+</span></span><span style=display:flex><span>+ No write overhead (except barriers)
+</span></span><span style=display:flex><span>+ Less developer burden
+</span></span><span style=display:flex><span>- Unpredictable pauses
+</span></span><span style=display:flex><span>- Memory overhead (larger heaps)
+</span></span><span style=display:flex><span>- Less control over timing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ownership (Rust):
+</span></span><span style=display:flex><span>+ No runtime overhead
+</span></span><span style=display:flex><span>+ Memory safety guaranteed
+</span></span><span style=display:flex><span>+ No GC pauses
+</span></span><span style=display:flex><span>- Steep learning curve
+</span></span><span style=display:flex><span>- Some patterns are awkward
+</span></span><span style=display:flex><span>- Longer compile times
+</span></span></code></pre></div><h3 id="152-hybrid-approaches">15.2 Hybrid Approaches</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Real-world systems often combine approaches:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Python: Reference counting + cycle collector
+</span></span><span style=display:flex><span>- Fast for simple cases
+</span></span><span style=display:flex><span>- Periodic cycle collection for complex graphs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>C++ with smart pointers:
+</span></span><span style=display:flex><span>- unique_ptr: Single ownership, no overhead
+</span></span><span style=display:flex><span>- shared_ptr: Reference counting
+</span></span><span style=display:flex><span>- weak_ptr: Breaks cycles in shared_ptr graphs
+</span></span><span style=display:flex><span>- Manual for performance-critical paths
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Swift: ARC with unowned/weak references
+</span></span><span style=display:flex><span>- Compiler inserts refcount operations
+</span></span><span style=display:flex><span>- Developer marks references to break cycles
+</span></span><span style=display:flex><span>- No GC pauses, but write overhead
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Games often use:
+</span></span><span style=display:flex><span>- Arena per frame (bulk free)
+</span></span><span style=display:flex><span>- Object pools for entities
+</span></span><span style=display:flex><span>- Custom allocators per subsystem
+</span></span><span style=display:flex><span>- Minimal GC language usage
+</span></span></code></pre></div><h2 id="16-emerging-trends-and-research">16. Emerging Trends and Research</h2><p>The future of memory management.</p><h3 id="161-hardware-support">16.1 Hardware Support</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Non-Volatile Memory (NVM):
+</span></span><span style=display:flex><span>- Persistent heaps surviving power loss
+</span></span><span style=display:flex><span>- Changes allocation/GC assumptions
+</span></span><span style=display:flex><span>- Pointer swizzling for persistent graphs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Memory tagging (ARM MTE, Intel MPX):
+</span></span><span style=display:flex><span>- Hardware tracks pointer bounds
+</span></span><span style=display:flex><span>- Catch buffer overflows in hardware
+</span></span><span style=display:flex><span>- Some GC verification possible
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Coherent accelerators:
+</span></span><span style=display:flex><span>- GPU/FPGA with shared memory
+</span></span><span style=display:flex><span>- Unified address spaces
+</span></span><span style=display:flex><span>- New challenges for GC (GPU references)
+</span></span></code></pre></div><h3 id="162-low-latency-techniques">16.2 Low-Latency Techniques</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Region-based memory (research):
+</span></span><span style=display:flex><span>- Infer lifetimes statically
+</span></span><span style=display:flex><span>- Allocate in regions that die together
+</span></span><span style=display:flex><span>- Minimize runtime overhead
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Pauseless GC:
+</span></span><span style=display:flex><span>- ZGC, Shenandoah pushing boundaries
+</span></span><span style=display:flex><span>- Concurrent everything
+</span></span><span style=display:flex><span>- Sub-millisecond pauses at scale
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Epoch-based reclamation:
+</span></span><span style=display:flex><span>- Track &#34;epochs&#34; when references observed
+</span></span><span style=display:flex><span>- Safe to free when epoch passes
+</span></span><span style=display:flex><span>- Used in lock-free data structures
+</span></span></code></pre></div><h3 id="163-specialized-allocators">16.3 Specialized Allocators</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Memory-safe languages pushing boundaries:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mimalloc (Microsoft):
+</span></span><span style=display:flex><span>- Designed for memory-safe languages
+</span></span><span style=display:flex><span>- Free list sharding per page
+</span></span><span style=display:flex><span>- Excellent performance characteristics
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Mesh (research):
+</span></span><span style=display:flex><span>- Compacts without moving objects
+</span></span><span style=display:flex><span>- Uses virtual memory to shuffle physical pages
+</span></span><span style=display:flex><span>- Compatible with unmodified programs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>scudo (hardened allocator):
+</span></span><span style=display:flex><span>- Designed for security
+</span></span><span style=display:flex><span>- Randomization, guard pages
+</span></span><span style=display:flex><span>- Performance-security trade-off
+</span></span></code></pre></div><h2 id="17-practical-recommendations">17. Practical Recommendations</h2><p>Guidance for different scenarios.</p><h3 id="171-choosing-the-right-strategy">17.1 Choosing the Right Strategy</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Embedded/Real-time:
+</span></span><span style=display:flex><span>- Static allocation where possible
+</span></span><span style=display:flex><span>- Memory pools for dynamic needs
+</span></span><span style=display:flex><span>- Avoid GC languages or disable GC
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>High-throughput services:
+</span></span><span style=display:flex><span>- Profile allocation patterns
+</span></span><span style=display:flex><span>- Use object pools for hot paths
+</span></span><span style=display:flex><span>- Tune GC for throughput
+</span></span><span style=display:flex><span>- Consider arena patterns
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Low-latency trading:
+</span></span><span style=display:flex><span>- Pre-allocate everything
+</span></span><span style=display:flex><span>- Object pools, not allocation
+</span></span><span style=display:flex><span>- Off-heap for large data
+</span></span><span style=display:flex><span>- GC pauses are not acceptable
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>General applications:
+</span></span><span style=display:flex><span>- Trust your GC (usually)
+</span></span><span style=display:flex><span>- Profile before optimizing
+</span></span><span style=display:flex><span>- Fix leaks promptly
+</span></span><span style=display:flex><span>- Understand your language&#39;s model
+</span></span></code></pre></div><h3 id="172-common-anti-patterns">17.2 Common Anti-Patterns</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1. Premature optimization
+</span></span><span style=display:flex><span>   DON&#39;T: Obsess over allocation without profiling
+</span></span><span style=display:flex><span>   DO: Measure first, optimize hot paths
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Ignoring the allocator
+</span></span><span style=display:flex><span>   DON&#39;T: Assume all allocations are equal
+</span></span><span style=display:flex><span>   DO: Understand your allocator&#39;s characteristics
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Fighting the GC
+</span></span><span style=display:flex><span>   DON&#39;T: Manually null references to &#34;help&#34; GC
+</span></span><span style=display:flex><span>   DO: Trust the GC, reduce allocation rate if needed
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. Memory leaks
+</span></span><span style=display:flex><span>   DON&#39;T: Assume GC prevents all leaks
+</span></span><span style=display:flex><span>   DO: Watch for logical leaks (held references)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>5. Wrong abstraction level
+</span></span><span style=display:flex><span>   DON&#39;T: Always use lowest-level allocation
+</span></span><span style=display:flex><span>   DO: Match abstraction to problem (pools, arenas, GC)
+</span></span></code></pre></div><p>Memory allocation and garbage collection represent one of computing&rsquo;s most elegant trade-off spaces. From manual management offering maximum control to sophisticated concurrent collectors minimizing pause times, each approach serves different needs. Understanding these systems deeply helps you write more efficient code, debug memory issues effectively, and choose appropriate strategies for your specific requirements. The best memory management strategy depends on your latency requirements, throughput needs, developer productivity goals, and the specific characteristics of your workload.</p></div><footer class="ce1a612 c6dfb1e c3ecea6"><div class="c364589">Categories:
+<a href=/categories/fundamentals/>fundamentals</a>, <a href=/categories/systems/>systems</a></div><div>Tags:
+<a href=/tags/memory/>#memory</a>, <a href=/tags/garbage-collection/>#garbage-collection</a>, <a href=/tags/malloc/>#malloc</a>, <a href=/tags/allocation/>#allocation</a>, <a href=/tags/runtime/>#runtime</a>, <a href=/tags/fundamentals/>#fundamentals</a></div></footer></article></main><footer class="ccdf0e8" role=contentinfo aria-label=Footer><div class="cfdda01 c133889 c5df473 c0eecc8 c69618a c6942b3 c03620d c2a9f27 c7c11d8 c82c52d c14527b"><div class="c6dfb1e c3ecea6 c39ef11 c88ae6f">&copy; 2026 Leonardo Benicio. All rights
+reserved.</div><div class="c6942b3 c7c11d8 cd1fd22"><a href=https://github.com/lbenicio target=_blank rel="noopener noreferrer" aria-label=GitHub class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.5-.67 1.08-.82 1.7s-.2 1.27-.18 1.9V22"/></svg>
+<span class="cba5854">GitHub</span>
+</a><a href=https://www.linkedin.com/in/leonardo-benicio target=_blank rel="noopener noreferrer" aria-label=LinkedIn class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21V14.86c0-1.333-.027-3.046-1.858-3.046-1.86.0-2.145 1.45-2.145 2.948v5.69H9.069V9h3.112v1.561h.044c.434-.82 1.494-1.686 3.074-1.686 3.29.0 3.897 2.165 3.897 4.983v6.594zM5.337 7.433a1.805 1.805.0 11-.002-3.61 1.805 1.805.0 01.002 3.61zM6.763 20.452H3.911V9h2.852v11.452z"/></svg>
+<span class="cba5854">LinkedIn</span>
+</a><a href=https://twitter.com/lbenicio_ target=_blank rel="noopener noreferrer" aria-label=Twitter class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.177.013.354.013.53.0 5.386-4.099 11.599-11.6 11.599-2.31.0-4.457-.676-6.265-1.842.324.038.636.05.972.05 1.91.0 3.67-.65 5.07-1.755a4.099 4.099.0 01-3.827-2.84c.25.039.5.064.763.064.363.0.726-.051 1.065-.139A4.091 4.091.0 012.542 9.649v-.051c.538.3 1.162.482 1.824.507A4.082 4.082.0 012.54 6.7c0-.751.2-1.435.551-2.034a11.63 11.63.0 008.44 4.281 4.615 4.615.0 01-.101-.938 4.091 4.091.0 017.078-2.799 8.1 8.1.0 002.595-.988 4.112 4.112.0 01-1.8 2.261 8.2 8.2.0 002.357-.638A8.824 8.824.0 0119.613 7.96z"/></svg>
+<span class="cba5854">Twitter</span></a></div></div></footer></body></html>

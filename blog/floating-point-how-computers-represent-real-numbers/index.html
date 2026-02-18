@@ -1,0 +1,989 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>Floating Point: How Computers Represent Real Numbers · Leonardo Benicio</title><meta name=description content="A deep exploration of IEEE 754 floating point representation, the mathematics behind binary fractions, precision limits, and the subtle bugs that can arise when working with real numbers in code."><link rel=alternate type=application/rss+xml title=RSS href=https://lbenicio.dev/index.xml><link rel=canonical href=https://blog.lbenicio.dev/blog/floating-point-how-computers-represent-real-numbers/><link rel=preload href=/static/fonts/OpenSans-Regular.ttf as=font type=font/ttf crossorigin><link rel="stylesheet" href="/assets/css/fonts.min.40e2054b739ac45a0f9c940f4b44ec00c3b372356ebf61440a413c0337c5512e.css" crossorigin="anonymous" integrity="sha256-QOIFS3OaxFoPnJQPS0TsAMOzcjVuv2FECkE8AzfFUS4="><link rel="shortcut icon" href=/static/assets/favicon/favicon.ico><link rel=icon type=image/x-icon href=/static/assets/favicon/favicon.ico><link rel=icon href=/static/assets/favicon/favicon.svg type=image/svg+xml><link rel=icon href=/static/assets/favicon/favicon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/static/assets/favicon/favicon-16x16.png sizes=16x16 type=image/png><link rel=apple-touch-icon href=/static/assets/favicon/apple-touch-icon.png><link rel=manifest href=/static/assets/favicon/site.webmanifest><link rel=mask-icon href=/static/assets/favicon/safari-pinned-tab.svg color=#209cee><meta name=msapplication-TileColor content="#209cee"><meta name=msapplication-config content="/static/assets/favicon/browserconfig.xml"><meta name=theme-color content="#d2e9f8"><meta property="og:title" content="Floating Point: How Computers Represent Real Numbers · Leonardo Benicio"><meta property="og:description" content="A deep exploration of IEEE 754 floating point representation, the mathematics behind binary fractions, precision limits, and the subtle bugs that can arise when working with real numbers in code."><meta property="og:url" content="https://blog.lbenicio.dev/blog/floating-point-how-computers-represent-real-numbers/"><meta property="og:type" content="article"><meta property="og:image" content="https://blog.lbenicio.dev/static/assets/images/blog/floating-point-ieee-754-representation.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Floating Point: How Computers Represent Real Numbers · Leonardo Benicio"><meta name=twitter:description content="A deep exploration of IEEE 754 floating point representation, the mathematics behind binary fractions, precision limits, and the subtle bugs that can arise when working with real numbers in code."><meta name=twitter:site content="@lbenicio_"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"About Leonardo Benicio","url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Person","name":"Leonardo Benicio","sameAs":["https://github.com/lbenicio","https://www.linkedin.com/in/leonardo-benicio","https://twitter.com/lbenicio_"],"url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Home","position":1},{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Blog","position":2},{"@type":"ListItem","item":"https://blog.lbenicio.dev/blog/floating-point-how-computers-represent-real-numbers/","name":"Floating Point How Computers Represent Real Numbers","position":3}]}</script><link rel="stylesheet" href="/assets/css/main.min.1e8a566ac8bc3f0664d0db4ec8a015b07421c33fa11d336a6b914522a9cabf30.css" crossorigin="anonymous" integrity="sha256-6lhUOpwCHMSMROmggsVSp3AHKud6gBrIFGTzl3GV4BY="></head><body class="c6942b3 c03620d cf3bd2e"><script>(function(){try{document.addEventListener("gesturestart",function(e){e.preventDefault()}),document.addEventListener("touchstart",function(e){e.touches&&e.touches.length>1&&e.preventDefault()},{passive:!1});var e=0;document.addEventListener("touchend",function(t){var n=Date.now();n-e<=300&&t.preventDefault(),e=n},{passive:!1})}catch{}})()</script><a href=#content class="cba5854 c21e770 caffa6e cc5f604 cf2c31d cdd44dd c10dda9 c43876e c787e9b cddc2d2 cf55a7b c6dfb1e c9391e2">Skip to content</a>
+<script>(function(){try{const e=localStorage.getItem("theme");e==="dark"&&document.documentElement.classList.add("dark");const t=document.querySelector('button[aria-label="Toggle theme"]');t&&t.setAttribute("aria-pressed",String(e==="dark"))}catch{}})();function toggleTheme(e){const s=document.documentElement,t=s.classList.toggle("dark");try{localStorage.setItem("theme",t?"dark":"light")}catch{}try{var n=e&&e.nodeType===1?e:document.querySelector('button[aria-label="Toggle theme"]');n&&n.setAttribute("aria-pressed",String(!!t))}catch{}}(function(){function e(){try{return document.documentElement.classList.contains("dark")?"dark":"light"}catch{return"light"}}function n(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(0)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!1,s.style.display="block"}catch{}o.setAttribute("aria-expanded","true"),n.setAttribute("aria-hidden","false");try{document.body.classList.add("c150bbe")}catch{}const i=document.getElementById("i190984");i&&i.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_open",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function t(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(100%)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!0,s.style.display="none"}catch{}o.setAttribute("aria-expanded","false"),n.setAttribute("aria-hidden","true");try{document.body.classList.remove("c150bbe")}catch{}o.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_close",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function s(e){e.key==="Escape"&&t("escape")}window.__openMobileMenu=n,window.__closeMobileMenu=t;try{window.addEventListener("keydown",s,!0)}catch{}})()</script><header class="cd019ba c98dfae cdd44dd cfdda01 c9ee25d ce2dc7a cd72dd7 cc0dc37" role=banner><div class="cfdda01 c6942b3 ccf47f4 c7c11d8"><a href=/ class="c87e2b0 c6942b3 c7c11d8 c1838fa cb594e4" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=32 height=32 class="c3de71a c4d5191">
+<span class="cf8f011 c4d1253 cbd72bc cd7e69e">Leonardo Benicio</span></a><div class="c6942b3 c85cbd4 c7c11d8 ca798da c1838fa c7a0580"><nav class="cc1689c cd9b445 c75065d c04bab1" aria-label=Main><a href=/ class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Home</a>
+<a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">About</a>
+<a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Timeline</a>
+<a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Reading</a>
+<a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Publications</a>
+<a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Contact</a></nav><button id="i1d73d4" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 c097fa1 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" onclick=toggleTheme(this) aria-label="Toggle theme" aria-pressed=false title="Toggle theme">
+<svg class="cb26e41 c50ceea cb69a5c c4f45c8 c8c2c40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="cb26e41 c8fca2b cb69a5c c4f45c8 cc1689c c9c27ff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M6.34 17.66l2.83-2.83"/><path d="M14.83 9.17l2.83-2.83"/></svg>
+<span class="cba5854">Toggle theme</span></button><div class="c658bcf c097fa1"><button id="i975fb5" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" aria-label="Open menu" aria-controls="i98aca2" aria-expanded=false onclick='window.__openMobileMenu("button")' data-d38f920=mobile_menu_open_click>
+<svg class="c20e4eb cb58471" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<span class="cba5854">Open menu</span></button></div></div></div></header><div id="iad2af0" class="caffa6e ce4b5f4 c14639a" style=background-color:hsl(var(--background)) hidden onclick='window.__closeMobileMenu("overlay")' data-d38f920=mobile_menu_overlay_click></div><aside id="i98aca2" class="caffa6e c9efbc5 c437fa9 c49e97e c6c6936 c7cacca c7b34a4 c787e9b c88daee cad071a c6942b3 c03620d" role=dialog aria-modal=true aria-hidden=true aria-label="Mobile navigation" style="transform:translateX(100%);transition:transform 200ms ease-out;will-change:transform"><div class="c6942b3 c7c11d8 c82c52d c5df473 ccf47f4 c9ee25d"><a href=/ class="c6942b3 c7c11d8 c1838fa" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=24 height=24 class="c20e4eb cb58471">
+<span class="c62aaf0 c7c1b66 cbd72bc">Leonardo Benicio</span>
+</a><button id="i190984" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c514027 c286dd7 c2bd687 cfdce1d" aria-label="Close menu" onclick='window.__closeMobileMenu("button")' data-d38f920=mobile_menu_close_click>
+<svg class="c16e528 c61f467" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<span class="cba5854">Close</span></button></div><nav class="c85cbd4 ca0eaa4 c5df473 c6689b9"><ul class="cd69733"><li><a href=/ class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Home</a></li><li><a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>About</a></li><li><a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Timeline</a></li><li><a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Reading</a></li><li><a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Publications</a></li><li><a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Contact</a></li></ul></nav><div class="c60a4cc ccdf0e8 c277478 c13044e"><p>&copy; 2026 Leonardo Benicio</p></div></aside><div class="caffa6e c437fa9 ce9aced c97bba6 c15da2a c975cba" role=complementary aria-label="GitHub repository"><div class="c9d056d c252f85 ca22532 ca88a1a c876315"><div class="c6942b3 c7c11d8 c1d0018 cd1fd22 c6066e4 c43876e ce3d5b6 caa20d2 c3ecea6 c0cd2e2 cddc2d2 c3ed5c9 cd4074c c876315"><a href=https://github.com/lbenicio/aboutme target=_blank rel="noopener noreferrer" class="c6942b3 c7c11d8 cd1fd22 c71bae8 cfac1ac c19ee42 c25dc7c cb40739 cbbda39 cf55a7b" aria-label="View source on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cb26e41 c41bcd4 cf17690 cfa4e34 c78d562" aria-hidden="true"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+<span class="cb5c327 cd7e69e">Fork me</span></a></div></div></div><main id="i7eccc0" class="cfdda01 c5df473 c0eecc8 c85cbd4" role=main aria-label=Content><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Floating Point How Computers Represent Real Numbers</span></li></ol></nav><article class="c461ba0 c1c203f cfb6084 c995404 c6ca165"><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Floating Point How Computers Represent Real Numbers</span></li></ol></nav><header class="c8aedc7"><h1 class="cf304bc c6fb0fe cf8f011 cc484e1">Floating Point: How Computers Represent Real Numbers</h1><div class="c277478 c3ecea6 c8fb24a">2023-02-08
+· Leonardo Benicio</div><div class="c1a1a3f c8124f2"><img src=/static/assets/images/blog/floating-point-ieee-754-representation.png alt class="cfdda01 c524300 c677556"></div><p class="lead c3ecea6">A deep exploration of IEEE 754 floating point representation, the mathematics behind binary fractions, precision limits, and the subtle bugs that can arise when working with real numbers in code.</p></header><div class="content"><p>Every programmer eventually encounters the classic puzzle: why does <code>0.1 + 0.2</code> not equal <code>0.3</code>? The answer lies in how computers represent real numbers using floating point arithmetic. Understanding IEEE 754 floating point is essential for anyone writing numerical code, financial software, scientific simulations, or graphics applications.</p><h2 id="1-the-challenge-of-representing-real-numbers">1. The Challenge of Representing Real Numbers</h2><p>Computers work with finite binary representations, but real numbers are infinite.</p><h3 id="11-the-fundamental-problem">1.1 The Fundamental Problem</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Integers are straightforward:
+</span></span><span style=display:flex><span>42 in binary = 101010
+</span></span><span style=display:flex><span>-7 in binary (two&#39;s complement, 8-bit) = 11111001
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>But real numbers have infinite precision:
+</span></span><span style=display:flex><span>π = 3.14159265358979323846...
+</span></span><span style=display:flex><span>1/3 = 0.33333333... (repeating)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Even simple decimals can be infinite in binary:
+</span></span><span style=display:flex><span>0.1 (decimal) = 0.0001100110011... (repeating in binary)
+</span></span></code></pre></div><h3 id="12-why-not-fixed-point">1.2 Why Not Fixed Point?</h3><p>Fixed point representations dedicate a fixed number of bits to the integer and fractional parts:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Fixed point (16.16 format):
+</span></span><span style=display:flex><span>┌────────────────┬────────────────┐
+</span></span><span style=display:flex><span>│  Integer part  │ Fractional part│
+</span></span><span style=display:flex><span>│   (16 bits)    │   (16 bits)    │
+</span></span><span style=display:flex><span>└────────────────┴────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example: 123.456
+</span></span><span style=display:flex><span>Integer: 123 = 0000000001111011
+</span></span><span style=display:flex><span>Fraction: 0.456 ≈ 0.456 × 65536 = 29884 = 0111010011001100
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problems with fixed point:
+</span></span><span style=display:flex><span>- Limited range (max ~32767 with 16.16)
+</span></span><span style=display:flex><span>- Fixed precision regardless of magnitude
+</span></span><span style=display:flex><span>- 0.000001 and 1000000 need same bits for fraction
+</span></span></code></pre></div><h3 id="13-scientific-notation-to-the-rescue">1.3 Scientific Notation to the Rescue</h3><p>Floating point mimics scientific notation:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Scientific notation:
+</span></span><span style=display:flex><span>6.022 × 10²³ (Avogadro&#39;s number)
+</span></span><span style=display:flex><span>1.602 × 10⁻¹⁹ (electron charge)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Components:
+</span></span><span style=display:flex><span>- Significand (mantissa): 6.022, 1.602
+</span></span><span style=display:flex><span>- Base: 10
+</span></span><span style=display:flex><span>- Exponent: 23, -19
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Binary floating point:
+</span></span><span style=display:flex><span>1.01101 × 2⁵ = 101101 (binary) = 45 (decimal)
+</span></span><span style=display:flex><span>1.01101 × 2⁻³ = 0.00101101 (binary) = 0.17578125 (decimal)
+</span></span></code></pre></div><h2 id="2-ieee-754-format">2. IEEE 754 Format</h2><p>The IEEE 754 standard defines floating point representation.</p><h3 id="21-single-precision-32-bit">2.1 Single Precision (32-bit)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>┌───┬──────────────────────┬───────────────────────────────────────┐
+</span></span><span style=display:flex><span>│ S │     Exponent         │              Mantissa                 │
+</span></span><span style=display:flex><span>│1b │      8 bits          │              23 bits                  │
+</span></span><span style=display:flex><span>└───┴──────────────────────┴───────────────────────────────────────┘
+</span></span><span style=display:flex><span> 31   30              23   22                                     0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>S: Sign bit (0 = positive, 1 = negative)
+</span></span><span style=display:flex><span>Exponent: Biased by 127 (stored value = actual exponent + 127)
+</span></span><span style=display:flex><span>Mantissa: Fractional part (implicit leading 1)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Value = (-1)^S × 1.Mantissa × 2^(Exponent - 127)
+</span></span></code></pre></div><h3 id="22-double-precision-64-bit">2.2 Double Precision (64-bit)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>┌───┬───────────────────────────┬──────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│ S │        Exponent           │                      Mantissa                        │
+</span></span><span style=display:flex><span>│1b │        11 bits            │                      52 bits                         │
+</span></span><span style=display:flex><span>└───┴───────────────────────────┴──────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span> 63   62                    52   51                                                    0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Value = (-1)^S × 1.Mantissa × 2^(Exponent - 1023)
+</span></span></code></pre></div><h3 id="23-encoding-example">2.3 Encoding Example</h3><p>Let&rsquo;s encode -6.75 in single precision:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Step 1: Convert to binary
+</span></span><span style=display:flex><span>6.75 = 6 + 0.75
+</span></span><span style=display:flex><span>6 = 110 (binary)
+</span></span><span style=display:flex><span>0.75 = 0.5 + 0.25 = 0.11 (binary)
+</span></span><span style=display:flex><span>6.75 = 110.11 (binary)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Step 2: Normalize
+</span></span><span style=display:flex><span>110.11 = 1.1011 × 2²
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Step 3: Extract components
+</span></span><span style=display:flex><span>Sign: 1 (negative)
+</span></span><span style=display:flex><span>Exponent: 2 + 127 = 129 = 10000001
+</span></span><span style=display:flex><span>Mantissa: 1011 (drop leading 1, pad with zeros)
+</span></span><span style=display:flex><span>         10110000000000000000000
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Step 4: Combine
+</span></span><span style=display:flex><span>1 10000001 10110000000000000000000
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Hex: 0xC0D80000
+</span></span></code></pre></div><h3 id="24-decoding-example">2.4 Decoding Example</h3><p>Decode 0x40490FDB (single precision):</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Binary: 0 10000000 10010010000111111011011
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Sign: 0 (positive)
+</span></span><span style=display:flex><span>Exponent: 10000000 = 128, actual = 128 - 127 = 1
+</span></span><span style=display:flex><span>Mantissa: 1.10010010000111111011011
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Value: 1.10010010000111111011011 × 2¹
+</span></span><span style=display:flex><span>     = 11.0010010000111111011011
+</span></span><span style=display:flex><span>     = 3 + 0.140625 + ...
+</span></span><span style=display:flex><span>     ≈ 3.14159274...
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>This is π (to single precision accuracy)!
+</span></span></code></pre></div><h2 id="3-special-values">3. Special Values</h2><p>IEEE 754 reserves certain bit patterns for special cases.</p><h3 id="31-zero">3.1 Zero</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Positive zero: 0 00000000 00000000000000000000000 = +0.0
+</span></span><span style=display:flex><span>Negative zero: 1 00000000 00000000000000000000000 = -0.0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>+0.0 == -0.0 evaluates to true
+</span></span><span style=display:flex><span>But 1.0/+0.0 = +∞ and 1.0/-0.0 = -∞
+</span></span></code></pre></div><h3 id="32-infinity">3.2 Infinity</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Positive infinity: 0 11111111 00000000000000000000000 = +∞
+</span></span><span style=display:flex><span>Negative infinity: 1 11111111 00000000000000000000000 = -∞
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Created by:
+</span></span><span style=display:flex><span>- Division by zero: 1.0/0.0 = +∞
+</span></span><span style=display:flex><span>- Overflow: 1e38 * 1e38 = +∞
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Properties:
+</span></span><span style=display:flex><span>- ∞ + 1 = ∞
+</span></span><span style=display:flex><span>- ∞ - ∞ = NaN
+</span></span><span style=display:flex><span>- ∞ × 0 = NaN
+</span></span></code></pre></div><h3 id="33-nan-not-a-number">3.3 NaN (Not a Number)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>NaN: Exponent all 1s, non-zero mantissa
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Examples:
+</span></span><span style=display:flex><span>0 11111111 10000000000000000000000 = quiet NaN
+</span></span><span style=display:flex><span>0 11111111 00000000000000000000001 = signaling NaN
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Created by:
+</span></span><span style=display:flex><span>- 0.0/0.0
+</span></span><span style=display:flex><span>- ∞ - ∞
+</span></span><span style=display:flex><span>- sqrt(-1)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Properties:
+</span></span><span style=display:flex><span>- NaN != NaN (NaN is not equal to itself!)
+</span></span><span style=display:flex><span>- NaN + anything = NaN
+</span></span><span style=display:flex><span>- Any comparison with NaN returns false
+</span></span></code></pre></div><h3 id="34-denormalized-numbers-subnormals">3.4 Denormalized Numbers (Subnormals)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Normal numbers: exponent ≠ 0, implicit leading 1
+</span></span><span style=display:flex><span>Denormals: exponent = 0, implicit leading 0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Smallest normal (single): 1.0 × 2⁻¹²⁶ ≈ 1.18 × 10⁻³⁸
+</span></span><span style=display:flex><span>Smallest denormal (single): 2⁻²³ × 2⁻¹²⁶ = 2⁻¹⁴⁹ ≈ 1.4 × 10⁻⁴⁵
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Denormals fill the gap between 0 and smallest normal:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>     0    denormals    smallest normal
+</span></span><span style=display:flex><span>     │◄──────────────►│◄───────────────
+</span></span><span style=display:flex><span>     │ gradual        │ normal numbers
+</span></span><span style=display:flex><span>     │ underflow      │
+</span></span></code></pre></div><h2 id="4-precision-and-rounding">4. Precision and Rounding</h2><p>Understanding the limits of floating point precision.</p><h3 id="41-significant-digits">4.1 Significant Digits</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Single precision (23-bit mantissa + implicit 1):
+</span></span><span style=display:flex><span>24 bits of precision
+</span></span><span style=display:flex><span>≈ 7.22 decimal digits
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Double precision (52-bit mantissa + implicit 1):
+</span></span><span style=display:flex><span>53 bits of precision
+</span></span><span style=display:flex><span>≈ 15.95 decimal digits
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example (single precision):
+</span></span><span style=display:flex><span>16777216.0 + 1.0 = 16777216.0  (not 16777217!)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Why? 16777216 = 2²⁴, needs 25 bits to represent 16777217
+</span></span></code></pre></div><h3 id="42-the-infamous-01--02-problem">4.2 The Infamous 0.1 + 0.2 Problem</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>&gt;&gt;&gt;</span> <span style=color:#a5d6ff>0.1</span> <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>0.2</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>0.30000000000000004</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>&gt;&gt;&gt;</span> <span style=color:#a5d6ff>0.1</span> <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>0.2</span> <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0.3</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>False</span>
+</span></span></code></pre></div><p>Why does this happen?</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>0.1 in binary = 0.0001100110011001100110011... (repeating)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Stored as (double):
+</span></span><span style=display:flex><span>0.1 ≈ 0.1000000000000000055511151231257827021181583404541015625
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>0.2 in binary = 0.001100110011001100110011... (repeating)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Stored as (double):
+</span></span><span style=display:flex><span>0.2 ≈ 0.2000000000000000111022302462515654042363166809082031250
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Sum:
+</span></span><span style=display:flex><span>0.1 + 0.2 ≈ 0.3000000000000000444089209850062616169452667236328125
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>0.3 stored as:
+</span></span><span style=display:flex><span>0.3 ≈ 0.2999999999999999888977697537484345957636833190917968750
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The stored representations don&#39;t match!
+</span></span></code></pre></div><h3 id="43-rounding-modes">4.3 Rounding Modes</h3><p>IEEE 754 defines five rounding modes:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1. Round to Nearest, Ties to Even (default)
+</span></span><span style=display:flex><span>   2.5 → 2, 3.5 → 4, 4.5 → 4, 5.5 → 6
+</span></span><span style=display:flex><span>   Minimizes cumulative rounding error
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Round Toward Zero (truncation)
+</span></span><span style=display:flex><span>   2.9 → 2, -2.9 → -2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Round Toward +∞ (ceiling)
+</span></span><span style=display:flex><span>   2.1 → 3, -2.9 → -2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. Round Toward -∞ (floor)
+</span></span><span style=display:flex><span>   2.9 → 2, -2.1 → -3
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>5. Round to Nearest, Ties Away from Zero
+</span></span><span style=display:flex><span>   2.5 → 3, -2.5 → -3
+</span></span></code></pre></div><h3 id="44-epsilon-and-ulp">4.4 Epsilon and ULP</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Machine epsilon (ε): smallest x such that 1.0 + x ≠ 1.0
+</span></span><span style=display:flex><span>Single: ε ≈ 1.19 × 10⁻⁷
+</span></span><span style=display:flex><span>Double: ε ≈ 2.22 × 10⁻¹⁶
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ULP (Unit in Last Place): gap between adjacent floats
+</span></span><span style=display:flex><span>At 1.0: ULP = ε
+</span></span><span style=display:flex><span>At 2.0: ULP = 2ε
+</span></span><span style=display:flex><span>At 1024.0: ULP = 1024ε
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The gap between representable numbers grows with magnitude!
+</span></span></code></pre></div><h2 id="5-common-pitfalls-and-bugs">5. Common Pitfalls and Bugs</h2><p>Floating point arithmetic has many subtle traps.</p><h3 id="51-equality-comparison">5.1 Equality Comparison</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// WRONG: Direct equality comparison
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> (result <span style=color:#ff7b72;font-weight:700>==</span> expected) { ... }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// BETTER: Epsilon comparison
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define EPSILON 1e-9
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>fabs</span>(result <span style=color:#ff7b72;font-weight:700>-</span> expected) <span style=color:#ff7b72;font-weight:700>&lt;</span> EPSILON) { ... }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// BEST: Relative epsilon
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>bool</span> <span style=color:#d2a8ff;font-weight:700>approximately_equal</span>(<span style=color:#ff7b72>double</span> a, <span style=color:#ff7b72>double</span> b, <span style=color:#ff7b72>double</span> rel_epsilon) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> diff <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>fabs</span>(a <span style=color:#ff7b72;font-weight:700>-</span> b);
+</span></span><span style=display:flex><span>    a <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>fabs</span>(a);
+</span></span><span style=display:flex><span>    b <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>fabs</span>(b);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> largest <span style=color:#ff7b72;font-weight:700>=</span> (b <span style=color:#ff7b72;font-weight:700>&gt;</span> a) <span style=color:#ff7b72;font-weight:700>?</span> <span style=color:#79c0ff;font-weight:700>b</span> : a;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> diff <span style=color:#ff7b72;font-weight:700>&lt;=</span> largest <span style=color:#ff7b72;font-weight:700>*</span> rel_epsilon;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="52-catastrophic-cancellation">5.2 Catastrophic Cancellation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Computing b² - 4ac when b ≈ √(4ac)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Example: a=1, b=10000, c=1
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// b² = 100000000
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 4ac = 4
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// b² - 4ac = 99999996
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// But if b=1000000.0001, c=250000000025.0001
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// We lose almost all significant digits!
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> discriminant <span style=color:#ff7b72;font-weight:700>=</span> b<span style=color:#ff7b72;font-weight:700>*</span>b <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>4</span><span style=color:#ff7b72;font-weight:700>*</span>a<span style=color:#ff7b72;font-weight:700>*</span>c;  <span style=color:#8b949e;font-style:italic>// Catastrophic cancellation
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Better: Reformulate if possible
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Or use higher precision arithmetic
+</span></span></span></code></pre></div><h3 id="53-accumulation-error">5.3 Accumulation Error</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Summing many small numbers
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>float</span> sum <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.0f</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>10000000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    sum <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>0.1f</span>;  <span style=color:#8b949e;font-style:italic>// Each addition adds error
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// sum ≈ 999999.9 (not 1000000.0)
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Solution: Kahan summation
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>float</span> sum <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.0f</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>float</span> c <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.0f</span>;  <span style=color:#8b949e;font-style:italic>// Running compensation for lost low-order bits
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>10000000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>float</span> y <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.1f</span> <span style=color:#ff7b72;font-weight:700>-</span> c;      <span style=color:#8b949e;font-style:italic>// c is zero initially
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>float</span> t <span style=color:#ff7b72;font-weight:700>=</span> sum <span style=color:#ff7b72;font-weight:700>+</span> y;       <span style=color:#8b949e;font-style:italic>// sum is big, y small, low-order digits lost
+</span></span></span><span style=display:flex><span>    c <span style=color:#ff7b72;font-weight:700>=</span> (t <span style=color:#ff7b72;font-weight:700>-</span> sum) <span style=color:#ff7b72;font-weight:700>-</span> y;       <span style=color:#8b949e;font-style:italic>// (t - sum) recovers high part of y
+</span></span></span><span style=display:flex><span>    sum <span style=color:#ff7b72;font-weight:700>=</span> t;                 <span style=color:#8b949e;font-style:italic>// algebraically, c should be zero
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// sum ≈ 1000000.0 (much more accurate)
+</span></span></span></code></pre></div><h3 id="54-order-of-operations-matters">5.4 Order of Operations Matters</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// These are NOT equivalent:
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> a <span style=color:#ff7b72;font-weight:700>=</span> (x <span style=color:#ff7b72;font-weight:700>+</span> y) <span style=color:#ff7b72;font-weight:700>+</span> z;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> b <span style=color:#ff7b72;font-weight:700>=</span> x <span style=color:#ff7b72;font-weight:700>+</span> (y <span style=color:#ff7b72;font-weight:700>+</span> z);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Example where order matters:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// x = 1e30, y = -1e30, z = 1.0
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// (x + y) + z = 0 + 1 = 1
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// x + (y + z) = 1e30 + (-1e30) = 0 (z absorbed)
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Compilers may reorder with -ffast-math!
+</span></span></span></code></pre></div><h3 id="55-integer-to-float-conversion">5.5 Integer to Float Conversion</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Large integers may lose precision
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>long</span> <span style=color:#ff7b72>long</span> big <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>9007199254740993LL</span>;  <span style=color:#8b949e;font-style:italic>// 2^53 + 1
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> d <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#ff7b72>double</span>)big;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>long</span> <span style=color:#ff7b72>long</span> back <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#ff7b72>long</span> <span style=color:#ff7b72>long</span>)d;
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// back = 9007199254740992  (lost 1!)
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2^53 = 9007199254740992 is the last consecutive integer
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// representable exactly in double precision
+</span></span></span></code></pre></div><h2 id="6-floating-point-in-practice">6. Floating Point in Practice</h2><p>Real-world considerations for numerical code.</p><h3 id="61-financial-calculations">6.1 Financial Calculations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// NEVER use float/double for money!
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> price <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>19.99</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> quantity <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>3</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> total <span style=color:#ff7b72;font-weight:700>=</span> price <span style=color:#ff7b72;font-weight:700>*</span> quantity;
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// total might be 59.96999999999999...
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Use fixed-point decimal types
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Store cents as integers
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>long</span> price_cents <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1999</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>long</span> quantity <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>3</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>long</span> total_cents <span style=color:#ff7b72;font-weight:700>=</span> price_cents <span style=color:#ff7b72;font-weight:700>*</span> quantity;  <span style=color:#8b949e;font-style:italic>// 5997 cents = $59.97
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Or use decimal libraries
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Python: from decimal import Decimal
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Java: BigDecimal
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// C#: decimal type
+</span></span></span></code></pre></div><h3 id="62-numerical-stability">6.2 Numerical Stability</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Unstable: Variance calculation (one-pass, naive)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> sum <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>, sum_sq <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> n; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    sum <span style=color:#ff7b72;font-weight:700>+=</span> x[i];
+</span></span><span style=display:flex><span>    sum_sq <span style=color:#ff7b72;font-weight:700>+=</span> x[i] <span style=color:#ff7b72;font-weight:700>*</span> x[i];
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> variance <span style=color:#ff7b72;font-weight:700>=</span> (sum_sq <span style=color:#ff7b72;font-weight:700>-</span> sum<span style=color:#ff7b72;font-weight:700>*</span>sum<span style=color:#ff7b72;font-weight:700>/</span>n) <span style=color:#ff7b72;font-weight:700>/</span> (n<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>);  <span style=color:#8b949e;font-style:italic>// Catastrophic cancellation!
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Stable: Welford&#39;s online algorithm
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> mean <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>, M2 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> n; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> delta <span style=color:#ff7b72;font-weight:700>=</span> x[i] <span style=color:#ff7b72;font-weight:700>-</span> mean;
+</span></span><span style=display:flex><span>    mean <span style=color:#ff7b72;font-weight:700>+=</span> delta <span style=color:#ff7b72;font-weight:700>/</span> (i <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>1</span>);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> delta2 <span style=color:#ff7b72;font-weight:700>=</span> x[i] <span style=color:#ff7b72;font-weight:700>-</span> mean;
+</span></span><span style=display:flex><span>    M2 <span style=color:#ff7b72;font-weight:700>+=</span> delta <span style=color:#ff7b72;font-weight:700>*</span> delta2;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> variance <span style=color:#ff7b72;font-weight:700>=</span> M2 <span style=color:#ff7b72;font-weight:700>/</span> (n <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>1</span>);
+</span></span></code></pre></div><h3 id="63-comparing-floating-point-numbers">6.3 Comparing Floating Point Numbers</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// For testing/assertions: relative + absolute tolerance
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>bool</span> <span style=color:#d2a8ff;font-weight:700>close_enough</span>(<span style=color:#ff7b72>double</span> a, <span style=color:#ff7b72>double</span> b, <span style=color:#ff7b72>double</span> rel_tol, <span style=color:#ff7b72>double</span> abs_tol) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Handle special cases
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>isnan</span>(a) <span style=color:#ff7b72;font-weight:700>||</span> <span style=color:#d2a8ff;font-weight:700>isnan</span>(b)) <span style=color:#ff7b72>return</span> false;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>isinf</span>(a) <span style=color:#ff7b72;font-weight:700>||</span> <span style=color:#d2a8ff;font-weight:700>isinf</span>(b)) <span style=color:#ff7b72>return</span> a <span style=color:#ff7b72;font-weight:700>==</span> b;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> diff <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>fabs</span>(a <span style=color:#ff7b72;font-weight:700>-</span> b);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Absolute tolerance for numbers near zero
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (diff <span style=color:#ff7b72;font-weight:700>&lt;</span> abs_tol) <span style=color:#ff7b72>return</span> true;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Relative tolerance for larger numbers
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> largest <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>fmax</span>(<span style=color:#d2a8ff;font-weight:700>fabs</span>(a), <span style=color:#d2a8ff;font-weight:700>fabs</span>(b));
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> diff <span style=color:#ff7b72;font-weight:700>&lt;=</span> largest <span style=color:#ff7b72;font-weight:700>*</span> rel_tol;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Python&#39;s math.isclose default:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// rel_tol=1e-9, abs_tol=0.0
+</span></span></span></code></pre></div><h3 id="64-compiler-flags-and-fast-math">6.4 Compiler Flags and Fast Math</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># GCC/Clang fast-math flags</span>
+</span></span><span style=display:flex><span>-ffast-math        <span style=color:#8b949e;font-style:italic># Enables all unsafe optimizations</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Individual flags:</span>
+</span></span><span style=display:flex><span>-fno-signed-zeros      <span style=color:#8b949e;font-style:italic># Assume +0 = -0</span>
+</span></span><span style=display:flex><span>-fno-trapping-math     <span style=color:#8b949e;font-style:italic># Assume no FP exceptions</span>
+</span></span><span style=display:flex><span>-ffinite-math-only     <span style=color:#8b949e;font-style:italic># Assume no inf/nan</span>
+</span></span><span style=display:flex><span>-fassociative-math     <span style=color:#8b949e;font-style:italic># Allow (a+b)+c = a+(b+c)</span>
+</span></span><span style=display:flex><span>-freciprocal-math      <span style=color:#8b949e;font-style:italic># Allow x/y = x*(1/y)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># These break IEEE 754 compliance but can be 2-3x faster</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Use only when you understand the implications!</span>
+</span></span></code></pre></div><h3 id="65-hardware-considerations">6.5 Hardware Considerations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>x87 FPU (legacy):
+</span></span><span style=display:flex><span>- 80-bit extended precision internally
+</span></span><span style=display:flex><span>- Results depend on precision control register
+</span></span><span style=display:flex><span>- Can give different results than SSE
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SSE/SSE2:
+</span></span><span style=display:flex><span>- Native 32/64-bit operations
+</span></span><span style=display:flex><span>- More predictable results
+</span></span><span style=display:flex><span>- Default on modern x86-64
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ARM NEON:
+</span></span><span style=display:flex><span>- May flush denormals to zero by default
+</span></span><span style=display:flex><span>- Different rounding behavior possible
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Always test numerical code on target hardware!
+</span></span></code></pre></div><h2 id="7-extended-and-alternative-formats">7. Extended and Alternative Formats</h2><p>Beyond standard float and double.</p><h3 id="71-extended-precision">7.1 Extended Precision</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>x87 Extended (80-bit):
+</span></span><span style=display:flex><span>Sign: 1 bit
+</span></span><span style=display:flex><span>Exponent: 15 bits
+</span></span><span style=display:flex><span>Mantissa: 64 bits (explicit leading bit)
+</span></span><span style=display:flex><span>Range: ±1.2 × 10⁻⁴⁹³² to ±1.2 × 10⁴⁹³²
+</span></span><span style=display:flex><span>Precision: ~19 decimal digits
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>IEEE 754-2008 Quad (128-bit):
+</span></span><span style=display:flex><span>Sign: 1 bit
+</span></span><span style=display:flex><span>Exponent: 15 bits
+</span></span><span style=display:flex><span>Mantissa: 112 bits
+</span></span><span style=display:flex><span>Range: ±6.5 × 10⁻⁴⁹⁶⁶ to ±1.2 × 10⁴⁹³²
+</span></span><span style=display:flex><span>Precision: ~34 decimal digits
+</span></span></code></pre></div><h3 id="72-half-precision-16-bit">7.2 Half Precision (16-bit)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>IEEE 754 Half (binary16):
+</span></span><span style=display:flex><span>┌───┬─────────────┬────────────────────────┐
+</span></span><span style=display:flex><span>│ S │  Exponent   │       Mantissa         │
+</span></span><span style=display:flex><span>│1b │   5 bits    │       10 bits          │
+</span></span><span style=display:flex><span>└───┴─────────────┴────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Range: ±6.1 × 10⁻⁵ to ±65504
+</span></span><span style=display:flex><span>Precision: ~3.3 decimal digits
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Used in:
+</span></span><span style=display:flex><span>- Machine learning (bfloat16 variant popular in AI)
+</span></span><span style=display:flex><span>- Graphics (color values, HDR)
+</span></span><span style=display:flex><span>- Storage (when precision less critical than size)
+</span></span></code></pre></div><h3 id="73-bfloat16">7.3 bfloat16</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Google Brain Float16:
+</span></span><span style=display:flex><span>┌───┬─────────────┬────────────────┐
+</span></span><span style=display:flex><span>│ S │  Exponent   │   Mantissa     │
+</span></span><span style=display:flex><span>│1b │   8 bits    │   7 bits       │
+</span></span><span style=display:flex><span>└───┴─────────────┴────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Same exponent range as float32
+</span></span><span style=display:flex><span>Truncated mantissa (less precision)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits for ML:
+</span></span><span style=display:flex><span>- Fast conversion to/from float32
+</span></span><span style=display:flex><span>- Same dynamic range as float32
+</span></span><span style=display:flex><span>- Sufficient precision for neural network weights
+</span></span></code></pre></div><h3 id="74-arbitrary-precision-libraries">7.4 Arbitrary Precision Libraries</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Python mpmath</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>mpmath</span> <span style=color:#ff7b72>import</span> mp, mpf
+</span></span><span style=display:flex><span>mp<span style=color:#ff7b72;font-weight:700>.</span>dps <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>50</span>  <span style=color:#8b949e;font-style:italic># 50 decimal places</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>x <span style=color:#ff7b72;font-weight:700>=</span> mpf(<span style=color:#a5d6ff>&#39;0.1&#39;</span>)
+</span></span><span style=display:flex><span>y <span style=color:#ff7b72;font-weight:700>=</span> mpf(<span style=color:#a5d6ff>&#39;0.2&#39;</span>)
+</span></span><span style=display:flex><span>z <span style=color:#ff7b72;font-weight:700>=</span> mpf(<span style=color:#a5d6ff>&#39;0.3&#39;</span>)
+</span></span><span style=display:flex><span>print(x <span style=color:#ff7b72;font-weight:700>+</span> y <span style=color:#ff7b72;font-weight:700>==</span> z)  <span style=color:#8b949e;font-style:italic># True!</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># GMP (GNU Multiple Precision)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># MPFR (Multiple Precision Floating-Point Reliable)</span>
+</span></span></code></pre></div><h2 id="8-floating-point-exceptions">8. Floating Point Exceptions</h2><p>IEEE 754 defines five exception conditions.</p><h3 id="81-exception-types">8.1 Exception Types</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1. Invalid Operation
+</span></span><span style=display:flex><span>   - 0/0, ∞-∞, 0×∞, sqrt(-1)
+</span></span><span style=display:flex><span>   - Result: NaN
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Division by Zero
+</span></span><span style=display:flex><span>   - x/0 where x ≠ 0
+</span></span><span style=display:flex><span>   - Result: ±∞
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Overflow
+</span></span><span style=display:flex><span>   - Result too large to represent
+</span></span><span style=display:flex><span>   - Result: ±∞ or ±MAX (depending on rounding)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. Underflow
+</span></span><span style=display:flex><span>   - Result too small (becomes denormal or zero)
+</span></span><span style=display:flex><span>   - Result: denormal or 0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>5. Inexact
+</span></span><span style=display:flex><span>   - Result required rounding
+</span></span><span style=display:flex><span>   - Happens on almost every operation!
+</span></span></code></pre></div><h3 id="82-exception-handling-in-c">8.2 Exception Handling in C</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;fenv.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Clear exception flags
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>feclearexcept</span>(FE_ALL_EXCEPT);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Perform operations
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> x <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1.0</span> <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>0.0</span>;  <span style=color:#8b949e;font-style:italic>// Division by zero
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> y <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>sqrt</span>(<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1.0</span>); <span style=color:#8b949e;font-style:italic>// Invalid
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Check which exceptions occurred
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>fetestexcept</span>(FE_DIVBYZERO)) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Division by zero occurred</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>fetestexcept</span>(FE_INVALID)) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Invalid operation occurred</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Can also trap on exceptions (platform-specific)
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="83-debugging-with-floating-point-exceptions">8.3 Debugging with Floating Point Exceptions</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Enable trapping (causes SIGFPE on exception)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define _GNU_SOURCE
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;fenv.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>enable_fp_exceptions</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>feenableexcept</span>(FE_INVALID <span style=color:#ff7b72;font-weight:700>|</span> FE_DIVBYZERO <span style=color:#ff7b72;font-weight:700>|</span> FE_OVERFLOW);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Now invalid operations crash immediately
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Much easier to find the source of NaN!
+</span></span></span></code></pre></div><h2 id="9-testing-floating-point-code">9. Testing Floating Point Code</h2><p>Strategies for verifying numerical correctness.</p><h3 id="91-unit-testing-approaches">9.1 Unit Testing Approaches</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>math</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>unittest</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>TestNumerics</span>(unittest<span style=color:#ff7b72;font-weight:700>.</span>TestCase):
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>test_close_values</span>(self):
+</span></span><span style=display:flex><span>        result <span style=color:#ff7b72;font-weight:700>=</span> compute_something()
+</span></span><span style=display:flex><span>        expected <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>3.14159</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># assertAlmostEqual uses places (decimal places)</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>assertAlmostEqual(result, expected, places<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>5</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Or use math.isclose for relative tolerance</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>assertTrue(math<span style=color:#ff7b72;font-weight:700>.</span>isclose(result, expected, rel_tol<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1e-6</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>test_special_values</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>assertTrue(math<span style=color:#ff7b72;font-weight:700>.</span>isnan(<span style=color:#a5d6ff>0.0</span> <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>0.0</span>))
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>assertTrue(math<span style=color:#ff7b72;font-weight:700>.</span>isinf(<span style=color:#a5d6ff>1.0</span> <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>0.0</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>test_edge_cases</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Test near overflow</span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Test near underflow</span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Test with denormals</span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Test with very large/small inputs</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>pass</span>
+</span></span></code></pre></div><h3 id="92-property-based-testing">9.2 Property-Based Testing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>hypothesis</span> <span style=color:#ff7b72>import</span> given, strategies <span style=color:#ff7b72>as</span> st
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>@given</span>(st<span style=color:#ff7b72;font-weight:700>.</span>floats(allow_nan<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>False</span>, allow_infinity<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>False</span>))
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>test_square_root_property</span>(x):
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> x <span style=color:#ff7b72;font-weight:700>&gt;=</span> <span style=color:#a5d6ff>0</span>:
+</span></span><span style=display:flex><span>        result <span style=color:#ff7b72;font-weight:700>=</span> math<span style=color:#ff7b72;font-weight:700>.</span>sqrt(x)
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># sqrt(x)^2 should be close to x</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>assert</span> math<span style=color:#ff7b72;font-weight:700>.</span>isclose(result <span style=color:#ff7b72;font-weight:700>*</span> result, x, rel_tol<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1e-10</span>)
+</span></span></code></pre></div><h3 id="93-reference-implementations">9.3 Reference Implementations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Compare against arbitrary precision library
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;mpfr.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>verify_accuracy</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>mpfr_t</span> x, expected;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>mpfr_init2</span>(x, <span style=color:#a5d6ff>256</span>);  <span style=color:#8b949e;font-style:italic>// 256 bits precision
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>mpfr_init2</span>(expected, <span style=color:#a5d6ff>256</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Compute in high precision
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>mpfr_set_d</span>(x, <span style=color:#a5d6ff>0.1</span>, MPFR_RNDN);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>mpfr_sin</span>(expected, x, MPFR_RNDN);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Compare with standard library
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> std_result <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>sin</span>(<span style=color:#a5d6ff>0.1</span>);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> mpfr_result <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mpfr_get_d</span>(expected, MPFR_RNDN);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> error <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>fabs</span>(std_result <span style=color:#ff7b72;font-weight:700>-</span> mpfr_result);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>assert</span>(error <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>1e-15</span>);  <span style=color:#8b949e;font-style:italic>// Within expected precision
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>mpfr_clear</span>(x);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>mpfr_clear</span>(expected);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id="10-performance-optimization">10. Performance Optimization</h2><p>Making floating point code fast.</p><h3 id="101-simd-vectorization">10.1 SIMD Vectorization</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Scalar loop
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> n; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    c[i] <span style=color:#ff7b72;font-weight:700>=</span> a[i] <span style=color:#ff7b72;font-weight:700>+</span> b[i];
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Vectorized (AVX2, 8 floats at once)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;immintrin.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> n; i <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>8</span>) {
+</span></span><span style=display:flex><span>    __m256 va <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>_mm256_load_ps</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>a[i]);
+</span></span><span style=display:flex><span>    __m256 vb <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>_mm256_load_ps</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>b[i]);
+</span></span><span style=display:flex><span>    __m256 vc <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>_mm256_add_ps</span>(va, vb);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>_mm256_store_ps</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>c[i], vc);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="102-avoiding-denormals">10.2 Avoiding Denormals</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Denormal operations can be 10-100x slower!
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Solution 1: Flush denormals to zero (DAZ + FTZ)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;immintrin.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>_mm_setcsr</span>(<span style=color:#d2a8ff;font-weight:700>_mm_getcsr</span>() <span style=color:#ff7b72;font-weight:700>|</span> <span style=color:#a5d6ff>0x8040</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Solution 2: Add small constant to avoid denormals
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define SMALL_CONSTANT 1e-30f
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>float</span> <span style=color:#d2a8ff;font-weight:700>safe_divide</span>(<span style=color:#ff7b72>float</span> a, <span style=color:#ff7b72>float</span> b) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> a <span style=color:#ff7b72;font-weight:700>/</span> (b <span style=color:#ff7b72;font-weight:700>+</span> SMALL_CONSTANT);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="103-division-is-expensive">10.3 Division is Expensive</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Division is ~10-20x slower than multiplication
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// SLOW: Multiple divisions by same value
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> n; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    result[i] <span style=color:#ff7b72;font-weight:700>=</span> data[i] <span style=color:#ff7b72;font-weight:700>/</span> scale;  <span style=color:#8b949e;font-style:italic>// Division each iteration
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// FAST: Compute reciprocal once
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>float</span> inv_scale <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1.0f</span> <span style=color:#ff7b72;font-weight:700>/</span> scale;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> n; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    result[i] <span style=color:#ff7b72;font-weight:700>=</span> data[i] <span style=color:#ff7b72;font-weight:700>*</span> inv_scale;  <span style=color:#8b949e;font-style:italic>// Multiplication each iteration
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="104-fast-approximations">10.4 Fast Approximations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Fast inverse square root (Quake III)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Famous but now mostly obsolete (rsqrtss is faster)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>float</span> <span style=color:#d2a8ff;font-weight:700>q_rsqrt</span>(<span style=color:#ff7b72>float</span> number) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>long</span> i;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>float</span> x2, y;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>float</span> threehalfs <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1.5F</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    x2 <span style=color:#ff7b72;font-weight:700>=</span> number <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>0.5F</span>;
+</span></span><span style=display:flex><span>    y <span style=color:#ff7b72;font-weight:700>=</span> number;
+</span></span><span style=display:flex><span>    i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72;font-weight:700>*</span>(<span style=color:#ff7b72>long</span> <span style=color:#ff7b72;font-weight:700>*</span>)<span style=color:#ff7b72;font-weight:700>&amp;</span>y;
+</span></span><span style=display:flex><span>    i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0x5f3759df</span> <span style=color:#ff7b72;font-weight:700>-</span> (i <span style=color:#ff7b72;font-weight:700>&gt;&gt;</span> <span style=color:#a5d6ff>1</span>);  <span style=color:#8b949e;font-style:italic>// Magic constant!
+</span></span></span><span style=display:flex><span>    y <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72;font-weight:700>*</span>(<span style=color:#ff7b72>float</span> <span style=color:#ff7b72;font-weight:700>*</span>)<span style=color:#ff7b72;font-weight:700>&amp;</span>i;
+</span></span><span style=display:flex><span>    y <span style=color:#ff7b72;font-weight:700>=</span> y <span style=color:#ff7b72;font-weight:700>*</span> (threehalfs <span style=color:#ff7b72;font-weight:700>-</span> (x2 <span style=color:#ff7b72;font-weight:700>*</span> y <span style=color:#ff7b72;font-weight:700>*</span> y));  <span style=color:#8b949e;font-style:italic>// Newton-Raphson
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> y;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Modern: Use hardware RSQRT with Newton-Raphson refinement
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;immintrin.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>float</span> <span style=color:#d2a8ff;font-weight:700>fast_rsqrt</span>(<span style=color:#ff7b72>float</span> x) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>__m128</span> v <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>_mm_set_ss</span>(x);
+</span></span><span style=display:flex><span>    v <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>_mm_rsqrt_ss</span>(v);  <span style=color:#8b949e;font-style:italic>// Hardware approximation
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Optional: Newton-Raphson for more precision
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#d2a8ff;font-weight:700>_mm_cvtss_f32</span>(v);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id="11-language-specific-considerations">11. Language-Specific Considerations</h2><p>Different languages handle floating point differently.</p><h3 id="111-python">11.1 Python</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Python float is always 64-bit double</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>sys</span>
+</span></span><span style=display:flex><span>print(sys<span style=color:#ff7b72;font-weight:700>.</span>float_info)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Decimal for exact decimal arithmetic</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>decimal</span> <span style=color:#ff7b72>import</span> Decimal, getcontext
+</span></span><span style=display:flex><span>getcontext()<span style=color:#ff7b72;font-weight:700>.</span>prec <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>50</span>  <span style=color:#8b949e;font-style:italic># 50 significant digits</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>d <span style=color:#ff7b72;font-weight:700>=</span> Decimal(<span style=color:#a5d6ff>&#39;0.1&#39;</span>) <span style=color:#ff7b72;font-weight:700>+</span> Decimal(<span style=color:#a5d6ff>&#39;0.2&#39;</span>)
+</span></span><span style=display:flex><span>print(d <span style=color:#ff7b72;font-weight:700>==</span> Decimal(<span style=color:#a5d6ff>&#39;0.3&#39;</span>))  <span style=color:#8b949e;font-style:italic># True!</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Fractions for exact rational arithmetic</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>fractions</span> <span style=color:#ff7b72>import</span> Fraction
+</span></span><span style=display:flex><span>f <span style=color:#ff7b72;font-weight:700>=</span> Fraction(<span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>10</span>) <span style=color:#ff7b72;font-weight:700>+</span> Fraction(<span style=color:#a5d6ff>2</span>, <span style=color:#a5d6ff>10</span>)
+</span></span><span style=display:flex><span>print(f <span style=color:#ff7b72;font-weight:700>==</span> Fraction(<span style=color:#a5d6ff>3</span>, <span style=color:#a5d6ff>10</span>))  <span style=color:#8b949e;font-style:italic># True!</span>
+</span></span></code></pre></div><h3 id="112-javascript">11.2 JavaScript</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-javascript" data-lang=javascript><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// JavaScript only has 64-bit doubles (Number)
+</span></span></span><span style=display:flex><span>console.log(<span style=color:#a5d6ff>0.1</span> <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>0.2</span>); <span style=color:#8b949e;font-style:italic>// 0.30000000000000004
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// BigInt for exact large integers (but no decimals)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> big <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>9007199254740993</span>n; <span style=color:#8b949e;font-style:italic>// Beyond safe integer
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// For exact decimals, use libraries like decimal.js
+</span></span></span></code></pre></div><h3 id="113-java">11.3 Java</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-java" data-lang=java><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// StrictMath for reproducible results</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>double</span><span style=color:#6e7681> </span>a<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>StrictMath.sin(0.5);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// BigDecimal for exact decimal arithmetic</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>import</span><span style=color:#6e7681> </span><span style=color:#ff7b72>java.math.BigDecimal</span>;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>BigDecimal<span style=color:#6e7681> </span>d<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span><span style=color:#ff7b72>new</span><span style=color:#6e7681> </span>BigDecimal(<span style=color:#a5d6ff>&#34;0.1&#34;</span>)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>.add(<span style=color:#ff7b72>new</span><span style=color:#6e7681> </span>BigDecimal(<span style=color:#a5d6ff>&#34;0.2&#34;</span>));<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>System.out.println(d.equals(<span style=color:#ff7b72>new</span><span style=color:#6e7681> </span>BigDecimal(<span style=color:#a5d6ff>&#34;0.3&#34;</span>)));<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// true</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// strictfp keyword for reproducible floating point</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>strictfp</span><span style=color:#6e7681> </span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>ReproducibleMath</span><span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#ff7b72>double</span><span style=color:#6e7681> </span><span style=color:#d2a8ff;font-weight:700>compute</span>(<span style=color:#ff7b72>double</span><span style=color:#6e7681> </span>x)<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>        </span><span style=color:#ff7b72>return</span><span style=color:#6e7681> </span>Math.sin(x)<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#6e7681> </span>Math.cos(x);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span></code></pre></div><h3 id="114-rust">11.4 Rust</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-rust" data-lang=rust><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Rust has f32 and f64, follows IEEE 754
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span>x: <span style=color:#ff7b72>f64</span> <span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>0.1</span><span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>+</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>0.2</span>;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>println!</span>(<span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff>&#34;</span>,<span style=color:#6e7681> </span>x);<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// 0.30000000000000004
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Explicit handling of special values
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>if</span><span style=color:#6e7681> </span>x.is_nan()<span style=color:#6e7681> </span>{<span style=color:#6e7681> </span><span style=color:#8b949e;font-style:italic>/* handle */</span><span style=color:#6e7681> </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>if</span><span style=color:#6e7681> </span>x.is_infinite()<span style=color:#6e7681> </span>{<span style=color:#6e7681> </span><span style=color:#8b949e;font-style:italic>/* handle */</span><span style=color:#6e7681> </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Total ordering for floats (including NaN)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>use</span><span style=color:#6e7681> </span>std::cmp::Ordering;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>total_cmp</span>(a: <span style=color:#ff7b72>f64</span>,<span style=color:#6e7681> </span>b: <span style=color:#ff7b72>f64</span>)<span style=color:#6e7681> </span>-&gt; <span style=color:#f0883e;font-weight:700>Ordering</span><span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>a.total_cmp(<span style=color:#ff7b72;font-weight:700>&amp;</span>b)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span></code></pre></div><h2 id="12-real-world-floating-point-stories">12. Real-World Floating Point Stories</h2><p>Historical incidents and lessons learned from floating point bugs.</p><h3 id="121-the-patriot-missile-failure-1991">12.1 The Patriot Missile Failure (1991)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>During the Gulf War, a Patriot missile battery failed to intercept
+</span></span><span style=display:flex><span>a Scud missile, resulting in 28 deaths.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Root cause: Time accumulated in 0.1 second increments
+</span></span><span style=display:flex><span>- 0.1 cannot be represented exactly in binary
+</span></span><span style=display:flex><span>- Error: ~0.000000095 seconds per tick
+</span></span><span style=display:flex><span>- After 100 hours: 0.34 second drift
+</span></span><span style=display:flex><span>- Scud traveling at Mach 5: 500+ meter targeting error
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The fix: Periodic system restart (not implemented)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Lesson: Tiny errors accumulate over time
+</span></span></code></pre></div><h3 id="122-the-vancouver-stock-exchange-index-1982">12.2 The Vancouver Stock Exchange Index (1982)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>The Vancouver Stock Exchange started a new index at 1000.000.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>After 22 months, the index had fallen to ~520.
+</span></span><span style=display:flex><span>Problem: Should have been around ~1098.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Root cause: Truncation instead of rounding
+</span></span><span style=display:flex><span>- Index recalculated thousands of times daily
+</span></span><span style=display:flex><span>- Each calculation truncated to 3 decimal places
+</span></span><span style=display:flex><span>- Each truncation lost a tiny amount of value
+</span></span><span style=display:flex><span>- Cumulative loss: nearly half the index value!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The fix: Proper rounding, recalculation from scratch
+</span></span></code></pre></div><h3 id="123-the-ariane-5-explosion-1996">12.3 The Ariane 5 Explosion (1996)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>The Ariane 5 rocket exploded 37 seconds after launch.
+</span></span><span style=display:flex><span>Cost: $370 million cargo lost.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Root cause: Float-to-integer conversion overflow
+</span></span><span style=display:flex><span>- Horizontal velocity stored as 64-bit float
+</span></span><span style=display:flex><span>- Converted to 16-bit signed integer
+</span></span><span style=display:flex><span>- Ariane 5 was faster than Ariane 4
+</span></span><span style=display:flex><span>- Velocity exceeded 32767 (16-bit max)
+</span></span><span style=display:flex><span>- Exception handler shut down navigation
+</span></span><span style=display:flex><span>- Rocket veered off course, self-destructed
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Lesson: Always check range before conversion
+</span></span></code></pre></div><h3 id="124-excel-2007-bug">12.4 Excel 2007 Bug</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Excel 2007 displayed certain calculation results incorrectly.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>850 × 77.1 = 65535 (should be 65534.99999...)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Root cause: Special case in display formatting
+</span></span><span style=display:flex><span>- Results very close to 65536 or 65535
+</span></span><span style=display:flex><span>- Formatting code had incorrect boundary check
+</span></span><span style=display:flex><span>- Binary representation was correct
+</span></span><span style=display:flex><span>- Only display was wrong
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Lesson: Floating point bugs can hide in unexpected places
+</span></span></code></pre></div><h3 id="125-games-and-physics-engines">12.5 Games and Physics Engines</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Common floating point issues in games:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Coordinate precision at world edges
+</span></span><span style=display:flex><span>   - Player at (1000000, 1000000) has less precision
+</span></span><span style=display:flex><span>   - Objects jitter or behave erratically
+</span></span><span style=display:flex><span>   - Solution: Floating origin (re-center world)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Deterministic multiplayer
+</span></span><span style=display:flex><span>   - Different CPUs give different results
+</span></span><span style=display:flex><span>   - x87 vs SSE, compiler flags matter
+</span></span><span style=display:flex><span>   - Solution: Fixed point, or strict FP settings
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Physics tunneling
+</span></span><span style=display:flex><span>   - Fast objects pass through walls
+</span></span><span style=display:flex><span>   - Position update exceeds collision bounds
+</span></span><span style=display:flex><span>   - Solution: Continuous collision detection
+</span></span></code></pre></div><h2 id="13-interval-arithmetic-and-error-bounds">13. Interval Arithmetic and Error Bounds</h2><p>Tracking and bounding floating point error.</p><h3 id="131-interval-arithmetic-basics">13.1 Interval Arithmetic Basics</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Instead of a single value, track [lower, upper] bounds
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>typedef</span> <span style=color:#ff7b72>struct</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> lo;  <span style=color:#8b949e;font-style:italic>// Lower bound
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> hi;  <span style=color:#8b949e;font-style:italic>// Upper bound
+</span></span></span><span style=display:flex><span>} Interval;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Interval <span style=color:#d2a8ff;font-weight:700>interval_add</span>(Interval a, Interval b) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Set rounding modes for guaranteed bounds
+</span></span></span><span style=display:flex><span>    Interval result;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>fesetround</span>(FE_DOWNWARD);
+</span></span><span style=display:flex><span>    result.lo <span style=color:#ff7b72;font-weight:700>=</span> a.lo <span style=color:#ff7b72;font-weight:700>+</span> b.lo;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>fesetround</span>(FE_UPWARD);
+</span></span><span style=display:flex><span>    result.hi <span style=color:#ff7b72;font-weight:700>=</span> a.hi <span style=color:#ff7b72;font-weight:700>+</span> b.hi;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> result;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// After computation, interval width shows error bounds
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> <span style=color:#d2a8ff;font-weight:700>width</span>(Interval i) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> i.hi <span style=color:#ff7b72;font-weight:700>-</span> i.lo;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="132-applications-of-interval-arithmetic">13.2 Applications of Interval Arithmetic</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Validated numerics:
+</span></span><span style=display:flex><span>- Prove results are correct within bounds
+</span></span><span style=display:flex><span>- Detect when computation is unstable
+</span></span><span style=display:flex><span>- Used in formal verification
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Computer graphics:
+</span></span><span style=display:flex><span>- Ray-box intersection with guaranteed correctness
+</span></span><span style=display:flex><span>- Robust geometric predicates
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Scientific computing:
+</span></span><span style=display:flex><span>- Verified solutions to differential equations
+</span></span><span style=display:flex><span>- Trusted optimization results
+</span></span></code></pre></div><h3 id="133-error-analysis-example">13.3 Error Analysis Example</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Analyzing error in polynomial evaluation
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// f(x) = x³ - 3x + 2 at x = 1.0000001
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Direct evaluation (Horner&#39;s method)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>double</span> <span style=color:#d2a8ff;font-weight:700>horner</span>(<span style=color:#ff7b72>double</span> x) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> ((x) <span style=color:#ff7b72;font-weight:700>*</span> x <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>3</span>) <span style=color:#ff7b72;font-weight:700>*</span> x <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>2</span>;  <span style=color:#8b949e;font-style:italic>// 3 ops
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Error analysis:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Each operation introduces error ≤ 0.5 ULP
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Errors can compound or cancel
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Result error: typically a few ULPs
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// For critical code: use compensated algorithms
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// or interval arithmetic for guaranteed bounds
+</span></span></span></code></pre></div><h2 id="14-floating-point-in-databases-and-distributed-systems">14. Floating Point in Databases and Distributed Systems</h2><p>Special considerations for data storage and transmission.</p><h3 id="141-database-storage">14.1 Database Storage</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-sql" data-lang=sql><span style=display:flex><span><span style=color:#8b949e;font-style:italic>-- Different databases handle floats differently
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>-- PostgreSQL: real (32-bit), double precision (64-bit)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>-- Exact comparison unreliable
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>SELECT</span><span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#6e7681> </span><span style=color:#ff7b72>FROM</span><span style=color:#6e7681> </span>t<span style=color:#6e7681> </span><span style=color:#ff7b72>WHERE</span><span style=color:#6e7681> </span>price<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>19</span>.<span style=color:#a5d6ff>99</span>;<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>-- Risky!
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>SELECT</span><span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#6e7681> </span><span style=color:#ff7b72>FROM</span><span style=color:#6e7681> </span>t<span style=color:#6e7681> </span><span style=color:#ff7b72>WHERE</span><span style=color:#6e7681> </span><span style=color:#ff7b72>ABS</span>(price<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>-</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>19</span>.<span style=color:#a5d6ff>99</span>)<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>&lt;</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>0</span>.<span style=color:#a5d6ff>001</span>;<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>-- Better
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>-- For money: Use DECIMAL/NUMERIC
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>CREATE</span><span style=color:#6e7681> </span><span style=color:#ff7b72>TABLE</span><span style=color:#6e7681> </span>products<span style=color:#6e7681> </span>(<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>id<span style=color:#6e7681> </span>INT<span style=color:#6e7681> </span><span style=color:#ff7b72>PRIMARY</span><span style=color:#6e7681> </span><span style=color:#ff7b72>KEY</span>,<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>price<span style=color:#6e7681> </span>DECIMAL(<span style=color:#a5d6ff>10</span>,<span style=color:#6e7681> </span><span style=color:#a5d6ff>2</span>)<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>-- 10 digits, 2 after decimal
+</span></span></span><span style=display:flex><span>);<span style=color:#6e7681>
+</span></span></span></code></pre></div><h3 id="142-serialization-challenges">14.2 Serialization Challenges</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Binary serialization: preserve exact bits
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>serialize_double</span>(<span style=color:#ff7b72>double</span> d, <span style=color:#ff7b72>uint8_t</span> <span style=color:#ff7b72;font-weight:700>*</span>buf) {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>memcpy</span>(buf, <span style=color:#ff7b72;font-weight:700>&amp;</span>d, <span style=color:#ff7b72>sizeof</span>(<span style=color:#ff7b72>double</span>));
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Text serialization: can lose precision!
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;%.15g&#34;</span>, d);  <span style=color:#8b949e;font-style:italic>// May not round-trip exactly
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Round-trip guarantee requires enough digits
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Double: 17 significant digits for round-trip
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;%.17g&#34;</span>, d);  <span style=color:#8b949e;font-style:italic>// Guaranteed round-trip
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Or use hexadecimal float format
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;%a&#34;</span>, d);  <span style=color:#8b949e;font-style:italic>// Example: 0x1.921fb54442d18p+1
+</span></span></span></code></pre></div><h3 id="143-distributed-computation">14.3 Distributed Computation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Challenges in distributed floating point:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Different hardware architectures
+</span></span><span style=display:flex><span>   - x86 vs ARM may give slightly different results
+</span></span><span style=display:flex><span>   - GPU vs CPU differences
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Non-deterministic reduction
+</span></span><span style=display:flex><span>   - Parallel sum depends on order
+</span></span><span style=display:flex><span>   - Results vary between runs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Solutions:
+</span></span><span style=display:flex><span>   - Require specific rounding mode
+</span></span><span style=display:flex><span>   - Use reproducible reduction algorithms
+</span></span><span style=display:flex><span>   - Define tolerance for result matching
+</span></span><span style=display:flex><span>   - Use fixed-point for critical calculations
+</span></span></code></pre></div><h3 id="144-cross-platform-reproducibility">14.4 Cross-Platform Reproducibility</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Achieving reproducible results across platforms
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 1. Use strict floating point
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#pragma STDC FENV_ACCESS ON
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2. Avoid excess precision
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Compile with: -ffp-contract=off
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Or explicitly round intermediate results
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>float</span> temp <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#ff7b72>float</span>)(a <span style=color:#ff7b72;font-weight:700>*</span> b);  <span style=color:#8b949e;font-style:italic>// Force single precision
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 3. Specify rounding mode
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>fesetround</span>(FE_TONEAREST);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 4. Handle denormals consistently
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Either flush to zero everywhere, or preserve everywhere
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 5. Be careful with transcendental functions
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// sin(), exp(), etc. may differ between platforms
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Consider Taylor series or lookup tables for consistency
+</span></span></span></code></pre></div><h2 id="15-advanced-topics">15. Advanced Topics</h2><p>Cutting-edge developments in floating point.</p><h3 id="151-posit-numbers">15.1 Posit Numbers</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>An alternative to IEEE 754 floats:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Posit format:
+</span></span><span style=display:flex><span>┌───┬────────────┬──────────┬───────────┐
+</span></span><span style=display:flex><span>│ S │   Regime   │ Exponent │  Fraction │
+</span></span><span style=display:flex><span>│1b │  variable  │ variable │  variable │
+</span></span><span style=display:flex><span>└───┴────────────┴──────────┴───────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Key differences:
+</span></span><span style=display:flex><span>- Tapered precision (more bits near 1.0)
+</span></span><span style=display:flex><span>- No NaN or ±∞ (controversial)
+</span></span><span style=display:flex><span>- Simpler exception handling
+</span></span><span style=display:flex><span>- Claimed better accuracy for many tasks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Status: Research, not widely adopted yet
+</span></span></code></pre></div><h3 id="152-stochastic-rounding">15.2 Stochastic Rounding</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Traditional: Round to nearest (deterministic)
+</span></span><span style=display:flex><span>Stochastic: Probabilistically round up or down
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example: 2.3 rounded stochastically
+</span></span><span style=display:flex><span>- 70% chance → 2
+</span></span><span style=display:flex><span>- 30% chance → 3
+</span></span><span style=display:flex><span>- Expected value = 2.3 (unbiased!)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits for machine learning:
+</span></span><span style=display:flex><span>- Prevents systematic rounding bias
+</span></span><span style=display:flex><span>- Better gradient flow in training
+</span></span><span style=display:flex><span>- Enables lower precision without accuracy loss
+</span></span></code></pre></div><h3 id="153-mixed-precision-computing">15.3 Mixed Precision Computing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Strategy: Use different precisions for different purposes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example in deep learning:
+</span></span><span style=display:flex><span>1. Store weights in FP32
+</span></span><span style=display:flex><span>2. Compute forward pass in FP16/BF16
+</span></span><span style=display:flex><span>3. Accumulate in FP32
+</span></span><span style=display:flex><span>4. Update weights in FP32
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- 2x memory savings
+</span></span><span style=display:flex><span>- 2-8x compute speedup (tensor cores)
+</span></span><span style=display:flex><span>- Minimal accuracy loss
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Requires careful loss scaling to prevent underflow
+</span></span></code></pre></div><h3 id="154-unum-and-type-iii-unums">15.4 Unum and Type III Unums</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Universal Numbers (Unums):
+</span></span><span style=display:flex><span>- Variable-size representation
+</span></span><span style=display:flex><span>- Exact arithmetic when possible
+</span></span><span style=display:flex><span>- Track uncertainty explicitly
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Type III Unums (Posits + Valids):
+</span></span><span style=display:flex><span>- Posits for individual values
+</span></span><span style=display:flex><span>- Valids for interval bounds
+</span></span><span style=display:flex><span>- Goal: Replace IEEE 754
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Current status: Academic research
+</span></span><span style=display:flex><span>Adoption barriers: Hardware support, ecosystem
+</span></span></code></pre></div><h2 id="16-practical-guidelines-by-domain">16. Practical Guidelines by Domain</h2><p>Different applications have different floating point needs.</p><h3 id="161-scientific-computing">16.1 Scientific Computing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Requirements:
+</span></span><span style=display:flex><span>- Maximum precision for simulation accuracy
+</span></span><span style=display:flex><span>- Error propagation awareness
+</span></span><span style=display:flex><span>- Reproducibility for verification
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Recommendations:
+</span></span><span style=display:flex><span>✓ Use double precision by default
+</span></span><span style=display:flex><span>✓ Consider quad precision for ill-conditioned problems
+</span></span><span style=display:flex><span>✓ Implement error estimation
+</span></span><span style=display:flex><span>✓ Use stable algorithms (pivoting, Kahan summation)
+</span></span><span style=display:flex><span>✓ Verify against analytical solutions when available
+</span></span><span style=display:flex><span>✓ Document numerical assumptions and limitations
+</span></span></code></pre></div><h3 id="162-financial-applications">16.2 Financial Applications</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Requirements:
+</span></span><span style=display:flex><span>- Exact decimal arithmetic for regulations
+</span></span><span style=display:flex><span>- No rounding surprises
+</span></span><span style=display:flex><span>- Audit trail accuracy
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Recommendations:
+</span></span><span style=display:flex><span>✓ NEVER use float/double for money
+</span></span><span style=display:flex><span>✓ Use decimal types (BigDecimal, Decimal, NUMERIC)
+</span></span><span style=display:flex><span>✓ Define rounding rules explicitly
+</span></span><span style=display:flex><span>✓ Store as integers (cents, basis points)
+</span></span><span style=display:flex><span>✓ Test with boundary values and regulatory scenarios
+</span></span><span style=display:flex><span>✓ Document rounding policy in specifications
+</span></span></code></pre></div><h3 id="163-machine-learning-and-ai">16.3 Machine Learning and AI</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Requirements:
+</span></span><span style=display:flex><span>- Throughput over precision
+</span></span><span style=display:flex><span>- Memory efficiency for large models
+</span></span><span style=display:flex><span>- GPU/accelerator compatibility
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Recommendations:
+</span></span><span style=display:flex><span>✓ Use FP16/BF16 for inference when possible
+</span></span><span style=display:flex><span>✓ Mixed precision training (FP16 compute, FP32 accum)
+</span></span><span style=display:flex><span>✓ Monitor for overflow/underflow during training
+</span></span><span style=display:flex><span>✓ Use loss scaling for gradient underflow prevention
+</span></span><span style=display:flex><span>✓ Quantization-aware training for INT8 deployment
+</span></span><span style=display:flex><span>✓ Test model accuracy across precision levels
+</span></span></code></pre></div><h3 id="164-graphics-and-games">16.4 Graphics and Games</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Requirements:
+</span></span><span style=display:flex><span>- Fast performance for real-time rendering
+</span></span><span style=display:flex><span>- Visual correctness (not numerical)
+</span></span><span style=display:flex><span>- Large world coordinate handling
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Recommendations:
+</span></span><span style=display:flex><span>✓ Float32 for most calculations
+</span></span><span style=display:flex><span>✓ Floating origin for open worlds
+</span></span><span style=display:flex><span>✓ Double precision for physics simulation core
+</span></span><span style=display:flex><span>✓ Robust geometric predicates for collision
+</span></span><span style=display:flex><span>✓ Fast approximations where visual error is acceptable
+</span></span><span style=display:flex><span>✓ Test at extreme coordinates and time values
+</span></span></code></pre></div><h3 id="165-embedded-systems">16.5 Embedded Systems</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Requirements:
+</span></span><span style=display:flex><span>- Limited hardware resources
+</span></span><span style=display:flex><span>- Deterministic timing
+</span></span><span style=display:flex><span>- Power efficiency
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Recommendations:
+</span></span><span style=display:flex><span>✓ Consider fixed-point arithmetic
+</span></span><span style=display:flex><span>✓ Use software float emulation if no FPU
+</span></span><span style=display:flex><span>✓ Profile floating point instruction costs
+</span></span><span style=display:flex><span>✓ Avoid denormals (flush to zero)
+</span></span><span style=display:flex><span>✓ Minimize divisions (precompute reciprocals)
+</span></span><span style=display:flex><span>✓ Consider CORDIC algorithms for trig functions
+</span></span></code></pre></div><h3 id="166-web-and-javascript-applications">16.6 Web and JavaScript Applications</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Requirements:
+</span></span><span style=display:flex><span>- Cross-browser consistency
+</span></span><span style=display:flex><span>- Only 64-bit doubles available (in Number)
+</span></span><span style=display:flex><span>- Interoperability with JSON
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Recommendations:
+</span></span><span style=display:flex><span>✓ Use BigInt for large exact integers
+</span></span><span style=display:flex><span>✓ Decimal.js or similar for precise decimals
+</span></span><span style=display:flex><span>✓ Be aware of JSON number limitations
+</span></span><span style=display:flex><span>✓ Validate numeric ranges from user input
+</span></span><span style=display:flex><span>✓ Use explicit rounding for display
+</span></span><span style=display:flex><span>✓ Test across browsers and platforms
+</span></span></code></pre></div><h2 id="17-debugging-floating-point-issues">17. Debugging Floating Point Issues</h2><p>Systematic approaches to finding and fixing floating point bugs.</p><h3 id="171-diagnostic-techniques">17.1 Diagnostic Techniques</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Print exact representation
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;stdio.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>print_float_bits</span>(<span style=color:#ff7b72>float</span> f) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>int</span> bits;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>memcpy</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>bits, <span style=color:#ff7b72;font-weight:700>&amp;</span>f, <span style=color:#ff7b72>sizeof</span>(bits));
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Value: %g</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, f);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Hex: 0x%08X</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, bits);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Sign: %d</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, (bits <span style=color:#ff7b72;font-weight:700>&gt;&gt;</span> <span style=color:#a5d6ff>31</span>) <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#a5d6ff>1</span>);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Exp: %d (biased %d)</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>,
+</span></span><span style=display:flex><span>           ((bits <span style=color:#ff7b72;font-weight:700>&gt;&gt;</span> <span style=color:#a5d6ff>23</span>) <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#a5d6ff>0xFF</span>) <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>127</span>,
+</span></span><span style=display:flex><span>           (bits <span style=color:#ff7b72;font-weight:700>&gt;&gt;</span> <span style=color:#a5d6ff>23</span>) <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#a5d6ff>0xFF</span>);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Mantissa: 0x%06X</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, bits <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#a5d6ff>0x7FFFFF</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Hex float format in C99
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;%a</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, <span style=color:#a5d6ff>0.1</span>);  <span style=color:#8b949e;font-style:italic>// Prints: 0x1.999999999999ap-4
+</span></span></span></code></pre></div><h3 id="172-common-symptoms-and-causes">17.2 Common Symptoms and Causes</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Symptom: Result is NaN
+</span></span><span style=display:flex><span>Causes:
+</span></span><span style=display:flex><span>├─ 0/0, ∞-∞, 0×∞
+</span></span><span style=display:flex><span>├─ sqrt of negative number
+</span></span><span style=display:flex><span>├─ Uninitialized floating point variable
+</span></span><span style=display:flex><span>└─ Error propagated from earlier computation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Symptom: Result is unexpectedly zero
+</span></span><span style=display:flex><span>Causes:
+</span></span><span style=display:flex><span>├─ Underflow (value too small)
+</span></span><span style=display:flex><span>├─ Catastrophic cancellation
+</span></span><span style=display:flex><span>└─ Denormal flushing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Symptom: Results differ between debug/release
+</span></span><span style=display:flex><span>Causes:
+</span></span><span style=display:flex><span>├─ Different optimization levels
+</span></span><span style=display:flex><span>├─ x87 vs SSE codegen
+</span></span><span style=display:flex><span>├─ Fast-math flags enabled in release
+</span></span><span style=display:flex><span>└─ Uninitialized memory (different in debug)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Symptom: Results differ between machines
+</span></span><span style=display:flex><span>Causes:
+</span></span><span style=display:flex><span>├─ Different CPU architectures
+</span></span><span style=display:flex><span>├─ Different compiler versions
+</span></span><span style=display:flex><span>├─ Different math library implementations
+</span></span><span style=display:flex><span>└─ Different SIMD instruction sets
+</span></span></code></pre></div><h3 id="173-floating-point-sanitizers">17.3 Floating Point Sanitizers</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># GCC/Clang undefined behavior sanitizer catches some FP issues</span>
+</span></span><span style=display:flex><span>clang -fsanitize<span style=color:#ff7b72;font-weight:700>=</span>undefined,float-divide-by-zero program.c
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Enable FP exceptions to catch issues early</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#define _GNU_SOURCE</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#include &lt;fenv.h&gt;</span>
+</span></span><span style=display:flex><span>feenableexcept<span style=color:#ff7b72;font-weight:700>(</span>FE_INVALID | FE_OVERFLOW | FE_DIVBYZERO<span style=color:#ff7b72;font-weight:700>)</span>;
+</span></span><span style=display:flex><span>// Now bad operations cause SIGFPE
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Valgrind can detect some issues</span>
+</span></span><span style=display:flex><span>valgrind --tool<span style=color:#ff7b72;font-weight:700>=</span>memcheck ./program
+</span></span></code></pre></div><h3 id="174-systematic-testing-strategy">17.4 Systematic Testing Strategy</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1. Boundary values
+</span></span><span style=display:flex><span>   ├─ Zero (positive and negative)
+</span></span><span style=display:flex><span>   ├─ Smallest positive normal and denormal
+</span></span><span style=display:flex><span>   ├─ Largest finite value
+</span></span><span style=display:flex><span>   ├─ Infinity and NaN
+</span></span><span style=display:flex><span>   └─ Powers of 2 (exactly representable)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Special cases
+</span></span><span style=display:flex><span>   ├─ Values that can&#39;t be represented exactly (0.1, 0.2)
+</span></span><span style=display:flex><span>   ├─ Values near overflow threshold
+</span></span><span style=display:flex><span>   ├─ Values near underflow threshold
+</span></span><span style=display:flex><span>   └─ Values that cause cancellation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Randomized testing
+</span></span><span style=display:flex><span>   ├─ Property-based testing (Hypothesis, QuickCheck)
+</span></span><span style=display:flex><span>   ├─ Comparison with arbitrary precision library
+</span></span><span style=display:flex><span>   └─ Cross-platform result comparison
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. Stress testing
+</span></span><span style=display:flex><span>   ├─ Many iterations of accumulation
+</span></span><span style=display:flex><span>   ├─ Deep recursion with floating point
+</span></span><span style=display:flex><span>   └─ Extreme input ranges
+</span></span></code></pre></div><h2 id="18-summary">18. Summary</h2><p>Floating point representation is a fundamental compromise between range, precision, and performance:</p><p><strong>IEEE 754 format:</strong></p><ul><li>Sign bit, biased exponent, implicit-leading-1 mantissa</li><li>Single (32-bit): ~7 decimal digits</li><li>Double (64-bit): ~16 decimal digits</li></ul><p><strong>Special values:</strong></p><ul><li>Zero (positive and negative)</li><li>Infinity (positive and negative)</li><li>NaN (not equal to itself)</li><li>Denormals (gradual underflow)</li></ul><p><strong>Common pitfalls:</strong></p><ul><li>Never compare floats with <code>==</code></li><li>0.1 cannot be represented exactly</li><li>Order of operations affects results</li><li>Large magnitude differences cause precision loss</li></ul><p><strong>Best practices:</strong></p><ul><li>Use double unless you have good reason not to</li><li>Never use float/double for money</li><li>Use epsilon comparisons with relative tolerance</li><li>Consider Kahan summation for accuracy</li><li>Test edge cases and special values</li><li>Understand your compiler&rsquo;s optimization flags</li></ul><p>Understanding floating point is essential for writing correct numerical code. The abstractions are leaky, the edge cases are numerous, and the bugs are subtle. But with knowledge of how floating point works internally, you can anticipate problems and write robust numerical software.</p></div><footer class="ce1a612 c6dfb1e c3ecea6"><div class="c364589">Categories:
+<a href=/categories/systems/>systems</a>, <a href=/categories/fundamentals/>fundamentals</a></div><div>Tags:
+<a href=/tags/floating-point/>#floating-point</a>, <a href=/tags/ieee-754/>#ieee-754</a>, <a href=/tags/numerical-computing/>#numerical-computing</a>, <a href=/tags/precision/>#precision</a>, <a href=/tags/mathematics/>#mathematics</a>, <a href=/tags/systems/>#systems</a></div></footer></article></main><footer class="ccdf0e8" role=contentinfo aria-label=Footer><div class="cfdda01 c133889 c5df473 c0eecc8 c69618a c6942b3 c03620d c2a9f27 c7c11d8 c82c52d c14527b"><div class="c6dfb1e c3ecea6 c39ef11 c88ae6f">&copy; 2026 Leonardo Benicio. All rights
+reserved.</div><div class="c6942b3 c7c11d8 cd1fd22"><a href=https://github.com/lbenicio target=_blank rel="noopener noreferrer" aria-label=GitHub class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.5-.67 1.08-.82 1.7s-.2 1.27-.18 1.9V22"/></svg>
+<span class="cba5854">GitHub</span>
+</a><a href=https://www.linkedin.com/in/leonardo-benicio target=_blank rel="noopener noreferrer" aria-label=LinkedIn class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21V14.86c0-1.333-.027-3.046-1.858-3.046-1.86.0-2.145 1.45-2.145 2.948v5.69H9.069V9h3.112v1.561h.044c.434-.82 1.494-1.686 3.074-1.686 3.29.0 3.897 2.165 3.897 4.983v6.594zM5.337 7.433a1.805 1.805.0 11-.002-3.61 1.805 1.805.0 01.002 3.61zM6.763 20.452H3.911V9h2.852v11.452z"/></svg>
+<span class="cba5854">LinkedIn</span>
+</a><a href=https://twitter.com/lbenicio_ target=_blank rel="noopener noreferrer" aria-label=Twitter class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.177.013.354.013.53.0 5.386-4.099 11.599-11.6 11.599-2.31.0-4.457-.676-6.265-1.842.324.038.636.05.972.05 1.91.0 3.67-.65 5.07-1.755a4.099 4.099.0 01-3.827-2.84c.25.039.5.064.763.064.363.0.726-.051 1.065-.139A4.091 4.091.0 012.542 9.649v-.051c.538.3 1.162.482 1.824.507A4.082 4.082.0 012.54 6.7c0-.751.2-1.435.551-2.034a11.63 11.63.0 008.44 4.281 4.615 4.615.0 01-.101-.938 4.091 4.091.0 017.078-2.799 8.1 8.1.0 002.595-.988 4.112 4.112.0 01-1.8 2.261 8.2 8.2.0 002.357-.638A8.824 8.824.0 0119.613 7.96z"/></svg>
+<span class="cba5854">Twitter</span></a></div></div></footer></body></html>

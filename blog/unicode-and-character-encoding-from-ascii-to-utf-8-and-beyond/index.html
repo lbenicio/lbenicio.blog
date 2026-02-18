@@ -1,0 +1,1073 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>Unicode and Character Encoding: From ASCII to UTF-8 and Beyond · Leonardo Benicio</title><meta name=description content="A comprehensive guide to how computers represent text. Understand the evolution from ASCII through Unicode, the mechanics of UTF-8 encoding, and how to handle text correctly in modern software."><link rel=alternate type=application/rss+xml title=RSS href=https://lbenicio.dev/index.xml><link rel=canonical href=https://blog.lbenicio.dev/blog/unicode-and-character-encoding-from-ascii-to-utf-8-and-beyond/><link rel=preload href=/static/fonts/OpenSans-Regular.ttf as=font type=font/ttf crossorigin><link rel="stylesheet" href="/assets/css/fonts.min.40e2054b739ac45a0f9c940f4b44ec00c3b372356ebf61440a413c0337c5512e.css" crossorigin="anonymous" integrity="sha256-QOIFS3OaxFoPnJQPS0TsAMOzcjVuv2FECkE8AzfFUS4="><link rel="shortcut icon" href=/static/assets/favicon/favicon.ico><link rel=icon type=image/x-icon href=/static/assets/favicon/favicon.ico><link rel=icon href=/static/assets/favicon/favicon.svg type=image/svg+xml><link rel=icon href=/static/assets/favicon/favicon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/static/assets/favicon/favicon-16x16.png sizes=16x16 type=image/png><link rel=apple-touch-icon href=/static/assets/favicon/apple-touch-icon.png><link rel=manifest href=/static/assets/favicon/site.webmanifest><link rel=mask-icon href=/static/assets/favicon/safari-pinned-tab.svg color=#209cee><meta name=msapplication-TileColor content="#209cee"><meta name=msapplication-config content="/static/assets/favicon/browserconfig.xml"><meta name=theme-color content="#d2e9f8"><meta property="og:title" content="Unicode and Character Encoding: From ASCII to UTF-8 and Beyond · Leonardo Benicio"><meta property="og:description" content="A comprehensive guide to how computers represent text. Understand the evolution from ASCII through Unicode, the mechanics of UTF-8 encoding, and how to handle text correctly in modern software."><meta property="og:url" content="https://blog.lbenicio.dev/blog/unicode-and-character-encoding-from-ascii-to-utf-8-and-beyond/"><meta property="og:type" content="article"><meta property="og:image" content="https://blog.lbenicio.dev/static/assets/images/blog/unicode-character-encoding-utf8.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Unicode and Character Encoding: From ASCII to UTF-8 and Beyond · Leonardo Benicio"><meta name=twitter:description content="A comprehensive guide to how computers represent text. Understand the evolution from ASCII through Unicode, the mechanics of UTF-8 encoding, and how to handle text correctly in modern software."><meta name=twitter:site content="@lbenicio_"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"About Leonardo Benicio","url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Person","name":"Leonardo Benicio","sameAs":["https://github.com/lbenicio","https://www.linkedin.com/in/leonardo-benicio","https://twitter.com/lbenicio_"],"url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Home","position":1},{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Blog","position":2},{"@type":"ListItem","item":"https://blog.lbenicio.dev/blog/unicode-and-character-encoding-from-ascii-to-utf-8-and-beyond/","name":"Unicode and Character Encoding From Ascii to Utf 8 and Beyond","position":3}]}</script><link rel="stylesheet" href="/assets/css/main.min.1e8a566ac8bc3f0664d0db4ec8a015b07421c33fa11d336a6b914522a9cabf30.css" crossorigin="anonymous" integrity="sha256-6lhUOpwCHMSMROmggsVSp3AHKud6gBrIFGTzl3GV4BY="></head><body class="c6942b3 c03620d cf3bd2e"><script>(function(){try{document.addEventListener("gesturestart",function(e){e.preventDefault()}),document.addEventListener("touchstart",function(e){e.touches&&e.touches.length>1&&e.preventDefault()},{passive:!1});var e=0;document.addEventListener("touchend",function(t){var n=Date.now();n-e<=300&&t.preventDefault(),e=n},{passive:!1})}catch{}})()</script><a href=#content class="cba5854 c21e770 caffa6e cc5f604 cf2c31d cdd44dd c10dda9 c43876e c787e9b cddc2d2 cf55a7b c6dfb1e c9391e2">Skip to content</a>
+<script>(function(){try{const e=localStorage.getItem("theme");e==="dark"&&document.documentElement.classList.add("dark");const t=document.querySelector('button[aria-label="Toggle theme"]');t&&t.setAttribute("aria-pressed",String(e==="dark"))}catch{}})();function toggleTheme(e){const s=document.documentElement,t=s.classList.toggle("dark");try{localStorage.setItem("theme",t?"dark":"light")}catch{}try{var n=e&&e.nodeType===1?e:document.querySelector('button[aria-label="Toggle theme"]');n&&n.setAttribute("aria-pressed",String(!!t))}catch{}}(function(){function e(){try{return document.documentElement.classList.contains("dark")?"dark":"light"}catch{return"light"}}function n(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(0)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!1,s.style.display="block"}catch{}o.setAttribute("aria-expanded","true"),n.setAttribute("aria-hidden","false");try{document.body.classList.add("c150bbe")}catch{}const i=document.getElementById("i190984");i&&i.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_open",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function t(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(100%)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!0,s.style.display="none"}catch{}o.setAttribute("aria-expanded","false"),n.setAttribute("aria-hidden","true");try{document.body.classList.remove("c150bbe")}catch{}o.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_close",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function s(e){e.key==="Escape"&&t("escape")}window.__openMobileMenu=n,window.__closeMobileMenu=t;try{window.addEventListener("keydown",s,!0)}catch{}})()</script><header class="cd019ba c98dfae cdd44dd cfdda01 c9ee25d ce2dc7a cd72dd7 cc0dc37" role=banner><div class="cfdda01 c6942b3 ccf47f4 c7c11d8"><a href=/ class="c87e2b0 c6942b3 c7c11d8 c1838fa cb594e4" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=32 height=32 class="c3de71a c4d5191">
+<span class="cf8f011 c4d1253 cbd72bc cd7e69e">Leonardo Benicio</span></a><div class="c6942b3 c85cbd4 c7c11d8 ca798da c1838fa c7a0580"><nav class="cc1689c cd9b445 c75065d c04bab1" aria-label=Main><a href=/ class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Home</a>
+<a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">About</a>
+<a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Timeline</a>
+<a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Reading</a>
+<a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Publications</a>
+<a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Contact</a></nav><button id="i1d73d4" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 c097fa1 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" onclick=toggleTheme(this) aria-label="Toggle theme" aria-pressed=false title="Toggle theme">
+<svg class="cb26e41 c50ceea cb69a5c c4f45c8 c8c2c40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="cb26e41 c8fca2b cb69a5c c4f45c8 cc1689c c9c27ff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M6.34 17.66l2.83-2.83"/><path d="M14.83 9.17l2.83-2.83"/></svg>
+<span class="cba5854">Toggle theme</span></button><div class="c658bcf c097fa1"><button id="i975fb5" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" aria-label="Open menu" aria-controls="i98aca2" aria-expanded=false onclick='window.__openMobileMenu("button")' data-d38f920=mobile_menu_open_click>
+<svg class="c20e4eb cb58471" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<span class="cba5854">Open menu</span></button></div></div></div></header><div id="iad2af0" class="caffa6e ce4b5f4 c14639a" style=background-color:hsl(var(--background)) hidden onclick='window.__closeMobileMenu("overlay")' data-d38f920=mobile_menu_overlay_click></div><aside id="i98aca2" class="caffa6e c9efbc5 c437fa9 c49e97e c6c6936 c7cacca c7b34a4 c787e9b c88daee cad071a c6942b3 c03620d" role=dialog aria-modal=true aria-hidden=true aria-label="Mobile navigation" style="transform:translateX(100%);transition:transform 200ms ease-out;will-change:transform"><div class="c6942b3 c7c11d8 c82c52d c5df473 ccf47f4 c9ee25d"><a href=/ class="c6942b3 c7c11d8 c1838fa" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=24 height=24 class="c20e4eb cb58471">
+<span class="c62aaf0 c7c1b66 cbd72bc">Leonardo Benicio</span>
+</a><button id="i190984" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c514027 c286dd7 c2bd687 cfdce1d" aria-label="Close menu" onclick='window.__closeMobileMenu("button")' data-d38f920=mobile_menu_close_click>
+<svg class="c16e528 c61f467" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<span class="cba5854">Close</span></button></div><nav class="c85cbd4 ca0eaa4 c5df473 c6689b9"><ul class="cd69733"><li><a href=/ class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Home</a></li><li><a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>About</a></li><li><a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Timeline</a></li><li><a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Reading</a></li><li><a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Publications</a></li><li><a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Contact</a></li></ul></nav><div class="c60a4cc ccdf0e8 c277478 c13044e"><p>&copy; 2026 Leonardo Benicio</p></div></aside><div class="caffa6e c437fa9 ce9aced c97bba6 c15da2a c975cba" role=complementary aria-label="GitHub repository"><div class="c9d056d c252f85 ca22532 ca88a1a c876315"><div class="c6942b3 c7c11d8 c1d0018 cd1fd22 c6066e4 c43876e ce3d5b6 caa20d2 c3ecea6 c0cd2e2 cddc2d2 c3ed5c9 cd4074c c876315"><a href=https://github.com/lbenicio/aboutme target=_blank rel="noopener noreferrer" class="c6942b3 c7c11d8 cd1fd22 c71bae8 cfac1ac c19ee42 c25dc7c cb40739 cbbda39 cf55a7b" aria-label="View source on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cb26e41 c41bcd4 cf17690 cfa4e34 c78d562" aria-hidden="true"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+<span class="cb5c327 cd7e69e">Fork me</span></a></div></div></div><main id="i7eccc0" class="cfdda01 c5df473 c0eecc8 c85cbd4" role=main aria-label=Content><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Unicode and Character Encoding From Ascii to Utf 8 and Beyond</span></li></ol></nav><article class="c461ba0 c1c203f cfb6084 c995404 c6ca165"><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Unicode and Character Encoding From Ascii to Utf 8 and Beyond</span></li></ol></nav><header class="c8aedc7"><h1 class="cf304bc c6fb0fe cf8f011 cc484e1">Unicode and Character Encoding: From ASCII to UTF-8 and Beyond</h1><div class="c277478 c3ecea6 c8fb24a">2024-03-15
+· Leonardo Benicio</div><div class="c1a1a3f c8124f2"><img src=/static/assets/images/blog/unicode-character-encoding-utf8.png alt class="cfdda01 c524300 c677556"></div><p class="lead c3ecea6">A comprehensive guide to how computers represent text. Understand the evolution from ASCII through Unicode, the mechanics of UTF-8 encoding, and how to handle text correctly in modern software.</p></header><div class="content"><p>Text seems simple until you try to handle it correctly. A single question—&ldquo;how many characters are in this string?"—can have multiple valid answers depending on what you mean by &ldquo;character.&rdquo; Understanding Unicode and character encoding is essential for any programmer working with internationalized text, file formats, network protocols, or databases.</p><h2 id="1-the-history-of-character-encoding">1. The History of Character Encoding</h2><p>Before we can understand where we are, we need to know how we got here.</p><h3 id="11-the-telegraph-era">1.1 The Telegraph Era</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Early electrical communication needed a code:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Morse Code (1840s):
+</span></span><span style=display:flex><span>A = .-      B = -...    C = -.-.
+</span></span><span style=display:flex><span>D = -..     E = .       F = ..-.
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Baudot Code (1870s):
+</span></span><span style=display:flex><span>- 5-bit encoding (32 possible codes)
+</span></span><span style=display:flex><span>- Used in teleprinters
+</span></span><span style=display:flex><span>- Shift codes to switch between letters and figures
+</span></span></code></pre></div><h3 id="12-ascii-the-foundation">1.2 ASCII: The Foundation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>ASCII (1963): American Standard Code for Information Interchange
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>7-bit encoding = 128 possible characters
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  0-31    Control characters (NUL, TAB, LF, CR, ESC)    │
+</span></span><span style=display:flex><span>│  32-47   Punctuation and symbols (space, !, &#34;, #...)    │
+</span></span><span style=display:flex><span>│  48-57   Digits 0-9                                     │
+</span></span><span style=display:flex><span>│  58-64   More punctuation (:, ;, &lt;, =, &gt;, ?, @)        │
+</span></span><span style=display:flex><span>│  65-90   Uppercase A-Z                                  │
+</span></span><span style=display:flex><span>│  91-96   More punctuation ([, \, ], ^, _, `)           │
+</span></span><span style=display:flex><span>│  97-122  Lowercase a-z                                  │
+</span></span><span style=display:flex><span>│  123-127 More punctuation and DEL ({, |, }, ~, DEL)    │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Key design decisions:
+</span></span><span style=display:flex><span>- Letters are contiguous (easy iteration)
+</span></span><span style=display:flex><span>- Uppercase and lowercase differ by 1 bit (bit 5)
+</span></span><span style=display:flex><span>- Digits have their value in low nibble (0x30-0x39)
+</span></span></code></pre></div><h3 id="13-the-extended-ascii-chaos">1.3 The Extended ASCII Chaos</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>8-bit computers had 256 possible values, but only 128 used.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The &#34;high ASCII&#34; (128-255) became a free-for-all:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Code Page 437 (IBM PC, US):
+</span></span><span style=display:flex><span>- Box-drawing characters: ╔═╗║╚╝
+</span></span><span style=display:flex><span>- Math symbols: ±≥≤÷
+</span></span><span style=display:flex><span>- Some accented letters: é ñ
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Code Page 850 (Western European):
+</span></span><span style=display:flex><span>- More accented letters: à é í ó ú ü
+</span></span><span style=display:flex><span>- Different box-drawing characters
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Code Page 1251 (Windows Cyrillic):
+</span></span><span style=display:flex><span>- А Б В Г Д Е Ж for Russian
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ISO 8859-1 (Latin-1):
+</span></span><span style=display:flex><span>- Western European: café, naïve, résumé
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The problem: Same byte, different character!
+</span></span><span style=display:flex><span>0x80 = Ç (CP437) = € (CP1252) = А (CP1251)
+</span></span></code></pre></div><h3 id="14-multi-byte-encodings-for-asian-languages">1.4 Multi-Byte Encodings for Asian Languages</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Asian languages need thousands of characters:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Shift-JIS (Japanese):
+</span></span><span style=display:flex><span>- Single byte for ASCII
+</span></span><span style=display:flex><span>- Double byte for Japanese characters
+</span></span><span style=display:flex><span>- Complex, overlapping ranges
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>GB2312 / GBK (Chinese):
+</span></span><span style=display:flex><span>- Similar double-byte scheme
+</span></span><span style=display:flex><span>- Different mapping
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>EUC-KR (Korean):
+</span></span><span style=display:flex><span>- Yet another double-byte scheme
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problems:
+</span></span><span style=display:flex><span>- Can&#39;t mix languages easily
+</span></span><span style=display:flex><span>- Detection is unreliable
+</span></span><span style=display:flex><span>- Many incompatible standards
+</span></span></code></pre></div><h2 id="2-unicode-one-standard-to-rule-them-all">2. Unicode: One Standard to Rule Them All</h2><p>Unicode aims to assign a unique number to every character in every writing system.</p><h3 id="21-the-unicode-consortium">2.1 The Unicode Consortium</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Founded in 1991 by tech companies:
+</span></span><span style=display:flex><span>- Apple, IBM, Microsoft, Sun, and others
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Goal: Universal character set
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Current state (Unicode 15.1, 2023):
+</span></span><span style=display:flex><span>- 149,813 characters
+</span></span><span style=display:flex><span>- 161 scripts (alphabets, syllabaries, etc.)
+</span></span><span style=display:flex><span>- Emoji, symbols, historical scripts
+</span></span><span style=display:flex><span>- Still growing!
+</span></span></code></pre></div><h3 id="22-code-points">2.2 Code Points</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>A code point is a number assigned to a character.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Written as U+XXXX (hexadecimal):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>U+0041 = A (Latin Capital Letter A)
+</span></span><span style=display:flex><span>U+03B1 = α (Greek Small Letter Alpha)
+</span></span><span style=display:flex><span>U+4E2D = 中 (CJK Ideograph, &#34;middle/center&#34;)
+</span></span><span style=display:flex><span>U+1F600 = 😀 (Grinning Face emoji)
+</span></span><span style=display:flex><span>U+0000 to U+10FFFF = 1,114,112 possible code points
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Not all code points are assigned:
+</span></span><span style=display:flex><span>- Many reserved for future use
+</span></span><span style=display:flex><span>- Some permanently unassigned (surrogates)
+</span></span></code></pre></div><h3 id="23-unicode-planes">2.3 Unicode Planes</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Unicode is divided into 17 &#34;planes&#34; of 65,536 code points each:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Plane 0: Basic Multilingual Plane (BMP)
+</span></span><span style=display:flex><span>U+0000 to U+FFFF
+</span></span><span style=display:flex><span>- Most common characters
+</span></span><span style=display:flex><span>- Latin, Greek, Cyrillic, Arabic, Hebrew
+</span></span><span style=display:flex><span>- CJK ideographs (Chinese, Japanese, Korean)
+</span></span><span style=display:flex><span>- Common symbols
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Plane 1: Supplementary Multilingual Plane (SMP)
+</span></span><span style=display:flex><span>U+10000 to U+1FFFF
+</span></span><span style=display:flex><span>- Historic scripts
+</span></span><span style=display:flex><span>- Musical notation
+</span></span><span style=display:flex><span>- Emoji! (U+1F600 onwards)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Plane 2: Supplementary Ideographic Plane (SIP)
+</span></span><span style=display:flex><span>U+20000 to U+2FFFF
+</span></span><span style=display:flex><span>- Rare CJK characters
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Planes 3-13: Mostly unassigned
+</span></span><span style=display:flex><span>Plane 14: Supplementary Special-purpose Plane
+</span></span><span style=display:flex><span>Planes 15-16: Private Use Areas
+</span></span></code></pre></div><h3 id="24-properties-and-categories">2.4 Properties and Categories</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Every code point has properties:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>General Category:
+</span></span><span style=display:flex><span>- Lu = Letter, uppercase (A, B, C)
+</span></span><span style=display:flex><span>- Ll = Letter, lowercase (a, b, c)
+</span></span><span style=display:flex><span>- Nd = Number, decimal digit (0-9)
+</span></span><span style=display:flex><span>- Zs = Separator, space
+</span></span><span style=display:flex><span>- Sm = Symbol, math (+, −, ×)
+</span></span><span style=display:flex><span>- So = Symbol, other (©, ®, emoji)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Other properties:
+</span></span><span style=display:flex><span>- Script (Latin, Cyrillic, Han)
+</span></span><span style=display:flex><span>- Bidirectional class (for RTL text)
+</span></span><span style=display:flex><span>- Canonical combining class
+</span></span><span style=display:flex><span>- Numeric value
+</span></span></code></pre></div><h2 id="3-encodings-from-code-points-to-bytes">3. Encodings: From Code Points to Bytes</h2><p>A code point is abstract. Encodings convert them to actual bytes.</p><h3 id="31-utf-32-simple-but-wasteful">3.1 UTF-32: Simple but Wasteful</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Every code point = 4 bytes (32 bits)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>U+0041 (A)     = 00 00 00 41
+</span></span><span style=display:flex><span>U+4E2D (中)    = 00 00 4E 2D
+</span></span><span style=display:flex><span>U+1F600 (😀)   = 00 01 F6 00
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Pros:
+</span></span><span style=display:flex><span>- Simple: fixed width
+</span></span><span style=display:flex><span>- Random access: character N is at byte 4N
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cons:
+</span></span><span style=display:flex><span>- Wasteful: ASCII text is 4x larger
+</span></span><span style=display:flex><span>- Endianness: need to specify BE or LE
+</span></span><span style=display:flex><span>- Rarely used in practice
+</span></span></code></pre></div><h3 id="32-utf-16-the-windows-and-java-choice">3.2 UTF-16: The Windows and Java Choice</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Code points in BMP (U+0000-U+FFFF): 2 bytes
+</span></span><span style=display:flex><span>Code points above BMP: 4 bytes (surrogate pairs)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Surrogate pair encoding:
+</span></span><span style=display:flex><span>1. Subtract 0x10000 from code point
+</span></span><span style=display:flex><span>2. High 10 bits + 0xD800 = high surrogate (0xD800-0xDBFF)
+</span></span><span style=display:flex><span>3. Low 10 bits + 0xDC00 = low surrogate (0xDC00-0xDFFF)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example: U+1F600 (😀)
+</span></span><span style=display:flex><span>1. 0x1F600 - 0x10000 = 0xF600
+</span></span><span style=display:flex><span>2. High 10 bits: 0x3D → 0xD83D
+</span></span><span style=display:flex><span>3. Low 10 bits: 0x200 → 0xDE00
+</span></span><span style=display:flex><span>4. Result: D8 3D DE 00 (UTF-16BE)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Pros:
+</span></span><span style=display:flex><span>- Efficient for Asian text (mostly 2 bytes)
+</span></span><span style=display:flex><span>- Native in Windows, Java, JavaScript
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cons:
+</span></span><span style=display:flex><span>- Variable width (2 or 4 bytes)
+</span></span><span style=display:flex><span>- Surrogate pairs are confusing
+</span></span><span style=display:flex><span>- Endianness issues (UTF-16LE vs UTF-16BE)
+</span></span></code></pre></div><h3 id="33-utf-8-the-web-standard">3.3 UTF-8: The Web Standard</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Variable-width encoding: 1-4 bytes per code point
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌──────────────────┬─────────────────────────────────────┐
+</span></span><span style=display:flex><span>│ Code Point Range │ Byte Sequence                       │
+</span></span><span style=display:flex><span>├──────────────────┼─────────────────────────────────────┤
+</span></span><span style=display:flex><span>│ U+0000-U+007F    │ 0xxxxxxx                            │
+</span></span><span style=display:flex><span>│ U+0080-U+07FF    │ 110xxxxx 10xxxxxx                   │
+</span></span><span style=display:flex><span>│ U+0800-U+FFFF    │ 1110xxxx 10xxxxxx 10xxxxxx          │
+</span></span><span style=display:flex><span>│ U+10000-U+10FFFF │ 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx │
+</span></span><span style=display:flex><span>└──────────────────┴─────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example: U+4E2D (中)
+</span></span><span style=display:flex><span>Binary: 0100 1110 0010 1101
+</span></span><span style=display:flex><span>Template: 1110xxxx 10xxxxxx 10xxxxxx
+</span></span><span style=display:flex><span>Result: 11100100 10111000 10101101 = E4 B8 AD
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example: U+1F600 (😀)
+</span></span><span style=display:flex><span>Binary: 0001 1111 0110 0000 0000
+</span></span><span style=display:flex><span>Template: 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+</span></span><span style=display:flex><span>Result: 11110000 10011111 10011000 10000000 = F0 9F 98 80
+</span></span></code></pre></div><h3 id="34-why-utf-8-won">3.4 Why UTF-8 Won</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>UTF-8 advantages:
+</span></span><span style=display:flex><span>✓ ASCII compatible (first 128 bytes are identical)
+</span></span><span style=display:flex><span>✓ No endianness issues (byte-oriented)
+</span></span><span style=display:flex><span>✓ Self-synchronizing (can find character boundaries)
+</span></span><span style=display:flex><span>✓ No embedded NUL bytes (except for U+0000)
+</span></span><span style=display:flex><span>✓ Compact for English/Latin text
+</span></span><span style=display:flex><span>✓ Safe for C strings and Unix paths
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>UTF-8 on the web (2024):
+</span></span><span style=display:flex><span>- 98%+ of websites use UTF-8
+</span></span><span style=display:flex><span>- HTML5 default encoding
+</span></span><span style=display:flex><span>- JSON specification requires UTF-8
+</span></span></code></pre></div><h3 id="35-byte-order-mark-bom">3.5 Byte Order Mark (BOM)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>BOM: A special code point U+FEFF at file start
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>UTF-8 BOM: EF BB BF
+</span></span><span style=display:flex><span>- Optional, often discouraged
+</span></span><span style=display:flex><span>- Can break Unix scripts (#!/bin/bash)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>UTF-16 BOM:
+</span></span><span style=display:flex><span>- FE FF = UTF-16BE (big endian)
+</span></span><span style=display:flex><span>- FF FE = UTF-16LE (little endian)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>UTF-32 BOM:
+</span></span><span style=display:flex><span>- 00 00 FE FF = UTF-32BE
+</span></span><span style=display:flex><span>- FF FE 00 00 = UTF-32LE
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Common advice: Don&#39;t use BOM for UTF-8
+</span></span></code></pre></div><h2 id="4-grapheme-clusters-what-users-see">4. Grapheme Clusters: What Users See</h2><p>A &ldquo;character&rdquo; to a user isn&rsquo;t always a single code point.</p><h3 id="41-combining-characters">4.1 Combining Characters</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Some characters are built from multiple code points:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>é = U+0065 (e) + U+0301 (combining acute accent)
+</span></span><span style=display:flex><span>  = 2 code points, 1 grapheme
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ñ = U+006E (n) + U+0303 (combining tilde)
+</span></span><span style=display:flex><span>  = 2 code points, 1 grapheme
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>क्षि (Hindi) = multiple code points for one syllable
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The sequence of base character + combining marks
+</span></span><span style=display:flex><span>= Extended Grapheme Cluster
+</span></span></code></pre></div><h3 id="42-precomposed-vs-decomposed">4.2 Precomposed vs Decomposed</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Many accented characters have two representations:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>NFC (Composed):
+</span></span><span style=display:flex><span>é = U+00E9 (Latin Small Letter E with Acute)
+</span></span><span style=display:flex><span>1 code point
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>NFD (Decomposed):
+</span></span><span style=display:flex><span>é = U+0065 U+0301 (e + combining acute)
+</span></span><span style=display:flex><span>2 code points
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Both render identically!
+</span></span><span style=display:flex><span>But: strcmp(&#34;é&#34;, &#34;é&#34;) might return non-zero
+</span></span></code></pre></div><h3 id="43-emoji-and-zwj-sequences">4.3 Emoji and ZWJ Sequences</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Modern emoji can be multiple code points:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>👨‍👩‍👧‍👦 (Family) =
+</span></span><span style=display:flex><span>  U+1F468 (man) +
+</span></span><span style=display:flex><span>  U+200D (ZWJ) +
+</span></span><span style=display:flex><span>  U+1F469 (woman) +
+</span></span><span style=display:flex><span>  U+200D (ZWJ) +
+</span></span><span style=display:flex><span>  U+1F467 (girl) +
+</span></span><span style=display:flex><span>  U+200D (ZWJ) +
+</span></span><span style=display:flex><span>  U+1F466 (boy)
+</span></span><span style=display:flex><span>= 7 code points, 1 grapheme cluster
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>👋🏽 (Waving hand with skin tone) =
+</span></span><span style=display:flex><span>  U+1F44B (waving hand) +
+</span></span><span style=display:flex><span>  U+1F3FD (medium skin tone)
+</span></span><span style=display:flex><span>= 2 code points, 1 grapheme cluster
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>🏳️‍🌈 (Rainbow flag) =
+</span></span><span style=display:flex><span>  U+1F3F3 (white flag) +
+</span></span><span style=display:flex><span>  U+FE0F (variation selector) +
+</span></span><span style=display:flex><span>  U+200D (ZWJ) +
+</span></span><span style=display:flex><span>  U+1F308 (rainbow)
+</span></span><span style=display:flex><span>= 4 code points, 1 grapheme cluster
+</span></span></code></pre></div><h3 id="44-string-length-its-complicated">4.4 String Length: It&rsquo;s Complicated</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Python example</span>
+</span></span><span style=display:flex><span>text <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;👨‍👩‍👧‍👦&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>len(text)                    <span style=color:#8b949e;font-style:italic># 11 (Python 3 counts UTF-16 code units on Windows,</span>
+</span></span><span style=display:flex><span>                             <span style=color:#8b949e;font-style:italic>#     or code points on other platforms)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>len(text<span style=color:#ff7b72;font-weight:700>.</span>encode(<span style=color:#a5d6ff>&#39;utf-8&#39;</span>))    <span style=color:#8b949e;font-style:italic># 25 bytes</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># What the user sees: 1 emoji</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># To count grapheme clusters, you need a library</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>grapheme</span>
+</span></span><span style=display:flex><span>grapheme<span style=color:#ff7b72;font-weight:700>.</span>length(text)        <span style=color:#8b949e;font-style:italic># 1</span>
+</span></span></code></pre></div><h2 id="5-normalization">5. Normalization</h2><p>Making equivalent strings actually equal.</p><h3 id="51-the-four-normalization-forms">5.1 The Four Normalization Forms</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>NFD (Canonical Decomposition):
+</span></span><span style=display:flex><span>- Decompose characters to base + combining marks
+</span></span><span style=display:flex><span>- é → e + ◌́
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>NFC (Canonical Composition):
+</span></span><span style=display:flex><span>- Decompose, then recompose
+</span></span><span style=display:flex><span>- e + ◌́ → é
+</span></span><span style=display:flex><span>- Preferred for storage and interchange
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>NFKD (Compatibility Decomposition):
+</span></span><span style=display:flex><span>- Decompose, including compatibility equivalents
+</span></span><span style=display:flex><span>- ﬁ → fi, ① → 1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>NFKC (Compatibility Composition):
+</span></span><span style=display:flex><span>- Decompose (compatibility), then recompose
+</span></span><span style=display:flex><span>- Most aggressive normalization
+</span></span></code></pre></div><h3 id="52-when-to-normalize">5.2 When to Normalize</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Always normalize when comparing strings</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>unicodedata</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>s1 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;café&#34;</span>              <span style=color:#8b949e;font-style:italic># With precomposed é</span>
+</span></span><span style=display:flex><span>s2 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;cafe</span><span style=color:#79c0ff>\u0301</span><span style=color:#a5d6ff>&#34;</span>        <span style=color:#8b949e;font-style:italic># With combining acute</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>s1 <span style=color:#ff7b72;font-weight:700>==</span> s2                  <span style=color:#8b949e;font-style:italic># False!</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, s1) <span style=color:#ff7b72;font-weight:700>==</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, s2)  <span style=color:#8b949e;font-style:italic># True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Normalize on input, store normalized</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>clean_input</span>(text):
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, text)
+</span></span></code></pre></div><h3 id="53-security-and-normalization">5.3 Security and Normalization</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Homograph attacks use similar-looking characters:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>аррӏе.com vs apple.com
+</span></span><span style=display:flex><span>  ↑         ↑
+</span></span><span style=display:flex><span>Cyrillic   Latin
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>U+0430 (а, Cyrillic)   looks like  U+0061 (a, Latin)
+</span></span><span style=display:flex><span>U+0440 (р, Cyrillic)   looks like  U+0070 (p, Latin)
+</span></span><span style=display:flex><span>U+04CF (ӏ, Cyrillic)   looks like  U+006C (l, Latin)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Defense: IDN (Internationalized Domain Names) rules
+</span></span><span style=display:flex><span>- Restrict mixing scripts
+</span></span><span style=display:flex><span>- Show punycode for suspicious domains
+</span></span></code></pre></div><h2 id="6-bidirectional-text">6. Bidirectional Text</h2><p>Some scripts are written right-to-left.</p><h3 id="61-right-to-left-scripts">6.1 Right-to-Left Scripts</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>RTL scripts:
+</span></span><span style=display:flex><span>- Arabic: العربية
+</span></span><span style=display:flex><span>- Hebrew: עברית
+</span></span><span style=display:flex><span>- Persian (Farsi): فارسی
+</span></span><span style=display:flex><span>- Urdu: اردو
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>When RTL and LTR text mix:
+</span></span><span style=display:flex><span>&#34;The word مرحبا means hello&#34;
+</span></span><span style=display:flex><span>       ↑
+</span></span><span style=display:flex><span>  This should render right-to-left
+</span></span><span style=display:flex><span>  within the left-to-right sentence
+</span></span></code></pre></div><h3 id="62-the-unicode-bidirectional-algorithm">6.2 The Unicode Bidirectional Algorithm</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>UAX #9 defines how to order characters for display.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Each character has a bidi class:
+</span></span><span style=display:flex><span>- L = Left-to-right (Latin letters)
+</span></span><span style=display:flex><span>- R = Right-to-left (Hebrew letters)
+</span></span><span style=display:flex><span>- AL = Arabic letter (special rules)
+</span></span><span style=display:flex><span>- EN = European number
+</span></span><span style=display:flex><span>- AN = Arabic number
+</span></span><span style=display:flex><span>- WS = Whitespace
+</span></span><span style=display:flex><span>- ON = Other neutral
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The algorithm:
+</span></span><span style=display:flex><span>1. Split into paragraphs
+</span></span><span style=display:flex><span>2. Determine base direction
+</span></span><span style=display:flex><span>3. Resolve character types
+</span></span><span style=display:flex><span>4. Reorder for display
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Result: Proper interleaving of LTR and RTL text
+</span></span></code></pre></div><h3 id="63-bidi-overrides-and-security">6.3 Bidi Overrides and Security</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Explicit controls can change display order:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>U+202E (RIGHT-TO-LEFT OVERRIDE)
+</span></span><span style=display:flex><span>Causes following text to display RTL
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Security issue:
+</span></span><span style=display:flex><span>filename: myfile[U+202E]fdp.exe
+</span></span><span style=display:flex><span>displays: myfileexe.pdf
+</span></span><span style=display:flex><span>         ↑
+</span></span><span style=display:flex><span>      Looks like PDF, is really EXE!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Defense: Filter or escape bidi controls
+</span></span></code></pre></div><h2 id="7-common-encoding-problems">7. Common Encoding Problems</h2><p>Real-world issues every programmer encounters.</p><h3 id="71-mojibake">7.1 Mojibake</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Mojibake: Garbled text from encoding mismatch
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example:
+</span></span><span style=display:flex><span>Correct: Björk
+</span></span><span style=display:flex><span>Wrong: BjÃ¶rk (UTF-8 bytes interpreted as Latin-1)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&#34;Björk&#34; in UTF-8: 42 6A C3 B6 72 6B
+</span></span><span style=display:flex><span>                        ↑↑
+</span></span><span style=display:flex><span>              ö = C3 B6 in UTF-8
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Interpreted as Latin-1:
+</span></span><span style=display:flex><span>C3 = Ã
+</span></span><span style=display:flex><span>B6 = ¶
+</span></span><span style=display:flex><span>Result: BjÃ¶rk
+</span></span></code></pre></div><h3 id="72-double-encoding">7.2 Double Encoding</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Data encoded twice:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Original: &#34;Café&#34;
+</span></span><span style=display:flex><span>UTF-8 encoded: 43 61 66 C3 A9
+</span></span><span style=display:flex><span>Accidentally UTF-8 encoded again:
+</span></span><span style=display:flex><span>C3 → C3 83
+</span></span><span style=display:flex><span>A9 → C2 A9
+</span></span><span style=display:flex><span>Result bytes: 43 61 66 C3 83 C2 A9
+</span></span><span style=display:flex><span>Displayed: &#34;CafÃ©&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Prevention:
+</span></span><span style=display:flex><span>- Know your encoding at each layer
+</span></span><span style=display:flex><span>- Don&#39;t encode already-encoded data
+</span></span></code></pre></div><h3 id="73-the-replacement-character">7.3 The Replacement Character</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>U+FFFD (�) indicates decoding errors
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>When a UTF-8 decoder encounters invalid bytes,
+</span></span><span style=display:flex><span>it substitutes U+FFFD for each bad sequence.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&#34;Hello&#34; with corruption: &#34;He�o&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>If you see � in your output:
+</span></span><span style=display:flex><span>1. Wrong encoding specified
+</span></span><span style=display:flex><span>2. Data corruption
+</span></span><span style=display:flex><span>3. Truncated multi-byte sequence
+</span></span></code></pre></div><h3 id="74-database-encoding-issues">7.4 Database Encoding Issues</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-sql" data-lang=sql><span style=display:flex><span><span style=color:#8b949e;font-style:italic>-- MySQL: Always specify UTF-8 correctly
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>CREATE</span><span style=color:#6e7681> </span><span style=color:#ff7b72>TABLE</span><span style=color:#6e7681> </span>users<span style=color:#6e7681> </span>(<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>name<span style=color:#6e7681> </span>VARCHAR(<span style=color:#a5d6ff>100</span>)<span style=color:#6e7681> </span>CHARACTER<span style=color:#6e7681> </span><span style=color:#ff7b72>SET</span><span style=color:#6e7681> </span>utf8mb4<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>)<span style=color:#6e7681> </span>CHARACTER<span style=color:#6e7681> </span><span style=color:#ff7b72>SET</span><span style=color:#6e7681> </span>utf8mb4<span style=color:#6e7681> </span><span style=color:#ff7b72>COLLATE</span><span style=color:#6e7681> </span>utf8mb4_unicode_ci;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>-- Note: MySQL&#39;s &#34;utf8&#34; is NOT real UTF-8!
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>-- It only supports 3 bytes (no emoji)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>-- Use &#34;utf8mb4&#34; for real UTF-8
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>-- PostgreSQL: Database encoding
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>CREATE</span><span style=color:#6e7681> </span><span style=color:#ff7b72>DATABASE</span><span style=color:#6e7681> </span>mydb<span style=color:#6e7681> </span><span style=color:#ff7b72>WITH</span><span style=color:#6e7681> </span><span style=color:#ff7b72>ENCODING</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>&#39;UTF8&#39;</span>;<span style=color:#6e7681>
+</span></span></span></code></pre></div><h3 id="75-file-io-encoding">7.5 File I/O Encoding</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Python: Always specify encoding explicitly</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># WRONG (system default may vary)</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>with</span> open(<span style=color:#a5d6ff>&#39;file.txt&#39;</span>, <span style=color:#a5d6ff>&#39;r&#39;</span>) <span style=color:#ff7b72>as</span> f:
+</span></span><span style=display:flex><span>    content <span style=color:#ff7b72;font-weight:700>=</span> f<span style=color:#ff7b72;font-weight:700>.</span>read()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># RIGHT</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>with</span> open(<span style=color:#a5d6ff>&#39;file.txt&#39;</span>, <span style=color:#a5d6ff>&#39;r&#39;</span>, encoding<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;utf-8&#39;</span>) <span style=color:#ff7b72>as</span> f:
+</span></span><span style=display:flex><span>    content <span style=color:#ff7b72;font-weight:700>=</span> f<span style=color:#ff7b72;font-weight:700>.</span>read()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Handle encoding errors</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>with</span> open(<span style=color:#a5d6ff>&#39;file.txt&#39;</span>, <span style=color:#a5d6ff>&#39;r&#39;</span>, encoding<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;utf-8&#39;</span>, errors<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;replace&#39;</span>) <span style=color:#ff7b72>as</span> f:
+</span></span><span style=display:flex><span>    content <span style=color:#ff7b72;font-weight:700>=</span> f<span style=color:#ff7b72;font-weight:700>.</span>read()  <span style=color:#8b949e;font-style:italic># Bad bytes become U+FFFD</span>
+</span></span></code></pre></div><h2 id="8-programming-language-specifics">8. Programming Language Specifics</h2><p>How different languages handle strings.</p><h3 id="81-python-3">8.1 Python 3</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Strings are Unicode (sequences of code points)</span>
+</span></span><span style=display:flex><span>s <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;Hello 世界 🌍&#34;</span>
+</span></span><span style=display:flex><span>len(s)  <span style=color:#8b949e;font-style:italic># 11 (code points, not bytes)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Bytes are separate</span>
+</span></span><span style=display:flex><span>b <span style=color:#ff7b72;font-weight:700>=</span> s<span style=color:#ff7b72;font-weight:700>.</span>encode(<span style=color:#a5d6ff>&#39;utf-8&#39;</span>)  <span style=color:#8b949e;font-style:italic># b&#39;Hello \xe4\xb8\x96\xe7\x95\x8c \xf0\x9f\x8c\x8d&#39;</span>
+</span></span><span style=display:flex><span>len(b)  <span style=color:#8b949e;font-style:italic># 18 bytes</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Decoding</span>
+</span></span><span style=display:flex><span>text <span style=color:#ff7b72;font-weight:700>=</span> b<span style=color:#ff7b72;font-weight:700>.</span>decode(<span style=color:#a5d6ff>&#39;utf-8&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Iteration is by code point</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> char <span style=color:#ff7b72;font-weight:700>in</span> <span style=color:#a5d6ff>&#34;café&#34;</span>:
+</span></span><span style=display:flex><span>    print(repr(char))  <span style=color:#8b949e;font-style:italic># &#39;c&#39;, &#39;a&#39;, &#39;f&#39;, &#39;é&#39;</span>
+</span></span></code></pre></div><h3 id="82-javascript">8.2 JavaScript</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-javascript" data-lang=javascript><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Strings are UTF-16 internally
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> s <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;Hello 🌍&#34;</span>;
+</span></span><span style=display:flex><span>s.length; <span style=color:#8b949e;font-style:italic>// 8 (UTF-16 code units, not characters!)
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 🌍 is a surrogate pair, counts as 2
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>&#34;🌍&#34;</span>.length; <span style=color:#8b949e;font-style:italic>// 2
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Proper iteration with for...of
+</span></span></span><span style=display:flex><span>[...<span style=color:#a5d6ff>&#34;🌍&#34;</span>].length; <span style=color:#8b949e;font-style:italic>// 1
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Or use Array.from
+</span></span></span><span style=display:flex><span>Array.from(<span style=color:#a5d6ff>&#34;Hello 🌍&#34;</span>).length; <span style=color:#8b949e;font-style:italic>// 7
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Code point access
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>&#34;🌍&#34;</span>.codePointAt(<span style=color:#a5d6ff>0</span>); <span style=color:#8b949e;font-style:italic>// 127757 (0x1F30D)
+</span></span></span><span style=display:flex><span>String.fromCodePoint(<span style=color:#a5d6ff>127757</span>); <span style=color:#8b949e;font-style:italic>// &#34;🌍&#34;
+</span></span></span></code></pre></div><h3 id="83-java">8.3 Java</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-java" data-lang=java><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Java strings are UTF-16</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>String<span style=color:#6e7681> </span>s<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>&#34;Hello 🌍&#34;</span>;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>s.length();<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// 8 (code units)</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>s.codePointCount(0,<span style=color:#6e7681> </span>s.length());<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// 7 (code points)</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Iteration over code points</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>s.codePoints().forEach(cp<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>-&gt;</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>System.out.println(Character.toString(cp)));<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Converting to UTF-8 bytes</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>byte</span><span style=color:#ff7b72;font-weight:700>[]</span><span style=color:#6e7681> </span>utf8<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>s.getBytes(StandardCharsets.UTF_8);<span style=color:#6e7681>
+</span></span></span></code></pre></div><h3 id="84-rust">8.4 Rust</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-rust" data-lang=rust><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Rust strings are guaranteed valid UTF-8
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span>s<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>&#34;Hello 🌍&#34;</span>;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>s.len();<span style=color:#6e7681>           </span><span style=color:#8b949e;font-style:italic>// 11 bytes
+</span></span></span><span style=display:flex><span>s.chars().count();<span style=color:#6e7681> </span><span style=color:#8b949e;font-style:italic>// 7 code points
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Iteration options:
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span><span style=color:#6e7681> </span>c<span style=color:#6e7681> </span><span style=color:#ff7b72>in</span><span style=color:#6e7681> </span>s.chars()<span style=color:#6e7681> </span>{<span style=color:#6e7681>     </span><span style=color:#8b949e;font-style:italic>// By code point
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#d2a8ff;font-weight:700>println!</span>(<span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff>&#34;</span>,<span style=color:#6e7681> </span>c);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span><span style=color:#6e7681> </span>b<span style=color:#6e7681> </span><span style=color:#ff7b72>in</span><span style=color:#6e7681> </span>s.bytes()<span style=color:#6e7681> </span>{<span style=color:#6e7681>     </span><span style=color:#8b949e;font-style:italic>// By byte
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#d2a8ff;font-weight:700>println!</span>(<span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff>&#34;</span>,<span style=color:#6e7681> </span>b);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Grapheme clusters need external crate (unicode-segmentation)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>use</span><span style=color:#6e7681> </span>unicode_segmentation::UnicodeSegmentation;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>s.graphemes(<span style=color:#79c0ff>true</span>).count();<span style=color:#6e7681>
+</span></span></span></code></pre></div><h3 id="85-go">8.5 Go</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-go" data-lang=go><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Go strings are byte slices (often UTF-8)</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>s<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>:=</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>&#34;Hello 🌍&#34;</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>len(s)<span style=color:#6e7681>                    </span><span style=color:#8b949e;font-style:italic>// 11 bytes</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>utf8.<span style=color:#d2a8ff;font-weight:700>RuneCountInString</span>(s)<span style=color:#6e7681> </span><span style=color:#8b949e;font-style:italic>// 7 runes (code points)</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Iteration with range gives runes</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span><span style=color:#6e7681> </span>i,<span style=color:#6e7681> </span>r<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>:=</span><span style=color:#6e7681> </span><span style=color:#ff7b72>range</span><span style=color:#6e7681> </span>s<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>fmt.<span style=color:#d2a8ff;font-weight:700>Printf</span>(<span style=color:#a5d6ff>&#34;%d: %c\n&#34;</span>,<span style=color:#6e7681> </span>i,<span style=color:#6e7681> </span>r)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Explicit rune conversion</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>runes<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>:=</span><span style=color:#6e7681> </span>[]rune(s)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span>len(runes)<span style=color:#6e7681>  </span><span style=color:#8b949e;font-style:italic>// 7</span><span style=color:#6e7681>
+</span></span></span></code></pre></div><h2 id="9-best-practices">9. Best Practices</h2><p>Guidelines for handling text correctly.</p><h3 id="91-the-golden-rules">9.1 The Golden Rules</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1. Know your encoding
+</span></span><span style=display:flex><span>   - UTF-8 for interchange and storage
+</span></span><span style=display:flex><span>   - Be explicit at every boundary (file, network, database)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Normalize consistently
+</span></span><span style=display:flex><span>   - NFC for storage
+</span></span><span style=display:flex><span>   - Normalize on input
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Don&#39;t assume length
+</span></span><span style=display:flex><span>   - Code points ≠ grapheme clusters
+</span></span><span style=display:flex><span>   - Grapheme clusters ≠ display width
+</span></span><span style=display:flex><span>   - Use proper libraries for text operations
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. Test with real data
+</span></span><span style=display:flex><span>   - Include multi-byte characters
+</span></span><span style=display:flex><span>   - Include emoji
+</span></span><span style=display:flex><span>   - Include RTL text
+</span></span><span style=display:flex><span>   - Include combining characters
+</span></span></code></pre></div><h3 id="92-input-handling">9.2 Input Handling</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Validate and normalize input</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>unicodedata</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>sanitize_input</span>(text):
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Normalize to NFC</span>
+</span></span><span style=display:flex><span>    text <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, text)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Remove control characters (except newlines)</span>
+</span></span><span style=display:flex><span>    text <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;&#39;</span><span style=color:#ff7b72;font-weight:700>.</span>join(
+</span></span><span style=display:flex><span>        c <span style=color:#ff7b72>for</span> c <span style=color:#ff7b72;font-weight:700>in</span> text
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>category(c) <span style=color:#ff7b72;font-weight:700>!=</span> <span style=color:#a5d6ff>&#39;Cc&#39;</span> <span style=color:#ff7b72;font-weight:700>or</span> c <span style=color:#ff7b72;font-weight:700>in</span> <span style=color:#a5d6ff>&#39;</span><span style=color:#79c0ff>\n\r\t</span><span style=color:#a5d6ff>&#39;</span>
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Optionally filter zero-width characters</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># (for security-sensitive contexts)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> text
+</span></span></code></pre></div><h3 id="93-string-comparison">9.3 String Comparison</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>unicodedata</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>locale</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>compare_strings</span>(a, b):
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Normalize both strings</span>
+</span></span><span style=display:flex><span>    a <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, a)
+</span></span><span style=display:flex><span>    b <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, b)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Simple equality</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> a <span style=color:#ff7b72;font-weight:700>==</span> b
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>compare_strings_locale</span>(a, b):
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Locale-aware comparison (for sorting)</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> locale<span style=color:#ff7b72;font-weight:700>.</span>strcoll(a, b)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># For case-insensitive comparison:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Use casefold(), not lower()</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>&#34;ß&#34;</span><span style=color:#ff7b72;font-weight:700>.</span>lower() <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#34;ss&#34;</span>      <span style=color:#8b949e;font-style:italic># False</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>&#34;ß&#34;</span><span style=color:#ff7b72;font-weight:700>.</span>casefold() <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#34;ss&#34;</span>   <span style=color:#8b949e;font-style:italic># True</span>
+</span></span></code></pre></div><h3 id="94-string-storage">9.4 String Storage</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Database:
+</span></span><span style=display:flex><span>- Use UTF-8 columns (utf8mb4 in MySQL)
+</span></span><span style=display:flex><span>- Consider collation for sorting
+</span></span><span style=display:flex><span>- Store normalized text
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Files:
+</span></span><span style=display:flex><span>- Save as UTF-8 without BOM
+</span></span><span style=display:flex><span>- Use encoding declaration in source files
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>APIs:
+</span></span><span style=display:flex><span>- Specify Content-Type: application/json; charset=utf-8
+</span></span><span style=display:flex><span>- Handle encoding errors gracefully
+</span></span></code></pre></div><h3 id="95-display-considerations">9.5 Display Considerations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Width calculation for terminals</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>unicodedata</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>display_width</span>(text):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Calculate display width in terminal columns.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    width <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> char <span style=color:#ff7b72;font-weight:700>in</span> text:
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># East Asian Width property</span>
+</span></span><span style=display:flex><span>        eaw <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>east_asian_width(char)
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> eaw <span style=color:#ff7b72;font-weight:700>in</span> (<span style=color:#a5d6ff>&#39;F&#39;</span>, <span style=color:#a5d6ff>&#39;W&#39;</span>):  <span style=color:#8b949e;font-style:italic># Fullwidth or Wide</span>
+</span></span><span style=display:flex><span>            width <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            width <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> width
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>display_width(<span style=color:#a5d6ff>&#34;Hello&#34;</span>)  <span style=color:#8b949e;font-style:italic># 5</span>
+</span></span><span style=display:flex><span>display_width(<span style=color:#a5d6ff>&#34;世界&#34;</span>)   <span style=color:#8b949e;font-style:italic># 4 (each CJK char is 2 columns)</span>
+</span></span></code></pre></div><h2 id="10-encoding-detection">10. Encoding Detection</h2><p>When you don&rsquo;t know the encoding, you have to guess.</p><h3 id="101-detection-heuristics">10.1 Detection Heuristics</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Order of confidence:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. BOM present → Use indicated encoding
+</span></span><span style=display:flex><span>2. Declared in metadata (HTTP header, XML declaration)
+</span></span><span style=display:flex><span>3. All bytes &lt; 128 → ASCII (subset of UTF-8)
+</span></span><span style=display:flex><span>4. Valid UTF-8 with multi-byte sequences → Probably UTF-8
+</span></span><span style=display:flex><span>5. Statistical analysis → Educated guess
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>UTF-8 validity check:
+</span></span><span style=display:flex><span>- No bytes 0xC0-0xC1 or 0xF5-0xFF
+</span></span><span style=display:flex><span>- All continuation bytes (10xxxxxx) follow start bytes
+</span></span><span style=display:flex><span>- Overlong encodings are invalid
+</span></span></code></pre></div><h3 id="102-using-chardet">10.2 Using Chardet</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>chardet</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Detect encoding</span>
+</span></span><span style=display:flex><span>raw_bytes <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>b</span><span style=color:#a5d6ff>&#39;</span><span style=color:#79c0ff>\xe4\xb8\xad\xe6\x96\x87</span><span style=color:#a5d6ff>&#39;</span>
+</span></span><span style=display:flex><span>result <span style=color:#ff7b72;font-weight:700>=</span> chardet<span style=color:#ff7b72;font-weight:700>.</span>detect(raw_bytes)
+</span></span><span style=display:flex><span>print(result)
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># {&#39;encoding&#39;: &#39;utf-8&#39;, &#39;confidence&#39;: 0.99, &#39;language&#39;: &#39;&#39;}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>text <span style=color:#ff7b72;font-weight:700>=</span> raw_bytes<span style=color:#ff7b72;font-weight:700>.</span>decode(result[<span style=color:#a5d6ff>&#39;encoding&#39;</span>])
+</span></span><span style=display:flex><span>print(text)  <span style=color:#8b949e;font-style:italic># 中文</span>
+</span></span></code></pre></div><h3 id="103-the-limits-of-detection">10.3 The Limits of Detection</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Detection can fail:
+</span></span><span style=display:flex><span>- Short samples lack statistical significance
+</span></span><span style=display:flex><span>- Some encodings are ambiguous
+</span></span><span style=display:flex><span>- Corruption can mislead detectors
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Best practice:
+</span></span><span style=display:flex><span>- Try to obtain encoding metadata
+</span></span><span style=display:flex><span>- Default to UTF-8 (most common)
+</span></span><span style=display:flex><span>- Let users override if wrong
+</span></span><span style=display:flex><span>- Log encoding issues for debugging
+</span></span></code></pre></div><h2 id="11-special-characters-and-edge-cases">11. Special Characters and Edge Cases</h2><p>Characters that cause problems.</p><h3 id="111-invisible-characters">11.1 Invisible Characters</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Zero-Width Characters:
+</span></span><span style=display:flex><span>- U+200B Zero Width Space
+</span></span><span style=display:flex><span>- U+200C Zero Width Non-Joiner
+</span></span><span style=display:flex><span>- U+200D Zero Width Joiner (emoji sequences)
+</span></span><span style=display:flex><span>- U+FEFF Byte Order Mark / Zero Width No-Break Space
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problems:
+</span></span><span style=display:flex><span>- Invisible in most displays
+</span></span><span style=display:flex><span>- Break string comparison
+</span></span><span style=display:flex><span>- Can bypass filters
+</span></span><span style=display:flex><span>- Security implications
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Detection:
+</span></span><span style=display:flex><span>import re
+</span></span><span style=display:flex><span>has_zwc = bool(re.search(r&#39;[\u200b-\u200d\ufeff]&#39;, text))
+</span></span></code></pre></div><h3 id="112-null-bytes">11.2 Null Bytes</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>U+0000 (NUL):
+</span></span><span style=display:flex><span>- String terminator in C
+</span></span><span style=display:flex><span>- Can truncate strings in many systems
+</span></span><span style=display:flex><span>- Security risk in file names
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Prevention:
+</span></span><span style=display:flex><span>- Reject or strip null bytes from input
+</span></span><span style=display:flex><span>- Use length-prefixed strings internally
+</span></span></code></pre></div><h3 id="113-newlines">11.3 Newlines</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Different platforms, different conventions:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Unix/Linux:    LF   (U+000A)
+</span></span><span style=display:flex><span>Windows:       CRLF (U+000D U+000A)
+</span></span><span style=display:flex><span>Classic Mac:   CR   (U+000D)
+</span></span><span style=display:flex><span>Unicode also:  NEL  (U+0085), LS (U+2028), PS (U+2029)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Best practice:
+</span></span><span style=display:flex><span>- Normalize to LF internally
+</span></span><span style=display:flex><span>- Convert to platform convention on output
+</span></span><span style=display:flex><span>- Handle all variants on input
+</span></span></code></pre></div><h3 id="114-whitespace-varieties">11.4 Whitespace Varieties</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Many different &#34;space&#34; characters:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>U+0020  Space (regular)
+</span></span><span style=display:flex><span>U+00A0  No-Break Space (HTML &amp;nbsp;)
+</span></span><span style=display:flex><span>U+2002  En Space
+</span></span><span style=display:flex><span>U+2003  Em Space
+</span></span><span style=display:flex><span>U+2009  Thin Space
+</span></span><span style=display:flex><span>U+3000  Ideographic Space (CJK)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Trimming should consider all whitespace:
+</span></span><span style=display:flex><span>import re
+</span></span><span style=display:flex><span>text = re.sub(r&#39;[\s\u00a0\u2000-\u200a\u3000]+&#39;, &#39; &#39;, text)
+</span></span></code></pre></div><h2 id="12-internationalization-and-localization">12. Internationalization and Localization</h2><p>Building software for a global audience.</p><h3 id="121-beyond-encoding-cultural-considerations">12.1 Beyond Encoding: Cultural Considerations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Text handling involves more than encoding:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Sorting (Collation):
+</span></span><span style=display:flex><span>- German: ä sorts with a
+</span></span><span style=display:flex><span>- Swedish: ä sorts after z
+</span></span><span style=display:flex><span>- Case sensitivity varies by language
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Number formatting:
+</span></span><span style=display:flex><span>- US: 1,234,567.89
+</span></span><span style=display:flex><span>- Germany: 1.234.567,89
+</span></span><span style=display:flex><span>- India: 12,34,567.89
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Date formatting:
+</span></span><span style=display:flex><span>- US: 12/31/2024
+</span></span><span style=display:flex><span>- UK: 31/12/2024
+</span></span><span style=display:flex><span>- ISO: 2024-12-31
+</span></span><span style=display:flex><span>- Japan: 2024年12月31日
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Text direction:
+</span></span><span style=display:flex><span>- Most languages: left-to-right
+</span></span><span style=display:flex><span>- Arabic, Hebrew: right-to-left
+</span></span><span style=display:flex><span>- Some Asian: top-to-bottom
+</span></span></code></pre></div><h3 id="122-locale-aware-string-operations">12.2 Locale-Aware String Operations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>locale</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Set locale for sorting</span>
+</span></span><span style=display:flex><span>locale<span style=color:#ff7b72;font-weight:700>.</span>setlocale(locale<span style=color:#ff7b72;font-weight:700>.</span>LC_ALL, <span style=color:#a5d6ff>&#39;de_DE.UTF-8&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>words <span style=color:#ff7b72;font-weight:700>=</span> [<span style=color:#a5d6ff>&#39;Apfel&#39;</span>, <span style=color:#a5d6ff>&#39;Äpfel&#39;</span>, <span style=color:#a5d6ff>&#39;Birne&#39;</span>, <span style=color:#a5d6ff>&#39;Banane&#39;</span>]
+</span></span><span style=display:flex><span>sorted(words)  <span style=color:#8b949e;font-style:italic># Simple sort: [&#39;Apfel&#39;, &#39;Banane&#39;, &#39;Birne&#39;, &#39;Äpfel&#39;]</span>
+</span></span><span style=display:flex><span>sorted(words, key<span style=color:#ff7b72;font-weight:700>=</span>locale<span style=color:#ff7b72;font-weight:700>.</span>strxfrm)  <span style=color:#8b949e;font-style:italic># German: [&#39;Apfel&#39;, &#39;Äpfel&#39;, &#39;Banane&#39;, &#39;Birne&#39;]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># For more control, use PyICU</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>icu</span> <span style=color:#ff7b72>import</span> Collator, Locale
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>collator <span style=color:#ff7b72;font-weight:700>=</span> Collator<span style=color:#ff7b72;font-weight:700>.</span>createInstance(Locale(<span style=color:#a5d6ff>&#39;de_DE&#39;</span>))
+</span></span><span style=display:flex><span>sorted(words, key<span style=color:#ff7b72;font-weight:700>=</span>collator<span style=color:#ff7b72;font-weight:700>.</span>getSortKey)
+</span></span></code></pre></div><h3 id="123-text-segmentation">12.3 Text Segmentation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Word boundaries vary by language:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>English: &#34;Hello world&#34; → [&#34;Hello&#34;, &#34;world&#34;]
+</span></span><span style=display:flex><span>Chinese: &#34;你好世界&#34; → [&#34;你好&#34;, &#34;世界&#34;] (needs dictionary)
+</span></span><span style=display:flex><span>Thai: &#34;สวัสดีโลก&#34; → [&#34;สวัสดี&#34;, &#34;โลก&#34;] (no spaces!)
+</span></span><span style=display:flex><span>German: &#34;Donaudampfschifffahrt&#34; → compound word
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Use UAX #29 (Unicode Text Segmentation) or ICU:
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>icu</span> <span style=color:#ff7b72>import</span> BreakIterator, Locale
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>get_words</span>(text, locale_str<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;en_US&#39;</span>):
+</span></span><span style=display:flex><span>    bi <span style=color:#ff7b72;font-weight:700>=</span> BreakIterator<span style=color:#ff7b72;font-weight:700>.</span>createWordInstance(Locale(locale_str))
+</span></span><span style=display:flex><span>    bi<span style=color:#ff7b72;font-weight:700>.</span>setText(text)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    words <span style=color:#ff7b72;font-weight:700>=</span> []
+</span></span><span style=display:flex><span>    start <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> end <span style=color:#ff7b72;font-weight:700>in</span> bi:
+</span></span><span style=display:flex><span>        word <span style=color:#ff7b72;font-weight:700>=</span> text[start:end]<span style=color:#ff7b72;font-weight:700>.</span>strip()
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> word:
+</span></span><span style=display:flex><span>            words<span style=color:#ff7b72;font-weight:700>.</span>append(word)
+</span></span><span style=display:flex><span>        start <span style=color:#ff7b72;font-weight:700>=</span> end
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> words
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>get_words(<span style=color:#a5d6ff>&#34;Hello, world!&#34;</span>)  <span style=color:#8b949e;font-style:italic># [&#39;Hello&#39;, &#39;world&#39;]</span>
+</span></span></code></pre></div><h3 id="124-message-formatting">12.4 Message Formatting</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Simple string formatting loses context</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;You have </span><span style=color:#a5d6ff>{</span>count<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff> message</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>&#39;s&#39;</span> <span style=color:#ff7b72>if</span> count <span style=color:#ff7b72;font-weight:700>!=</span> <span style=color:#a5d6ff>1</span> <span style=color:#ff7b72>else</span> <span style=color:#a5d6ff>&#39;&#39;</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Better: Use ICU message format</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>icu</span> <span style=color:#ff7b72>import</span> MessageFormat
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>pattern <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;{count, plural, =0 {No messages} =1 {One message} other {{count} messages}}&#34;</span>
+</span></span><span style=display:flex><span>formatter <span style=color:#ff7b72;font-weight:700>=</span> MessageFormat(pattern, Locale(<span style=color:#a5d6ff>&#39;en_US&#39;</span>))
+</span></span><span style=display:flex><span>result <span style=color:#ff7b72;font-weight:700>=</span> formatter<span style=color:#ff7b72;font-weight:700>.</span>format({<span style=color:#a5d6ff>&#39;count&#39;</span>: <span style=color:#a5d6ff>5</span>})  <span style=color:#8b949e;font-style:italic># &#34;5 messages&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Even better for translations: Use gettext or similar</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>gettext</span>
+</span></span><span style=display:flex><span>_ <span style=color:#ff7b72;font-weight:700>=</span> gettext<span style=color:#ff7b72;font-weight:700>.</span>gettext
+</span></span><span style=display:flex><span>ngettext <span style=color:#ff7b72;font-weight:700>=</span> gettext<span style=color:#ff7b72;font-weight:700>.</span>ngettext
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ngettext(<span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>%(count)d</span><span style=color:#a5d6ff> message&#34;</span>, <span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>%(count)d</span><span style=color:#a5d6ff> messages&#34;</span>, count) <span style=color:#ff7b72;font-weight:700>%</span> {<span style=color:#a5d6ff>&#39;count&#39;</span>: count}
+</span></span></code></pre></div><h3 id="125-right-to-left-ui-considerations">12.5 Right-to-Left UI Considerations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>RTL layouts need more than text direction:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Mirror UI elements:
+</span></span><span style=display:flex><span>- Back button: left → right
+</span></span><span style=display:flex><span>- Progress bars: left-to-right → right-to-left
+</span></span><span style=display:flex><span>- Checkboxes: left of label → right of label
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Bidirectional icons:
+</span></span><span style=display:flex><span>- Arrows should flip
+</span></span><span style=display:flex><span>- Play/rewind buttons should flip
+</span></span><span style=display:flex><span>- Some icons are neutral (search, settings)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CSS for RTL:
+</span></span><span style=display:flex><span>html[dir=&#34;rtl&#34;] .arrow-icon {
+</span></span><span style=display:flex><span>    transform: scaleX(-1);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Testing:
+</span></span><span style=display:flex><span>- Force RTL mode
+</span></span><span style=display:flex><span>- Use pseudo-translation with RTL characters
+</span></span><span style=display:flex><span>- Test with real translators
+</span></span></code></pre></div><h2 id="13-unicode-security-considerations">13. Unicode Security Considerations</h2><p>Text can be weaponized in surprising ways.</p><h3 id="131-homograph-attacks">13.1 Homograph Attacks</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Confusable characters enable spoofing:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Latin &#39;a&#39; (U+0061) vs Cyrillic &#39;а&#39; (U+0430)
+</span></span><span style=display:flex><span>Latin &#39;e&#39; (U+0065) vs Cyrillic &#39;е&#39; (U+0435)
+</span></span><span style=display:flex><span>Latin &#39;o&#39; (U+006F) vs Greek &#39;ο&#39; (U+03BF)
+</span></span><span style=display:flex><span>Digit &#39;0&#39; (U+0030) vs Latin &#39;O&#39; (U+004F)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Attack: Register payрal.com (Cyrillic &#39;р&#39;)
+</span></span><span style=display:flex><span>Victim sees: paypal.com
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Defenses:
+</span></span><span style=display:flex><span>1. Punycode display for mixed-script domains
+</span></span><span style=display:flex><span>2. Confusable detection algorithms
+</span></span><span style=display:flex><span>3. Visual similarity warnings
+</span></span></code></pre></div><h3 id="132-unicode-normalization-attacks">13.2 Unicode Normalization Attacks</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Bypassing filters with non-normalized input</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Attacker input (decomposed)</span>
+</span></span><span style=display:flex><span>user_input <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;cafe</span><span style=color:#79c0ff>\u0301</span><span style=color:#a5d6ff>&#34;</span>  <span style=color:#8b949e;font-style:italic># e + combining acute</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Naive filter (won&#39;t match!)</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#a5d6ff>&#34;café&#34;</span> <span style=color:#ff7b72;font-weight:700>in</span> user_input:  <span style=color:#8b949e;font-style:italic># Uses precomposed é</span>
+</span></span><span style=display:flex><span>    block()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Fix: Always normalize before comparison</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>unicodedata</span>
+</span></span><span style=display:flex><span>normalized <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, user_input)
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#a5d6ff>&#34;café&#34;</span> <span style=color:#ff7b72;font-weight:700>in</span> normalized:
+</span></span><span style=display:flex><span>    block()
+</span></span></code></pre></div><h3 id="133-bidi-override-attacks">13.3 Bidi Override Attacks</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Bidirectional overrides can hide malicious content:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>File: harmless[U+202E]cod.exe
+</span></span><span style=display:flex><span>Displays as: harmlessexe.doc
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Attack in code comments:
+</span></span><span style=display:flex><span>/* check admin [U+202E] } if(isAdmin) { [U+2066] */
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Could flip the logic visually while code executes differently.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Defense:
+</span></span><span style=display:flex><span>- Strip or escape bidi control characters
+</span></span><span style=display:flex><span>- Highlight suspicious Unicode in code review tools
+</span></span></code></pre></div><h3 id="134-text-length-attacks">13.4 Text Length Attacks</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Length checks can fail with Unicode:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Max 50 characters?
+</span></span><span style=display:flex><span>input.length &lt;= 50  // JavaScript counts UTF-16 code units
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Attack: 50 emoji = 100+ code units = lots of bytes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Defense:
+</span></span><span style=display:flex><span>- Check byte length for storage limits
+</span></span><span style=display:flex><span>- Check grapheme count for user-visible limits
+</span></span><span style=display:flex><span>- Validate at multiple levels
+</span></span></code></pre></div><h3 id="135-width-attacks">13.5 Width Attacks</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Zero-width characters are invisible:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&#34;admin&#34; vs &#34;adm\u200Bin&#34;
+</span></span><span style=display:flex><span>Both display as &#34;admin&#34;, but are different strings!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Attack applications:
+</span></span><span style=display:flex><span>- Bypass keyword filters
+</span></span><span style=display:flex><span>- Evade duplicate detection
+</span></span><span style=display:flex><span>- Hide content in watermarks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Defense:
+</span></span><span style=display:flex><span>import re
+</span></span><span style=display:flex><span>clean = re.sub(r&#39;[\u200b-\u200f\u2028-\u202f\u2060-\u206f\ufeff]&#39;, &#39;&#39;, text)
+</span></span></code></pre></div><h2 id="14-performance-considerations">14. Performance Considerations</h2><p>Unicode operations can be expensive.</p><h3 id="141-encoding-and-decoding-costs">14.1 Encoding and Decoding Costs</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>timeit</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>text <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;Hello, 世界! 🌍&#34;</span> <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>1000</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Encoding benchmarks</span>
+</span></span><span style=display:flex><span>timeit<span style=color:#ff7b72;font-weight:700>.</span>timeit(<span style=color:#ff7b72>lambda</span>: text<span style=color:#ff7b72;font-weight:700>.</span>encode(<span style=color:#a5d6ff>&#39;utf-8&#39;</span>), number<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>10000</span>)
+</span></span><span style=display:flex><span>timeit<span style=color:#ff7b72;font-weight:700>.</span>timeit(<span style=color:#ff7b72>lambda</span>: text<span style=color:#ff7b72;font-weight:700>.</span>encode(<span style=color:#a5d6ff>&#39;utf-16&#39;</span>), number<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>10000</span>)
+</span></span><span style=display:flex><span>timeit<span style=color:#ff7b72;font-weight:700>.</span>timeit(<span style=color:#ff7b72>lambda</span>: text<span style=color:#ff7b72;font-weight:700>.</span>encode(<span style=color:#a5d6ff>&#39;utf-32&#39;</span>), number<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>10000</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># UTF-8 is typically fastest for mixed content</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Results vary by content and platform</span>
+</span></span></code></pre></div><h3 id="142-normalization-costs">14.2 Normalization Costs</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>unicodedata</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>timeit</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>text <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;café résumé naïve&#34;</span> <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>1000</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Normalization is expensive</span>
+</span></span><span style=display:flex><span>timeit<span style=color:#ff7b72;font-weight:700>.</span>timeit(<span style=color:#ff7b72>lambda</span>: unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, text), number<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1000</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Optimization: Check if already normalized</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>is_normalized(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, text):
+</span></span><span style=display:flex><span>    text <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, text)
+</span></span></code></pre></div><h3 id="143-string-operations-at-scale">14.3 String Operations at Scale</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>O(n) operations on Unicode strings:
+</span></span><span style=display:flex><span>- Finding string length in graphemes
+</span></span><span style=display:flex><span>- Case conversion
+</span></span><span style=display:flex><span>- Normalization
+</span></span><span style=display:flex><span>- Collation key generation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Optimization strategies:
+</span></span><span style=display:flex><span>1. Cache normalized/processed text
+</span></span><span style=display:flex><span>2. Use byte-level operations when possible
+</span></span><span style=display:flex><span>3. Process in streaming fashion for large text
+</span></span><span style=display:flex><span>4. Use specialized libraries (ICU, regex)
+</span></span></code></pre></div><h3 id="144-memory-considerations">14.4 Memory Considerations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>String memory usage varies by encoding:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&#34;Hello&#34;:
+</span></span><span style=display:flex><span>- UTF-8: 5 bytes
+</span></span><span style=display:flex><span>- UTF-16: 10 bytes
+</span></span><span style=display:flex><span>- UTF-32: 20 bytes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&#34;你好&#34;:
+</span></span><span style=display:flex><span>- UTF-8: 6 bytes
+</span></span><span style=display:flex><span>- UTF-16: 4 bytes
+</span></span><span style=display:flex><span>- UTF-32: 8 bytes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&#34;Hello 你好&#34;:
+</span></span><span style=display:flex><span>- UTF-8: 12 bytes (most compact for mixed)
+</span></span><span style=display:flex><span>- UTF-16: 14 bytes
+</span></span><span style=display:flex><span>- UTF-32: 28 bytes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Python 3 uses flexible string representation:
+</span></span><span style=display:flex><span>- ASCII-only: 1 byte per character
+</span></span><span style=display:flex><span>- Latin-1 range: 1 byte per character
+</span></span><span style=display:flex><span>- BMP: 2 bytes per character
+</span></span><span style=display:flex><span>- Full Unicode: 4 bytes per character
+</span></span></code></pre></div><h2 id="15-testing-with-unicode">15. Testing with Unicode</h2><p>Ensure your code handles text correctly.</p><h3 id="151-test-data-categories">15.1 Test Data Categories</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Essential test strings:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. ASCII only: &#34;Hello World&#34;
+</span></span><span style=display:flex><span>2. Latin extended: &#34;Héllo Wörld&#34;
+</span></span><span style=display:flex><span>3. Non-Latin scripts: &#34;Привет мир&#34;, &#34;שלום עולם&#34;
+</span></span><span style=display:flex><span>4. CJK: &#34;你好世界&#34;, &#34;こんにちは&#34;
+</span></span><span style=display:flex><span>5. Emoji: &#34;Hello 🌍 World 👋&#34;
+</span></span><span style=display:flex><span>6. Combining characters: &#34;e\u0301&#34; (e + acute)
+</span></span><span style=display:flex><span>7. ZWJ sequences: &#34;👨‍👩‍👧‍👦&#34;
+</span></span><span style=display:flex><span>8. RTL text: &#34;مرحبا&#34;
+</span></span><span style=display:flex><span>9. Mixed direction: &#34;Hello مرحبا World&#34;
+</span></span><span style=display:flex><span>10. Edge cases: Empty string, very long text
+</span></span></code></pre></div><h3 id="152-the-torture-test">15.2 The Torture Test</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># A string designed to break things</span>
+</span></span><span style=display:flex><span>UNICODE_TORTURE <span style=color:#ff7b72;font-weight:700>=</span> (
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;Hello&#34;</span>                    <span style=color:#8b949e;font-style:italic># ASCII</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>\u0000</span><span style=color:#a5d6ff>&#34;</span>                   <span style=color:#8b949e;font-style:italic># Null byte</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;Wörld&#34;</span>                    <span style=color:#8b949e;font-style:italic># Latin-1</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34; </span><span style=color:#79c0ff>\u202E\u0635\u0648\u0631\u0629</span><span style=color:#a5d6ff>&#34;</span>  <span style=color:#8b949e;font-style:italic># RTL override</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34; 中文&#34;</span>                    <span style=color:#8b949e;font-style:italic># CJK</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34; </span><span style=color:#79c0ff>\U0001F600</span><span style=color:#a5d6ff>&#34;</span>              <span style=color:#8b949e;font-style:italic># Emoji (high plane)</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34; a</span><span style=color:#79c0ff>\u0308\u0304</span><span style=color:#a5d6ff>&#34;</span>           <span style=color:#8b949e;font-style:italic># Multiple combining marks</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34; </span><span style=color:#79c0ff>\u200B</span><span style=color:#a5d6ff>&#34;</span>                  <span style=color:#8b949e;font-style:italic># Zero-width space</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34; </span><span style=color:#79c0ff>\uFEFF</span><span style=color:#a5d6ff>&#34;</span>                  <span style=color:#8b949e;font-style:italic># BOM</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34; </span><span style=color:#79c0ff>\U0001F468\u200D\U0001F469\u200D\U0001F467</span><span style=color:#a5d6ff>&#34;</span>  <span style=color:#8b949e;font-style:italic># ZWJ family</span>
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34; </span><span style=color:#79c0ff>\n\r\n\r</span><span style=color:#a5d6ff>&#34;</span>                <span style=color:#8b949e;font-style:italic># Mixed newlines</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>test_survives_torture</span>(func):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Test that a function handles extreme Unicode.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>try</span>:
+</span></span><span style=display:flex><span>        result <span style=color:#ff7b72;font-weight:700>=</span> func(UNICODE_TORTURE)
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Verify result is valid string</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>assert</span> isinstance(result, str)
+</span></span><span style=display:flex><span>        result<span style=color:#ff7b72;font-weight:700>.</span>encode(<span style=color:#a5d6ff>&#39;utf-8&#39;</span>)  <span style=color:#8b949e;font-style:italic># Must be encodable</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>except</span> <span style=color:#f0883e;font-weight:700>Exception</span> <span style=color:#ff7b72>as</span> e:
+</span></span><span style=display:flex><span>        pytest<span style=color:#ff7b72;font-weight:700>.</span>fail(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;Unicode torture test failed: </span><span style=color:#a5d6ff>{</span>e<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span></code></pre></div><h3 id="153-property-based-testing">15.3 Property-Based Testing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>hypothesis</span> <span style=color:#ff7b72>import</span> given, strategies <span style=color:#ff7b72>as</span> st
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>@given</span>(st<span style=color:#ff7b72;font-weight:700>.</span>text())
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>test_normalize_roundtrip</span>(s):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Normalized text should stay normalized.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>import</span> <span style=color:#ff7b72>unicodedata</span>
+</span></span><span style=display:flex><span>    normalized <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, s)
+</span></span><span style=display:flex><span>    double_normalized <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>normalize(<span style=color:#a5d6ff>&#39;NFC&#39;</span>, normalized)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>assert</span> normalized <span style=color:#ff7b72;font-weight:700>==</span> double_normalized
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>@given</span>(st<span style=color:#ff7b72;font-weight:700>.</span>text())
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>test_utf8_roundtrip</span>(s):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;UTF-8 encoding should round-trip.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    encoded <span style=color:#ff7b72;font-weight:700>=</span> s<span style=color:#ff7b72;font-weight:700>.</span>encode(<span style=color:#a5d6ff>&#39;utf-8&#39;</span>)
+</span></span><span style=display:flex><span>    decoded <span style=color:#ff7b72;font-weight:700>=</span> encoded<span style=color:#ff7b72;font-weight:700>.</span>decode(<span style=color:#a5d6ff>&#39;utf-8&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>assert</span> s <span style=color:#ff7b72;font-weight:700>==</span> decoded
+</span></span></code></pre></div><h3 id="154-visual-inspection-tools">15.4 Visual Inspection Tools</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>debug_unicode</span>(text):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Print detailed Unicode information.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>import</span> <span style=color:#ff7b72>unicodedata</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;String: </span><span style=color:#a5d6ff>{</span>repr(text)<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;Length: </span><span style=color:#a5d6ff>{</span>len(text)<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff> code points&#34;</span>)
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;UTF-8 bytes: </span><span style=color:#a5d6ff>{</span>len(text<span style=color:#ff7b72;font-weight:700>.</span>encode(<span style=color:#a5d6ff>&#39;utf-8&#39;</span>))<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>    print()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> i, char <span style=color:#ff7b72;font-weight:700>in</span> enumerate(text):
+</span></span><span style=display:flex><span>        code <span style=color:#ff7b72;font-weight:700>=</span> ord(char)
+</span></span><span style=display:flex><span>        name <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>name(char, <span style=color:#a5d6ff>&#39;&lt;unnamed&gt;&#39;</span>)
+</span></span><span style=display:flex><span>        cat <span style=color:#ff7b72;font-weight:700>=</span> unicodedata<span style=color:#ff7b72;font-weight:700>.</span>category(char)
+</span></span><span style=display:flex><span>        print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;  [</span><span style=color:#a5d6ff>{</span>i<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>] U+</span><span style=color:#a5d6ff>{</span>code<span style=color:#a5d6ff>:</span><span style=color:#a5d6ff>04X</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff> </span><span style=color:#a5d6ff>{</span>cat<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff> </span><span style=color:#a5d6ff>{</span>name<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>debug_unicode(<span style=color:#a5d6ff>&#34;café&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># [0] U+0063 Ll LATIN SMALL LETTER C</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># [1] U+0061 Ll LATIN SMALL LETTER A</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># [2] U+0066 Ll LATIN SMALL LETTER F</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># [3] U+00E9 Ll LATIN SMALL LETTER E WITH ACUTE</span>
+</span></span></code></pre></div><h2 id="16-the-future-of-unicode">16. The Future of Unicode</h2><p>Unicode continues to evolve.</p><h3 id="161-recent-developments">16.1 Recent Developments</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Unicode 15.0-16.0 additions:
+</span></span><span style=display:flex><span>- New emoji (every year)
+</span></span><span style=display:flex><span>- Historical scripts (Kawi, Nag Mundari)
+</span></span><span style=display:flex><span>- Additional CJK characters
+</span></span><span style=display:flex><span>- Symbol sets for technical domains
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Trends:
+</span></span><span style=display:flex><span>- Emoji remain controversial (standardization process)
+</span></span><span style=display:flex><span>- More complex emoji sequences
+</span></span><span style=display:flex><span>- Better support for minority languages
+</span></span><span style=display:flex><span>- Improved security recommendations
+</span></span></code></pre></div><h3 id="162-emerging-challenges">16.2 Emerging Challenges</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Still difficult areas:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Emoji rendering consistency
+</span></span><span style=display:flex><span>   - Different platforms show different images
+</span></span><span style=display:flex><span>   - ZWJ sequences may not be supported everywhere
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Language identification
+</span></span><span style=display:flex><span>   - Shared scripts (Latin used by many languages)
+</span></span><span style=display:flex><span>   - Mixed-language text
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Accessibility
+</span></span><span style=display:flex><span>   - Screen readers and Unicode
+</span></span><span style=display:flex><span>   - Braille encoding
+</span></span><span style=display:flex><span>   - Sign language notation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. Digital preservation
+</span></span><span style=display:flex><span>   - Legacy encoding conversion
+</span></span><span style=display:flex><span>   - Long-term format stability
+</span></span></code></pre></div><h3 id="163-implementation-improvements">16.3 Implementation Improvements</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Library and runtime improvements:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Swift: Native grapheme cluster handling
+</span></span><span style=display:flex><span>Rust: Strong encoding guarantees
+</span></span><span style=display:flex><span>Go: Easy conversion, explicit rune type
+</span></span><span style=display:flex><span>Web: Better Intl API support
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Future directions:
+</span></span><span style=display:flex><span>- Faster normalization algorithms
+</span></span><span style=display:flex><span>- Better default behaviors
+</span></span><span style=display:flex><span>- Improved tooling for developers
+</span></span><span style=display:flex><span>- Standard confusable detection APIs
+</span></span></code></pre></div><h2 id="17-quick-reference">17. Quick Reference</h2><p>Essential Unicode information at a glance.</p><h3 id="171-common-code-points">17.1 Common Code Points</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Spaces:
+</span></span><span style=display:flex><span>U+0020  Space
+</span></span><span style=display:flex><span>U+00A0  No-Break Space (&amp;nbsp;)
+</span></span><span style=display:flex><span>U+2003  Em Space
+</span></span><span style=display:flex><span>U+3000  Ideographic Space
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Control:
+</span></span><span style=display:flex><span>U+0000  Null
+</span></span><span style=display:flex><span>U+0009  Tab
+</span></span><span style=display:flex><span>U+000A  Line Feed (LF)
+</span></span><span style=display:flex><span>U+000D  Carriage Return (CR)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Format:
+</span></span><span style=display:flex><span>U+200B  Zero Width Space
+</span></span><span style=display:flex><span>U+200C  Zero Width Non-Joiner
+</span></span><span style=display:flex><span>U+200D  Zero Width Joiner (ZWJ)
+</span></span><span style=display:flex><span>U+FEFF  Byte Order Mark
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Replacement:
+</span></span><span style=display:flex><span>U+FFFD  Replacement Character (�)
+</span></span></code></pre></div><h3 id="172-utf-8-byte-patterns">17.2 UTF-8 Byte Patterns</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1-byte: 0xxxxxxx (ASCII)
+</span></span><span style=display:flex><span>2-byte: 110xxxxx 10xxxxxx
+</span></span><span style=display:flex><span>3-byte: 1110xxxx 10xxxxxx 10xxxxxx
+</span></span><span style=display:flex><span>4-byte: 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Leading byte tells you sequence length:
+</span></span><span style=display:flex><span>0x00-0x7F: 1 byte (ASCII)
+</span></span><span style=display:flex><span>0xC0-0xDF: 2 bytes
+</span></span><span style=display:flex><span>0xE0-0xEF: 3 bytes
+</span></span><span style=display:flex><span>0xF0-0xF7: 4 bytes
+</span></span><span style=display:flex><span>0x80-0xBF: Continuation byte
+</span></span></code></pre></div><h3 id="173-essential-regex-patterns">17.3 Essential Regex Patterns</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>re</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Match any Unicode letter</span>
+</span></span><span style=display:flex><span>letters <span style=color:#ff7b72;font-weight:700>=</span> re<span style=color:#ff7b72;font-weight:700>.</span>compile(<span style=color:#79c0ff>r</span><span style=color:#a5d6ff>&#39;\p</span><span style=color:#a5d6ff>{L}</span><span style=color:#a5d6ff>+&#39;</span>, re<span style=color:#ff7b72;font-weight:700>.</span>UNICODE)  <span style=color:#8b949e;font-style:italic># Requires regex module</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Match emoji (basic)</span>
+</span></span><span style=display:flex><span>emoji <span style=color:#ff7b72;font-weight:700>=</span> re<span style=color:#ff7b72;font-weight:700>.</span>compile(<span style=color:#79c0ff>r</span><span style=color:#a5d6ff>&#39;[\U0001F600-\U0001F64F]&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Match zero-width characters</span>
+</span></span><span style=display:flex><span>zwc <span style=color:#ff7b72;font-weight:700>=</span> re<span style=color:#ff7b72;font-weight:700>.</span>compile(<span style=color:#79c0ff>r</span><span style=color:#a5d6ff>&#39;[\u200B-\u200D\uFEFF]&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Match combining marks</span>
+</span></span><span style=display:flex><span>combining <span style=color:#ff7b72;font-weight:700>=</span> re<span style=color:#ff7b72;font-weight:700>.</span>compile(<span style=color:#79c0ff>r</span><span style=color:#a5d6ff>&#39;\p</span><span style=color:#a5d6ff>{M}</span><span style=color:#a5d6ff>&#39;</span>, re<span style=color:#ff7b72;font-weight:700>.</span>UNICODE)  <span style=color:#8b949e;font-style:italic># Requires regex module</span>
+</span></span></code></pre></div><h3 id="174-language-comparison-cheat-sheet">17.4 Language Comparison Cheat Sheet</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Length (code points):
+</span></span><span style=display:flex><span>Python 3: len(s)
+</span></span><span style=display:flex><span>JavaScript: [...s].length
+</span></span><span style=display:flex><span>Java: s.codePointCount(0, s.length())
+</span></span><span style=display:flex><span>Rust: s.chars().count()
+</span></span><span style=display:flex><span>Go: utf8.RuneCountInString(s)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Length (bytes as UTF-8):
+</span></span><span style=display:flex><span>Python 3: len(s.encode(&#39;utf-8&#39;))
+</span></span><span style=display:flex><span>JavaScript: new TextEncoder().encode(s).length
+</span></span><span style=display:flex><span>Java: s.getBytes(StandardCharsets.UTF_8).length
+</span></span><span style=display:flex><span>Rust: s.len()
+</span></span><span style=display:flex><span>Go: len(s)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Iterate code points:
+</span></span><span style=display:flex><span>Python 3: for c in s
+</span></span><span style=display:flex><span>JavaScript: for (const c of s)
+</span></span><span style=display:flex><span>Java: s.codePoints().forEach(...)
+</span></span><span style=display:flex><span>Rust: for c in s.chars()
+</span></span><span style=display:flex><span>Go: for _, r := range s
+</span></span></code></pre></div><h2 id="18-summary">18. Summary</h2><p>Unicode and character encoding are foundational to working with text in software:</p><p><strong>Encoding fundamentals:</strong></p><ul><li>ASCII: 7-bit, 128 characters</li><li>Unicode: Abstract code points (U+0000 to U+10FFFF)</li><li>UTF-8: Variable-width, ASCII-compatible, web standard</li><li>UTF-16: Fixed/variable, used in Windows/Java/JavaScript</li><li>UTF-32: Fixed-width, simple but wasteful</li></ul><p><strong>Complexity beyond code points:</strong></p><ul><li>Combining characters build graphemes</li><li>Emoji can be many code points</li><li>Normalization makes equivalent strings equal</li><li>Bidirectional text requires special handling</li></ul><p><strong>Best practices:</strong></p><ul><li>Always use UTF-8 for interchange</li><li>Be explicit about encoding at every boundary</li><li>Normalize consistently (NFC recommended)</li><li>Don&rsquo;t assume string length means characters</li><li>Test with diverse international text</li></ul><p><strong>Common pitfalls:</strong></p><ul><li>Mojibake from encoding mismatch</li><li>Double encoding</li><li>Surrogate pair handling in UTF-16</li><li>Security issues with lookalike characters</li><li>Invisible characters in user input</li></ul><p><strong>Debugging checklist:</strong></p><p>When you encounter text that looks wrong, work through this mental checklist. First, confirm the actual bytes on disk or in transit—hex dump the raw data rather than trusting what a text editor shows. Second, identify what encoding the producer intended versus what the consumer assumed. Third, check whether there&rsquo;s an additional layer of encoding (like HTML entities on top of UTF-8). Fourth, examine whether the display font actually supports the glyphs in question. Fifth, verify that no intermediate system silently transcoded the data. This systematic approach resolves most encoding mysteries within minutes.</p><p>Understanding text encoding deeply will save you countless hours of debugging mysterious &ldquo;character&rdquo; bugs. The journey from telegraph codes through ASCII&rsquo;s pragmatic 7 bits to Unicode&rsquo;s comprehensive code space reflects humanity&rsquo;s expanding need to communicate across linguistic boundaries. Today&rsquo;s systems inherit layers of historical compromise, but UTF-8 provides a clean path forward. The systems are complex, but the core principles are learnable. When in doubt, use UTF-8, normalize to NFC, and test with real multilingual data. Your future self—and your international users—will thank you for taking the time to understand these fundamentals properly.</p></div><footer class="ce1a612 c6dfb1e c3ecea6"><div class="c364589">Categories:
+<a href=/categories/fundamentals/>fundamentals</a>, <a href=/categories/systems/>systems</a></div><div>Tags:
+<a href=/tags/unicode/>#unicode</a>, <a href=/tags/utf-8/>#utf-8</a>, <a href=/tags/encoding/>#encoding</a>, <a href=/tags/text/>#text</a>, <a href=/tags/internationalization/>#internationalization</a>, <a href=/tags/fundamentals/>#fundamentals</a></div></footer></article></main><footer class="ccdf0e8" role=contentinfo aria-label=Footer><div class="cfdda01 c133889 c5df473 c0eecc8 c69618a c6942b3 c03620d c2a9f27 c7c11d8 c82c52d c14527b"><div class="c6dfb1e c3ecea6 c39ef11 c88ae6f">&copy; 2026 Leonardo Benicio. All rights
+reserved.</div><div class="c6942b3 c7c11d8 cd1fd22"><a href=https://github.com/lbenicio target=_blank rel="noopener noreferrer" aria-label=GitHub class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.5-.67 1.08-.82 1.7s-.2 1.27-.18 1.9V22"/></svg>
+<span class="cba5854">GitHub</span>
+</a><a href=https://www.linkedin.com/in/leonardo-benicio target=_blank rel="noopener noreferrer" aria-label=LinkedIn class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21V14.86c0-1.333-.027-3.046-1.858-3.046-1.86.0-2.145 1.45-2.145 2.948v5.69H9.069V9h3.112v1.561h.044c.434-.82 1.494-1.686 3.074-1.686 3.29.0 3.897 2.165 3.897 4.983v6.594zM5.337 7.433a1.805 1.805.0 11-.002-3.61 1.805 1.805.0 01.002 3.61zM6.763 20.452H3.911V9h2.852v11.452z"/></svg>
+<span class="cba5854">LinkedIn</span>
+</a><a href=https://twitter.com/lbenicio_ target=_blank rel="noopener noreferrer" aria-label=Twitter class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.177.013.354.013.53.0 5.386-4.099 11.599-11.6 11.599-2.31.0-4.457-.676-6.265-1.842.324.038.636.05.972.05 1.91.0 3.67-.65 5.07-1.755a4.099 4.099.0 01-3.827-2.84c.25.039.5.064.763.064.363.0.726-.051 1.065-.139A4.091 4.091.0 012.542 9.649v-.051c.538.3 1.162.482 1.824.507A4.082 4.082.0 012.54 6.7c0-.751.2-1.435.551-2.034a11.63 11.63.0 008.44 4.281 4.615 4.615.0 01-.101-.938 4.091 4.091.0 017.078-2.799 8.1 8.1.0 002.595-.988 4.112 4.112.0 01-1.8 2.261 8.2 8.2.0 002.357-.638A8.824 8.824.0 0119.613 7.96z"/></svg>
+<span class="cba5854">Twitter</span></a></div></div></footer></body></html>

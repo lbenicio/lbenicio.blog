@@ -1,0 +1,1000 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>CPU Caches and Cache Coherence: The Memory Hierarchy That Makes Modern Computing Fast · Leonardo Benicio</title><meta name=description content="A comprehensive exploration of how CPU caches bridge the processor-memory speed gap. Learn about cache architecture, replacement policies, coherence protocols, and how to write cache-friendly code for maximum performance."><link rel=alternate type=application/rss+xml title=RSS href=https://lbenicio.dev/index.xml><link rel=canonical href=https://blog.lbenicio.dev/blog/cpu-caches-and-cache-coherence-the-memory-hierarchy-that-makes-modern-computing-fast/><link rel=preload href=/static/fonts/OpenSans-Regular.ttf as=font type=font/ttf crossorigin><link rel="stylesheet" href="/assets/css/fonts.min.40e2054b739ac45a0f9c940f4b44ec00c3b372356ebf61440a413c0337c5512e.css" crossorigin="anonymous" integrity="sha256-QOIFS3OaxFoPnJQPS0TsAMOzcjVuv2FECkE8AzfFUS4="><link rel="shortcut icon" href=/static/assets/favicon/favicon.ico><link rel=icon type=image/x-icon href=/static/assets/favicon/favicon.ico><link rel=icon href=/static/assets/favicon/favicon.svg type=image/svg+xml><link rel=icon href=/static/assets/favicon/favicon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/static/assets/favicon/favicon-16x16.png sizes=16x16 type=image/png><link rel=apple-touch-icon href=/static/assets/favicon/apple-touch-icon.png><link rel=manifest href=/static/assets/favicon/site.webmanifest><link rel=mask-icon href=/static/assets/favicon/safari-pinned-tab.svg color=#209cee><meta name=msapplication-TileColor content="#209cee"><meta name=msapplication-config content="/static/assets/favicon/browserconfig.xml"><meta name=theme-color content="#d2e9f8"><meta property="og:title" content="CPU Caches and Cache Coherence: The Memory Hierarchy That Makes Modern Computing Fast · Leonardo Benicio"><meta property="og:description" content="A comprehensive exploration of how CPU caches bridge the processor-memory speed gap. Learn about cache architecture, replacement policies, coherence protocols, and how to write cache-friendly code for maximum performance."><meta property="og:url" content="https://blog.lbenicio.dev/blog/cpu-caches-and-cache-coherence-the-memory-hierarchy-that-makes-modern-computing-fast/"><meta property="og:type" content="article"><meta property="og:image" content="https://blog.lbenicio.dev/static/assets/images/blog/cpu-caches-coherence-memory-hierarchy.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="CPU Caches and Cache Coherence: The Memory Hierarchy That Makes Modern Computing Fast · Leonardo Benicio"><meta name=twitter:description content="A comprehensive exploration of how CPU caches bridge the processor-memory speed gap. Learn about cache architecture, replacement policies, coherence protocols, and how to write cache-friendly code for maximum performance."><meta name=twitter:site content="@lbenicio_"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"About Leonardo Benicio","url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Person","name":"Leonardo Benicio","sameAs":["https://github.com/lbenicio","https://www.linkedin.com/in/leonardo-benicio","https://twitter.com/lbenicio_"],"url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Home","position":1},{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Blog","position":2},{"@type":"ListItem","item":"https://blog.lbenicio.dev/blog/cpu-caches-and-cache-coherence-the-memory-hierarchy-that-makes-modern-computing-fast/","name":"CPU Caches and Cache Coherence the Memory Hierarchy That Makes Modern Computing Fast","position":3}]}</script><link rel="stylesheet" href="/assets/css/main.min.1e8a566ac8bc3f0664d0db4ec8a015b07421c33fa11d336a6b914522a9cabf30.css" crossorigin="anonymous" integrity="sha256-6lhUOpwCHMSMROmggsVSp3AHKud6gBrIFGTzl3GV4BY="></head><body class="c6942b3 c03620d cf3bd2e"><script>(function(){try{document.addEventListener("gesturestart",function(e){e.preventDefault()}),document.addEventListener("touchstart",function(e){e.touches&&e.touches.length>1&&e.preventDefault()},{passive:!1});var e=0;document.addEventListener("touchend",function(t){var n=Date.now();n-e<=300&&t.preventDefault(),e=n},{passive:!1})}catch{}})()</script><a href=#content class="cba5854 c21e770 caffa6e cc5f604 cf2c31d cdd44dd c10dda9 c43876e c787e9b cddc2d2 cf55a7b c6dfb1e c9391e2">Skip to content</a>
+<script>(function(){try{const e=localStorage.getItem("theme");e==="dark"&&document.documentElement.classList.add("dark");const t=document.querySelector('button[aria-label="Toggle theme"]');t&&t.setAttribute("aria-pressed",String(e==="dark"))}catch{}})();function toggleTheme(e){const s=document.documentElement,t=s.classList.toggle("dark");try{localStorage.setItem("theme",t?"dark":"light")}catch{}try{var n=e&&e.nodeType===1?e:document.querySelector('button[aria-label="Toggle theme"]');n&&n.setAttribute("aria-pressed",String(!!t))}catch{}}(function(){function e(){try{return document.documentElement.classList.contains("dark")?"dark":"light"}catch{return"light"}}function n(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(0)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!1,s.style.display="block"}catch{}o.setAttribute("aria-expanded","true"),n.setAttribute("aria-hidden","false");try{document.body.classList.add("c150bbe")}catch{}const i=document.getElementById("i190984");i&&i.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_open",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function t(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(100%)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!0,s.style.display="none"}catch{}o.setAttribute("aria-expanded","false"),n.setAttribute("aria-hidden","true");try{document.body.classList.remove("c150bbe")}catch{}o.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_close",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function s(e){e.key==="Escape"&&t("escape")}window.__openMobileMenu=n,window.__closeMobileMenu=t;try{window.addEventListener("keydown",s,!0)}catch{}})()</script><header class="cd019ba c98dfae cdd44dd cfdda01 c9ee25d ce2dc7a cd72dd7 cc0dc37" role=banner><div class="cfdda01 c6942b3 ccf47f4 c7c11d8"><a href=/ class="c87e2b0 c6942b3 c7c11d8 c1838fa cb594e4" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=32 height=32 class="c3de71a c4d5191">
+<span class="cf8f011 c4d1253 cbd72bc cd7e69e">Leonardo Benicio</span></a><div class="c6942b3 c85cbd4 c7c11d8 ca798da c1838fa c7a0580"><nav class="cc1689c cd9b445 c75065d c04bab1" aria-label=Main><a href=/ class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Home</a>
+<a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">About</a>
+<a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Timeline</a>
+<a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Reading</a>
+<a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Publications</a>
+<a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Contact</a></nav><button id="i1d73d4" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 c097fa1 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" onclick=toggleTheme(this) aria-label="Toggle theme" aria-pressed=false title="Toggle theme">
+<svg class="cb26e41 c50ceea cb69a5c c4f45c8 c8c2c40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="cb26e41 c8fca2b cb69a5c c4f45c8 cc1689c c9c27ff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M6.34 17.66l2.83-2.83"/><path d="M14.83 9.17l2.83-2.83"/></svg>
+<span class="cba5854">Toggle theme</span></button><div class="c658bcf c097fa1"><button id="i975fb5" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" aria-label="Open menu" aria-controls="i98aca2" aria-expanded=false onclick='window.__openMobileMenu("button")' data-d38f920=mobile_menu_open_click>
+<svg class="c20e4eb cb58471" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<span class="cba5854">Open menu</span></button></div></div></div></header><div id="iad2af0" class="caffa6e ce4b5f4 c14639a" style=background-color:hsl(var(--background)) hidden onclick='window.__closeMobileMenu("overlay")' data-d38f920=mobile_menu_overlay_click></div><aside id="i98aca2" class="caffa6e c9efbc5 c437fa9 c49e97e c6c6936 c7cacca c7b34a4 c787e9b c88daee cad071a c6942b3 c03620d" role=dialog aria-modal=true aria-hidden=true aria-label="Mobile navigation" style="transform:translateX(100%);transition:transform 200ms ease-out;will-change:transform"><div class="c6942b3 c7c11d8 c82c52d c5df473 ccf47f4 c9ee25d"><a href=/ class="c6942b3 c7c11d8 c1838fa" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=24 height=24 class="c20e4eb cb58471">
+<span class="c62aaf0 c7c1b66 cbd72bc">Leonardo Benicio</span>
+</a><button id="i190984" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c514027 c286dd7 c2bd687 cfdce1d" aria-label="Close menu" onclick='window.__closeMobileMenu("button")' data-d38f920=mobile_menu_close_click>
+<svg class="c16e528 c61f467" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<span class="cba5854">Close</span></button></div><nav class="c85cbd4 ca0eaa4 c5df473 c6689b9"><ul class="cd69733"><li><a href=/ class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Home</a></li><li><a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>About</a></li><li><a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Timeline</a></li><li><a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Reading</a></li><li><a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Publications</a></li><li><a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Contact</a></li></ul></nav><div class="c60a4cc ccdf0e8 c277478 c13044e"><p>&copy; 2026 Leonardo Benicio</p></div></aside><div class="caffa6e c437fa9 ce9aced c97bba6 c15da2a c975cba" role=complementary aria-label="GitHub repository"><div class="c9d056d c252f85 ca22532 ca88a1a c876315"><div class="c6942b3 c7c11d8 c1d0018 cd1fd22 c6066e4 c43876e ce3d5b6 caa20d2 c3ecea6 c0cd2e2 cddc2d2 c3ed5c9 cd4074c c876315"><a href=https://github.com/lbenicio/aboutme target=_blank rel="noopener noreferrer" class="c6942b3 c7c11d8 cd1fd22 c71bae8 cfac1ac c19ee42 c25dc7c cb40739 cbbda39 cf55a7b" aria-label="View source on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cb26e41 c41bcd4 cf17690 cfa4e34 c78d562" aria-hidden="true"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+<span class="cb5c327 cd7e69e">Fork me</span></a></div></div></div><main id="i7eccc0" class="cfdda01 c5df473 c0eecc8 c85cbd4" role=main aria-label=Content><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">CPU Caches and Cache Coherence the Memory Hierarchy That Makes Modern Computing Fast</span></li></ol></nav><article class="c461ba0 c1c203f cfb6084 c995404 c6ca165"><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">CPU Caches and Cache Coherence the Memory Hierarchy That Makes Modern Computing Fast</span></li></ol></nav><header class="c8aedc7"><h1 class="cf304bc c6fb0fe cf8f011 cc484e1">CPU Caches and Cache Coherence: The Memory Hierarchy That Makes Modern Computing Fast</h1><div class="c277478 c3ecea6 c8fb24a">2022-07-12
+· Leonardo Benicio</div><div class="c1a1a3f c8124f2"><img src=/static/assets/images/blog/cpu-caches-coherence-memory-hierarchy.png alt class="cfdda01 c524300 c677556"></div><p class="lead c3ecea6">A comprehensive exploration of how CPU caches bridge the processor-memory speed gap. Learn about cache architecture, replacement policies, coherence protocols, and how to write cache-friendly code for maximum performance.</p></header><div class="content"><p>Modern CPUs can execute billions of instructions per second, but main memory takes hundreds of cycles to respond. Without caches, processors would spend most of their time waiting for data. The cache hierarchy is one of the most important innovations in computer architecture, and understanding it is essential for writing high-performance software.</p><h2 id="1-the-memory-wall-problem">1. The Memory Wall Problem</h2><p>The fundamental challenge that caches solve.</p><h3 id="11-the-speed-gap">1.1 The Speed Gap</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Component          Access Time     Relative Speed
+</span></span><span style=display:flex><span>─────────────────────────────────────────────────
+</span></span><span style=display:flex><span>CPU Register       ~0.3 ns         1x (baseline)
+</span></span><span style=display:flex><span>L1 Cache           ~1 ns           ~3x slower
+</span></span><span style=display:flex><span>L2 Cache           ~3-4 ns         ~10x slower
+</span></span><span style=display:flex><span>L3 Cache           ~10-20 ns       ~30-60x slower
+</span></span><span style=display:flex><span>Main Memory        ~50-100 ns      ~150-300x slower
+</span></span><span style=display:flex><span>NVMe SSD           ~20,000 ns      ~60,000x slower
+</span></span><span style=display:flex><span>HDD                ~10,000,000 ns  ~30,000,000x slower
+</span></span></code></pre></div><h3 id="12-why-the-gap-exists">1.2 Why the Gap Exists</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Memory technology tradeoffs:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SRAM (caches):
+</span></span><span style=display:flex><span>├─ Fast: 6 transistors per bit
+</span></span><span style=display:flex><span>├─ Expensive: ~100x cost per bit vs DRAM
+</span></span><span style=display:flex><span>├─ Power hungry
+</span></span><span style=display:flex><span>└─ Low density
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>DRAM (main memory):
+</span></span><span style=display:flex><span>├─ Slow: 1 transistor + 1 capacitor per bit
+</span></span><span style=display:flex><span>├─ Cheap: high density
+</span></span><span style=display:flex><span>├─ Needs refresh (capacitors leak)
+</span></span><span style=display:flex><span>└─ Better power per bit
+</span></span></code></pre></div><h3 id="13-the-solution-caching">1.3 The Solution: Caching</h3><p>Caches exploit two key principles:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Temporal Locality:
+</span></span><span style=display:flex><span>&#34;If you accessed it recently, you&#39;ll probably access it again&#34;
+</span></span><span style=display:flex><span>Example: Loop counter variable
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Spatial Locality:
+</span></span><span style=display:flex><span>&#34;If you accessed this address, you&#39;ll probably access nearby addresses&#34;
+</span></span><span style=display:flex><span>Example: Sequential array traversal
+</span></span></code></pre></div><h2 id="2-cache-architecture-fundamentals">2. Cache Architecture Fundamentals</h2><p>How caches are organized internally.</p><h3 id="21-cache-lines">2.1 Cache Lines</h3><p>Caches don&rsquo;t store individual bytes—they store fixed-size blocks:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Typical cache line: 64 bytes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Memory address: 0x1234_5678
+</span></span><span style=display:flex><span>                └──────┴──┘
+</span></span><span style=display:flex><span>                  Tag   │
+</span></span><span style=display:flex><span>                        └─ Offset within cache line (6 bits for 64B)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>When you read one byte, the entire 64-byte line is loaded:
+</span></span><span style=display:flex><span>┌────────────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│ Cache Line (64 bytes)                                          │
+</span></span><span style=display:flex><span>│ [byte0][byte1][byte2]...[byte63]                              │
+</span></span><span style=display:flex><span>└────────────────────────────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="22-cache-organization-types">2.2 Cache Organization Types</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1. Direct-Mapped Cache:
+</span></span><span style=display:flex><span>   Each memory address maps to exactly one cache location
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   Pros: Simple, fast lookup
+</span></span><span style=display:flex><span>   Cons: Conflict misses (two addresses compete for same slot)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   Memory Address → Hash → Single Cache Location
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Fully Associative Cache:
+</span></span><span style=display:flex><span>   Any memory address can go in any cache location
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   Pros: No conflict misses
+</span></span><span style=display:flex><span>   Cons: Expensive to search all entries
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   Memory Address → Search All → Any Cache Location
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Set-Associative Cache (most common):
+</span></span><span style=display:flex><span>   Address maps to a set; can go in any slot within that set
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   4-way set associative: 4 slots per set
+</span></span><span style=display:flex><span>   8-way set associative: 8 slots per set
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   Memory Address → Hash → Set → One of N Slots
+</span></span></code></pre></div><h3 id="23-anatomy-of-a-cache-entry">2.3 Anatomy of a Cache Entry</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>┌─────────────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│                        Cache Entry                               │
+</span></span><span style=display:flex><span>├──────┬───────┬───────┬─────────────────────────────────────────┤
+</span></span><span style=display:flex><span>│Valid │ Dirty │  Tag  │              Data (Cache Line)          │
+</span></span><span style=display:flex><span>│ (1b) │ (1b)  │(~30b) │                (64 bytes)               │
+</span></span><span style=display:flex><span>├──────┼───────┼───────┼─────────────────────────────────────────┤
+</span></span><span style=display:flex><span>│  1   │   0   │ 0x1A3 │ [64 bytes of data from memory]          │
+</span></span><span style=display:flex><span>└──────┴───────┴───────┴─────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Valid: Is this entry holding real data?
+</span></span><span style=display:flex><span>Dirty: Has this data been modified (needs writeback)?
+</span></span><span style=display:flex><span>Tag: High bits of address for matching
+</span></span><span style=display:flex><span>Data: The actual cached bytes
+</span></span></code></pre></div><h3 id="24-address-breakdown">2.4 Address Breakdown</h3><p>For a 32KB, 8-way set associative cache with 64-byte lines:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Total entries: 32KB / 64B = 512 entries
+</span></span><span style=display:flex><span>Sets: 512 / 8 = 64 sets
+</span></span><span style=display:flex><span>Bits needed for set index: log2(64) = 6 bits
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Address breakdown (for 48-bit virtual address):
+</span></span><span style=display:flex><span>┌────────────────────────┬────────┬────────┐
+</span></span><span style=display:flex><span>│         Tag            │  Set   │ Offset │
+</span></span><span style=display:flex><span>│      (36 bits)         │(6 bits)│(6 bits)│
+</span></span><span style=display:flex><span>└────────────────────────┴────────┴────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Offset: Which byte within the 64-byte line
+</span></span><span style=display:flex><span>Set: Which set to look in
+</span></span><span style=display:flex><span>Tag: For matching within the set
+</span></span></code></pre></div><h2 id="3-the-cache-hierarchy">3. The Cache Hierarchy</h2><p>Modern CPUs have multiple cache levels.</p><h3 id="31-typical-modern-configuration">3.1 Typical Modern Configuration</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>                    ┌─────────────┐
+</span></span><span style=display:flex><span>                    │   CPU Core  │
+</span></span><span style=display:flex><span>                    └──────┬──────┘
+</span></span><span style=display:flex><span>                           │
+</span></span><span style=display:flex><span>                    ┌──────▼──────┐
+</span></span><span style=display:flex><span>                    │  L1 I-Cache │ 32-64 KB, ~4 cycles
+</span></span><span style=display:flex><span>                    │  L1 D-Cache │ 32-64 KB, ~4 cycles
+</span></span><span style=display:flex><span>                    └──────┬──────┘
+</span></span><span style=display:flex><span>                           │
+</span></span><span style=display:flex><span>                    ┌──────▼──────┐
+</span></span><span style=display:flex><span>                    │   L2 Cache  │ 256-512 KB, ~12 cycles
+</span></span><span style=display:flex><span>                    └──────┬──────┘
+</span></span><span style=display:flex><span>                           │
+</span></span><span style=display:flex><span>              ┌────────────▼────────────┐
+</span></span><span style=display:flex><span>              │        L3 Cache         │ 8-64 MB, ~40 cycles
+</span></span><span style=display:flex><span>              │    (Shared across cores)│
+</span></span><span style=display:flex><span>              └────────────┬────────────┘
+</span></span><span style=display:flex><span>                           │
+</span></span><span style=display:flex><span>              ┌────────────▼────────────┐
+</span></span><span style=display:flex><span>              │      Main Memory        │ ~200 cycles
+</span></span><span style=display:flex><span>              └─────────────────────────┘
+</span></span></code></pre></div><h3 id="32-inclusive-vs-exclusive-hierarchies">3.2 Inclusive vs Exclusive Hierarchies</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Inclusive (Intel):
+</span></span><span style=display:flex><span>- L3 contains copy of everything in L1/L2
+</span></span><span style=display:flex><span>- Simpler coherence
+</span></span><span style=display:flex><span>- Wastes some capacity
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>L1: [A, B, C]
+</span></span><span style=display:flex><span>L2: [A, B, C, D, E]
+</span></span><span style=display:flex><span>L3: [A, B, C, D, E, F, G, H]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Exclusive (AMD):
+</span></span><span style=display:flex><span>- Each level holds unique data
+</span></span><span style=display:flex><span>- Better capacity utilization
+</span></span><span style=display:flex><span>- More complex coherence
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>L1: [A, B]
+</span></span><span style=display:flex><span>L2: [C, D, E]
+</span></span><span style=display:flex><span>L3: [F, G, H, I, J]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Non-Inclusive Non-Exclusive (NINE):
+</span></span><span style=display:flex><span>- L3 doesn&#39;t guarantee inclusion
+</span></span><span style=display:flex><span>- Flexible eviction policies
+</span></span><span style=display:flex><span>- Modern Intel uses this
+</span></span></code></pre></div><h3 id="33-private-vs-shared-caches">3.3 Private vs Shared Caches</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
+</span></span><span style=display:flex><span>│ Core 0  │ │ Core 1  │ │ Core 2  │ │ Core 3  │
+</span></span><span style=display:flex><span>├─────────┤ ├─────────┤ ├─────────┤ ├─────────┤
+</span></span><span style=display:flex><span>│L1 (Priv)│ │L1 (Priv)│ │L1 (Priv)│ │L1 (Priv)│
+</span></span><span style=display:flex><span>├─────────┤ ├─────────┤ ├─────────┤ ├─────────┤
+</span></span><span style=display:flex><span>│L2 (Priv)│ │L2 (Priv)│ │L2 (Priv)│ │L2 (Priv)│
+</span></span><span style=display:flex><span>└────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘
+</span></span><span style=display:flex><span>     │           │           │           │
+</span></span><span style=display:flex><span>     └───────────┴─────┬─────┴───────────┘
+</span></span><span style=display:flex><span>                       │
+</span></span><span style=display:flex><span>              ┌────────▼────────┐
+</span></span><span style=display:flex><span>              │  L3 (Shared)    │
+</span></span><span style=display:flex><span>              └─────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Private caches: Low latency, no sharing overhead
+</span></span><span style=display:flex><span>Shared caches: Better utilization, requires coherence
+</span></span></code></pre></div><h2 id="4-cache-replacement-policies">4. Cache Replacement Policies</h2><p>When the cache is full, which line gets evicted?</p><h3 id="41-common-policies">4.1 Common Policies</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>LRU (Least Recently Used):
+</span></span><span style=display:flex><span>- Evict the line accessed longest ago
+</span></span><span style=display:flex><span>- Optimal for many workloads
+</span></span><span style=display:flex><span>- Expensive to implement exactly
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Pseudo-LRU:
+</span></span><span style=display:flex><span>- Approximates LRU with less hardware
+</span></span><span style=display:flex><span>- Tree-based tracking
+</span></span><span style=display:flex><span>- Good enough in practice
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Random:
+</span></span><span style=display:flex><span>- Surprisingly effective
+</span></span><span style=display:flex><span>- Simple to implement
+</span></span><span style=display:flex><span>- Avoids pathological patterns
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>RRIP (Re-Reference Interval Prediction):
+</span></span><span style=display:flex><span>- Intel&#39;s modern approach
+</span></span><span style=display:flex><span>- Predicts reuse distance
+</span></span><span style=display:flex><span>- Handles scan-resistant workloads
+</span></span></code></pre></div><h3 id="42-lru-implementation">4.2 LRU Implementation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>True LRU for 4-way associative:
+</span></span><span style=display:flex><span>- Need to track order of 4 elements
+</span></span><span style=display:flex><span>- 4! = 24 states = 5 bits per set
+</span></span><span style=display:flex><span>- Update on every access
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tree-PLRU (Pseudo-LRU):
+</span></span><span style=display:flex><span>         [0]              Root bit
+</span></span><span style=display:flex><span>        /   \
+</span></span><span style=display:flex><span>      [1]   [2]           Level 1 bits
+</span></span><span style=display:flex><span>      / \   / \
+</span></span><span style=display:flex><span>     W0 W1 W2 W3          Cache ways
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>On access to W1: Set root→left, level1-left→right
+</span></span><span style=display:flex><span>On eviction: Follow bits to find victim
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Only 3 bits per set (vs 5 for true LRU)
+</span></span></code></pre></div><h3 id="43-replacement-policy-impact">4.3 Replacement Policy Impact</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Different access patterns favor different policies
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Sequential scan (LRU performs poorly):
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> HUGE_ARRAY; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    sum <span style=color:#ff7b72;font-weight:700>+=</span> array[i];  <span style=color:#8b949e;font-style:italic>// Each line used once, evicted before reuse
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Working set that fits in cache (LRU works well):
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> iter <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; iter <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>1000</span>; iter<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> CACHE_SIZE; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        sum <span style=color:#ff7b72;font-weight:700>+=</span> array[i];  <span style=color:#8b949e;font-style:italic>// Lines stay in cache
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Random access (all policies similar):
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> N; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    sum <span style=color:#ff7b72;font-weight:700>+=</span> array[random_indices[i]];
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id="5-cache-coherence">5. Cache Coherence</h2><p>When multiple cores have caches, how do we keep them consistent?</p><h3 id="51-the-coherence-problem">5.1 The Coherence Problem</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Initial state: memory[X] = 0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Core 0 L1:  [X = 0]     Core 1 L1:  [X = 0]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Core 0 writes X = 1:
+</span></span><span style=display:flex><span>Core 0 L1:  [X = 1]     Core 1 L1:  [X = 0]  ← STALE!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Without coherence:
+</span></span><span style=display:flex><span>- Core 1 reads stale data
+</span></span><span style=display:flex><span>- Program behaves incorrectly
+</span></span><span style=display:flex><span>- Multithreaded code breaks
+</span></span></code></pre></div><h3 id="52-mesi-protocol">5.2 MESI Protocol</h3><p>The most common cache coherence protocol:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>States:
+</span></span><span style=display:flex><span>┌───────────────┬────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│ State         │ Meaning                                    │
+</span></span><span style=display:flex><span>├───────────────┼────────────────────────────────────────────┤
+</span></span><span style=display:flex><span>│ Modified (M)  │ Only copy, dirty (different from memory)   │
+</span></span><span style=display:flex><span>│ Exclusive (E) │ Only copy, clean (matches memory)          │
+</span></span><span style=display:flex><span>│ Shared (S)    │ Multiple copies may exist, clean           │
+</span></span><span style=display:flex><span>│ Invalid (I)   │ Not valid, must fetch from elsewhere       │
+</span></span><span style=display:flex><span>└───────────────┴────────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="53-mesi-state-transitions">5.3 MESI State Transitions</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>            ┌─────────────────────────────────────────┐
+</span></span><span style=display:flex><span>            │                                         │
+</span></span><span style=display:flex><span>            ▼                                         │
+</span></span><span style=display:flex><span>    ┌───────────┐  Read hit    ┌───────────┐         │
+</span></span><span style=display:flex><span>    │           │◄────────────►│           │         │
+</span></span><span style=display:flex><span>    │  Invalid  │              │  Shared   │─────────┤
+</span></span><span style=display:flex><span>    │    (I)    │              │    (S)    │ Write   │
+</span></span><span style=display:flex><span>    └─────┬─────┘              └─────┬─────┘ (upgrade)
+</span></span><span style=display:flex><span>          │                          │               │
+</span></span><span style=display:flex><span>          │ Read miss                │ Other core    │
+</span></span><span style=display:flex><span>          │ (no other copy)          │ writes        │
+</span></span><span style=display:flex><span>          ▼                          ▼               │
+</span></span><span style=display:flex><span>    ┌───────────┐              ┌───────────┐         │
+</span></span><span style=display:flex><span>    │ Exclusive │──────────────│ Modified  │◄────────┘
+</span></span><span style=display:flex><span>    │    (E)    │    Write     │    (M)    │
+</span></span><span style=display:flex><span>    └───────────┘              └───────────┘
+</span></span></code></pre></div><h3 id="54-coherence-operations">5.4 Coherence Operations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Scenario: Core 0 has line in M state, Core 1 wants to read
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Core 1 issues read request on bus
+</span></span><span style=display:flex><span>2. Core 0 snoops the bus, sees request for its line
+</span></span><span style=display:flex><span>3. Core 0 provides data (cache-to-cache transfer)
+</span></span><span style=display:flex><span>4. Core 0 transitions M → S
+</span></span><span style=display:flex><span>5. Core 1 receives data in S state
+</span></span><span style=display:flex><span>6. Memory may or may not be updated (depends on protocol variant)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>This is called a &#34;snoop&#34; or &#34;intervention&#34;
+</span></span></code></pre></div><h3 id="55-moesi-and-mesif-extensions">5.5 MOESI and MESIF Extensions</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>MOESI (AMD):
+</span></span><span style=display:flex><span>- Adds Owned (O) state
+</span></span><span style=display:flex><span>- Owner provides data, memory not updated
+</span></span><span style=display:flex><span>- Reduces memory traffic
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>MESIF (Intel):
+</span></span><span style=display:flex><span>- Adds Forward (F) state
+</span></span><span style=display:flex><span>- One cache designated to respond
+</span></span><span style=display:flex><span>- Reduces duplicate responses
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example with Owned state:
+</span></span><span style=display:flex><span>Core 0: Modified [X = 5]
+</span></span><span style=display:flex><span>Core 1: Read request
+</span></span><span style=display:flex><span>Result: Core 0 → Owned, Core 1 → Shared
+</span></span><span style=display:flex><span>Memory still has old value (only owner has current)
+</span></span></code></pre></div><h2 id="6-false-sharing">6. False Sharing</h2><p>A critical performance pitfall in multithreaded code.</p><h3 id="61-the-problem">6.1 The Problem</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Looks innocent...
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Counters {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>long</span> counter0;  <span style=color:#8b949e;font-style:italic>// 8 bytes
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>long</span> counter1;  <span style=color:#8b949e;font-style:italic>// 8 bytes
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Counters counters;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Thread 0:
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>thread0</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>1000000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        counters.counter0<span style=color:#ff7b72;font-weight:700>++</span>;  <span style=color:#8b949e;font-style:italic>// Only touches counter0
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Thread 1:
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>thread1</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>1000000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        counters.counter1<span style=color:#ff7b72;font-weight:700>++</span>;  <span style=color:#8b949e;font-style:italic>// Only touches counter1
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// But both counters are in the SAME cache line!
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Every write invalidates the other core&#39;s cache
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Result: 10-100x slower than expected
+</span></span></span></code></pre></div><h3 id="62-visualizing-false-sharing">6.2 Visualizing False Sharing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Cache line (64 bytes):
+</span></span><span style=display:flex><span>┌────────────────┬────────────────┬─────────────────────────────┐
+</span></span><span style=display:flex><span>│   counter0     │   counter1     │         (padding)           │
+</span></span><span style=display:flex><span>│   (8 bytes)    │   (8 bytes)    │        (48 bytes)           │
+</span></span><span style=display:flex><span>└────────────────┴────────────────┴─────────────────────────────┘
+</span></span><span style=display:flex><span>        ▲                ▲
+</span></span><span style=display:flex><span>        │                │
+</span></span><span style=display:flex><span>     Thread 0         Thread 1
+</span></span><span style=display:flex><span>     writes           writes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Every write:
+</span></span><span style=display:flex><span>1. Writer invalidates other core&#39;s cache line
+</span></span><span style=display:flex><span>2. Other core must fetch updated line
+</span></span><span style=display:flex><span>3. Then it writes and invalidates the first core
+</span></span><span style=display:flex><span>4. Ping-pong of cache line between cores
+</span></span></code></pre></div><h3 id="63-the-solution-padding">6.3 The Solution: Padding</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define CACHE_LINE_SIZE 64
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Counters {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>alignas</span>(CACHE_LINE_SIZE) <span style=color:#ff7b72>long</span> counter0;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>alignas</span>(CACHE_LINE_SIZE) <span style=color:#ff7b72>long</span> counter1;
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Or with explicit padding:
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Counters {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>long</span> counter0;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> padding0[CACHE_LINE_SIZE <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#ff7b72>sizeof</span>(<span style=color:#ff7b72>long</span>)];
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>long</span> counter1;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> padding1[CACHE_LINE_SIZE <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#ff7b72>sizeof</span>(<span style=color:#ff7b72>long</span>)];
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// C++17 hardware_destructive_interference_size:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;new&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Counters {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>alignas</span>(std<span style=color:#ff7b72;font-weight:700>::</span>hardware_destructive_interference_size) <span style=color:#ff7b72>long</span> counter0;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>alignas</span>(std<span style=color:#ff7b72;font-weight:700>::</span>hardware_destructive_interference_size) <span style=color:#ff7b72>long</span> counter1;
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><h3 id="64-measuring-false-sharing">6.4 Measuring False Sharing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Linux perf can detect cache line contention</span>
+</span></span><span style=display:flex><span>perf c2c record ./program
+</span></span><span style=display:flex><span>perf c2c report
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Output shows:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># - Cachelines with high contention</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># - Which loads/stores conflict</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># - HITM (Hit Modified) events</span>
+</span></span></code></pre></div><h2 id="7-writing-cache-friendly-code">7. Writing Cache-Friendly Code</h2><p>Practical techniques for better cache utilization.</p><h3 id="71-sequential-access-patterns">7.1 Sequential Access Patterns</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Good: Sequential access (spatial locality)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> sum <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> N; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    sum <span style=color:#ff7b72;font-weight:700>+=</span> array[i];  <span style=color:#8b949e;font-style:italic>// Next element likely in same cache line
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Bad: Strided access
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> N; i <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>16</span>) {
+</span></span><span style=display:flex><span>    sum <span style=color:#ff7b72;font-weight:700>+=</span> array[i];  <span style=color:#8b949e;font-style:italic>// Only use 1/16 of each cache line
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Terrible: Random access
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> N; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    sum <span style=color:#ff7b72;font-weight:700>+=</span> array[<span style=color:#d2a8ff;font-weight:700>rand</span>() <span style=color:#ff7b72;font-weight:700>%</span> N];  <span style=color:#8b949e;font-style:italic>// No locality
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="72-loop-ordering-for-multi-dimensional-arrays">7.2 Loop Ordering for Multi-Dimensional Arrays</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define ROWS 1000
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define COLS 1000
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> matrix[ROWS][COLS];  <span style=color:#8b949e;font-style:italic>// Row-major in C
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Good: Row-major traversal (matches memory layout)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> ROWS; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> j <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; j <span style=color:#ff7b72;font-weight:700>&lt;</span> COLS; j<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        sum <span style=color:#ff7b72;font-weight:700>+=</span> matrix[i][j];  <span style=color:#8b949e;font-style:italic>// Sequential in memory
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Bad: Column-major traversal (cache thrashing)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> j <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; j <span style=color:#ff7b72;font-weight:700>&lt;</span> COLS; j<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> ROWS; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        sum <span style=color:#ff7b72;font-weight:700>+=</span> matrix[i][j];  <span style=color:#8b949e;font-style:italic>// Stride of COLS * sizeof(int)
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Performance difference: often 10-50x!
+</span></span></span></code></pre></div><h3 id="73-structure-layout-optimization">7.3 Structure Layout Optimization</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Bad: Poor cache utilization
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Bad {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> a;      <span style=color:#8b949e;font-style:italic>// 1 byte + 7 padding
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> b;    <span style=color:#8b949e;font-style:italic>// 8 bytes
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> c;      <span style=color:#8b949e;font-style:italic>// 1 byte + 7 padding
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> d;    <span style=color:#8b949e;font-style:italic>// 8 bytes
+</span></span></span><span style=display:flex><span>};  <span style=color:#8b949e;font-style:italic>// Total: 32 bytes, only 18 used
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Good: Grouped by size
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Good {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> b;    <span style=color:#8b949e;font-style:italic>// 8 bytes
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> d;    <span style=color:#8b949e;font-style:italic>// 8 bytes
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> a;      <span style=color:#8b949e;font-style:italic>// 1 byte
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> c;      <span style=color:#8b949e;font-style:italic>// 1 byte + 6 padding
+</span></span></span><span style=display:flex><span>};  <span style=color:#8b949e;font-style:italic>// Total: 24 bytes, 18 used
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Best for hot/cold: Separate structures
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Hot {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> b;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> d;
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Cold {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> a;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> c;
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><h3 id="74-data-oriented-design">7.4 Data-Oriented Design</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Object-Oriented (cache-unfriendly for bulk operations):
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Entity {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>float</span> x, y, z;      <span style=color:#8b949e;font-style:italic>// Position
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>float</span> vx, vy, vz;   <span style=color:#8b949e;font-style:italic>// Velocity
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>float</span> health;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> name[<span style=color:#a5d6ff>32</span>];
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>int</span> id;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// ... more fields
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>Entity entities[<span style=color:#a5d6ff>10000</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Update positions: loads entire struct, uses only 24 bytes
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>10000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    entities[i].x <span style=color:#ff7b72;font-weight:700>+=</span> entities[i].vx;
+</span></span><span style=display:flex><span>    entities[i].y <span style=color:#ff7b72;font-weight:700>+=</span> entities[i].vy;
+</span></span><span style=display:flex><span>    entities[i].z <span style=color:#ff7b72;font-weight:700>+=</span> entities[i].vz;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Data-Oriented (cache-friendly):
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Positions { <span style=color:#ff7b72>float</span> x[<span style=color:#a5d6ff>10000</span>], y[<span style=color:#a5d6ff>10000</span>], z[<span style=color:#a5d6ff>10000</span>]; };
+</span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Velocities { <span style=color:#ff7b72>float</span> vx[<span style=color:#a5d6ff>10000</span>], vy[<span style=color:#a5d6ff>10000</span>], vz[<span style=color:#a5d6ff>10000</span>]; };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Positions pos;
+</span></span><span style=display:flex><span>Velocities vel;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Update positions: sequential access, full cache line utilization
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>10000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    pos.x[i] <span style=color:#ff7b72;font-weight:700>+=</span> vel.vx[i];
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>10000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    pos.y[i] <span style=color:#ff7b72;font-weight:700>+=</span> vel.vy[i];
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>10000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    pos.z[i] <span style=color:#ff7b72;font-weight:700>+=</span> vel.vz[i];
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="75-blocking-loop-tiling">7.5 Blocking (Loop Tiling)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Matrix multiply without blocking
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Each pass through B column thrashes cache
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> N; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> j <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; j <span style=color:#ff7b72;font-weight:700>&lt;</span> N; j<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> k <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; k <span style=color:#ff7b72;font-weight:700>&lt;</span> N; k<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>            C[i][j] <span style=color:#ff7b72;font-weight:700>+=</span> A[i][k] <span style=color:#ff7b72;font-weight:700>*</span> B[k][j];
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Matrix multiply with blocking
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Process cache-sized blocks
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define BLOCK 64  </span><span style=color:#8b949e;font-style:italic>// Fits in L1 cache
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> ii <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; ii <span style=color:#ff7b72;font-weight:700>&lt;</span> N; ii <span style=color:#ff7b72;font-weight:700>+=</span> BLOCK) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> jj <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; jj <span style=color:#ff7b72;font-weight:700>&lt;</span> N; jj <span style=color:#ff7b72;font-weight:700>+=</span> BLOCK) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> kk <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; kk <span style=color:#ff7b72;font-weight:700>&lt;</span> N; kk <span style=color:#ff7b72;font-weight:700>+=</span> BLOCK) {
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic>// Mini matrix multiply on cached blocks
+</span></span></span><span style=display:flex><span>            <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> ii; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#d2a8ff;font-weight:700>min</span>(ii<span style=color:#ff7b72;font-weight:700>+</span>BLOCK, N); i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> j <span style=color:#ff7b72;font-weight:700>=</span> jj; j <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#d2a8ff;font-weight:700>min</span>(jj<span style=color:#ff7b72;font-weight:700>+</span>BLOCK, N); j<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>                    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> k <span style=color:#ff7b72;font-weight:700>=</span> kk; k <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#d2a8ff;font-weight:700>min</span>(kk<span style=color:#ff7b72;font-weight:700>+</span>BLOCK, N); k<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>                        C[i][j] <span style=color:#ff7b72;font-weight:700>+=</span> A[i][k] <span style=color:#ff7b72;font-weight:700>*</span> B[k][j];
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id="8-cache-prefetching">8. Cache Prefetching</h2><p>Bringing data into cache before it&rsquo;s needed.</p><h3 id="81-hardware-prefetching">8.1 Hardware Prefetching</h3><p>Modern CPUs detect patterns and prefetch automatically:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Patterns detected:
+</span></span><span style=display:flex><span>- Sequential: array[0], array[1], array[2]...
+</span></span><span style=display:flex><span>- Strided: array[0], array[4], array[8]...
+</span></span><span style=display:flex><span>- Some complex patterns on modern CPUs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Hardware prefetcher limitations:
+</span></span><span style=display:flex><span>- Can&#39;t cross page boundaries (4KB)
+</span></span><span style=display:flex><span>- Limited number of streams tracked
+</span></span><span style=display:flex><span>- Irregular patterns not detected
+</span></span></code></pre></div><h3 id="82-software-prefetching">8.2 Software Prefetching</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;xmmintrin.h&gt;  // For _mm_prefetch</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>process_array</span>(<span style=color:#ff7b72>int</span> <span style=color:#ff7b72;font-weight:700>*</span>data, <span style=color:#ff7b72>int</span> n) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> n; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Prefetch data for future iterations
+</span></span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>_mm_prefetch</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>data[i <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>16</span>], _MM_HINT_T0);  <span style=color:#8b949e;font-style:italic>// L1 cache
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Process current element
+</span></span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>process</span>(data[i]);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Prefetch hints:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// _MM_HINT_T0: Prefetch to L1 (and all levels)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// _MM_HINT_T1: Prefetch to L2 (and L3)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// _MM_HINT_T2: Prefetch to L3 only
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// _MM_HINT_NTA: Non-temporal (don&#39;t pollute cache)
+</span></span></span></code></pre></div><h3 id="83-when-prefetching-helps">8.3 When Prefetching Helps</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Prefetching helps: Predictable but non-sequential access
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>linked_list_traverse</span>(Node <span style=color:#ff7b72;font-weight:700>*</span>head) {
+</span></span><span style=display:flex><span>    Node <span style=color:#ff7b72;font-weight:700>*</span>current <span style=color:#ff7b72;font-weight:700>=</span> head;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>while</span> (current) {
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Prefetch next node while processing current
+</span></span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (current<span style=color:#ff7b72;font-weight:700>-&gt;</span>next) {
+</span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>_mm_prefetch</span>(current<span style=color:#ff7b72;font-weight:700>-&gt;</span>next, _MM_HINT_T0);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>process</span>(current);
+</span></span><span style=display:flex><span>        current <span style=color:#ff7b72;font-weight:700>=</span> current<span style=color:#ff7b72;font-weight:700>-&gt;</span>next;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Prefetching hurts: Already sequential (hardware handles it)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> N; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>_mm_prefetch</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>array[i<span style=color:#ff7b72;font-weight:700>+</span><span style=color:#a5d6ff>16</span>], _MM_HINT_T0);  <span style=color:#8b949e;font-style:italic>// Wasteful
+</span></span></span><span style=display:flex><span>    sum <span style=color:#ff7b72;font-weight:700>+=</span> array[i];  <span style=color:#8b949e;font-style:italic>// Hardware prefetcher already doing this
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id="9-cache-performance-metrics">9. Cache Performance Metrics</h2><p>Measuring and understanding cache behavior.</p><h3 id="91-key-metrics">9.1 Key Metrics</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Hit Rate = Hits / (Hits + Misses)
+</span></span><span style=display:flex><span>Miss Rate = 1 - Hit Rate
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>MPKI = Misses Per Kilo Instructions
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Types of misses (the &#34;3 Cs&#34;):
+</span></span><span style=display:flex><span>- Compulsory: First access to a line (cold miss)
+</span></span><span style=display:flex><span>- Capacity: Working set exceeds cache size
+</span></span><span style=display:flex><span>- Conflict: Multiple addresses map to same set
+</span></span></code></pre></div><h3 id="92-using-performance-counters">9.2 Using Performance Counters</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Linux perf for cache statistics</span>
+</span></span><span style=display:flex><span>perf stat -e L1-dcache-loads,L1-dcache-load-misses,<span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span>LLC-loads,LLC-load-misses ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Example output:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 1,234,567,890  L1-dcache-loads</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#    12,345,678  L1-dcache-load-misses  # 1% miss rate</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#    12,345,000  LLC-loads</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#       123,456  LLC-load-misses        # 1% of L1 misses hit memory</span>
+</span></span></code></pre></div><h3 id="93-cache-miss-visualization">9.3 Cache Miss Visualization</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Cachegrind for detailed cache simulation</span>
+</span></span><span style=display:flex><span>valgrind --tool<span style=color:#ff7b72;font-weight:700>=</span>cachegrind ./program
+</span></span><span style=display:flex><span>cg_annotate cachegrind.out.*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Output shows per-line cache behavior:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Ir      I1mr    ILmr    Dr       D1mr    DLmr    Dw       D1mw    DLmw</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 1000000    0       0   1000000  250000      0       0        0       0</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   for (int i = 0; i &lt; n; i += 64) sum += array[i];</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Dr: Data reads</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># D1mr: L1 data read misses</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># DLmr: Last-level cache read misses</span>
+</span></span></code></pre></div><h3 id="94-working-set-analysis">9.4 Working Set Analysis</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Determine effective working set size
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// by measuring performance vs array size
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;time.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>measure_cache_sizes</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> size <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1024</span>; size <span style=color:#ff7b72;font-weight:700>&lt;=</span> <span style=color:#a5d6ff>64</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>1024</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>1024</span>; size <span style=color:#ff7b72;font-weight:700>*=</span> <span style=color:#a5d6ff>2</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>array <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>malloc</span>(size);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>clock_t</span> start <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>clock</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Random accesses within array
+</span></span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>10000000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>            array[<span style=color:#d2a8ff;font-weight:700>rand</span>() <span style=color:#ff7b72;font-weight:700>%</span> size]<span style=color:#ff7b72;font-weight:700>++</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>clock_t</span> end <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>clock</span>();
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>double</span> time <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#ff7b72>double</span>)(end <span style=color:#ff7b72;font-weight:700>-</span> start) <span style=color:#ff7b72;font-weight:700>/</span> CLOCKS_PER_SEC;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Size: %8d KB, Time: %.3f s</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, size<span style=color:#ff7b72;font-weight:700>/</span><span style=color:#a5d6ff>1024</span>, time);
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>free</span>(array);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Output shows jumps at cache boundaries:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:       1 KB, Time: 0.150 s  ← Fits in L1
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:       2 KB, Time: 0.151 s
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// ...
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:      32 KB, Time: 0.155 s  ← L1 boundary
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:      64 KB, Time: 0.280 s  ← Falls out of L1
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// ...
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:     256 KB, Time: 0.290 s  ← L2 boundary
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:     512 KB, Time: 0.850 s  ← Falls out of L2
+</span></span></span></code></pre></div><h2 id="10-advanced-cache-topics">10. Advanced Cache Topics</h2><h3 id="101-non-temporal-stores">10.1 Non-Temporal Stores</h3><p>Bypass cache for write-once data:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;emmintrin.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>write_without_caching</span>(<span style=color:#ff7b72>float</span> <span style=color:#ff7b72;font-weight:700>*</span>dest, <span style=color:#ff7b72>float</span> <span style=color:#ff7b72;font-weight:700>*</span>src, <span style=color:#ff7b72>int</span> n) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> n; i <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>4</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>__m128</span> data <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>_mm_load_ps</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>src[i]);
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>_mm_stream_ps</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>dest[i], data);  <span style=color:#8b949e;font-style:italic>// Bypass cache
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>_mm_sfence</span>();  <span style=color:#8b949e;font-style:italic>// Ensure stores complete
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Use when:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Writing large amounts of data
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Data won&#39;t be read again soon
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Don&#39;t want to pollute cache
+</span></span></span></code></pre></div><h3 id="102-cache-partitioning-intel-cat">10.2 Cache Partitioning (Intel CAT)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Intel Cache Allocation Technology</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Partition L3 cache between applications</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Check support</span>
+</span></span><span style=display:flex><span>cat /sys/fs/resctrl/info/L3/cbm_mask
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Create partition with 4 cache ways</span>
+</span></span><span style=display:flex><span>mkdir /sys/fs/resctrl/partition1
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>&#34;0xf&#34;</span> &gt; /sys/fs/resctrl/partition1/schemata
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Assign process to partition</span>
+</span></span><span style=display:flex><span>echo <span style=color:#79c0ff>$PID</span> &gt; /sys/fs/resctrl/partition1/tasks
+</span></span></code></pre></div><p>Use cases:</p><ul><li>Isolate noisy neighbors</li><li>Guarantee cache for latency-sensitive tasks</li><li>Prevent cache thrashing between workloads</li></ul><h3 id="103-numa-and-cache-considerations">10.3 NUMA and Cache Considerations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>NUMA (Non-Uniform Memory Access):
+</span></span><span style=display:flex><span>┌────────────────────┐    ┌────────────────────┐
+</span></span><span style=display:flex><span>│      Socket 0      │    │      Socket 1      │
+</span></span><span style=display:flex><span>│  ┌──────────────┐  │    │  ┌──────────────┐  │
+</span></span><span style=display:flex><span>│  │    Cores     │  │    │  │    Cores     │  │
+</span></span><span style=display:flex><span>│  └──────┬───────┘  │    │  └──────┬───────┘  │
+</span></span><span style=display:flex><span>│         │          │    │         │          │
+</span></span><span style=display:flex><span>│  ┌──────▼───────┐  │    │  ┌──────▼───────┐  │
+</span></span><span style=display:flex><span>│  │   L3 Cache   │  │    │  │   L3 Cache   │  │
+</span></span><span style=display:flex><span>│  └──────┬───────┘  │    │  └──────┬───────┘  │
+</span></span><span style=display:flex><span>│         │          │    │         │          │
+</span></span><span style=display:flex><span>│  ┌──────▼───────┐  │    │  ┌──────▼───────┐  │
+</span></span><span style=display:flex><span>│  │Local Memory  │◄─┼────┼─►│Local Memory  │  │
+</span></span><span style=display:flex><span>│  └──────────────┘  │    │  └──────────────┘  │
+</span></span><span style=display:flex><span>└────────────────────┘    └────────────────────┘
+</span></span><span style=display:flex><span>         │                         │
+</span></span><span style=display:flex><span>         └────────┬────────────────┘
+</span></span><span style=display:flex><span>                  │
+</span></span><span style=display:flex><span>            Interconnect
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Local memory access: ~100 ns
+</span></span><span style=display:flex><span>Remote memory access: ~150-200 ns
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cache coherence across sockets: expensive!
+</span></span></code></pre></div><h3 id="104-persistent-memory-and-caching">10.4 Persistent Memory and Caching</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Intel Optane DC Persistent Memory
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// New caching considerations
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;libpmem.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>persist_data</span>(<span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>dest, <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>src, <span style=color:#ff7b72>size_t</span> len) {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>memcpy</span>(dest, src, len);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Ensure data reaches persistent memory
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// (not just CPU cache)
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>pmem_persist</span>(dest, len);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Cache line flush instructions:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// CLFLUSH: Flush and invalidate
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// CLFLUSHOPT: Optimized flush (can be parallel)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// CLWB: Write back without invalidate (preferred)
+</span></span></span></code></pre></div><h2 id="11-historical-evolution">11. Historical Evolution</h2><h3 id="111-cache-history">11.1 Cache History</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1960s: First cache (IBM System/360 Model 85)
+</span></span><span style=display:flex><span>       - 16-32 KB
+</span></span><span style=display:flex><span>       - Proved caching concept
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1980s: On-chip L1 caches
+</span></span><span style=display:flex><span>       - Intel 486: 8 KB unified cache
+</span></span><span style=display:flex><span>       - Brought cache onto CPU die
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1990s: Split I/D caches, L2 on package
+</span></span><span style=display:flex><span>       - Pentium: separate I-cache and D-cache
+</span></span><span style=display:flex><span>       - Pentium Pro: L2 on same package
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2000s: L2 on-die, L3 introduced
+</span></span><span style=display:flex><span>       - Pentium 4: on-die L2
+</span></span><span style=display:flex><span>       - Core 2: shared L3
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2010s: Large shared L3, advanced coherence
+</span></span><span style=display:flex><span>       - Sandy Bridge: 8-way L3
+</span></span><span style=display:flex><span>       - AMD Zen: L3 victim cache
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2020s: 3D V-cache, larger L3
+</span></span><span style=display:flex><span>       - AMD 3D V-Cache: 96 MB L3
+</span></span><span style=display:flex><span>       - Intel Hybrid: different caches for P/E cores
+</span></span></code></pre></div><h3 id="112-future-directions">11.2 Future Directions</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Emerging trends:
+</span></span><span style=display:flex><span>- 3D-stacked cache (more capacity)
+</span></span><span style=display:flex><span>- Adaptive replacement policies
+</span></span><span style=display:flex><span>- ML-based prefetching
+</span></span><span style=display:flex><span>- Near-memory processing
+</span></span><span style=display:flex><span>- Processing-in-cache architectures
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenges:
+</span></span><span style=display:flex><span>- Power scaling limits cache growth
+</span></span><span style=display:flex><span>- Coherence overhead increases with core count
+</span></span><span style=display:flex><span>- Memory wall continues to widen
+</span></span></code></pre></div><h2 id="12-real-world-cache-optimization-case-studies">12. Real-World Cache Optimization Case Studies</h2><h3 id="121-database-buffer-pools">12.1 Database Buffer Pools</h3><p>Database systems carefully manage cache utilization:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>PostgreSQL buffer pool strategy:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│              Shared Buffer Pool                  │
+</span></span><span style=display:flex><span>├─────────────────────────────────────────────────┤
+</span></span><span style=display:flex><span>│  Ring Buffers (for sequential scans)            │
+</span></span><span style=display:flex><span>│  ├─ Limited size (256KB default)                │
+</span></span><span style=display:flex><span>│  └─ Prevents cache pollution from full scans    │
+</span></span><span style=display:flex><span>├─────────────────────────────────────────────────┤
+</span></span><span style=display:flex><span>│  Clock Sweep (for random access)                │
+</span></span><span style=display:flex><span>│  ├─ Usage count per page                        │
+</span></span><span style=display:flex><span>│  └─ Popular pages stay resident                 │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The lesson: Application-level caching must consider
+</span></span><span style=display:flex><span>CPU cache effects too. Page layout affects L1/L2 hit rates.
+</span></span></code></pre></div><h3 id="122-high-frequency-trading">12.2 High-Frequency Trading</h3><p>Financial systems obsess over cache behavior:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// HFT order book: hot data must fit in L1
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> <span style=color:#d2a8ff;font-weight:700>alignas</span>(<span style=color:#a5d6ff>64</span>) Order {  <span style=color:#8b949e;font-style:italic>// Cache line aligned
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint64_t</span> price;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint64_t</span> quantity;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint64_t</span> order_id;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint32_t</span> side;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint32_t</span> flags;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Exactly 32 bytes - two orders per cache line
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Top of book (most accessed) kept separate
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> <span style=color:#d2a8ff;font-weight:700>alignas</span>(<span style=color:#a5d6ff>64</span>) TopOfBook {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint64_t</span> best_bid;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint64_t</span> best_ask;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint64_t</span> bid_size;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint64_t</span> ask_size;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Fits in single cache line
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Result: Critical path accesses 1-2 cache lines
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Latency: sub-microsecond order processing
+</span></span></span></code></pre></div><h3 id="123-game-engine-entity-systems">12.3 Game Engine Entity Systems</h3><p>Modern game engines use data-oriented design:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-cpp" data-lang=cpp><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Traditional OOP (cache-unfriendly):
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>Entity</span> {
+</span></span><span style=display:flex><span>    Transform transform;      <span style=color:#8b949e;font-style:italic>// 64 bytes
+</span></span></span><span style=display:flex><span>    Physics physics;          <span style=color:#8b949e;font-style:italic>// 128 bytes
+</span></span></span><span style=display:flex><span>    Renderer renderer;        <span style=color:#8b949e;font-style:italic>// 256 bytes
+</span></span></span><span style=display:flex><span>    AI ai;                    <span style=color:#8b949e;font-style:italic>// 512 bytes
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// ... many more components
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>vector<span style=color:#ff7b72;font-weight:700>&lt;</span>Entity<span style=color:#ff7b72;font-weight:700>&gt;</span> entities;  <span style=color:#8b949e;font-style:italic>// Huge stride
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Update physics: loads entire Entity for each
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>auto</span><span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#79c0ff;font-weight:700>e</span> : entities) {
+</span></span><span style=display:flex><span>    e.physics.update();  <span style=color:#8b949e;font-style:italic>// Cache miss likely
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Data-oriented (cache-friendly):
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> <span style=color:#f0883e;font-weight:700>PhysicsComponents</span> {
+</span></span><span style=display:flex><span>    vector<span style=color:#ff7b72;font-weight:700>&lt;</span>Vec3<span style=color:#ff7b72;font-weight:700>&gt;</span> positions;
+</span></span><span style=display:flex><span>    vector<span style=color:#ff7b72;font-weight:700>&lt;</span>Vec3<span style=color:#ff7b72;font-weight:700>&gt;</span> velocities;
+</span></span><span style=display:flex><span>    vector<span style=color:#ff7b72;font-weight:700>&lt;</span><span style=color:#ff7b72>float</span><span style=color:#ff7b72;font-weight:700>&gt;</span> masses;
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Update physics: sequential access
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> count; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    positions[i] <span style=color:#ff7b72;font-weight:700>+=</span> velocities[i] <span style=color:#ff7b72;font-weight:700>*</span> dt;  <span style=color:#8b949e;font-style:italic>// Vectorizable
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Result: 10-50x improvement in physics update
+</span></span></span></code></pre></div><h3 id="124-compiler-optimization-matrices">12.4 Compiler Optimization Matrices</h3><p>Compilers do matrix transformations on large arrays:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// LLVM&#39;s sparse matrix representation
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Hot arrays separated from cold metadata
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> SparseRow {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint32_t</span> <span style=color:#ff7b72;font-weight:700>*</span>indices;     <span style=color:#8b949e;font-style:italic>// Column indices (hot)
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> <span style=color:#ff7b72;font-weight:700>*</span>values;        <span style=color:#8b949e;font-style:italic>// Values (hot)
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint32_t</span> size;         <span style=color:#8b949e;font-style:italic>// Metadata (cold)
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint32_t</span> capacity;     <span style=color:#8b949e;font-style:italic>// Metadata (cold)
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// During SpMV (sparse matrix-vector multiply):
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// indices and values accessed sequentially
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// size/capacity rarely touched
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Further optimization: indices and values interleaved
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// for better prefetching in some access patterns
+</span></span></span></code></pre></div><h3 id="125-network-packet-processing">12.5 Network Packet Processing</h3><p>High-performance networking optimizes for cache:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// DPDK packet buffer structure
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Designed for cache efficiency
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> rte_mbuf {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// First cache line (64 bytes) - hot path
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf_addr;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint16_t</span> data_off;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint16_t</span> data_len;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint32_t</span> pkt_len;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// ... other hot fields
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Second cache line - less frequent access
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> rte_mbuf <span style=color:#ff7b72;font-weight:700>*</span>next;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint16_t</span> nb_segs;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// ... metadata
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Remaining lines - rarely accessed
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>uint64_t</span> timestamp;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// ... debugging info
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Packet headers also aligned for single-line access:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Ethernet (14) + IP (20) + TCP (20) = 54 bytes
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Fits in one cache line with minimal padding
+</span></span></span></code></pre></div><h2 id="13-debugging-cache-performance-issues">13. Debugging Cache Performance Issues</h2><h3 id="131-identifying-cache-problems">13.1 Identifying Cache Problems</h3><p>Common symptoms of cache issues:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Symptom: Code runs slower than expected
+</span></span><span style=display:flex><span>Possible cache causes:
+</span></span><span style=display:flex><span>├─ Working set exceeds cache size
+</span></span><span style=display:flex><span>├─ Poor access patterns (strided, random)
+</span></span><span style=display:flex><span>├─ False sharing in multithreaded code
+</span></span><span style=display:flex><span>├─ Structure layout causing extra misses
+</span></span><span style=display:flex><span>└─ Unintended memory allocator behavior
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Symptom: Performance varies between runs
+</span></span><span style=display:flex><span>Possible cache causes:
+</span></span><span style=display:flex><span>├─ ASLR changing alignment
+</span></span><span style=display:flex><span>├─ Different initial cache state
+</span></span><span style=display:flex><span>└─ Memory allocator placing data differently
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Symptom: Adding threads makes it slower
+</span></span><span style=display:flex><span>Possible cache causes:
+</span></span><span style=display:flex><span>├─ False sharing
+</span></span><span style=display:flex><span>├─ Cache line bouncing between cores
+</span></span><span style=display:flex><span>└─ L3 contention
+</span></span></code></pre></div><h3 id="132-profiling-tools-comparison">13.2 Profiling Tools Comparison</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># perf: Quick overview</span>
+</span></span><span style=display:flex><span>perf stat -e cache-references,cache-misses ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># perf c2c: Find false sharing</span>
+</span></span><span style=display:flex><span>perf c2c record ./program
+</span></span><span style=display:flex><span>perf c2c report
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># cachegrind: Detailed simulation (slow but precise)</span>
+</span></span><span style=display:flex><span>valgrind --tool<span style=color:#ff7b72;font-weight:700>=</span>cachegrind ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Intel VTune: Comprehensive analysis</span>
+</span></span><span style=display:flex><span>vtune -collect memory-access ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># AMD uProf: AMD-specific insights</span>
+</span></span><span style=display:flex><span>uprof-cli -C memory ./program
+</span></span></code></pre></div><h3 id="133-interpreting-perf-c2c-output">13.3 Interpreting perf c2c Output</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>=================================================
+</span></span><span style=display:flex><span>           Shared Data Cache Line Table
+</span></span><span style=display:flex><span>=================================================
+</span></span><span style=display:flex><span>          Total      Hitm    Snoop    Remote
+</span></span><span style=display:flex><span>  Index   Records    Lcl    Hitm     Hitm      PA
+</span></span><span style=display:flex><span>      0      4521   2341      12      198    0x7f...
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>HITM (Hit Modified): Cache line was modified in another cache
+</span></span><span style=display:flex><span>- High HITM = cache line bouncing between cores
+</span></span><span style=display:flex><span>- Often indicates false sharing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Drill down:
+</span></span><span style=display:flex><span>  0.15%  [kernel]  lock_acquire
+</span></span><span style=display:flex><span>  0.12%  program   increment_counter   ← Source of contention
+</span></span></code></pre></div><h3 id="134-cache-aware-memory-allocators">13.4 Cache-Aware Memory Allocators</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Standard malloc may cause cache issues:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Adjacent allocations may false share
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - No alignment guarantees beyond 16 bytes
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Solutions:
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 1. aligned_alloc (C11)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>aligned_alloc</span>(<span style=color:#a5d6ff>64</span>, size);  <span style=color:#8b949e;font-style:italic>// Cache line aligned
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2. posix_memalign (POSIX)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr;
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>posix_memalign</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>ptr, <span style=color:#a5d6ff>64</span>, size);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 3. Custom allocators with cache awareness
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// jemalloc, tcmalloc offer better behavior
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 4. Arena allocators for related objects
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> Arena {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>base;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>size_t</span> offset;
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span><span style=color:#d2a8ff;font-weight:700>arena_alloc</span>(Arena <span style=color:#ff7b72;font-weight:700>*</span>a, <span style=color:#ff7b72>size_t</span> size) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Objects allocated together stay together
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Better spatial locality
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> a<span style=color:#ff7b72;font-weight:700>-&gt;</span>base <span style=color:#ff7b72;font-weight:700>+</span> a<span style=color:#ff7b72;font-weight:700>-&gt;</span>offset;
+</span></span><span style=display:flex><span>    a<span style=color:#ff7b72;font-weight:700>-&gt;</span>offset <span style=color:#ff7b72;font-weight:700>+=</span> (size <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>63</span>) <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#ff7b72;font-weight:700>~</span><span style=color:#a5d6ff>63</span>;  <span style=color:#8b949e;font-style:italic>// Cache line aligned
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> ptr;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="135-automated-cache-optimization">13.5 Automated Cache Optimization</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// GCC/Clang provide hints:
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Prefetch hint
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>__builtin_prefetch</span>(address, rw, locality);
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// rw: 0=read, 1=write
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// locality: 0=no locality to 3=high locality
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Structure packing
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> <span style=color:#d2a8ff;font-weight:700>__attribute__</span>((packed)) Compact {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> a;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>int</span> b;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// No padding between a and b
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Cache line alignment
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> <span style=color:#d2a8ff;font-weight:700>__attribute__</span>((<span style=color:#d2a8ff;font-weight:700>aligned</span>(<span style=color:#a5d6ff>64</span>))) Aligned {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>int</span> data[<span style=color:#a5d6ff>16</span>];
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Hot/cold function splitting
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>__attribute__</span>((hot)) <span style=color:#d2a8ff;font-weight:700>critical_path</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Compiler optimizes more aggressively
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>__attribute__</span>((cold)) <span style=color:#d2a8ff;font-weight:700>error_handler</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Compiler optimizes for size over speed
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id="14-the-future-of-caching">14. The Future of Caching</h2><h3 id="141-3d-stacked-caches">14.1 3D-Stacked Caches</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Traditional:
+</span></span><span style=display:flex><span>┌──────────────────────┐
+</span></span><span style=display:flex><span>│   CPU Die            │
+</span></span><span style=display:flex><span>│  ┌────────────────┐  │
+</span></span><span style=display:flex><span>│  │   Cores + L3   │  │
+</span></span><span style=display:flex><span>│  └────────────────┘  │
+</span></span><span style=display:flex><span>└──────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3D V-Cache (AMD):
+</span></span><span style=display:flex><span>┌──────────────────────┐
+</span></span><span style=display:flex><span>│   3D V-Cache Die     │  ← Additional 64MB L3
+</span></span><span style=display:flex><span>│  (stacked on top)    │
+</span></span><span style=display:flex><span>├──────────────────────┤
+</span></span><span style=display:flex><span>│   CPU Die            │
+</span></span><span style=display:flex><span>│  ┌────────────────┐  │
+</span></span><span style=display:flex><span>│  │   Cores + L3   │  │
+</span></span><span style=display:flex><span>│  └────────────────┘  │
+</span></span><span style=display:flex><span>└──────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- 3x more L3 capacity
+</span></span><span style=display:flex><span>- Same latency as base L3
+</span></span><span style=display:flex><span>- Significant gains for gaming, simulation
+</span></span></code></pre></div><h3 id="142-machine-learning-for-prefetching">14.2 Machine Learning for Prefetching</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Traditional prefetcher:
+</span></span><span style=display:flex><span>- Detects simple patterns
+</span></span><span style=display:flex><span>- Limited stride detection
+</span></span><span style=display:flex><span>- No semantic understanding
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ML-based prefetcher:
+</span></span><span style=display:flex><span>- Learns program behavior
+</span></span><span style=display:flex><span>- Predicts irregular patterns
+</span></span><span style=display:flex><span>- Adapts to workload
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Research examples:
+</span></span><span style=display:flex><span>- Delta-LSTM: Uses LSTM to predict address deltas
+</span></span><span style=display:flex><span>- Voyager: Graph neural network for prefetching
+</span></span><span style=display:flex><span>- Pythia: RL-based prefetching decisions
+</span></span></code></pre></div><h3 id="143-processing-near-or-in-cache">14.3 Processing Near or In Cache</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Moving computation closer to data:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Near-Memory Processing:
+</span></span><span style=display:flex><span>- Logic near DRAM
+</span></span><span style=display:flex><span>- Reduces data movement
+</span></span><span style=display:flex><span>- Good for memory-bound workloads
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Processing-in-Cache:
+</span></span><span style=display:flex><span>- Simple operations in SRAM
+</span></span><span style=display:flex><span>- Bit-line computing
+</span></span><span style=display:flex><span>- Reduces energy dramatically
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Examples:
+</span></span><span style=display:flex><span>- AMD&#39;s newer architectures explore this
+</span></span><span style=display:flex><span>- Research: SCOPE, ComputeDRAM, Ambit
+</span></span></code></pre></div><h3 id="144-cache-challenges-in-modern-architectures">14.4 Cache Challenges in Modern Architectures</h3><p>As systems become more complex, cache design faces new challenges:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Heterogeneous Computing:
+</span></span><span style=display:flex><span>- CPU and GPU share memory
+</span></span><span style=display:flex><span>- Different cache architectures must cooperate
+</span></span><span style=display:flex><span>- Coherence becomes more expensive
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ARM big.LITTLE / Intel Hybrid:
+</span></span><span style=display:flex><span>- Different core types with different caches
+</span></span><span style=display:flex><span>- P-cores: Large L2, shared L3
+</span></span><span style=display:flex><span>- E-cores: Smaller L2, may share different L3
+</span></span><span style=display:flex><span>- Task migration must consider cache state
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Chiplet Architectures:
+</span></span><span style=display:flex><span>- AMD Ryzen: Multiple CCDs with separate L3
+</span></span><span style=display:flex><span>- Cross-chiplet coherence adds latency
+</span></span><span style=display:flex><span>- Locality matters more than ever
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌──────────────┐    ┌──────────────┐
+</span></span><span style=display:flex><span>│    CCD 0     │    │    CCD 1     │
+</span></span><span style=display:flex><span>│ ┌──────────┐ │    │ ┌──────────┐ │
+</span></span><span style=display:flex><span>│ │   L3     │ │    │ │   L3     │ │
+</span></span><span style=display:flex><span>│ │  32 MB   │ │    │ │  32 MB   │ │
+</span></span><span style=display:flex><span>│ └──────────┘ │    │ └──────────┘ │
+</span></span><span style=display:flex><span>│   4 cores    │    │   4 cores    │
+</span></span><span style=display:flex><span>└──────┬───────┘    └──────┬───────┘
+</span></span><span style=display:flex><span>       │                    │
+</span></span><span style=display:flex><span>       └────────┬───────────┘
+</span></span><span style=display:flex><span>                │
+</span></span><span style=display:flex><span>          Infinity Fabric
+</span></span><span style=display:flex><span>          (higher latency)
+</span></span></code></pre></div><h3 id="145-security-implications-of-caches">14.5 Security Implications of Caches</h3><p>Caches have been exploited in numerous attacks:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Spectre/Meltdown (2018):
+</span></span><span style=display:flex><span>- Speculative execution leaves cache traces
+</span></span><span style=display:flex><span>- Timing attacks reveal secret data
+</span></span><span style=display:flex><span>- Required fundamental CPU changes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cache Timing Attacks:
+</span></span><span style=display:flex><span>- Measure access time to determine cache state
+</span></span><span style=display:flex><span>- Can reveal cryptographic keys
+</span></span><span style=display:flex><span>- AES T-table attacks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Prime+Probe:
+</span></span><span style=display:flex><span>1. Fill cache set with attacker data
+</span></span><span style=display:flex><span>2. Victim runs and evicts some lines
+</span></span><span style=display:flex><span>3. Attacker measures which lines evicted
+</span></span><span style=display:flex><span>4. Infers victim&#39;s access patterns
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Mitigations:
+</span></span><span style=display:flex><span>- Constant-time cryptography
+</span></span><span style=display:flex><span>- Cache partitioning
+</span></span><span style=display:flex><span>- Randomized cache indexing (CEASER)
+</span></span></code></pre></div><h2 id="15-summary">15. Summary</h2><p>CPU caches are the critical technology bridging the processor-memory speed gap:</p><p><strong>Architecture fundamentals:</strong></p><ul><li>Cache lines (typically 64 bytes)</li><li>Set-associative organization</li><li>Multi-level hierarchy (L1 → L2 → L3)</li></ul><p><strong>Coherence protocols:</strong></p><ul><li>MESI/MOESI maintain consistency</li><li>Snooping detects conflicts</li><li>False sharing causes performance issues</li></ul><p><strong>Writing cache-friendly code:</strong></p><ul><li>Sequential access patterns</li><li>Proper loop ordering</li><li>Structure layout optimization</li><li>Data-oriented design</li><li>Loop blocking/tiling</li></ul><p><strong>Performance analysis:</strong></p><ul><li>Use perf counters</li><li>Measure miss rates</li><li>Identify working set sizes</li><li>Profile with cachegrind</li></ul><p><strong>Advanced techniques:</strong></p><ul><li>Software prefetching</li><li>Non-temporal stores</li><li>Cache partitioning</li><li>NUMA awareness</li></ul><p>Understanding CPU caches transforms how you write performance-critical code. The difference between cache-friendly and cache-oblivious code can easily be 10-100x in performance. Profile, measure, and optimize your memory access patterns—your caches will thank you.</p></div><footer class="ce1a612 c6dfb1e c3ecea6"><div class="c364589">Categories:
+<a href=/categories/systems/>systems</a>, <a href=/categories/hardware/>hardware</a></div><div>Tags:
+<a href=/tags/cpu/>#cpu</a>, <a href=/tags/cache/>#cache</a>, <a href=/tags/memory/>#memory</a>, <a href=/tags/performance/>#performance</a>, <a href=/tags/hardware/>#hardware</a>, <a href=/tags/systems/>#systems</a></div></footer></article></main><footer class="ccdf0e8" role=contentinfo aria-label=Footer><div class="cfdda01 c133889 c5df473 c0eecc8 c69618a c6942b3 c03620d c2a9f27 c7c11d8 c82c52d c14527b"><div class="c6dfb1e c3ecea6 c39ef11 c88ae6f">&copy; 2026 Leonardo Benicio. All rights
+reserved.</div><div class="c6942b3 c7c11d8 cd1fd22"><a href=https://github.com/lbenicio target=_blank rel="noopener noreferrer" aria-label=GitHub class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.5-.67 1.08-.82 1.7s-.2 1.27-.18 1.9V22"/></svg>
+<span class="cba5854">GitHub</span>
+</a><a href=https://www.linkedin.com/in/leonardo-benicio target=_blank rel="noopener noreferrer" aria-label=LinkedIn class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21V14.86c0-1.333-.027-3.046-1.858-3.046-1.86.0-2.145 1.45-2.145 2.948v5.69H9.069V9h3.112v1.561h.044c.434-.82 1.494-1.686 3.074-1.686 3.29.0 3.897 2.165 3.897 4.983v6.594zM5.337 7.433a1.805 1.805.0 11-.002-3.61 1.805 1.805.0 01.002 3.61zM6.763 20.452H3.911V9h2.852v11.452z"/></svg>
+<span class="cba5854">LinkedIn</span>
+</a><a href=https://twitter.com/lbenicio_ target=_blank rel="noopener noreferrer" aria-label=Twitter class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.177.013.354.013.53.0 5.386-4.099 11.599-11.6 11.599-2.31.0-4.457-.676-6.265-1.842.324.038.636.05.972.05 1.91.0 3.67-.65 5.07-1.755a4.099 4.099.0 01-3.827-2.84c.25.039.5.064.763.064.363.0.726-.051 1.065-.139A4.091 4.091.0 012.542 9.649v-.051c.538.3 1.162.482 1.824.507A4.082 4.082.0 012.54 6.7c0-.751.2-1.435.551-2.034a11.63 11.63.0 008.44 4.281 4.615 4.615.0 01-.101-.938 4.091 4.091.0 017.078-2.799 8.1 8.1.0 002.595-.988 4.112 4.112.0 01-1.8 2.261 8.2 8.2.0 002.357-.638A8.824 8.824.0 0119.613 7.96z"/></svg>
+<span class="cba5854">Twitter</span></a></div></div></footer></body></html>

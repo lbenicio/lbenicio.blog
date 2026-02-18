@@ -1,0 +1,1002 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>System Calls: The Gateway Between User Space and Kernel · Leonardo Benicio</title><meta name=description content="An in-depth exploration of how applications communicate with the operating system kernel through system calls. Learn about the syscall interface, context switching, and how modern OSes balance security with performance."><link rel=alternate type=application/rss+xml title=RSS href=https://lbenicio.dev/index.xml><link rel=canonical href=https://blog.lbenicio.dev/blog/system-calls-the-gateway-between-user-space-and-kernel/><link rel=preload href=/static/fonts/OpenSans-Regular.ttf as=font type=font/ttf crossorigin><link rel="stylesheet" href="/assets/css/fonts.min.40e2054b739ac45a0f9c940f4b44ec00c3b372356ebf61440a413c0337c5512e.css" crossorigin="anonymous" integrity="sha256-QOIFS3OaxFoPnJQPS0TsAMOzcjVuv2FECkE8AzfFUS4="><link rel="shortcut icon" href=/static/assets/favicon/favicon.ico><link rel=icon type=image/x-icon href=/static/assets/favicon/favicon.ico><link rel=icon href=/static/assets/favicon/favicon.svg type=image/svg+xml><link rel=icon href=/static/assets/favicon/favicon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/static/assets/favicon/favicon-16x16.png sizes=16x16 type=image/png><link rel=apple-touch-icon href=/static/assets/favicon/apple-touch-icon.png><link rel=manifest href=/static/assets/favicon/site.webmanifest><link rel=mask-icon href=/static/assets/favicon/safari-pinned-tab.svg color=#209cee><meta name=msapplication-TileColor content="#209cee"><meta name=msapplication-config content="/static/assets/favicon/browserconfig.xml"><meta name=theme-color content="#d2e9f8"><meta property="og:title" content="System Calls: The Gateway Between User Space and Kernel · Leonardo Benicio"><meta property="og:description" content="An in-depth exploration of how applications communicate with the operating system kernel through system calls. Learn about the syscall interface, context switching, and how modern OSes balance security with performance."><meta property="og:url" content="https://blog.lbenicio.dev/blog/system-calls-the-gateway-between-user-space-and-kernel/"><meta property="og:type" content="article"><meta property="og:image" content="https://blog.lbenicio.dev/static/assets/images/blog/system-calls-kernel-interface-operating-systems.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="System Calls: The Gateway Between User Space and Kernel · Leonardo Benicio"><meta name=twitter:description content="An in-depth exploration of how applications communicate with the operating system kernel through system calls. Learn about the syscall interface, context switching, and how modern OSes balance security with performance."><meta name=twitter:site content="@lbenicio_"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"About Leonardo Benicio","url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Person","name":"Leonardo Benicio","sameAs":["https://github.com/lbenicio","https://www.linkedin.com/in/leonardo-benicio","https://twitter.com/lbenicio_"],"url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Home","position":1},{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Blog","position":2},{"@type":"ListItem","item":"https://blog.lbenicio.dev/blog/system-calls-the-gateway-between-user-space-and-kernel/","name":"System Calls the Gateway Between User Space and Kernel","position":3}]}</script><link rel="stylesheet" href="/assets/css/main.min.1e8a566ac8bc3f0664d0db4ec8a015b07421c33fa11d336a6b914522a9cabf30.css" crossorigin="anonymous" integrity="sha256-6lhUOpwCHMSMROmggsVSp3AHKud6gBrIFGTzl3GV4BY="></head><body class="c6942b3 c03620d cf3bd2e"><script>(function(){try{document.addEventListener("gesturestart",function(e){e.preventDefault()}),document.addEventListener("touchstart",function(e){e.touches&&e.touches.length>1&&e.preventDefault()},{passive:!1});var e=0;document.addEventListener("touchend",function(t){var n=Date.now();n-e<=300&&t.preventDefault(),e=n},{passive:!1})}catch{}})()</script><a href=#content class="cba5854 c21e770 caffa6e cc5f604 cf2c31d cdd44dd c10dda9 c43876e c787e9b cddc2d2 cf55a7b c6dfb1e c9391e2">Skip to content</a>
+<script>(function(){try{const e=localStorage.getItem("theme");e==="dark"&&document.documentElement.classList.add("dark");const t=document.querySelector('button[aria-label="Toggle theme"]');t&&t.setAttribute("aria-pressed",String(e==="dark"))}catch{}})();function toggleTheme(e){const s=document.documentElement,t=s.classList.toggle("dark");try{localStorage.setItem("theme",t?"dark":"light")}catch{}try{var n=e&&e.nodeType===1?e:document.querySelector('button[aria-label="Toggle theme"]');n&&n.setAttribute("aria-pressed",String(!!t))}catch{}}(function(){function e(){try{return document.documentElement.classList.contains("dark")?"dark":"light"}catch{return"light"}}function n(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(0)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!1,s.style.display="block"}catch{}o.setAttribute("aria-expanded","true"),n.setAttribute("aria-hidden","false");try{document.body.classList.add("c150bbe")}catch{}const i=document.getElementById("i190984");i&&i.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_open",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function t(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(100%)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!0,s.style.display="none"}catch{}o.setAttribute("aria-expanded","false"),n.setAttribute("aria-hidden","true");try{document.body.classList.remove("c150bbe")}catch{}o.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_close",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function s(e){e.key==="Escape"&&t("escape")}window.__openMobileMenu=n,window.__closeMobileMenu=t;try{window.addEventListener("keydown",s,!0)}catch{}})()</script><header class="cd019ba c98dfae cdd44dd cfdda01 c9ee25d ce2dc7a cd72dd7 cc0dc37" role=banner><div class="cfdda01 c6942b3 ccf47f4 c7c11d8"><a href=/ class="c87e2b0 c6942b3 c7c11d8 c1838fa cb594e4" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=32 height=32 class="c3de71a c4d5191">
+<span class="cf8f011 c4d1253 cbd72bc cd7e69e">Leonardo Benicio</span></a><div class="c6942b3 c85cbd4 c7c11d8 ca798da c1838fa c7a0580"><nav class="cc1689c cd9b445 c75065d c04bab1" aria-label=Main><a href=/ class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Home</a>
+<a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">About</a>
+<a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Timeline</a>
+<a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Reading</a>
+<a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Publications</a>
+<a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Contact</a></nav><button id="i1d73d4" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 c097fa1 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" onclick=toggleTheme(this) aria-label="Toggle theme" aria-pressed=false title="Toggle theme">
+<svg class="cb26e41 c50ceea cb69a5c c4f45c8 c8c2c40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="cb26e41 c8fca2b cb69a5c c4f45c8 cc1689c c9c27ff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M6.34 17.66l2.83-2.83"/><path d="M14.83 9.17l2.83-2.83"/></svg>
+<span class="cba5854">Toggle theme</span></button><div class="c658bcf c097fa1"><button id="i975fb5" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" aria-label="Open menu" aria-controls="i98aca2" aria-expanded=false onclick='window.__openMobileMenu("button")' data-d38f920=mobile_menu_open_click>
+<svg class="c20e4eb cb58471" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<span class="cba5854">Open menu</span></button></div></div></div></header><div id="iad2af0" class="caffa6e ce4b5f4 c14639a" style=background-color:hsl(var(--background)) hidden onclick='window.__closeMobileMenu("overlay")' data-d38f920=mobile_menu_overlay_click></div><aside id="i98aca2" class="caffa6e c9efbc5 c437fa9 c49e97e c6c6936 c7cacca c7b34a4 c787e9b c88daee cad071a c6942b3 c03620d" role=dialog aria-modal=true aria-hidden=true aria-label="Mobile navigation" style="transform:translateX(100%);transition:transform 200ms ease-out;will-change:transform"><div class="c6942b3 c7c11d8 c82c52d c5df473 ccf47f4 c9ee25d"><a href=/ class="c6942b3 c7c11d8 c1838fa" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=24 height=24 class="c20e4eb cb58471">
+<span class="c62aaf0 c7c1b66 cbd72bc">Leonardo Benicio</span>
+</a><button id="i190984" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c514027 c286dd7 c2bd687 cfdce1d" aria-label="Close menu" onclick='window.__closeMobileMenu("button")' data-d38f920=mobile_menu_close_click>
+<svg class="c16e528 c61f467" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<span class="cba5854">Close</span></button></div><nav class="c85cbd4 ca0eaa4 c5df473 c6689b9"><ul class="cd69733"><li><a href=/ class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Home</a></li><li><a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>About</a></li><li><a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Timeline</a></li><li><a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Reading</a></li><li><a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Publications</a></li><li><a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Contact</a></li></ul></nav><div class="c60a4cc ccdf0e8 c277478 c13044e"><p>&copy; 2026 Leonardo Benicio</p></div></aside><div class="caffa6e c437fa9 ce9aced c97bba6 c15da2a c975cba" role=complementary aria-label="GitHub repository"><div class="c9d056d c252f85 ca22532 ca88a1a c876315"><div class="c6942b3 c7c11d8 c1d0018 cd1fd22 c6066e4 c43876e ce3d5b6 caa20d2 c3ecea6 c0cd2e2 cddc2d2 c3ed5c9 cd4074c c876315"><a href=https://github.com/lbenicio/aboutme target=_blank rel="noopener noreferrer" class="c6942b3 c7c11d8 cd1fd22 c71bae8 cfac1ac c19ee42 c25dc7c cb40739 cbbda39 cf55a7b" aria-label="View source on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cb26e41 c41bcd4 cf17690 cfa4e34 c78d562" aria-hidden="true"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+<span class="cb5c327 cd7e69e">Fork me</span></a></div></div></div><main id="i7eccc0" class="cfdda01 c5df473 c0eecc8 c85cbd4" role=main aria-label=Content><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">System Calls the Gateway Between User Space and Kernel</span></li></ol></nav><article class="c461ba0 c1c203f cfb6084 c995404 c6ca165"><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">System Calls the Gateway Between User Space and Kernel</span></li></ol></nav><header class="c8aedc7"><h1 class="cf304bc c6fb0fe cf8f011 cc484e1">System Calls: The Gateway Between User Space and Kernel</h1><div class="c277478 c3ecea6 c8fb24a">2021-04-18
+· Leonardo Benicio</div><div class="c1a1a3f c8124f2"><img src=/static/assets/images/blog/system-calls-kernel-interface-operating-systems.png alt class="cfdda01 c524300 c677556"></div><p class="lead c3ecea6">An in-depth exploration of how applications communicate with the operating system kernel through system calls. Learn about the syscall interface, context switching, and how modern OSes balance security with performance.</p></header><div class="content"><p>Every time your program opens a file, allocates memory, or sends a network packet, it crosses an invisible boundary. User programs cannot directly access hardware or kernel data structures—they must ask the operating system to do it for them through system calls. Understanding this interface is fundamental to systems programming and helps explain performance characteristics, security boundaries, and the design of operating systems themselves.</p><h2 id="1-the-user-kernel-boundary">1. The User-Kernel Boundary</h2><p>Modern operating systems divide the world into two privilege levels.</p><h3 id="11-why-the-separation-exists">1.1 Why the Separation Exists</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>┌─────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│                    User Space                        │
+</span></span><span style=display:flex><span>│  ┌─────────┐  ┌─────────┐  ┌─────────┐              │
+</span></span><span style=display:flex><span>│  │  App A  │  │  App B  │  │  App C  │   Ring 3     │
+</span></span><span style=display:flex><span>│  └────┬────┘  └────┬────┘  └────┬────┘   (Unprivileged)
+</span></span><span style=display:flex><span>│       │            │            │                    │
+</span></span><span style=display:flex><span>├───────┼────────────┼────────────┼────────────────────┤
+</span></span><span style=display:flex><span>│       ▼            ▼            ▼                    │
+</span></span><span style=display:flex><span>│  ┌─────────────────────────────────────────────┐    │
+</span></span><span style=display:flex><span>│  │              System Call Interface          │    │
+</span></span><span style=display:flex><span>│  └─────────────────────────────────────────────┘    │
+</span></span><span style=display:flex><span>│                    Kernel Space                      │
+</span></span><span style=display:flex><span>│  ┌──────────┐ ┌──────────┐ ┌──────────┐            │
+</span></span><span style=display:flex><span>│  │ Process  │ │  Memory  │ │   File   │   Ring 0   │
+</span></span><span style=display:flex><span>│  │ Manager  │ │ Manager  │ │  System  │   (Privileged)
+</span></span><span style=display:flex><span>│  └──────────┘ └──────────┘ └──────────┘            │
+</span></span><span style=display:flex><span>│                                                      │
+</span></span><span style=display:flex><span>│  ┌─────────────────────────────────────────────┐    │
+</span></span><span style=display:flex><span>│  │              Hardware Abstraction           │    │
+</span></span><span style=display:flex><span>│  └─────────────────────────────────────────────┘    │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────┘
+</span></span></code></pre></div><p>The separation provides several critical guarantees:</p><ul><li><strong>Isolation:</strong> One misbehaving program cannot crash the system</li><li><strong>Security:</strong> Programs cannot read each other&rsquo;s memory</li><li><strong>Resource management:</strong> The kernel arbitrates access to shared resources</li><li><strong>Hardware abstraction:</strong> Programs don&rsquo;t need to know hardware details</li></ul><h3 id="12-hardware-support-for-privilege-levels">1.2 Hardware Support for Privilege Levels</h3><p>x86 processors provide four privilege rings, but most OSes use only two:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Ring 0: Kernel mode (supervisor mode)
+</span></span><span style=display:flex><span>- Full access to all CPU instructions
+</span></span><span style=display:flex><span>- Direct hardware access
+</span></span><span style=display:flex><span>- Can modify page tables
+</span></span><span style=display:flex><span>- Can disable interrupts
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ring 3: User mode
+</span></span><span style=display:flex><span>- Restricted instruction set
+</span></span><span style=display:flex><span>- Cannot access I/O ports directly
+</span></span><span style=display:flex><span>- Cannot modify system registers
+</span></span><span style=display:flex><span>- Memory access controlled by page tables
+</span></span></code></pre></div><p>ARM uses a similar model with Exception Levels (EL0-EL3).</p><h3 id="13-what-triggers-a-privilege-level-change">1.3 What Triggers a Privilege Level Change</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>User → Kernel transitions:
+</span></span><span style=display:flex><span>1. System calls (intentional)
+</span></span><span style=display:flex><span>2. Exceptions (divide by zero, page fault)
+</span></span><span style=display:flex><span>3. Interrupts (timer, I/O completion)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Kernel → User transitions:
+</span></span><span style=display:flex><span>1. Return from system call
+</span></span><span style=display:flex><span>2. Return from exception handler
+</span></span><span style=display:flex><span>3. Return from interrupt handler
+</span></span><span style=display:flex><span>4. Starting a new process
+</span></span></code></pre></div><h2 id="2-anatomy-of-a-system-call">2. Anatomy of a System Call</h2><p>Let&rsquo;s trace what happens when you call <code>write()</code>.</p><h3 id="21-the-journey-of-write">2.1 The Journey of write()</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;unistd.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>msg <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;Hello, kernel!</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>write</span>(<span style=color:#a5d6ff>1</span>, msg, <span style=color:#a5d6ff>15</span>);  <span style=color:#8b949e;font-style:italic>// fd=1 is stdout
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The journey from this simple call to actual I/O involves many steps.</p><h3 id="22-libc-wrapper-functions">2.2 Libc Wrapper Functions</h3><p>The C library provides wrapper functions that set up the system call:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Simplified glibc write() implementation concept
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>write</span>(<span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> count) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Set up registers with syscall number and arguments
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// On x86-64 Linux:
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// RAX = __NR_write (syscall number 1)
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// RDI = fd
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// RSI = buf
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// RDX = count
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>long</span> result;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>asm</span> <span style=color:#ff7b72>volatile</span> (
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;syscall&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#34;=a&#34;</span> (result)
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#34;a&#34;</span> (__NR_write), <span style=color:#a5d6ff>&#34;D&#34;</span> (fd), <span style=color:#a5d6ff>&#34;S&#34;</span> (buf), <span style=color:#a5d6ff>&#34;d&#34;</span> (count)
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#34;rcx&#34;</span>, <span style=color:#a5d6ff>&#34;r11&#34;</span>, <span style=color:#a5d6ff>&#34;memory&#34;</span>
+</span></span><span style=display:flex><span>    );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (result <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        errno <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72;font-weight:700>-</span>result;
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> result;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="23-the-syscall-instruction">2.3 The SYSCALL Instruction</h3><p>On modern x86-64, the <code>syscall</code> instruction is the gateway:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-asm" data-lang=asm><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; Before syscall:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; RAX = system call number
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; RDI, RSI, RDX, R10, R8, R9 = arguments 1-6
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>syscall</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; The CPU atomically:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; 1. Saves RIP to RCX (return address)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; 2. Saves RFLAGS to R11
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; 3. Loads new RIP from MSR_LSTAR (kernel entry point)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; 4. Loads new CS and SS (kernel segments)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; 5. Clears certain RFLAGS bits
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>; 6. Switches to Ring 0
+</span></span></span></code></pre></div><h3 id="24-kernel-entry-point">2.4 Kernel Entry Point</h3><p>The kernel&rsquo;s syscall entry handler takes over:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Simplified Linux syscall entry (arch/x86/entry/entry_64.S concepts)
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>ENTRY</span>(entry_SYSCALL_64)
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Save user stack pointer
+</span></span></span><span style=display:flex><span>    swapgs  <span style=color:#8b949e;font-style:italic>// Switch to kernel GS base
+</span></span></span><span style=display:flex><span>    movq    <span style=color:#ff7b72;font-weight:700>%</span>rsp, <span style=color:#d2a8ff;font-weight:700>PER_CPU_VAR</span>(cpu_tss_rw <span style=color:#ff7b72;font-weight:700>+</span> TSS_sp2)
+</span></span><span style=display:flex><span>    movq    <span style=color:#d2a8ff;font-weight:700>PER_CPU_VAR</span>(cpu_current_top_of_stack), <span style=color:#ff7b72;font-weight:700>%</span>rsp
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Create stack frame with saved registers
+</span></span></span><span style=display:flex><span>    pushq   <span style=color:#f85149>$</span>__USER_DS          <span style=color:#8b949e;font-style:italic>// user SS
+</span></span></span><span style=display:flex><span>    pushq   <span style=color:#d2a8ff;font-weight:700>PER_CPU_VAR</span>(...)    <span style=color:#8b949e;font-style:italic>// user RSP
+</span></span></span><span style=display:flex><span>    pushq   <span style=color:#ff7b72;font-weight:700>%</span>r11                <span style=color:#8b949e;font-style:italic>// saved RFLAGS
+</span></span></span><span style=display:flex><span>    pushq   <span style=color:#f85149>$</span>__USER_CS          <span style=color:#8b949e;font-style:italic>// user CS
+</span></span></span><span style=display:flex><span>    pushq   <span style=color:#ff7b72;font-weight:700>%</span>rcx                <span style=color:#8b949e;font-style:italic>// user RIP (return address)
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Save more registers for syscall arguments
+</span></span></span><span style=display:flex><span>    pushq   <span style=color:#ff7b72;font-weight:700>%</span>rdi
+</span></span><span style=display:flex><span>    pushq   <span style=color:#ff7b72;font-weight:700>%</span>rsi
+</span></span><span style=display:flex><span>    pushq   <span style=color:#ff7b72;font-weight:700>%</span>rdx
+</span></span><span style=display:flex><span>    ...
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Call the actual syscall handler
+</span></span></span><span style=display:flex><span>    movq    <span style=color:#ff7b72;font-weight:700>%</span>rax, <span style=color:#ff7b72;font-weight:700>%</span>rdi          <span style=color:#8b949e;font-style:italic>// syscall number
+</span></span></span><span style=display:flex><span>    call    do_syscall_64
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Restore and return
+</span></span></span><span style=display:flex><span>    ...
+</span></span><span style=display:flex><span>    sysretq  <span style=color:#8b949e;font-style:italic>// Return to user space
+</span></span></span></code></pre></div><h3 id="25-syscall-dispatch-table">2.5 Syscall Dispatch Table</h3><p>The kernel looks up the handler in a table:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Simplified syscall table concept
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>typedef</span> asmlinkage <span style=color:#d2a8ff;font-weight:700>long</span> (<span style=color:#ff7b72;font-weight:700>*</span><span style=color:#ff7b72>sys_call_ptr_t</span>)(
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span>, <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span>, <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span>,
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span>, <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span>, <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> <span style=color:#ff7b72>sys_call_ptr_t</span> sys_call_table[] <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>    [<span style=color:#a5d6ff>0</span>]   <span style=color:#ff7b72;font-weight:700>=</span> sys_read,
+</span></span><span style=display:flex><span>    [<span style=color:#a5d6ff>1</span>]   <span style=color:#ff7b72;font-weight:700>=</span> sys_write,
+</span></span><span style=display:flex><span>    [<span style=color:#a5d6ff>2</span>]   <span style=color:#ff7b72;font-weight:700>=</span> sys_open,
+</span></span><span style=display:flex><span>    [<span style=color:#a5d6ff>3</span>]   <span style=color:#ff7b72;font-weight:700>=</span> sys_close,
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// ... hundreds more
+</span></span></span><span style=display:flex><span>    [<span style=color:#a5d6ff>435</span>] <span style=color:#ff7b72;font-weight:700>=</span> sys_clone3,  <span style=color:#8b949e;font-style:italic>// As of Linux 5.x
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>asmlinkage <span style=color:#ff7b72>long</span> <span style=color:#d2a8ff;font-weight:700>do_syscall_64</span>(<span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> nr, ...) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (nr <span style=color:#ff7b72;font-weight:700>&lt;</span> NR_syscalls) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> sys_call_table[nr](arg1, arg2, arg3, arg4, arg5, arg6);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#ff7b72;font-weight:700>-</span>ENOSYS;  <span style=color:#8b949e;font-style:italic>// Invalid syscall number
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="26-the-actual-write-implementation">2.6 The Actual write() Implementation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Simplified sys_write (fs/read_write.c concepts)
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>SYSCALL_DEFINE3</span>(write, <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>int</span>, fd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> __user <span style=color:#ff7b72;font-weight:700>*</span>, buf,
+</span></span><span style=display:flex><span>                <span style=color:#ff7b72>size_t</span>, count)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> fd f <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>fdget_pos</span>(fd);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>f.file)
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#ff7b72;font-weight:700>-</span>EBADF;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Verify user pointer is actually in user space
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span><span style=color:#d2a8ff;font-weight:700>access_ok</span>(buf, count))
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#ff7b72;font-weight:700>-</span>EFAULT;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>loff_t</span> pos <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>file_pos_read</span>(f.file);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>ssize_t</span> ret <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>vfs_write</span>(f.file, buf, count, <span style=color:#ff7b72;font-weight:700>&amp;</span>pos);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>file_pos_write</span>(f.file, pos);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>fdput_pos</span>(f);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> ret;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id="3-system-call-categories">3. System Call Categories</h2><p>Linux provides hundreds of system calls organized by function.</p><h3 id="31-process-management">3.1 Process Management</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Process creation and control
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>pid_t</span> <span style=color:#d2a8ff;font-weight:700>fork</span>(<span style=color:#ff7b72>void</span>);              <span style=color:#8b949e;font-style:italic>// Create child process
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>pid_t</span> <span style=color:#d2a8ff;font-weight:700>vfork</span>(<span style=color:#ff7b72>void</span>);             <span style=color:#8b949e;font-style:italic>// Create child, share memory until exec
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>execve</span>(<span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>path, <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span><span style=color:#ff7b72>const</span> argv[], <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span><span style=color:#ff7b72>const</span> envp[]);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>_exit</span>(<span style=color:#ff7b72>int</span> status);        <span style=color:#8b949e;font-style:italic>// Terminate process
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>pid_t</span> <span style=color:#d2a8ff;font-weight:700>wait4</span>(<span style=color:#ff7b72>pid_t</span> pid, <span style=color:#ff7b72>int</span> <span style=color:#ff7b72;font-weight:700>*</span>status, <span style=color:#ff7b72>int</span> options, <span style=color:#ff7b72>struct</span> rusage <span style=color:#ff7b72;font-weight:700>*</span>rusage);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Process information
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>pid_t</span> <span style=color:#d2a8ff;font-weight:700>getpid</span>(<span style=color:#ff7b72>void</span>);            <span style=color:#8b949e;font-style:italic>// Get process ID
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>pid_t</span> <span style=color:#d2a8ff;font-weight:700>getppid</span>(<span style=color:#ff7b72>void</span>);           <span style=color:#8b949e;font-style:italic>// Get parent process ID
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>uid_t</span> <span style=color:#d2a8ff;font-weight:700>getuid</span>(<span style=color:#ff7b72>void</span>);            <span style=color:#8b949e;font-style:italic>// Get user ID
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>setuid</span>(<span style=color:#ff7b72>uid_t</span> uid);         <span style=color:#8b949e;font-style:italic>// Set user ID (privileged)
+</span></span></span></code></pre></div><h3 id="32-file-operations">3.2 File Operations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Basic file I/O
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>open</span>(<span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>path, <span style=color:#ff7b72>int</span> flags, <span style=color:#ff7b72>mode_t</span> mode);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>close</span>(<span style=color:#ff7b72>int</span> fd);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>read</span>(<span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> count);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>write</span>(<span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> count);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>off_t</span> <span style=color:#d2a8ff;font-weight:700>lseek</span>(<span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>off_t</span> offset, <span style=color:#ff7b72>int</span> whence);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Advanced file operations
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>dup</span>(<span style=color:#ff7b72>int</span> oldfd);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>dup2</span>(<span style=color:#ff7b72>int</span> oldfd, <span style=color:#ff7b72>int</span> newfd);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>fcntl</span>(<span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>int</span> cmd, ...);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>ioctl</span>(<span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> request, ...);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>pread</span>(<span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> count, <span style=color:#ff7b72>off_t</span> offset);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>pwrite</span>(<span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> count, <span style=color:#ff7b72>off_t</span> offset);
+</span></span></code></pre></div><h3 id="33-memory-management">3.3 Memory Management</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Memory mapping
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span><span style=color:#d2a8ff;font-weight:700>mmap</span>(<span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>addr, <span style=color:#ff7b72>size_t</span> length, <span style=color:#ff7b72>int</span> prot, <span style=color:#ff7b72>int</span> flags,
+</span></span><span style=display:flex><span>           <span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>off_t</span> offset);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>munmap</span>(<span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>addr, <span style=color:#ff7b72>size_t</span> length);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>mprotect</span>(<span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>addr, <span style=color:#ff7b72>size_t</span> len, <span style=color:#ff7b72>int</span> prot);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>madvise</span>(<span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>addr, <span style=color:#ff7b72>size_t</span> length, <span style=color:#ff7b72>int</span> advice);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Heap management (brk is low-level; malloc uses mmap)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>brk</span>(<span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>addr);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span><span style=color:#d2a8ff;font-weight:700>sbrk</span>(<span style=color:#ff7b72>intptr_t</span> increment);
+</span></span></code></pre></div><h3 id="34-networking">3.4 Networking</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Socket creation and connection
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>socket</span>(<span style=color:#ff7b72>int</span> domain, <span style=color:#ff7b72>int</span> type, <span style=color:#ff7b72>int</span> protocol);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>bind</span>(<span style=color:#ff7b72>int</span> sockfd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>struct</span> sockaddr <span style=color:#ff7b72;font-weight:700>*</span>addr, <span style=color:#ff7b72>socklen_t</span> addrlen);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>listen</span>(<span style=color:#ff7b72>int</span> sockfd, <span style=color:#ff7b72>int</span> backlog);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>accept</span>(<span style=color:#ff7b72>int</span> sockfd, <span style=color:#ff7b72>struct</span> sockaddr <span style=color:#ff7b72;font-weight:700>*</span>addr, <span style=color:#ff7b72>socklen_t</span> <span style=color:#ff7b72;font-weight:700>*</span>addrlen);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>connect</span>(<span style=color:#ff7b72>int</span> sockfd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>struct</span> sockaddr <span style=color:#ff7b72;font-weight:700>*</span>addr, <span style=color:#ff7b72>socklen_t</span> addrlen);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Data transfer
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>send</span>(<span style=color:#ff7b72>int</span> sockfd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> len, <span style=color:#ff7b72>int</span> flags);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>recv</span>(<span style=color:#ff7b72>int</span> sockfd, <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> len, <span style=color:#ff7b72>int</span> flags);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>sendto</span>(<span style=color:#ff7b72>int</span> sockfd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> len, <span style=color:#ff7b72>int</span> flags,
+</span></span><span style=display:flex><span>               <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>struct</span> sockaddr <span style=color:#ff7b72;font-weight:700>*</span>dest_addr, <span style=color:#ff7b72>socklen_t</span> addrlen);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>recvfrom</span>(<span style=color:#ff7b72>int</span> sockfd, <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> len, <span style=color:#ff7b72>int</span> flags,
+</span></span><span style=display:flex><span>                 <span style=color:#ff7b72>struct</span> sockaddr <span style=color:#ff7b72;font-weight:700>*</span>src_addr, <span style=color:#ff7b72>socklen_t</span> <span style=color:#ff7b72;font-weight:700>*</span>addrlen);
+</span></span></code></pre></div><h3 id="35-synchronization-and-ipc">3.5 Synchronization and IPC</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Futex (fast userspace mutex)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>futex</span>(<span style=color:#ff7b72>int</span> <span style=color:#ff7b72;font-weight:700>*</span>uaddr, <span style=color:#ff7b72>int</span> futex_op, <span style=color:#ff7b72>int</span> val, ...);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Signals
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>kill</span>(<span style=color:#ff7b72>pid_t</span> pid, <span style=color:#ff7b72>int</span> sig);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>sigaction</span>(<span style=color:#ff7b72>int</span> signum, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>struct</span> sigaction <span style=color:#ff7b72;font-weight:700>*</span>act,
+</span></span><span style=display:flex><span>              <span style=color:#ff7b72>struct</span> sigaction <span style=color:#ff7b72;font-weight:700>*</span>oldact);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>sigprocmask</span>(<span style=color:#ff7b72>int</span> how, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>sigset_t</span> <span style=color:#ff7b72;font-weight:700>*</span>set, <span style=color:#ff7b72>sigset_t</span> <span style=color:#ff7b72;font-weight:700>*</span>oldset);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Pipes
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>pipe</span>(<span style=color:#ff7b72>int</span> pipefd[<span style=color:#a5d6ff>2</span>]);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>pipe2</span>(<span style=color:#ff7b72>int</span> pipefd[<span style=color:#a5d6ff>2</span>], <span style=color:#ff7b72>int</span> flags);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Shared memory
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>shmget</span>(<span style=color:#ff7b72>key_t</span> key, <span style=color:#ff7b72>size_t</span> size, <span style=color:#ff7b72>int</span> shmflg);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span><span style=color:#d2a8ff;font-weight:700>shmat</span>(<span style=color:#ff7b72>int</span> shmid, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>shmaddr, <span style=color:#ff7b72>int</span> shmflg);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>shmdt</span>(<span style=color:#ff7b72>const</span> <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>shmaddr);
+</span></span></code></pre></div><h2 id="4-system-call-performance">4. System Call Performance</h2><p>System calls are expensive compared to regular function calls.</p><h3 id="41-the-cost-breakdown">4.1 The Cost Breakdown</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Regular function call: ~1-5 nanoseconds
+</span></span><span style=display:flex><span>System call: ~100-1000+ nanoseconds
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cost components:
+</span></span><span style=display:flex><span>┌────────────────────────────────────┬──────────────┐
+</span></span><span style=display:flex><span>│ Component                          │ Approx. Cost │
+</span></span><span style=display:flex><span>├────────────────────────────────────┼──────────────┤
+</span></span><span style=display:flex><span>│ syscall/sysret instructions        │ 50-100 ns    │
+</span></span><span style=display:flex><span>│ Kernel entry/exit code             │ 20-50 ns     │
+</span></span><span style=display:flex><span>│ TLB and cache effects              │ 20-100 ns    │
+</span></span><span style=display:flex><span>│ Context save/restore               │ 10-30 ns     │
+</span></span><span style=display:flex><span>│ Security checks (KPTI, etc.)       │ 50-200 ns    │
+</span></span><span style=display:flex><span>│ Actual work (varies by syscall)    │ varies       │
+</span></span><span style=display:flex><span>└────────────────────────────────────┴──────────────┘
+</span></span></code></pre></div><h3 id="42-measuring-system-call-overhead">4.2 Measuring System Call Overhead</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;stdio.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;time.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;unistd.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;sys/syscall.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> timespec start, end;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>int</span> iterations <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1000000</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>clock_gettime</span>(CLOCK_MONOTONIC, <span style=color:#ff7b72;font-weight:700>&amp;</span>start);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> iterations; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>syscall</span>(SYS_getpid);  <span style=color:#8b949e;font-style:italic>// Minimal syscall
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>clock_gettime</span>(CLOCK_MONOTONIC, <span style=color:#ff7b72;font-weight:700>&amp;</span>end);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>double</span> elapsed <span style=color:#ff7b72;font-weight:700>=</span> (end.tv_sec <span style=color:#ff7b72;font-weight:700>-</span> start.tv_sec) <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>1e9</span> <span style=color:#ff7b72;font-weight:700>+</span>
+</span></span><span style=display:flex><span>                     (end.tv_nsec <span style=color:#ff7b72;font-weight:700>-</span> start.tv_nsec);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Average syscall time: %.2f ns</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, elapsed <span style=color:#ff7b72;font-weight:700>/</span> iterations);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Typical results on modern x86-64:</p><ul><li>Without mitigations: ~150-200 ns</li><li>With Spectre/Meltdown mitigations: ~300-700 ns</li></ul><h3 id="43-reducing-system-call-overhead">4.3 Reducing System Call Overhead</h3><p>Several techniques minimize syscall cost:</p><h4 id="batching-operations">Batching Operations</h4><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Bad: Many small writes
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>1000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>write</span>(fd, <span style=color:#ff7b72;font-weight:700>&amp;</span>data[i], <span style=color:#a5d6ff>1</span>);  <span style=color:#8b949e;font-style:italic>// 1000 syscalls
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Good: One large write
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>write</span>(fd, data, <span style=color:#a5d6ff>1000</span>);  <span style=color:#8b949e;font-style:italic>// 1 syscall
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Better: Use buffered I/O
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>1000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>fputc</span>(data[i], file);  <span style=color:#8b949e;font-style:italic>// Buffered, few actual syscalls
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>fflush</span>(file);
+</span></span></code></pre></div><h4 id="vectored-io">Vectored I/O</h4><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Instead of multiple write() calls:
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> iovec iov[<span style=color:#a5d6ff>3</span>] <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>    { .iov_base <span style=color:#ff7b72;font-weight:700>=</span> header, .iov_len <span style=color:#ff7b72;font-weight:700>=</span> header_len },
+</span></span><span style=display:flex><span>    { .iov_base <span style=color:#ff7b72;font-weight:700>=</span> body,   .iov_len <span style=color:#ff7b72;font-weight:700>=</span> body_len },
+</span></span><span style=display:flex><span>    { .iov_base <span style=color:#ff7b72;font-weight:700>=</span> footer, .iov_len <span style=color:#ff7b72;font-weight:700>=</span> footer_len }
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>writev</span>(fd, iov, <span style=color:#a5d6ff>3</span>);  <span style=color:#8b949e;font-style:italic>// Single syscall for multiple buffers
+</span></span></span></code></pre></div><h4 id="memory-mapped-files">Memory-Mapped Files</h4><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Instead of read/write syscalls:
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>map <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, file_size, PROT_READ <span style=color:#ff7b72;font-weight:700>|</span> PROT_WRITE,
+</span></span><span style=display:flex><span>                 MAP_SHARED, fd, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Direct memory access - no syscalls for data access
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>memcpy</span>(map <span style=color:#ff7b72;font-weight:700>+</span> offset, data, len);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Sync when needed
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>msync</span>(map, file_size, MS_SYNC);
+</span></span></code></pre></div><h2 id="5-the-vdso-syscalls-without-privilege-transition">5. The vDSO: Syscalls Without Privilege Transition</h2><p>Some &ldquo;system calls&rdquo; don&rsquo;t actually enter the kernel.</p><h3 id="51-what-is-the-vdso">5.1 What is the vDSO?</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>vDSO = virtual Dynamic Shared Object
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>A small shared library mapped by the kernel into every process:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│           Process Address Space          │
+</span></span><span style=display:flex><span>├─────────────────────────────────────────┤
+</span></span><span style=display:flex><span>│  0x7fff...   Stack                      │
+</span></span><span style=display:flex><span>│  ...                                     │
+</span></span><span style=display:flex><span>│  0x7ffd...   vDSO (kernel-provided)     │  ← Special kernel-mapped page
+</span></span><span style=display:flex><span>│  ...                                     │
+</span></span><span style=display:flex><span>│  0x7f00...   Shared libraries           │
+</span></span><span style=display:flex><span>│  ...                                     │
+</span></span><span style=display:flex><span>│  0x0040...   Program text               │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="52-vdso-functions">5.2 vDSO Functions</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// These can be called without entering kernel:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;time.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// gettimeofday - reads kernel-maintained time data
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>gettimeofday</span>(<span style=color:#ff7b72>struct</span> timeval <span style=color:#ff7b72;font-weight:700>*</span>tv, <span style=color:#ff7b72>struct</span> timezone <span style=color:#ff7b72;font-weight:700>*</span>tz);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// clock_gettime - high-resolution clock
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>clock_gettime</span>(<span style=color:#ff7b72>clockid_t</span> clk_id, <span style=color:#ff7b72>struct</span> timespec <span style=color:#ff7b72;font-weight:700>*</span>tp);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// getcpu - which CPU am I running on?
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>getcpu</span>(<span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72;font-weight:700>*</span>cpu, <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72;font-weight:700>*</span>node, <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>unused);
+</span></span></code></pre></div><h3 id="53-how-vdso-works">5.3 How vDSO Works</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Traditional syscall path:
+</span></span><span style=display:flex><span>User code → syscall instruction → Kernel → Return
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>vDSO path:
+</span></span><span style=display:flex><span>User code → vDSO function → Read shared memory → Return
+</span></span><span style=display:flex><span>(No privilege transition!)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The kernel updates shared pages that vDSO functions read:
+</span></span><span style=display:flex><span>┌────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  vDSO Data Page (read-only to user)        │
+</span></span><span style=display:flex><span>├────────────────────────────────────────────┤
+</span></span><span style=display:flex><span>│  current_time: 1639425367.123456789        │
+</span></span><span style=display:flex><span>│  timezone: UTC-5                           │
+</span></span><span style=display:flex><span>│  cpu_features: AVX2, SSE4.2                │
+</span></span><span style=display:flex><span>│  ...                                        │
+</span></span><span style=display:flex><span>└────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>Kernel updates this page on timer interrupts
+</span></span></code></pre></div><h3 id="54-performance-difference">5.4 Performance Difference</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Benchmark: clock_gettime via syscall vs vDSO
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;time.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;sys/syscall.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Force actual syscall (bypass vDSO)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>syscall_clock_gettime</span>(<span style=color:#ff7b72>struct</span> timespec <span style=color:#ff7b72;font-weight:700>*</span>ts) {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>syscall</span>(SYS_clock_gettime, CLOCK_MONOTONIC, ts);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Normal call (uses vDSO)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>vdso_clock_gettime</span>(<span style=color:#ff7b72>struct</span> timespec <span style=color:#ff7b72;font-weight:700>*</span>ts) {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>clock_gettime</span>(CLOCK_MONOTONIC, ts);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Results on typical x86-64:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// vDSO: ~20-30 ns
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Syscall: ~200-400 ns
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Difference: 10-20x faster!
+</span></span></span></code></pre></div><h2 id="6-io_uring-asynchronous-system-calls">6. io_uring: Asynchronous System Calls</h2><p>Linux 5.1 introduced io_uring for high-performance async I/O.</p><h3 id="61-the-problem-with-traditional-async-io">6.1 The Problem with Traditional Async I/O</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Traditional approaches have issues:
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 1. select/poll - O(n) scanning, limited scalability
+</span></span></span><span style=display:flex><span>fd_set readfds;
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>select</span>(nfds, <span style=color:#ff7b72;font-weight:700>&amp;</span>readfds, NULL, NULL, <span style=color:#ff7b72;font-weight:700>&amp;</span>timeout);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2. epoll - better, but still one syscall per batch
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> n <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>epoll_wait</span>(epfd, events, max_events, timeout);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> n; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>read</span>(events[i].data.fd, buf, size);  <span style=color:#8b949e;font-style:italic>// More syscalls!
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 3. aio - complex API, poor performance for many use cases
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>io_submit</span>(ctx, nr, iocbs);
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>io_getevents</span>(ctx, min_nr, nr, events, timeout);
+</span></span></code></pre></div><h3 id="62-io_uring-architecture">6.2 io_uring Architecture</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>┌─────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│                    User Space                        │
+</span></span><span style=display:flex><span>│  ┌─────────────────────────────────────────────┐    │
+</span></span><span style=display:flex><span>│  │              Application                     │    │
+</span></span><span style=display:flex><span>│  │  1. Add entries to Submission Queue          │    │
+</span></span><span style=display:flex><span>│  │  2. Check Completion Queue for results       │    │
+</span></span><span style=display:flex><span>│  └──────────────┬──────────────────┬───────────┘    │
+</span></span><span style=display:flex><span>│                 │                  │                 │
+</span></span><span style=display:flex><span>│        ┌────────▼────────┐ ┌──────▼───────┐        │
+</span></span><span style=display:flex><span>│        │ Submission Queue │ │ Completion   │        │
+</span></span><span style=display:flex><span>│        │ (SQ) - Ring      │ │ Queue (CQ)   │        │
+</span></span><span style=display:flex><span>│        │ Buffer           │ │ Ring Buffer  │        │
+</span></span><span style=display:flex><span>│        └────────┬─────────┘ └──────▲───────┘        │
+</span></span><span style=display:flex><span>├─────────────────┼──────────────────┼────────────────┤
+</span></span><span style=display:flex><span>│                 │  Shared Memory   │                 │
+</span></span><span style=display:flex><span>│                 ▼                  │                 │
+</span></span><span style=display:flex><span>│  ┌─────────────────────────────────────────────┐    │
+</span></span><span style=display:flex><span>│  │              Kernel I/O Thread               │    │
+</span></span><span style=display:flex><span>│  │  - Polls SQ for new requests                 │    │
+</span></span><span style=display:flex><span>│  │  - Processes I/O operations                  │    │
+</span></span><span style=display:flex><span>│  │  - Posts completions to CQ                   │    │
+</span></span><span style=display:flex><span>│  └─────────────────────────────────────────────┘    │
+</span></span><span style=display:flex><span>│                    Kernel Space                      │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="63-basic-io_uring-usage">6.3 Basic io_uring Usage</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;liburing.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> io_uring ring;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Initialize ring with 256 entries
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>io_uring_queue_init</span>(<span style=color:#a5d6ff>256</span>, <span style=color:#ff7b72;font-weight:700>&amp;</span>ring, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Prepare a read operation
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> io_uring_sqe <span style=color:#ff7b72;font-weight:700>*</span>sqe <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>io_uring_get_sqe</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>ring);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>io_uring_prep_read</span>(sqe, fd, buf, size, offset);
+</span></span><span style=display:flex><span>    sqe<span style=color:#ff7b72;font-weight:700>-&gt;</span>user_data <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>42</span>;  <span style=color:#8b949e;font-style:italic>// Identifier for completion
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Submit (may not need syscall with SQPOLL)
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>io_uring_submit</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>ring);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Wait for completion
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> io_uring_cqe <span style=color:#ff7b72;font-weight:700>*</span>cqe;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>io_uring_wait_cqe</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>ring, <span style=color:#ff7b72;font-weight:700>&amp;</span>cqe);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Process result
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (cqe<span style=color:#ff7b72;font-weight:700>-&gt;</span>res <span style=color:#ff7b72;font-weight:700>&gt;=</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Read %d bytes</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, cqe<span style=color:#ff7b72;font-weight:700>-&gt;</span>res);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>io_uring_cqe_seen</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>ring, cqe);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>io_uring_queue_exit</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>ring);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="64-zero-copy-potential">6.4 Zero-Copy Potential</h3><p>With <code>IORING_SETUP_SQPOLL</code>, the kernel polls the submission queue:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>struct</span> io_uring_params params <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>    .flags <span style=color:#ff7b72;font-weight:700>=</span> IORING_SETUP_SQPOLL,
+</span></span><span style=display:flex><span>    .sq_thread_idle <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>10000</span>  <span style=color:#8b949e;font-style:italic>// Keep polling for 10ms after idle
+</span></span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>io_uring_queue_init_params</span>(<span style=color:#a5d6ff>256</span>, <span style=color:#ff7b72;font-weight:700>&amp;</span>ring, <span style=color:#ff7b72;font-weight:700>&amp;</span>params);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Now submissions may not require ANY syscalls
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Kernel thread constantly polls the shared ring
+</span></span></span></code></pre></div><h2 id="7-system-call-interception-and-tracing">7. System Call Interception and Tracing</h2><p>Understanding how to observe and intercept syscalls is valuable for debugging and security.</p><h3 id="71-strace-the-classic-tool">7.1 strace: The Classic Tool</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Trace all syscalls of a program</span>
+</span></span><span style=display:flex><span>strace ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Trace specific syscalls</span>
+</span></span><span style=display:flex><span>strace -e <span style=color:#79c0ff>trace</span><span style=color:#ff7b72;font-weight:700>=</span>open,read,write ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Trace with timing</span>
+</span></span><span style=display:flex><span>strace -T ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Trace child processes too</span>
+</span></span><span style=display:flex><span>strace -f ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Example output:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># openat(AT_FDCWD, &#34;/etc/passwd&#34;, O_RDONLY) = 3 &lt;0.000015&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># read(3, &#34;root:x:0:0:root:/root:/bin/bash\n&#34;..., 4096) = 2381 &lt;0.000010&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># close(3) = 0 &lt;0.000006&gt;</span>
+</span></span></code></pre></div><h3 id="72-how-strace-works-ptrace">7.2 How strace Works: ptrace</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;sys/ptrace.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>pid_t</span> child <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>fork</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (child <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Child: allow parent to trace us
+</span></span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>ptrace</span>(PTRACE_TRACEME, <span style=color:#a5d6ff>0</span>, NULL, NULL);
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>execl</span>(<span style=color:#a5d6ff>&#34;/bin/ls&#34;</span>, <span style=color:#a5d6ff>&#34;ls&#34;</span>, NULL);
+</span></span><span style=display:flex><span>    } <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Parent: trace child&#39;s syscalls
+</span></span></span><span style=display:flex><span>        <span style=color:#ff7b72>int</span> status;
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>while</span> (<span style=color:#a5d6ff>1</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>wait</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>status);
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>WIFEXITED</span>(status)) <span style=color:#ff7b72>break</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic>// Read syscall number from child&#39;s registers
+</span></span></span><span style=display:flex><span>            <span style=color:#ff7b72>struct</span> user_regs_struct regs;
+</span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>ptrace</span>(PTRACE_GETREGS, child, NULL, <span style=color:#ff7b72;font-weight:700>&amp;</span>regs);
+</span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Syscall: %lld</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, regs.orig_rax);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic>// Continue to next syscall
+</span></span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>ptrace</span>(PTRACE_SYSCALL, child, NULL, NULL);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="73-ebpf-for-system-call-tracing">7.3 eBPF for System Call Tracing</h3><p>Modern Linux uses eBPF for efficient tracing:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// BPF program attached to syscall entry
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>SEC</span>(<span style=color:#a5d6ff>&#34;tracepoint/syscalls/sys_enter_openat&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>trace_openat</span>(<span style=color:#ff7b72>struct</span> trace_event_raw_sys_enter <span style=color:#ff7b72;font-weight:700>*</span>ctx) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> filename[<span style=color:#a5d6ff>256</span>];
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>bpf_probe_read_user_str</span>(filename, <span style=color:#ff7b72>sizeof</span>(filename),
+</span></span><span style=display:flex><span>                            (<span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>)ctx<span style=color:#ff7b72;font-weight:700>-&gt;</span>args[<span style=color:#a5d6ff>1</span>]);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>bpf_printk</span>(<span style=color:#a5d6ff>&#34;openat: %s</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, filename);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>eBPF advantages:</p><ul><li>Runs in kernel, minimal overhead</li><li>Safe: verified before loading</li><li>Can aggregate data in-kernel</li><li>No context switches for tracing</li></ul><h3 id="74-seccomp-syscall-filtering">7.4 Seccomp: Syscall Filtering</h3><p>Restrict which syscalls a process can make:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;seccomp.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    scmp_filter_ctx ctx <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>seccomp_init</span>(SCMP_ACT_KILL);  <span style=color:#8b949e;font-style:italic>// Default: kill
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Allow specific syscalls
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>seccomp_rule_add</span>(ctx, SCMP_ACT_ALLOW, <span style=color:#d2a8ff;font-weight:700>SCMP_SYS</span>(read), <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>seccomp_rule_add</span>(ctx, SCMP_ACT_ALLOW, <span style=color:#d2a8ff;font-weight:700>SCMP_SYS</span>(write), <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>seccomp_rule_add</span>(ctx, SCMP_ACT_ALLOW, <span style=color:#d2a8ff;font-weight:700>SCMP_SYS</span>(exit), <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>seccomp_rule_add</span>(ctx, SCMP_ACT_ALLOW, <span style=color:#d2a8ff;font-weight:700>SCMP_SYS</span>(exit_group), <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Activate filter
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>seccomp_load</span>(ctx);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Now any other syscall will terminate the process
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>write</span>(<span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>&#34;Hello</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, <span style=color:#a5d6ff>6</span>);  <span style=color:#8b949e;font-style:italic>// OK
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>open</span>(<span style=color:#a5d6ff>&#34;/etc/passwd&#34;</span>, <span style=color:#a5d6ff>0</span>);   <span style=color:#8b949e;font-style:italic>// KILLED!
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Used extensively by:</p><ul><li>Container runtimes (Docker, containerd)</li><li>Browsers (Chrome sandbox)</li><li>systemd services</li></ul><h2 id="8-system-calls-across-operating-systems">8. System Calls Across Operating Systems</h2><p>Different OSes have different syscall conventions.</p><h3 id="81-linux-vs-macos-vs-windows">8.1 Linux vs macOS vs Windows</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>┌────────────────┬─────────────────┬─────────────────┬─────────────────┐
+</span></span><span style=display:flex><span>│ Aspect         │ Linux           │ macOS           │ Windows         │
+</span></span><span style=display:flex><span>├────────────────┼─────────────────┼─────────────────┼─────────────────┤
+</span></span><span style=display:flex><span>│ Instruction    │ syscall         │ syscall         │ syscall         │
+</span></span><span style=display:flex><span>│ (x86-64)       │                 │                 │                 │
+</span></span><span style=display:flex><span>├────────────────┼─────────────────┼─────────────────┼─────────────────┤
+</span></span><span style=display:flex><span>│ Number in      │ RAX             │ RAX             │ RAX             │
+</span></span><span style=display:flex><span>│ register       │                 │ (+ 0x2000000)   │                 │
+</span></span><span style=display:flex><span>├────────────────┼─────────────────┼─────────────────┼─────────────────┤
+</span></span><span style=display:flex><span>│ Arguments      │ RDI, RSI, RDX,  │ RDI, RSI, RDX,  │ RCX, RDX, R8,   │
+</span></span><span style=display:flex><span>│                │ R10, R8, R9     │ R10, R8, R9     │ R9 + stack      │
+</span></span><span style=display:flex><span>├────────────────┼─────────────────┼─────────────────┼─────────────────┤
+</span></span><span style=display:flex><span>│ Stable ABI?    │ Yes             │ No (use libSystem)│ No (use ntdll)│
+</span></span><span style=display:flex><span>├────────────────┼─────────────────┼─────────────────┼─────────────────┤
+</span></span><span style=display:flex><span>│ Documented?    │ Yes             │ No              │ Partially       │
+</span></span><span style=display:flex><span>└────────────────┴─────────────────┴─────────────────┴─────────────────┘
+</span></span></code></pre></div><h3 id="82-the-stable-abi-question">8.2 The Stable ABI Question</h3><p>Linux guarantees syscall stability:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// This will work on any Linux kernel &gt;= the version that introduced it
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>syscall</span>(SYS_write, <span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>&#34;Hello&#34;</span>, <span style=color:#a5d6ff>5</span>);
+</span></span></code></pre></div><p>macOS and Windows do NOT:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// macOS: syscall numbers change between versions!
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Always use libSystem.dylib functions
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Windows: syscall numbers change between builds!
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Always use ntdll.dll exports
+</span></span></span></code></pre></div><h3 id="83-bsd-syscall-compatibility">8.3 BSD Syscall Compatibility</h3><p>Linux can run some BSD syscalls:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// FreeBSD syscall numbers differ from Linux
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// But some compatibility exists through emulation layers
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Linux supports different syscall ABIs:
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>personality</span>(PER_BSD);  <span style=color:#8b949e;font-style:italic>// Switch to BSD syscall numbering
+</span></span></span></code></pre></div><h2 id="9-implementing-a-minimal-system-call">9. Implementing a Minimal System Call</h2><p>Understanding by building.</p><h3 id="91-adding-a-custom-syscall-to-linux">9.1 Adding a Custom Syscall to Linux</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 1. Define the syscall in kernel source
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// kernel/sys.c
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>SYSCALL_DEFINE1</span>(hello, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> __user <span style=color:#ff7b72;font-weight:700>*</span>, name)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> kname[<span style=color:#a5d6ff>64</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>copy_from_user</span>(kname, name, <span style=color:#ff7b72>sizeof</span>(kname)))
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#ff7b72;font-weight:700>-</span>EFAULT;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    kname[<span style=color:#ff7b72>sizeof</span>(kname) <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>1</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;\0&#39;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>printk</span>(KERN_INFO <span style=color:#a5d6ff>&#34;Hello, %s!</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, kname);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2. Add to syscall table
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// arch/x86/entry/syscalls/syscall_64.tbl
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 500  common  hello  sys_hello
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 3. Add prototype
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// include/linux/syscalls.h
+</span></span></span><span style=display:flex><span>asmlinkage <span style=color:#ff7b72>long</span> <span style=color:#d2a8ff;font-weight:700>sys_hello</span>(<span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> __user <span style=color:#ff7b72;font-weight:700>*</span>name);
+</span></span></code></pre></div><h3 id="92-calling-the-custom-syscall">9.2 Calling the Custom Syscall</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;sys/syscall.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;unistd.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define SYS_hello 500
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>long</span> result <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>syscall</span>(SYS_hello, <span style=color:#a5d6ff>&#34;World&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;syscall returned: %ld</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, result);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Check kernel log:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// dmesg | tail
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// [12345.678] Hello, World!
+</span></span></span></code></pre></div><h2 id="10-security-implications-of-system-calls">10. Security Implications of System Calls</h2><p>System calls are the attack surface between user space and kernel.</p><h3 id="101-kernel-vulnerabilities">10.1 Kernel Vulnerabilities</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Attack vectors through syscalls:
+</span></span><span style=display:flex><span>1. Buffer overflows in argument handling
+</span></span><span style=display:flex><span>2. Race conditions (TOCTOU)
+</span></span><span style=display:flex><span>3. Integer overflows in size calculations
+</span></span><span style=display:flex><span>4. Use-after-free in object management
+</span></span><span style=display:flex><span>5. Information leaks through uninitialized memory
+</span></span></code></pre></div><h3 id="102-toctou-time-of-check-to-time-of-use">10.2 TOCTOU (Time-of-Check to Time-of-Use)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Vulnerable pattern:
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>access</span>(<span style=color:#a5d6ff>&#34;/tmp/file&#34;</span>, W_OK) <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Attacker changes /tmp/file to symlink here!
+</span></span></span><span style=display:flex><span>    fd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>open</span>(<span style=color:#a5d6ff>&#34;/tmp/file&#34;</span>, O_WRONLY);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>write</span>(fd, data, len);  <span style=color:#8b949e;font-style:italic>// Writes to wrong file!
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Safer pattern (check and use atomically):
+</span></span></span><span style=display:flex><span>fd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>open</span>(<span style=color:#a5d6ff>&#34;/tmp/file&#34;</span>, O_WRONLY);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> (fd <span style=color:#ff7b72;font-weight:700>&gt;=</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Now we have the actual file
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>fstat</span>(fd, <span style=color:#ff7b72;font-weight:700>&amp;</span>st);  <span style=color:#8b949e;font-style:italic>// Verify it&#39;s what we expect
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>write</span>(fd, data, len);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="103-spectre-and-meltdown-mitigations">10.3 Spectre and Meltdown Mitigations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Post-2018 mitigations add syscall overhead:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>KPTI (Kernel Page Table Isolation):
+</span></span><span style=display:flex><span>- Separate page tables for user/kernel
+</span></span><span style=display:flex><span>- TLB flush on every transition
+</span></span><span style=display:flex><span>- Cost: ~100-400 ns per syscall
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Retpoline:
+</span></span><span style=display:flex><span>- Prevents speculative execution attacks
+</span></span><span style=display:flex><span>- Replaces indirect branches
+</span></span><span style=display:flex><span>- Cost: varies by workload
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>IBRS/STIBP:
+</span></span><span style=display:flex><span>- Hardware speculation barriers
+</span></span><span style=display:flex><span>- Cost: ~50-100 ns per syscall
+</span></span></code></pre></div><h3 id="104-measuring-mitigation-impact">10.4 Measuring Mitigation Impact</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Check active mitigations</span>
+</span></span><span style=display:flex><span>cat /sys/devices/system/cpu/vulnerabilities/*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Disable for testing (NOT for production!)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Boot with: mitigations=off</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Benchmark comparison:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># With mitigations: ~400 ns per getpid()</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Without: ~100 ns per getpid()</span>
+</span></span></code></pre></div><h2 id="11-real-world-syscall-patterns">11. Real-World Syscall Patterns</h2><h3 id="111-the-database-write-path">11.1 The Database Write Path</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Application: INSERT INTO table VALUES (...)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>write() path through syscalls:
+</span></span><span style=display:flex><span>1. write(fd, data, len)     → Add to page cache
+</span></span><span style=display:flex><span>2. fsync(fd)                → Flush to disk (durability)
+</span></span><span style=display:flex><span>   └─ Actually triggers:
+</span></span><span style=display:flex><span>      - Multiple bio submissions
+</span></span><span style=display:flex><span>      - Disk controller commands
+</span></span><span style=display:flex><span>      - Wait for completion interrupt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Optimization: O_DIRECT + io_uring for bypassing page cache
+</span></span></code></pre></div><h3 id="112-the-web-server-accept-loop">11.2 The Web Server Accept Loop</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Classic accept loop (one syscall per connection)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>while</span> (<span style=color:#a5d6ff>1</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>int</span> client <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>accept</span>(listen_fd, <span style=color:#ff7b72;font-weight:700>&amp;</span>addr, <span style=color:#ff7b72;font-weight:700>&amp;</span>addrlen);
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Handle client...
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Optimized with io_uring (batch accepts)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> batch_size; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> io_uring_sqe <span style=color:#ff7b72;font-weight:700>*</span>sqe <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>io_uring_get_sqe</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>ring);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>io_uring_prep_accept</span>(sqe, listen_fd, <span style=color:#ff7b72;font-weight:700>&amp;</span>addr, <span style=color:#ff7b72;font-weight:700>&amp;</span>addrlen, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>io_uring_submit</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>ring);
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Process completions in batches
+</span></span></span></code></pre></div><h3 id="113-container-startup">11.3 Container Startup</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Container creation syscalls:
+</span></span><span style=display:flex><span>1. clone(CLONE_NEWPID | CLONE_NEWNET | ...)  → New namespaces
+</span></span><span style=display:flex><span>2. pivot_root(new_root, put_old)              → Change filesystem root
+</span></span><span style=display:flex><span>3. mount(&#34;proc&#34;, &#34;/proc&#34;, &#34;proc&#34;, ...)        → Mount /proc
+</span></span><span style=display:flex><span>4. unshare(CLONE_NEWUSER)                     → User namespace
+</span></span><span style=display:flex><span>5. prctl(PR_SET_SECCOMP, ...)                 → Syscall filtering
+</span></span><span style=display:flex><span>6. execve(&#34;/init&#34;, ...)                       → Start container process
+</span></span></code></pre></div><h2 id="12-debugging-syscall-issues">12. Debugging Syscall Issues</h2><h3 id="121-common-error-codes">12.1 Common Error Codes</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Syscall errors are returned as negative numbers in kernel
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// libc converts to -1 return with errno set
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EPERM</span>    (<span style=color:#a5d6ff>1</span>)   <span style=color:#8b949e;font-style:italic>// Operation not permitted
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>ENOENT</span>   (<span style=color:#a5d6ff>2</span>)   <span style=color:#8b949e;font-style:italic>// No such file or directory
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>ESRCH</span>    (<span style=color:#a5d6ff>3</span>)   <span style=color:#8b949e;font-style:italic>// No such process
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EINTR</span>    (<span style=color:#a5d6ff>4</span>)   <span style=color:#8b949e;font-style:italic>// Interrupted system call
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EIO</span>      (<span style=color:#a5d6ff>5</span>)   <span style=color:#8b949e;font-style:italic>// I/O error
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>ENOMEM</span>  (<span style=color:#a5d6ff>12</span>)   <span style=color:#8b949e;font-style:italic>// Out of memory
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EACCES</span>  (<span style=color:#a5d6ff>13</span>)   <span style=color:#8b949e;font-style:italic>// Permission denied
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EFAULT</span>  (<span style=color:#a5d6ff>14</span>)   <span style=color:#8b949e;font-style:italic>// Bad address
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EBUSY</span>   (<span style=color:#a5d6ff>16</span>)   <span style=color:#8b949e;font-style:italic>// Device or resource busy
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EEXIST</span>  (<span style=color:#a5d6ff>17</span>)   <span style=color:#8b949e;font-style:italic>// File exists
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EINVAL</span>  (<span style=color:#a5d6ff>22</span>)   <span style=color:#8b949e;font-style:italic>// Invalid argument
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EMFILE</span>  (<span style=color:#a5d6ff>24</span>)   <span style=color:#8b949e;font-style:italic>// Too many open files
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>EAGAIN</span>  (<span style=color:#a5d6ff>11</span>)   <span style=color:#8b949e;font-style:italic>// Try again (also EWOULDBLOCK)
+</span></span></span></code></pre></div><h3 id="122-debugging-techniques">12.2 Debugging Techniques</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Trace specific error-returning syscalls</span>
+</span></span><span style=display:flex><span>strace -e <span style=color:#79c0ff>fault</span><span style=color:#ff7b72;font-weight:700>=</span>open:retval<span style=color:#ff7b72;font-weight:700>=</span>-2 ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Get syscall statistics</span>
+</span></span><span style=display:flex><span>strace -c ./program
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># % time     seconds  usecs/call     calls    errors syscall</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 45.23    0.012345         12      1000        10 read</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 32.10    0.008765          8      1000         0 write</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Trace only failed syscalls</span>
+</span></span><span style=display:flex><span>strace -Z ./program
+</span></span></code></pre></div><h3 id="123-performance-debugging">12.3 Performance Debugging</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># perf for syscall overhead</span>
+</span></span><span style=display:flex><span>perf stat -e syscalls:sys_enter_write ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Flamegraph of syscall time</span>
+</span></span><span style=display:flex><span>perf record -g ./program
+</span></span><span style=display:flex><span>perf script | stackcollapse-perf.pl | flamegraph.pl &gt; flame.svg
+</span></span></code></pre></div><h2 id="13-advanced-system-call-topics">13. Advanced System Call Topics</h2><h3 id="131-restartable-system-calls">13.1 Restartable System Calls</h3><p>When a signal arrives during a syscall, the behavior depends on the SA_RESTART flag:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;signal.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>handler</span>(<span style=color:#ff7b72>int</span> sig) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Signal handler
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> sigaction sa;
+</span></span><span style=display:flex><span>    sa.sa_handler <span style=color:#ff7b72;font-weight:700>=</span> handler;
+</span></span><span style=display:flex><span>    sa.sa_flags <span style=color:#ff7b72;font-weight:700>=</span> SA_RESTART;  <span style=color:#8b949e;font-style:italic>// Auto-restart interrupted syscalls
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>sigaction</span>(SIGUSR1, <span style=color:#ff7b72;font-weight:700>&amp;</span>sa, NULL);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// With SA_RESTART: read() resumes after signal
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Without: read() returns -1 with errno = EINTR
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> buf[<span style=color:#a5d6ff>1024</span>];
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>ssize_t</span> n <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>read</span>(fd, buf, <span style=color:#ff7b72>sizeof</span>(buf));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (n <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> errno <span style=color:#ff7b72;font-weight:700>==</span> EINTR) {
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Handle interruption manually
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Common pattern for handling EINTR:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>ssize_t</span> <span style=color:#d2a8ff;font-weight:700>safe_read</span>(<span style=color:#ff7b72>int</span> fd, <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>size_t</span> count) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>ssize_t</span> n;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>do</span> {
+</span></span><span style=display:flex><span>        n <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>read</span>(fd, buf, count);
+</span></span><span style=display:flex><span>    } <span style=color:#ff7b72>while</span> (n <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> errno <span style=color:#ff7b72;font-weight:700>==</span> EINTR);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> n;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="132-system-call-wrappers-and-versioning">13.2 System Call Wrappers and Versioning</h3><p>The kernel maintains compatibility through versioned syscalls:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Original stat
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>stat</span>(<span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>path, <span style=color:#ff7b72>struct</span> stat <span style=color:#ff7b72;font-weight:700>*</span>buf);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Extended for large files
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>stat64</span>(<span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>path, <span style=color:#ff7b72>struct</span> stat64 <span style=color:#ff7b72;font-weight:700>*</span>buf);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Modern: uses AT_ flags for flexibility
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>fstatat</span>(<span style=color:#ff7b72>int</span> dirfd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>path, <span style=color:#ff7b72>struct</span> stat <span style=color:#ff7b72;font-weight:700>*</span>buf, <span style=color:#ff7b72>int</span> flags);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Newest: handles time with nanoseconds
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>statx</span>(<span style=color:#ff7b72>int</span> dirfd, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>path, <span style=color:#ff7b72>int</span> flags,
+</span></span><span style=display:flex><span>          <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>int</span> mask, <span style=color:#ff7b72>struct</span> statx <span style=color:#ff7b72;font-weight:700>*</span>buf);
+</span></span></code></pre></div><p>glibc handles the translation:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// User calls stat()
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// glibc chooses appropriate syscall based on:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Kernel version
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - File size support needed
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// - Architecture
+</span></span></span></code></pre></div><h3 id="133-system-calls-for-container-namespaces">13.3 System Calls for Container Namespaces</h3><p>Linux namespaces isolate resources through syscalls:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#define _GNU_SOURCE
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;sched.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;sys/mount.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Create new namespaces
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>unshare</span>(CLONE_NEWPID <span style=color:#ff7b72;font-weight:700>|</span>    <span style=color:#8b949e;font-style:italic>// New PID namespace
+</span></span></span><span style=display:flex><span>            CLONE_NEWNET <span style=color:#ff7b72;font-weight:700>|</span>    <span style=color:#8b949e;font-style:italic>// New network namespace
+</span></span></span><span style=display:flex><span>            CLONE_NEWNS <span style=color:#ff7b72;font-weight:700>|</span>     <span style=color:#8b949e;font-style:italic>// New mount namespace
+</span></span></span><span style=display:flex><span>            CLONE_NEWUTS <span style=color:#ff7b72;font-weight:700>|</span>    <span style=color:#8b949e;font-style:italic>// New hostname namespace
+</span></span></span><span style=display:flex><span>            CLONE_NEWIPC);    <span style=color:#8b949e;font-style:italic>// New IPC namespace
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Fork to activate PID namespace
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>fork</span>() <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Child is PID 1 in new namespace
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Set new hostname
+</span></span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>sethostname</span>(<span style=color:#a5d6ff>&#34;container&#34;</span>, <span style=color:#a5d6ff>9</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Mount private proc
+</span></span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>mount</span>(<span style=color:#a5d6ff>&#34;proc&#34;</span>, <span style=color:#a5d6ff>&#34;/proc&#34;</span>, <span style=color:#a5d6ff>&#34;proc&#34;</span>, <span style=color:#a5d6ff>0</span>, NULL);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Execute container init
+</span></span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>execl</span>(<span style=color:#a5d6ff>&#34;/bin/sh&#34;</span>, <span style=color:#a5d6ff>&#34;sh&#34;</span>, NULL);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>wait</span>(NULL);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="134-memory-protection-syscalls">13.4 Memory Protection Syscalls</h3><p>Fine-grained memory control:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;sys/mman.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Allocate executable memory for JIT
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>jit_mem <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, <span style=color:#a5d6ff>4096</span>,
+</span></span><span style=display:flex><span>                         PROT_READ <span style=color:#ff7b72;font-weight:700>|</span> PROT_WRITE,
+</span></span><span style=display:flex><span>                         MAP_PRIVATE <span style=color:#ff7b72;font-weight:700>|</span> MAP_ANONYMOUS, <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Write machine code
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>char</span> code[] <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>0xb8</span>, <span style=color:#a5d6ff>0x2a</span>, <span style=color:#a5d6ff>0x00</span>, <span style=color:#a5d6ff>0x00</span>, <span style=color:#a5d6ff>0x00</span>,  <span style=color:#8b949e;font-style:italic>// mov eax, 42
+</span></span></span><span style=display:flex><span>        <span style=color:#a5d6ff>0xc3</span>                            <span style=color:#8b949e;font-style:italic>// ret
+</span></span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>memcpy</span>(jit_mem, code, <span style=color:#ff7b72>sizeof</span>(code));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Make executable (and remove write for security)
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>mprotect</span>(jit_mem, <span style=color:#a5d6ff>4096</span>, PROT_READ <span style=color:#ff7b72;font-weight:700>|</span> PROT_EXEC);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Execute
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>int</span> (<span style=color:#ff7b72;font-weight:700>*</span>func)(<span style=color:#ff7b72>void</span>) <span style=color:#ff7b72;font-weight:700>=</span> jit_mem;
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Result: %d</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, <span style=color:#d2a8ff;font-weight:700>func</span>());  <span style=color:#8b949e;font-style:italic>// Prints 42
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>munmap</span>(jit_mem, <span style=color:#a5d6ff>4096</span>);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="135-file-descriptor-passing">13.5 File Descriptor Passing</h3><p>Unix domain sockets can pass file descriptors between processes:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Sender process
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>send_fd</span>(<span style=color:#ff7b72>int</span> unix_socket, <span style=color:#ff7b72>int</span> fd_to_send) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> msghdr msg <span style=color:#ff7b72;font-weight:700>=</span> {<span style=color:#a5d6ff>0</span>};
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> cmsghdr <span style=color:#ff7b72;font-weight:700>*</span>cmsg;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> buf[<span style=color:#d2a8ff;font-weight:700>CMSG_SPACE</span>(<span style=color:#ff7b72>sizeof</span>(<span style=color:#ff7b72>int</span>))];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    msg.msg_control <span style=color:#ff7b72;font-weight:700>=</span> buf;
+</span></span><span style=display:flex><span>    msg.msg_controllen <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>sizeof</span>(buf);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    cmsg <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>CMSG_FIRSTHDR</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>msg);
+</span></span><span style=display:flex><span>    cmsg<span style=color:#ff7b72;font-weight:700>-&gt;</span>cmsg_level <span style=color:#ff7b72;font-weight:700>=</span> SOL_SOCKET;
+</span></span><span style=display:flex><span>    cmsg<span style=color:#ff7b72;font-weight:700>-&gt;</span>cmsg_type <span style=color:#ff7b72;font-weight:700>=</span> SCM_RIGHTS;
+</span></span><span style=display:flex><span>    cmsg<span style=color:#ff7b72;font-weight:700>-&gt;</span>cmsg_len <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>CMSG_LEN</span>(<span style=color:#ff7b72>sizeof</span>(<span style=color:#ff7b72>int</span>));
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>memcpy</span>(<span style=color:#d2a8ff;font-weight:700>CMSG_DATA</span>(cmsg), <span style=color:#ff7b72;font-weight:700>&amp;</span>fd_to_send, <span style=color:#ff7b72>sizeof</span>(<span style=color:#ff7b72>int</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>sendmsg</span>(unix_socket, <span style=color:#ff7b72;font-weight:700>&amp;</span>msg, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Receiver process
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#d2a8ff;font-weight:700>receive_fd</span>(<span style=color:#ff7b72>int</span> unix_socket) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> msghdr msg <span style=color:#ff7b72;font-weight:700>=</span> {<span style=color:#a5d6ff>0</span>};
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> buf[<span style=color:#d2a8ff;font-weight:700>CMSG_SPACE</span>(<span style=color:#ff7b72>sizeof</span>(<span style=color:#ff7b72>int</span>))];
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>int</span> received_fd;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    msg.msg_control <span style=color:#ff7b72;font-weight:700>=</span> buf;
+</span></span><span style=display:flex><span>    msg.msg_controllen <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>sizeof</span>(buf);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>recvmsg</span>(unix_socket, <span style=color:#ff7b72;font-weight:700>&amp;</span>msg, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> cmsghdr <span style=color:#ff7b72;font-weight:700>*</span>cmsg <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>CMSG_FIRSTHDR</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>msg);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>memcpy</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>received_fd, <span style=color:#d2a8ff;font-weight:700>CMSG_DATA</span>(cmsg), <span style=color:#ff7b72>sizeof</span>(<span style=color:#ff7b72>int</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> received_fd;  <span style=color:#8b949e;font-style:italic>// Now valid in this process!
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>This mechanism powers:</p><ul><li>Container runtimes (passing network sockets)</li><li>systemd socket activation</li><li>Web servers graceful restarts</li></ul><h2 id="14-historical-evolution-of-system-calls">14. Historical Evolution of System Calls</h2><h3 id="141-the-unix-heritage">14.1 The Unix Heritage</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1969-1971: Original UNIX (PDP-7, PDP-11)
+</span></span><span style=display:flex><span>- ~20 system calls
+</span></span><span style=display:flex><span>- Simple interface: open, read, write, close
+</span></span><span style=display:flex><span>- fork() for process creation
+</span></span><span style=display:flex><span>- exec() for program execution
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1979: Version 7 UNIX
+</span></span><span style=display:flex><span>- ~50 system calls
+</span></span><span style=display:flex><span>- Network support beginning
+</span></span><span style=display:flex><span>- Still fits on a few pages
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1983: 4.2BSD
+</span></span><span style=display:flex><span>- ~150 system calls
+</span></span><span style=display:flex><span>- Full networking (Berkeley sockets)
+</span></span><span style=display:flex><span>- New IPC mechanisms
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1991: Linux 0.01
+</span></span><span style=display:flex><span>- ~100 system calls (mostly POSIX)
+</span></span><span style=display:flex><span>- Started on i386
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2023: Linux 6.x
+</span></span><span style=display:flex><span>- ~450 system calls
+</span></span><span style=display:flex><span>- Multiple architectures
+</span></span><span style=display:flex><span>- io_uring, BPF, namespaces, cgroups
+</span></span></code></pre></div><h3 id="142-notable-syscall-additions-over-time">14.2 Notable Syscall Additions Over Time</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Classic UNIX:
+</span></span><span style=display:flex><span>fork, exec, wait, exit           Process control
+</span></span><span style=display:flex><span>open, read, write, close, seek   File I/O
+</span></span><span style=display:flex><span>pipe, dup                        IPC
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>BSD additions:
+</span></span><span style=display:flex><span>socket, bind, listen, accept     Networking
+</span></span><span style=display:flex><span>connect, send, recv
+</span></span><span style=display:flex><span>select                           I/O multiplexing
+</span></span><span style=display:flex><span>mmap                             Memory mapping
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Linux innovations:
+</span></span><span style=display:flex><span>clone (1996)                     Flexible process/thread creation
+</span></span><span style=display:flex><span>epoll (2002)                     Scalable I/O multiplexing
+</span></span><span style=display:flex><span>inotify (2005)                   File system events
+</span></span><span style=display:flex><span>signalfd, timerfd, eventfd       Unified fd interface
+</span></span><span style=display:flex><span>perf_event_open (2009)           Performance monitoring
+</span></span><span style=display:flex><span>io_uring (2019)                  Async I/O revolution
+</span></span><span style=display:flex><span>clone3 (2019)                    Extensible process creation
+</span></span></code></pre></div><h3 id="143-deprecated-and-removed-syscalls">14.3 Deprecated and Removed Syscalls</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// These syscalls are obsolete but kept for compatibility:
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Old signal handling (use sigaction instead)
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>signal</span>(SIGINT, handler);         <span style=color:#8b949e;font-style:italic>// Unreliable semantics
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Old wait variants (use waitpid/wait4)
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>wait3</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>status, options, <span style=color:#ff7b72;font-weight:700>&amp;</span>rusage);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Old networking (use socket API)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// The streams-based TLI interface
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Removed in recent kernels:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// uselib() - load shared library (security issues)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// query_module() - replaced by /sys filesystem
+</span></span></span></code></pre></div><h2 id="15-syscall-performance-optimization-case-studies">15. Syscall Performance Optimization Case Studies</h2><h3 id="151-redis-minimizing-syscall-overhead">15.1 Redis: Minimizing Syscall Overhead</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Redis design principles for syscall efficiency:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Single-threaded event loop
+</span></span><span style=display:flex><span>   - One epoll_wait() covers all clients
+</span></span><span style=display:flex><span>   - No thread synchronization overhead
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Pipeline support
+</span></span><span style=display:flex><span>   - Multiple commands in one read()
+</span></span><span style=display:flex><span>   - Multiple responses in one write()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Memory-mapped persistence
+</span></span><span style=display:flex><span>   - RDB snapshots: fork() + write()
+</span></span><span style=display:flex><span>   - AOF: write() + fdatasync() batching
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. Lazy deletion
+</span></span><span style=display:flex><span>   - unlink() is cheap (immediate)
+</span></span><span style=display:flex><span>   - Actual deletion is background
+</span></span></code></pre></div><h3 id="152-nginx-accept-queue-optimization">15.2 Nginx: Accept Queue Optimization</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Nginx uses multiple approaches:
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 1. Accept multiple connections per epoll wake
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> events <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>epoll_wait</span>(epfd, event_list, MAX_EVENTS, <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> events; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>while</span> ((client <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>accept4</span>(listen_fd, <span style=color:#ff7b72;font-weight:700>&amp;</span>addr, <span style=color:#ff7b72;font-weight:700>&amp;</span>len,
+</span></span><span style=display:flex><span>                             SOCK_NONBLOCK)) <span style=color:#ff7b72;font-weight:700>&gt;=</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>handle_new_connection</span>(client);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2. SO_REUSEPORT for kernel load balancing
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> opt <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span>;
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>setsockopt</span>(fd, SOL_SOCKET, SO_REUSEPORT, <span style=color:#ff7b72;font-weight:700>&amp;</span>opt, <span style=color:#ff7b72>sizeof</span>(opt));
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Each worker has its own accept queue
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 3. TCP_DEFER_ACCEPT
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>setsockopt</span>(fd, IPPROTO_TCP, TCP_DEFER_ACCEPT, <span style=color:#ff7b72;font-weight:700>&amp;</span>timeout, <span style=color:#ff7b72>sizeof</span>(timeout));
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Don&#39;t wake until data arrives
+</span></span></span></code></pre></div><h3 id="153-database-fsync-strategies">15.3 Database fsync() Strategies</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Different durability vs. performance tradeoffs:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>PostgreSQL:
+</span></span><span style=display:flex><span>- fsync() after each transaction commit (default)
+</span></span><span style=display:flex><span>- Option: synchronous_commit = off for speed
+</span></span><span style=display:flex><span>- Group commit: batch multiple transactions
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>MySQL InnoDB:
+</span></span><span style=display:flex><span>- innodb_flush_log_at_trx_commit = 1 (safe)
+</span></span><span style=display:flex><span>- innodb_flush_log_at_trx_commit = 2 (OS buffer)
+</span></span><span style=display:flex><span>- innodb_flush_log_at_trx_commit = 0 (dangerous)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Modern approach with io_uring:
+</span></span><span style=display:flex><span>- Async fdatasync() calls
+</span></span><span style=display:flex><span>- Batch multiple syncs
+</span></span><span style=display:flex><span>- Continue processing while waiting
+</span></span></code></pre></div><h3 id="154-the-kernel-bypass-movement">15.4 The Kernel Bypass Movement</h3><p>For extreme performance, bypass the kernel entirely:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>DPDK (Data Plane Development Kit):
+</span></span><span style=display:flex><span>- User-space network driver
+</span></span><span style=display:flex><span>- No syscalls for packet I/O
+</span></span><span style=display:flex><span>- Poll mode for minimum latency
+</span></span><span style=display:flex><span>- Used in: routers, load balancers, firewalls
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SPDK (Storage Performance Development Kit):
+</span></span><span style=display:flex><span>- User-space NVMe driver
+</span></span><span style=display:flex><span>- Direct device access via UIO/VFIO
+</span></span><span style=display:flex><span>- No kernel file system overhead
+</span></span><span style=display:flex><span>- Used in: high-performance storage
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tradeoffs:
+</span></span><span style=display:flex><span>+ Latency: &lt;1 μs vs 10+ μs with kernel
+</span></span><span style=display:flex><span>+ Throughput: millions of ops/sec
+</span></span><span style=display:flex><span>- Lose kernel protections
+</span></span><span style=display:flex><span>- Dedicated CPU cores required
+</span></span><span style=display:flex><span>- Complex deployment
+</span></span></code></pre></div><h2 id="16-writing-syscall-efficient-code">16. Writing Syscall-Efficient Code</h2><h3 id="161-batching-guidelines">16.1 Batching Guidelines</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Bad: One syscall per small operation
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>1000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>write</span>(fd, <span style=color:#ff7b72;font-weight:700>&amp;</span>records[i], <span style=color:#ff7b72>sizeof</span>(Record));  <span style=color:#8b949e;font-style:italic>// 1000 syscalls
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Better: Batch into larger writes
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>write</span>(fd, records, <span style=color:#ff7b72>sizeof</span>(Record) <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>1000</span>);   <span style=color:#8b949e;font-style:italic>// 1 syscall
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Best: Use writev for non-contiguous data
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> iovec iov[<span style=color:#a5d6ff>1000</span>];
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>1000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    iov[i].iov_base <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72;font-weight:700>&amp;</span>records[i];
+</span></span><span style=display:flex><span>    iov[i].iov_len <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>sizeof</span>(Record);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>writev</span>(fd, iov, <span style=color:#a5d6ff>1000</span>);                       <span style=color:#8b949e;font-style:italic>// 1 syscall
+</span></span></span></code></pre></div><h3 id="162-avoiding-unnecessary-syscalls">16.2 Avoiding Unnecessary Syscalls</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Bad: Check file existence then open
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> (<span style=color:#d2a8ff;font-weight:700>access</span>(path, F_OK) <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>    fd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>open</span>(path, O_RDONLY);  <span style=color:#8b949e;font-style:italic>// 2 syscalls + race condition
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Good: Just try to open
+</span></span></span><span style=display:flex><span>fd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>open</span>(path, O_RDONLY);      <span style=color:#8b949e;font-style:italic>// 1 syscall
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> (fd <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> errno <span style=color:#ff7b72;font-weight:700>==</span> ENOENT) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// File doesn&#39;t exist
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Bad: Get time multiple times
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> timeval tv1, tv2;
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>gettimeofday</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>tv1, NULL);
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// ... work ...
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>gettimeofday</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>tv2, NULL);       <span style=color:#8b949e;font-style:italic>// 2 vDSO calls
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Okay for vDSO, but for real syscalls, cache when possible
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>time_t</span> now <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>time</span>(NULL);        <span style=color:#8b949e;font-style:italic>// Cache and reuse
+</span></span></span></code></pre></div><h3 id="163-choosing-the-right-abstraction">16.3 Choosing the Right Abstraction</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// For files: consider mmap vs read/write
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// mmap wins for: random access, read-mostly, large files
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// read/write wins for: sequential access, small files, write-heavy
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// For networking: consider the I/O model
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Blocking: simple code, limited scalability
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Non-blocking + epoll: scalable, complex
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// io_uring: highest performance, newest API
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// For IPC: consider the mechanism
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Pipes: simple, unidirectional
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Unix sockets: bidirectional, fd passing
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Shared memory: zero-copy, needs synchronization
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Futex: efficient mutex/condition variable
+</span></span></span></code></pre></div><h2 id="17-summary">17. Summary</h2><p>System calls are the fundamental interface between user applications and the operating system kernel. Key concepts we&rsquo;ve covered include:</p><p><strong>The boundary:</strong></p><ul><li>User space runs at Ring 3 (unprivileged)</li><li>Kernel space runs at Ring 0 (privileged)</li><li>Hardware enforces the separation</li></ul><p><strong>The mechanism:</strong></p><ul><li><code>syscall</code> instruction triggers privilege transition</li><li>Kernel validates arguments and performs operation</li><li><code>sysret</code> returns to user space</li></ul><p><strong>Performance considerations:</strong></p><ul><li>Syscalls cost hundreds of nanoseconds</li><li>Batch operations when possible</li><li>Use vDSO for time-related calls</li><li>Consider io_uring for high-throughput I/O</li></ul><p><strong>Security aspects:</strong></p><ul><li>Syscalls are the kernel attack surface</li><li>seccomp filters restrict available syscalls</li><li>Spectre/Meltdown mitigations add overhead</li></ul><p><strong>Observability:</strong></p><ul><li>strace for tracing syscalls</li><li>eBPF for efficient in-kernel tracing</li><li>perf for performance analysis</li></ul><p>Understanding system calls helps you write more efficient programs, debug mysterious performance issues, and appreciate the sophisticated machinery that makes modern operating systems work. Every <code>printf()</code>, every network connection, every file access ultimately flows through this narrow but critical interface between your code and the kernel.</p></div><footer class="ce1a612 c6dfb1e c3ecea6"><div class="c364589">Categories:
+<a href=/categories/systems/>systems</a>, <a href=/categories/operating-systems/>operating-systems</a></div><div>Tags:
+<a href=/tags/operating-systems/>#operating-systems</a>, <a href=/tags/syscalls/>#syscalls</a>, <a href=/tags/kernel/>#kernel</a>, <a href=/tags/linux/>#linux</a>, <a href=/tags/systems-programming/>#systems-programming</a>, <a href=/tags/performance/>#performance</a></div></footer></article></main><footer class="ccdf0e8" role=contentinfo aria-label=Footer><div class="cfdda01 c133889 c5df473 c0eecc8 c69618a c6942b3 c03620d c2a9f27 c7c11d8 c82c52d c14527b"><div class="c6dfb1e c3ecea6 c39ef11 c88ae6f">&copy; 2026 Leonardo Benicio. All rights
+reserved.</div><div class="c6942b3 c7c11d8 cd1fd22"><a href=https://github.com/lbenicio target=_blank rel="noopener noreferrer" aria-label=GitHub class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.5-.67 1.08-.82 1.7s-.2 1.27-.18 1.9V22"/></svg>
+<span class="cba5854">GitHub</span>
+</a><a href=https://www.linkedin.com/in/leonardo-benicio target=_blank rel="noopener noreferrer" aria-label=LinkedIn class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21V14.86c0-1.333-.027-3.046-1.858-3.046-1.86.0-2.145 1.45-2.145 2.948v5.69H9.069V9h3.112v1.561h.044c.434-.82 1.494-1.686 3.074-1.686 3.29.0 3.897 2.165 3.897 4.983v6.594zM5.337 7.433a1.805 1.805.0 11-.002-3.61 1.805 1.805.0 01.002 3.61zM6.763 20.452H3.911V9h2.852v11.452z"/></svg>
+<span class="cba5854">LinkedIn</span>
+</a><a href=https://twitter.com/lbenicio_ target=_blank rel="noopener noreferrer" aria-label=Twitter class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.177.013.354.013.53.0 5.386-4.099 11.599-11.6 11.599-2.31.0-4.457-.676-6.265-1.842.324.038.636.05.972.05 1.91.0 3.67-.65 5.07-1.755a4.099 4.099.0 01-3.827-2.84c.25.039.5.064.763.064.363.0.726-.051 1.065-.139A4.091 4.091.0 012.542 9.649v-.051c.538.3 1.162.482 1.824.507A4.082 4.082.0 012.54 6.7c0-.751.2-1.435.551-2.034a11.63 11.63.0 008.44 4.281 4.615 4.615.0 01-.101-.938 4.091 4.091.0 017.078-2.799 8.1 8.1.0 002.595-.988 4.112 4.112.0 01-1.8 2.261 8.2 8.2.0 002.357-.638A8.824 8.824.0 0119.613 7.96z"/></svg>
+<span class="cba5854">Twitter</span></a></div></div></footer></body></html>

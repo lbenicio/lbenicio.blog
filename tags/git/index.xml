@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Leonardo Benicio</title><link>https://lbenicio.dev/tags/git/</link><description>Recent content in Git on Leonardo Benicio</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 17 Aug 2020 10:00:00 +0000</lastBuildDate><atom:link href="https://lbenicio.dev/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Merkle Trees and Content‑Addressable Storage</title><link>https://lbenicio.dev/blog/merkle-trees-and-contentaddressable-storage/</link><pubDate>Mon, 17 Aug 2020 10:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/merkle-trees-and-contentaddressable-storage/</guid><description>&lt;p&gt;Hash the content, not the location—that’s the core of content‑addressable storage (CAS). Combine it with Merkle trees (or DAGs) and you get efficient verification, deduplication, and synchronization. This post connects the dots from Git to large‑scale object stores.&lt;/p&gt;
+&lt;h2 id="why-merkle"&gt;Why Merkle?&lt;/h2&gt;
+&lt;p&gt;Parent hashes commit to child hashes; any change percolates up. You can verify integrity by checking a root hash and a short proof path.&lt;/p&gt;
+&lt;h2 id="uses"&gt;Uses&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Git commits and trees; shallow clones via missing subtrees.&lt;/li&gt;
+&lt;li&gt;Package managers with integrity checks.&lt;/li&gt;
+&lt;li&gt;Deduplicated backups with chunking and rolling hashes.&lt;/li&gt;
+&lt;li&gt;Object stores that replicate by exchanging missing subgraphs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="practical-notes"&gt;Practical notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Hash choice (SHA‑256 vs BLAKE3) affects speed and hardware support.&lt;/li&gt;
+&lt;li&gt;Chunking strategy controls dedupe granularity; rolling fingerprints (Rabin) find natural boundaries.&lt;/li&gt;
+&lt;li&gt;Store metadata alongside blobs to avoid rehashing for trivial changes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="1-from-trees-to-dags-modeling-versions-that-share-content"&gt;1) From trees to DAGs: modeling versions that share content&lt;/h2&gt;
+&lt;p&gt;Classic Merkle trees have a fixed arity and two kinds of nodes: leaves containing hashes of fixed‑size blocks, and internal nodes containing hashes of their children. In real systems, multiple versions of content share substructure: two versions of a directory share most files, two backups share most chunks, two container images share many layers. That sharing naturally forms a directed acyclic graph (DAG) where a node can be referenced from multiple parents. The root is still a commitment to the whole, but now many roots can reference common subgraphs without duplication.&lt;/p&gt;</description></item></channel></rss>

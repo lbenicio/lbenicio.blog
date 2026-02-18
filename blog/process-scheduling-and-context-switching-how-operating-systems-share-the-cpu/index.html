@@ -1,0 +1,1075 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>Process Scheduling and Context Switching: How Operating Systems Share the CPU · Leonardo Benicio</title><meta name=description content="A deep dive into how operating systems decide which process runs next and how they switch between processes. Understand scheduling algorithms, context switches, and the trade-offs that shape system responsiveness."><link rel=alternate type=application/rss+xml title=RSS href=https://lbenicio.dev/index.xml><link rel=canonical href=https://blog.lbenicio.dev/blog/process-scheduling-and-context-switching-how-operating-systems-share-the-cpu/><link rel=preload href=/static/fonts/OpenSans-Regular.ttf as=font type=font/ttf crossorigin><link rel="stylesheet" href="/assets/css/fonts.min.40e2054b739ac45a0f9c940f4b44ec00c3b372356ebf61440a413c0337c5512e.css" crossorigin="anonymous" integrity="sha256-QOIFS3OaxFoPnJQPS0TsAMOzcjVuv2FECkE8AzfFUS4="><link rel="shortcut icon" href=/static/assets/favicon/favicon.ico><link rel=icon type=image/x-icon href=/static/assets/favicon/favicon.ico><link rel=icon href=/static/assets/favicon/favicon.svg type=image/svg+xml><link rel=icon href=/static/assets/favicon/favicon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/static/assets/favicon/favicon-16x16.png sizes=16x16 type=image/png><link rel=apple-touch-icon href=/static/assets/favicon/apple-touch-icon.png><link rel=manifest href=/static/assets/favicon/site.webmanifest><link rel=mask-icon href=/static/assets/favicon/safari-pinned-tab.svg color=#209cee><meta name=msapplication-TileColor content="#209cee"><meta name=msapplication-config content="/static/assets/favicon/browserconfig.xml"><meta name=theme-color content="#d2e9f8"><meta property="og:title" content="Process Scheduling and Context Switching: How Operating Systems Share the CPU · Leonardo Benicio"><meta property="og:description" content="A deep dive into how operating systems decide which process runs next and how they switch between processes. Understand scheduling algorithms, context switches, and the trade-offs that shape system responsiveness."><meta property="og:url" content="https://blog.lbenicio.dev/blog/process-scheduling-and-context-switching-how-operating-systems-share-the-cpu/"><meta property="og:type" content="article"><meta property="og:image" content="https://blog.lbenicio.dev/static/assets/images/blog/process-scheduling-context-switching-cpu.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Process Scheduling and Context Switching: How Operating Systems Share the CPU · Leonardo Benicio"><meta name=twitter:description content="A deep dive into how operating systems decide which process runs next and how they switch between processes. Understand scheduling algorithms, context switches, and the trade-offs that shape system responsiveness."><meta name=twitter:site content="@lbenicio_"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"About Leonardo Benicio","url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Person","name":"Leonardo Benicio","sameAs":["https://github.com/lbenicio","https://www.linkedin.com/in/leonardo-benicio","https://twitter.com/lbenicio_"],"url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Home","position":1},{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Blog","position":2},{"@type":"ListItem","item":"https://blog.lbenicio.dev/blog/process-scheduling-and-context-switching-how-operating-systems-share-the-cpu/","name":"Process Scheduling and Context Switching How Operating Systems Share the CPU","position":3}]}</script><link rel="stylesheet" href="/assets/css/main.min.1e8a566ac8bc3f0664d0db4ec8a015b07421c33fa11d336a6b914522a9cabf30.css" crossorigin="anonymous" integrity="sha256-6lhUOpwCHMSMROmggsVSp3AHKud6gBrIFGTzl3GV4BY="></head><body class="c6942b3 c03620d cf3bd2e"><script>(function(){try{document.addEventListener("gesturestart",function(e){e.preventDefault()}),document.addEventListener("touchstart",function(e){e.touches&&e.touches.length>1&&e.preventDefault()},{passive:!1});var e=0;document.addEventListener("touchend",function(t){var n=Date.now();n-e<=300&&t.preventDefault(),e=n},{passive:!1})}catch{}})()</script><a href=#content class="cba5854 c21e770 caffa6e cc5f604 cf2c31d cdd44dd c10dda9 c43876e c787e9b cddc2d2 cf55a7b c6dfb1e c9391e2">Skip to content</a>
+<script>(function(){try{const e=localStorage.getItem("theme");e==="dark"&&document.documentElement.classList.add("dark");const t=document.querySelector('button[aria-label="Toggle theme"]');t&&t.setAttribute("aria-pressed",String(e==="dark"))}catch{}})();function toggleTheme(e){const s=document.documentElement,t=s.classList.toggle("dark");try{localStorage.setItem("theme",t?"dark":"light")}catch{}try{var n=e&&e.nodeType===1?e:document.querySelector('button[aria-label="Toggle theme"]');n&&n.setAttribute("aria-pressed",String(!!t))}catch{}}(function(){function e(){try{return document.documentElement.classList.contains("dark")?"dark":"light"}catch{return"light"}}function n(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(0)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!1,s.style.display="block"}catch{}o.setAttribute("aria-expanded","true"),n.setAttribute("aria-hidden","false");try{document.body.classList.add("c150bbe")}catch{}const i=document.getElementById("i190984");i&&i.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_open",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function t(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(100%)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!0,s.style.display="none"}catch{}o.setAttribute("aria-expanded","false"),n.setAttribute("aria-hidden","true");try{document.body.classList.remove("c150bbe")}catch{}o.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_close",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function s(e){e.key==="Escape"&&t("escape")}window.__openMobileMenu=n,window.__closeMobileMenu=t;try{window.addEventListener("keydown",s,!0)}catch{}})()</script><header class="cd019ba c98dfae cdd44dd cfdda01 c9ee25d ce2dc7a cd72dd7 cc0dc37" role=banner><div class="cfdda01 c6942b3 ccf47f4 c7c11d8"><a href=/ class="c87e2b0 c6942b3 c7c11d8 c1838fa cb594e4" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=32 height=32 class="c3de71a c4d5191">
+<span class="cf8f011 c4d1253 cbd72bc cd7e69e">Leonardo Benicio</span></a><div class="c6942b3 c85cbd4 c7c11d8 ca798da c1838fa c7a0580"><nav class="cc1689c cd9b445 c75065d c04bab1" aria-label=Main><a href=/ class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Home</a>
+<a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">About</a>
+<a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Timeline</a>
+<a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Reading</a>
+<a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Publications</a>
+<a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Contact</a></nav><button id="i1d73d4" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 c097fa1 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" onclick=toggleTheme(this) aria-label="Toggle theme" aria-pressed=false title="Toggle theme">
+<svg class="cb26e41 c50ceea cb69a5c c4f45c8 c8c2c40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="cb26e41 c8fca2b cb69a5c c4f45c8 cc1689c c9c27ff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M6.34 17.66l2.83-2.83"/><path d="M14.83 9.17l2.83-2.83"/></svg>
+<span class="cba5854">Toggle theme</span></button><div class="c658bcf c097fa1"><button id="i975fb5" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" aria-label="Open menu" aria-controls="i98aca2" aria-expanded=false onclick='window.__openMobileMenu("button")' data-d38f920=mobile_menu_open_click>
+<svg class="c20e4eb cb58471" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<span class="cba5854">Open menu</span></button></div></div></div></header><div id="iad2af0" class="caffa6e ce4b5f4 c14639a" style=background-color:hsl(var(--background)) hidden onclick='window.__closeMobileMenu("overlay")' data-d38f920=mobile_menu_overlay_click></div><aside id="i98aca2" class="caffa6e c9efbc5 c437fa9 c49e97e c6c6936 c7cacca c7b34a4 c787e9b c88daee cad071a c6942b3 c03620d" role=dialog aria-modal=true aria-hidden=true aria-label="Mobile navigation" style="transform:translateX(100%);transition:transform 200ms ease-out;will-change:transform"><div class="c6942b3 c7c11d8 c82c52d c5df473 ccf47f4 c9ee25d"><a href=/ class="c6942b3 c7c11d8 c1838fa" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=24 height=24 class="c20e4eb cb58471">
+<span class="c62aaf0 c7c1b66 cbd72bc">Leonardo Benicio</span>
+</a><button id="i190984" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c514027 c286dd7 c2bd687 cfdce1d" aria-label="Close menu" onclick='window.__closeMobileMenu("button")' data-d38f920=mobile_menu_close_click>
+<svg class="c16e528 c61f467" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<span class="cba5854">Close</span></button></div><nav class="c85cbd4 ca0eaa4 c5df473 c6689b9"><ul class="cd69733"><li><a href=/ class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Home</a></li><li><a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>About</a></li><li><a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Timeline</a></li><li><a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Reading</a></li><li><a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Publications</a></li><li><a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Contact</a></li></ul></nav><div class="c60a4cc ccdf0e8 c277478 c13044e"><p>&copy; 2026 Leonardo Benicio</p></div></aside><div class="caffa6e c437fa9 ce9aced c97bba6 c15da2a c975cba" role=complementary aria-label="GitHub repository"><div class="c9d056d c252f85 ca22532 ca88a1a c876315"><div class="c6942b3 c7c11d8 c1d0018 cd1fd22 c6066e4 c43876e ce3d5b6 caa20d2 c3ecea6 c0cd2e2 cddc2d2 c3ed5c9 cd4074c c876315"><a href=https://github.com/lbenicio/aboutme target=_blank rel="noopener noreferrer" class="c6942b3 c7c11d8 cd1fd22 c71bae8 cfac1ac c19ee42 c25dc7c cb40739 cbbda39 cf55a7b" aria-label="View source on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cb26e41 c41bcd4 cf17690 cfa4e34 c78d562" aria-hidden="true"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+<span class="cb5c327 cd7e69e">Fork me</span></a></div></div></div><main id="i7eccc0" class="cfdda01 c5df473 c0eecc8 c85cbd4" role=main aria-label=Content><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Process Scheduling and Context Switching How Operating Systems Share the CPU</span></li></ol></nav><article class="c461ba0 c1c203f cfb6084 c995404 c6ca165"><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Process Scheduling and Context Switching How Operating Systems Share the CPU</span></li></ol></nav><header class="c8aedc7"><h1 class="cf304bc c6fb0fe cf8f011 cc484e1">Process Scheduling and Context Switching: How Operating Systems Share the CPU</h1><div class="c277478 c3ecea6 c8fb24a">2022-05-18
+· Leonardo Benicio</div><div class="c1a1a3f c8124f2"><img src=/static/assets/images/blog/process-scheduling-context-switching-cpu.png alt class="cfdda01 c524300 c677556"></div><p class="lead c3ecea6">A deep dive into how operating systems decide which process runs next and how they switch between processes. Understand scheduling algorithms, context switches, and the trade-offs that shape system responsiveness.</p></header><div class="content"><p>A single CPU core can only execute one instruction stream at a time, yet modern systems run hundreds of processes simultaneously. This illusion of parallelism requires the operating system to rapidly switch between processes, giving each a slice of CPU time. The scheduler—the component that decides who runs next—profoundly affects system responsiveness, throughput, and fairness. Understanding scheduling reveals why your interactive applications feel smooth or sluggish and why some workloads perform better than others.</p><h2 id="1-the-scheduling-problem">1. The Scheduling Problem</h2><p>Before diving into algorithms, let&rsquo;s understand what the scheduler must accomplish.</p><h3 id="11-competing-goals">1.1 Competing Goals</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>The scheduler must balance conflicting objectives:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Throughput:
+</span></span><span style=display:flex><span>- Maximize total work completed per unit time
+</span></span><span style=display:flex><span>- Minimize overhead (context switches, scheduling decisions)
+</span></span><span style=display:flex><span>- Keep CPU busy (high utilization)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Latency:
+</span></span><span style=display:flex><span>- Minimize response time for interactive tasks
+</span></span><span style=display:flex><span>- Reduce time from request to first response
+</span></span><span style=display:flex><span>- Quick reaction to user input
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Fairness:
+</span></span><span style=display:flex><span>- Give each process reasonable share of CPU
+</span></span><span style=display:flex><span>- Prevent starvation (process never runs)
+</span></span><span style=display:flex><span>- Respect priorities without starving low-priority tasks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Energy efficiency:
+</span></span><span style=display:flex><span>- Allow CPU to enter low-power states
+</span></span><span style=display:flex><span>- Batch work to extend idle periods
+</span></span><span style=display:flex><span>- Balance performance with power consumption
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>These goals often conflict:
+</span></span><span style=display:flex><span>- High throughput wants fewer context switches
+</span></span><span style=display:flex><span>- Low latency wants more frequent switches
+</span></span><span style=display:flex><span>- Fairness may reduce throughput for high-priority tasks
+</span></span></code></pre></div><h3 id="12-process-states">1.2 Process States</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Process lifecycle and state transitions:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>          ┌─────────────────────────────────────────┐
+</span></span><span style=display:flex><span>          │                                         │
+</span></span><span style=display:flex><span>          ▼                                         │
+</span></span><span style=display:flex><span>     ┌─────────┐    schedule    ┌─────────────┐    │
+</span></span><span style=display:flex><span>     │  Ready  │───────────────►│   Running   │    │
+</span></span><span style=display:flex><span>     │         │◄───────────────│             │    │
+</span></span><span style=display:flex><span>     └─────────┘    preempt     └─────────────┘    │
+</span></span><span style=display:flex><span>          ▲                           │            │
+</span></span><span style=display:flex><span>          │                           │ wait       │
+</span></span><span style=display:flex><span>          │ I/O complete              ▼            │
+</span></span><span style=display:flex><span>          │                     ┌─────────────┐    │
+</span></span><span style=display:flex><span>          └─────────────────────│   Blocked   │    │
+</span></span><span style=display:flex><span>                                │  (Waiting)  │────┘
+</span></span><span style=display:flex><span>                                └─────────────┘
+</span></span><span style=display:flex><span>                                      │
+</span></span><span style=display:flex><span>                                      │ exit
+</span></span><span style=display:flex><span>                                      ▼
+</span></span><span style=display:flex><span>                                ┌─────────────┐
+</span></span><span style=display:flex><span>                                │  Terminated │
+</span></span><span style=display:flex><span>                                └─────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ready: Waiting for CPU, can run immediately
+</span></span><span style=display:flex><span>Running: Currently executing on a CPU
+</span></span><span style=display:flex><span>Blocked: Waiting for I/O or event, cannot run
+</span></span><span style=display:flex><span>Terminated: Finished execution, awaiting cleanup
+</span></span></code></pre></div><h3 id="13-types-of-workloads">1.3 Types of Workloads</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Different workloads have different needs:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CPU-bound (compute-intensive):
+</span></span><span style=display:flex><span>- Scientific computing, video encoding, compilation
+</span></span><span style=display:flex><span>- Want long time slices (minimize context switch overhead)
+</span></span><span style=display:flex><span>- Throughput is primary concern
+</span></span><span style=display:flex><span>- Example: Matrix multiplication
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>I/O-bound (interactive):
+</span></span><span style=display:flex><span>- Text editors, web browsers, terminals
+</span></span><span style=display:flex><span>- Frequently wait for I/O
+</span></span><span style=display:flex><span>- Want quick response when I/O completes
+</span></span><span style=display:flex><span>- Example: Waiting for keypress
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Mixed:
+</span></span><span style=display:flex><span>- Most real applications
+</span></span><span style=display:flex><span>- Periods of computation interspersed with I/O
+</span></span><span style=display:flex><span>- Need adaptive scheduling
+</span></span><span style=display:flex><span>- Example: Web server processing requests
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Real-time:
+</span></span><span style=display:flex><span>- Audio/video playback, industrial control
+</span></span><span style=display:flex><span>- Strict timing deadlines
+</span></span><span style=display:flex><span>- Missing deadline = failure
+</span></span><span style=display:flex><span>- Example: Audio buffer must refill every 5ms
+</span></span></code></pre></div><h2 id="2-scheduling-algorithms">2. Scheduling Algorithms</h2><p>Different algorithms optimize for different goals.</p><h3 id="21-first-come-first-served-fcfs">2.1 First-Come, First-Served (FCFS)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Simplest possible scheduler:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Run processes in arrival order until they block or finish.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Arrival: P1(24ms), P2(3ms), P3(3ms)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Timeline:
+</span></span><span style=display:flex><span>├────────────────────────┼───┼───┤
+</span></span><span style=display:flex><span>│          P1            │P2 │P3 │
+</span></span><span style=display:flex><span>0                       24  27  30
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Waiting times:
+</span></span><span style=display:flex><span>P1: 0ms
+</span></span><span style=display:flex><span>P2: 24ms
+</span></span><span style=display:flex><span>P3: 27ms
+</span></span><span style=display:flex><span>Average: 17ms
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem: Convoy effect
+</span></span><span style=display:flex><span>Long process blocks short processes
+</span></span><span style=display:flex><span>Terrible for interactive workloads
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>If arrival order were P2, P3, P1:
+</span></span><span style=display:flex><span>├───┼───┼────────────────────────┤
+</span></span><span style=display:flex><span>│P2 │P3 │          P1            │
+</span></span><span style=display:flex><span>0   3   6                       30
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Average wait: 3ms (much better!)
+</span></span></code></pre></div><h3 id="22-shortest-job-first-sjf">2.2 Shortest Job First (SJF)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Run shortest job next (optimal for minimizing average wait):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Same processes: P1(24ms), P2(3ms), P3(3ms)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SJF order:
+</span></span><span style=display:flex><span>├───┼───┼────────────────────────┤
+</span></span><span style=display:flex><span>│P2 │P3 │          P1            │
+</span></span><span style=display:flex><span>0   3   6                       30
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Waiting times:
+</span></span><span style=display:flex><span>P2: 0ms
+</span></span><span style=display:flex><span>P3: 3ms
+</span></span><span style=display:flex><span>P1: 6ms
+</span></span><span style=display:flex><span>Average: 3ms (optimal!)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problems:
+</span></span><span style=display:flex><span>1. Requires knowing job length in advance
+</span></span><span style=display:flex><span>   - Can estimate from history
+</span></span><span style=display:flex><span>   - Exponential averaging: τ(n+1) = α·t(n) + (1-α)·τ(n)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Starvation
+</span></span><span style=display:flex><span>   - Long jobs may never run if short jobs keep arriving
+</span></span><span style=display:flex><span>   - Need aging mechanism
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Non-preemptive
+</span></span><span style=display:flex><span>   - Long job blocks everything once started
+</span></span></code></pre></div><h3 id="23-round-robin">2.3 Round Robin</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Each process gets a time quantum, then preempted:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Quantum = 4ms
+</span></span><span style=display:flex><span>Processes: P1(24ms), P2(3ms), P3(3ms)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Timeline:
+</span></span><span style=display:flex><span>├────┼───┼───┼────┼────┼────┼────┼────┼────┤
+</span></span><span style=display:flex><span>│ P1 │P2 │P3 │ P1 │ P1 │ P1 │ P1 │ P1 │ P1 │
+</span></span><span style=display:flex><span>0    4   7  10   14   18   22   26   30
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Turnaround times:
+</span></span><span style=display:flex><span>P1: 30ms (vs 24ms in FCFS)
+</span></span><span style=display:flex><span>P2: 7ms  (vs 27ms in FCFS)
+</span></span><span style=display:flex><span>P3: 10ms (vs 30ms in FCFS)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Trade-off: Quantum size
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Large quantum (100ms):
+</span></span><span style=display:flex><span>+ Less context switch overhead
+</span></span><span style=display:flex><span>- Approaches FCFS behavior
+</span></span><span style=display:flex><span>- Poor response time
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Small quantum (1ms):
+</span></span><span style=display:flex><span>+ Better response time
+</span></span><span style=display:flex><span>+ Fairer distribution
+</span></span><span style=display:flex><span>- High context switch overhead
+</span></span><span style=display:flex><span>- Reduced throughput
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Typical: 10-100ms depending on system type
+</span></span></code></pre></div><h3 id="24-priority-scheduling">2.4 Priority Scheduling</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Each process has a priority, highest priority runs:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Priority levels (lower number = higher priority):
+</span></span><span style=display:flex><span>P1: priority 3, 10ms
+</span></span><span style=display:flex><span>P2: priority 1, 5ms
+</span></span><span style=display:flex><span>P3: priority 2, 2ms
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Execution order:
+</span></span><span style=display:flex><span>├─────┼──┼──────────┤
+</span></span><span style=display:flex><span>│ P2  │P3│    P1    │
+</span></span><span style=display:flex><span>0     5  7         17
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problems:
+</span></span><span style=display:flex><span>1. Starvation of low-priority processes
+</span></span><span style=display:flex><span>   Solution: Aging - increase priority over time
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Priority inversion
+</span></span><span style=display:flex><span>   High-priority task waits for low-priority task holding lock
+</span></span><span style=display:flex><span>   Solution: Priority inheritance
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Priority inversion example:
+</span></span><span style=display:flex><span>High (H), Medium (M), Low (L)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>L acquires lock
+</span></span><span style=display:flex><span>L preempted by M (M runs, doesn&#39;t need lock)
+</span></span><span style=display:flex><span>H becomes ready, needs lock
+</span></span><span style=display:flex><span>H blocked on L (who holds lock)
+</span></span><span style=display:flex><span>M keeps running (higher priority than L)
+</span></span><span style=display:flex><span>H effectively has lower priority than M!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Priority inheritance:
+</span></span><span style=display:flex><span>When H blocks on L&#39;s lock, L inherits H&#39;s priority
+</span></span><span style=display:flex><span>L runs, releases lock
+</span></span><span style=display:flex><span>H acquires lock and runs
+</span></span></code></pre></div><h3 id="25-multilevel-feedback-queue">2.5 Multilevel Feedback Queue</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Combines multiple algorithms with adaptive behavior:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Queue 0 (highest priority): Round-robin, quantum = 8ms
+</span></span><span style=display:flex><span>Queue 1 (medium priority):  Round-robin, quantum = 16ms
+</span></span><span style=display:flex><span>Queue 2 (lowest priority):  FCFS
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Rules:
+</span></span><span style=display:flex><span>1. New processes enter highest-priority queue
+</span></span><span style=display:flex><span>2. If process uses entire quantum, move to lower queue
+</span></span><span style=display:flex><span>3. If process blocks before quantum expires, stay in queue
+</span></span><span style=display:flex><span>4. Periodically boost all processes to top queue
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Behavior:
+</span></span><span style=display:flex><span>- Interactive processes stay in high-priority queues
+</span></span><span style=display:flex><span>  (they block on I/O before using quantum)
+</span></span><span style=display:flex><span>- CPU-bound processes sink to lower queues
+</span></span><span style=display:flex><span>  (they use full quantum, get demoted)
+</span></span><span style=display:flex><span>- Prevents starvation through periodic boosting
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌───────────────────────────┐
+</span></span><span style=display:flex><span>│ Queue 0: ○ ○ ○            │ ← Interactive, short quantum
+</span></span><span style=display:flex><span>├───────────────────────────┤
+</span></span><span style=display:flex><span>│ Queue 1: ○ ○              │ ← Mixed workloads
+</span></span><span style=display:flex><span>├───────────────────────────┤
+</span></span><span style=display:flex><span>│ Queue 2: ○ ○ ○ ○ ○        │ ← CPU-bound, long/no quantum
+</span></span><span style=display:flex><span>└───────────────────────────┘
+</span></span></code></pre></div><h2 id="3-modern-linux-scheduler-cfs">3. Modern Linux Scheduler: CFS</h2><p>The Completely Fair Scheduler powers most Linux systems.</p><h3 id="31-virtual-runtime">3.1 Virtual Runtime</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>CFS tracks &#34;virtual runtime&#34; (vruntime) for each task:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>vruntime = actual runtime × (base priority / task priority)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Higher priority = vruntime increases slower
+</span></span><span style=display:flex><span>Lower priority = vruntime increases faster
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Scheduler always picks task with lowest vruntime:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tasks after some execution:
+</span></span><span style=display:flex><span>┌────────┬──────────┬──────────┐
+</span></span><span style=display:flex><span>│  Task  │ Priority │ vruntime │
+</span></span><span style=display:flex><span>├────────┼──────────┼──────────┤
+</span></span><span style=display:flex><span>│   A    │   120    │   50ms   │ ← Will run next
+</span></span><span style=display:flex><span>│   B    │   120    │   80ms   │
+</span></span><span style=display:flex><span>│   C    │   100    │   45ms   │ ← Higher priority
+</span></span><span style=display:flex><span>│   D    │   139    │   60ms   │ ← Lower priority
+</span></span><span style=display:flex><span>└────────┴──────────┴──────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>After C runs for 10ms (actual):
+</span></span><span style=display:flex><span>C&#39;s vruntime increase = 10ms × (120/100) = 12ms
+</span></span><span style=display:flex><span>C&#39;s new vruntime = 45 + 12 = 57ms
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>This naturally achieves weighted fair sharing:
+</span></span><span style=display:flex><span>- Higher-priority tasks get more CPU time
+</span></span><span style=display:flex><span>- All tasks make progress (no starvation)
+</span></span></code></pre></div><h3 id="32-red-black-tree-organization">3.2 Red-Black Tree Organization</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>CFS maintains runnable tasks in a red-black tree:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    ┌───────────┐
+</span></span><span style=display:flex><span>                    │ vruntime  │
+</span></span><span style=display:flex><span>                    │    80     │
+</span></span><span style=display:flex><span>                    └─────┬─────┘
+</span></span><span style=display:flex><span>                   ╱             ╲
+</span></span><span style=display:flex><span>          ┌───────┴───┐       ┌───┴───────┐
+</span></span><span style=display:flex><span>          │ vruntime  │       │ vruntime  │
+</span></span><span style=display:flex><span>          │    50     │       │   100     │
+</span></span><span style=display:flex><span>          └─────┬─────┘       └───────────┘
+</span></span><span style=display:flex><span>               ╱ ╲
+</span></span><span style=display:flex><span>      ┌───────┴┐ ┌┴───────┐
+</span></span><span style=display:flex><span>      │   30   │ │   60   │
+</span></span><span style=display:flex><span>      └────────┘ └────────┘
+</span></span><span style=display:flex><span>           ↑
+</span></span><span style=display:flex><span>      Leftmost = next to run
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Properties:
+</span></span><span style=display:flex><span>- O(log n) insertion and deletion
+</span></span><span style=display:flex><span>- O(1) access to leftmost (cached)
+</span></span><span style=display:flex><span>- Self-balancing maintains performance
+</span></span><span style=display:flex><span>- Efficiently handles thousands of tasks
+</span></span></code></pre></div><h3 id="33-time-slice-calculation">3.3 Time Slice Calculation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>CFS doesn&#39;t use fixed time slices:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Target latency: Maximum time before all tasks run once
+</span></span><span style=display:flex><span>- Default: 6ms for ≤8 tasks, 0.75ms per task beyond
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Minimum granularity: Minimum time slice to avoid thrashing
+</span></span><span style=display:flex><span>- Default: 0.75ms
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Time slice = target_latency × (task_weight / total_weight)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example with 4 tasks:
+</span></span><span style=display:flex><span>Target latency = 6ms
+</span></span><span style=display:flex><span>All same priority (weight 1024 each)
+</span></span><span style=display:flex><span>Time slice = 6ms × (1024 / 4096) = 1.5ms each
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>With different priorities:
+</span></span><span style=display:flex><span>Task A: nice 0, weight 1024
+</span></span><span style=display:flex><span>Task B: nice 5, weight 335
+</span></span><span style=display:flex><span>Total weight = 1359
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Task A slice = 6ms × (1024/1359) = 4.5ms
+</span></span><span style=display:flex><span>Task B slice = 6ms × (335/1359) = 1.5ms
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Higher priority = larger time slice
+</span></span></code></pre></div><h3 id="34-nice-values-and-weights">3.4 Nice Values and Weights</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Nice values range from -20 (highest priority) to +19 (lowest):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Nice value → Weight mapping (exponential):
+</span></span><span style=display:flex><span>┌──────┬────────┬─────────────────────────────┐
+</span></span><span style=display:flex><span>│ Nice │ Weight │ CPU share (vs nice 0)       │
+</span></span><span style=display:flex><span>├──────┼────────┼─────────────────────────────┤
+</span></span><span style=display:flex><span>│ -20  │  88761 │ 86.7× more than nice 0      │
+</span></span><span style=display:flex><span>│ -10  │   9548 │ 9.3× more than nice 0       │
+</span></span><span style=display:flex><span>│  -5  │   3121 │ 3.0× more than nice 0       │
+</span></span><span style=display:flex><span>│   0  │   1024 │ 1.0× (baseline)             │
+</span></span><span style=display:flex><span>│   5  │    335 │ 0.33× of nice 0             │
+</span></span><span style=display:flex><span>│  10  │    110 │ 0.11× of nice 0             │
+</span></span><span style=display:flex><span>│  19  │     15 │ 0.015× of nice 0            │
+</span></span><span style=display:flex><span>└──────┴────────┴─────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Each nice level ≈ 10% difference in CPU time
+</span></span><span style=display:flex><span>nice -1 vs nice 0 → ~10% more CPU
+</span></span><span style=display:flex><span>nice 1 vs nice 0 → ~10% less CPU
+</span></span></code></pre></div><h2 id="4-real-time-scheduling">4. Real-Time Scheduling</h2><p>For workloads with strict timing requirements.</p><h3 id="41-real-time-priority-classes">4.1 Real-Time Priority Classes</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Linux scheduling classes (highest to lowest priority):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. SCHED_DEADLINE
+</span></span><span style=display:flex><span>   - Earliest Deadline First (EDF)
+</span></span><span style=display:flex><span>   - Task specifies runtime, deadline, period
+</span></span><span style=display:flex><span>   - Guaranteed to meet deadline if admitted
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. SCHED_FIFO
+</span></span><span style=display:flex><span>   - Real-time FIFO
+</span></span><span style=display:flex><span>   - Runs until blocks or higher priority arrives
+</span></span><span style=display:flex><span>   - No time slicing within priority level
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. SCHED_RR
+</span></span><span style=display:flex><span>   - Real-time Round Robin
+</span></span><span style=display:flex><span>   - Like FIFO but with time slicing
+</span></span><span style=display:flex><span>   - Same priority tasks share CPU
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. SCHED_OTHER (SCHED_NORMAL)
+</span></span><span style=display:flex><span>   - Default, CFS scheduler
+</span></span><span style=display:flex><span>   - Non-real-time tasks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>5. SCHED_BATCH
+</span></span><span style=display:flex><span>   - For batch jobs, slightly disfavored
+</span></span><span style=display:flex><span>   - Won&#39;t preempt interactive tasks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>6. SCHED_IDLE
+</span></span><span style=display:flex><span>   - Only runs when nothing else to do
+</span></span><span style=display:flex><span>   - For truly background work
+</span></span></code></pre></div><h3 id="42-deadline-scheduling">4.2 Deadline Scheduling</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>SCHED_DEADLINE parameters:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Runtime:  How much CPU time needed per period
+</span></span><span style=display:flex><span>Deadline: Must complete within this time from start
+</span></span><span style=display:flex><span>Period:   How often task runs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example: Audio processing
+</span></span><span style=display:flex><span>Period = 10ms (100 buffers/second)
+</span></span><span style=display:flex><span>Runtime = 2ms (computation needed)
+</span></span><span style=display:flex><span>Deadline = 10ms (must finish before next period)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Timeline:
+</span></span><span style=display:flex><span>├─────────┼─────────┼─────────┼─────────┤
+</span></span><span style=display:flex><span>│  2ms    │  idle   │  2ms    │  idle   │
+</span></span><span style=display:flex><span>├─────────┼─────────┼─────────┼─────────┤
+</span></span><span style=display:flex><span>│←  10ms period  →│←  10ms period  →│
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Admission control:
+</span></span><span style=display:flex><span>System ensures Σ(runtime/period) ≤ 1.0
+</span></span><span style=display:flex><span>Otherwise deadlines cannot be guaranteed
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Setting in Linux:
+</span></span><span style=display:flex><span>struct sched_attr attr = {
+</span></span><span style=display:flex><span>    .sched_policy = SCHED_DEADLINE,
+</span></span><span style=display:flex><span>    .sched_runtime = 2000000,   // 2ms in ns
+</span></span><span style=display:flex><span>    .sched_deadline = 10000000, // 10ms in ns
+</span></span><span style=display:flex><span>    .sched_period = 10000000,   // 10ms in ns
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>sched_setattr(0, &amp;attr, 0);
+</span></span></code></pre></div><h3 id="43-priority-inversion-solutions">4.3 Priority Inversion Solutions</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Real-time systems must handle priority inversion:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem scenario:
+</span></span><span style=display:flex><span>1. Low-priority task L holds mutex M
+</span></span><span style=display:flex><span>2. High-priority task H arrives, needs M
+</span></span><span style=display:flex><span>3. H blocks waiting for L
+</span></span><span style=display:flex><span>4. Medium-priority task M arrives
+</span></span><span style=display:flex><span>5. M preempts L (M &gt; L priority)
+</span></span><span style=display:flex><span>6. H effectively blocked by M (M doesn&#39;t need mutex!)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Priority Inheritance Protocol (PIP):
+</span></span><span style=display:flex><span>- When H blocks on mutex held by L
+</span></span><span style=display:flex><span>- L temporarily inherits H&#39;s priority
+</span></span><span style=display:flex><span>- L can&#39;t be preempted by M
+</span></span><span style=display:flex><span>- L releases mutex, drops to original priority
+</span></span><span style=display:flex><span>- H runs immediately
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Priority Ceiling Protocol (PCP):
+</span></span><span style=display:flex><span>- Each mutex has ceiling = highest priority of users
+</span></span><span style=display:flex><span>- Task holding mutex runs at ceiling priority
+</span></span><span style=display:flex><span>- Prevents blocking by medium-priority tasks
+</span></span><span style=display:flex><span>- Also prevents deadlock
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│ Without inheritance:     With inheritance:      │
+</span></span><span style=display:flex><span>│                                                 │
+</span></span><span style=display:flex><span>│ H: ██░░░░░░░░░░░░██      H: ██░░░░████          │
+</span></span><span style=display:flex><span>│ M: ░░░░░████████░░░      M: ░░░░░░░░████        │
+</span></span><span style=display:flex><span>│ L: ██████░░░░░░░░░░      L: ████████░░░░        │
+</span></span><span style=display:flex><span>│        ↑ M preempts L     ↑ L inherits H&#39;s pri │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────┘
+</span></span></code></pre></div><h2 id="5-context-switching">5. Context Switching</h2><p>The mechanics of switching between processes.</p><h3 id="51-what-must-be-saved">5.1 What Must Be Saved</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Context switch saves and restores process state:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CPU Registers:
+</span></span><span style=display:flex><span>┌────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│ General purpose: RAX, RBX, RCX, RDX, RSI, RDI  │
+</span></span><span style=display:flex><span>│                  R8-R15, RBP, RSP              │
+</span></span><span style=display:flex><span>│ Instruction pointer: RIP                        │
+</span></span><span style=display:flex><span>│ Flags: RFLAGS                                  │
+</span></span><span style=display:flex><span>│ Segment registers: CS, DS, ES, FS, GS, SS     │
+</span></span><span style=display:flex><span>│ Control registers: CR3 (page table base)       │
+</span></span><span style=display:flex><span>│ FPU/SIMD: x87 state, XMM0-15, YMM, ZMM        │
+</span></span><span style=display:flex><span>└────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Kernel stack:
+</span></span><span style=display:flex><span>- Each process has kernel stack
+</span></span><span style=display:flex><span>- Contains syscall frames, interrupt handlers
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Memory management:
+</span></span><span style=display:flex><span>- CR3 register points to page table
+</span></span><span style=display:flex><span>- TLB may need flushing (or use ASID/PCID)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Other state:
+</span></span><span style=display:flex><span>- File descriptors (not saved per switch)
+</span></span><span style=display:flex><span>- Signal handlers
+</span></span><span style=display:flex><span>- Thread-local storage pointer
+</span></span></code></pre></div><h3 id="52-context-switch-overhead">5.2 Context Switch Overhead</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Direct costs:
+</span></span><span style=display:flex><span>1. Save old process registers (~100 cycles)
+</span></span><span style=display:flex><span>2. Load new process registers (~100 cycles)
+</span></span><span style=display:flex><span>3. Switch page tables (modify CR3)
+</span></span><span style=display:flex><span>4. Scheduler decision logic
+</span></span><span style=display:flex><span>Total direct: ~1000-5000 cycles
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Indirect costs (often larger):
+</span></span><span style=display:flex><span>1. TLB flush
+</span></span><span style=display:flex><span>   - All translations invalid
+</span></span><span style=display:flex><span>   - Page table walks on every access
+</span></span><span style=display:flex><span>   - 100s of cycles per miss until warm
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Cache pollution
+</span></span><span style=display:flex><span>   - New process has different working set
+</span></span><span style=display:flex><span>   - Cache misses until data loaded
+</span></span><span style=display:flex><span>   - Can be millions of cycles
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Pipeline flush
+</span></span><span style=display:flex><span>   - CPU pipeline cleared
+</span></span><span style=display:flex><span>   - Branch predictor useless for new code
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Measurements:
+</span></span><span style=display:flex><span>- Minimal switch: 1-5 microseconds
+</span></span><span style=display:flex><span>- With TLB miss penalties: 10-100 microseconds
+</span></span><span style=display:flex><span>- With cache misses: 100s of microseconds
+</span></span></code></pre></div><h3 id="53-hardware-context-switch-support">5.3 Hardware Context Switch Support</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>x86 TSS (Task State Segment):
+</span></span><span style=display:flex><span>- Hardware-supported context switch
+</span></span><span style=display:flex><span>- Single instruction: JMP to TSS
+</span></span><span style=display:flex><span>- Rarely used in modern OS (too inflexible, slow)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Modern approach: Software context switch
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Simplified Linux context switch (x86-64)
+</span></span><span style=display:flex><span>switch_to(prev, next):
+</span></span><span style=display:flex><span>    // Save callee-saved registers on kernel stack
+</span></span><span style=display:flex><span>    push rbp
+</span></span><span style=display:flex><span>    push rbx
+</span></span><span style=display:flex><span>    push r12
+</span></span><span style=display:flex><span>    push r13
+</span></span><span style=display:flex><span>    push r14
+</span></span><span style=display:flex><span>    push r15
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    // Switch kernel stacks
+</span></span><span style=display:flex><span>    mov [prev-&gt;thread.sp], rsp
+</span></span><span style=display:flex><span>    mov rsp, [next-&gt;thread.sp]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    // Switch page tables
+</span></span><span style=display:flex><span>    mov cr3, [next-&gt;mm.pgd]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    // Restore callee-saved registers
+</span></span><span style=display:flex><span>    pop r15
+</span></span><span style=display:flex><span>    pop r14
+</span></span><span style=display:flex><span>    pop r13
+</span></span><span style=display:flex><span>    pop r12
+</span></span><span style=display:flex><span>    pop rbx
+</span></span><span style=display:flex><span>    pop rbp
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    // Return to new process (RIP on stack)
+</span></span><span style=display:flex><span>    ret
+</span></span></code></pre></div><h3 id="54-reducing-context-switch-cost">5.4 Reducing Context Switch Cost</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>TLB management:
+</span></span><span style=display:flex><span>- PCID (Process Context ID): Tag TLB entries
+</span></span><span style=display:flex><span>  - No flush needed, entries distinguished by ID
+</span></span><span style=display:flex><span>  - Limited IDs (4096 on x86)
+</span></span><span style=display:flex><span>  - Huge performance improvement
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>- ASID (Address Space ID): ARM equivalent
+</span></span><span style=display:flex><span>  - 8 or 16 bits depending on implementation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Lazy FPU switching:
+</span></span><span style=display:flex><span>- Don&#39;t save/restore FPU state immediately
+</span></span><span style=display:flex><span>- Mark FPU as &#34;not owned&#34; by new process
+</span></span><span style=display:flex><span>- Only save/restore on first FPU instruction
+</span></span><span style=display:flex><span>- Many processes never use FPU
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Batching scheduler work:
+</span></span><span style=display:flex><span>- Amortize scheduling overhead
+</span></span><span style=display:flex><span>- Don&#39;t switch for very short time slices
+</span></span><span style=display:flex><span>- Minimum granularity prevents thrashing
+</span></span></code></pre></div><h2 id="6-multiprocessor-scheduling">6. Multiprocessor Scheduling</h2><p>Scheduling across multiple CPUs adds complexity.</p><h3 id="61-smp-scheduling-challenges">6.1 SMP Scheduling Challenges</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Symmetric Multiprocessing (SMP) issues:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Load balancing
+</span></span><span style=display:flex><span>   All CPUs should be equally utilized
+</span></span><span style=display:flex><span>   Idle CPU should steal work from busy CPU
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   CPU 0: [████████]  CPU 1: [██░░░░░░]
+</span></span><span style=display:flex><span>          ↑ Overloaded        ↑ Underutilized
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Cache affinity
+</span></span><span style=display:flex><span>   Process benefits from running on same CPU
+</span></span><span style=display:flex><span>   Cache contents remain relevant
+</span></span><span style=display:flex><span>   Moving process = cold cache
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Lock contention
+</span></span><span style=display:flex><span>   Scheduler data structures need synchronization
+</span></span><span style=display:flex><span>   Single run queue = bottleneck
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. NUMA awareness
+</span></span><span style=display:flex><span>   Prefer running near process&#39;s memory
+</span></span><span style=display:flex><span>   Cross-socket migration is expensive
+</span></span></code></pre></div><h3 id="62-per-cpu-run-queues">6.2 Per-CPU Run Queues</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Modern Linux: Each CPU has its own run queue
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────────────┐  ┌─────────────────┐
+</span></span><span style=display:flex><span>│     CPU 0       │  │     CPU 1       │
+</span></span><span style=display:flex><span>│ ┌─────────────┐ │  │ ┌─────────────┐ │
+</span></span><span style=display:flex><span>│ │  Run Queue  │ │  │ │  Run Queue  │ │
+</span></span><span style=display:flex><span>│ │ ○ ○ ○ ○     │ │  │ │ ○ ○         │ │
+</span></span><span style=display:flex><span>│ └─────────────┘ │  │ └─────────────┘ │
+</span></span><span style=display:flex><span>│ ┌─────────────┐ │  │ ┌─────────────┐ │
+</span></span><span style=display:flex><span>│ │  Running: A │ │  │ │  Running: B │ │
+</span></span><span style=display:flex><span>│ └─────────────┘ │  │ └─────────────┘ │
+</span></span><span style=display:flex><span>└─────────────────┘  └─────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- No lock contention for scheduling decisions
+</span></span><span style=display:flex><span>- Each CPU schedules independently
+</span></span><span style=display:flex><span>- Cache-hot data stays on same CPU
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenges:
+</span></span><span style=display:flex><span>- Must balance load across queues
+</span></span><span style=display:flex><span>- Migration decisions need care
+</span></span></code></pre></div><h3 id="63-load-balancing">6.3 Load Balancing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Linux load balancing hierarchy:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Scheduling domains:
+</span></span><span style=display:flex><span>┌───────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│                  System Domain                     │
+</span></span><span style=display:flex><span>│  ┌────────────────────┐  ┌────────────────────┐   │
+</span></span><span style=display:flex><span>│  │    NUMA Node 0     │  │    NUMA Node 1     │   │
+</span></span><span style=display:flex><span>│  │  ┌──────┐ ┌──────┐ │  │  ┌──────┐ ┌──────┐ │   │
+</span></span><span style=display:flex><span>│  │  │CPU 0 │ │CPU 1 │ │  │  │CPU 2 │ │CPU 3 │ │   │
+</span></span><span style=display:flex><span>│  │  │ SMT  │ │ SMT  │ │  │  │ SMT  │ │ SMT  │ │   │
+</span></span><span style=display:flex><span>│  │  │ pair │ │ pair │ │  │  │ pair │ │ pair │ │   │
+</span></span><span style=display:flex><span>│  │  └──────┘ └──────┘ │  │  └──────┘ └──────┘ │   │
+</span></span><span style=display:flex><span>│  └────────────────────┘  └────────────────────┘   │
+</span></span><span style=display:flex><span>└───────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Balancing frequency:
+</span></span><span style=display:flex><span>- Within SMT pair: Most frequent
+</span></span><span style=display:flex><span>- Within NUMA node: Frequent
+</span></span><span style=display:flex><span>- Across NUMA nodes: Least frequent (expensive)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Balance triggers:
+</span></span><span style=display:flex><span>- Periodic timer (every few ms)
+</span></span><span style=display:flex><span>- CPU goes idle (work stealing)
+</span></span><span style=display:flex><span>- Fork/exec (spread new work)
+</span></span></code></pre></div><h3 id="64-cache-affinity">6.4 Cache Affinity</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Scheduling considers CPU affinity:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Soft affinity (default):
+</span></span><span style=display:flex><span>- Prefer same CPU but migrate if needed
+</span></span><span style=display:flex><span>- Scheduler tracks last CPU ran on
+</span></span><span style=display:flex><span>- Migration only if imbalance significant
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Hard affinity (sched_setaffinity):
+</span></span><span style=display:flex><span>- Process restricted to specific CPUs
+</span></span><span style=display:flex><span>- Used for NUMA optimization
+</span></span><span style=display:flex><span>- Used for isolating real-time tasks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CPU affinity mask:
+</span></span><span style=display:flex><span>0b1111  = CPUs 0,1,2,3
+</span></span><span style=display:flex><span>0b0011  = CPUs 0,1 only
+</span></span><span style=display:flex><span>0b1000  = CPU 3 only
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Set affinity in C
+</span></span><span style=display:flex><span>cpu_set_t mask;
+</span></span><span style=display:flex><span>CPU_ZERO(&amp;mask);
+</span></span><span style=display:flex><span>CPU_SET(0, &amp;mask);  // CPU 0 only
+</span></span><span style=display:flex><span>sched_setaffinity(0, sizeof(mask), &amp;mask);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Command line
+</span></span><span style=display:flex><span>taskset -c 0,1 ./myprogram  // Run on CPUs 0 and 1
+</span></span></code></pre></div><h2 id="7-thread-scheduling">7. Thread Scheduling</h2><p>Threads within a process share address space.</p><h3 id="71-user-vs-kernel-threads">7.1 User vs Kernel Threads</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Kernel threads (1:1 model):
+</span></span><span style=display:flex><span>- Each user thread = one kernel thread
+</span></span><span style=display:flex><span>- OS schedules directly
+</span></span><span style=display:flex><span>- Can utilize multiple CPUs
+</span></span><span style=display:flex><span>- Used by Linux, Windows, macOS
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>User threads (N:1 model):
+</span></span><span style=display:flex><span>- Many user threads = one kernel thread
+</span></span><span style=display:flex><span>- User-space scheduler (runtime library)
+</span></span><span style=display:flex><span>- Cannot use multiple CPUs
+</span></span><span style=display:flex><span>- Fast switching (no syscall)
+</span></span><span style=display:flex><span>- If one blocks, all block
+</span></span><span style=display:flex><span>- Historical model, rarely used now
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Hybrid (M:N model):
+</span></span><span style=display:flex><span>- M user threads on N kernel threads
+</span></span><span style=display:flex><span>- User-space + kernel scheduling
+</span></span><span style=display:flex><span>- Complex to implement correctly
+</span></span><span style=display:flex><span>- Used by Go, some historical systems
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│                   1:1 Model                      │
+</span></span><span style=display:flex><span>│  User:   [T1] [T2] [T3] [T4]                    │
+</span></span><span style=display:flex><span>│            │    │    │    │                     │
+</span></span><span style=display:flex><span>│  Kernel: [K1] [K2] [K3] [K4]                    │
+</span></span><span style=display:flex><span>│                                                 │
+</span></span><span style=display:flex><span>│                   M:N Model                      │
+</span></span><span style=display:flex><span>│  User:   [T1] [T2] [T3] [T4] [T5] [T6]         │
+</span></span><span style=display:flex><span>│            ╲   │   ╱     ╲   │   ╱              │
+</span></span><span style=display:flex><span>│  Kernel:   [K1]  [K2]    [K3]                   │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="72-gos-goroutine-scheduler">7.2 Go&rsquo;s Goroutine Scheduler</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Go runtime: M:N scheduling with work stealing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Components:
+</span></span><span style=display:flex><span>G = Goroutine (user thread)
+</span></span><span style=display:flex><span>M = Machine (OS thread)
+</span></span><span style=display:flex><span>P = Processor (logical CPU, runs G&#39;s)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Structure:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│                 Go Runtime                       │
+</span></span><span style=display:flex><span>│                                                 │
+</span></span><span style=display:flex><span>│  ┌─────┐ ┌─────┐         Global Queue           │
+</span></span><span style=display:flex><span>│  │  P  │ │  P  │         [G] [G] [G]            │
+</span></span><span style=display:flex><span>│  │     │ │     │                                │
+</span></span><span style=display:flex><span>│  │Local│ │Local│                                │
+</span></span><span style=display:flex><span>│  │Queue│ │Queue│                                │
+</span></span><span style=display:flex><span>│  │[G G]│ │[G G]│                                │
+</span></span><span style=display:flex><span>│  │     │ │     │                                │
+</span></span><span style=display:flex><span>│  │  M ─┼─┼─ M  │   M (spare, waiting for P)     │
+</span></span><span style=display:flex><span>│  └──│──┘ └──│──┘                                │
+</span></span><span style=display:flex><span>│     │       │                                   │
+</span></span><span style=display:flex><span>│  ───┴───────┴─── OS Scheduler                   │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Work stealing:
+</span></span><span style=display:flex><span>1. P runs goroutines from local queue
+</span></span><span style=display:flex><span>2. Local queue empty? Steal from another P
+</span></span><span style=display:flex><span>3. No work anywhere? Check global queue
+</span></span><span style=display:flex><span>4. Still nothing? Poll network
+</span></span><span style=display:flex><span>5. Finally: Put M to sleep
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- Millions of goroutines possible
+</span></span><span style=display:flex><span>- Fast context switch (~200ns vs ~1μs for threads)
+</span></span><span style=display:flex><span>- Automatic load balancing
+</span></span></code></pre></div><h3 id="73-cooperative-vs-preemptive">7.3 Cooperative vs Preemptive</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Cooperative scheduling:
+</span></span><span style=display:flex><span>- Task explicitly yields control
+</span></span><span style=display:flex><span>- No involuntary preemption
+</span></span><span style=display:flex><span>- Risk: Misbehaving task hogs CPU
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Cooperative example (Go pre-1.14)
+</span></span><span style=display:flex><span>for i := 0; i &lt; 1e9; i++ {
+</span></span><span style=display:flex><span>    compute()  // No function calls = no preemption point
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>// Other goroutines starved!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Preemptive scheduling:
+</span></span><span style=display:flex><span>- Timer interrupts force yield
+</span></span><span style=display:flex><span>- OS/runtime can preempt any time
+</span></span><span style=display:flex><span>- More complex but fairer
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Go 1.14+ async preemption:
+</span></span><span style=display:flex><span>- Signal-based preemption
+</span></span><span style=display:flex><span>- Inject preemption at safepoints
+</span></span><span style=display:flex><span>- Loops without calls can still be preempted
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Linux PREEMPT configurations:
+</span></span><span style=display:flex><span>PREEMPT_NONE:     Server workloads, higher throughput
+</span></span><span style=display:flex><span>PREEMPT_VOLUNTARY: Desktop, balance throughput/latency
+</span></span><span style=display:flex><span>PREEMPT:          Low-latency desktop/audio
+</span></span><span style=display:flex><span>PREEMPT_RT:       Real-time, minimal latency
+</span></span></code></pre></div><h2 id="8-scheduling-in-practice">8. Scheduling in Practice</h2><p>Real-world considerations and tools.</p><h3 id="81-examining-scheduler-behavior">8.1 Examining Scheduler Behavior</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># View process scheduling info</span>
+</span></span><span style=display:flex><span>ps -eo pid,ni,pri,cls,psr,comm
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># ni: nice value, pri: priority, cls: class, psr: CPU</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Real-time attributes</span>
+</span></span><span style=display:flex><span>chrt -p PID
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Set scheduling policy</span>
+</span></span><span style=display:flex><span>chrt -f -p <span style=color:#a5d6ff>50</span> PID    <span style=color:#8b949e;font-style:italic># SCHED_FIFO, priority 50</span>
+</span></span><span style=display:flex><span>chrt -r -p <span style=color:#a5d6ff>50</span> PID    <span style=color:#8b949e;font-style:italic># SCHED_RR, priority 50</span>
+</span></span><span style=display:flex><span>chrt -o -p <span style=color:#a5d6ff>0</span> PID     <span style=color:#8b949e;font-style:italic># SCHED_OTHER</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Change nice value</span>
+</span></span><span style=display:flex><span>nice -n <span style=color:#a5d6ff>10</span> ./myprogram    <span style=color:#8b949e;font-style:italic># Start with nice 10</span>
+</span></span><span style=display:flex><span>renice -n <span style=color:#a5d6ff>5</span> -p PID        <span style=color:#8b949e;font-style:italic># Change running process</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># CPU affinity</span>
+</span></span><span style=display:flex><span>taskset -p PID            <span style=color:#8b949e;font-style:italic># Show affinity</span>
+</span></span><span style=display:flex><span>taskset -cp 0,1 PID       <span style=color:#8b949e;font-style:italic># Set to CPUs 0 and 1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Detailed scheduler statistics</span>
+</span></span><span style=display:flex><span>cat /proc/PID/sched
+</span></span></code></pre></div><h3 id="82-scheduler-tracing">8.2 Scheduler Tracing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Trace context switches</span>
+</span></span><span style=display:flex><span>perf sched record ./myprogram
+</span></span><span style=display:flex><span>perf sched latency    <span style=color:#8b949e;font-style:italic># Scheduling latency stats</span>
+</span></span><span style=display:flex><span>perf sched map        <span style=color:#8b949e;font-style:italic># Visual CPU timeline</span>
+</span></span><span style=display:flex><span>perf sched timehist   <span style=color:#8b949e;font-style:italic># Detailed timing history</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Example output from perf sched latency:</span>
+</span></span><span style=display:flex><span> Task                  | Runtime   | Switches | Avg delay |
+</span></span><span style=display:flex><span> myprogram <span style=color:#ff7b72;font-weight:700>(</span>12345<span style=color:#ff7b72;font-weight:700>)</span>     | 500.000ms |     <span style=color:#a5d6ff>2000</span> |    0.050ms|
+</span></span><span style=display:flex><span> kworker/0:1 <span style=color:#ff7b72;font-weight:700>(</span>123<span style=color:#ff7b72;font-weight:700>)</span>     |  10.000ms |       <span style=color:#a5d6ff>50</span> |    0.100ms|
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># ftrace for detailed analysis</span>
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>1</span> &gt; /sys/kernel/debug/tracing/events/sched/enable
+</span></span><span style=display:flex><span>cat /sys/kernel/debug/tracing/trace_pipe
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Output shows every schedule event:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># &lt;idle&gt;-0 [000] 1234.567: sched_switch: prev=swapper next=myprogram</span>
+</span></span></code></pre></div><h3 id="83-scheduling-latency-measurement">8.3 Scheduling Latency Measurement</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Measure scheduling latency
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;time.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;sched.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>measure_latency</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> timespec before, after;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>10000</span>; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>clock_gettime</span>(CLOCK_MONOTONIC, <span style=color:#ff7b72;font-weight:700>&amp;</span>before);
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>sched_yield</span>();  <span style=color:#8b949e;font-style:italic>// Voluntarily give up CPU
+</span></span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>clock_gettime</span>(CLOCK_MONOTONIC, <span style=color:#ff7b72;font-weight:700>&amp;</span>after);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>long</span> latency_ns <span style=color:#ff7b72;font-weight:700>=</span> (after.tv_sec <span style=color:#ff7b72;font-weight:700>-</span> before.tv_sec) <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>1e9</span> <span style=color:#ff7b72;font-weight:700>+</span>
+</span></span><span style=display:flex><span>                          (after.tv_nsec <span style=color:#ff7b72;font-weight:700>-</span> before.tv_nsec);
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>record_latency</span>(latency_ns);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>print_histogram</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Typical results (microseconds):
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// PREEMPT_NONE:  Median 5μs,  P99 100μs, P99.9 500μs
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// PREEMPT:       Median 3μs,  P99 50μs,  P99.9 200μs
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// PREEMPT_RT:    Median 2μs,  P99 10μs,  P99.9 50μs
+</span></span></span></code></pre></div><h3 id="84-common-scheduling-issues">8.4 Common Scheduling Issues</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Problem: High scheduling latency
+</span></span><span style=display:flex><span>Symptoms:
+</span></span><span style=display:flex><span>- Application stutters
+</span></span><span style=display:flex><span>- Audio/video glitches
+</span></span><span style=display:flex><span>- Mouse lag
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Diagnosis:
+</span></span><span style=display:flex><span>- perf sched latency shows high delays
+</span></span><span style=display:flex><span>- Check for CPU-bound processes
+</span></span><span style=display:flex><span>- Check for runaway interrupt handlers
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Solutions:
+</span></span><span style=display:flex><span>- Increase priority (nice -20 or real-time)
+</span></span><span style=display:flex><span>- CPU affinity to isolate from other work
+</span></span><span style=display:flex><span>- Use PREEMPT kernel
+</span></span><span style=display:flex><span>- Check for lock contention
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem: CPU imbalance
+</span></span><span style=display:flex><span>Symptoms:
+</span></span><span style=display:flex><span>- Some CPUs 100%, others idle
+</span></span><span style=display:flex><span>- Lower throughput than expected
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Diagnosis:
+</span></span><span style=display:flex><span>- mpstat -P ALL 1 shows uneven usage
+</span></span><span style=display:flex><span>- Check affinity settings
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Solutions:
+</span></span><span style=display:flex><span>- Remove unnecessary affinity constraints
+</span></span><span style=display:flex><span>- Check NUMA configuration
+</span></span><span style=display:flex><span>- Verify load balancing enabled
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem: Priority inversion
+</span></span><span style=display:flex><span>Symptoms:
+</span></span><span style=display:flex><span>- High-priority task unexpectedly delayed
+</span></span><span style=display:flex><span>- Occurs around lock acquisition
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Diagnosis:
+</span></span><span style=display:flex><span>- Trace shows high-pri blocked on low-pri
+</span></span><span style=display:flex><span>- Lock held during preemption
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Solutions:
+</span></span><span style=display:flex><span>- Enable priority inheritance on mutexes
+</span></span><span style=display:flex><span>- Use lock-free algorithms
+</span></span><span style=display:flex><span>- Reduce critical section length
+</span></span></code></pre></div><h2 id="9-scheduling-for-specific-workloads">9. Scheduling for Specific Workloads</h2><p>Tuning for different application types.</p><h3 id="91-interactive-desktop">9.1 Interactive Desktop</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Goals:
+</span></span><span style=display:flex><span>- Responsive UI (&lt;100ms to user action)
+</span></span><span style=display:flex><span>- Smooth video/animation (16ms frames)
+</span></span><span style=display:flex><span>- Background tasks shouldn&#39;t interfere
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tuning:
+</span></span><span style=display:flex><span>- Use PREEMPT kernel
+</span></span><span style=display:flex><span>- Smaller scheduling granularity
+</span></span><span style=display:flex><span>- Boost priority of interactive tasks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>systemd automatic boosting:
+</span></span><span style=display:flex><span>- Detects interactive processes
+</span></span><span style=display:flex><span>- Temporarily boosts on activity
+</span></span><span style=display:flex><span>- Drops priority when idle
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>cgroups for isolation:
+</span></span><span style=display:flex><span># Limit background CPU
+</span></span><span style=display:flex><span>cgcreate -g cpu:background
+</span></span><span style=display:flex><span>echo 50000 &gt; /sys/fs/cgroup/cpu/background/cpu.cfs_quota_us
+</span></span><span style=display:flex><span># 50ms per 100ms = 50% max CPU for background group
+</span></span></code></pre></div><h3 id="92-server-throughput">9.2 Server Throughput</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Goals:
+</span></span><span style=display:flex><span>- Maximum requests/second
+</span></span><span style=display:flex><span>- Efficient CPU utilization
+</span></span><span style=display:flex><span>- Minimize context switches
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tuning:
+</span></span><span style=display:flex><span>- PREEMPT_NONE or PREEMPT_VOLUNTARY kernel
+</span></span><span style=display:flex><span>- Larger time slices
+</span></span><span style=display:flex><span>- Affinity for connection handling
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>NUMA-aware server:
+</span></span><span style=display:flex><span>- Pin network queues to CPUs
+</span></span><span style=display:flex><span>- Keep connection state near handling CPU
+</span></span><span style=display:flex><span>- Avoid cross-NUMA migrations
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>irqbalance for interrupt distribution:
+</span></span><span style=display:flex><span>- Spread hardware interrupts across CPUs
+</span></span><span style=display:flex><span>- Match network IRQs to application threads
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># Pin IRQ to specific CPU
+</span></span><span style=display:flex><span>echo 2 &gt; /proc/irq/123/smp_affinity  # CPU 1
+</span></span></code></pre></div><h3 id="93-real-time-audiovideo">9.3 Real-Time Audio/Video</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Goals:
+</span></span><span style=display:flex><span>- Never miss deadline (buffer underrun = glitch)
+</span></span><span style=display:flex><span>- Consistent latency
+</span></span><span style=display:flex><span>- Predictable timing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tuning:
+</span></span><span style=display:flex><span>- PREEMPT_RT kernel
+</span></span><span style=display:flex><span>- SCHED_FIFO or SCHED_DEADLINE
+</span></span><span style=display:flex><span>- Memory locking (mlockall)
+</span></span><span style=display:flex><span>- CPU isolation (isolcpus)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Audio example (JACK):
+</span></span><span style=display:flex><span># Run audio server with real-time priority
+</span></span><span style=display:flex><span>jackd -R -P 70 -d alsa -p 128 -n 2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Configuration:
+</span></span><span style=display:flex><span>- Buffer size: 128 samples
+</span></span><span style=display:flex><span>- Sample rate: 48000 Hz
+</span></span><span style=display:flex><span>- Latency: 128/48000 = 2.67ms per buffer
+</span></span><span style=display:flex><span>- Need to refill every 2.67ms!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CPU isolation:
+</span></span><span style=display:flex><span># Boot parameter
+</span></span><span style=display:flex><span>isolcpus=2,3
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># Run audio on isolated CPUs
+</span></span><span style=display:flex><span>taskset -c 2,3 jackd ...
+</span></span><span style=display:flex><span># CPUs 2,3 run only audio, no interference
+</span></span></code></pre></div><h3 id="94-high-performance-computing">9.4 High-Performance Computing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Goals:
+</span></span><span style=display:flex><span>- Maximum FLOPS
+</span></span><span style=display:flex><span>- Efficient parallelization
+</span></span><span style=display:flex><span>- Predictable scaling
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tuning:
+</span></span><span style=display:flex><span>- Pin threads to CPUs (1:1 binding)
+</span></span><span style=display:flex><span>- Disable hyperthreading for some workloads
+</span></span><span style=display:flex><span>- NUMA-aware memory allocation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>MPI process placement:
+</span></span><span style=display:flex><span># OpenMPI binding
+</span></span><span style=display:flex><span>mpirun --bind-to core --map-by socket -np 64 ./simulation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># Process 0 on CPU 0, Process 1 on CPU 1, etc.
+</span></span><span style=display:flex><span># Maximizes cache utilization
+</span></span><span style=display:flex><span># Minimizes cross-socket communication
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>OpenMP thread affinity:
+</span></span><span style=display:flex><span>export OMP_PROC_BIND=close
+</span></span><span style=display:flex><span>export OMP_PLACES=cores
+</span></span><span style=display:flex><span># Threads bound to adjacent cores
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>NUMA-aware allocation:
+</span></span><span style=display:flex><span>numactl --localalloc ./hpc_app
+</span></span><span style=display:flex><span># Allocate memory on same node as running CPU
+</span></span></code></pre></div><h2 id="10-future-directions">10. Future Directions</h2><p>Emerging trends in scheduling.</p><h3 id="101-heterogeneous-computing">10.1 Heterogeneous Computing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>big.LITTLE / Intel Hybrid architecture:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Performance cores (P-cores): Fast, power-hungry
+</span></span><span style=display:flex><span>Efficient cores (E-cores): Slower, power-efficient
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌───────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  P-core  │  P-core  │  E-core  │  E-core     │
+</span></span><span style=display:flex><span>│   Fast   │   Fast   │  Slow    │  Slow       │
+</span></span><span style=display:flex><span>│ 5.0 GHz  │ 5.0 GHz  │ 3.0 GHz  │ 3.0 GHz    │
+</span></span><span style=display:flex><span>└───────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Scheduling challenges:
+</span></span><span style=display:flex><span>- Which tasks go to which cores?
+</span></span><span style=display:flex><span>- How to measure task requirements?
+</span></span><span style=display:flex><span>- When to migrate between core types?
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Intel Thread Director:
+</span></span><span style=display:flex><span>- Hardware hints about thread characteristics
+</span></span><span style=display:flex><span>- Guides OS scheduler decisions
+</span></span><span style=display:flex><span>- Learns from thread behavior
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ARM DynamIQ:
+</span></span><span style=display:flex><span>- Similar hybrid approach
+</span></span><span style=display:flex><span>- Common in mobile devices
+</span></span><span style=display:flex><span>- Power efficiency critical
+</span></span></code></pre></div><h3 id="102-energy-aware-scheduling">10.2 Energy-Aware Scheduling</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Modern schedulers consider power:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>DVFS (Dynamic Voltage and Frequency Scaling):
+</span></span><span style=display:flex><span>- Reduce frequency when load is light
+</span></span><span style=display:flex><span>- Lower voltage saves power quadratically
+</span></span><span style=display:flex><span>- Balance performance vs power
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>schedutil governor:
+</span></span><span style=display:flex><span>- Integrated with CFS scheduler
+</span></span><span style=display:flex><span>- Frequency scales with utilization
+</span></span><span style=display:flex><span>- Faster response than polling-based governors
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Power-aware placement:
+</span></span><span style=display:flex><span>- Consolidate work on fewer cores
+</span></span><span style=display:flex><span>- Allow other cores to deep sleep
+</span></span><span style=display:flex><span>- Race-to-idle strategy
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│ Traditional:       │ Power-aware:               │
+</span></span><span style=display:flex><span>│ CPU0: [███░░░░░]  │ CPU0: [████████]           │
+</span></span><span style=display:flex><span>│ CPU1: [███░░░░░]  │ CPU1: [sleeping]           │
+</span></span><span style=display:flex><span>│ CPU2: [███░░░░░]  │ CPU2: [sleeping]           │
+</span></span><span style=display:flex><span>│ CPU3: [███░░░░░]  │ CPU3: [sleeping]           │
+</span></span><span style=display:flex><span>│ All cores active   │ One core, three sleeping   │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="103-machine-learning-for-scheduling">10.3 Machine Learning for Scheduling</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Learned scheduling policies:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Traditional: Hand-tuned heuristics
+</span></span><span style=display:flex><span>ML approach: Learn from workload patterns
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Google&#39;s Borg (cluster scheduling):
+</span></span><span style=display:flex><span>- ML predicts resource requirements
+</span></span><span style=display:flex><span>- Better bin packing
+</span></span><span style=display:flex><span>- Reduced resource waste
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Research directions:
+</span></span><span style=display:flex><span>- Reinforcement learning for time slice selection
+</span></span><span style=display:flex><span>- Predicting process behavior from history
+</span></span><span style=display:flex><span>- Automatic parameter tuning
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenges:
+</span></span><span style=display:flex><span>- Scheduling decisions must be fast (&lt;1μs)
+</span></span><span style=display:flex><span>- ML inference overhead must be minimal
+</span></span><span style=display:flex><span>- Generalization across workloads
+</span></span><span style=display:flex><span>- Explainability for debugging
+</span></span></code></pre></div><h3 id="104-microsecond-scale-computing">10.4 Microsecond-Scale Computing</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Emerging workloads need μs scheduling:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>FaaS (Functions as a Service):
+</span></span><span style=display:flex><span>- Function executes in &lt;1ms
+</span></span><span style=display:flex><span>- Context switch overhead significant
+</span></span><span style=display:flex><span>- Startup latency critical
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Storage (NVMe, Optane):
+</span></span><span style=display:flex><span>- Device latency &lt;10μs
+</span></span><span style=display:flex><span>- Can&#39;t afford 10μs context switch
+</span></span><span style=display:flex><span>- Need kernel bypass or polling
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>DPDK/SPDK approach:
+</span></span><span style=display:flex><span>- User-space polling
+</span></span><span style=display:flex><span>- No context switches
+</span></span><span style=display:flex><span>- Dedicated cores
+</span></span><span style=display:flex><span>- Trade CPU for latency
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>io_uring approach:
+</span></span><span style=display:flex><span>- Asynchronous I/O
+</span></span><span style=display:flex><span>- Batch submissions
+</span></span><span style=display:flex><span>- Reduce syscall overhead
+</span></span><span style=display:flex><span>- Polling mode for lowest latency
+</span></span></code></pre></div><h2 id="11-summary-and-key-takeaways">11. Summary and Key Takeaways</h2><p>Consolidating what we&rsquo;ve learned about scheduling.</p><h3 id="111-core-concepts">11.1 Core Concepts</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Scheduling fundamentals:
+</span></span><span style=display:flex><span>✓ Scheduler decides which process runs when
+</span></span><span style=display:flex><span>✓ Balances throughput, latency, fairness, power
+</span></span><span style=display:flex><span>✓ Context switch saves/restores process state
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Key algorithms:
+</span></span><span style=display:flex><span>✓ FCFS: Simple but convoy effect
+</span></span><span style=display:flex><span>✓ Round Robin: Fair but overhead
+</span></span><span style=display:flex><span>✓ Priority: Flexible but starvation risk
+</span></span><span style=display:flex><span>✓ CFS: Weighted fairness via virtual runtime
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Context switch costs:
+</span></span><span style=display:flex><span>✓ Direct: Register save/restore (~1000 cycles)
+</span></span><span style=display:flex><span>✓ Indirect: TLB flush, cache pollution (&gt;&gt;direct)
+</span></span><span style=display:flex><span>✓ PCID/ASID reduces TLB flush cost
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Multiprocessor:
+</span></span><span style=display:flex><span>✓ Per-CPU run queues avoid lock contention
+</span></span><span style=display:flex><span>✓ Load balancing keeps CPUs utilized
+</span></span><span style=display:flex><span>✓ Cache affinity vs load balance trade-off
+</span></span></code></pre></div><h3 id="112-practical-guidelines">11.2 Practical Guidelines</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>For application developers:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Understand your workload type
+</span></span><span style=display:flex><span>   - CPU-bound: Long slices, high priority
+</span></span><span style=display:flex><span>   - I/O-bound: Default scheduling usually fine
+</span></span><span style=display:flex><span>   - Real-time: Use SCHED_DEADLINE or SCHED_FIFO
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Use appropriate APIs
+</span></span><span style=display:flex><span>   - nice/renice for simple priority
+</span></span><span style=display:flex><span>   - sched_setscheduler for scheduling class
+</span></span><span style=display:flex><span>   - sched_setaffinity for CPU pinning
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Minimize unnecessary context switches
+</span></span><span style=display:flex><span>   - Batch work appropriately
+</span></span><span style=display:flex><span>   - Use async I/O when possible
+</span></span><span style=display:flex><span>   - Pool threads instead of constant creation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>4. Profile before optimizing
+</span></span><span style=display:flex><span>   - perf sched shows actual behavior
+</span></span><span style=display:flex><span>   - Don&#39;t guess, measure
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>For system administrators:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1. Choose right kernel preemption level
+</span></span><span style=display:flex><span>   - Servers: PREEMPT_NONE or VOLUNTARY
+</span></span><span style=display:flex><span>   - Desktops: PREEMPT
+</span></span><span style=display:flex><span>   - Real-time: PREEMPT_RT
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Configure cgroups for workload isolation
+</span></span><span style=display:flex><span>   - Limit background task CPU
+</span></span><span style=display:flex><span>   - Protect critical services
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. NUMA considerations
+</span></span><span style=display:flex><span>   - Monitor cross-node traffic
+</span></span><span style=display:flex><span>   - Pin important processes appropriately
+</span></span></code></pre></div><h3 id="113-debugging-checklist">11.3 Debugging Checklist</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>When investigating scheduling issues:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>□ Check process priorities (ps -eo pid,ni,pri)
+</span></span><span style=display:flex><span>□ Examine CPU utilization per core (mpstat -P ALL)
+</span></span><span style=display:flex><span>□ Look for scheduling latency (perf sched latency)
+</span></span><span style=display:flex><span>□ Check for CPU affinity constraints (taskset)
+</span></span><span style=display:flex><span>□ Review cgroup limits
+</span></span><span style=display:flex><span>□ Examine context switch rates (vmstat)
+</span></span><span style=display:flex><span>□ Check for priority inversion (trace lock waits)
+</span></span><span style=display:flex><span>□ Verify NUMA placement (numastat)
+</span></span><span style=display:flex><span>□ Review kernel preemption configuration
+</span></span><span style=display:flex><span>□ Check for interrupt storms (watch /proc/interrupts)
+</span></span></code></pre></div><p>The scheduler sits at the heart of every operating system, making thousands of decisions per second that determine how responsive your system feels and how efficiently it uses hardware resources. From the elegant simplicity of round-robin to the sophisticated fairness of CFS, from single-CPU time sharing to complex NUMA-aware load balancing, scheduling represents decades of research and engineering refinement. Understanding these mechanisms empowers you to tune systems for specific workloads, diagnose performance problems, and appreciate the invisible yet essential work that makes multitasking possible. Whether you&rsquo;re building real-time systems, optimizing server throughput, or simply curious why your desktop feels smooth, the scheduler&rsquo;s decisions shape every interaction you have with a computer. The interplay between hardware capabilities, operating system policies, and application requirements creates a rich design space where small changes can yield significant improvements in both performance and user experience.</p></div><footer class="ce1a612 c6dfb1e c3ecea6"><div class="c364589">Categories:
+<a href=/categories/fundamentals/>fundamentals</a>, <a href=/categories/systems/>systems</a></div><div>Tags:
+<a href=/tags/scheduling/>#scheduling</a>, <a href=/tags/context-switch/>#context-switch</a>, <a href=/tags/operating-systems/>#operating-systems</a>, <a href=/tags/concurrency/>#concurrency</a>, <a href=/tags/kernel/>#kernel</a>, <a href=/tags/fundamentals/>#fundamentals</a></div></footer></article></main><footer class="ccdf0e8" role=contentinfo aria-label=Footer><div class="cfdda01 c133889 c5df473 c0eecc8 c69618a c6942b3 c03620d c2a9f27 c7c11d8 c82c52d c14527b"><div class="c6dfb1e c3ecea6 c39ef11 c88ae6f">&copy; 2026 Leonardo Benicio. All rights
+reserved.</div><div class="c6942b3 c7c11d8 cd1fd22"><a href=https://github.com/lbenicio target=_blank rel="noopener noreferrer" aria-label=GitHub class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.5-.67 1.08-.82 1.7s-.2 1.27-.18 1.9V22"/></svg>
+<span class="cba5854">GitHub</span>
+</a><a href=https://www.linkedin.com/in/leonardo-benicio target=_blank rel="noopener noreferrer" aria-label=LinkedIn class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21V14.86c0-1.333-.027-3.046-1.858-3.046-1.86.0-2.145 1.45-2.145 2.948v5.69H9.069V9h3.112v1.561h.044c.434-.82 1.494-1.686 3.074-1.686 3.29.0 3.897 2.165 3.897 4.983v6.594zM5.337 7.433a1.805 1.805.0 11-.002-3.61 1.805 1.805.0 01.002 3.61zM6.763 20.452H3.911V9h2.852v11.452z"/></svg>
+<span class="cba5854">LinkedIn</span>
+</a><a href=https://twitter.com/lbenicio_ target=_blank rel="noopener noreferrer" aria-label=Twitter class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.177.013.354.013.53.0 5.386-4.099 11.599-11.6 11.599-2.31.0-4.457-.676-6.265-1.842.324.038.636.05.972.05 1.91.0 3.67-.65 5.07-1.755a4.099 4.099.0 01-3.827-2.84c.25.039.5.064.763.064.363.0.726-.051 1.065-.139A4.091 4.091.0 012.542 9.649v-.051c.538.3 1.162.482 1.824.507A4.082 4.082.0 012.54 6.7c0-.751.2-1.435.551-2.034a11.63 11.63.0 008.44 4.281 4.615 4.615.0 01-.101-.938 4.091 4.091.0 017.078-2.799 8.1 8.1.0 002.595-.988 4.112 4.112.0 01-1.8 2.261 8.2 8.2.0 002.357-.638A8.824 8.824.0 0119.613 7.96z"/></svg>
+<span class="cba5854">Twitter</span></a></div></div></footer></body></html>

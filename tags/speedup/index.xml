@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Speedup on Leonardo Benicio</title><link>https://lbenicio.dev/tags/speedup/</link><description>Recent content in Speedup on Leonardo Benicio</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 15 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lbenicio.dev/tags/speedup/index.xml" rel="self" type="application/rss+xml"/><item><title>Amdahl’s Law vs. Gustafson’s Law: What They Really Predict</title><link>https://lbenicio.dev/blog/amdahls-law-vs.-gustafsons-law-what-they-really-predict/</link><pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate><guid>https://lbenicio.dev/blog/amdahls-law-vs.-gustafsons-law-what-they-really-predict/</guid><description>&lt;p&gt;Amdahl’s Law and Gustafson’s Law are often presented as opposites, but they model different scenarios.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Amdahl assumes a fixed problem size and asks: how much faster can I make this workload with P processors when a fraction s is inherently serial? The upper bound is:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$\text{Speedup}_A(P) = \frac{1}{s + \frac{1-s}{P}}.$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gustafson assumes a fixed execution time and asks: given P processors, how much bigger can the problem become if parallel parts scale? The scaled speedup is:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$\text{Speedup}_G(P) = s + (1-s),P.$$&lt;/p&gt;</description></item></channel></rss>

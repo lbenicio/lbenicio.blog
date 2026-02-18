@@ -1,0 +1,1011 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>CPU Caches and Memory Hierarchy: The Hidden Architecture Behind Performance · Leonardo Benicio</title><meta name=description content="A deep exploration of CPU cache architecture, from L1 to L3 caches, cache lines, associativity, replacement policies, and cache coherence. Learn how memory hierarchy shapes modern software performance."><link rel=alternate type=application/rss+xml title=RSS href=https://lbenicio.dev/index.xml><link rel=canonical href=https://blog.lbenicio.dev/blog/cpu-caches-and-memory-hierarchy-the-hidden-architecture-behind-performance/><link rel=preload href=/static/fonts/OpenSans-Regular.ttf as=font type=font/ttf crossorigin><link rel="stylesheet" href="/assets/css/fonts.min.40e2054b739ac45a0f9c940f4b44ec00c3b372356ebf61440a413c0337c5512e.css" crossorigin="anonymous" integrity="sha256-QOIFS3OaxFoPnJQPS0TsAMOzcjVuv2FECkE8AzfFUS4="><link rel="shortcut icon" href=/static/assets/favicon/favicon.ico><link rel=icon type=image/x-icon href=/static/assets/favicon/favicon.ico><link rel=icon href=/static/assets/favicon/favicon.svg type=image/svg+xml><link rel=icon href=/static/assets/favicon/favicon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/static/assets/favicon/favicon-16x16.png sizes=16x16 type=image/png><link rel=apple-touch-icon href=/static/assets/favicon/apple-touch-icon.png><link rel=manifest href=/static/assets/favicon/site.webmanifest><link rel=mask-icon href=/static/assets/favicon/safari-pinned-tab.svg color=#209cee><meta name=msapplication-TileColor content="#209cee"><meta name=msapplication-config content="/static/assets/favicon/browserconfig.xml"><meta name=theme-color content="#d2e9f8"><meta property="og:title" content="CPU Caches and Memory Hierarchy: The Hidden Architecture Behind Performance · Leonardo Benicio"><meta property="og:description" content="A deep exploration of CPU cache architecture, from L1 to L3 caches, cache lines, associativity, replacement policies, and cache coherence. Learn how memory hierarchy shapes modern software performance."><meta property="og:url" content="https://blog.lbenicio.dev/blog/cpu-caches-and-memory-hierarchy-the-hidden-architecture-behind-performance/"><meta property="og:type" content="article"><meta property="og:image" content="https://blog.lbenicio.dev/static/assets/images/blog/cpu-cache-memory-hierarchy-performance.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="CPU Caches and Memory Hierarchy: The Hidden Architecture Behind Performance · Leonardo Benicio"><meta name=twitter:description content="A deep exploration of CPU cache architecture, from L1 to L3 caches, cache lines, associativity, replacement policies, and cache coherence. Learn how memory hierarchy shapes modern software performance."><meta name=twitter:site content="@lbenicio_"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"About Leonardo Benicio","url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Person","name":"Leonardo Benicio","sameAs":["https://github.com/lbenicio","https://www.linkedin.com/in/leonardo-benicio","https://twitter.com/lbenicio_"],"url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Home","position":1},{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Blog","position":2},{"@type":"ListItem","item":"https://blog.lbenicio.dev/blog/cpu-caches-and-memory-hierarchy-the-hidden-architecture-behind-performance/","name":"CPU Caches and Memory Hierarchy the Hidden Architecture Behind Performance","position":3}]}</script><link rel="stylesheet" href="/assets/css/main.min.1e8a566ac8bc3f0664d0db4ec8a015b07421c33fa11d336a6b914522a9cabf30.css" crossorigin="anonymous" integrity="sha256-6lhUOpwCHMSMROmggsVSp3AHKud6gBrIFGTzl3GV4BY="></head><body class="c6942b3 c03620d cf3bd2e"><script>(function(){try{document.addEventListener("gesturestart",function(e){e.preventDefault()}),document.addEventListener("touchstart",function(e){e.touches&&e.touches.length>1&&e.preventDefault()},{passive:!1});var e=0;document.addEventListener("touchend",function(t){var n=Date.now();n-e<=300&&t.preventDefault(),e=n},{passive:!1})}catch{}})()</script><a href=#content class="cba5854 c21e770 caffa6e cc5f604 cf2c31d cdd44dd c10dda9 c43876e c787e9b cddc2d2 cf55a7b c6dfb1e c9391e2">Skip to content</a>
+<script>(function(){try{const e=localStorage.getItem("theme");e==="dark"&&document.documentElement.classList.add("dark");const t=document.querySelector('button[aria-label="Toggle theme"]');t&&t.setAttribute("aria-pressed",String(e==="dark"))}catch{}})();function toggleTheme(e){const s=document.documentElement,t=s.classList.toggle("dark");try{localStorage.setItem("theme",t?"dark":"light")}catch{}try{var n=e&&e.nodeType===1?e:document.querySelector('button[aria-label="Toggle theme"]');n&&n.setAttribute("aria-pressed",String(!!t))}catch{}}(function(){function e(){try{return document.documentElement.classList.contains("dark")?"dark":"light"}catch{return"light"}}function n(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(0)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!1,s.style.display="block"}catch{}o.setAttribute("aria-expanded","true"),n.setAttribute("aria-hidden","false");try{document.body.classList.add("c150bbe")}catch{}const i=document.getElementById("i190984");i&&i.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_open",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function t(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(100%)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!0,s.style.display="none"}catch{}o.setAttribute("aria-expanded","false"),n.setAttribute("aria-hidden","true");try{document.body.classList.remove("c150bbe")}catch{}o.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_close",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function s(e){e.key==="Escape"&&t("escape")}window.__openMobileMenu=n,window.__closeMobileMenu=t;try{window.addEventListener("keydown",s,!0)}catch{}})()</script><header class="cd019ba c98dfae cdd44dd cfdda01 c9ee25d ce2dc7a cd72dd7 cc0dc37" role=banner><div class="cfdda01 c6942b3 ccf47f4 c7c11d8"><a href=/ class="c87e2b0 c6942b3 c7c11d8 c1838fa cb594e4" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=32 height=32 class="c3de71a c4d5191">
+<span class="cf8f011 c4d1253 cbd72bc cd7e69e">Leonardo Benicio</span></a><div class="c6942b3 c85cbd4 c7c11d8 ca798da c1838fa c7a0580"><nav class="cc1689c cd9b445 c75065d c04bab1" aria-label=Main><a href=/ class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Home</a>
+<a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">About</a>
+<a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Timeline</a>
+<a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Reading</a>
+<a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Publications</a>
+<a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Contact</a></nav><button id="i1d73d4" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 c097fa1 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" onclick=toggleTheme(this) aria-label="Toggle theme" aria-pressed=false title="Toggle theme">
+<svg class="cb26e41 c50ceea cb69a5c c4f45c8 c8c2c40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="cb26e41 c8fca2b cb69a5c c4f45c8 cc1689c c9c27ff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M6.34 17.66l2.83-2.83"/><path d="M14.83 9.17l2.83-2.83"/></svg>
+<span class="cba5854">Toggle theme</span></button><div class="c658bcf c097fa1"><button id="i975fb5" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" aria-label="Open menu" aria-controls="i98aca2" aria-expanded=false onclick='window.__openMobileMenu("button")' data-d38f920=mobile_menu_open_click>
+<svg class="c20e4eb cb58471" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<span class="cba5854">Open menu</span></button></div></div></div></header><div id="iad2af0" class="caffa6e ce4b5f4 c14639a" style=background-color:hsl(var(--background)) hidden onclick='window.__closeMobileMenu("overlay")' data-d38f920=mobile_menu_overlay_click></div><aside id="i98aca2" class="caffa6e c9efbc5 c437fa9 c49e97e c6c6936 c7cacca c7b34a4 c787e9b c88daee cad071a c6942b3 c03620d" role=dialog aria-modal=true aria-hidden=true aria-label="Mobile navigation" style="transform:translateX(100%);transition:transform 200ms ease-out;will-change:transform"><div class="c6942b3 c7c11d8 c82c52d c5df473 ccf47f4 c9ee25d"><a href=/ class="c6942b3 c7c11d8 c1838fa" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=24 height=24 class="c20e4eb cb58471">
+<span class="c62aaf0 c7c1b66 cbd72bc">Leonardo Benicio</span>
+</a><button id="i190984" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c514027 c286dd7 c2bd687 cfdce1d" aria-label="Close menu" onclick='window.__closeMobileMenu("button")' data-d38f920=mobile_menu_close_click>
+<svg class="c16e528 c61f467" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<span class="cba5854">Close</span></button></div><nav class="c85cbd4 ca0eaa4 c5df473 c6689b9"><ul class="cd69733"><li><a href=/ class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Home</a></li><li><a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>About</a></li><li><a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Timeline</a></li><li><a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Reading</a></li><li><a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Publications</a></li><li><a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Contact</a></li></ul></nav><div class="c60a4cc ccdf0e8 c277478 c13044e"><p>&copy; 2026 Leonardo Benicio</p></div></aside><div class="caffa6e c437fa9 ce9aced c97bba6 c15da2a c975cba" role=complementary aria-label="GitHub repository"><div class="c9d056d c252f85 ca22532 ca88a1a c876315"><div class="c6942b3 c7c11d8 c1d0018 cd1fd22 c6066e4 c43876e ce3d5b6 caa20d2 c3ecea6 c0cd2e2 cddc2d2 c3ed5c9 cd4074c c876315"><a href=https://github.com/lbenicio/aboutme target=_blank rel="noopener noreferrer" class="c6942b3 c7c11d8 cd1fd22 c71bae8 cfac1ac c19ee42 c25dc7c cb40739 cbbda39 cf55a7b" aria-label="View source on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cb26e41 c41bcd4 cf17690 cfa4e34 c78d562" aria-hidden="true"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+<span class="cb5c327 cd7e69e">Fork me</span></a></div></div></div><main id="i7eccc0" class="cfdda01 c5df473 c0eecc8 c85cbd4" role=main aria-label=Content><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">CPU Caches and Memory Hierarchy the Hidden Architecture Behind Performance</span></li></ol></nav><article class="c461ba0 c1c203f cfb6084 c995404 c6ca165"><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">CPU Caches and Memory Hierarchy the Hidden Architecture Behind Performance</span></li></ol></nav><header class="c8aedc7"><h1 class="cf304bc c6fb0fe cf8f011 cc484e1">CPU Caches and Memory Hierarchy: The Hidden Architecture Behind Performance</h1><div class="c277478 c3ecea6 c8fb24a">2021-06-22
+· Leonardo Benicio</div><div class="c1a1a3f c8124f2"><img src=/static/assets/images/blog/cpu-cache-memory-hierarchy-performance.png alt class="cfdda01 c524300 c677556"></div><p class="lead c3ecea6">A deep exploration of CPU cache architecture, from L1 to L3 caches, cache lines, associativity, replacement policies, and cache coherence. Learn how memory hierarchy shapes modern software performance.</p></header><div class="content"><p>The gap between processor speed and memory speed is one of the defining challenges of modern computing. While CPUs can execute billions of operations per second, main memory takes hundreds of cycles to respond to a single request. CPU caches bridge this gap through a hierarchy of progressively larger and slower memories that exploit the patterns in how programs access data. Understanding cache behavior transforms how you think about algorithm design, data structure layout, and system performance.</p><h2 id="1-the-memory-wall-problem">1. The Memory Wall Problem</h2><p>Why caches exist and what problem they solve.</p><h3 id="11-the-speed-gap">1.1 The Speed Gap</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Historical perspective on the CPU-memory gap:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Year    CPU Clock    DRAM Latency    Gap (cycles to access memory)
+</span></span><span style=display:flex><span>1980    10 MHz       200 ns          2 cycles
+</span></span><span style=display:flex><span>1990    50 MHz       100 ns          5 cycles
+</span></span><span style=display:flex><span>2000    1 GHz        50 ns           50 cycles
+</span></span><span style=display:flex><span>2010    3 GHz        40 ns           120 cycles
+</span></span><span style=display:flex><span>2020    4 GHz        30 ns           120-150 cycles
+</span></span><span style=display:flex><span>2024    5+ GHz       20-30 ns        100-150+ cycles
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>The problem:
+</span></span><span style=display:flex><span>- CPU speed improved ~1000x since 1980
+</span></span><span style=display:flex><span>- Memory latency improved only ~10x
+</span></span><span style=display:flex><span>- Without caches: CPU would wait 100+ cycles per memory access
+</span></span><span style=display:flex><span>- Most programs would run 10-100x slower
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cache solution:
+</span></span><span style=display:flex><span>- Small, fast memory close to CPU
+</span></span><span style=display:flex><span>- Stores recently used data
+</span></span><span style=display:flex><span>- 90%+ of accesses hit cache (1-10 cycles)
+</span></span><span style=display:flex><span>- Only cache misses pay full memory latency
+</span></span></code></pre></div><h3 id="12-locality-of-reference">1.2 Locality of Reference</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Why caches work - programs have predictable access patterns:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Temporal locality:
+</span></span><span style=display:flex><span>- Recently accessed data likely to be accessed again soon
+</span></span><span style=display:flex><span>- Example: Loop variables, function parameters
+</span></span><span style=display:flex><span>- Cache keeps recently used data
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>for (int i = 0; i &lt; 1000; i++) {
+</span></span><span style=display:flex><span>    sum += array[i];  // &#39;sum&#39; and &#39;i&#39; accessed repeatedly
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Spatial locality:
+</span></span><span style=display:flex><span>- Nearby data likely to be accessed together
+</span></span><span style=display:flex><span>- Example: Array elements, struct fields
+</span></span><span style=display:flex><span>- Cache fetches whole cache lines (64 bytes typically)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>for (int i = 0; i &lt; 1000; i++) {
+</span></span><span style=display:flex><span>    process(array[i]);  // Sequential access pattern
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Working set:
+</span></span><span style=display:flex><span>- Data actively used by program at any time
+</span></span><span style=display:flex><span>- If working set fits in cache: excellent performance
+</span></span><span style=display:flex><span>- If not: cache thrashing, poor performance
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Time →                                                 │
+</span></span><span style=display:flex><span>│  ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐                    │
+</span></span><span style=display:flex><span>│  │ A  │ │ A  │ │ B  │ │ A  │ │ B  │  Temporal locality │
+</span></span><span style=display:flex><span>│  └────┘ └────┘ └────┘ └────┘ └────┘                    │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Memory addresses:                                      │
+</span></span><span style=display:flex><span>│  ├───┼───┼───┼───┼───┤                                 │
+</span></span><span style=display:flex><span>│  100 104 108 112 116                                   │
+</span></span><span style=display:flex><span>│   ▲   ▲   ▲   ▲   ▲                                    │
+</span></span><span style=display:flex><span>│   │   │   │   │   │    Sequential = spatial locality   │
+</span></span><span style=display:flex><span>│   └───┴───┴───┴───┘                                    │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="13-the-memory-hierarchy">1.3 The Memory Hierarchy</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Modern memory hierarchy (typical desktop/server):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    Capacity    Latency      Bandwidth
+</span></span><span style=display:flex><span>┌─────────────┐
+</span></span><span style=display:flex><span>│  Registers  │     ~1 KB      0 cycles     Unlimited
+</span></span><span style=display:flex><span>└──────┬──────┘
+</span></span><span style=display:flex><span>       │
+</span></span><span style=display:flex><span>┌──────▼──────┐
+</span></span><span style=display:flex><span>│   L1 Cache  │     32-64 KB   3-4 cycles   ~1 TB/s
+</span></span><span style=display:flex><span>│  (per core) │     (split I/D)
+</span></span><span style=display:flex><span>└──────┬──────┘
+</span></span><span style=display:flex><span>       │
+</span></span><span style=display:flex><span>┌──────▼──────┐
+</span></span><span style=display:flex><span>│   L2 Cache  │     256 KB-1MB 10-12 cycles ~500 GB/s
+</span></span><span style=display:flex><span>│  (per core) │
+</span></span><span style=display:flex><span>└──────┬──────┘
+</span></span><span style=display:flex><span>       │
+</span></span><span style=display:flex><span>┌──────▼──────┐
+</span></span><span style=display:flex><span>│   L3 Cache  │     8-64 MB    30-50 cycles ~200 GB/s
+</span></span><span style=display:flex><span>│   (shared)  │
+</span></span><span style=display:flex><span>└──────┬──────┘
+</span></span><span style=display:flex><span>       │
+</span></span><span style=display:flex><span>┌──────▼──────┐
+</span></span><span style=display:flex><span>│  Main Memory│     16-256 GB  100-150 cyc  ~50 GB/s
+</span></span><span style=display:flex><span>│    (DRAM)   │
+</span></span><span style=display:flex><span>└──────┬──────┘
+</span></span><span style=display:flex><span>       │
+</span></span><span style=display:flex><span>┌──────▼──────┐
+</span></span><span style=display:flex><span>│   Storage   │     TB-PB      10⁵-10⁷ cyc  ~5 GB/s (NVMe)
+</span></span><span style=display:flex><span>│  (SSD/HDD)  │
+</span></span><span style=display:flex><span>└─────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Each level: ~10x larger, ~3-10x slower
+</span></span><span style=display:flex><span>Goal: Make memory appear as fast as L1, as large as disk
+</span></span></code></pre></div><h2 id="2-cache-organization">2. Cache Organization</h2><p>How caches are structured internally.</p><h3 id="21-cache-lines">2.1 Cache Lines</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>The fundamental unit of cache storage:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cache line (typically 64 bytes):
+</span></span><span style=display:flex><span>┌────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  64 bytes of contiguous memory                         │
+</span></span><span style=display:flex><span>│  Address: 0x1000 - 0x103F                              │
+</span></span><span style=display:flex><span>│                                                        │
+</span></span><span style=display:flex><span>│  ┌──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┐    │
+</span></span><span style=display:flex><span>│  │B0│B1│B2│B3│B4│B5│B6│...                  │B63│    │
+</span></span><span style=display:flex><span>│  └──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┘    │
+</span></span><span style=display:flex><span>└────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>When you access one byte, entire 64-byte line is fetched:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>int array[16];  // 64 bytes = 1 cache line
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// This loop touches 1 cache line
+</span></span><span style=display:flex><span>for (int i = 0; i &lt; 16; i++) {
+</span></span><span style=display:flex><span>    sum += array[i];
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// First access: cache miss, fetch entire line
+</span></span><span style=display:flex><span>// Remaining 15 accesses: cache hits!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Address decomposition (example: 32KB L1, 8-way, 64-byte lines):
+</span></span><span style=display:flex><span>┌─────────────────┬──────────┬────────────┐
+</span></span><span style=display:flex><span>│      Tag        │   Index  │   Offset   │
+</span></span><span style=display:flex><span>│   (remaining)   │  (6 bits)│  (6 bits)  │
+</span></span><span style=display:flex><span>└─────────────────┴──────────┴────────────┘
+</span></span><span style=display:flex><span>                      64         64 bytes
+</span></span><span style=display:flex><span>                     sets       per line
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Offset: Which byte within the cache line (log₂(64) = 6 bits)
+</span></span><span style=display:flex><span>Index: Which cache set (log₂(sets) bits)
+</span></span><span style=display:flex><span>Tag: Remaining bits to identify specific memory address
+</span></span></code></pre></div><h3 id="22-cache-associativity">2.2 Cache Associativity</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>How cache lines are organized into sets:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Direct-mapped (1-way associative):
+</span></span><span style=display:flex><span>┌────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Each memory address maps to exactly one cache line    │
+</span></span><span style=display:flex><span>│                                                        │
+</span></span><span style=display:flex><span>│  Set 0: [Line] ← Address 0x000, 0x100, 0x200 all map  │
+</span></span><span style=display:flex><span>│  Set 1: [Line]   here → conflicts!                     │
+</span></span><span style=display:flex><span>│  Set 2: [Line]                                         │
+</span></span><span style=display:flex><span>│  ...                                                   │
+</span></span><span style=display:flex><span>│                                                        │
+</span></span><span style=display:flex><span>│  Problem: Conflict misses when 2 addresses map to      │
+</span></span><span style=display:flex><span>│  same line and are accessed alternately                │
+</span></span><span style=display:flex><span>└────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>N-way set associative:
+</span></span><span style=display:flex><span>┌────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Each address can go in any of N lines in a set       │
+</span></span><span style=display:flex><span>│                                                        │
+</span></span><span style=display:flex><span>│  8-way set associative (typical L1):                  │
+</span></span><span style=display:flex><span>│  Set 0: [L][L][L][L][L][L][L][L]  ← 8 choices         │
+</span></span><span style=display:flex><span>│  Set 1: [L][L][L][L][L][L][L][L]                      │
+</span></span><span style=display:flex><span>│  Set 2: [L][L][L][L][L][L][L][L]                      │
+</span></span><span style=display:flex><span>│  ...                                                   │
+</span></span><span style=display:flex><span>│                                                        │
+</span></span><span style=display:flex><span>│  Reduces conflict misses, but requires comparing       │
+</span></span><span style=display:flex><span>│  multiple tags in parallel                             │
+</span></span><span style=display:flex><span>└────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Fully associative:
+</span></span><span style=display:flex><span>┌────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Any address can go anywhere                           │
+</span></span><span style=display:flex><span>│  [L][L][L][L][L][L][L][L][L][L][L][L]...              │
+</span></span><span style=display:flex><span>│                                                        │
+</span></span><span style=display:flex><span>│  Best hit rate, but expensive:                         │
+</span></span><span style=display:flex><span>│  - Must compare tag against ALL lines                  │
+</span></span><span style=display:flex><span>│  - Used for small caches (TLB, victim cache)          │
+</span></span><span style=display:flex><span>└────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Trade-offs:
+</span></span><span style=display:flex><span>             │ Direct │ 4-way │ 8-way │ Full
+</span></span><span style=display:flex><span>─────────────┼────────┼───────┼───────┼──────
+</span></span><span style=display:flex><span>Hit rate     │  Low   │ Good  │ Better│ Best
+</span></span><span style=display:flex><span>Complexity   │  Low   │ Medium│ Medium│ High
+</span></span><span style=display:flex><span>Power        │  Low   │ Medium│ Medium│ High
+</span></span><span style=display:flex><span>Latency      │  Low   │ Low   │ Low   │ High
+</span></span></code></pre></div><h3 id="23-cache-parameters-example">2.3 Cache Parameters Example</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Intel Core i7 (typical):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>L1 Data Cache (per core):
+</span></span><span style=display:flex><span>- Size: 32 KB
+</span></span><span style=display:flex><span>- Associativity: 8-way
+</span></span><span style=display:flex><span>- Line size: 64 bytes
+</span></span><span style=display:flex><span>- Sets: 32KB / (8 ways × 64 bytes) = 64 sets
+</span></span><span style=display:flex><span>- Latency: 4 cycles
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>L1 Instruction Cache (per core):
+</span></span><span style=display:flex><span>- Size: 32 KB
+</span></span><span style=display:flex><span>- Associativity: 8-way
+</span></span><span style=display:flex><span>- Line size: 64 bytes
+</span></span><span style=display:flex><span>- Latency: 4 cycles
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>L2 Cache (per core):
+</span></span><span style=display:flex><span>- Size: 256 KB
+</span></span><span style=display:flex><span>- Associativity: 4-way
+</span></span><span style=display:flex><span>- Line size: 64 bytes
+</span></span><span style=display:flex><span>- Sets: 256KB / (4 × 64) = 1024 sets
+</span></span><span style=display:flex><span>- Latency: 12 cycles
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>L3 Cache (shared):
+</span></span><span style=display:flex><span>- Size: 8-32 MB
+</span></span><span style=display:flex><span>- Associativity: 16-way
+</span></span><span style=display:flex><span>- Line size: 64 bytes
+</span></span><span style=display:flex><span>- Latency: 40-50 cycles
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>View your CPU&#39;s cache:
+</span></span><span style=display:flex><span>$ lscpu | grep -i cache
+</span></span><span style=display:flex><span>$ cat /sys/devices/system/cpu/cpu0/cache/index0/size
+</span></span><span style=display:flex><span>$ getconf -a | grep CACHE
+</span></span></code></pre></div><h2 id="3-cache-operations">3. Cache Operations</h2><p>What happens on reads and writes.</p><h3 id="31-cache-hits-and-misses">3.1 Cache Hits and Misses</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Read hit:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  CPU requests address 0x1234                            │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  1. Extract index and tag from address                 │
+</span></span><span style=display:flex><span>│  2. Look up set using index                            │
+</span></span><span style=display:flex><span>│  3. Compare tag with all tags in set                   │
+</span></span><span style=display:flex><span>│  4. Tag match found! → Return data                     │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Time: 3-4 cycles (L1)                                 │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Read miss:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  CPU requests address 0x5678                            │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  1. Look up in L1 → Miss                               │
+</span></span><span style=display:flex><span>│  2. Look up in L2 → Miss                               │
+</span></span><span style=display:flex><span>│  3. Look up in L3 → Miss                               │
+</span></span><span style=display:flex><span>│  4. Fetch from memory (100+ cycles)                    │
+</span></span><span style=display:flex><span>│  5. Install in L3, L2, L1                              │
+</span></span><span style=display:flex><span>│  6. Return data to CPU                                 │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Time: 100-150+ cycles                                 │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Types of cache misses:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Compulsory (cold) miss:
+</span></span><span style=display:flex><span>- First access to data, never been in cache
+</span></span><span style=display:flex><span>- Unavoidable (except by prefetching)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Capacity miss:
+</span></span><span style=display:flex><span>- Working set larger than cache
+</span></span><span style=display:flex><span>- Data was evicted to make room for other data
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Conflict miss:
+</span></span><span style=display:flex><span>- Two addresses map to same cache set
+</span></span><span style=display:flex><span>- Thrashing between them evicts each other
+</span></span><span style=display:flex><span>- Avoided by higher associativity
+</span></span></code></pre></div><h3 id="32-write-policies">3.2 Write Policies</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Write-through:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Write goes to both cache AND memory immediately       │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  CPU writes 0x42 to address 0x1000                     │
+</span></span><span style=display:flex><span>│  ├─► Update cache line                                 │
+</span></span><span style=display:flex><span>│  └─► Write to memory (or write buffer)                 │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Pros: Memory always up-to-date, simple                │
+</span></span><span style=display:flex><span>│  Cons: Slow (every write hits memory)                  │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Used in: Some L1 caches, embedded systems             │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Write-back:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Write only updates cache, memory updated later        │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  CPU writes 0x42 to address 0x1000                     │
+</span></span><span style=display:flex><span>│  ├─► Update cache line                                 │
+</span></span><span style=display:flex><span>│  └─► Mark line as &#34;dirty&#34;                              │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  On eviction (if dirty):                               │
+</span></span><span style=display:flex><span>│  └─► Write entire line back to memory                  │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Pros: Fast writes, less memory traffic                │
+</span></span><span style=display:flex><span>│  Cons: Complex, memory may be stale                    │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Used in: Most L1/L2/L3 caches                         │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Write-allocate vs no-write-allocate:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Write-allocate (write miss → fetch line, then write):
+</span></span><span style=display:flex><span>- Good for subsequent reads/writes to same line
+</span></span><span style=display:flex><span>- Used with write-back
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>No-write-allocate (write miss → write directly to memory):
+</span></span><span style=display:flex><span>- Good for write-once data
+</span></span><span style=display:flex><span>- Used with write-through
+</span></span></code></pre></div><h3 id="33-replacement-policies">3.3 Replacement Policies</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>When cache set is full, which line to evict?
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>LRU (Least Recently Used):
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Track access order, evict oldest                       │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Access sequence: A, B, C, D, A, E                     │
+</span></span><span style=display:flex><span>│  4-way set, all full, need to add E                    │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Before: [A:2] [B:1] [C:0] [D:3]  (numbers = recency)  │
+</span></span><span style=display:flex><span>│  A accessed: [A:3] [B:1] [C:0] [D:2]                   │
+</span></span><span style=display:flex><span>│  Evict C (oldest): [A:3] [B:1] [E:4] [D:2]            │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Pros: Good hit rate                                   │
+</span></span><span style=display:flex><span>│  Cons: Expensive to track exactly                      │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Pseudo-LRU:
+</span></span><span style=display:flex><span>- Approximate LRU with less state
+</span></span><span style=display:flex><span>- Tree-based or bit-based tracking
+</span></span><span style=display:flex><span>- Most L1/L2 caches use this
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Random:
+</span></span><span style=display:flex><span>- Simple, no tracking needed
+</span></span><span style=display:flex><span>- Surprisingly effective for larger caches
+</span></span><span style=display:flex><span>- Sometimes used in L3
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>RRIP (Re-Reference Interval Prediction):
+</span></span><span style=display:flex><span>- Modern policy, predicts re-use distance
+</span></span><span style=display:flex><span>- Handles scan patterns better than LRU
+</span></span><span style=display:flex><span>- Used in recent Intel CPUs
+</span></span></code></pre></div><h2 id="4-cache-coherence">4. Cache Coherence</h2><p>Keeping multiple caches consistent in multicore systems.</p><h3 id="41-the-coherence-problem">4.1 The Coherence Problem</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Multiple cores, each with private caches:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Core 0              Core 1              Core 2
+</span></span><span style=display:flex><span>┌────────┐         ┌────────┐          ┌────────┐
+</span></span><span style=display:flex><span>│  L1    │         │  L1    │          │  L1    │
+</span></span><span style=display:flex><span>│ X = 5  │         │ X = 5  │          │ X = ?  │
+</span></span><span style=display:flex><span>└────┬───┘         └────┬───┘          └────┬───┘
+</span></span><span style=display:flex><span>     │                  │                   │
+</span></span><span style=display:flex><span>     └──────────────────┼───────────────────┘
+</span></span><span style=display:flex><span>                        │
+</span></span><span style=display:flex><span>                   ┌────▼────┐
+</span></span><span style=display:flex><span>                   │   L3    │
+</span></span><span style=display:flex><span>                   │ (shared)│
+</span></span><span style=display:flex><span>                   └────┬────┘
+</span></span><span style=display:flex><span>                        │
+</span></span><span style=display:flex><span>                   ┌────▼────┐
+</span></span><span style=display:flex><span>                   │  Memory │
+</span></span><span style=display:flex><span>                   │  X = 5  │
+</span></span><span style=display:flex><span>                   └─────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem scenario:
+</span></span><span style=display:flex><span>1. Core 0 reads X = 5 (cached in L1)
+</span></span><span style=display:flex><span>2. Core 1 reads X = 5 (cached in L1)
+</span></span><span style=display:flex><span>3. Core 0 writes X = 10 (only updates own L1!)
+</span></span><span style=display:flex><span>4. Core 1 reads X → Gets stale value 5!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>This is the cache coherence problem.
+</span></span></code></pre></div><h3 id="42-mesi-protocol">4.2 MESI Protocol</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>MESI: Cache line states for coherence
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌────────────┬───────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│   State    │   Meaning                                  │
+</span></span><span style=display:flex><span>├────────────┼───────────────────────────────────────────┤
+</span></span><span style=display:flex><span>│ Modified   │ Line is dirty, only copy, must write back│
+</span></span><span style=display:flex><span>│ Exclusive  │ Line is clean, only copy, can modify     │
+</span></span><span style=display:flex><span>│ Shared     │ Line is clean, other copies may exist    │
+</span></span><span style=display:flex><span>│ Invalid    │ Line is not valid, must fetch            │
+</span></span><span style=display:flex><span>└────────────┴───────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>State transitions:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Read by Core 0 (line not in any cache):
+</span></span><span style=display:flex><span>Memory → Core 0 (Exclusive)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Read by Core 1 (line Exclusive in Core 0):
+</span></span><span style=display:flex><span>Core 0 (Exclusive → Shared), Core 1 (Shared)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Write by Core 0 (line Shared):
+</span></span><span style=display:flex><span>Core 0 (Shared → Modified)
+</span></span><span style=display:flex><span>Core 1 (Shared → Invalid)  ← Invalidation message!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Write by Core 0 (line Modified in Core 1):
+</span></span><span style=display:flex><span>Core 1 writes back to memory (Modified → Invalid)
+</span></span><span style=display:flex><span>Core 0 fetches and modifies (→ Modified)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>┌──────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│              MESI State Diagram                          │
+</span></span><span style=display:flex><span>│                                                          │
+</span></span><span style=display:flex><span>│              ┌─────────┐                                 │
+</span></span><span style=display:flex><span>│              │ Invalid │◄────────────────────────┐      │
+</span></span><span style=display:flex><span>│              └────┬────┘                         │      │
+</span></span><span style=display:flex><span>│      Read miss    │                     Other    │      │
+</span></span><span style=display:flex><span>│      (exclusive)  │                     writes   │      │
+</span></span><span style=display:flex><span>│                   ▼                              │      │
+</span></span><span style=display:flex><span>│              ┌─────────┐      Read by           │      │
+</span></span><span style=display:flex><span>│        ┌────►│Exclusive│──────other────►┌───────┴──┐   │
+</span></span><span style=display:flex><span>│        │     └────┬────┘      core      │  Shared  │   │
+</span></span><span style=display:flex><span>│        │          │                      └────┬─────┘   │
+</span></span><span style=display:flex><span>│        │   Local  │                           │        │
+</span></span><span style=display:flex><span>│        │   write  │                      Local│        │
+</span></span><span style=display:flex><span>│        │          ▼                      write│        │
+</span></span><span style=display:flex><span>│        │     ┌─────────┐                      │        │
+</span></span><span style=display:flex><span>│        └─────┤Modified │◄─────────────────────┘        │
+</span></span><span style=display:flex><span>│   Eviction   └─────────┘                               │
+</span></span><span style=display:flex><span>│   (write back)                                          │
+</span></span><span style=display:flex><span>└──────────────────────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="43-cache-coherence-traffic">4.3 Cache Coherence Traffic</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Coherence has performance implications:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>False sharing:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Two cores write to different variables, same line      │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  struct { int counter0; int counter1; } counters;      │
+</span></span><span style=display:flex><span>│  // Both fit in one 64-byte cache line!                │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Core 0: counter0++  → Invalidates entire line         │
+</span></span><span style=display:flex><span>│  Core 1: counter1++  → Must fetch line, invalidates    │
+</span></span><span style=display:flex><span>│  Core 0: counter0++  → Must fetch line, invalidates    │
+</span></span><span style=display:flex><span>│  ...ping-pong continues...                             │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Solution: Pad to separate cache lines                 │
+</span></span><span style=display:flex><span>│  struct alignas(64) { int counter; char pad[60]; };    │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Coherence bandwidth:
+</span></span><span style=display:flex><span>- Invalidation messages consume interconnect bandwidth
+</span></span><span style=display:flex><span>- Write-heavy workloads generate traffic
+</span></span><span style=display:flex><span>- Monitor with perf: cache coherence events
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Snoop traffic:
+</span></span><span style=display:flex><span>- Every cache monitors (snoops) bus for relevant addresses
+</span></span><span style=display:flex><span>- Scales poorly with core count
+</span></span><span style=display:flex><span>- Modern CPUs use directory-based coherence for L3
+</span></span></code></pre></div><h3 id="44-memory-ordering-and-barriers">4.4 Memory Ordering and Barriers</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Caches complicate memory ordering:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CPU reordering:
+</span></span><span style=display:flex><span>- CPUs may reorder memory operations for performance
+</span></span><span style=display:flex><span>- Writes may appear out-of-order to other cores
+</span></span><span style=display:flex><span>- Store buffers delay visibility of writes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example problem:
+</span></span><span style=display:flex><span>// Initially: x = 0, y = 0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Core 0:              Core 1:
+</span></span><span style=display:flex><span>x = 1;               y = 1;
+</span></span><span style=display:flex><span>r0 = y;              r1 = x;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Possible result: r0 = 0, r1 = 0!
+</span></span><span style=display:flex><span>// Both reads happened before either write became visible
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Memory barriers force ordering:
+</span></span><span style=display:flex><span>x = 1;
+</span></span><span style=display:flex><span>__sync_synchronize();  // Full barrier
+</span></span><span style=display:flex><span>r0 = y;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Now: x = 1 is visible before reading y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Barrier types:
+</span></span><span style=display:flex><span>- Load barrier: Previous loads complete before following loads
+</span></span><span style=display:flex><span>- Store barrier: Previous stores complete before following stores
+</span></span><span style=display:flex><span>- Full barrier: All operations complete before crossing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>C11/C++11 memory model:
+</span></span><span style=display:flex><span>std::atomic&lt;int&gt; x;
+</span></span><span style=display:flex><span>x.store(1, std::memory_order_release);  // Release barrier
+</span></span><span style=display:flex><span>r = x.load(std::memory_order_acquire);  // Acquire barrier
+</span></span></code></pre></div><h2 id="5-performance-implications">5. Performance Implications</h2><p>How cache behavior affects real code.</p><h3 id="51-cache-friendly-code">5.1 Cache-Friendly Code</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Good: Sequential access pattern
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  // Row-major order (C layout)                          │
+</span></span><span style=display:flex><span>│  int matrix[1000][1000];                               │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  // Cache-friendly: sequential in memory               │
+</span></span><span style=display:flex><span>│  for (int i = 0; i &lt; 1000; i++)                        │
+</span></span><span style=display:flex><span>│      for (int j = 0; j &lt; 1000; j++)                    │
+</span></span><span style=display:flex><span>│          sum += matrix[i][j];                          │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Memory layout: [0,0][0,1][0,2]...[0,999][1,0][1,1]... │
+</span></span><span style=display:flex><span>│  Access pattern matches layout → excellent locality    │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Bad: Strided access pattern
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  // Column-major access in row-major array             │
+</span></span><span style=display:flex><span>│  for (int j = 0; j &lt; 1000; j++)                        │
+</span></span><span style=display:flex><span>│      for (int i = 0; i &lt; 1000; i++)                    │
+</span></span><span style=display:flex><span>│          sum += matrix[i][j];                          │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Access: [0,0] then [1,0] (4000 bytes apart!)          │
+</span></span><span style=display:flex><span>│  Each access likely a cache miss                       │
+</span></span><span style=display:flex><span>│  Can be 10-100x slower than row-major traversal        │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Performance comparison (typical):
+</span></span><span style=display:flex><span>Pattern              │ L1 hits  │ Cycles/element
+</span></span><span style=display:flex><span>─────────────────────┼──────────┼───────────────
+</span></span><span style=display:flex><span>Sequential           │  97%     │  ~1
+</span></span><span style=display:flex><span>Stride 16 bytes      │  75%     │  ~3
+</span></span><span style=display:flex><span>Stride 64 bytes      │  25%     │  ~10
+</span></span><span style=display:flex><span>Stride 4096 bytes    │  ~0%     │  ~50+
+</span></span><span style=display:flex><span>Random               │  ~0%     │  ~100+
+</span></span></code></pre></div><h3 id="52-data-structure-layout">5.2 Data Structure Layout</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Array of Structures (AoS) vs Structure of Arrays (SoA):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>AoS (traditional):
+</span></span><span style=display:flex><span>struct Particle {
+</span></span><span style=display:flex><span>    float x, y, z;      // Position: 12 bytes
+</span></span><span style=display:flex><span>    float vx, vy, vz;   // Velocity: 12 bytes
+</span></span><span style=display:flex><span>    float mass;         // Mass: 4 bytes
+</span></span><span style=display:flex><span>    int id;             // ID: 4 bytes
+</span></span><span style=display:flex><span>};                      // Total: 32 bytes
+</span></span><span style=display:flex><span>Particle particles[1000];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Processing positions loads velocity, mass, id too
+</span></span><span style=display:flex><span>for (int i = 0; i &lt; 1000; i++) {
+</span></span><span style=display:flex><span>    particles[i].x += dt * particles[i].vx;
+</span></span><span style=display:flex><span>    // Cache line contains: x,y,z,vx,vy,vz,mass,id
+</span></span><span style=display:flex><span>    // Only using x and vx = 25% utilization
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SoA (cache-friendly for specific operations):
+</span></span><span style=display:flex><span>struct Particles {
+</span></span><span style=display:flex><span>    float x[1000];
+</span></span><span style=display:flex><span>    float y[1000];
+</span></span><span style=display:flex><span>    float z[1000];
+</span></span><span style=display:flex><span>    float vx[1000];
+</span></span><span style=display:flex><span>    float vy[1000];
+</span></span><span style=display:flex><span>    float vz[1000];
+</span></span><span style=display:flex><span>    float mass[1000];
+</span></span><span style=display:flex><span>    int id[1000];
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Now position update only loads positions and velocities
+</span></span><span style=display:flex><span>for (int i = 0; i &lt; 1000; i++) {
+</span></span><span style=display:flex><span>    particles.x[i] += dt * particles.vx[i];
+</span></span><span style=display:flex><span>    // Cache lines contain: only x values (or only vx values)
+</span></span><span style=display:flex><span>    // 100% utilization for this operation
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Hybrid AoSoA:
+</span></span><span style=display:flex><span>struct ParticleBlock {
+</span></span><span style=display:flex><span>    float x[8], y[8], z[8];     // 8 particles&#39; positions
+</span></span><span style=display:flex><span>    float vx[8], vy[8], vz[8];  // 8 particles&#39; velocities
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>// Balances locality with SIMD-friendly layout
+</span></span></code></pre></div><h3 id="53-cache-blocking-tiling">5.3 Cache Blocking (Tiling)</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Matrix multiplication without blocking:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Naive: terrible cache performance for large matrices
+</span></span><span style=display:flex><span>for (int i = 0; i &lt; N; i++)
+</span></span><span style=display:flex><span>    for (int j = 0; j &lt; N; j++)
+</span></span><span style=display:flex><span>        for (int k = 0; k &lt; N; k++)
+</span></span><span style=display:flex><span>            C[i][j] += A[i][k] * B[k][j];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// B accessed column-wise → cache misses
+</span></span><span style=display:flex><span>// For 1000x1000 matrix: ~1 billion cache misses!
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>With cache blocking:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  #define BLOCK 64  // Fits in L1 cache                 │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  for (int i0 = 0; i0 &lt; N; i0 += BLOCK)                 │
+</span></span><span style=display:flex><span>│    for (int j0 = 0; j0 &lt; N; j0 += BLOCK)               │
+</span></span><span style=display:flex><span>│      for (int k0 = 0; k0 &lt; N; k0 += BLOCK)             │
+</span></span><span style=display:flex><span>│        // Process BLOCK × BLOCK submatrices            │
+</span></span><span style=display:flex><span>│        for (int i = i0; i &lt; min(i0+BLOCK, N); i++)     │
+</span></span><span style=display:flex><span>│          for (int j = j0; j &lt; min(j0+BLOCK, N); j++)   │
+</span></span><span style=display:flex><span>│            for (int k = k0; k &lt; min(k0+BLOCK, N); k++) │
+</span></span><span style=display:flex><span>│              C[i][j] += A[i][k] * B[k][j];             │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Why it works:
+</span></span><span style=display:flex><span>- Submatrices fit in cache
+</span></span><span style=display:flex><span>- Process entire block before moving on
+</span></span><span style=display:flex><span>- Reuse cached data maximally
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Performance improvement: Often 5-10x for large matrices
+</span></span></code></pre></div><h3 id="54-prefetching">5.4 Prefetching</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Hardware prefetching:
+</span></span><span style=display:flex><span>- CPU detects sequential access patterns
+</span></span><span style=display:flex><span>- Fetches next cache lines before needed
+</span></span><span style=display:flex><span>- Works great for arrays, fails for pointer chasing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Software prefetching:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  // Prefetch hint for future access                    │
+</span></span><span style=display:flex><span>│  for (int i = 0; i &lt; N; i++) {                         │
+</span></span><span style=display:flex><span>│      __builtin_prefetch(&amp;data[i + 16], 0, 3);         │
+</span></span><span style=display:flex><span>│      // 0 = read, 3 = high temporal locality           │
+</span></span><span style=display:flex><span>│      process(data[i]);                                 │
+</span></span><span style=display:flex><span>│  }                                                     │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  // Or with intrinsics                                 │
+</span></span><span style=display:flex><span>│  _mm_prefetch(&amp;data[i + 16], _MM_HINT_T0);            │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>When software prefetch helps:
+</span></span><span style=display:flex><span>- Irregular access patterns (linked lists, trees)
+</span></span><span style=display:flex><span>- Known future access (graph algorithms)
+</span></span><span style=display:flex><span>- Latency hiding in compute-bound code
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>When it hurts:
+</span></span><span style=display:flex><span>- Already in cache (wasted bandwidth)
+</span></span><span style=display:flex><span>- Too late (data needed immediately)
+</span></span><span style=display:flex><span>- Too early (evicted before use)
+</span></span><span style=display:flex><span>- Too many prefetches (cache pollution)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Prefetch distance = memory_latency / time_per_iteration
+</span></span><span style=display:flex><span>Example: 200 cycles latency, 10 cycles/iter → prefetch 20 ahead
+</span></span></code></pre></div><h2 id="6-measuring-cache-performance">6. Measuring Cache Performance</h2><p>Tools and techniques for cache analysis.</p><h3 id="61-performance-counters">6.1 Performance Counters</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Linux perf for cache statistics</span>
+</span></span><span style=display:flex><span>perf stat -e cache-references,cache-misses,L1-dcache-loads,<span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span>L1-dcache-load-misses,LLC-loads,LLC-load-misses ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Example output:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 1,234,567 cache-references</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   123,456 cache-misses              #    10% of all refs</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 5,678,901 L1-dcache-loads</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   234,567 L1-dcache-load-misses     #     4.1% of all L1 loads</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   345,678 LLC-loads</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#    34,567 LLC-load-misses           #    10% of all LLC loads</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Record and analyze</span>
+</span></span><span style=display:flex><span>perf record -e cache-misses ./program
+</span></span><span style=display:flex><span>perf report
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Compare implementations</span>
+</span></span><span style=display:flex><span>perf stat -e cycles,L1-dcache-load-misses ./version1
+</span></span><span style=display:flex><span>perf stat -e cycles,L1-dcache-load-misses ./version2
+</span></span></code></pre></div><h3 id="62-cachegrind">6.2 Cachegrind</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Valgrind&#39;s cache simulator</span>
+</span></span><span style=display:flex><span>valgrind --tool<span style=color:#ff7b72;font-weight:700>=</span>cachegrind ./program
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Output:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># I   refs:      1,234,567</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># I1  misses:        1,234</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># LLi misses:          123</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># I1  miss rate:      0.1%</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># LLi miss rate:      0.01%</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># D   refs:        567,890  (345,678 rd + 222,212 wr)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># D1  misses:       12,345  (  8,901 rd +   3,444 wr)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># LLd misses:        1,234  (    890 rd +     344 wr)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># D1  miss rate:      2.2%  (    2.6%   +     1.5%  )</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># LLd miss rate:      0.2%  (    0.3%   +     0.2%  )</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Annotated source code</span>
+</span></span><span style=display:flex><span>cg_annotate cachegrind.out.12345
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Compare runs</span>
+</span></span><span style=display:flex><span>cg_diff cachegrind.out.v1 cachegrind.out.v2
+</span></span></code></pre></div><h3 id="63-cache-aware-benchmarking">6.3 Cache-Aware Benchmarking</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Measure memory bandwidth at different sizes
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>benchmark_cache_levels</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>size_t</span> size <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1024</span>; size <span style=color:#ff7b72;font-weight:700>&lt;=</span> <span style=color:#a5d6ff>256</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>1024</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>1024</span>; size <span style=color:#ff7b72;font-weight:700>*=</span> <span style=color:#a5d6ff>2</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>buffer <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>malloc</span>(size);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Warmup
+</span></span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>memset</span>(buffer, <span style=color:#a5d6ff>0</span>, size);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>clock_t</span> start <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>clock</span>();
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> iter <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; iter <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>100</span>; iter<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>size_t</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> size; i <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>64</span>) {
+</span></span><span style=display:flex><span>                buffer[i]<span style=color:#ff7b72;font-weight:700>++</span>;  <span style=color:#8b949e;font-style:italic>// Touch each cache line
+</span></span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>clock_t</span> end <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>clock</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>double</span> time <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#ff7b72>double</span>)(end <span style=color:#ff7b72;font-weight:700>-</span> start) <span style=color:#ff7b72;font-weight:700>/</span> CLOCKS_PER_SEC;
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>double</span> bandwidth <span style=color:#ff7b72;font-weight:700>=</span> (size <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>100.0</span>) <span style=color:#ff7b72;font-weight:700>/</span> time <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>1e9</span>;
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Size: %8zu KB, Bandwidth: %.2f GB/s</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>,
+</span></span><span style=display:flex><span>               size<span style=color:#ff7b72;font-weight:700>/</span><span style=color:#a5d6ff>1024</span>, bandwidth);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>free</span>(buffer);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// You&#39;ll see bandwidth drop at L1, L2, L3 boundaries:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:        1 KB, Bandwidth: 85.2 GB/s  (L1)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:       32 KB, Bandwidth: 82.1 GB/s  (L1)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:       64 KB, Bandwidth: 45.3 GB/s  (L2)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:      256 KB, Bandwidth: 42.8 GB/s  (L2)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:      512 KB, Bandwidth: 28.5 GB/s  (L3)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:     8192 KB, Bandwidth: 25.1 GB/s  (L3)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Size:    16384 KB, Bandwidth: 12.3 GB/s  (Memory)
+</span></span></span></code></pre></div><h3 id="64-intel-vtune-and-amd-uprof">6.4 Intel VTune and AMD uProf</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Advanced profiling tools:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Intel VTune Profiler:
+</span></span><span style=display:flex><span>- Memory Access analysis
+</span></span><span style=display:flex><span>- Cache-to-DRAM bandwidth
+</span></span><span style=display:flex><span>- Per-line cache miss attribution
+</span></span><span style=display:flex><span>- Microarchitecture exploration
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>vtune -collect memory-access ./program
+</span></span><span style=display:flex><span>vtune -report hotspots -r r000ma
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>AMD uProf:
+</span></span><span style=display:flex><span>- Similar capabilities for AMD CPUs
+</span></span><span style=display:flex><span>- L1/L2/L3 miss analysis
+</span></span><span style=display:flex><span>- Memory bandwidth analysis
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Key metrics to examine:
+</span></span><span style=display:flex><span>- Cache miss rate per function
+</span></span><span style=display:flex><span>- Memory bandwidth utilization
+</span></span><span style=display:flex><span>- Cache line utilization (bytes used per line fetched)
+</span></span><span style=display:flex><span>- False sharing detection
+</span></span></code></pre></div><h2 id="7-advanced-cache-topics">7. Advanced Cache Topics</h2><p>Modern cache features and optimizations.</p><h3 id="71-non-temporal-stores">7.1 Non-Temporal Stores</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Bypassing cache for write-once data:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Normal store:
+</span></span><span style=display:flex><span>write(addr) → Allocate cache line → Write to cache → Eventually write back
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem: If data won&#39;t be read soon, cache space is wasted
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Non-temporal (streaming) store:
+</span></span><span style=display:flex><span>write(addr) → Write directly to memory, bypass cache
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// SSE/AVX intrinsics
+</span></span><span style=display:flex><span>_mm_stream_si128((__m128i*)ptr, value);  // 16 bytes
+</span></span><span style=display:flex><span>_mm256_stream_si256((__m256i*)ptr, value);  // 32 bytes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Must combine writes to fill write-combine buffer
+</span></span><span style=display:flex><span>// Use _mm_sfence() after streaming stores
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Use cases:
+</span></span><span style=display:flex><span>- Memset/memcpy of large buffers
+</span></span><span style=display:flex><span>- Writing output that won&#39;t be read
+</span></span><span style=display:flex><span>- GPU data uploads
+</span></span><span style=display:flex><span>- Avoiding cache pollution
+</span></span></code></pre></div><h3 id="72-hardware-transactional-memory">7.2 Hardware Transactional Memory</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Intel TSX / AMD equivalent:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Transactional execution using cache:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  if (_xbegin() == _XBEGIN_STARTED) {                   │
+</span></span><span style=display:flex><span>│      // Transaction body                                │
+</span></span><span style=display:flex><span>│      counter++;                                         │
+</span></span><span style=display:flex><span>│      linked_list_insert(item);                         │
+</span></span><span style=display:flex><span>│      _xend();  // Commit                               │
+</span></span><span style=display:flex><span>│  } else {                                              │
+</span></span><span style=display:flex><span>│      // Fallback to locks                              │
+</span></span><span style=display:flex><span>│      mutex_lock(&amp;lock);                                │
+</span></span><span style=display:flex><span>│      counter++;                                         │
+</span></span><span style=display:flex><span>│      linked_list_insert(item);                         │
+</span></span><span style=display:flex><span>│      mutex_unlock(&amp;lock);                              │
+</span></span><span style=display:flex><span>│  }                                                     │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>How it works:
+</span></span><span style=display:flex><span>- Cache tracks read/write sets
+</span></span><span style=display:flex><span>- On conflict (another core touches same line): abort
+</span></span><span style=display:flex><span>- On commit: atomically make changes visible
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Limitations:
+</span></span><span style=display:flex><span>- Aborts on cache eviction (large transactions fail)
+</span></span><span style=display:flex><span>- Some instructions cause abort
+</span></span><span style=display:flex><span>- Need fallback path
+</span></span></code></pre></div><h3 id="73-cache-partitioning">7.3 Cache Partitioning</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Intel Cache Allocation Technology (CAT):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Divide L3 cache among applications:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  L3 Cache (20 MB, 20 ways)                             │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Ways: |0|1|2|3|4|5|6|7|8|9|A|B|C|D|E|F|G|H|I|J|       │
+</span></span><span style=display:flex><span>│        └──────────┘ └────────────────────────┘         │
+</span></span><span style=display:flex><span>│         Latency-    Throughput application             │
+</span></span><span style=display:flex><span>│         sensitive   (gets 16 ways = 16 MB)             │
+</span></span><span style=display:flex><span>│         app (4 ways)                                   │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Use cases:
+</span></span><span style=display:flex><span>- Isolate noisy neighbors in cloud
+</span></span><span style=display:flex><span>- Guarantee cache for latency-sensitive workloads
+</span></span><span style=display:flex><span>- Prevent cache thrashing between containers
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># Configure with Linux resctrl
+</span></span><span style=display:flex><span>mount -t resctrl resctrl /sys/fs/resctrl
+</span></span><span style=display:flex><span>echo &#34;L3:0=f&#34; &gt; /sys/fs/resctrl/schemata  # Ways 0-3
+</span></span><span style=display:flex><span>echo $PID &gt; /sys/fs/resctrl/tasks
+</span></span></code></pre></div><h3 id="74-numa-and-cache-considerations">7.4 NUMA and Cache Considerations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Non-Uniform Memory Access with caches:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>NUMA topology:
+</span></span><span style=display:flex><span>┌─────────────────────┐     ┌─────────────────────┐
+</span></span><span style=display:flex><span>│     Socket 0        │     │     Socket 1        │
+</span></span><span style=display:flex><span>│  ┌──────┐ ┌──────┐  │     │  ┌──────┐ ┌──────┐  │
+</span></span><span style=display:flex><span>│  │Core 0│ │Core 1│  │     │  │Core 4│ │Core 5│  │
+</span></span><span style=display:flex><span>│  │ L1/2 │ │ L1/2 │  │     │  │ L1/2 │ │ L1/2 │  │
+</span></span><span style=display:flex><span>│  └──┬───┘ └───┬──┘  │     │  └──┬───┘ └───┬──┘  │
+</span></span><span style=display:flex><span>│     └────┬────┘     │     │     └────┬────┘     │
+</span></span><span style=display:flex><span>│      ┌───▼───┐      │     │      ┌───▼───┐      │
+</span></span><span style=display:flex><span>│      │  L3   │      │◄═══►│      │  L3   │      │
+</span></span><span style=display:flex><span>│      └───┬───┘      │ QPI │      └───┬───┘      │
+</span></span><span style=display:flex><span>│      ┌───▼───┐      │     │      ┌───▼───┐      │
+</span></span><span style=display:flex><span>│      │Memory │      │     │      │Memory │      │
+</span></span><span style=display:flex><span>│      │Node 0 │      │     │      │Node 1 │      │
+</span></span><span style=display:flex><span>│      └───────┘      │     │      └───────┘      │
+</span></span><span style=display:flex><span>└─────────────────────┘     └─────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Memory access latencies:
+</span></span><span style=display:flex><span>- Local L3: 40 cycles
+</span></span><span style=display:flex><span>- Remote L3: 80-100 cycles (cross-socket snoop)
+</span></span><span style=display:flex><span>- Local memory: 100 cycles
+</span></span><span style=display:flex><span>- Remote memory: 150-200 cycles
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cache coherence across sockets:
+</span></span><span style=display:flex><span>- L3 miss may snoop remote L3
+</span></span><span style=display:flex><span>- Remote cache hit still faster than remote memory
+</span></span><span style=display:flex><span>- But coherence traffic adds latency
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Optimization:
+</span></span><span style=display:flex><span>- Allocate memory on local node
+</span></span><span style=display:flex><span>- Bind threads to cores near their data
+</span></span><span style=display:flex><span>- Minimize cross-socket sharing
+</span></span></code></pre></div><h2 id="8-cache-aware-algorithms">8. Cache-Aware Algorithms</h2><p>Designing algorithms with cache in mind.</p><h3 id="81-cache-oblivious-algorithms">8.1 Cache-Oblivious Algorithms</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Work well regardless of cache parameters:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cache-oblivious matrix transpose:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  void transpose(int *A, int *B, int n,                 │
+</span></span><span style=display:flex><span>│                 int rb, int re, int cb, int ce) {      │
+</span></span><span style=display:flex><span>│      int rows = re - rb;                               │
+</span></span><span style=display:flex><span>│      int cols = ce - cb;                               │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│      if (rows &lt;= THRESHOLD &amp;&amp; cols &lt;= THRESHOLD) {     │
+</span></span><span style=display:flex><span>│          // Base case: direct transpose                │
+</span></span><span style=display:flex><span>│          for (int i = rb; i &lt; re; i++)                 │
+</span></span><span style=display:flex><span>│              for (int j = cb; j &lt; ce; j++)             │
+</span></span><span style=display:flex><span>│                  B[j*n + i] = A[i*n + j];              │
+</span></span><span style=display:flex><span>│      } else if (rows &gt;= cols) {                        │
+</span></span><span style=display:flex><span>│          // Split rows                                 │
+</span></span><span style=display:flex><span>│          int mid="rb" + rows/2;                        │
+</span></span><span style=display:flex><span>│          transpose(A, B, n, rb, mid, cb, ce);          │
+</span></span><span style=display:flex><span>│          transpose(A, B, n, mid, re, cb, ce);          │
+</span></span><span style=display:flex><span>│      } else {                                          │
+</span></span><span style=display:flex><span>│          // Split columns                              │
+</span></span><span style=display:flex><span>│          int mid="cb" + cols/2;                        │
+</span></span><span style=display:flex><span>│          transpose(A, B, n, rb, re, cb, mid);          │
+</span></span><span style=display:flex><span>│          transpose(A, B, n, rb, re, mid, ce);          │
+</span></span><span style=display:flex><span>│      }                                                 │
+</span></span><span style=display:flex><span>│  }                                                     │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Why it works:
+</span></span><span style=display:flex><span>- Recursively divides until subproblem fits in cache
+</span></span><span style=display:flex><span>- No need to know cache size
+</span></span><span style=display:flex><span>- Automatically adapts to all cache levels
+</span></span></code></pre></div><h3 id="82-b-trees-for-cache-efficiency">8.2 B-Trees for Cache Efficiency</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>B-trees are cache-aware data structures:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Binary search tree (cache-unfriendly):
+</span></span><span style=display:flex><span>┌─────┐
+</span></span><span style=display:flex><span>│  8  │ ← Each node = separate allocation
+</span></span><span style=display:flex><span>├──┬──┤
+</span></span><span style=display:flex><span>│  │  │
+</span></span><span style=display:flex><span>▼  ▼  ▼
+</span></span><span style=display:flex><span>4    12   ← Random memory locations
+</span></span><span style=display:flex><span>...       ← Pointer chasing = cache misses
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>B-tree with node size = cache line:
+</span></span><span style=display:flex><span>┌──────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  [3] [5] [8] [12] [15] [20] [25] ...    │ ← One cache line
+</span></span><span style=display:flex><span>│   │   │   │   │    │    │    │          │   All keys together
+</span></span><span style=display:flex><span>└───┼───┼───┼───┼────┼────┼────┼──────────┘
+</span></span><span style=display:flex><span>    ▼   ▼   ▼   ▼    ▼    ▼    ▼
+</span></span><span style=display:flex><span>   Children (also full cache lines)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- One cache miss per tree level
+</span></span><span style=display:flex><span>- 10+ keys per node vs 1 for binary tree
+</span></span><span style=display:flex><span>- log_B(N) misses vs log_2(N)
+</span></span><span style=display:flex><span>- For B=16, 16^3 = 4096 keys in 3 cache misses
+</span></span></code></pre></div><h3 id="83-cache-efficient-sorting">8.3 Cache-Efficient Sorting</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Merge sort with cache awareness:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Standard merge sort:
+</span></span><span style=display:flex><span>- Recurses down to single elements
+</span></span><span style=display:flex><span>- Merges across entire array
+</span></span><span style=display:flex><span>- Poor cache utilization during merge
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Cache-aware merge sort:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  void cache_aware_sort(int *arr, int n) {              │
+</span></span><span style=display:flex><span>│      // Sort cache-sized chunks with insertion sort    │
+</span></span><span style=display:flex><span>│      // (good for small, cache-resident data)          │
+</span></span><span style=display:flex><span>│      for (int i = 0; i &lt; n; i += CACHE_SIZE) {         │
+</span></span><span style=display:flex><span>│          int end = min(i + CACHE_SIZE, n);             │
+</span></span><span style=display:flex><span>│          insertion_sort(arr + i, end - i);             │
+</span></span><span style=display:flex><span>│      }                                                 │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│      // Merge sorted chunks                            │
+</span></span><span style=display:flex><span>│      // Use multi-way merge to reduce passes           │
+</span></span><span style=display:flex><span>│      multiway_merge(arr, n, CACHE_SIZE);               │
+</span></span><span style=display:flex><span>│  }                                                     │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Radix sort for cache efficiency:
+</span></span><span style=display:flex><span>- MSD radix sort: cache-oblivious partitioning
+</span></span><span style=display:flex><span>- LSD radix sort: sequential writes (streaming)
+</span></span><span style=display:flex><span>- Good when data fits sort assumptions
+</span></span></code></pre></div><h2 id="9-practical-optimization-strategies">9. Practical Optimization Strategies</h2><p>Applying cache knowledge to real problems.</p><h3 id="91-common-optimization-patterns">9.1 Common Optimization Patterns</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1. Loop reordering:
+</span></span><span style=display:flex><span>// Before: Column-major access in row-major array
+</span></span><span style=display:flex><span>for (j = 0; j &lt; N; j++)
+</span></span><span style=display:flex><span>    for (i = 0; i &lt; N; i++)
+</span></span><span style=display:flex><span>        a[i][j] = ...;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// After: Row-major access
+</span></span><span style=display:flex><span>for (i = 0; i &lt; N; i++)
+</span></span><span style=display:flex><span>    for (j = 0; j &lt; N; j++)
+</span></span><span style=display:flex><span>        a[i][j] = ...;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>2. Loop fusion:
+</span></span><span style=display:flex><span>// Before: Two passes over data
+</span></span><span style=display:flex><span>for (i = 0; i &lt; N; i++) a[i] = b[i] * 2;
+</span></span><span style=display:flex><span>for (i = 0; i &lt; N; i++) c[i] = a[i] + 1;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// After: One pass, data still in cache
+</span></span><span style=display:flex><span>for (i = 0; i &lt; N; i++) {
+</span></span><span style=display:flex><span>    a[i] = b[i] * 2;
+</span></span><span style=display:flex><span>    c[i] = a[i] + 1;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. Data packing:
+</span></span><span style=display:flex><span>// Before: Array of pointers (indirection)
+</span></span><span style=display:flex><span>Object **ptrs;
+</span></span><span style=display:flex><span>for (i = 0; i &lt; N; i++) process(ptrs[i]);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// After: Contiguous array
+</span></span><span style=display:flex><span>Object objs[N];
+</span></span><span style=display:flex><span>for (i = 0; i &lt; N; i++) process(&amp;objs[i]);
+</span></span></code></pre></div><h3 id="92-alignment-considerations">9.2 Alignment Considerations</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Cache line alignment:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Ensure structure starts on cache line boundary
+</span></span><span style=display:flex><span>struct alignas(64) CacheAligned {
+</span></span><span style=display:flex><span>    int counter;
+</span></span><span style=display:flex><span>    char padding[60];  // Fill rest of cache line
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Allocate aligned memory
+</span></span><span style=display:flex><span>void *ptr = aligned_alloc(64, size);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// Check alignment
+</span></span><span style=display:flex><span>assert(((uintptr_t)ptr &amp; 63) == 0);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Why alignment matters:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Unaligned access (straddles two lines):               │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Cache line N:   [.......████]                         │
+</span></span><span style=display:flex><span>│  Cache line N+1: [████........]                        │
+</span></span><span style=display:flex><span>│                   └──────┘                             │
+</span></span><span style=display:flex><span>│                   One access = two cache lines!        │
+</span></span><span style=display:flex><span>│                                                         │
+</span></span><span style=display:flex><span>│  Aligned access:                                       │
+</span></span><span style=display:flex><span>│  Cache line N:   [████████....]                        │
+</span></span><span style=display:flex><span>│                   One access = one cache line          │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="93-working-set-analysis">9.3 Working Set Analysis</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Understanding your working set:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Phases of execution:
+</span></span><span style=display:flex><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│  Phase 1 (Init): Working set = 10 KB → fits in L1     │
+</span></span><span style=display:flex><span>│  Phase 2 (Main): Working set = 2 MB → fits in L3      │
+</span></span><span style=display:flex><span>│  Phase 3 (Merge): Working set = 50 MB → memory-bound  │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Measuring working set:
+</span></span><span style=display:flex><span>1. Run with increasing array sizes
+</span></span><span style=display:flex><span>2. Find where performance drops
+</span></span><span style=display:flex><span>3. That&#39;s your cache level boundary
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Reducing working set:
+</span></span><span style=display:flex><span>- Smaller data types (int16 vs int32 vs int64)
+</span></span><span style=display:flex><span>- Bit packing for flags
+</span></span><span style=display:flex><span>- Compression for cold data
+</span></span><span style=display:flex><span>- Process in cache-sized chunks
+</span></span><span style=display:flex><span>- Stream processing instead of random access
+</span></span></code></pre></div><h2 id="10-summary-and-guidelines">10. Summary and Guidelines</h2><p>Condensed wisdom for cache-aware programming.</p><h3 id="101-key-takeaways">10.1 Key Takeaways</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Cache fundamentals:
+</span></span><span style=display:flex><span>✓ Memory is slow, cache is fast
+</span></span><span style=display:flex><span>✓ Cache works on 64-byte lines
+</span></span><span style=display:flex><span>✓ Locality (temporal and spatial) is key
+</span></span><span style=display:flex><span>✓ Working set size determines cache effectiveness
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Performance rules:
+</span></span><span style=display:flex><span>✓ Sequential access beats random access
+</span></span><span style=display:flex><span>✓ Smaller data beats larger data
+</span></span><span style=display:flex><span>✓ Hot data together, cold data separate
+</span></span><span style=display:flex><span>✓ Avoid false sharing in multithreaded code
+</span></span><span style=display:flex><span>✓ Measure before and after optimizing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Architecture awareness:
+</span></span><span style=display:flex><span>✓ Know your cache sizes (L1: 32KB, L2: 256KB, L3: 8-32MB)
+</span></span><span style=display:flex><span>✓ Know your cache line size (64 bytes)
+</span></span><span style=display:flex><span>✓ Know cache miss latency (L1: 4, L2: 12, L3: 40, Mem: 100+)
+</span></span><span style=display:flex><span>✓ Use performance counters to validate assumptions
+</span></span></code></pre></div><h3 id="102-optimization-checklist">10.2 Optimization Checklist</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>When optimizing for cache:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>□ Profile first (perf stat, cachegrind)
+</span></span><span style=display:flex><span>□ Identify hot loops and data structures
+</span></span><span style=display:flex><span>□ Check access patterns (sequential vs random)
+</span></span><span style=display:flex><span>□ Measure cache miss rates
+</span></span><span style=display:flex><span>□ Consider data layout (AoS vs SoA)
+</span></span><span style=display:flex><span>□ Apply loop transformations if needed
+</span></span><span style=display:flex><span>□ Use blocking for large working sets
+</span></span><span style=display:flex><span>□ Align data to cache lines when appropriate
+</span></span><span style=display:flex><span>□ Avoid false sharing in parallel code
+</span></span><span style=display:flex><span>□ Consider prefetching for irregular access
+</span></span><span style=display:flex><span>□ Test with realistic data sizes
+</span></span><span style=display:flex><span>□ Verify improvement with benchmarks
+</span></span><span style=display:flex><span>□ Document cache-sensitive code sections
+</span></span><span style=display:flex><span>□ Monitor for regressions over time
+</span></span></code></pre></div><p>The cache hierarchy stands as one of the most successful abstractions in computer architecture, making fast memory appear both large and accessible while hiding the physical realities of distance and latency. From the earliest CPUs with simple caches to modern processors with sophisticated multilevel hierarchies, coherence protocols, and predictive prefetchers, the principles remain constant: exploit locality, minimize misses, and keep the CPU fed with data. Whether you&rsquo;re optimizing tight numerical kernels or designing large-scale data systems, understanding how your code interacts with the cache hierarchy reveals optimization opportunities invisible to those who see memory as a uniform flat address space. The cache is not just a performance feature but a fundamental aspect of how modern computers operate and achieve their remarkable speeds.</p></div><footer class="ce1a612 c6dfb1e c3ecea6"><div class="c364589">Categories:
+<a href=/categories/fundamentals/>fundamentals</a>, <a href=/categories/systems/>systems</a></div><div>Tags:
+<a href=/tags/cpu/>#cpu</a>, <a href=/tags/cache/>#cache</a>, <a href=/tags/memory/>#memory</a>, <a href=/tags/performance/>#performance</a>, <a href=/tags/hardware/>#hardware</a>, <a href=/tags/fundamentals/>#fundamentals</a></div></footer></article></main><footer class="ccdf0e8" role=contentinfo aria-label=Footer><div class="cfdda01 c133889 c5df473 c0eecc8 c69618a c6942b3 c03620d c2a9f27 c7c11d8 c82c52d c14527b"><div class="c6dfb1e c3ecea6 c39ef11 c88ae6f">&copy; 2026 Leonardo Benicio. All rights
+reserved.</div><div class="c6942b3 c7c11d8 cd1fd22"><a href=https://github.com/lbenicio target=_blank rel="noopener noreferrer" aria-label=GitHub class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.5-.67 1.08-.82 1.7s-.2 1.27-.18 1.9V22"/></svg>
+<span class="cba5854">GitHub</span>
+</a><a href=https://www.linkedin.com/in/leonardo-benicio target=_blank rel="noopener noreferrer" aria-label=LinkedIn class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21V14.86c0-1.333-.027-3.046-1.858-3.046-1.86.0-2.145 1.45-2.145 2.948v5.69H9.069V9h3.112v1.561h.044c.434-.82 1.494-1.686 3.074-1.686 3.29.0 3.897 2.165 3.897 4.983v6.594zM5.337 7.433a1.805 1.805.0 11-.002-3.61 1.805 1.805.0 01.002 3.61zM6.763 20.452H3.911V9h2.852v11.452z"/></svg>
+<span class="cba5854">LinkedIn</span>
+</a><a href=https://twitter.com/lbenicio_ target=_blank rel="noopener noreferrer" aria-label=Twitter class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.177.013.354.013.53.0 5.386-4.099 11.599-11.6 11.599-2.31.0-4.457-.676-6.265-1.842.324.038.636.05.972.05 1.91.0 3.67-.65 5.07-1.755a4.099 4.099.0 01-3.827-2.84c.25.039.5.064.763.064.363.0.726-.051 1.065-.139A4.091 4.091.0 012.542 9.649v-.051c.538.3 1.162.482 1.824.507A4.082 4.082.0 012.54 6.7c0-.751.2-1.435.551-2.034a11.63 11.63.0 008.44 4.281 4.615 4.615.0 01-.101-.938 4.091 4.091.0 017.078-2.799 8.1 8.1.0 002.595-.988 4.112 4.112.0 01-1.8 2.261 8.2 8.2.0 002.357-.638A8.824 8.824.0 0119.613 7.96z"/></svg>
+<span class="cba5854">Twitter</span></a></div></div></footer></body></html>

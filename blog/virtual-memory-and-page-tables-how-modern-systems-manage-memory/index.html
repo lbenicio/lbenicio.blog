@@ -1,0 +1,874 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>Virtual Memory and Page Tables: How Modern Systems Manage Memory · Leonardo Benicio</title><meta name=description content="A comprehensive exploration of virtual memory, page tables, and address translation. Learn how operating systems provide memory isolation, enable overcommitment, and optimize performance with TLBs and huge pages."><link rel=alternate type=application/rss+xml title=RSS href=https://lbenicio.dev/index.xml><link rel=canonical href=https://blog.lbenicio.dev/blog/virtual-memory-and-page-tables-how-modern-systems-manage-memory/><link rel=preload href=/static/fonts/OpenSans-Regular.ttf as=font type=font/ttf crossorigin><link rel="stylesheet" href="/assets/css/fonts.min.40e2054b739ac45a0f9c940f4b44ec00c3b372356ebf61440a413c0337c5512e.css" crossorigin="anonymous" integrity="sha256-QOIFS3OaxFoPnJQPS0TsAMOzcjVuv2FECkE8AzfFUS4="><link rel="shortcut icon" href=/static/assets/favicon/favicon.ico><link rel=icon type=image/x-icon href=/static/assets/favicon/favicon.ico><link rel=icon href=/static/assets/favicon/favicon.svg type=image/svg+xml><link rel=icon href=/static/assets/favicon/favicon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/static/assets/favicon/favicon-16x16.png sizes=16x16 type=image/png><link rel=apple-touch-icon href=/static/assets/favicon/apple-touch-icon.png><link rel=manifest href=/static/assets/favicon/site.webmanifest><link rel=mask-icon href=/static/assets/favicon/safari-pinned-tab.svg color=#209cee><meta name=msapplication-TileColor content="#209cee"><meta name=msapplication-config content="/static/assets/favicon/browserconfig.xml"><meta name=theme-color content="#d2e9f8"><meta property="og:title" content="Virtual Memory and Page Tables: How Modern Systems Manage Memory · Leonardo Benicio"><meta property="og:description" content="A comprehensive exploration of virtual memory, page tables, and address translation. Learn how operating systems provide memory isolation, enable overcommitment, and optimize performance with TLBs and huge pages."><meta property="og:url" content="https://blog.lbenicio.dev/blog/virtual-memory-and-page-tables-how-modern-systems-manage-memory/"><meta property="og:type" content="article"><meta property="og:image" content="https://blog.lbenicio.dev/static/assets/images/blog/virtual-memory-page-tables-address-translation.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Virtual Memory and Page Tables: How Modern Systems Manage Memory · Leonardo Benicio"><meta name=twitter:description content="A comprehensive exploration of virtual memory, page tables, and address translation. Learn how operating systems provide memory isolation, enable overcommitment, and optimize performance with TLBs and huge pages."><meta name=twitter:site content="@lbenicio_"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"About Leonardo Benicio","url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Person","name":"Leonardo Benicio","sameAs":["https://github.com/lbenicio","https://www.linkedin.com/in/leonardo-benicio","https://twitter.com/lbenicio_"],"url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Home","position":1},{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Blog","position":2},{"@type":"ListItem","item":"https://blog.lbenicio.dev/blog/virtual-memory-and-page-tables-how-modern-systems-manage-memory/","name":"Virtual Memory and Page Tables How Modern Systems Manage Memory","position":3}]}</script><link rel="stylesheet" href="/assets/css/main.min.1e8a566ac8bc3f0664d0db4ec8a015b07421c33fa11d336a6b914522a9cabf30.css" crossorigin="anonymous" integrity="sha256-6lhUOpwCHMSMROmggsVSp3AHKud6gBrIFGTzl3GV4BY="></head><body class="c6942b3 c03620d cf3bd2e"><script>(function(){try{document.addEventListener("gesturestart",function(e){e.preventDefault()}),document.addEventListener("touchstart",function(e){e.touches&&e.touches.length>1&&e.preventDefault()},{passive:!1});var e=0;document.addEventListener("touchend",function(t){var n=Date.now();n-e<=300&&t.preventDefault(),e=n},{passive:!1})}catch{}})()</script><a href=#content class="cba5854 c21e770 caffa6e cc5f604 cf2c31d cdd44dd c10dda9 c43876e c787e9b cddc2d2 cf55a7b c6dfb1e c9391e2">Skip to content</a>
+<script>(function(){try{const e=localStorage.getItem("theme");e==="dark"&&document.documentElement.classList.add("dark");const t=document.querySelector('button[aria-label="Toggle theme"]');t&&t.setAttribute("aria-pressed",String(e==="dark"))}catch{}})();function toggleTheme(e){const s=document.documentElement,t=s.classList.toggle("dark");try{localStorage.setItem("theme",t?"dark":"light")}catch{}try{var n=e&&e.nodeType===1?e:document.querySelector('button[aria-label="Toggle theme"]');n&&n.setAttribute("aria-pressed",String(!!t))}catch{}}(function(){function e(){try{return document.documentElement.classList.contains("dark")?"dark":"light"}catch{return"light"}}function n(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(0)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!1,s.style.display="block"}catch{}o.setAttribute("aria-expanded","true"),n.setAttribute("aria-hidden","false");try{document.body.classList.add("c150bbe")}catch{}const i=document.getElementById("i190984");i&&i.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_open",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function t(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(100%)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!0,s.style.display="none"}catch{}o.setAttribute("aria-expanded","false"),n.setAttribute("aria-hidden","true");try{document.body.classList.remove("c150bbe")}catch{}o.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_close",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function s(e){e.key==="Escape"&&t("escape")}window.__openMobileMenu=n,window.__closeMobileMenu=t;try{window.addEventListener("keydown",s,!0)}catch{}})()</script><header class="cd019ba c98dfae cdd44dd cfdda01 c9ee25d ce2dc7a cd72dd7 cc0dc37" role=banner><div class="cfdda01 c6942b3 ccf47f4 c7c11d8"><a href=/ class="c87e2b0 c6942b3 c7c11d8 c1838fa cb594e4" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=32 height=32 class="c3de71a c4d5191">
+<span class="cf8f011 c4d1253 cbd72bc cd7e69e">Leonardo Benicio</span></a><div class="c6942b3 c85cbd4 c7c11d8 ca798da c1838fa c7a0580"><nav class="cc1689c cd9b445 c75065d c04bab1" aria-label=Main><a href=/ class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Home</a>
+<a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">About</a>
+<a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Timeline</a>
+<a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Reading</a>
+<a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Publications</a>
+<a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Contact</a></nav><button id="i1d73d4" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 c097fa1 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" onclick=toggleTheme(this) aria-label="Toggle theme" aria-pressed=false title="Toggle theme">
+<svg class="cb26e41 c50ceea cb69a5c c4f45c8 c8c2c40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="cb26e41 c8fca2b cb69a5c c4f45c8 cc1689c c9c27ff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M6.34 17.66l2.83-2.83"/><path d="M14.83 9.17l2.83-2.83"/></svg>
+<span class="cba5854">Toggle theme</span></button><div class="c658bcf c097fa1"><button id="i975fb5" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" aria-label="Open menu" aria-controls="i98aca2" aria-expanded=false onclick='window.__openMobileMenu("button")' data-d38f920=mobile_menu_open_click>
+<svg class="c20e4eb cb58471" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<span class="cba5854">Open menu</span></button></div></div></div></header><div id="iad2af0" class="caffa6e ce4b5f4 c14639a" style=background-color:hsl(var(--background)) hidden onclick='window.__closeMobileMenu("overlay")' data-d38f920=mobile_menu_overlay_click></div><aside id="i98aca2" class="caffa6e c9efbc5 c437fa9 c49e97e c6c6936 c7cacca c7b34a4 c787e9b c88daee cad071a c6942b3 c03620d" role=dialog aria-modal=true aria-hidden=true aria-label="Mobile navigation" style="transform:translateX(100%);transition:transform 200ms ease-out;will-change:transform"><div class="c6942b3 c7c11d8 c82c52d c5df473 ccf47f4 c9ee25d"><a href=/ class="c6942b3 c7c11d8 c1838fa" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=24 height=24 class="c20e4eb cb58471">
+<span class="c62aaf0 c7c1b66 cbd72bc">Leonardo Benicio</span>
+</a><button id="i190984" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c514027 c286dd7 c2bd687 cfdce1d" aria-label="Close menu" onclick='window.__closeMobileMenu("button")' data-d38f920=mobile_menu_close_click>
+<svg class="c16e528 c61f467" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<span class="cba5854">Close</span></button></div><nav class="c85cbd4 ca0eaa4 c5df473 c6689b9"><ul class="cd69733"><li><a href=/ class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Home</a></li><li><a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>About</a></li><li><a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Timeline</a></li><li><a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Reading</a></li><li><a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Publications</a></li><li><a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Contact</a></li></ul></nav><div class="c60a4cc ccdf0e8 c277478 c13044e"><p>&copy; 2026 Leonardo Benicio</p></div></aside><div class="caffa6e c437fa9 ce9aced c97bba6 c15da2a c975cba" role=complementary aria-label="GitHub repository"><div class="c9d056d c252f85 ca22532 ca88a1a c876315"><div class="c6942b3 c7c11d8 c1d0018 cd1fd22 c6066e4 c43876e ce3d5b6 caa20d2 c3ecea6 c0cd2e2 cddc2d2 c3ed5c9 cd4074c c876315"><a href=https://github.com/lbenicio/aboutme target=_blank rel="noopener noreferrer" class="c6942b3 c7c11d8 cd1fd22 c71bae8 cfac1ac c19ee42 c25dc7c cb40739 cbbda39 cf55a7b" aria-label="View source on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cb26e41 c41bcd4 cf17690 cfa4e34 c78d562" aria-hidden="true"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+<span class="cb5c327 cd7e69e">Fork me</span></a></div></div></div><main id="i7eccc0" class="cfdda01 c5df473 c0eecc8 c85cbd4" role=main aria-label=Content><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Virtual Memory and Page Tables How Modern Systems Manage Memory</span></li></ol></nav><article class="c461ba0 c1c203f cfb6084 c995404 c6ca165"><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Virtual Memory and Page Tables How Modern Systems Manage Memory</span></li></ol></nav><header class="c8aedc7"><h1 class="cf304bc c6fb0fe cf8f011 cc484e1">Virtual Memory and Page Tables: How Modern Systems Manage Memory</h1><div class="c277478 c3ecea6 c8fb24a">2022-05-19
+· Leonardo Benicio</div><div class="c1a1a3f c8124f2"><img src=/static/assets/images/blog/virtual-memory-page-tables-address-translation.png alt class="cfdda01 c524300 c677556"></div><p class="lead c3ecea6">A comprehensive exploration of virtual memory, page tables, and address translation. Learn how operating systems provide memory isolation, enable overcommitment, and optimize performance with TLBs and huge pages.</p></header><div class="content"><p>Every process believes it has exclusive access to a vast, contiguous memory space. This elegant illusion—virtual memory—is one of the most important abstractions in computing. Behind it lies a sophisticated system of page tables, TLBs, and hardware-software cooperation that enables memory isolation, efficient sharing, and seemingly infinite memory. Let&rsquo;s explore how it all works.</p><h2 id="1-the-problem-why-virtual-memory">1. The Problem: Why Virtual Memory?</h2><p>Before virtual memory, programs used physical addresses directly. This created serious problems.</p><h3 id="11-memory-isolation">1.1 Memory Isolation</h3><p>Without isolation, any process could read or corrupt another&rsquo;s memory:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// In a world without virtual memory
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#ff7b72>int</span> <span style=color:#ff7b72;font-weight:700>*</span>)<span style=color:#a5d6ff>0x12345678</span>;  <span style=color:#8b949e;font-style:italic>// Physical address
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0xDEADBEEF</span>;             <span style=color:#8b949e;font-style:italic>// Might corrupt the kernel!
+</span></span></span></code></pre></div><p>Modern systems prevent this entirely. Each process has its own address space:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// With virtual memory
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#ff7b72>int</span> <span style=color:#ff7b72;font-weight:700>*</span>)<span style=color:#a5d6ff>0x12345678</span>;  <span style=color:#8b949e;font-style:italic>// Virtual address
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0xDEADBEEF</span>;             <span style=color:#8b949e;font-style:italic>// Only affects THIS process&#39;s memory
+</span></span></span></code></pre></div><p>Two processes can use the same virtual address, but they map to different physical locations.</p><h3 id="12-memory-overcommitment">1.2 Memory Overcommitment</h3><p>Physical RAM is limited, but virtual address spaces are vast:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Physical RAM:     16 GB
+</span></span><span style=display:flex><span>Virtual space:    128 TB (per process on x86-64)
+</span></span><span style=display:flex><span>Number of processes: 100+
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Total virtual memory: 100 × 128 TB = 12,800 TB
+</span></span></code></pre></div><p>Virtual memory enables this overcommitment through:</p><ul><li><strong>Demand paging:</strong> Pages are allocated only when first accessed</li><li><strong>Swapping:</strong> Unused pages move to disk</li><li><strong>Sharing:</strong> Common pages (libc, kernel) are mapped once</li></ul><h3 id="13-memory-fragmentation">1.3 Memory Fragmentation</h3><p>Physical memory becomes fragmented over time:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Physical memory after hours of use:
+</span></span><span style=display:flex><span>[Used][Free][Used][Free][Used][Used][Free][Used][Free]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Contiguous virtual allocation:
+</span></span><span style=display:flex><span>[    Contiguous 16KB virtual buffer    ]
+</span></span><span style=display:flex><span>     ↓        ↓        ↓        ↓
+</span></span><span style=display:flex><span>[4KB][    ][4KB][    ][4KB][4KB][    ][4KB]
+</span></span><span style=display:flex><span>     scattered across physical memory
+</span></span></code></pre></div><p>Virtual memory provides contiguous virtual addresses backed by scattered physical pages.</p><h3 id="14-position-independent-code">1.4 Position-Independent Code</h3><p>Without virtual memory, programs need relocation at load time:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Without virtual memory: absolute addresses compiled in
+</span></span></span><span style=display:flex><span>call <span style=color:#a5d6ff>0x401000</span>  <span style=color:#8b949e;font-style:italic>// What if another program is using that address?
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// With virtual memory: every process starts at the same virtual address
+</span></span></span><span style=display:flex><span>call <span style=color:#a5d6ff>0x401000</span>  <span style=color:#8b949e;font-style:italic>// Each process has its own 0x401000
+</span></span></span></code></pre></div><h2 id="2-pages-and-frames">2. Pages and Frames</h2><p>Virtual memory divides memory into fixed-size units.</p><h3 id="21-terminology">2.1 Terminology</h3><ul><li><strong>Page:</strong> A fixed-size block of virtual memory (typically 4KB)</li><li><strong>Frame:</strong> A fixed-size block of physical memory (same size as page)</li><li><strong>Page table:</strong> Data structure mapping virtual pages to physical frames</li></ul><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Virtual Address Space          Physical Memory
+</span></span><span style=display:flex><span>┌───────────────────┐          ┌───────────────────┐
+</span></span><span style=display:flex><span>│ Page 0 (0x0000)   │ ──────── │ Frame 7           │
+</span></span><span style=display:flex><span>├───────────────────┤          ├───────────────────┤
+</span></span><span style=display:flex><span>│ Page 1 (0x1000)   │ ──────── │ Frame 2           │
+</span></span><span style=display:flex><span>├───────────────────┤          ├───────────────────┤
+</span></span><span style=display:flex><span>│ Page 2 (0x2000)   │ ──╳      │ Frame 3           │
+</span></span><span style=display:flex><span>├───────────────────┤  (not    ├───────────────────┤
+</span></span><span style=display:flex><span>│ Page 3 (0x3000)   │ ──────── │ Frame 5           │
+</span></span><span style=display:flex><span>└───────────────────┘  mapped) └───────────────────┘
+</span></span></code></pre></div><h3 id="22-address-translation">2.2 Address Translation</h3><p>A virtual address is split into page number and offset:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>32-bit virtual address with 4KB pages:
+</span></span><span style=display:flex><span>┌─────────────────────────┬──────────────┐
+</span></span><span style=display:flex><span>│    Page Number (20 bits)│ Offset (12)  │
+</span></span><span style=display:flex><span>└─────────────────────────┴──────────────┘
+</span></span><span style=display:flex><span>         ↓
+</span></span><span style=display:flex><span>    Page Table Lookup
+</span></span><span style=display:flex><span>         ↓
+</span></span><span style=display:flex><span>┌─────────────────────────┬──────────────┐
+</span></span><span style=display:flex><span>│   Frame Number (20 bits)│ Offset (12)  │
+</span></span><span style=display:flex><span>└─────────────────────────┴──────────────┘
+</span></span><span style=display:flex><span>        Physical Address
+</span></span></code></pre></div><p>The offset stays the same—only the page/frame number changes:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>translate_address</span>(virtual_addr, page_table, page_size<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>4096</span>):
+</span></span><span style=display:flex><span>    page_number <span style=color:#ff7b72;font-weight:700>=</span> virtual_addr <span style=color:#ff7b72;font-weight:700>//</span> page_size
+</span></span><span style=display:flex><span>    offset <span style=color:#ff7b72;font-weight:700>=</span> virtual_addr <span style=color:#ff7b72;font-weight:700>%</span> page_size
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> page_number <span style=color:#ff7b72;font-weight:700>not</span> <span style=color:#ff7b72;font-weight:700>in</span> page_table:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>raise</span> PageFault(page_number)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    frame_number <span style=color:#ff7b72;font-weight:700>=</span> page_table[page_number]
+</span></span><span style=display:flex><span>    physical_addr <span style=color:#ff7b72;font-weight:700>=</span> frame_number <span style=color:#ff7b72;font-weight:700>*</span> page_size <span style=color:#ff7b72;font-weight:700>+</span> offset
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> physical_addr
+</span></span></code></pre></div><h3 id="23-page-table-entries">2.3 Page Table Entries</h3><p>Each page table entry (PTE) contains more than just the frame number:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>x86-64 Page Table Entry (64 bits):
+</span></span><span style=display:flex><span>┌──────────────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│ 63│62:52│51:M │M-1:12    │11:9│8  │7  │6│5│4  │3  │2│1│0│
+</span></span><span style=display:flex><span>│NX │     │RSVD │Frame Num │AVL │G  │PAT│D│A│PCD│PWT│U│W│P│
+</span></span><span style=display:flex><span>└──────────────────────────────────────────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>P   = Present (is this page in physical memory?)
+</span></span><span style=display:flex><span>W   = Writable (can we write to this page?)
+</span></span><span style=display:flex><span>U   = User (can user-mode code access this?)
+</span></span><span style=display:flex><span>A   = Accessed (has this page been read?)
+</span></span><span style=display:flex><span>D   = Dirty (has this page been written?)
+</span></span><span style=display:flex><span>G   = Global (don&#39;t flush from TLB on context switch)
+</span></span><span style=display:flex><span>NX  = No Execute (prevent code execution from this page)
+</span></span></code></pre></div><p>These bits enable:</p><ul><li><strong>Copy-on-write:</strong> Mark pages read-only, copy on write fault</li><li><strong>Demand paging:</strong> Mark pages not-present, allocate on fault</li><li><strong>Memory protection:</strong> Prevent user access to kernel pages</li><li><strong>DEP/NX:</strong> Prevent execution of data pages</li></ul><h2 id="3-multi-level-page-tables">3. Multi-Level Page Tables</h2><p>A flat page table for a 64-bit address space would be enormous.</p><h3 id="31-the-size-problem">3.1 The Size Problem</h3><p>With 4KB pages and 48-bit virtual addresses (256TB):</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Number of pages = 2^48 / 2^12 = 2^36 = 64 billion pages
+</span></span><span style=display:flex><span>PTE size = 8 bytes
+</span></span><span style=display:flex><span>Page table size = 64 billion × 8 = 512 GB per process!
+</span></span></code></pre></div><p>Even for a process using only 1MB of memory, we&rsquo;d need a 512GB page table.</p><h3 id="32-hierarchical-page-tables">3.2 Hierarchical Page Tables</h3><p>The solution: multi-level page tables that are sparse:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>x86-64 Four-Level Page Table:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Virtual Address (48 bits used):
+</span></span><span style=display:flex><span>┌─────────┬─────────┬─────────┬─────────┬────────────┐
+</span></span><span style=display:flex><span>│PML4 (9) │PDPT (9) │ PD (9)  │ PT (9)  │Offset (12) │
+</span></span><span style=display:flex><span>└────┬────┴────┬────┴────┬────┴────┬────┴────────────┘
+</span></span><span style=display:flex><span>     │         │         │         │
+</span></span><span style=display:flex><span>     ▼         ▼         ▼         ▼
+</span></span><span style=display:flex><span>┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
+</span></span><span style=display:flex><span>│ PML4   │→│ PDPT   │→│  PD    │→│  PT    │→ Frame
+</span></span><span style=display:flex><span>│(512 ent)│ │(512 ent)│ │(512 ent)│ │(512 ent)│
+</span></span><span style=display:flex><span>└────────┘ └────────┘ └────────┘ └────────┘
+</span></span></code></pre></div><p>Each level has 512 entries (9 bits), and tables are only allocated as needed:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>translate_4level</span>(virtual_addr, cr3):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;x86-64 four-level page table walk.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Extract indices from virtual address</span>
+</span></span><span style=display:flex><span>    pml4_idx <span style=color:#ff7b72;font-weight:700>=</span> (virtual_addr <span style=color:#ff7b72;font-weight:700>&gt;&gt;</span> <span style=color:#a5d6ff>39</span>) <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#a5d6ff>0x1FF</span>
+</span></span><span style=display:flex><span>    pdpt_idx <span style=color:#ff7b72;font-weight:700>=</span> (virtual_addr <span style=color:#ff7b72;font-weight:700>&gt;&gt;</span> <span style=color:#a5d6ff>30</span>) <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#a5d6ff>0x1FF</span>
+</span></span><span style=display:flex><span>    pd_idx   <span style=color:#ff7b72;font-weight:700>=</span> (virtual_addr <span style=color:#ff7b72;font-weight:700>&gt;&gt;</span> <span style=color:#a5d6ff>21</span>) <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#a5d6ff>0x1FF</span>
+</span></span><span style=display:flex><span>    pt_idx   <span style=color:#ff7b72;font-weight:700>=</span> (virtual_addr <span style=color:#ff7b72;font-weight:700>&gt;&gt;</span> <span style=color:#a5d6ff>12</span>) <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#a5d6ff>0x1FF</span>
+</span></span><span style=display:flex><span>    offset   <span style=color:#ff7b72;font-weight:700>=</span> virtual_addr <span style=color:#ff7b72;font-weight:700>&amp;</span> <span style=color:#a5d6ff>0xFFF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Walk the page table hierarchy</span>
+</span></span><span style=display:flex><span>    pml4 <span style=color:#ff7b72;font-weight:700>=</span> read_physical(cr3)
+</span></span><span style=display:flex><span>    pml4e <span style=color:#ff7b72;font-weight:700>=</span> pml4[pml4_idx]
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> pml4e<span style=color:#ff7b72;font-weight:700>.</span>present:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>raise</span> PageFault(virtual_addr)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    pdpt <span style=color:#ff7b72;font-weight:700>=</span> read_physical(pml4e<span style=color:#ff7b72;font-weight:700>.</span>frame_addr)
+</span></span><span style=display:flex><span>    pdpte <span style=color:#ff7b72;font-weight:700>=</span> pdpt[pdpt_idx]
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> pdpte<span style=color:#ff7b72;font-weight:700>.</span>present:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>raise</span> PageFault(virtual_addr)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    pd <span style=color:#ff7b72;font-weight:700>=</span> read_physical(pdpte<span style=color:#ff7b72;font-weight:700>.</span>frame_addr)
+</span></span><span style=display:flex><span>    pde <span style=color:#ff7b72;font-weight:700>=</span> pd[pd_idx]
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> pde<span style=color:#ff7b72;font-weight:700>.</span>present:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>raise</span> PageFault(virtual_addr)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    pt <span style=color:#ff7b72;font-weight:700>=</span> read_physical(pde<span style=color:#ff7b72;font-weight:700>.</span>frame_addr)
+</span></span><span style=display:flex><span>    pte <span style=color:#ff7b72;font-weight:700>=</span> pt[pt_idx]
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> pte<span style=color:#ff7b72;font-weight:700>.</span>present:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>raise</span> PageFault(virtual_addr)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> pte<span style=color:#ff7b72;font-weight:700>.</span>frame_addr <span style=color:#ff7b72;font-weight:700>+</span> offset
+</span></span></code></pre></div><h3 id="33-memory-savings">3.3 Memory Savings</h3><p>For a process using only a few megabytes:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Without hierarchy: 512 GB (fixed)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>With hierarchy:
+</span></span><span style=display:flex><span>- 1 PML4 table: 4 KB
+</span></span><span style=display:flex><span>- 1 PDPT table: 4 KB
+</span></span><span style=display:flex><span>- 1 PD table: 4 KB
+</span></span><span style=display:flex><span>- 1 PT table: 4 KB
+</span></span><span style=display:flex><span>Total: 16 KB (for up to 2 MB of mappings)
+</span></span></code></pre></div><p>Sparse address spaces only allocate the page table entries they need.</p><h3 id="34-five-level-page-tables">3.4 Five-Level Page Tables</h3><p>Modern CPUs support 5-level paging for 57-bit virtual addresses (128 PB):</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>LA57 (5-level paging):
+</span></span><span style=display:flex><span>┌─────────┬─────────┬─────────┬─────────┬─────────┬────────────┐
+</span></span><span style=display:flex><span>│PML5 (9) │PML4 (9) │PDPT (9) │ PD (9)  │ PT (9)  │Offset (12) │
+</span></span><span style=display:flex><span>└─────────┴─────────┴─────────┴─────────┴─────────┴────────────┘
+</span></span></code></pre></div><p>This is primarily useful for memory-mapped file systems and persistent memory.</p><h2 id="4-the-translation-lookaside-buffer-tlb">4. The Translation Lookaside Buffer (TLB)</h2><p>Walking the page table for every memory access would be devastatingly slow.</p><h3 id="41-the-problem">4.1 The Problem</h3><p>Each memory access requires multiple page table lookups:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Without TLB, reading one byte:
+</span></span><span style=display:flex><span>1. Read PML4 entry    (memory access)
+</span></span><span style=display:flex><span>2. Read PDPT entry    (memory access)
+</span></span><span style=display:flex><span>3. Read PD entry      (memory access)
+</span></span><span style=display:flex><span>4. Read PT entry      (memory access)
+</span></span><span style=display:flex><span>5. Read actual data   (memory access)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Total: 5 memory accesses for 1 logical access!
+</span></span></code></pre></div><h3 id="42-tlb-as-a-cache">4.2 TLB as a Cache</h3><p>The TLB caches recent virtual-to-physical translations:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>TLB (Translation Lookaside Buffer):
+</span></span><span style=display:flex><span>┌─────────────────┬────────────────┬───────────┐
+</span></span><span style=display:flex><span>│ Virtual Page    │ Physical Frame │ Flags     │
+</span></span><span style=display:flex><span>├─────────────────┼────────────────┼───────────┤
+</span></span><span style=display:flex><span>│ 0x7fff_8000     │ 0x1234_5000    │ RWX, User │
+</span></span><span style=display:flex><span>│ 0x0040_1000     │ 0x0042_3000    │ R-X, User │
+</span></span><span style=display:flex><span>│ 0xffff_8000     │ 0x0000_1000    │ RW-, Kern │
+</span></span><span style=display:flex><span>│ ...             │ ...            │ ...       │
+</span></span><span style=display:flex><span>└─────────────────┴────────────────┴───────────┘
+</span></span></code></pre></div><p>With a TLB hit, translation takes 1 cycle instead of 4 memory accesses.</p><h3 id="43-tlb-organization">4.3 TLB Organization</h3><p>Modern CPUs have multiple TLB levels:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Intel Core i7 TLB Organization:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>L1 ITLB (instruction): 128 entries, 4-way set associative
+</span></span><span style=display:flex><span>L1 DTLB (data): 64 entries, 4-way set associative
+</span></span><span style=display:flex><span>L2 STLB (unified): 1536 entries, 12-way set associative
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>TLB miss rates are typically &lt; 1% for most workloads.
+</span></span></code></pre></div><h3 id="44-tlb-management">4.4 TLB Management</h3><p>The OS must manage TLB consistency:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// When page tables change, flush affected TLB entries
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Flush entire TLB (expensive)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>flush_tlb_all</span>(<span style=color:#ff7b72>void</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> cr3 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>read_cr3</span>();
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>write_cr3</span>(cr3);  <span style=color:#8b949e;font-style:italic>// Writing CR3 flushes entire TLB
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Flush single page (x86 INVLPG instruction)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>flush_tlb_page</span>(<span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> addr) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>asm</span> <span style=color:#ff7b72>volatile</span>(<span style=color:#a5d6ff>&#34;invlpg (%0)&#34;</span> <span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#34;r&#34;</span> (addr) <span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#34;memory&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Flush range of pages
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>flush_tlb_range</span>(<span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> start, <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> end) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> addr <span style=color:#ff7b72;font-weight:700>=</span> start; addr <span style=color:#ff7b72;font-weight:700>&lt;</span> end; addr <span style=color:#ff7b72;font-weight:700>+=</span> PAGE_SIZE) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>flush_tlb_page</span>(addr);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>TLB shootdowns are needed for multi-core systems:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// TLB shootdown: flush TLB on all CPUs
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>flush_tlb_all_cpus</span>(<span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> addr) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Send IPI (Inter-Processor Interrupt) to all CPUs
+</span></span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>for_each_online_cpu</span>(cpu) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (cpu <span style=color:#ff7b72;font-weight:700>!=</span> current_cpu) {
+</span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>send_ipi</span>(cpu, TLB_FLUSH_IPI);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>flush_tlb_page</span>(addr);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>wait_for_ack_from_all_cpus</span>();
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>TLB shootdowns are expensive and can become a bottleneck for applications with heavy page table modifications.</p><h2 id="5-page-faults">5. Page Faults</h2><p>When translation fails, the CPU triggers a page fault.</p><h3 id="51-types-of-page-faults">5.1 Types of Page Faults</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>handle_page_fault</span>(<span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> address, <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> error_code) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> vm_area_struct <span style=color:#ff7b72;font-weight:700>*</span>vma <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>find_vma</span>(current<span style=color:#ff7b72;font-weight:700>-&gt;</span>mm, address);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>vma <span style=color:#ff7b72;font-weight:700>||</span> address <span style=color:#ff7b72;font-weight:700>&lt;</span> vma<span style=color:#ff7b72;font-weight:700>-&gt;</span>vm_start) {
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Segmentation fault: address not mapped
+</span></span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>send_signal</span>(SIGSEGV, current);
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (error_code <span style=color:#ff7b72;font-weight:700>&amp;</span> PF_WRITE <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> <span style=color:#ff7b72;font-weight:700>!</span>(vma<span style=color:#ff7b72;font-weight:700>-&gt;</span>vm_flags <span style=color:#ff7b72;font-weight:700>&amp;</span> VM_WRITE)) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (vma<span style=color:#ff7b72;font-weight:700>-&gt;</span>vm_flags <span style=color:#ff7b72;font-weight:700>&amp;</span> VM_MAYWRITE) {
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic>// Copy-on-write fault
+</span></span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>handle_cow_fault</span>(vma, address);
+</span></span><span style=display:flex><span>        } <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic>// Permission violation
+</span></span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>send_signal</span>(SIGSEGV, current);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>(error_code <span style=color:#ff7b72;font-weight:700>&amp;</span> PF_PRESENT)) {
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Page not in memory
+</span></span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (vma<span style=color:#ff7b72;font-weight:700>-&gt;</span>vm_file) {
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic>// Memory-mapped file: read from disk
+</span></span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>handle_file_fault</span>(vma, address);
+</span></span><span style=display:flex><span>        } <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic>// Anonymous page: allocate zeroed page
+</span></span></span><span style=display:flex><span>            <span style=color:#d2a8ff;font-weight:700>handle_anon_fault</span>(vma, address);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="52-demand-paging">5.2 Demand Paging</h3><p>Pages are allocated only when first accessed:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, <span style=color:#a5d6ff>1024</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>1024</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>1024</span>, PROT_READ<span style=color:#ff7b72;font-weight:700>|</span>PROT_WRITE,
+</span></span><span style=display:flex><span>                 MAP_PRIVATE<span style=color:#ff7b72;font-weight:700>|</span>MAP_ANONYMOUS, <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// No physical memory allocated yet!
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ptr[<span style=color:#a5d6ff>0</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;A&#39;</span>;  <span style=color:#8b949e;font-style:italic>// Page fault → allocate page 0
+</span></span></span><span style=display:flex><span>ptr[<span style=color:#a5d6ff>4096</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;B&#39;</span>;  <span style=color:#8b949e;font-style:italic>// Page fault → allocate page 1
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Only 8KB of physical memory used for a 1GB mapping
+</span></span></span></code></pre></div><p>This enables memory overcommitment:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Linux can promise more memory than physically exists
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// vm.overcommit_memory controls this behavior
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Check how much memory is &#34;committed&#34; vs available
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// /proc/meminfo: Committed_AS vs CommitLimit
+</span></span></span></code></pre></div><h3 id="53-copy-on-write-cow">5.3 Copy-on-Write (COW)</h3><p>When a process forks, pages are shared until written:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>pid_t</span> pid <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>fork</span>();
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Parent and child share all pages (marked read-only)
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> (pid <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Child writes to a shared page
+</span></span></span><span style=display:flex><span>    global_variable <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>42</span>;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Page fault → kernel copies the page
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Child gets its own copy, parent&#39;s unchanged
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>This makes fork() nearly instantaneous, even for large processes.</p><h3 id="54-lazy-allocation">5.4 Lazy Allocation</h3><p>Stack and heap grow lazily:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>recursive_function</span>(<span style=color:#ff7b72>int</span> depth) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> buffer[<span style=color:#a5d6ff>4096</span>];  <span style=color:#8b949e;font-style:italic>// Might trigger page fault for stack growth
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (depth <span style=color:#ff7b72;font-weight:700>&gt;</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>recursive_function</span>(depth <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>1</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Stack limit is typically 8MB, but physical pages
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// are allocated only as the stack grows
+</span></span></span></code></pre></div><h2 id="6-huge-pages">6. Huge Pages</h2><p>Standard 4KB pages create overhead for large memory workloads.</p><h3 id="61-the-problem-with-small-pages">6.1 The Problem with Small Pages</h3><p>For a 128GB database buffer pool:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Number of pages: 128 GB / 4 KB = 32 million pages
+</span></span><span style=display:flex><span>TLB entries: ~1536 (L2 STLB)
+</span></span><span style=display:flex><span>TLB coverage: 1536 × 4 KB = 6 MB
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Only 0.005% of the buffer pool fits in TLB!
+</span></span><span style=display:flex><span>Result: Constant TLB misses, performance degradation
+</span></span></code></pre></div><h3 id="62-huge-page-sizes">6.2 Huge Page Sizes</h3><p>x86-64 supports larger pages:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Page Size    Coverage per TLB entry    Use Case
+</span></span><span style=display:flex><span>─────────────────────────────────────────────────
+</span></span><span style=display:flex><span>4 KB         4 KB                      General purpose
+</span></span><span style=display:flex><span>2 MB         2 MB (512× more)          Large allocations
+</span></span><span style=display:flex><span>1 GB         1 GB (262144× more)       Huge allocations
+</span></span></code></pre></div><p>With 2MB huge pages:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Number of pages: 128 GB / 2 MB = 64,000 pages
+</span></span><span style=display:flex><span>TLB coverage: 1536 × 2 MB = 3 GB
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Now 2.3% of buffer pool fits in TLB (460× improvement!)
+</span></span></code></pre></div><h3 id="63-using-huge-pages">6.3 Using Huge Pages</h3><p>Linux provides several mechanisms:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Method 1: mmap with MAP_HUGETLB
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, size, PROT_READ<span style=color:#ff7b72;font-weight:700>|</span>PROT_WRITE,
+</span></span><span style=display:flex><span>                 MAP_PRIVATE<span style=color:#ff7b72;font-weight:700>|</span>MAP_ANONYMOUS<span style=color:#ff7b72;font-weight:700>|</span>MAP_HUGETLB, <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Method 2: Transparent Huge Pages (THP)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Kernel automatically uses huge pages when possible
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Enable: echo always &gt; /sys/kernel/mm/transparent_hugepage/enabled
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Method 3: hugetlbfs
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// mount -t hugetlbfs none /mnt/huge
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> fd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>open</span>(<span style=color:#a5d6ff>&#34;/mnt/huge/myfile&#34;</span>, O_CREAT<span style=color:#ff7b72;font-weight:700>|</span>O_RDWR, <span style=color:#a5d6ff>0755</span>);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, size, PROT_READ<span style=color:#ff7b72;font-weight:700>|</span>PROT_WRITE, MAP_SHARED, fd, <span style=color:#a5d6ff>0</span>);
+</span></span></code></pre></div><h3 id="64-huge-page-challenges">6.4 Huge Page Challenges</h3><p>Huge pages aren&rsquo;t free:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Challenge 1: Fragmentation
+</span></span><span style=display:flex><span>- Need contiguous 2MB regions
+</span></span><span style=display:flex><span>- System may not have them after running a while
+</span></span><span style=display:flex><span>- Solution: Reserve huge pages at boot, or use compaction
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenge 2: Memory waste
+</span></span><span style=display:flex><span>- Internal fragmentation: 1 byte allocation wastes 2MB - 1 byte
+</span></span><span style=display:flex><span>- Only beneficial for large allocations
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenge 3: THP latency spikes
+</span></span><span style=display:flex><span>- Kernel compaction can cause long pauses
+</span></span><span style=display:flex><span>- khugepaged background thread uses CPU
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenge 4: Memory accounting
+</span></span><span style=display:flex><span>- Hard to track actual usage with copy-on-write
+</span></span><span style=display:flex><span>- Can cause OOM in unexpected ways
+</span></span></code></pre></div><p>Database best practices:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Disable THP for databases (causes latency spikes)</span>
+</span></span><span style=display:flex><span>echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled
+</span></span><span style=display:flex><span>echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Use explicit huge pages instead</span>
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>8192</span> &gt; /proc/sys/vm/nr_hugepages  <span style=color:#8b949e;font-style:italic># Reserve 16GB in 2MB pages</span>
+</span></span></code></pre></div><h2 id="7-memory-mapped-files">7. Memory-Mapped Files</h2><p>Virtual memory enables efficient file I/O through memory mapping.</p><h3 id="71-how-it-works">7.1 How It Works</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>int</span> fd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>open</span>(<span style=color:#a5d6ff>&#34;database.db&#34;</span>, O_RDWR);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>map <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, file_size, PROT_READ<span style=color:#ff7b72;font-weight:700>|</span>PROT_WRITE, MAP_SHARED, fd, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Reading from the file
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> value <span style=color:#ff7b72;font-weight:700>=</span> ((<span style=color:#ff7b72>int</span> <span style=color:#ff7b72;font-weight:700>*</span>)map)[<span style=color:#a5d6ff>1000</span>];
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// If page not in memory: page fault → kernel reads from disk
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Writing to the file
+</span></span></span><span style=display:flex><span>((<span style=color:#ff7b72>int</span> <span style=color:#ff7b72;font-weight:700>*</span>)map)[<span style=color:#a5d6ff>1000</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>42</span>;
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Page marked dirty → kernel writes back later (or on msync/munmap)
+</span></span></span></code></pre></div><h3 id="72-advantages">7.2 Advantages</h3><p>Memory-mapped files offer several benefits:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 1. Zero-copy: data goes directly from disk to application memory
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// No intermediate kernel buffers
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2. Automatic caching: kernel page cache handles everything
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Recently accessed pages stay in memory
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 3. Lazy loading: only accessed pages are read from disk
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 4. Shared mappings: multiple processes can share the same pages
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>int</span> fd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>open</span>(<span style=color:#a5d6ff>&#34;shared.db&#34;</span>, O_RDWR);
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>map <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, size, PROT_READ<span style=color:#ff7b72;font-weight:700>|</span>PROT_WRITE, MAP_SHARED, fd, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Changes visible to all processes mapping the same file
+</span></span></span></code></pre></div><h3 id="73-gotchas">7.3 Gotchas</h3><p>Memory-mapped files have pitfalls:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Problem 1: I/O errors become signals
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>handle_sigbus</span>(<span style=color:#ff7b72>int</span> sig) {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Disk error during page-in causes SIGBUS, not read() error
+</span></span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Hard to handle gracefully
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>signal</span>(SIGBUS, handle_sigbus);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Problem 2: No fine-grained control over I/O timing
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Can&#39;t prioritize which pages to read first
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Problem 3: Page-sized I/O granularity
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Reading 1 byte still loads entire 4KB page
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Problem 4: Difficult to manage memory pressure
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Can&#39;t easily tell the kernel which pages to evict
+</span></span></span></code></pre></div><h3 id="74-madvise-hints">7.4 madvise Hints</h3><p>Tell the kernel about access patterns:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Sequential access: prefetch ahead
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>madvise</span>(map, size, MADV_SEQUENTIAL);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Random access: don&#39;t prefetch
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>madvise</span>(map, size, MADV_RANDOM);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Will need this soon: prefetch pages
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>madvise</span>(map <span style=color:#ff7b72;font-weight:700>+</span> offset, length, MADV_WILLNEED);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Won&#39;t need anymore: allow kernel to free pages
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>madvise</span>(map <span style=color:#ff7b72;font-weight:700>+</span> offset, length, MADV_DONTNEED);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Using huge pages would help
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>madvise</span>(map, size, MADV_HUGEPAGE);
+</span></span></code></pre></div><h2 id="8-kernel-vs-user-address-space">8. Kernel vs. User Address Space</h2><p>The virtual address space is split between kernel and user.</p><h3 id="81-address-space-layout">8.1 Address Space Layout</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>x86-64 Linux with 4-level paging (48-bit addresses):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>User space: 0x0000_0000_0000_0000 - 0x0000_7fff_ffff_ffff (128 TB)
+</span></span><span style=display:flex><span>            ↑
+</span></span><span style=display:flex><span>            Lower half of address space
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[Canonical hole: addresses with bits 48-63 neither all 0s nor all 1s]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Kernel space: 0xffff_8000_0000_0000 - 0xffff_ffff_ffff_ffff (128 TB)
+</span></span><span style=display:flex><span>              ↑
+</span></span><span style=display:flex><span>              Upper half of address space (all 1s in bits 48-63)
+</span></span></code></pre></div><h3 id="82-why-share-the-address-space">8.2 Why Share the Address Space?</h3><p>Kernel mappings in every process&rsquo;s address space:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// System call without shared kernel mapping:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 1. Save all user registers
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2. Load kernel page table (CR3 write = TLB flush!)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 3. Execute system call
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 4. Load user page table (another TLB flush!)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 5. Restore registers
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// With shared mapping:
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 1. Switch to ring 0
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 2. Execute system call (kernel pages already mapped!)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 3. Return to ring 3
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// No page table switch, no TLB flush!
+</span></span></span></code></pre></div><h3 id="83-kernel-page-table-isolation-kpti">8.3 Kernel Page Table Isolation (KPTI)</h3><p>Meltdown vulnerability forced a change:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Before Meltdown/KPTI:
+</span></span><span style=display:flex><span>User process sees: [User pages] [Kernel pages (inaccessible but mapped)]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>After KPTI:
+</span></span><span style=display:flex><span>User mode: [User pages] [Minimal kernel trampoline]
+</span></span><span style=display:flex><span>Kernel mode: [User pages] [Full kernel mapping]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Page table switch on every syscall/interrupt - performance cost!
+</span></span></code></pre></div><p>KPTI overhead:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Syscall-heavy workloads: 5-30% slowdown
+</span></span><span style=display:flex><span>Memory-mapped I/O: 2-5% slowdown
+</span></span><span style=display:flex><span>Compute-heavy: &lt; 1% slowdown
+</span></span></code></pre></div><h2 id="9-numa-and-virtual-memory">9. NUMA and Virtual Memory</h2><p>Non-Uniform Memory Access adds complexity to memory management.</p><h3 id="91-numa-architecture">9.1 NUMA Architecture</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>┌─────────────────────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>│                       NUMA System                            │
+</span></span><span style=display:flex><span>│  ┌─────────────────────┐     ┌─────────────────────┐        │
+</span></span><span style=display:flex><span>│  │      Node 0         │     │      Node 1         │        │
+</span></span><span style=display:flex><span>│  │  ┌───────────────┐  │     │  ┌───────────────┐  │        │
+</span></span><span style=display:flex><span>│  │  │  CPU 0-7      │  │     │  │  CPU 8-15     │  │        │
+</span></span><span style=display:flex><span>│  │  └───────┬───────┘  │     │  └───────┬───────┘  │        │
+</span></span><span style=display:flex><span>│  │          │          │     │          │          │        │
+</span></span><span style=display:flex><span>│  │  ┌───────▼───────┐  │     │  ┌───────▼───────┐  │        │
+</span></span><span style=display:flex><span>│  │  │ Local Memory  │◄─┼─────┼─►│ Local Memory  │  │        │
+</span></span><span style=display:flex><span>│  │  │   (fast)      │  │     │  │   (fast)      │  │        │
+</span></span><span style=display:flex><span>│  │  └───────────────┘  │     │  └───────────────┘  │        │
+</span></span><span style=display:flex><span>│  └─────────────────────┘     └─────────────────────┘        │
+</span></span><span style=display:flex><span>│              ▲ Interconnect (slower than local) ▲            │
+</span></span><span style=display:flex><span>└─────────────────────────────────────────────────────────────┘
+</span></span></code></pre></div><p>Memory access latency varies by location:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Local memory access:  ~80 ns
+</span></span><span style=display:flex><span>Remote memory access: ~140 ns (1.75× slower)
+</span></span></code></pre></div><h3 id="92-numa-aware-memory-allocation">9.2 NUMA-Aware Memory Allocation</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;numa.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Allocate on specific node
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>numa_alloc_onnode</span>(size, node);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Allocate interleaved across all nodes
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>numa_alloc_interleaved</span>(size);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Bind memory to nodes
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>numa_tonode_memory</span>(ptr, size, node);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Set NUMA policy for allocations
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>set_mempolicy</span>(MPOL_BIND, <span style=color:#ff7b72;font-weight:700>&amp;</span>nodemask, maxnode);
+</span></span></code></pre></div><h3 id="93-first-touch-policy">9.3 First-Touch Policy</h3><p>Linux defaults to first-touch allocation:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, size, PROT_READ<span style=color:#ff7b72;font-weight:700>|</span>PROT_WRITE,
+</span></span><span style=display:flex><span>                 MAP_PRIVATE<span style=color:#ff7b72;font-weight:700>|</span>MAP_ANONYMOUS, <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// No physical memory allocated yet
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Thread on node 0 touches the memory first
+</span></span></span><span style=display:flex><span>ptr[<span style=color:#a5d6ff>0</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;A&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Page allocated on node 0
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Thread on node 1 accesses the same page
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>char</span> c <span style=color:#ff7b72;font-weight:700>=</span> ptr[<span style=color:#a5d6ff>0</span>];
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Remote access! 1.75× slower
+</span></span></span></code></pre></div><p>This can cause performance problems:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Anti-pattern: initialize memory on one thread, use on another
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>init_thread</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> size; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        buffer[i] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>;  <span style=color:#8b949e;font-style:italic>// All pages allocated on init thread&#39;s node
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>worker_threads</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// If workers are on different nodes, all accesses are remote!
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Better: parallel first-touch initialization
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#pragma omp parallel for
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>int</span> i <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>; i <span style=color:#ff7b72;font-weight:700>&lt;</span> size; i<span style=color:#ff7b72;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>    buffer[i] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>;  <span style=color:#8b949e;font-style:italic>// Each thread touches pages it will use
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="94-numa-balancing">9.4 NUMA Balancing</h3><p>Linux can automatically migrate pages:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Enable automatic NUMA balancing</span>
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>1</span> &gt; /proc/sys/kernel/numa_balancing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># The kernel tracks page access patterns and migrates pages</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># to be closer to the threads accessing them</span>
+</span></span></code></pre></div><p>However, migration has overhead:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Page migration cost: Copy 4KB page + TLB flush + update page tables
+</span></span><span style=display:flex><span>Worth it only if: Future access savings &gt; migration cost
+</span></span><span style=display:flex><span>Kernel uses heuristics: access frequency, migration history
+</span></span></code></pre></div><h2 id="10-virtual-memory-security">10. Virtual Memory Security</h2><p>Virtual memory is the foundation of process isolation and security.</p><h3 id="101-address-space-layout-randomization-aslr">10.1 Address Space Layout Randomization (ASLR)</h3><p>Randomize memory layout to hinder exploits:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Check ASLR setting</span>
+</span></span><span style=display:flex><span>cat /proc/sys/kernel/randomize_va_space
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 0 = disabled, 1 = partial, 2 = full</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Run a program twice, observe different addresses</span>
+</span></span><span style=display:flex><span>$ cat /proc/self/maps | head -3
+</span></span><span style=display:flex><span>55a3b2c00000-55a3b2c01000 r--p ...
+</span></span><span style=display:flex><span>$ cat /proc/self/maps | head -3
+</span></span><span style=display:flex><span>559c1a400000-559c1a401000 r--p ...  <span style=color:#8b949e;font-style:italic># Different!</span>
+</span></span></code></pre></div><p>ASLR randomizes:</p><ul><li>Stack location</li><li>Heap location</li><li>Library load addresses</li><li>Executable base (PIE)</li><li>mmap regions</li></ul><h3 id="102-stack-canaries-and-guard-pages">10.2 Stack Canaries and Guard Pages</h3><p>Protect against stack buffer overflows:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>vulnerable_function</span>(<span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>input) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> buffer[<span style=color:#a5d6ff>64</span>];
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>unsigned</span> <span style=color:#ff7b72>long</span> canary <span style=color:#ff7b72;font-weight:700>=</span> __stack_chk_guard;  <span style=color:#8b949e;font-style:italic>// Random value
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>strcpy</span>(buffer, input);  <span style=color:#8b949e;font-style:italic>// Potential overflow
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (canary <span style=color:#ff7b72;font-weight:700>!=</span> __stack_chk_guard) {
+</span></span><span style=display:flex><span>        <span style=color:#d2a8ff;font-weight:700>__stack_chk_fail</span>();  <span style=color:#8b949e;font-style:italic>// Overflow detected!
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Guard pages prevent stack overflow into other memory:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Stack Layout:
+</span></span><span style=display:flex><span>┌──────────────────┐
+</span></span><span style=display:flex><span>│  Stack growth ↓  │
+</span></span><span style=display:flex><span>├──────────────────┤
+</span></span><span style=display:flex><span>│   Guard page     │ ← Not mapped, access triggers SIGSEGV
+</span></span><span style=display:flex><span>├──────────────────┤
+</span></span><span style=display:flex><span>│  Next region     │
+</span></span><span style=display:flex><span>└──────────────────┘
+</span></span></code></pre></div><h3 id="103-wx-write-xor-execute">10.3 W^X (Write XOR Execute)</h3><p>Pages should never be both writable and executable:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Allocate non-executable heap (default)
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>heap <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>malloc</span>(<span style=color:#a5d6ff>1024</span>);  <span style=color:#8b949e;font-style:italic>// W, no X
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Allocate non-writable code
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>code <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, <span style=color:#a5d6ff>4096</span>, PROT_READ<span style=color:#ff7b72;font-weight:700>|</span>PROT_EXEC,
+</span></span><span style=display:flex><span>                  MAP_PRIVATE<span style=color:#ff7b72;font-weight:700>|</span>MAP_ANONYMOUS, <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>0</span>);  <span style=color:#8b949e;font-style:italic>// R+X, no W
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// JIT compilation: write then execute
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>jit <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(NULL, <span style=color:#a5d6ff>4096</span>, PROT_READ<span style=color:#ff7b72;font-weight:700>|</span>PROT_WRITE,
+</span></span><span style=display:flex><span>                 MAP_PRIVATE<span style=color:#ff7b72;font-weight:700>|</span>MAP_ANONYMOUS, <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>0</span>);  <span style=color:#8b949e;font-style:italic>// W, no X
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// ... generate code ...
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>mprotect</span>(jit, <span style=color:#a5d6ff>4096</span>, PROT_READ<span style=color:#ff7b72;font-weight:700>|</span>PROT_EXEC);  <span style=color:#8b949e;font-style:italic>// Now R+X, no W
+</span></span></span></code></pre></div><h3 id="104-memory-tagging-mte">10.4 Memory Tagging (MTE)</h3><p>ARM Memory Tagging Extension catches memory safety bugs:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Each pointer has a 4-bit tag (in unused high bits)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Each 16-byte granule of memory has a 4-bit tag
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Access checks: pointer tag must match memory tag
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>char</span> <span style=color:#ff7b72;font-weight:700>*</span>ptr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>tagged_malloc</span>(<span style=color:#a5d6ff>16</span>);  <span style=color:#8b949e;font-style:italic>// ptr has tag 0x5, memory has tag 0x5
+</span></span></span><span style=display:flex><span>ptr[<span style=color:#a5d6ff>0</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;A&#39;</span>;                   <span style=color:#8b949e;font-style:italic>// Tags match, OK
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>free</span>(ptr);                      <span style=color:#8b949e;font-style:italic>// Memory tag changed to 0x7
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ptr[<span style=color:#a5d6ff>0</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;B&#39;</span>;                   <span style=color:#8b949e;font-style:italic>// Tag mismatch! Hardware exception
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Use-after-free detected!
+</span></span></span></code></pre></div><h2 id="11-performance-debugging">11. Performance Debugging</h2><p>Understanding virtual memory behavior is crucial for performance.</p><h3 id="111-measuring-page-faults">11.1 Measuring Page Faults</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Count page faults for a process</span>
+</span></span><span style=display:flex><span>$ /usr/bin/time -v ./myprogram
+</span></span><span style=display:flex><span>Minor <span style=color:#ff7b72;font-weight:700>(</span>reclaiming a frame<span style=color:#ff7b72;font-weight:700>)</span> page faults: <span style=color:#a5d6ff>12345</span>
+</span></span><span style=display:flex><span>Major <span style=color:#ff7b72;font-weight:700>(</span>requiring I/O<span style=color:#ff7b72;font-weight:700>)</span> page faults: <span style=color:#a5d6ff>100</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Live monitoring</span>
+</span></span><span style=display:flex><span>$ perf stat -e page-faults,minor-faults,major-faults ./myprogram
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Programmatic monitoring
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;sys/resource.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>struct</span> rusage usage;
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>getrusage</span>(RUSAGE_SELF, <span style=color:#ff7b72;font-weight:700>&amp;</span>usage);
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Minor faults: %ld</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, usage.ru_minflt);
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>printf</span>(<span style=color:#a5d6ff>&#34;Major faults: %ld</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, usage.ru_majflt);
+</span></span></code></pre></div><h3 id="112-tlb-profiling">11.2 TLB Profiling</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Measure TLB misses</span>
+</span></span><span style=display:flex><span>$ perf stat -e dTLB-load-misses,dTLB-store-misses,iTLB-load-misses ./myprogram
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># TLB miss ratio</span>
+</span></span><span style=display:flex><span>$ perf stat -e dTLB-loads,dTLB-load-misses ./myprogram
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 1,000,000 dTLB-loads</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#    10,000 dTLB-load-misses  # 1% miss rate</span>
+</span></span></code></pre></div><p>High TLB miss rates suggest:</p><ul><li>Working set too large for TLB</li><li>Consider huge pages</li><li>Improve memory locality</li></ul><h3 id="113-memory-access-patterns">11.3 Memory Access Patterns</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Visualize memory access patterns</span>
+</span></span><span style=display:flex><span>$ perf record -e mem_load_retired.l3_miss ./myprogram
+</span></span><span style=display:flex><span>$ perf report
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Memory bandwidth and latency</span>
+</span></span><span style=display:flex><span>$ perf stat -e cache-references,cache-misses ./myprogram
+</span></span></code></pre></div><h3 id="114-common-performance-issues">11.4 Common Performance Issues</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Issue: High major page fault rate
+</span></span><span style=display:flex><span>Cause: Memory pressure, frequent swapping
+</span></span><span style=display:flex><span>Fix: Add RAM, reduce memory usage, tune swappiness
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Issue: High TLB miss rate
+</span></span><span style=display:flex><span>Cause: Large working set, scattered access patterns
+</span></span><span style=display:flex><span>Fix: Use huge pages, improve locality
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Issue: NUMA imbalance
+</span></span><span style=display:flex><span>Cause: Memory on wrong node, poor first-touch
+</span></span><span style=display:flex><span>Fix: numactl binding, parallel initialization
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Issue: High syscall overhead (with KPTI)
+</span></span><span style=display:flex><span>Cause: Frequent user/kernel transitions
+</span></span><span style=display:flex><span>Fix: Batch syscalls, use io_uring
+</span></span></code></pre></div><h2 id="12-virtual-memory-across-operating-systems">12. Virtual Memory Across Operating Systems</h2><p>Different operating systems implement virtual memory with their own approaches and optimizations.</p><h3 id="121-linux">12.1 Linux</h3><p>Linux&rsquo;s virtual memory system is highly configurable:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Key tunables in /proc/sys/vm/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Swappiness: tendency to swap vs. drop cache (0-100)</span>
+</span></span><span style=display:flex><span>cat /proc/sys/vm/swappiness  <span style=color:#8b949e;font-style:italic># Default 60</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Overcommit behavior</span>
+</span></span><span style=display:flex><span>cat /proc/sys/vm/overcommit_memory
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 0 = heuristic, 1 = always overcommit, 2 = never overcommit</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Dirty page writeback thresholds</span>
+</span></span><span style=display:flex><span>cat /proc/sys/vm/dirty_ratio          <span style=color:#8b949e;font-style:italic># % of RAM for dirty pages</span>
+</span></span><span style=display:flex><span>cat /proc/sys/vm/dirty_background_ratio  <span style=color:#8b949e;font-style:italic># Start background writeback</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Huge page settings</span>
+</span></span><span style=display:flex><span>cat /proc/sys/vm/nr_hugepages
+</span></span><span style=display:flex><span>cat /sys/kernel/mm/transparent_hugepage/enabled
+</span></span></code></pre></div><p>Linux memory zones:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Zone       Purpose
+</span></span><span style=display:flex><span>─────────────────────────────────
+</span></span><span style=display:flex><span>ZONE_DMA   Legacy 16MB for ISA DMA
+</span></span><span style=display:flex><span>ZONE_DMA32 Memory addressable by 32-bit DMA
+</span></span><span style=display:flex><span>ZONE_NORMAL Regular memory
+</span></span><span style=display:flex><span>ZONE_MOVABLE For memory hotplug/migration
+</span></span></code></pre></div><h3 id="122-windows">12.2 Windows</h3><p>Windows uses a different terminology and approach:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Windows Memory Concepts:
+</span></span><span style=display:flex><span>─────────────────────────
+</span></span><span style=display:flex><span>Working Set: Pages currently in physical memory
+</span></span><span style=display:flex><span>Commit Charge: Total virtual memory committed
+</span></span><span style=display:flex><span>Paged Pool: Kernel memory that can be paged out
+</span></span><span style=display:flex><span>Nonpaged Pool: Kernel memory that must stay resident
+</span></span></code></pre></div><p>Windows memory management differs from Linux in several ways:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Windows API for memory management
+</span></span></span><span style=display:flex><span>LPVOID <span style=color:#d2a8ff;font-weight:700>VirtualAlloc</span>(
+</span></span><span style=display:flex><span>    LPVOID lpAddress,
+</span></span><span style=display:flex><span>    SIZE_T dwSize,
+</span></span><span style=display:flex><span>    DWORD  flAllocationType,  <span style=color:#8b949e;font-style:italic>// MEM_RESERVE, MEM_COMMIT
+</span></span></span><span style=display:flex><span>    DWORD  flProtect
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Reserve address space without committing physical memory
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>reserved <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>VirtualAlloc</span>(NULL, <span style=color:#a5d6ff>1</span>GB, MEM_RESERVE, PAGE_NOACCESS);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Later, commit portions as needed
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>committed <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>VirtualAlloc</span>(reserved, <span style=color:#a5d6ff>4096</span>, MEM_COMMIT, PAGE_READWRITE);
+</span></span></code></pre></div><p>Windows has distinct reserve and commit operations, unlike Linux&rsquo;s implicit overcommit.</p><h3 id="123-freebsd">12.3 FreeBSD</h3><p>FreeBSD&rsquo;s virtual memory system has unique characteristics:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>FreeBSD VM Features:
+</span></span><span style=display:flex><span>─────────────────────────────────────────
+</span></span><span style=display:flex><span>Superpages: Automatic huge page promotion
+</span></span><span style=display:flex><span>VM objects: Copy-on-write at object level
+</span></span><span style=display:flex><span>Swap clustering: Group pages for efficient swap I/O
+</span></span><span style=display:flex><span>NUMA domains: First-class NUMA support
+</span></span></code></pre></div><h3 id="124-macos">12.4 macOS</h3><p>macOS builds on Mach microkernel VM concepts:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Mach VM API
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>vm_allocate</span>(<span style=color:#d2a8ff;font-weight:700>mach_task_self</span>(), <span style=color:#ff7b72;font-weight:700>&amp;</span>address, size, VM_FLAGS_ANYWHERE);
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>vm_deallocate</span>(<span style=color:#d2a8ff;font-weight:700>mach_task_self</span>(), address, size);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Memory pressure notifications
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>dispatch_source_t</span> source <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>dispatch_source_create</span>(
+</span></span><span style=display:flex><span>    DISPATCH_SOURCE_TYPE_MEMORYPRESSURE,
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>0</span>,
+</span></span><span style=display:flex><span>    DISPATCH_MEMORYPRESSURE_WARN <span style=color:#ff7b72;font-weight:700>|</span> DISPATCH_MEMORYPRESSURE_CRITICAL,
+</span></span><span style=display:flex><span>    queue
+</span></span><span style=display:flex><span>);
+</span></span></code></pre></div><p>macOS aggressive compression:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>macOS Memory Compression:
+</span></span><span style=display:flex><span>─────────────────────────
+</span></span><span style=display:flex><span>Instead of swapping to disk immediately, macOS compresses inactive pages
+</span></span><span style=display:flex><span>in memory. Decompression is much faster than disk I/O.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Typical compression ratio: 2-3x
+</span></span><span style=display:flex><span>Result: More effective RAM, less swap I/O
+</span></span></code></pre></div><h2 id="13-advanced-topics">13. Advanced Topics</h2><h3 id="131-persistent-memory">13.1 Persistent Memory</h3><p>Intel Optane and similar technologies blur the line between memory and storage:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#include</span> <span style=color:#8b949e;font-weight:700;font-style:italic>&lt;libpmem.h&gt;</span><span style=color:#8b949e;font-weight:700;font-style:italic>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Map persistent memory
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>void</span> <span style=color:#ff7b72;font-weight:700>*</span>pmem <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>pmem_map_file</span>(<span style=color:#a5d6ff>&#34;/pmem/data&#34;</span>, size,
+</span></span><span style=display:flex><span>                           PMEM_FILE_CREATE, <span style=color:#a5d6ff>0666</span>, <span style=color:#ff7b72;font-weight:700>&amp;</span>mapped_size, <span style=color:#ff7b72;font-weight:700>&amp;</span>is_pmem);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Writes are durable after flush
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>memcpy</span>(pmem <span style=color:#ff7b72;font-weight:700>+</span> offset, data, len);
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>pmem_persist</span>(pmem <span style=color:#ff7b72;font-weight:700>+</span> offset, len);  <span style=color:#8b949e;font-style:italic>// Data survives power loss!
+</span></span></span></code></pre></div><p>This changes virtual memory assumptions:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Traditional:
+</span></span><span style=display:flex><span>Virtual Address → Physical RAM → (volatile, lost on power loss)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>With Persistent Memory:
+</span></span><span style=display:flex><span>Virtual Address → Physical PMEM → (durable, survives reboot)
+</span></span></code></pre></div><h3 id="132-memory-ballooning">13.2 Memory Ballooning</h3><p>Hypervisors use ballooning to reclaim memory from VMs:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Balloon Driver Operation:
+</span></span><span style=display:flex><span>1. Hypervisor wants to reclaim 1GB from VM
+</span></span><span style=display:flex><span>2. Sends signal to balloon driver in guest
+</span></span><span style=display:flex><span>3. Balloon driver allocates 1GB of guest memory
+</span></span><span style=display:flex><span>4. Guest OS pages out or compresses that memory
+</span></span><span style=display:flex><span>5. Balloon driver tells hypervisor which physical pages to reclaim
+</span></span><span style=display:flex><span>6. Hypervisor unmaps those pages, can give to other VMs
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Linux virtio_balloon driver
+</span></span></span><span style=display:flex><span><span style=color:#ff7b72>static</span> <span style=color:#ff7b72>void</span> <span style=color:#d2a8ff;font-weight:700>balloon_inflate</span>(<span style=color:#ff7b72>struct</span> virtio_balloon <span style=color:#ff7b72;font-weight:700>*</span>vb) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> page <span style=color:#ff7b72;font-weight:700>*</span>page <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#d2a8ff;font-weight:700>alloc_page</span>(GFP_KERNEL);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>list_add</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>page<span style=color:#ff7b72;font-weight:700>-&gt;</span>lru, <span style=color:#ff7b72;font-weight:700>&amp;</span>vb<span style=color:#ff7b72;font-weight:700>-&gt;</span>pages);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>tell_host_about_page</span>(page);  <span style=color:#8b949e;font-style:italic>// Hypervisor can reclaim this
+</span></span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id="133-memory-hotplug">13.3 Memory Hotplug</h3><p>Adding or removing memory while the system runs:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Check available memory blocks</span>
+</span></span><span style=display:flex><span>ls /sys/devices/system/memory/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Online a new memory block</span>
+</span></span><span style=display:flex><span>echo online &gt; /sys/devices/system/memory/memory32/state
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Offline memory (requires pages to be migrated first)</span>
+</span></span><span style=display:flex><span>echo offline &gt; /sys/devices/system/memory/memory32/state
+</span></span></code></pre></div><p>Challenges:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Offlining Memory:
+</span></span><span style=display:flex><span>1. Cannot offline pages with kernel data structures
+</span></span><span style=display:flex><span>2. Must migrate movable pages to other memory
+</span></span><span style=display:flex><span>3. Huge pages complicate migration
+</span></span><span style=display:flex><span>4. Some memory is inherently unmovable (kernel text)
+</span></span></code></pre></div><h3 id="134-kernel-same-page-merging-ksm">13.4 Kernel Same-page Merging (KSM)</h3><p>Deduplicate identical pages across processes:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// Mark memory region as mergeable
+</span></span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>madvise</span>(addr, size, MADV_MERGEABLE);
+</span></span></code></pre></div><p>KSM operation:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1. ksmd kernel thread scans mergeable pages
+</span></span><span style=display:flex><span>2. Computes hash of each page
+</span></span><span style=display:flex><span>3. Compares pages with same hash
+</span></span><span style=display:flex><span>4. Identical pages merged (copy-on-write)
+</span></span><span style=display:flex><span>5. Significant memory savings for VMs with same OS
+</span></span></code></pre></div><p>Trade-offs:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- Memory savings (especially for VMs running same OS)
+</span></span><span style=display:flex><span>- Can overcommit more aggressively
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Costs:
+</span></span><span style=display:flex><span>- CPU overhead for scanning and hashing
+</span></span><span style=display:flex><span>- Memory access latency (copy-on-write faults)
+</span></span><span style=display:flex><span>- Security concern: timing attacks can detect merging
+</span></span></code></pre></div><h2 id="14-historical-context-and-evolution">14. Historical Context and Evolution</h2><h3 id="141-pre-virtual-memory-era">14.1 Pre-Virtual Memory Era</h3><p>Early systems used physical addresses directly:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1950s-1960s:
+</span></span><span style=display:flex><span>- Programs loaded at fixed addresses
+</span></span><span style=display:flex><span>- Only one program in memory at a time
+</span></span><span style=display:flex><span>- Manual memory management (overlays)
+</span></span></code></pre></div><h3 id="142-segmentation">14.2 Segmentation</h3><p>Before paging, segmentation provided some isolation:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Intel 8086 Segmentation:
+</span></span><span style=display:flex><span>Physical Address = (Segment × 16) + Offset
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Segments provided:
+</span></span><span style=display:flex><span>- Code segment (CS)
+</span></span><span style=display:flex><span>- Data segment (DS)
+</span></span><span style=display:flex><span>- Stack segment (SS)
+</span></span><span style=display:flex><span>- Extra segment (ES)
+</span></span></code></pre></div><p>Segments were variable-sized, leading to fragmentation.</p><h3 id="143-paging-revolution">14.3 Paging Revolution</h3><p>Atlas Computer (1962) introduced paging:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Key innovations:
+</span></span><span style=display:flex><span>- Fixed-size pages (512 words)
+</span></span><span style=display:flex><span>- Demand paging
+</span></span><span style=display:flex><span>- Page replacement algorithms
+</span></span><span style=display:flex><span>- Virtual addresses transparent to programs
+</span></span></code></pre></div><h3 id="144-modern-evolution">14.4 Modern Evolution</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>1990s: PAE (36-bit physical addresses on 32-bit x86)
+</span></span><span style=display:flex><span>2000s: x86-64 (48-bit virtual, later 57-bit)
+</span></span><span style=display:flex><span>2010s: Virtualization extensions (EPT/NPT)
+</span></span><span style=display:flex><span>2018: Hardware mitigations (KPTI, Retpoline)
+</span></span><span style=display:flex><span>2020s: Memory tagging, CXL memory expansion
+</span></span></code></pre></div><h2 id="15-practical-implementation-example">15. Practical Implementation Example</h2><p>Let&rsquo;s implement a simple page table simulator to solidify understanding:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>dataclasses</span> <span style=color:#ff7b72>import</span> dataclass
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>typing</span> <span style=color:#ff7b72>import</span> Optional, Dict
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>enum</span> <span style=color:#ff7b72>import</span> IntFlag
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>PageFlags</span>(IntFlag):
+</span></span><span style=display:flex><span>    PRESENT <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>&lt;&lt;</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>    WRITABLE <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>&lt;&lt;</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>    USER <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>&lt;&lt;</span> <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>    ACCESSED <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>&lt;&lt;</span> <span style=color:#a5d6ff>3</span>
+</span></span><span style=display:flex><span>    DIRTY <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>&lt;&lt;</span> <span style=color:#a5d6ff>4</span>
+</span></span><span style=display:flex><span>    NO_EXECUTE <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>&lt;&lt;</span> <span style=color:#a5d6ff>63</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#d2a8ff;font-weight:700>@dataclass</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>PageTableEntry</span>:
+</span></span><span style=display:flex><span>    frame_number: int
+</span></span><span style=display:flex><span>    flags: PageFlags
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>is_present</span>(self) <span style=color:#ff7b72;font-weight:700>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> bool(self<span style=color:#ff7b72;font-weight:700>.</span>flags <span style=color:#ff7b72;font-weight:700>&amp;</span> PageFlags<span style=color:#ff7b72;font-weight:700>.</span>PRESENT)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>is_writable</span>(self) <span style=color:#ff7b72;font-weight:700>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> bool(self<span style=color:#ff7b72;font-weight:700>.</span>flags <span style=color:#ff7b72;font-weight:700>&amp;</span> PageFlags<span style=color:#ff7b72;font-weight:700>.</span>WRITABLE)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>PageTable</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Simple single-level page table for demonstration.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self, page_size: int <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>4096</span>):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>page_size <span style=color:#ff7b72;font-weight:700>=</span> page_size
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>entries: Dict[int, PageTableEntry] <span style=color:#ff7b72;font-weight:700>=</span> {}
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>tlb: Dict[int, int] <span style=color:#ff7b72;font-weight:700>=</span> {}  <span style=color:#8b949e;font-style:italic># Virtual page -&gt; Physical frame cache</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>tlb_hits <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>tlb_misses <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>map_page</span>(self, virtual_page: int, physical_frame: int,
+</span></span><span style=display:flex><span>                 flags: PageFlags <span style=color:#ff7b72;font-weight:700>=</span> PageFlags<span style=color:#ff7b72;font-weight:700>.</span>PRESENT <span style=color:#ff7b72;font-weight:700>|</span> PageFlags<span style=color:#ff7b72;font-weight:700>.</span>WRITABLE) <span style=color:#ff7b72;font-weight:700>-&gt;</span> <span style=color:#79c0ff>None</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Map a virtual page to a physical frame.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>entries[virtual_page] <span style=color:#ff7b72;font-weight:700>=</span> PageTableEntry(physical_frame, flags)
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Invalidate TLB entry if exists</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> virtual_page <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>tlb:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>del</span> self<span style=color:#ff7b72;font-weight:700>.</span>tlb[virtual_page]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>unmap_page</span>(self, virtual_page: int) <span style=color:#ff7b72;font-weight:700>-&gt;</span> <span style=color:#79c0ff>None</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Unmap a virtual page.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> virtual_page <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>entries:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>del</span> self<span style=color:#ff7b72;font-weight:700>.</span>entries[virtual_page]
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> virtual_page <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>tlb:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>del</span> self<span style=color:#ff7b72;font-weight:700>.</span>tlb[virtual_page]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>translate</span>(self, virtual_addr: int, write: bool <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>False</span>) <span style=color:#ff7b72;font-weight:700>-&gt;</span> int:
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Translate a virtual address to physical address.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        virtual_page <span style=color:#ff7b72;font-weight:700>=</span> virtual_addr <span style=color:#ff7b72;font-weight:700>//</span> self<span style=color:#ff7b72;font-weight:700>.</span>page_size
+</span></span><span style=display:flex><span>        offset <span style=color:#ff7b72;font-weight:700>=</span> virtual_addr <span style=color:#ff7b72;font-weight:700>%</span> self<span style=color:#ff7b72;font-weight:700>.</span>page_size
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Check TLB first</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> virtual_page <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>tlb:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>tlb_hits <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>            physical_frame <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>tlb[virtual_page]
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>tlb_misses <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Walk page table</span>
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>if</span> virtual_page <span style=color:#ff7b72;font-weight:700>not</span> <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>entries:
+</span></span><span style=display:flex><span>                <span style=color:#ff7b72>raise</span> PageFault(virtual_addr, <span style=color:#a5d6ff>&#34;Page not mapped&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            entry <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>entries[virtual_page]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> entry<span style=color:#ff7b72;font-weight:700>.</span>is_present():
+</span></span><span style=display:flex><span>                <span style=color:#ff7b72>raise</span> PageFault(virtual_addr, <span style=color:#a5d6ff>&#34;Page not present&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>if</span> write <span style=color:#ff7b72;font-weight:700>and</span> <span style=color:#ff7b72;font-weight:700>not</span> entry<span style=color:#ff7b72;font-weight:700>.</span>is_writable():
+</span></span><span style=display:flex><span>                <span style=color:#ff7b72>raise</span> PageFault(virtual_addr, <span style=color:#a5d6ff>&#34;Write to read-only page&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Update accessed/dirty bits</span>
+</span></span><span style=display:flex><span>            entry<span style=color:#ff7b72;font-weight:700>.</span>flags <span style=color:#ff7b72;font-weight:700>|=</span> PageFlags<span style=color:#ff7b72;font-weight:700>.</span>ACCESSED
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>if</span> write:
+</span></span><span style=display:flex><span>                entry<span style=color:#ff7b72;font-weight:700>.</span>flags <span style=color:#ff7b72;font-weight:700>|=</span> PageFlags<span style=color:#ff7b72;font-weight:700>.</span>DIRTY
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            physical_frame <span style=color:#ff7b72;font-weight:700>=</span> entry<span style=color:#ff7b72;font-weight:700>.</span>frame_number
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Cache in TLB</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>tlb[virtual_page] <span style=color:#ff7b72;font-weight:700>=</span> physical_frame
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> physical_frame <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>page_size <span style=color:#ff7b72;font-weight:700>+</span> offset
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>flush_tlb</span>(self) <span style=color:#ff7b72;font-weight:700>-&gt;</span> <span style=color:#79c0ff>None</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Flush entire TLB.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>tlb<span style=color:#ff7b72;font-weight:700>.</span>clear()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>get_stats</span>(self) <span style=color:#ff7b72;font-weight:700>-&gt;</span> dict:
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Return TLB statistics.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        total <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>tlb_hits <span style=color:#ff7b72;font-weight:700>+</span> self<span style=color:#ff7b72;font-weight:700>.</span>tlb_misses
+</span></span><span style=display:flex><span>        hit_rate <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>tlb_hits <span style=color:#ff7b72;font-weight:700>/</span> total <span style=color:#ff7b72>if</span> total <span style=color:#ff7b72;font-weight:700>&gt;</span> <span style=color:#a5d6ff>0</span> <span style=color:#ff7b72>else</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> {
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#34;tlb_hits&#34;</span>: self<span style=color:#ff7b72;font-weight:700>.</span>tlb_hits,
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#34;tlb_misses&#34;</span>: self<span style=color:#ff7b72;font-weight:700>.</span>tlb_misses,
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#34;hit_rate&#34;</span>: hit_rate
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>PageFault</span>(<span style=color:#f0883e;font-weight:700>Exception</span>):
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self, address: int, reason: str):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>address <span style=color:#ff7b72;font-weight:700>=</span> address
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>reason <span style=color:#ff7b72;font-weight:700>=</span> reason
+</span></span><span style=display:flex><span>        super()<span style=color:#ff7b72;font-weight:700>.</span><span style=color:#d2a8ff;font-weight:700>__init__</span>(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;Page fault at 0x</span><span style=color:#a5d6ff>{</span>address<span style=color:#a5d6ff>:</span><span style=color:#a5d6ff>x</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>: </span><span style=color:#a5d6ff>{</span>reason<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>VirtualMemorySimulator</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Simulates a simple virtual memory system.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self, physical_memory_size: int <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1024</span> <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>1024</span>):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>page_table <span style=color:#ff7b72;font-weight:700>=</span> PageTable()
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>physical_memory <span style=color:#ff7b72;font-weight:700>=</span> bytearray(physical_memory_size)
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>next_free_frame <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>page_size <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>4096</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>allocate_frame</span>(self) <span style=color:#ff7b72;font-weight:700>-&gt;</span> int:
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Allocate a physical frame.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        frame <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>next_free_frame
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>next_free_frame <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> frame
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>mmap</span>(self, virtual_addr: int, size: int) <span style=color:#ff7b72;font-weight:700>-&gt;</span> <span style=color:#79c0ff>None</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Map a region of virtual memory.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        start_page <span style=color:#ff7b72;font-weight:700>=</span> virtual_addr <span style=color:#ff7b72;font-weight:700>//</span> self<span style=color:#ff7b72;font-weight:700>.</span>page_size
+</span></span><span style=display:flex><span>        num_pages <span style=color:#ff7b72;font-weight:700>=</span> (size <span style=color:#ff7b72;font-weight:700>+</span> self<span style=color:#ff7b72;font-weight:700>.</span>page_size <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>1</span>) <span style=color:#ff7b72;font-weight:700>//</span> self<span style=color:#ff7b72;font-weight:700>.</span>page_size
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> i <span style=color:#ff7b72;font-weight:700>in</span> range(num_pages):
+</span></span><span style=display:flex><span>            frame <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>allocate_frame()
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>page_table<span style=color:#ff7b72;font-weight:700>.</span>map_page(start_page <span style=color:#ff7b72;font-weight:700>+</span> i, frame)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>read</span>(self, virtual_addr: int) <span style=color:#ff7b72;font-weight:700>-&gt;</span> int:
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Read a byte from virtual memory.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>try</span>:
+</span></span><span style=display:flex><span>            physical_addr <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>page_table<span style=color:#ff7b72;font-weight:700>.</span>translate(virtual_addr)
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> self<span style=color:#ff7b72;font-weight:700>.</span>physical_memory[physical_addr]
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>except</span> PageFault <span style=color:#ff7b72>as</span> e:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Handle page fault - in real OS, would allocate/swap in</span>
+</span></span><span style=display:flex><span>            print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;Page fault: </span><span style=color:#a5d6ff>{</span>e<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>raise</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>write</span>(self, virtual_addr: int, value: int) <span style=color:#ff7b72;font-weight:700>-&gt;</span> <span style=color:#79c0ff>None</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Write a byte to virtual memory.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>try</span>:
+</span></span><span style=display:flex><span>            physical_addr <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>page_table<span style=color:#ff7b72;font-weight:700>.</span>translate(virtual_addr, write<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>True</span>)
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>physical_memory[physical_addr] <span style=color:#ff7b72;font-weight:700>=</span> value
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>except</span> PageFault <span style=color:#ff7b72>as</span> e:
+</span></span><span style=display:flex><span>            print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;Page fault: </span><span style=color:#a5d6ff>{</span>e<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>raise</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Example usage</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#79c0ff>__name__</span> <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#34;__main__&#34;</span>:
+</span></span><span style=display:flex><span>    vm <span style=color:#ff7b72;font-weight:700>=</span> VirtualMemorySimulator()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Map 16KB starting at virtual address 0x1000</span>
+</span></span><span style=display:flex><span>    vm<span style=color:#ff7b72;font-weight:700>.</span>mmap(<span style=color:#a5d6ff>0x1000</span>, <span style=color:#a5d6ff>16384</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Write and read some data</span>
+</span></span><span style=display:flex><span>    vm<span style=color:#ff7b72;font-weight:700>.</span>write(<span style=color:#a5d6ff>0x1000</span>, <span style=color:#a5d6ff>42</span>)
+</span></span><span style=display:flex><span>    vm<span style=color:#ff7b72;font-weight:700>.</span>write(<span style=color:#a5d6ff>0x1001</span>, <span style=color:#a5d6ff>43</span>)
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;Read 0x1000: </span><span style=color:#a5d6ff>{</span>vm<span style=color:#ff7b72;font-weight:700>.</span>read(<span style=color:#a5d6ff>0x1000</span>)<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)  <span style=color:#8b949e;font-style:italic># 42</span>
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;Read 0x1001: </span><span style=color:#a5d6ff>{</span>vm<span style=color:#ff7b72;font-weight:700>.</span>read(<span style=color:#a5d6ff>0x1001</span>)<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)  <span style=color:#8b949e;font-style:italic># 43</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Check TLB stats</span>
+</span></span><span style=display:flex><span>    print(vm<span style=color:#ff7b72;font-weight:700>.</span>page_table<span style=color:#ff7b72;font-weight:700>.</span>get_stats())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Access unmapped memory</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>try</span>:
+</span></span><span style=display:flex><span>        vm<span style=color:#ff7b72;font-weight:700>.</span>read(<span style=color:#a5d6ff>0x9000</span>)  <span style=color:#8b949e;font-style:italic># Not mapped</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>except</span> PageFault <span style=color:#ff7b72>as</span> e:
+</span></span><span style=display:flex><span>        print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;Caught: </span><span style=color:#a5d6ff>{</span>e<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span></code></pre></div><p>This simplified implementation demonstrates:</p><ul><li>Page table structure and lookup</li><li>TLB caching for fast translation</li><li>Page fault handling</li><li>Address decomposition into page number and offset</li></ul><p>Production implementations add multi-level tables, hardware acceleration, and integration with the physical memory allocator.</p><h2 id="16-summary">16. Summary</h2><p>Virtual memory is one of the most elegant abstractions in computing:</p><p><strong>Core concepts:</strong></p><ul><li>Pages and frames divide memory into fixed-size chunks</li><li>Page tables map virtual addresses to physical addresses</li><li>Multi-level page tables handle sparse address spaces efficiently</li><li>TLBs cache translations for fast access</li></ul><p><strong>Key mechanisms:</strong></p><ul><li>Demand paging allocates memory lazily</li><li>Copy-on-write enables efficient process forking</li><li>Memory-mapped files provide zero-copy I/O</li><li>Huge pages reduce TLB pressure for large allocations</li></ul><p><strong>Performance considerations:</strong></p><ul><li>TLB misses can dominate memory-intensive workloads</li><li>NUMA awareness is critical for multi-socket systems</li><li>Page faults are expensive—minimize major faults</li><li>Memory layout affects cache and TLB efficiency</li></ul><p><strong>Security foundations:</strong></p><ul><li>Address space isolation protects processes from each other</li><li>ASLR randomizes memory layout to hinder exploits</li><li>W^X prevents code injection attacks</li><li>Memory tagging catches memory safety bugs in hardware</li></ul><p>Understanding virtual memory transforms how you think about system performance. Whether you&rsquo;re debugging mysterious slowdowns, optimizing database buffer pools, or securing applications against memory attacks, this knowledge is foundational to effective systems programming.</p></div><footer class="ce1a612 c6dfb1e c3ecea6"><div class="c364589">Categories:
+<a href=/categories/systems/>systems</a>, <a href=/categories/operating-systems/>operating-systems</a></div><div>Tags:
+<a href=/tags/operating-systems/>#operating-systems</a>, <a href=/tags/virtual-memory/>#virtual-memory</a>, <a href=/tags/page-tables/>#page-tables</a>, <a href=/tags/memory-management/>#memory-management</a>, <a href=/tags/performance/>#performance</a>, <a href=/tags/systems/>#systems</a></div></footer></article></main><footer class="ccdf0e8" role=contentinfo aria-label=Footer><div class="cfdda01 c133889 c5df473 c0eecc8 c69618a c6942b3 c03620d c2a9f27 c7c11d8 c82c52d c14527b"><div class="c6dfb1e c3ecea6 c39ef11 c88ae6f">&copy; 2026 Leonardo Benicio. All rights
+reserved.</div><div class="c6942b3 c7c11d8 cd1fd22"><a href=https://github.com/lbenicio target=_blank rel="noopener noreferrer" aria-label=GitHub class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.5-.67 1.08-.82 1.7s-.2 1.27-.18 1.9V22"/></svg>
+<span class="cba5854">GitHub</span>
+</a><a href=https://www.linkedin.com/in/leonardo-benicio target=_blank rel="noopener noreferrer" aria-label=LinkedIn class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21V14.86c0-1.333-.027-3.046-1.858-3.046-1.86.0-2.145 1.45-2.145 2.948v5.69H9.069V9h3.112v1.561h.044c.434-.82 1.494-1.686 3.074-1.686 3.29.0 3.897 2.165 3.897 4.983v6.594zM5.337 7.433a1.805 1.805.0 11-.002-3.61 1.805 1.805.0 01.002 3.61zM6.763 20.452H3.911V9h2.852v11.452z"/></svg>
+<span class="cba5854">LinkedIn</span>
+</a><a href=https://twitter.com/lbenicio_ target=_blank rel="noopener noreferrer" aria-label=Twitter class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.177.013.354.013.53.0 5.386-4.099 11.599-11.6 11.599-2.31.0-4.457-.676-6.265-1.842.324.038.636.05.972.05 1.91.0 3.67-.65 5.07-1.755a4.099 4.099.0 01-3.827-2.84c.25.039.5.064.763.064.363.0.726-.051 1.065-.139A4.091 4.091.0 012.542 9.649v-.051c.538.3 1.162.482 1.824.507A4.082 4.082.0 012.54 6.7c0-.751.2-1.435.551-2.034a11.63 11.63.0 008.44 4.281 4.615 4.615.0 01-.101-.938 4.091 4.091.0 017.078-2.799 8.1 8.1.0 002.595-.988 4.112 4.112.0 01-1.8 2.261 8.2 8.2.0 002.357-.638A8.824 8.824.0 0119.613 7.96z"/></svg>
+<span class="cba5854">Twitter</span></a></div></div></footer></body></html>

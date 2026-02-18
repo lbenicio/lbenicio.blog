@@ -1,0 +1,968 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>TCP Congestion Control: From Slow Start to BBR · Leonardo Benicio</title><meta name=description content="A comprehensive exploration of TCP congestion control algorithms, from classic approaches like Tahoe and Reno to modern innovations like BBR. Learn how these algorithms balance throughput, fairness, and latency across diverse network conditions."><link rel=alternate type=application/rss+xml title=RSS href=https://lbenicio.dev/index.xml><link rel=canonical href=https://blog.lbenicio.dev/blog/tcp-congestion-control-from-slow-start-to-bbr/><link rel=preload href=/static/fonts/OpenSans-Regular.ttf as=font type=font/ttf crossorigin><link rel="stylesheet" href="/assets/css/fonts.min.40e2054b739ac45a0f9c940f4b44ec00c3b372356ebf61440a413c0337c5512e.css" crossorigin="anonymous" integrity="sha256-QOIFS3OaxFoPnJQPS0TsAMOzcjVuv2FECkE8AzfFUS4="><link rel="shortcut icon" href=/static/assets/favicon/favicon.ico><link rel=icon type=image/x-icon href=/static/assets/favicon/favicon.ico><link rel=icon href=/static/assets/favicon/favicon.svg type=image/svg+xml><link rel=icon href=/static/assets/favicon/favicon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/static/assets/favicon/favicon-16x16.png sizes=16x16 type=image/png><link rel=apple-touch-icon href=/static/assets/favicon/apple-touch-icon.png><link rel=manifest href=/static/assets/favicon/site.webmanifest><link rel=mask-icon href=/static/assets/favicon/safari-pinned-tab.svg color=#209cee><meta name=msapplication-TileColor content="#209cee"><meta name=msapplication-config content="/static/assets/favicon/browserconfig.xml"><meta name=theme-color content="#d2e9f8"><meta property="og:title" content="TCP Congestion Control: From Slow Start to BBR · Leonardo Benicio"><meta property="og:description" content="A comprehensive exploration of TCP congestion control algorithms, from classic approaches like Tahoe and Reno to modern innovations like BBR. Learn how these algorithms balance throughput, fairness, and latency across diverse network conditions."><meta property="og:url" content="https://blog.lbenicio.dev/blog/tcp-congestion-control-from-slow-start-to-bbr/"><meta property="og:type" content="article"><meta property="og:image" content="https://blog.lbenicio.dev/static/assets/images/blog/tcp-congestion-control-algorithms-performance.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="TCP Congestion Control: From Slow Start to BBR · Leonardo Benicio"><meta name=twitter:description content="A comprehensive exploration of TCP congestion control algorithms, from classic approaches like Tahoe and Reno to modern innovations like BBR. Learn how these algorithms balance throughput, fairness, and latency across diverse network conditions."><meta name=twitter:site content="@lbenicio_"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"About Leonardo Benicio","url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Person","name":"Leonardo Benicio","sameAs":["https://github.com/lbenicio","https://www.linkedin.com/in/leonardo-benicio","https://twitter.com/lbenicio_"],"url":"https://blog.lbenicio.dev"}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Home","position":1},{"@type":"ListItem","item":"https://blog.lbenicio.dev/","name":"Blog","position":2},{"@type":"ListItem","item":"https://blog.lbenicio.dev/blog/tcp-congestion-control-from-slow-start-to-bbr/","name":"Tcp Congestion Control From Slow Start to Bbr","position":3}]}</script><link rel="stylesheet" href="/assets/css/main.min.1e8a566ac8bc3f0664d0db4ec8a015b07421c33fa11d336a6b914522a9cabf30.css" crossorigin="anonymous" integrity="sha256-6lhUOpwCHMSMROmggsVSp3AHKud6gBrIFGTzl3GV4BY="></head><body class="c6942b3 c03620d cf3bd2e"><script>(function(){try{document.addEventListener("gesturestart",function(e){e.preventDefault()}),document.addEventListener("touchstart",function(e){e.touches&&e.touches.length>1&&e.preventDefault()},{passive:!1});var e=0;document.addEventListener("touchend",function(t){var n=Date.now();n-e<=300&&t.preventDefault(),e=n},{passive:!1})}catch{}})()</script><a href=#content class="cba5854 c21e770 caffa6e cc5f604 cf2c31d cdd44dd c10dda9 c43876e c787e9b cddc2d2 cf55a7b c6dfb1e c9391e2">Skip to content</a>
+<script>(function(){try{const e=localStorage.getItem("theme");e==="dark"&&document.documentElement.classList.add("dark");const t=document.querySelector('button[aria-label="Toggle theme"]');t&&t.setAttribute("aria-pressed",String(e==="dark"))}catch{}})();function toggleTheme(e){const s=document.documentElement,t=s.classList.toggle("dark");try{localStorage.setItem("theme",t?"dark":"light")}catch{}try{var n=e&&e.nodeType===1?e:document.querySelector('button[aria-label="Toggle theme"]');n&&n.setAttribute("aria-pressed",String(!!t))}catch{}}(function(){function e(){try{return document.documentElement.classList.contains("dark")?"dark":"light"}catch{return"light"}}function n(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(0)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!1,s.style.display="block"}catch{}o.setAttribute("aria-expanded","true"),n.setAttribute("aria-hidden","false");try{document.body.classList.add("c150bbe")}catch{}const i=document.getElementById("i190984");i&&i.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_open",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function t(t){const n=document.getElementById("i98aca2"),s=document.getElementById("iad2af0"),o=document.getElementById("i975fb5");if(!n||!s||!o)return;try{n.style.transform="translateX(100%)",n.style.transition||(n.style.transition="transform 200ms ease-out")}catch{}try{s.hidden=!0,s.style.display="none"}catch{}o.setAttribute("aria-expanded","false"),n.setAttribute("aria-hidden","true");try{document.body.classList.remove("c150bbe")}catch{}o.focus();try{window.umami&&typeof window.umami.track=="function"&&window.umami.track("mobile_menu_close",{page:location.pathname,theme:e(),source:t||"programmatic"})}catch{}}function s(e){e.key==="Escape"&&t("escape")}window.__openMobileMenu=n,window.__closeMobileMenu=t;try{window.addEventListener("keydown",s,!0)}catch{}})()</script><header class="cd019ba c98dfae cdd44dd cfdda01 c9ee25d ce2dc7a cd72dd7 cc0dc37" role=banner><div class="cfdda01 c6942b3 ccf47f4 c7c11d8"><a href=/ class="c87e2b0 c6942b3 c7c11d8 c1838fa cb594e4" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=32 height=32 class="c3de71a c4d5191">
+<span class="cf8f011 c4d1253 cbd72bc cd7e69e">Leonardo Benicio</span></a><div class="c6942b3 c85cbd4 c7c11d8 ca798da c1838fa c7a0580"><nav class="cc1689c cd9b445 c75065d c04bab1" aria-label=Main><a href=/ class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Home</a>
+<a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">About</a>
+<a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Timeline</a>
+<a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Reading</a>
+<a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Publications</a>
+<a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c4d1253 c9e4539 cbbda39 c01f421 c19ee42 c3ecea6">Contact</a></nav><button id="i1d73d4" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 c097fa1 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" onclick=toggleTheme(this) aria-label="Toggle theme" aria-pressed=false title="Toggle theme">
+<svg class="cb26e41 c50ceea cb69a5c c4f45c8 c8c2c40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="cb26e41 c8fca2b cb69a5c c4f45c8 cc1689c c9c27ff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M6.34 17.66l2.83-2.83"/><path d="M14.83 9.17l2.83-2.83"/></svg>
+<span class="cba5854">Toggle theme</span></button><div class="c658bcf c097fa1"><button id="i975fb5" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c8e184d c514027 c88daee c7a66a6 cfc01c7 c286dd7 c2bd687 cfdce1d cfef18f" aria-label="Open menu" aria-controls="i98aca2" aria-expanded=false onclick='window.__openMobileMenu("button")' data-d38f920=mobile_menu_open_click>
+<svg class="c20e4eb cb58471" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<span class="cba5854">Open menu</span></button></div></div></div></header><div id="iad2af0" class="caffa6e ce4b5f4 c14639a" style=background-color:hsl(var(--background)) hidden onclick='window.__closeMobileMenu("overlay")' data-d38f920=mobile_menu_overlay_click></div><aside id="i98aca2" class="caffa6e c9efbc5 c437fa9 c49e97e c6c6936 c7cacca c7b34a4 c787e9b c88daee cad071a c6942b3 c03620d" role=dialog aria-modal=true aria-hidden=true aria-label="Mobile navigation" style="transform:translateX(100%);transition:transform 200ms ease-out;will-change:transform"><div class="c6942b3 c7c11d8 c82c52d c5df473 ccf47f4 c9ee25d"><a href=/ class="c6942b3 c7c11d8 c1838fa" aria-label=Home><img src=/static/assets/favicon/favicon.svg alt=Logo width=24 height=24 class="c20e4eb cb58471">
+<span class="c62aaf0 c7c1b66 cbd72bc">Leonardo Benicio</span>
+</a><button id="i190984" type=button class="c1d6c20 c81ac7c c6a899b c7c11d8 c1d0018 c10dda9 c514027 c286dd7 c2bd687 cfdce1d" aria-label="Close menu" onclick='window.__closeMobileMenu("button")' data-d38f920=mobile_menu_close_click>
+<svg class="c16e528 c61f467" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<span class="cba5854">Close</span></button></div><nav class="c85cbd4 ca0eaa4 c5df473 c6689b9"><ul class="cd69733"><li><a href=/ class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Home</a></li><li><a href=https://lbenicio.dev/about target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>About</a></li><li><a href=https://lbenicio.dev/timeline target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Timeline</a></li><li><a href=https://lbenicio.dev/reading target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Reading</a></li><li><a href=https://publications.lbenicio.dev target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Publications</a></li><li><a href=https://lbenicio.dev/contact target=_blank rel="noopener noreferrer" class="c3b5299 c10dda9 cddc2d2 cf55a7b c7c1b66 cbbda39 c3ecea6 c19ee42 c514027" onclick=window.__closeMobileMenu()>Contact</a></li></ul></nav><div class="c60a4cc ccdf0e8 c277478 c13044e"><p>&copy; 2026 Leonardo Benicio</p></div></aside><div class="caffa6e c437fa9 ce9aced c97bba6 c15da2a c975cba" role=complementary aria-label="GitHub repository"><div class="c9d056d c252f85 ca22532 ca88a1a c876315"><div class="c6942b3 c7c11d8 c1d0018 cd1fd22 c6066e4 c43876e ce3d5b6 caa20d2 c3ecea6 c0cd2e2 cddc2d2 c3ed5c9 cd4074c c876315"><a href=https://github.com/lbenicio/aboutme target=_blank rel="noopener noreferrer" class="c6942b3 c7c11d8 cd1fd22 c71bae8 cfac1ac c19ee42 c25dc7c cb40739 cbbda39 cf55a7b" aria-label="View source on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cb26e41 c41bcd4 cf17690 cfa4e34 c78d562" aria-hidden="true"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+<span class="cb5c327 cd7e69e">Fork me</span></a></div></div></div><main id="i7eccc0" class="cfdda01 c5df473 c0eecc8 c85cbd4" role=main aria-label=Content><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Tcp Congestion Control From Slow Start to Bbr</span></li></ol></nav><article class="c461ba0 c1c203f cfb6084 c995404 c6ca165"><nav class="cb545ce c8d8ae4 c277478" aria-label=Breadcrumb><ol class="c6942b3 c3adaf2 c7c11d8 cd365ee c3ecea6"><li><a href=/ class="c19ee42 c71bae8 cfac1ac">Home</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><a href=/ class="c19ee42 c71bae8 cfac1ac">Blog</a></li><li class="c6942b3 c7c11d8 cd365ee"><span class="cb82ddd">/</span><span class="c88daee">Tcp Congestion Control From Slow Start to Bbr</span></li></ol></nav><header class="c8aedc7"><h1 class="cf304bc c6fb0fe cf8f011 cc484e1">TCP Congestion Control: From Slow Start to BBR</h1><div class="c277478 c3ecea6 c8fb24a">2023-02-11
+· Leonardo Benicio</div><div class="c1a1a3f c8124f2"><img src=/static/assets/images/blog/tcp-congestion-control-algorithms-performance.png alt class="cfdda01 c524300 c677556"></div><p class="lead c3ecea6">A comprehensive exploration of TCP congestion control algorithms, from classic approaches like Tahoe and Reno to modern innovations like BBR. Learn how these algorithms balance throughput, fairness, and latency across diverse network conditions.</p></header><div class="content"><p>Every time you load a webpage, stream a video, or download a file, TCP congestion control algorithms work invisibly to maximize throughput while preventing network collapse. These algorithms represent decades of research into one of networking&rsquo;s hardest problems: how do independent senders share a network fairly without overwhelming it? Let&rsquo;s explore how TCP congestion control evolved from simple beginnings to sophisticated model-based approaches.</p><h2 id="1-the-congestion-problem">1. The Congestion Problem</h2><p>Without congestion control, networks collapse under load.</p><h3 id="11-the-tragedy-of-the-commons">1.1 The Tragedy of the Commons</h3><p>Consider multiple TCP senders sharing a bottleneck link:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Sender A ──┐
+</span></span><span style=display:flex><span>           │
+</span></span><span style=display:flex><span>Sender B ──┼──[ Bottleneck: 100 Mbps ]──→ Receiver
+</span></span><span style=display:flex><span>           │
+</span></span><span style=display:flex><span>Sender C ──┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>If each sender transmits at 50 Mbps:
+</span></span><span style=display:flex><span>Total offered load: 150 Mbps
+</span></span><span style=display:flex><span>Bottleneck capacity: 100 Mbps
+</span></span><span style=display:flex><span>Result: Packet loss, retransmissions, collapse
+</span></span></code></pre></div><p>Without coordination, each sender&rsquo;s rational behavior (send as fast as possible) leads to collective disaster.</p><h3 id="12-congestion-collapse">1.2 Congestion Collapse</h3><p>The 1986 Internet congestion collapse demonstrated this dramatically:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Before collapse:
+</span></span><span style=display:flex><span>- Network throughput: ~32 Kbps
+</span></span><span style=display:flex><span>- Offered load increasing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>During collapse:
+</span></span><span style=display:flex><span>- Offered load: &gt;&gt; capacity
+</span></span><span style=display:flex><span>- Actual throughput: dropped to ~100 bps
+</span></span><span style=display:flex><span>- 99.7% of bandwidth wasted on retransmissions!
+</span></span></code></pre></div><p>Packets were being retransmitted multiple times, each retransmission adding to congestion, causing more loss, causing more retransmissions—a death spiral.</p><h3 id="13-the-solution-congestion-control">1.3 The Solution: Congestion Control</h3><p>Van Jacobson&rsquo;s 1988 algorithms saved the Internet:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Key insight: Use packet loss as a signal of congestion
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Core mechanisms:
+</span></span><span style=display:flex><span>1. Slow start: Probe for available bandwidth
+</span></span><span style=display:flex><span>2. Congestion avoidance: Gentle increase after finding capacity
+</span></span><span style=display:flex><span>3. Fast retransmit: Quickly detect and recover from loss
+</span></span><span style=display:flex><span>4. Fast recovery: Maintain throughput during recovery
+</span></span></code></pre></div><h2 id="2-tcp-fundamentals">2. TCP Fundamentals</h2><p>Before diving into algorithms, let&rsquo;s establish key concepts.</p><h3 id="21-the-congestion-window">2.1 The Congestion Window</h3><p>The congestion window (cwnd) limits how much data can be in flight:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Simplified TCP sender logic</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>send_data</span>(self):
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>while</span> <span style=color:#79c0ff>True</span>:
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Can only send if within both windows</span>
+</span></span><span style=display:flex><span>        bytes_in_flight <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>sent_but_unacked
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        send_window <span style=color:#ff7b72;font-weight:700>=</span> min(self<span style=color:#ff7b72;font-weight:700>.</span>cwnd, self<span style=color:#ff7b72;font-weight:700>.</span>receiver_window)
+</span></span><span style=display:flex><span>        available <span style=color:#ff7b72;font-weight:700>=</span> send_window <span style=color:#ff7b72;font-weight:700>-</span> bytes_in_flight
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> available <span style=color:#ff7b72;font-weight:700>&gt;</span> <span style=color:#a5d6ff>0</span>:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>send_segment(min(available, MSS))
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>cwnd controls sending rate:
+</span></span><span style=display:flex><span>- Small cwnd → slow sending → low throughput
+</span></span><span style=display:flex><span>- Large cwnd → fast sending → high throughput (until loss)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Effective rate ≈ cwnd / RTT
+</span></span></code></pre></div><h3 id="22-round-trip-time-rtt">2.2 Round-Trip Time (RTT)</h3><p>RTT is the time for a packet to reach the receiver and for its acknowledgment to return:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Sender                                    Receiver
+</span></span><span style=display:flex><span>  │                                          │
+</span></span><span style=display:flex><span>  │────────── Data packet ─────────────────→│
+</span></span><span style=display:flex><span>  │                                          │
+</span></span><span style=display:flex><span>  │←──────────── ACK ────────────────────────│
+</span></span><span style=display:flex><span>  │                                          │
+</span></span><span style=display:flex><span>  │◄─────────────── RTT ───────────────────►│
+</span></span></code></pre></div><p>RTT affects everything:</p><ul><li><strong>Throughput:</strong> <code>max_rate = cwnd / RTT</code></li><li><strong>Responsiveness:</strong> How quickly we detect congestion</li><li><strong>Fairness:</strong> Flows with different RTTs compete unequally</li></ul><h3 id="23-bandwidth-delay-product">2.3 Bandwidth-Delay Product</h3><p>The BDP is the amount of data &ldquo;in flight&rdquo; to fully utilize a link:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>BDP = Bandwidth × RTT
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Example:
+</span></span><span style=display:flex><span>- 1 Gbps link
+</span></span><span style=display:flex><span>- 50 ms RTT
+</span></span><span style=display:flex><span>- BDP = 1,000,000,000 bits/s × 0.050 s = 50,000,000 bits = 6.25 MB
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>To fully utilize this link, cwnd must reach 6.25 MB!
+</span></span></code></pre></div><p>This is why high-bandwidth, high-latency networks (like satellite links or transcontinental connections) are challenging.</p><h3 id="24-loss-detection">2.4 Loss Detection</h3><p>TCP detects loss through two mechanisms:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Timeout-based detection</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> time_since_send <span style=color:#ff7b72;font-weight:700>&gt;</span> RTO:
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># RTO = Retransmission Timeout (estimated from RTT)</span>
+</span></span><span style=display:flex><span>    handle_timeout_loss()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Duplicate ACK detection</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> duplicate_acks <span style=color:#ff7b72;font-weight:700>&gt;=</span> <span style=color:#a5d6ff>3</span>:
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Receiver got out-of-order packets</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Indicates a gap (lost packet)</span>
+</span></span><span style=display:flex><span>    handle_fast_retransmit()
+</span></span></code></pre></div><p>Three duplicate ACKs trigger fast retransmit, avoiding the long RTO wait.</p><h2 id="3-classic-congestion-control">3. Classic Congestion Control</h2><p>The original algorithms that saved the Internet.</p><h3 id="31-slow-start">3.1 Slow Start</h3><p>Despite the name, slow start grows exponentially:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>slow_start</span>(self, ack_received):
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Double cwnd every RTT</span>
+</span></span><span style=display:flex><span>    self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS  <span style=color:#8b949e;font-style:italic># Called for each ACK</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># With each ACK acknowledging MSS bytes,</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># and each RTT seeing cwnd/MSS ACKs,</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># cwnd doubles each RTT</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>RTT 0: cwnd = 1 MSS    (1 segment in flight)
+</span></span><span style=display:flex><span>RTT 1: cwnd = 2 MSS    (2 segments)
+</span></span><span style=display:flex><span>RTT 2: cwnd = 4 MSS    (4 segments)
+</span></span><span style=display:flex><span>RTT 3: cwnd = 8 MSS    (8 segments)
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>Exponential growth until loss or ssthresh
+</span></span></code></pre></div><p>Slow start ends when:</p><ul><li>cwnd reaches slow start threshold (ssthresh)</li><li>Packet loss is detected</li></ul><h3 id="32-congestion-avoidance">3.2 Congestion Avoidance</h3><p>After slow start, growth becomes linear:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>congestion_avoidance</span>(self, ack_received):
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Increase cwnd by 1 MSS per RTT</span>
+</span></span><span style=display:flex><span>    self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS <span style=color:#ff7b72;font-weight:700>*</span> (MSS <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Alternative: count ACKs</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># self.cwnd_count += 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># if self.cwnd_count &gt;= self.cwnd / MSS:</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>#     self.cwnd += MSS</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>#     self.cwnd_count = 0</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Linear growth: cwnd increases by 1 MSS per RTT
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>RTT 10: cwnd = 20 MSS
+</span></span><span style=display:flex><span>RTT 11: cwnd = 21 MSS
+</span></span><span style=display:flex><span>RTT 12: cwnd = 22 MSS
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>Gentle probing for more bandwidth
+</span></span></code></pre></div><h3 id="33-tcp-tahoe">3.3 TCP Tahoe</h3><p>The first complete congestion control algorithm (1988):</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>TCPTahoe</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh <span style=color:#ff7b72;font-weight:700>=</span> float(<span style=color:#a5d6ff>&#39;inf&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>&lt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Slow start</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Congestion avoidance</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS <span style=color:#ff7b72;font-weight:700>*</span> MSS <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_loss</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Any loss: reset to slow start</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Retransmit from slow start</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Tahoe behavior (sawtooth pattern):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>cwnd
+</span></span><span style=display:flex><span>  ▲
+</span></span><span style=display:flex><span>  │     ╱╲
+</span></span><span style=display:flex><span>  │    ╱  ╲
+</span></span><span style=display:flex><span>  │   ╱    ╲
+</span></span><span style=display:flex><span>  │  ╱      ╲      ╱╲
+</span></span><span style=display:flex><span>  │ ╱        ╲    ╱  ╲
+</span></span><span style=display:flex><span>  │╱          ╲  ╱    ╲
+</span></span><span style=display:flex><span>  └────────────────────────→ time
+</span></span><span style=display:flex><span>       loss    loss
+</span></span></code></pre></div><p>Tahoe&rsquo;s weakness: complete reset on any loss is expensive.</p><h3 id="34-tcp-reno">3.4 TCP Reno</h3><p>Reno (1990) added fast recovery:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>TCPReno</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh <span style=color:#ff7b72;font-weight:700>=</span> float(<span style=color:#a5d6ff>&#39;inf&#39;</span>)
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>dup_acks <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Exit fast recovery</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>elif</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>&lt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS  <span style=color:#8b949e;font-style:italic># Slow start</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS <span style=color:#ff7b72;font-weight:700>*</span> MSS <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd  <span style=color:#8b949e;font-style:italic># Congestion avoidance</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>dup_acks <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_dup_ack</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>dup_acks <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> self<span style=color:#ff7b72;font-weight:700>.</span>dup_acks <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>3</span>:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Fast retransmit</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>3</span> <span style=color:#ff7b72;font-weight:700>*</span> MSS
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>retransmit_lost_segment()
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>elif</span> self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Inflate cwnd for each dup ACK</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_timeout</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Timeout: back to slow start</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>False</span>
+</span></span></code></pre></div><p>Fast recovery allows Reno to maintain half its rate after loss instead of resetting completely.</p><h3 id="35-tcp-newreno">3.5 TCP NewReno</h3><p>NewReno (1999) handles multiple losses in one window:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>TCPNewReno</span>(TCPReno):
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        super()<span style=color:#ff7b72;font-weight:700>.</span><span style=color:#d2a8ff;font-weight:700>__init__</span>()
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>recover_seq <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_dup_ack</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>dup_acks <span style=color:#ff7b72;font-weight:700>+=</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> self<span style=color:#ff7b72;font-weight:700>.</span>dup_acks <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>3</span> <span style=color:#ff7b72;font-weight:700>and</span> <span style=color:#ff7b72;font-weight:700>not</span> self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Enter fast recovery</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>3</span> <span style=color:#ff7b72;font-weight:700>*</span> MSS
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>recover_seq <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>highest_sent_seq
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>retransmit_lost_segment()
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>elif</span> self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, ack_seq):
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>if</span> ack_seq <span style=color:#ff7b72;font-weight:700>&gt;=</span> self<span style=color:#ff7b72;font-weight:700>.</span>recover_seq:
+</span></span><span style=display:flex><span>                <span style=color:#8b949e;font-style:italic># Full recovery: all lost packets retransmitted</span>
+</span></span><span style=display:flex><span>                self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>ssthresh
+</span></span><span style=display:flex><span>                self<span style=color:#ff7b72;font-weight:700>.</span>in_fast_recovery <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>                <span style=color:#8b949e;font-style:italic># Partial ACK: more packets were lost</span>
+</span></span><span style=display:flex><span>                self<span style=color:#ff7b72;font-weight:700>.</span>retransmit_next_segment()
+</span></span><span style=display:flex><span>                self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>-=</span> (ack_seq <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>last_ack)  <span style=color:#8b949e;font-style:italic># Deflate</span>
+</span></span><span style=display:flex><span>                self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS  <span style=color:#8b949e;font-style:italic># Re-inflate by 1</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Normal operation</span>
+</span></span><span style=display:flex><span>            super()<span style=color:#ff7b72;font-weight:700>.</span>on_ack()
+</span></span></code></pre></div><p>NewReno stays in fast recovery until all losses from a single congestion event are recovered.</p><h2 id="4-loss-based-algorithms">4. Loss-Based Algorithms</h2><p>Modern loss-based algorithms improve on Reno&rsquo;s foundations.</p><h3 id="41-tcp-cubic">4.1 TCP CUBIC</h3><p>CUBIC (2008) is the default algorithm in Linux:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>TCPCUBIC</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>w_max <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>  <span style=color:#8b949e;font-style:italic># cwnd at last loss</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>k <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>      <span style=color:#8b949e;font-style:italic># Time to reach w_max</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>t <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>      <span style=color:#8b949e;font-style:italic># Time since last loss</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>C <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.4</span>    <span style=color:#8b949e;font-style:italic># CUBIC constant</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>beta <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.7</span> <span style=color:#8b949e;font-style:italic># Multiplicative decrease factor</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>t <span style=color:#ff7b72;font-weight:700>=</span> time_since_last_loss()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># CUBIC function: W(t) = C(t-K)³ + W_max</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>k <span style=color:#ff7b72;font-weight:700>=</span> (self<span style=color:#ff7b72;font-weight:700>.</span>w_max <span style=color:#ff7b72;font-weight:700>*</span> (<span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>beta) <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>C) <span style=color:#ff7b72;font-weight:700>**</span> (<span style=color:#a5d6ff>1</span><span style=color:#ff7b72;font-weight:700>/</span><span style=color:#a5d6ff>3</span>)
+</span></span><span style=display:flex><span>        w_cubic <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>C <span style=color:#ff7b72;font-weight:700>*</span> (self<span style=color:#ff7b72;font-weight:700>.</span>t <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>k) <span style=color:#ff7b72;font-weight:700>**</span> <span style=color:#a5d6ff>3</span> <span style=color:#ff7b72;font-weight:700>+</span> self<span style=color:#ff7b72;font-weight:700>.</span>w_max
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Also compute TCP-friendly rate</span>
+</span></span><span style=display:flex><span>        w_tcp <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>w_max <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>beta <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>3</span> <span style=color:#ff7b72;font-weight:700>*</span> (<span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>beta) <span style=color:#ff7b72;font-weight:700>/</span> (<span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>+</span> self<span style=color:#ff7b72;font-weight:700>.</span>beta) <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>t <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>rtt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Use the larger of CUBIC and TCP-friendly</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> max(w_cubic, w_tcp)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_loss</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>w_max <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>beta
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>t <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span></code></pre></div><p>CUBIC&rsquo;s key insight: use a cubic function to probe for bandwidth:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>CUBIC cwnd over time:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>cwnd
+</span></span><span style=display:flex><span>  ▲
+</span></span><span style=display:flex><span>  │         w_max ──────────────────────
+</span></span><span style=display:flex><span>  │        ╱    ╲
+</span></span><span style=display:flex><span>  │       ╱      ╲
+</span></span><span style=display:flex><span>  │      ╱        ╲     probe above
+</span></span><span style=display:flex><span>  │     ╱          ╲    w_max
+</span></span><span style=display:flex><span>  │────╱────────────╲───────────────────
+</span></span><span style=display:flex><span>  │   ╱ plateau      ╲
+</span></span><span style=display:flex><span>  │  ╱                 aggressive
+</span></span><span style=display:flex><span>  │ ╱ aggressive        recovery
+</span></span><span style=display:flex><span>  │╱  recovery
+</span></span><span style=display:flex><span>  └────────────────────────────────────→ time
+</span></span><span style=display:flex><span>      loss          loss
+</span></span></code></pre></div><ul><li><strong>Aggressive recovery:</strong> Quick ramp back to previous rate</li><li><strong>Plateau near W_max:</strong> Gentle probing</li><li><strong>Above W_max:</strong> Explore for more bandwidth</li></ul><h3 id="42-tcp-prr-proportional-rate-reduction">4.2 TCP PRR (Proportional Rate Reduction)</h3><p>PRR (2013) improves loss recovery:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>proportional_rate_reduction</span>(self, in_flight, ssthresh, ack_delivered):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    RFC 6937: Reduce cwnd proportionally to loss,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    spreading retransmissions across the recovery period.
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> in_flight <span style=color:#ff7b72;font-weight:700>&gt;</span> ssthresh:
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># PRR-SSRB: slow reduction</span>
+</span></span><span style=display:flex><span>        sndcnt <span style=color:#ff7b72;font-weight:700>=</span> max(ack_delivered <span style=color:#ff7b72;font-weight:700>*</span> ssthresh <span style=color:#ff7b72;font-weight:700>/</span> recovery_cwnd, <span style=color:#a5d6ff>1</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># PRR-CRB: catch up</span>
+</span></span><span style=display:flex><span>        sndcnt <span style=color:#ff7b72;font-weight:700>=</span> max(ack_delivered, <span style=color:#a5d6ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> sndcnt
+</span></span></code></pre></div><p>PRR spreads retransmissions evenly rather than bursting, reducing buffer pressure.</p><h3 id="43-htcp-hamilton-tcp">4.3 HTCP (Hamilton TCP)</h3><p>HTCP adapts aggressiveness based on RTT:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>HTCP</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>beta <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.5</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>delta <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>  <span style=color:#8b949e;font-style:italic># Time since last loss</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>compute_alpha</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Increase aggressiveness over time.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> self<span style=color:#ff7b72;font-weight:700>.</span>delta <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#a5d6ff>1</span>:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># More aggressive as time since loss grows</span>
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>10</span> <span style=color:#ff7b72;font-weight:700>*</span> (self<span style=color:#ff7b72;font-weight:700>.</span>delta <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>1</span>) <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>0.5</span> <span style=color:#ff7b72;font-weight:700>*</span> (self<span style=color:#ff7b72;font-weight:700>.</span>delta <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>1</span>) <span style=color:#ff7b72;font-weight:700>**</span> <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>compute_alpha()
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd
+</span></span></code></pre></div><p>HTCP is more aggressive on long-RTT paths, improving fairness between flows.</p><h2 id="5-delay-based-algorithms">5. Delay-Based Algorithms</h2><p>Loss-based algorithms fill buffers before detecting congestion. Delay-based algorithms use RTT increase as an earlier signal.</p><h3 id="51-tcp-vegas">5.1 TCP Vegas</h3><p>Vegas (1995) pioneered delay-based congestion control:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>TCPVegas</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt <span style=color:#ff7b72;font-weight:700>=</span> float(<span style=color:#a5d6ff>&#39;inf&#39;</span>)  <span style=color:#8b949e;font-style:italic># Minimum observed RTT</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>2</span>  <span style=color:#8b949e;font-style:italic># Lower threshold</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>beta <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>4</span>   <span style=color:#8b949e;font-style:italic># Upper threshold</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, rtt):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt <span style=color:#ff7b72;font-weight:700>=</span> min(self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt, rtt)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Expected rate if no queuing</span>
+</span></span><span style=display:flex><span>        expected <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Actual rate with current RTT</span>
+</span></span><span style=display:flex><span>        actual <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> rtt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Difference is queued data</span>
+</span></span><span style=display:flex><span>        diff <span style=color:#ff7b72;font-weight:700>=</span> (expected <span style=color:#ff7b72;font-weight:700>-</span> actual) <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> diff <span style=color:#ff7b72;font-weight:700>&lt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>alpha:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Not enough data in queue: increase</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>elif</span> diff <span style=color:#ff7b72;font-weight:700>&gt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>beta:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Too much data in queue: decrease</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>-=</span> MSS
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># else: in the sweet spot, hold steady</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Vegas aims to maintain a small buffer occupancy:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>           ┌─────────────────────────────┐
+</span></span><span style=display:flex><span>expected ─→│                             │
+</span></span><span style=display:flex><span>           │   ████░░░░░░░░░░░░░░░░░░░░  │ ← empty buffer
+</span></span><span style=display:flex><span>           │                             │
+</span></span><span style=display:flex><span>           └─────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>           ┌─────────────────────────────┐
+</span></span><span style=display:flex><span>actual ───→│ ████████████                │
+</span></span><span style=display:flex><span>           │   █████████░░░░░░░░░░░░░░░  │ ← some queuing
+</span></span><span style=display:flex><span>           │                             │
+</span></span><span style=display:flex><span>           └─────────────────────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>diff = (expected - actual) × base_rtt = queued data
+</span></span></code></pre></div><p>Vegas&rsquo;s weakness: loses to loss-based flows that fill the buffer.</p><h3 id="52-fast-tcp">5.2 FAST TCP</h3><p>FAST (2006) improved Vegas for high-speed networks:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>FASTTCP</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt <span style=color:#ff7b72;font-weight:700>=</span> float(<span style=color:#a5d6ff>&#39;inf&#39;</span>)
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>20</span>  <span style=color:#8b949e;font-style:italic># Target packets in queue</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>gamma <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.5</span>  <span style=color:#8b949e;font-style:italic># Smoothing factor</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, rtt):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt <span style=color:#ff7b72;font-weight:700>=</span> min(self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt, rtt)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Target cwnd based on delay</span>
+</span></span><span style=display:flex><span>        target_cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt <span style=color:#ff7b72;font-weight:700>/</span> rtt <span style=color:#ff7b72;font-weight:700>+</span> self<span style=color:#ff7b72;font-weight:700>.</span>alpha
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Smooth update</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>gamma) <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+</span> self<span style=color:#ff7b72;font-weight:700>.</span>gamma <span style=color:#ff7b72;font-weight:700>*</span> target_cwnd
+</span></span></code></pre></div><p>FAST is used in data center networks where controlled latency is critical.</p><h3 id="53-compound-tcp">5.3 Compound TCP</h3><p>Compound TCP (Windows default) combines loss and delay:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>CompoundTCP</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS  <span style=color:#8b949e;font-style:italic># Loss-based component</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>dwnd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>    <span style=color:#8b949e;font-style:italic># Delay-based component</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt <span style=color:#ff7b72;font-weight:700>=</span> float(<span style=color:#a5d6ff>&#39;inf&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>sending_window</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+</span> self<span style=color:#ff7b72;font-weight:700>.</span>dwnd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, rtt):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt <span style=color:#ff7b72;font-weight:700>=</span> min(self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt, rtt)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Update loss-based component (Reno-like)</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS <span style=color:#ff7b72;font-weight:700>*</span> MSS <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>sending_window()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Update delay-based component</span>
+</span></span><span style=display:flex><span>        expected_cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>sending_window() <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt <span style=color:#ff7b72;font-weight:700>/</span> rtt
+</span></span><span style=display:flex><span>        diff <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>sending_window() <span style=color:#ff7b72;font-weight:700>-</span> expected_cwnd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> diff <span style=color:#ff7b72;font-weight:700>&lt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>gamma:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>dwnd <span style=color:#ff7b72;font-weight:700>+=</span> (self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>dwnd <span style=color:#ff7b72;font-weight:700>**</span> <span style=color:#a5d6ff>0.75</span> <span style=color:#ff7b72;font-weight:700>-</span> <span style=color:#a5d6ff>1</span>)
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>dwnd <span style=color:#ff7b72;font-weight:700>=</span> max(self<span style=color:#ff7b72;font-weight:700>.</span>dwnd <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>zeta <span style=color:#ff7b72;font-weight:700>*</span> diff, <span style=color:#a5d6ff>0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_loss</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>sending_window() <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>0.5</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>dwnd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span></code></pre></div><p>Compound TCP gets the benefits of both approaches.</p><h2 id="6-bbr-bottleneck-bandwidth-and-rtt">6. BBR: Bottleneck Bandwidth and RTT</h2><p>BBR (2016) represents a fundamental shift in thinking.</p><h3 id="61-the-problem-with-loss-based-control">6.1 The Problem with Loss-Based Control</h3><p>Loss-based algorithms have inherent issues:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Problem 1: Bufferbloat
+</span></span><span style=display:flex><span>- Buffers are large in modern networks
+</span></span><span style=display:flex><span>- Loss-based fills buffer before detecting congestion
+</span></span><span style=display:flex><span>- Result: 100s of milliseconds of added latency
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem 2: Shallow buffers
+</span></span><span style=display:flex><span>- Some paths have small buffers
+</span></span><span style=display:flex><span>- Loss doesn&#39;t mean congestion
+</span></span><span style=display:flex><span>- Result: Underutilization
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem 3: Random loss
+</span></span><span style=display:flex><span>- Wireless networks have non-congestion loss
+</span></span><span style=display:flex><span>- Loss-based interprets as congestion
+</span></span><span style=display:flex><span>- Result: Reduced throughput
+</span></span></code></pre></div><h3 id="62-bbrs-model-based-approach">6.2 BBR&rsquo;s Model-Based Approach</h3><p>BBR explicitly models the network:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>BBR</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>btl_bw <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>      <span style=color:#8b949e;font-style:italic># Estimated bottleneck bandwidth</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>rt_prop <span style=color:#ff7b72;font-weight:700>=</span> inf   <span style=color:#8b949e;font-style:italic># Estimated minimum RTT</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>pacing_gain <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd_gain <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>target_cwnd</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Optimal cwnd = BDP + headroom&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        bdp <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>btl_bw <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>rt_prop
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd_gain <span style=color:#ff7b72;font-weight:700>*</span> bdp
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>pacing_rate</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Control sending rate, not just window&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> self<span style=color:#ff7b72;font-weight:700>.</span>pacing_gain <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>btl_bw
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, delivered, rtt, inflight):
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Update bandwidth estimate</span>
+</span></span><span style=display:flex><span>        bw <span style=color:#ff7b72;font-weight:700>=</span> delivered <span style=color:#ff7b72;font-weight:700>/</span> rtt
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>btl_bw <span style=color:#ff7b72;font-weight:700>=</span> max_filter(self<span style=color:#ff7b72;font-weight:700>.</span>btl_bw, bw, window<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>10</span>_RTT)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Update RTT estimate</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>rt_prop <span style=color:#ff7b72;font-weight:700>=</span> min_filter(self<span style=color:#ff7b72;font-weight:700>.</span>rt_prop, rtt, window<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>10</span>_seconds)
+</span></span></code></pre></div><h3 id="63-bbr-state-machine">6.3 BBR State Machine</h3><p>BBR cycles through states to probe the network:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>BBR State Machine:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    ┌──────────────────────────────────────────────┐
+</span></span><span style=display:flex><span>                    │                                              │
+</span></span><span style=display:flex><span>                    ▼                                              │
+</span></span><span style=display:flex><span>┌─────────────┐   ┌─────────────┐   ┌─────────────┐   ┌───────────┴───┐
+</span></span><span style=display:flex><span>│  STARTUP    │──→│   DRAIN     │──→│  PROBE_BW   │──→│  PROBE_RTT    │
+</span></span><span style=display:flex><span>│ (exp growth)│   │ (clear queue)│   │ (steady     │   │ (measure      │
+</span></span><span style=display:flex><span>│             │   │             │   │  state +    │   │  min RTT)     │
+</span></span><span style=display:flex><span>└─────────────┘   └─────────────┘   │  probing)   │   └───────────────┘
+</span></span><span style=display:flex><span>                                    └─────────────┘
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>BBRStateMachine</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>startup</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Exponential growth to find bandwidth.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>pacing_gain <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>2.89</span>  <span style=color:#8b949e;font-style:italic># Grow quickly</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd_gain <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>2.89</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> self<span style=color:#ff7b72;font-weight:700>.</span>bandwidth_growing():
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>state <span style=color:#ff7b72;font-weight:700>=</span> DRAIN
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>drain</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Clear the queue we created in startup.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>pacing_gain <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>2.89</span>  <span style=color:#8b949e;font-style:italic># Drain queue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> self<span style=color:#ff7b72;font-weight:700>.</span>inflight <span style=color:#ff7b72;font-weight:700>&lt;=</span> self<span style=color:#ff7b72;font-weight:700>.</span>target_cwnd():
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>state <span style=color:#ff7b72;font-weight:700>=</span> PROBE_BW
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>probe_bw</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Steady state with periodic probing.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Cycle through gains: [1.25, 0.75, 1, 1, 1, 1, 1, 1]</span>
+</span></span><span style=display:flex><span>        gains <span style=color:#ff7b72;font-weight:700>=</span> [<span style=color:#a5d6ff>1.25</span>, <span style=color:#a5d6ff>0.75</span>, <span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>1</span>]
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>pacing_gain <span style=color:#ff7b72;font-weight:700>=</span> gains[self<span style=color:#ff7b72;font-weight:700>.</span>cycle_index]
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cycle_index <span style=color:#ff7b72;font-weight:700>=</span> (self<span style=color:#ff7b72;font-weight:700>.</span>cycle_index <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>1</span>) <span style=color:#ff7b72;font-weight:700>%</span> <span style=color:#a5d6ff>8</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> time_for_rtt_probe():
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>state <span style=color:#ff7b72;font-weight:700>=</span> PROBE_RTT
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>probe_rtt</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Periodically drain queue to measure true RTT.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>4</span> <span style=color:#ff7b72;font-weight:700>*</span> MSS  <span style=color:#8b949e;font-style:italic># Minimal cwnd</span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Stay for 200ms or until RTT measured</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> rtt_probe_done():
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>state <span style=color:#ff7b72;font-weight:700>=</span> PROBE_BW
+</span></span></code></pre></div><h3 id="64-bbr-vs-cubic">6.4 BBR vs. CUBIC</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Scenario: 100 Mbps link, 50 ms RTT, 1 MB buffer
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CUBIC behavior:
+</span></span><span style=display:flex><span>- Fills the buffer before loss
+</span></span><span style=display:flex><span>- Latency: 50 ms + 80 ms (buffer) = 130 ms
+</span></span><span style=display:flex><span>- Throughput: ~95 Mbps (after recovery overhead)
+</span></span><span style=display:flex><span>- Pattern: Sawtooth with periodic drops
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>BBR behavior:
+</span></span><span style=display:flex><span>- Targets 1 BDP in flight
+</span></span><span style=display:flex><span>- Latency: 50 ms + ~5 ms (minimal queue) ≈ 55 ms
+</span></span><span style=display:flex><span>- Throughput: ~98 Mbps
+</span></span><span style=display:flex><span>- Pattern: Steady with small variations
+</span></span></code></pre></div><h3 id="65-bbrv2-improvements">6.5 BBRv2 Improvements</h3><p>BBRv2 (2019+) addresses fairness issues:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>BBRv2</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        super()<span style=color:#ff7b72;font-weight:700>.</span><span style=color:#d2a8ff;font-weight:700>__init__</span>()
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>inflight_lo <span style=color:#ff7b72;font-weight:700>=</span> inf  <span style=color:#8b949e;font-style:italic># Low watermark</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>inflight_hi <span style=color:#ff7b72;font-weight:700>=</span> inf  <span style=color:#8b949e;font-style:italic># High watermark</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>loss_in_round <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_loss</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;React to loss more like CUBIC.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>inflight_hi <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>inflight <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>0.85</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>btl_bw <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>btl_bw <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>0.9</span>  <span style=color:#8b949e;font-style:italic># Reduce estimate</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>bound_cwnd</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Bound cwnd based on loss signals.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> min(self<span style=color:#ff7b72;font-weight:700>.</span>cwnd, self<span style=color:#ff7b72;font-weight:700>.</span>inflight_hi)
+</span></span></code></pre></div><p>BBRv2 improves coexistence with loss-based flows like CUBIC.</p><h2 id="7-data-center-congestion-control">7. Data Center Congestion Control</h2><p>Data centers have unique requirements: low latency, high throughput, incast handling.</p><h3 id="71-dctcp-data-center-tcp">7.1 DCTCP (Data Center TCP)</h3><p>DCTCP uses ECN (Explicit Congestion Notification) for fine-grained control:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>DCTCP</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span>  <span style=color:#8b949e;font-style:italic># Congestion estimate</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>g <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.0625</span>  <span style=color:#8b949e;font-style:italic># Smoothing factor</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, ecn_marked):
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> ecn_marked:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>marked_bytes <span style=color:#ff7b72;font-weight:700>+=</span> self<span style=color:#ff7b72;font-weight:700>.</span>acked_bytes
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>total_bytes <span style=color:#ff7b72;font-weight:700>+=</span> self<span style=color:#ff7b72;font-weight:700>.</span>acked_bytes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># At the end of a window</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> self<span style=color:#ff7b72;font-weight:700>.</span>window_complete():
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Fraction of marked packets</span>
+</span></span><span style=display:flex><span>            F <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>marked_bytes <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>total_bytes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Update congestion estimate</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>g) <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>+</span> self<span style=color:#ff7b72;font-weight:700>.</span>g <span style=color:#ff7b72;font-weight:700>*</span> F
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Reduce cwnd proportionally</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>*</span> (<span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>alpha <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>2</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>marked_bytes <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>total_bytes <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span></code></pre></div><p>DCTCP achieves:</p><ul><li>Near-zero queue at switches</li><li>High burst tolerance</li><li>Sub-millisecond latency</li></ul><h3 id="72-hpcc-high-precision-congestion-control">7.2 HPCC (High Precision Congestion Control)</h3><p>HPCC uses in-network telemetry for precise control:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>HPCC</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>rate <span style=color:#ff7b72;font-weight:700>=</span> initial_rate
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>eta <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0.95</span>  <span style=color:#8b949e;font-style:italic># Target utilization</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, int_info):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        int_info contains per-hop telemetry:
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        - Link utilization
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        - Queue length
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        - Timestamp
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        max_utilization <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> hop <span style=color:#ff7b72;font-weight:700>in</span> int_info<span style=color:#ff7b72;font-weight:700>.</span>hops:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Calculate utilization at this hop</span>
+</span></span><span style=display:flex><span>            util <span style=color:#ff7b72;font-weight:700>=</span> hop<span style=color:#ff7b72;font-weight:700>.</span>tx_bytes <span style=color:#ff7b72;font-weight:700>/</span> hop<span style=color:#ff7b72;font-weight:700>.</span>bandwidth <span style=color:#ff7b72;font-weight:700>/</span> hop<span style=color:#ff7b72;font-weight:700>.</span>interval
+</span></span><span style=display:flex><span>            max_utilization <span style=color:#ff7b72;font-weight:700>=</span> max(max_utilization, util)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Adjust rate based on most congested hop</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> max_utilization <span style=color:#ff7b72;font-weight:700>&gt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>eta:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>rate <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>rate <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>eta <span style=color:#ff7b72;font-weight:700>/</span> max_utilization
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>rate <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>rate <span style=color:#ff7b72;font-weight:700>+</span> self<span style=color:#ff7b72;font-weight:700>.</span>additive_increase
+</span></span></code></pre></div><p>HPCC requires switch support but achieves optimal performance.</p><h3 id="73-swift">7.3 Swift</h3><p>Swift (2020, Google) targets microsecond-scale latency:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>Swift</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> initial_cwnd
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>target_delay <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>10</span>  <span style=color:#8b949e;font-style:italic># microseconds!</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, fabric_delay):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        fabric_delay = measured RTT - processing delay
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        Pure network queuing delay
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> fabric_delay <span style=color:#ff7b72;font-weight:700>&lt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>target_delay:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Below target: increase</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> self<span style=color:#ff7b72;font-weight:700>.</span>ai_factor
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Above target: decrease proportionally</span>
+</span></span><span style=display:flex><span>            excess <span style=color:#ff7b72;font-weight:700>=</span> (fabric_delay <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>target_delay) <span style=color:#ff7b72;font-weight:700>/</span> fabric_delay
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>*</span> (<span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>-</span> excess <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>md_factor)
+</span></span></code></pre></div><p>Swift achieves single-digit microsecond tail latencies.</p><h2 id="8-congestion-control-for-special-networks">8. Congestion Control for Special Networks</h2><p>Different network environments require different approaches.</p><h3 id="81-satellite-networks">8.1 Satellite Networks</h3><p>High latency, high bandwidth, long feedback loop:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>GEO Satellite:
+</span></span><span style=display:flex><span>- RTT: 600 ms
+</span></span><span style=display:flex><span>- Bandwidth: 100 Mbps
+</span></span><span style=display:flex><span>- BDP: 7.5 MB
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenge: Slow start takes forever!
+</span></span><span style=display:flex><span>Standard slow start: log₂(BDP/MSS) RTTs = ~13 RTTs = 8 seconds!
+</span></span></code></pre></div><p>Solutions:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>SatelliteTCP</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Higher initial cwnd</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>10</span> <span style=color:#ff7b72;font-weight:700>*</span> MSS  <span style=color:#8b949e;font-style:italic># RFC 6928</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># More aggressive slow start</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>slow_start_multiplier <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>2.89</span>  <span style=color:#8b949e;font-style:italic># Like BBR</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>slow_start</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Faster ramp-up for high-BDP paths</span>
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>slow_start_multiplier
+</span></span></code></pre></div><h3 id="82-wireless-networks">8.2 Wireless Networks</h3><p>Wireless has non-congestion loss:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Challenges:
+</span></span><span style=display:flex><span>- Bit errors cause packet loss
+</span></span><span style=display:flex><span>- Handoffs cause temporary disconnection
+</span></span><span style=display:flex><span>- Variable link rates
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Loss-based algorithms: interpret all loss as congestion → underutilization
+</span></span></code></pre></div><p>Approaches:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>is_congestion_loss</span>(self, loss_info):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Distinguish congestion from wireless loss.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># ECN marked = definitely congestion</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> loss_info<span style=color:#ff7b72;font-weight:700>.</span>ecn_marked:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># RTT spike = likely congestion</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> self<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72;font-weight:700>&gt;</span> <span style=color:#a5d6ff>2</span> <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>base_rtt:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Random single loss = likely wireless</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> loss_info<span style=color:#ff7b72;font-weight:700>.</span>consecutive_losses <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>1</span>:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#79c0ff>True</span>  <span style=color:#8b949e;font-style:italic># Default to congestion</span>
+</span></span></code></pre></div><h3 id="83-cellular-networks">8.3 Cellular Networks</h3><p>Cellular networks have deep buffers and variable capacity:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>CellularAware</span>:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> MSS
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>buffer_target <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>100</span>_ms  <span style=color:#8b949e;font-style:italic># Target buffer delay</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, rtt, throughput):
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Estimate buffer occupancy</span>
+</span></span><span style=display:flex><span>        buffer_delay <span style=color:#ff7b72;font-weight:700>=</span> rtt <span style=color:#ff7b72;font-weight:700>-</span> self<span style=color:#ff7b72;font-weight:700>.</span>min_rtt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> buffer_delay <span style=color:#ff7b72;font-weight:700>&gt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>buffer_target:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Too much buffering</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>0.9</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>elif</span> throughput <span style=color:#ff7b72;font-weight:700>&gt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>estimated_capacity <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>0.95</span>:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Near capacity, gentle increase</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS <span style=color:#ff7b72;font-weight:700>/</span> self<span style=color:#ff7b72;font-weight:700>.</span>cwnd
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Below capacity, faster increase</span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> MSS
+</span></span></code></pre></div><h2 id="9-fairness-and-coexistence">9. Fairness and Coexistence</h2><p>Congestion control algorithms must play well with others.</p><h3 id="91-fairness-metrics">9.1 Fairness Metrics</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>jain_fairness_index</span>(rates):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    Jain&#39;s fairness index: 1 = perfect fairness, 1/n = worst.
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    n <span style=color:#ff7b72;font-weight:700>=</span> len(rates)
+</span></span><span style=display:flex><span>    sum_rates <span style=color:#ff7b72;font-weight:700>=</span> sum(rates)
+</span></span><span style=display:flex><span>    sum_squares <span style=color:#ff7b72;font-weight:700>=</span> sum(r <span style=color:#ff7b72;font-weight:700>**</span> <span style=color:#a5d6ff>2</span> <span style=color:#ff7b72>for</span> r <span style=color:#ff7b72;font-weight:700>in</span> rates)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> (sum_rates <span style=color:#ff7b72;font-weight:700>**</span> <span style=color:#a5d6ff>2</span>) <span style=color:#ff7b72;font-weight:700>/</span> (n <span style=color:#ff7b72;font-weight:700>*</span> sum_squares)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Example</span>
+</span></span><span style=display:flex><span>flows <span style=color:#ff7b72;font-weight:700>=</span> [<span style=color:#a5d6ff>50</span>, <span style=color:#a5d6ff>50</span>, <span style=color:#a5d6ff>50</span>, <span style=color:#a5d6ff>50</span>]  <span style=color:#8b949e;font-style:italic># Mbps each</span>
+</span></span><span style=display:flex><span>jfi <span style=color:#ff7b72;font-weight:700>=</span> jain_fairness_index(flows)  <span style=color:#8b949e;font-style:italic># = 1.0 (perfect)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>flows <span style=color:#ff7b72;font-weight:700>=</span> [<span style=color:#a5d6ff>190</span>, <span style=color:#a5d6ff>5</span>, <span style=color:#a5d6ff>3</span>, <span style=color:#a5d6ff>2</span>]  <span style=color:#8b949e;font-style:italic># One flow dominates</span>
+</span></span><span style=display:flex><span>jfi <span style=color:#ff7b72;font-weight:700>=</span> jain_fairness_index(flows)  <span style=color:#8b949e;font-style:italic># = 0.25 (unfair)</span>
+</span></span></code></pre></div><h3 id="92-rtt-fairness">9.2 RTT Fairness</h3><p>Flows with different RTTs get different throughput:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>CUBIC with equal loss rate:
+</span></span><span style=display:flex><span>- Flow A: RTT = 10 ms → throughput = 100 Mbps
+</span></span><span style=display:flex><span>- Flow B: RTT = 100 ms → throughput = 31 Mbps
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>RTT unfairness ratio: 100/31 ≈ 3.2:1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CUBIC is actually RTT-fair to first approximation
+</span></span><span style=display:flex><span>because cwnd increases per RTT are similar.
+</span></span></code></pre></div><p>BBR is more RTT-fair because it targets BDP directly.</p><h3 id="93-inter-protocol-fairness">9.3 Inter-Protocol Fairness</h3><p>Different algorithms compete unequally:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>CUBIC vs. Reno:
+</span></span><span style=display:flex><span>- CUBIC is more aggressive
+</span></span><span style=display:flex><span>- CUBIC tends to get more bandwidth
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>BBR vs. CUBIC:
+</span></span><span style=display:flex><span>- BBR keeps lower queues
+</span></span><span style=display:flex><span>- CUBIC fills buffers, sometimes starving BBR
+</span></span><span style=display:flex><span>- BBRv2 addresses this
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Delay-based vs. Loss-based:
+</span></span><span style=display:flex><span>- Loss-based fills buffers
+</span></span><span style=display:flex><span>- Delay-based backs off when buffer fills
+</span></span><span style=display:flex><span>- Delay-based gets starved
+</span></span></code></pre></div><h3 id="94-the-deployment-challenge">9.4 The Deployment Challenge</h3><p>New algorithms must coexist with existing traffic:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>safe_to_deploy</span>(new_algorithm):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Criteria for deploying new congestion control.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    tests <span style=color:#ff7b72;font-weight:700>=</span> [
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Doesn&#39;t harm existing traffic</span>
+</span></span><span style=display:flex><span>        test_fairness_with_cubic(new_algorithm),
+</span></span><span style=display:flex><span>        test_fairness_with_reno(new_algorithm),
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Doesn&#39;t cause congestion collapse</span>
+</span></span><span style=display:flex><span>        test_stability_under_load(new_algorithm),
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Converges to fair share</span>
+</span></span><span style=display:flex><span>        test_convergence_time(new_algorithm),
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Handles realistic conditions</span>
+</span></span><span style=display:flex><span>        test_with_variable_capacity(new_algorithm),
+</span></span><span style=display:flex><span>        test_with_random_loss(new_algorithm),
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> all(tests)
+</span></span></code></pre></div><h2 id="10-implementing-congestion-control">10. Implementing Congestion Control</h2><h3 id="101-linux-tcp-stack">10.1 Linux TCP Stack</h3><p>Linux allows pluggable congestion control:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># List available algorithms</span>
+</span></span><span style=display:flex><span>sysctl net.ipv4.tcp_available_congestion_control
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># cubic reno bbr</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Set default algorithm</span>
+</span></span><span style=display:flex><span>sysctl -w net.ipv4.tcp_congestion_control<span style=color:#ff7b72;font-weight:700>=</span>bbr
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Enable BBR (requires fq qdisc for pacing)</span>
+</span></span><span style=display:flex><span>tc qdisc replace dev eth0 root fq
+</span></span></code></pre></div><p>Kernel implementation interface:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-c" data-lang=c><span style=display:flex><span><span style=color:#ff7b72>struct</span> tcp_congestion_ops {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>struct</span> list_head list;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>char</span> name[TCP_CA_NAME_MAX];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Required callbacks
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>void</span> (<span style=color:#ff7b72;font-weight:700>*</span>init)(<span style=color:#ff7b72>struct</span> sock <span style=color:#ff7b72;font-weight:700>*</span>sk);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>void</span> (<span style=color:#ff7b72;font-weight:700>*</span>cong_avoid)(<span style=color:#ff7b72>struct</span> sock <span style=color:#ff7b72;font-weight:700>*</span>sk, u32 ack, u32 acked);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>u32</span>  (<span style=color:#ff7b72;font-weight:700>*</span>ssthresh)(<span style=color:#ff7b72>struct</span> sock <span style=color:#ff7b72;font-weight:700>*</span>sk);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Optional callbacks
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>void</span> (<span style=color:#ff7b72;font-weight:700>*</span>cwnd_event)(<span style=color:#ff7b72>struct</span> sock <span style=color:#ff7b72;font-weight:700>*</span>sk, <span style=color:#ff7b72>enum</span> tcp_ca_event ev);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>void</span> (<span style=color:#ff7b72;font-weight:700>*</span>pkts_acked)(<span style=color:#ff7b72>struct</span> sock <span style=color:#ff7b72;font-weight:700>*</span>sk, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>struct</span> ack_sample <span style=color:#ff7b72;font-weight:700>*</span>sample);
+</span></span><span style=display:flex><span>    <span style=color:#d2a8ff;font-weight:700>u32</span>  (<span style=color:#ff7b72;font-weight:700>*</span>undo_cwnd)(<span style=color:#ff7b72>struct</span> sock <span style=color:#ff7b72;font-weight:700>*</span>sk);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Pacing support
+</span></span></span><span style=display:flex><span>    <span style=color:#ff7b72>void</span> (<span style=color:#ff7b72;font-weight:700>*</span>set_rate)(<span style=color:#ff7b72>struct</span> sock <span style=color:#ff7b72;font-weight:700>*</span>sk, u64 bw, <span style=color:#ff7b72>int</span> gain);
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><h3 id="102-userspace-congestion-control">10.2 Userspace Congestion Control</h3><p>QUIC enables userspace implementation:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>QUICCongestionControl</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;QUIC allows per-connection congestion control.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self, algorithm<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;cubic&#39;</span>):
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> algorithm <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#39;cubic&#39;</span>:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>controller <span style=color:#ff7b72;font-weight:700>=</span> CUBIC()
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>elif</span> algorithm <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#39;bbr&#39;</span>:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>controller <span style=color:#ff7b72;font-weight:700>=</span> BBR()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_packet_sent</span>(self, packet):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>bytes_in_flight <span style=color:#ff7b72;font-weight:700>+=</span> packet<span style=color:#ff7b72;font-weight:700>.</span>size
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack_received</span>(self, ack_frame):
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> packet <span style=color:#ff7b72;font-weight:700>in</span> ack_frame<span style=color:#ff7b72;font-weight:700>.</span>acked_packets:
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>bytes_in_flight <span style=color:#ff7b72;font-weight:700>-=</span> packet<span style=color:#ff7b72;font-weight:700>.</span>size
+</span></span><span style=display:flex><span>            rtt <span style=color:#ff7b72;font-weight:700>=</span> now() <span style=color:#ff7b72;font-weight:700>-</span> packet<span style=color:#ff7b72;font-weight:700>.</span>sent_time
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            self<span style=color:#ff7b72;font-weight:700>.</span>controller<span style=color:#ff7b72;font-weight:700>.</span>on_ack(
+</span></span><span style=display:flex><span>                delivered<span style=color:#ff7b72;font-weight:700>=</span>packet<span style=color:#ff7b72;font-weight:700>.</span>size,
+</span></span><span style=display:flex><span>                rtt<span style=color:#ff7b72;font-weight:700>=</span>rtt,
+</span></span><span style=display:flex><span>                inflight<span style=color:#ff7b72;font-weight:700>=</span>self<span style=color:#ff7b72;font-weight:700>.</span>bytes_in_flight
+</span></span><span style=display:flex><span>            )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_packet_lost</span>(self, packet):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>bytes_in_flight <span style=color:#ff7b72;font-weight:700>-=</span> packet<span style=color:#ff7b72;font-weight:700>.</span>size
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>controller<span style=color:#ff7b72;font-weight:700>.</span>on_loss()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>can_send</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> self<span style=color:#ff7b72;font-weight:700>.</span>bytes_in_flight <span style=color:#ff7b72;font-weight:700>&lt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>controller<span style=color:#ff7b72;font-weight:700>.</span>cwnd
+</span></span></code></pre></div><h3 id="103-debugging-congestion-control">10.3 Debugging Congestion Control</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Monitor TCP state</span>
+</span></span><span style=display:flex><span>ss -tin | grep -A2 <span style=color:#a5d6ff>&#34;10.0.0.1&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Shows: cwnd, rtt, retransmits, pacing_rate</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Trace congestion control events</span>
+</span></span><span style=display:flex><span>perf trace -e <span style=color:#a5d6ff>&#39;tcp:*&#39;</span> -- curl https://example.com
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Visualize with tcptrace</span>
+</span></span><span style=display:flex><span>tcptrace -G input.pcap
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Generates time-sequence graphs</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Programmatic monitoring</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>socket</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>get_tcp_info</span>(sock):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Get TCP congestion control state.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    TCP_INFO <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>11</span>
+</span></span><span style=display:flex><span>    info <span style=color:#ff7b72;font-weight:700>=</span> sock<span style=color:#ff7b72;font-weight:700>.</span>getsockopt(socket<span style=color:#ff7b72;font-weight:700>.</span>IPPROTO_TCP, TCP_INFO, <span style=color:#a5d6ff>200</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Parse tcp_info struct</span>
+</span></span><span style=display:flex><span>    state, ca_state, retransmits, probes, backoff, options, \
+</span></span><span style=display:flex><span>    snd_wscale_rcv_wscale, delivery_rate_app_limited, \
+</span></span><span style=display:flex><span>    rto, ato, snd_mss, rcv_mss, \
+</span></span><span style=display:flex><span>    unacked, sacked, lost, retrans, fackets, \
+</span></span><span style=display:flex><span>    last_data_sent, last_ack_sent, last_data_recv, last_ack_recv, \
+</span></span><span style=display:flex><span>    pmtu, rcv_ssthresh, rtt, rttvar, snd_ssthresh, snd_cwnd, \
+</span></span><span style=display:flex><span>    advmss, reordering <span style=color:#ff7b72;font-weight:700>=</span> struct<span style=color:#ff7b72;font-weight:700>.</span>unpack(<span style=color:#a5d6ff>&#39;BBBBBBBBIIIIIIIIIIIIIIIIIII&#39;</span>, info[:<span style=color:#a5d6ff>104</span>])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;cwnd&#39;</span>: snd_cwnd,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;ssthresh&#39;</span>: snd_ssthresh,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;rtt&#39;</span>: rtt,  <span style=color:#8b949e;font-style:italic># microseconds</span>
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;retransmits&#39;</span>: retrans,
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div><h2 id="11-real-world-debugging-and-optimization">11. Real-World Debugging and Optimization</h2><h3 id="111-diagnosing-congestion-issues">11.1 Diagnosing Congestion Issues</h3><p>When applications perform poorly, congestion control is often the culprit:</p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Check current algorithm and state</span>
+</span></span><span style=display:flex><span>ss -tin dst 10.0.0.1:443
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Output:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># cubic wscale:7,7 rto:204 rtt:15.2/3.1 mss:1448 pmtu:1500</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># rcvmss:1448 advmss:1448 cwnd:42 ssthresh:35 bytes_sent:1234567</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># bytes_acked:1234000 segs_out:1000 segs_in:950 data_segs_out:990</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># send 39.5Mbps lastsnd:4 lastrcv:4 lastack:4 pacing_rate 47.3Mbps</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># delivery_rate 38.2Mbps busy:2000ms retrans:0/5 dsack_dups:2</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># rcv_rtt:15 rcv_space:29200 rcv_ssthresh:65535</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Key metrics to watch:</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># - cwnd vs ssthresh: are we in slow start or congestion avoidance?</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># - retrans: how many retransmissions?</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># - rtt vs rto: is RTO appropriate for the RTT?</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># - send vs delivery_rate: are we limited by congestion control?</span>
+</span></span></code></pre></div><h3 id="112-common-performance-problems">11.2 Common Performance Problems</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Problem: Slow start taking too long
+</span></span><span style=display:flex><span>Symptoms: First few seconds of transfer are slow
+</span></span><span style=display:flex><span>Cause: cwnd starts small, takes many RTTs to grow
+</span></span><span style=display:flex><span>Solution:
+</span></span><span style=display:flex><span>- Increase initial cwnd (Linux default is 10 segments)
+</span></span><span style=display:flex><span>- Use TCP Fast Open to save RTT
+</span></span><span style=display:flex><span>- Persistent connections to reuse established cwnd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem: Stuck in slow start
+</span></span><span style=display:flex><span>Symptoms: Never reaches full throughput
+</span></span><span style=display:flex><span>Cause: ssthresh set too low from previous loss
+</span></span><span style=display:flex><span>Solution: Check for packet loss, buffer issues, or algorithm bugs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem: Sawtooth too aggressive
+</span></span><span style=display:flex><span>Symptoms: High throughput with periodic drops and latency spikes
+</span></span><span style=display:flex><span>Cause: CUBIC filling buffers before loss detection
+</span></span><span style=display:flex><span>Solution: Switch to BBR, enable ECN, or tune CUBIC parameters
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Problem: Poor performance on high-latency links
+</span></span><span style=display:flex><span>Symptoms: Low throughput despite no loss
+</span></span><span style=display:flex><span>Cause: cwnd not growing fast enough for large BDP
+</span></span><span style=display:flex><span>Solution: Use algorithm tuned for high BDP (BBR, HTCP, or tuned CUBIC)
+</span></span></code></pre></div><h3 id="113-algorithm-selection-guide">11.3 Algorithm Selection Guide</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>recommend_algorithm</span>(network_conditions):
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Recommend congestion control algorithm based on conditions.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> network_conditions<span style=color:#ff7b72;font-weight:700>.</span>type <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#39;data_center&#39;</span>:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> network_conditions<span style=color:#ff7b72;font-weight:700>.</span>has_ecn:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>&#39;DCTCP&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>elif</span> network_conditions<span style=color:#ff7b72;font-weight:700>.</span>has_int:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>&#39;HPCC&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>&#39;BBR&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> network_conditions<span style=color:#ff7b72;font-weight:700>.</span>type <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#39;wan&#39;</span>:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> network_conditions<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72;font-weight:700>&gt;</span> <span style=color:#a5d6ff>100</span>:  <span style=color:#8b949e;font-style:italic># ms</span>
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>&#39;BBR&#39;</span>  <span style=color:#8b949e;font-style:italic># Better for high-latency</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>elif</span> network_conditions<span style=color:#ff7b72;font-weight:700>.</span>has_deep_buffers:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>&#39;BBR&#39;</span>  <span style=color:#8b949e;font-style:italic># Avoids bufferbloat</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>&#39;CUBIC&#39;</span>  <span style=color:#8b949e;font-style:italic># Good general-purpose</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> network_conditions<span style=color:#ff7b72;font-weight:700>.</span>type <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#39;wireless&#39;</span>:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>&#39;BBR&#39;</span>  <span style=color:#8b949e;font-style:italic># Better handles non-congestion loss</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> network_conditions<span style=color:#ff7b72;font-weight:700>.</span>type <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#39;satellite&#39;</span>:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>&#39;Hybla&#39;</span> <span style=color:#ff7b72;font-weight:700>or</span> <span style=color:#a5d6ff>&#39;BBR&#39;</span>  <span style=color:#8b949e;font-style:italic># Designed for high-latency</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#a5d6ff>&#39;CUBIC&#39;</span>  <span style=color:#8b949e;font-style:italic># Safe default</span>
+</span></span></code></pre></div><h3 id="114-tuning-for-specific-workloads">11.4 Tuning for Specific Workloads</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-bash" data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># For bulk transfers (maximize throughput)</span>
+</span></span><span style=display:flex><span>sysctl -w net.ipv4.tcp_congestion_control<span style=color:#ff7b72;font-weight:700>=</span>bbr
+</span></span><span style=display:flex><span>sysctl -w net.core.rmem_max<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>134217728</span>
+</span></span><span style=display:flex><span>sysctl -w net.core.wmem_max<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>134217728</span>
+</span></span><span style=display:flex><span>sysctl -w net.ipv4.tcp_rmem<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;4096 87380 134217728&#34;</span>
+</span></span><span style=display:flex><span>sysctl -w net.ipv4.tcp_wmem<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;4096 65536 134217728&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># For latency-sensitive (minimize delay)</span>
+</span></span><span style=display:flex><span>sysctl -w net.ipv4.tcp_congestion_control<span style=color:#ff7b72;font-weight:700>=</span>bbr
+</span></span><span style=display:flex><span>sysctl -w net.ipv4.tcp_notsent_lowat<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>16384</span>
+</span></span><span style=display:flex><span>tc qdisc replace dev eth0 root fq
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># For many short connections</span>
+</span></span><span style=display:flex><span>sysctl -w net.ipv4.tcp_slow_start_after_idle<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>sysctl -w net.ipv4.tcp_fastopen<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>3</span>
+</span></span><span style=display:flex><span>sysctl -w net.ipv4.tcp_tw_reuse<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1</span>
+</span></span></code></pre></div><h3 id="115-monitoring-and-alerting">11.5 Monitoring and Alerting</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>CongestionMonitor</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Monitor congestion control health across connections.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>thresholds <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#39;retransmit_rate&#39;</span>: <span style=color:#a5d6ff>0.01</span>,  <span style=color:#8b949e;font-style:italic># 1% is concerning</span>
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#39;rtt_increase&#39;</span>: <span style=color:#a5d6ff>2.0</span>,      <span style=color:#8b949e;font-style:italic># 2x baseline is concerning</span>
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#39;throughput_drop&#39;</span>: <span style=color:#a5d6ff>0.5</span>,   <span style=color:#8b949e;font-style:italic># 50% of expected is concerning</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>check_connection</span>(self, conn_stats):
+</span></span><span style=display:flex><span>        alerts <span style=color:#ff7b72;font-weight:700>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Check retransmission rate</span>
+</span></span><span style=display:flex><span>        retrans_rate <span style=color:#ff7b72;font-weight:700>=</span> conn_stats<span style=color:#ff7b72;font-weight:700>.</span>retrans <span style=color:#ff7b72;font-weight:700>/</span> conn_stats<span style=color:#ff7b72;font-weight:700>.</span>segs_out
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> retrans_rate <span style=color:#ff7b72;font-weight:700>&gt;</span> self<span style=color:#ff7b72;font-weight:700>.</span>thresholds[<span style=color:#a5d6ff>&#39;retransmit_rate&#39;</span>]:
+</span></span><span style=display:flex><span>            alerts<span style=color:#ff7b72;font-weight:700>.</span>append(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;High retransmit rate: </span><span style=color:#a5d6ff>{</span>retrans_rate<span style=color:#a5d6ff>:</span><span style=color:#a5d6ff>.2%</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Check RTT inflation (bufferbloat)</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> conn_stats<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72;font-weight:700>&gt;</span> conn_stats<span style=color:#ff7b72;font-weight:700>.</span>min_rtt <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>thresholds[<span style=color:#a5d6ff>&#39;rtt_increase&#39;</span>]:
+</span></span><span style=display:flex><span>            alerts<span style=color:#ff7b72;font-weight:700>.</span>append(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;RTT inflated: </span><span style=color:#a5d6ff>{</span>conn_stats<span style=color:#ff7b72;font-weight:700>.</span>rtt<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>ms vs </span><span style=color:#a5d6ff>{</span>conn_stats<span style=color:#ff7b72;font-weight:700>.</span>min_rtt<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>ms baseline&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Check throughput</span>
+</span></span><span style=display:flex><span>        expected <span style=color:#ff7b72;font-weight:700>=</span> conn_stats<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>8</span> <span style=color:#ff7b72;font-weight:700>/</span> (conn_stats<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>1000</span>)  <span style=color:#8b949e;font-style:italic># bits/sec</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> conn_stats<span style=color:#ff7b72;font-weight:700>.</span>delivery_rate <span style=color:#ff7b72;font-weight:700>&lt;</span> expected <span style=color:#ff7b72;font-weight:700>*</span> self<span style=color:#ff7b72;font-weight:700>.</span>thresholds[<span style=color:#a5d6ff>&#39;throughput_drop&#39;</span>]:
+</span></span><span style=display:flex><span>            alerts<span style=color:#ff7b72;font-weight:700>.</span>append(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;Throughput below expected: </span><span style=color:#a5d6ff>{</span>conn_stats<span style=color:#ff7b72;font-weight:700>.</span>delivery_rate<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff> vs </span><span style=color:#a5d6ff>{</span>expected<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> alerts
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>aggregate_metrics</span>(self, all_connections):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Aggregate metrics across all connections for dashboards.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> {
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#39;median_rtt&#39;</span>: statistics<span style=color:#ff7b72;font-weight:700>.</span>median(c<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72>for</span> c <span style=color:#ff7b72;font-weight:700>in</span> all_connections),
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#39;p99_rtt&#39;</span>: statistics<span style=color:#ff7b72;font-weight:700>.</span>quantiles([c<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72>for</span> c <span style=color:#ff7b72;font-weight:700>in</span> all_connections], n<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>100</span>)[<span style=color:#a5d6ff>98</span>],
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#39;total_retransmits&#39;</span>: sum(c<span style=color:#ff7b72;font-weight:700>.</span>retrans <span style=color:#ff7b72>for</span> c <span style=color:#ff7b72;font-weight:700>in</span> all_connections),
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#39;connections_in_slow_start&#39;</span>: sum(<span style=color:#a5d6ff>1</span> <span style=color:#ff7b72>for</span> c <span style=color:#ff7b72;font-weight:700>in</span> all_connections <span style=color:#ff7b72>if</span> c<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>&lt;</span> c<span style=color:#ff7b72;font-weight:700>.</span>ssthresh),
+</span></span><span style=display:flex><span>            <span style=color:#a5d6ff>&#39;avg_cwnd&#39;</span>: statistics<span style=color:#ff7b72;font-weight:700>.</span>mean(c<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72>for</span> c <span style=color:#ff7b72;font-weight:700>in</span> all_connections),
+</span></span><span style=display:flex><span>        }
+</span></span></code></pre></div><h2 id="12-historical-context-and-future-directions">12. Historical Context and Future Directions</h2><h3 id="121-the-evolution-of-congestion-control">12.1 The Evolution of Congestion Control</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Timeline of Major Developments:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1986: Congestion collapse observed
+</span></span><span style=display:flex><span>1988: Jacobson&#39;s algorithms (Tahoe) - saved the Internet
+</span></span><span style=display:flex><span>1990: Reno with fast recovery
+</span></span><span style=display:flex><span>1994: Vegas (delay-based, ahead of its time)
+</span></span><span style=display:flex><span>1999: NewReno (multiple loss recovery)
+</span></span><span style=display:flex><span>2004: BIC (predecessor to CUBIC)
+</span></span><span style=display:flex><span>2006: CUBIC (Linux default)
+</span></span><span style=display:flex><span>2008: Compound TCP (Windows default)
+</span></span><span style=display:flex><span>2010: DCTCP (data center revolution)
+</span></span><span style=display:flex><span>2016: BBR v1 (model-based paradigm shift)
+</span></span><span style=display:flex><span>2019: BBR v2 (fairness improvements)
+</span></span><span style=display:flex><span>2020+: Swift, HPCC (microsecond-scale latency)
+</span></span></code></pre></div><h3 id="122-emerging-trends">12.2 Emerging Trends</h3><p><strong>Machine Learning for Congestion Control:</strong></p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>LearnedCongestionControl</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Use reinforcement learning to optimize congestion control.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>model <span style=color:#ff7b72;font-weight:700>=</span> load_trained_model(<span style=color:#a5d6ff>&#39;congestion_rl.pt&#39;</span>)
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>state_buffer <span style=color:#ff7b72;font-weight:700>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>get_state</span>(self, conn):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Extract features for ML model.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> [
+</span></span><span style=display:flex><span>            conn<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> conn<span style=color:#ff7b72;font-weight:700>.</span>mss,
+</span></span><span style=display:flex><span>            conn<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>1000</span>,
+</span></span><span style=display:flex><span>            conn<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72;font-weight:700>/</span> conn<span style=color:#ff7b72;font-weight:700>.</span>min_rtt,
+</span></span><span style=display:flex><span>            conn<span style=color:#ff7b72;font-weight:700>.</span>delivery_rate,
+</span></span><span style=display:flex><span>            conn<span style=color:#ff7b72;font-weight:700>.</span>loss_rate,
+</span></span><span style=display:flex><span>            conn<span style=color:#ff7b72;font-weight:700>.</span>inflight <span style=color:#ff7b72;font-weight:700>/</span> conn<span style=color:#ff7b72;font-weight:700>.</span>cwnd,
+</span></span><span style=display:flex><span>        ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>decide_action</span>(self, state):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;ML model outputs cwnd adjustment.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>with</span> torch<span style=color:#ff7b72;font-weight:700>.</span>no_grad():
+</span></span><span style=display:flex><span>            action <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>model(torch<span style=color:#ff7b72;font-weight:700>.</span>tensor(state))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Action space: [-0.5, -0.1, 0, 0.1, 0.5] multipliers</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> action<span style=color:#ff7b72;font-weight:700>.</span>argmax()<span style=color:#ff7b72;font-weight:700>.</span>item()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>on_ack</span>(self, conn):
+</span></span><span style=display:flex><span>        state <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>get_state(conn)
+</span></span><span style=display:flex><span>        action <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>decide_action(state)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Apply action</span>
+</span></span><span style=display:flex><span>        multipliers <span style=color:#ff7b72;font-weight:700>=</span> [<span style=color:#a5d6ff>0.5</span>, <span style=color:#a5d6ff>0.9</span>, <span style=color:#a5d6ff>1.0</span>, <span style=color:#a5d6ff>1.1</span>, <span style=color:#a5d6ff>1.5</span>]
+</span></span><span style=display:flex><span>        conn<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>=</span> int(conn<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>*</span> multipliers[action])
+</span></span></code></pre></div><p>Research systems like Orca, PCC, and Aurora use ML for congestion control.</p><p><strong>Programmable Data Planes:</strong></p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>P4-based congestion control:
+</span></span><span style=display:flex><span>- Switches can compute and signal congestion precisely
+</span></span><span style=display:flex><span>- Enable algorithms impossible with end-to-end signals
+</span></span><span style=display:flex><span>- Examples: HPCC, NDP, pHost
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Benefits:
+</span></span><span style=display:flex><span>- Faster reaction (switch vs. RTT timescale)
+</span></span><span style=display:flex><span>- More accurate information (exact queue lengths)
+</span></span><span style=display:flex><span>- New algorithm designs possible
+</span></span></code></pre></div><p><strong>Multi-Path Congestion Control:</strong></p><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-python" data-lang=python><span style=display:flex><span><span style=color:#ff7b72>class</span> <span style=color:#f0883e;font-weight:700>MPTCPCongestionControl</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#34;&#34;&#34;Congestion control for multi-path TCP.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>__init__</span>(self, subflows):
+</span></span><span style=display:flex><span>        self<span style=color:#ff7b72;font-weight:700>.</span>subflows <span style=color:#ff7b72;font-weight:700>=</span> subflows
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>coupled_increase</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        Linked Increases Algorithm (LIA):
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        Increase on best path, but total increase &lt;= single-path.
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        max_cwnd_rtt <span style=color:#ff7b72;font-weight:700>=</span> max(sf<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> sf<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72>for</span> sf <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>subflows)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>for</span> sf <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>subflows:
+</span></span><span style=display:flex><span>            <span style=color:#8b949e;font-style:italic># Increase proportional to path quality</span>
+</span></span><span style=display:flex><span>            alpha <span style=color:#ff7b72;font-weight:700>=</span> self<span style=color:#ff7b72;font-weight:700>.</span>compute_alpha()
+</span></span><span style=display:flex><span>            sf<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>+=</span> alpha <span style=color:#ff7b72;font-weight:700>*</span> sf<span style=color:#ff7b72;font-weight:700>.</span>mss <span style=color:#ff7b72;font-weight:700>*</span> sf<span style=color:#ff7b72;font-weight:700>.</span>mss <span style=color:#ff7b72;font-weight:700>/</span> sf<span style=color:#ff7b72;font-weight:700>.</span>cwnd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>compute_alpha</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#34;&#34;&#34;Compute coupled increase parameter.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        sum_cwnd_rtt <span style=color:#ff7b72;font-weight:700>=</span> sum(sf<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> sf<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72>for</span> sf <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>subflows)
+</span></span><span style=display:flex><span>        max_cwnd_rtt <span style=color:#ff7b72;font-weight:700>=</span> max(sf<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72;font-weight:700>/</span> sf<span style=color:#ff7b72;font-weight:700>.</span>rtt <span style=color:#ff7b72>for</span> sf <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>subflows)
+</span></span><span style=display:flex><span>        sum_cwnd <span style=color:#ff7b72;font-weight:700>=</span> sum(sf<span style=color:#ff7b72;font-weight:700>.</span>cwnd <span style=color:#ff7b72>for</span> sf <span style=color:#ff7b72;font-weight:700>in</span> self<span style=color:#ff7b72;font-weight:700>.</span>subflows)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> sum_cwnd <span style=color:#ff7b72;font-weight:700>*</span> max_cwnd_rtt <span style=color:#ff7b72;font-weight:700>/</span> (sum_cwnd_rtt <span style=color:#ff7b72;font-weight:700>**</span> <span style=color:#a5d6ff>2</span>)
+</span></span></code></pre></div><h3 id="123-open-challenges">12.3 Open Challenges</h3><div class="highlight"><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class="language-text" data-lang=text><span style=display:flex><span>Challenge 1: Fairness at Scale
+</span></span><span style=display:flex><span>- Billions of flows competing
+</span></span><span style=display:flex><span>- No global coordination
+</span></span><span style=display:flex><span>- Different algorithms coexisting
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenge 2: Edge Networks
+</span></span><span style=display:flex><span>- Highly variable capacity
+</span></span><span style=display:flex><span>- Mixed wired/wireless paths
+</span></span><span style=display:flex><span>- Deep buffers cause bloat
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenge 3: Low Latency Requirements
+</span></span><span style=display:flex><span>- AR/VR needs &lt; 10ms latency
+</span></span><span style=display:flex><span>- Gaming needs consistent timing
+</span></span><span style=display:flex><span>- Traditional CC too slow to react
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenge 4: Privacy
+</span></span><span style=display:flex><span>- Congestion signals leak information
+</span></span><span style=display:flex><span>- Encrypted traffic still reveals patterns
+</span></span><span style=display:flex><span>- Need privacy-preserving algorithms
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Challenge 5: Verification
+</span></span><span style=display:flex><span>- Can&#39;t test all network conditions
+</span></span><span style=display:flex><span>- Formal verification hard for dynamic systems
+</span></span><span style=display:flex><span>- Deployment risks with new algorithms
+</span></span></code></pre></div><h2 id="13-summary">13. Summary</h2><p>TCP congestion control has evolved dramatically over four decades:</p><p><strong>Classic algorithms:</strong></p><ul><li>Tahoe/Reno: Loss as the signal, AIMD dynamics</li><li>NewReno: Better handling of multiple losses</li><li>CUBIC: Aggressive probing with cubic function</li></ul><p><strong>Delay-based algorithms:</strong></p><ul><li>Vegas: RTT increase as early warning</li><li>FAST: High-speed network optimization</li><li>Compound: Hybrid loss + delay approach</li></ul><p><strong>Model-based algorithms:</strong></p><ul><li>BBR: Explicit bandwidth and RTT estimation</li><li>BBRv2: Better fairness with loss-based flows</li></ul><p><strong>Data center algorithms:</strong></p><ul><li>DCTCP: ECN-based fine-grained control</li><li>HPCC: In-network telemetry</li><li>Swift: Microsecond-scale latency</li></ul><p>Key takeaways:</p><ol><li><strong>No single algorithm is best:</strong> Different networks need different approaches</li><li><strong>Fairness is hard:</strong> Algorithms must coexist with existing traffic</li><li><strong>Latency matters:</strong> Bufferbloat is a real problem that BBR addresses</li><li><strong>The network is evolving:</strong> New capabilities (ECN, INT) enable new algorithms</li><li><strong>Deployment is challenging:</strong> Must work with the installed base</li><li><strong>Measurement is essential:</strong> You can&rsquo;t optimize what you don&rsquo;t measure</li><li><strong>History repeats:</strong> Ideas from Vegas (1995) reappear in modern algorithms</li></ol><p>Understanding congestion control is essential for anyone building networked systems. Whether you&rsquo;re diagnosing performance problems, choosing algorithms for your infrastructure, or building new protocols, this knowledge is foundational to effective network engineering. The algorithms running on your computer right now are the result of decades of research, countless experiments, and hard-won lessons from production deployments.</p></div><footer class="ce1a612 c6dfb1e c3ecea6"><div class="c364589">Categories:
+<a href=/categories/systems/>systems</a>, <a href=/categories/networking/>networking</a></div><div>Tags:
+<a href=/tags/networking/>#networking</a>, <a href=/tags/tcp/>#tcp</a>, <a href=/tags/congestion-control/>#congestion-control</a>, <a href=/tags/performance/>#performance</a>, <a href=/tags/distributed-systems/>#distributed-systems</a>, <a href=/tags/protocols/>#protocols</a></div></footer></article></main><footer class="ccdf0e8" role=contentinfo aria-label=Footer><div class="cfdda01 c133889 c5df473 c0eecc8 c69618a c6942b3 c03620d c2a9f27 c7c11d8 c82c52d c14527b"><div class="c6dfb1e c3ecea6 c39ef11 c88ae6f">&copy; 2026 Leonardo Benicio. All rights
+reserved.</div><div class="c6942b3 c7c11d8 cd1fd22"><a href=https://github.com/lbenicio target=_blank rel="noopener noreferrer" aria-label=GitHub class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8.0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5.0.0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403.0 004 9c0 3.5 3 5.5 6 5.5-.39.5-.67 1.08-.82 1.7s-.2 1.27-.18 1.9V22"/></svg>
+<span class="cba5854">GitHub</span>
+</a><a href=https://www.linkedin.com/in/leonardo-benicio target=_blank rel="noopener noreferrer" aria-label=LinkedIn class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21V14.86c0-1.333-.027-3.046-1.858-3.046-1.86.0-2.145 1.45-2.145 2.948v5.69H9.069V9h3.112v1.561h.044c.434-.82 1.494-1.686 3.074-1.686 3.29.0 3.897 2.165 3.897 4.983v6.594zM5.337 7.433a1.805 1.805.0 11-.002-3.61 1.805 1.805.0 01.002 3.61zM6.763 20.452H3.911V9h2.852v11.452z"/></svg>
+<span class="cba5854">LinkedIn</span>
+</a><a href=https://twitter.com/lbenicio_ target=_blank rel="noopener noreferrer" aria-label=Twitter class="c1d6c20 c7c11d8 c1d0018 cd1fd22 cb5c327 c10dda9 c6dfb1e cbbda39 cfc01c7 c01f421 c286dd7 c2bd687 cfdce1d cfef18f c000b66 cf55a7b c514027"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.177.013.354.013.53.0 5.386-4.099 11.599-11.6 11.599-2.31.0-4.457-.676-6.265-1.842.324.038.636.05.972.05 1.91.0 3.67-.65 5.07-1.755a4.099 4.099.0 01-3.827-2.84c.25.039.5.064.763.064.363.0.726-.051 1.065-.139A4.091 4.091.0 012.542 9.649v-.051c.538.3 1.162.482 1.824.507A4.082 4.082.0 012.54 6.7c0-.751.2-1.435.551-2.034a11.63 11.63.0 008.44 4.281 4.615 4.615.0 01-.101-.938 4.091 4.091.0 017.078-2.799 8.1 8.1.0 002.595-.988 4.112 4.112.0 01-1.8 2.261 8.2 8.2.0 002.357-.638A8.824 8.824.0 0119.613 7.96z"/></svg>
+<span class="cba5854">Twitter</span></a></div></div></footer></body></html>
